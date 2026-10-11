@@ -191,7 +191,7 @@ func _test_pickups_and_difficulty() -> void:
 	player.x = 390.0
 	player.y = 450.0
 	_advance(battle, 1, Battle.INTERACT)
-	_check(player.weapon == 1, "weapon pickup sets appearance and attack flag")
+	_check(player.weapon_id == "sword_nagamitsu" and player.weapon_id in player.owned_weapons, "weapon pickup equips the named sword and records ownership")
 	_advance(battle, 1)
 	player.x = 450.0
 	player.y = 505.0

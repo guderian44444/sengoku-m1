@@ -2,7 +2,7 @@ extends SceneTree
 
 const Battle = preload("res://core/battle.gd")
 const Frames = preload("res://render/frame_animation.gd")
-const View = preload("res://render/battle_view.gd")
+const View = preload("res://tests/legacy_battle_view.gd")
 const EXPECTED_PULSES := {
 	"nobunaga":[26,68,110,152,192], "oichi":[26,68,110,152,192],
 	"hideyoshi":[18,44,70,96,122,148,174,198], "ieyasu":[36,102,168],

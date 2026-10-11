@@ -19,11 +19,12 @@ func run() -> void:
 	check(hud.portraits.size() == 6, "All selectable heroes retain their own existing-art portrait")
 	var hashes := []
 	for hero in HUD.PORTRAITS:
-		var image := Image.load_from_file(HUD.PORTRAITS[hero][0])
-		var region: Rect2i = HUD.PORTRAITS[hero][1]
+		var spec := HUD.portrait_spec(hero)
+		var image := Image.load_from_file(spec.file)
+		var region: Rect2i = spec.region
 		check(Rect2i(Vector2i.ZERO, image.get_size()).encloses(region), hero + " crop stays inside source atlas")
 		var portrait: Image = hud.portraits[hero].get_image()
-		check(portrait.get_width() >= 110 and portrait.get_height() >= 110, hero + " source exceeds displayed portrait resolution")
+		check(portrait.get_width() >= 72 and portrait.get_height() >= 72, hero + " source is at least native displayed portrait resolution")
 		var hash := portrait.get_data().hex_encode().sha256_text()
 		check(not hashes.has(hash), hero + " does not accidentally use another character's face")
 		hashes.append(hash)
@@ -38,7 +39,7 @@ func run() -> void:
 	final.hp = 0
 	hud.sync({"fighters":[p1,final]})
 	check(hud.boss.is_empty() and hud.players.size() == 1, "Dead boss bar and stale 2P card disappear on the next snapshot")
-	check(not HUD.player_rect(0).intersects(HUD.player_rect(1)) and HUD.player_rect(0).end.y <= 94, "Player HUD remains in two compact top corners")
+	check(not HUD.player_rect(0).intersects(HUD.player_rect(1)) and HUD.player_rect(0).end.y <= 114, "Player HUD plus equipped weapon remains in two compact top corners")
 	check(HUD.BOSS_RECT.size.y <= 36 and HUD.BOSS_RECT.end.y <= 720, "Boss bar is narrow and inside the visible viewport")
 	var audio := Audio.new()
 	root.add_child(audio)

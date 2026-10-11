@@ -4,6 +4,7 @@ const ArtAssets = preload("res://render/art_assets.gd")
 const FrameAnimation = preload("res://render/frame_animation.gd")
 const StageArt = preload("res://render/stage_art.gd")
 const Typography = preload("res://render/game_typography.gd")
+const WeaponRenderer = preload("res://render/weapon_renderer.gd")
 
 var state: Dictionary = {}
 var camera_x: float = 0.0
@@ -24,6 +25,8 @@ var _facing_back: Dictionary = {}
 var _motion_tick: int = -1
 var _projectile_origins: Dictionary = {}
 var _frozen_samples: Dictionary = {}
+var _treasures: Dictionary = {}
+var _weapons = WeaponRenderer.new()
 
 const INK := Color("172226")
 const PAPER := Color("e0d4b4")
@@ -33,6 +36,7 @@ const DECOR_PARALLAX := {"background": 128.0 / 1100.0, "bamboo": 0.14, "ground":
 const GROUND_TILE_WIDTH := 1408.0
 const GROUND_TOP := 364.0
 const GROUND_BLEND_HEIGHT := 24.0
+const TREASURE_FILES := {"vajra":"kongo", "iron":"iron", "mirror":"mirror"}
 
 static func decor_offset(layer: String, camera: float) -> float:
 	return camera * float(DECOR_PARALLAX.get(layer, 1.0))
@@ -45,6 +49,9 @@ static func ground_tiles(camera: float) -> Array:
 
 func _init() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	for key in TREASURE_FILES:
+		var source := Image.load_from_file("res://assets/v21/treasures/%s.png" % TREASURE_FILES[key])
+		if source != null: _treasures[key] = ImageTexture.create_from_image(source)
 
 func _draw() -> void:
 	_update_motion()
@@ -372,6 +379,16 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 	return result
 
 func _tadakatsu_sample(fighter: Dictionary, action: String, tick: float, walking: bool, clock_tick: float) -> Dictionary:
+	var sheets: Dictionary = _art.animations.get("tadakatsu",{})
+	if sheets.has("v22_idle"):
+		var layered := fighter.duplicate()
+		layered.action = "idle" if action in ["walk","run","move"] else action
+		layered.action_tick = clock_tick if action == "idle" else tick
+		layered.moving = walking
+		layered.sprinting = action == "run" or fighter.get("sprinting",false)
+		layered.locomotion_tick = clock_tick if art_demo else float(_walk_ticks.get(int(fighter.get("id",-1)),0))
+		var modern := FrameAnimation.hero_v22_sample(layered,sheets)
+		if not modern.is_empty(): return modern
 	var upgraded := FrameAnimation.tadakatsu_v17_sample(fighter,action,tick,_art.animations.get("tadakatsu",{}))
 	if not upgraded.is_empty(): return upgraded
 	var sheet := "v16_idle"
@@ -763,7 +780,7 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 	var action := str(fighter.get("action", "idle"))
 	var z := float(fighter.get("z", 0))
 	var sample := _fighter_animation(fighter)
-	var animated: bool = sample.source in ["v04", "v05", "v06", "v07", "v09", "v10", "v11", "v12", "v13", "v14", "v15", "v16", "v17"]
+	var animated: bool = sample.source in ["v04", "v05", "v06", "v07", "v09", "v10", "v11", "v12", "v13", "v14", "v15", "v16", "v17", "v22"]
 	var pose := ArtAssets.pose_for(action, z, state.get("phase", "") == "won")
 	var progress := clampf(demo_progress, 0.0, 1.0)
 	if art_demo and demo_pose >= 0:
@@ -787,9 +804,9 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 	var clock := _art_clock()
 	var rotation := 0.0
 	var down := action in ["down", "defeated", "dead"]
-	if down and not art_demo and not _art.has_v06(hero) and sample.source not in ["v10","v11","v12","v13","v14","v15","v16","v17"]:
+	if down and not art_demo and not _art.has_v06(hero) and sample.source not in ["v10","v11","v12","v13","v14","v15","v16","v17","v22"]:
 		rotation = -1.3 * face
-	elif action == "thrown" and sample.source not in ["v10","v11","v12","v13","v14","v15","v16","v17"]:
+	elif action == "thrown" and sample.source not in ["v10","v11","v12","v13","v14","v15","v16","v17","v22"]:
 		rotation = sin((30.0 - float(fighter.get("throw_ticks", 30))) * 0.13) * 0.55 * face
 	var player_color := Color("82bbcf") if int(fighter.get("player_index", 0)) == 0 else Color("e7bd72")
 	var contacts: Array[float] = []
@@ -810,16 +827,29 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 	if int(fighter.get("invuln", 0)) > 0 and action != "special" and int(clock * 60) % 6 < 3:
 		tint = Color(1.5, 1.5, 1.5, 0.72)
 	_draw_hero_power(fighter, origin, height, sample, false)
+	var shield := shield_glow_color(fighter)
+	if shield.a > 0:
+		var spread := 3.8 + sin(clock * 5.0) * .6
+		for offset in [Vector2.LEFT,Vector2.RIGHT,Vector2.UP,Vector2.DOWN,Vector2(-.7,-.7),Vector2(.7,-.7),Vector2(-.7,.7),Vector2(.7,.7)]:
+			_draw_art_frame(frame,origin - Vector2(0,z) + offset * spread,height,face,rotation,Color(shield.r * 4,shield.g * 4,shield.b * 4,.72),float(frame.body_height))
 	if pickup_flash_visible(fighter,int(state.get("tick",0))):
 		for offset in [Vector2(-3,0),Vector2(3,0),Vector2(0,-3),Vector2(0,3),Vector2(-2,-2),Vector2(2,-2),Vector2(-2,2),Vector2(2,2)]:
 			_draw_art_frame(frame,origin - Vector2(0,z) + offset,height,face,rotation,Color(3.2,4.0,2.3,0.9),float(frame.body_height))
+	_weapons.draw_weapon(self,fighter,frame,origin - Vector2(0,z),height,face,rotation,tint,true)
 	_draw_art_frame(frame, origin - Vector2(0, z), height, face, rotation, tint, float(frame.body_height))
+	_weapons.draw_weapon(self,fighter,frame,origin - Vector2(0,z),height,face,rotation,tint,false)
+	_weapons.draw_hand_occlusion(self,frame,origin - Vector2(0,z),height,face,rotation,tint)
 	_draw_hero_power(fighter, origin, height, sample, true)
 	_draw_status(fighter, origin, height)
 	if int(fighter.get("poison", 0)) > 0:
 		for bubble in range(3):
 			draw_circle(origin + Vector2(-20 + bubble * 20, -z - 48 - fposmod(clock * 30 + bubble * 12, 60.0)), 3, Color("95b660"))
 	return true
+
+static func shield_glow_color(fighter: Dictionary) -> Color:
+	if int(fighter.get("shield_points",0)) <= 0 or int(fighter.get("hp",0)) <= 0: return Color.TRANSPARENT
+	var charm: Dictionary = FrameAnimation.Battle.TALISMANS.get(str(fighter.get("shield_kind","")),{})
+	return Color(str(charm.color)) if not charm.is_empty() else Color.TRANSPARENT
 
 static func pickup_flash_visible(fighter: Dictionary, tick: int) -> bool:
 	var elapsed := tick - int(fighter.get("pickup_flash_tick",-1000))
@@ -855,15 +885,15 @@ func _draw_charge(fighter: Dictionary, ground: Vector2, height: float, sample: D
 
 func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
 	var clip := str(sample.clip)
-	if fighter.get("kind","") == "tadakatsu" and sample.get("source","") == "v17":
-		if clip == "charge" or (clip in ["ground_slam","charged_slam"] and not sample.released):
+	if fighter.get("kind","") == "tadakatsu" and sample.get("source","") in ["v17","v22"]:
+		if fighter.get("action","") == "charge" or clip == "charge" or (clip in ["ground_slam","charged_slam"] and not sample.released):
 			_draw_spear_charge_aura(fighter,ground,height,sample,front)
 		elif clip == "special": _draw_special_aura(fighter,ground,height,front)
 		elif clip not in ["ground_slam","charged_slam"]: _draw_strike_accent(fighter,ground,height,sample,front)
 		return
 	if str(fighter.get("kind","")) in ["nobunaga","oichi"] or (clip == "dash_heavy" and sample.get("source","") != "v16"):
 		_draw_strike_accent(fighter,ground,height,sample,front)
-	if clip == "charge" or (fighter.get("kind","") == "oichi" and fighter.get("action","") == "charged" and float(sample.tick) < 14):
+	if fighter.get("action","") == "charge" or clip == "charge" or (fighter.get("kind","") == "oichi" and fighter.get("action","") == "charged" and float(sample.tick) < 14):
 		if not (fighter.get("kind","") == "tadakatsu" and sample.get("source","") == "v16"):
 			_draw_charge(fighter,ground,height,sample,front)
 		return
@@ -937,7 +967,27 @@ static func strike_accent(fighter: Dictionary, sample: Dictionary) -> Dictionary
 	if age >= 1: return {}
 	return {"path":profiles[key],"age":age,"power":power,"key":key,"bow":hero == "oichi" and key not in ["light3","dash_heavy"],"thrust":(key == "dash_heavy" and hero in ["hideyoshi","tadakatsu"]) or (hero == "tadakatsu" and key in ["charged","dash_strike"]),"low":key in ["low_sweep","ground_slam","charged_slam"],"shock":key in ["heavy2","charged","ground_slam","charged_slam","special","dash_heavy"]}
 
+static func strike_radius(fighter: Dictionary, style: Dictionary, height: float) -> float:
+	if fighter.get("kind","") == "nobunaga" and fighter.get("action","") == "heavy":
+		# The visible ribbon's outer edge shares the core's normal-heavy reach.
+		var bonus := float(WeaponRenderer.Weapons.item(WeaponRenderer.equipped_id(fighter)).get("reach_bonus",0))
+		return (FrameAnimation.Battle.nobunaga_heavy_reach(int(fighter.get("heavy_combo",1))) + bonus) * height / 155.0 - 9.0 - float(style.path[1]) * .5
+	return height * float(style.path[0])
+
 func _draw_strike_accent(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
+	if fighter.get("kind","") == "nobunaga" and sample.get("source","") == "v22" and fighter.get("action","") == "light":
+		if not front or int(sample.frame) not in [2,3,4]: return
+		var previous := sample.duplicate()
+		previous.frame = int(sample.frame) - 1
+		previous.cell = previous.frame
+		var trail := _weapons.sweep_trail(fighter,_art.animation_frame("nobunaga",sample),_art.animation_frame("nobunaga",previous),height)
+		if trail.size() >= 3:
+			var fade := clampf((17.0 - float(sample.tick)) / 4.0,0,1)
+			draw_set_transform(ground - Vector2(0,float(fighter.get("z",0))),0,Vector2(float(fighter.get("face",1)),1))
+			draw_colored_polygon(trail,Color(1,.93,.74,.38 * fade))
+			draw_polyline(trail.slice(0,13),Color(1,.97,.86,.66 * fade),1.4,true)
+			draw_set_transform(Vector2.ZERO)
+		return
 	if fighter.get("kind","") == "nobunaga" and sample.get("source","") == "v13" and fighter.get("action","") == "light":
 		if not front or int(sample.frame) == 0: return
 		var previous := sample.duplicate()
@@ -986,7 +1036,7 @@ func _draw_strike_accent(fighter: Dictionary, ground: Vector2, height: float, sa
 		draw_set_transform(Vector2.ZERO)
 		return
 	var path: Array = style.path
-	var radius: float = height * path[0]
+	var radius := strike_radius(fighter,style,height)
 	var center := origin + Vector2(face * 9,-height * (.16 if style.low else .57))
 	var head: float = path[2] + path[3] * (.85 + .15 * age)
 	var tail: float = head - path[3] * (.38 + .18 * sin(age * PI))
@@ -1001,9 +1051,10 @@ func _draw_strike_accent(fighter: Dictionary, ground: Vector2, height: float, sa
 	draw_colored_polygon(ribbon,Color(color,fade))
 	draw_set_transform(Vector2.ZERO)
 	if fighter.kind == "nobunaga" and style.power > 0:
+		var flame_radius: float = radius - float(path[1]) * .5 - 6.0 if fighter.get("action","") == "heavy" else radius
 		for i in range(7):
 			var angle := lerpf(tail,head,float(i) / 6.0)
-			var point := center + Vector2(face * cos(angle) * radius,sin(angle) * radius * path[4])
+			var point := center + Vector2(face * cos(angle) * flame_radius,sin(angle) * flame_radius * path[4])
 			_paint_flame(point,16 + style.power * 12,i,fade * .72)
 
 func _draw_special_aura(fighter: Dictionary, ground: Vector2, height: float, front: bool) -> void:
@@ -1312,6 +1363,17 @@ func _draw_gate(x: float) -> void:
 func _draw_drop(drop: Dictionary) -> void:
 	var p := Vector2(float(drop.get("x", 0)) - camera_x, float(drop.get("y", 450)))
 	var kind := str(drop.get("kind", drop.get("type", "food")))
+	if kind == "weapon" and _weapons.draw_drop(self,drop,p,_art_clock()): return
+	if kind == "talisman" and _treasures.has(str(drop.get("talisman_id",""))):
+		var key := str(drop.talisman_id)
+		var texture: Texture2D = _treasures[key]
+		var size := texture.get_size() * 56.0 / texture.get_height()
+		var hover := 6.0 + sin(_art_clock() * 3.2 + float(drop.get("x",0))) * 3.0
+		_ellipse(p,Vector2(27,8),Color(.08,.12,.08,.45))
+		var color := Color(str(FrameAnimation.Battle.TALISMANS[key].color))
+		draw_arc(p - Vector2(0,12),31,PI,TAU,28,Color(color,.7),2,true)
+		draw_texture_rect(texture,Rect2(p - Vector2(size.x * .5,size.y + hover),size),false)
+		return
 	if kind == "food":
 		var food: Dictionary = _stage_art.food.get(str(drop.get("food_id","rice")),{})
 		if not food.is_empty():

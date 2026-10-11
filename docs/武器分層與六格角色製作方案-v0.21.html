@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>吞食戰國｜武器分層與六格角色製作方案 v0.21</title>
+<style>
+:root{color-scheme:dark;font-family:"Microsoft JhengHei",system-ui,sans-serif;background:#101b20;color:#e8eadf}*{box-sizing:border-box}body{max-width:1240px;margin:auto;padding:30px 24px 70px;line-height:1.75}header{border-top:4px solid #bb514b;padding:20px 0}h1{font-size:35px;line-height:1.35;margin:12px 0}h2{color:#e1c495;margin:0 0 15px;font-size:26px}h3{color:#e1c495;margin:0 0 10px}a{color:#aadbd3}nav{display:flex;gap:18px;flex-wrap:wrap;padding:13px 18px;background:#1c2b31;position:sticky;top:0;z-index:2;border-bottom:1px solid #354850}section{scroll-margin-top:85px;margin-top:28px;padding:24px;background:#18262c;border:1px solid #34494f;border-radius:6px}p{margin:10px 0}small,.muted{color:#afbdc2}.eyebrow{letter-spacing:.15em;font-size:13px;color:#dda971}.tag{display:inline-block;padding:2px 10px;background:#243f3e;border:1px solid #567973;border-radius:20px;color:#c4e4d0;font-size:13px}.proposal{background:#3b3326;border-color:#897345;color:#efd499}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}.card{padding:18px;background:#101b20;border:1px solid #34494f;border-radius:5px}.note{padding:13px 18px;border-left:3px solid #d9ae69;background:#2e2b22}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid #3a4d56}th{background:#203239;color:#e4c494}td:first-child{min-width:130px}code{font-family:Consolas,monospace;font-size:13px;color:#aed4d3;overflow-wrap:anywhere}.layers{display:flex;gap:9px;flex-wrap:wrap;align-items:stretch;margin:20px 0}.layers div{flex:1;min-width:145px;padding:16px;background:#22383c;border-top:3px solid #bc9a60}.layers b{display:block;color:#eed49a;font-size:17px}.layers span{font-size:14px;color:#c6d2d1}.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:15px 0}.pose{padding:14px 10px;background:#101b20;border:1px solid #3b555b;border-bottom:3px solid #72988e;text-align:center}.pose b{display:block;color:#e5c394}.pose small{display:block}.review{margin-top:23px;padding-top:15px;border-top:1px solid #3d5358}label{display:block;color:#cbd8da;font-size:14px}textarea{display:block;width:100%;min-height:76px;margin-top:7px;padding:12px;border:1px solid #526c77;border-radius:4px;background:#0f1d23;color:#eef0e7;font:inherit;resize:vertical}button{font:inherit;padding:9px 15px;border:1px solid #72a296;border-radius:4px;background:#365d59;color:white;cursor:pointer}a:focus,button:focus,textarea:focus{outline:2px solid #e9c982;outline-offset:3px}.actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:18px 0}#save-status{color:#b4e2c7;min-height:26px}.error{color:#ffc1aa!important}details{margin-top:18px;padding:13px 17px;border:1px solid #40555f}summary{cursor:pointer;color:#e4c494}figure{margin:16px 0}figure img{display:block;max-width:100%;max-height:700px;margin:auto;object-fit:contain;background:#101b20}figcaption{font-size:13px;color:#b4c6c7;margin-top:8px}ol li,ul li{margin:8px 0}footer{margin-top:30px;color:#abbfc1;border-top:1px solid #40555f;padding-top:16px}@media(max-width:650px){body{padding:16px 12px}section{padding:18px}h1{font-size:27px}nav{position:static}.timeline{grid-template-columns:repeat(3,1fr)}}@media print{:root{color-scheme:light;background:#fff;color:#111}nav,.actions{display:none}body{max-width:none;padding:0;font-size:11px}section,.card,.pose,.note,th,.layers div{background:#fff;color:#111;border-color:#aaa}h2,h3,a,code,small,.muted,th,.layers b,.layers span,.pose b{color:#111!important}.scroll{overflow:visible}table{min-width:0;font-size:10px}textarea{background:#fff;color:#111}.review{break-inside:avoid}section{break-before:auto}details{display:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="eyebrow">吞食戰國 · EDITABLE ART PIPELINE · v0.21</div>
+<h1>武器可以換。先把身體、持握與武器分開。</h1>
+<p>這份歷史方案記錄 v0.21 製作評估，核對的是當時信長、阿市、本多忠勝的程式與 PNG。以下六節的「目前／現有／接下來」均指當時的基線；原始盤點與分段評論保留供追溯。</p>
+<p><span class="tag">v0.20 基線：915690d</span> <span class="tag proposal">v0.21 當時：尚未完成外觀換裝</span></p>
+<p class="note" id="v22-status"><b>v0.22 現況：</b>三位主角已完成 77 動作組、462 格新姿態，每組六格，身體與武器分層；刀、槍、弓各五種，共 15 種歷史題材武器。同類換裝、大小王掉落、HUD 武器欄與角色屬性／裝備存檔已實作。1P／2P 各角色獨立記錄，不保存關卡進度。最新使用方式與驗證入口見 <a href="../README.md">主程式說明</a>、<a href="../game/assets/v22/weapons/README.md">v0.22 武器來源與規則</a>。本頁舊素材張數及未完成描述不是新版狀態；原生渲染證據也不等於實體搖桿或真人聽感驗收。</p>
+<div class="actions"><button id="export" type="button">匯出分段評論 JSON</button><button id="print" type="button">列印／存成 PDF</button><a href="人物建構與驗收流程-v0.17.html">人物建構與驗收流程</a></div>
+<div id="save-status" role="status" aria-live="polite">正在載入評論…</div>
+<p class="muted">每段評論保存於目前瀏覽器。換瀏覽器、移動檔案或清除資料前，請先匯出備份。</p>
+</header>
+<nav aria-label="方案章節"><a href="#decision">可行結論</a><a href="#inventory">現有素材</a><a href="#layers">分層規格</a><a href="#six">六格試點</a><a href="#rules">換裝規則</a><a href="#delivery">製作與驗收</a></nav>
+
+<section id="decision">
+<h2>01｜採用同類武器，動作與數值分開</h2>
+<div class="grid">
+<div class="card"><h3>現在已有的基礎</h3><p>戰鬥已把人物、招式、投射物、劍氣分開計算，也已有通用武器拾取與加攻等級。腳底錨點可固定人物比例；信長部分刀刃軌跡與阿市出手點已有標記。</p></div>
+<div class="card"><h3>目前真正缺少的部分</h3><p>正式人物圖中的刀、槍、弓都已畫在身體圖上。程式目前沒有能替換這些武器的繪圖層，也沒有涵蓋每格的雙手持握／前後遮擋資料。</p></div>
+<div class="card"><h3>建議製作路線</h3><p>先用信長一招六格重手，把人物去武器、雙手遮擋、兩把同長度刀完整接通。接著驗證本多雙手持槍與阿市背弓／拉弦。三種難點成立後，再擴充完整動作。</p></div>
+</div>
+<p class="note">更換武器的主要成本在第一次拆分／補畫人物。分層定型後，同握法、同長度級距的同類武器可重用身體影格。不同長度、不同握法或弓身變形仍要補武器角度／曲線資料；不能承諾每把武器只需一張平面圖。</p>
+<p><strong>信長的新持刀基準：</strong>全身比例保持現行定案，雙手握柄、刀身直立在頭的一側。待機、走路、跑步都沿用此預備姿勢，不再把刀直伸在人物前方。第一刀由頭側高位連續下揮，第二刀反切，第三刀橫切；全套一起接入後才替換現有圖，避免新舊握法跳接。</p>
+<p>目前三位的外觀保留為基準。這輪交付的是可執行製作方案與素材盤點；新無武器人物、分層動作與外觀換装尚未製作。此次程式新增的命數、積分與護符另按遊戲版本驗收。</p>
+<div class="review" data-review="decision"></div>
+</section>
+
+<section id="inventory">
+<h2>02｜歷史素材盤點：v0.21 評估時多數仍是十二格</h2>
+<p>下表統計 <code>v12–v17/registration.json</code>，同一人物／clip 只取較新版登錄。這是<strong>登錄畫格數</strong>，包含仍保留但部分路由已不用的組圖；並非可玩招式數、獨立 PNG 數或每招實際播放格數。</p>
+<div class="scroll"><table>
+<thead><tr><th>角色／種類</th><th>最新登錄組圖</th><th>可用標記</th><th>主要缺口</th></tr></thead>
+<tbody>
+<tr data-hero="nobunaga" data-clips="24" data-frames="288"><td>信長／刀</td><td>24 組、288 格。輕手 v13、跑步 v14、勝利 v15；重手與多數技巧 v12。</td><td>輕手三刀共 36 格刀根／刀尖；第三刀另有 12 格單手點。</td><td>重手沒有刀根／刀尖、全套沒有雙手點與武器遮擋。站立另沿用舊版來源，不在本表內。</td></tr>
+<tr data-hero="oichi" data-clips="25" data-frames="300"><td>阿市／弓</td><td>25 組、300 格。衝刺重手／走路 v13、勝利 v15，其他主要為 v12。</td><td>多數射擊／飛針招式各一個出手格手點，可延用為發射位置參考。</td><td>出手點不是全程握弓資料；背弓、持弓、弦與箭均烘焙。踢腿與針招式需保留自己的命中規則。</td></tr>
+<tr data-hero="tadakatsu" data-clips="29" data-frames="342"><td>本多／槍</td><td>29 組、342 格。v16 站立 6 格，其餘多為 12 格；v17 補蓄力、重擊地面、反應等。</td><td>腳底、身高與安全裁圖。沒有登錄握槍雙手或槍尖／槍尾。</td><td>長槍穿過雙手與軀幹前後，雙手滑握與立槍重擊必須逐格標記。舊 charge／grab／reactions 等仍留在清單，不能當作另外完成的招式。</td></tr>
+</tbody></table></div>
+<p>v0.19 的六格步態目前套用在今川敵軍；三位主角的走路／跑步仍主要播放十二格。接下來改六格需重新選定關鍵姿勢與停留時間，不能只把既有素材數量改成 6。</p>
+<p><a href="weapon-layer-inventory-v21.json">完整逐 clip 盤點 JSON</a> · <a href="../scripts/inventory-weapon-layers-v21.py">可重跑的盤點程式</a></p>
+<details><summary>已核對的現有素材，供對照武器烘焙與畫風</summary>
+<figure><img src="../game/assets/v12/nobunaga-heavy1.png" alt="信長現有重手十二格，刀與身體畫在同一張素材" loading="lazy"><figcaption>信長重手：刀在手前、高舉過頭與劈落，各格的武器和雙手都在同一幅圖內。</figcaption></figure>
+<figure><img src="../game/assets/v12/oichi-heavy1-a.png" alt="阿市現有背弓、取弓、拉弦六張組圖" loading="lazy"><figcaption>阿市：背弓轉持弓，兩手、弓弦與箭互相遮擋；這是現有十二格動作的前半張組圖。</figcaption></figure>
+<figure><img src="../game/assets/v17/tadakatsu-charged_slam-a.png" alt="本多現有高舉直槍後以槍尾重擊地面" loading="lazy"><figcaption>本多：立槍向下擊地，槍尾與槍尖必須區分；這是現有十二格動作的前半張組圖。</figcaption></figure>
+</details>
+<div class="review" data-review="inventory"></div>
+</section>
+
+<section id="layers">
+<h2>03｜每格固定落腳，手與武器共用同一座標</h2>
+<div class="layers" aria-label="由後到前的分層順序">
+<div><b>1 後方武器</b><span>背弓、背後刀尖／槍段；需要時才有。</span></div>
+<div><b>2 身體底層</b><span>含衣甲、臉、腿與在武器後面的手臂。</span></div>
+<div><b>3 前方武器</b><span>刀／槍／弓與需要顯示的弓弦。</span></div>
+<div><b>4 前方遮擋</b><span>包住握柄的手指、前臂、跨過武器的衣袖。</span></div>
+<div><b>5 打擊效果</b><span>刀光、劍氣與命中火花分開，不烘焙到身體。</span></div>
+</div>
+<p>通常只需「身體底層 → 武器 → 手部遮擋」三層。背負與翻身時才拆武器前後段；不用把整個人物做成可旋轉骨架，也不靠拉伸一張圖取代連續姿勢。</p>
+<div class="scroll"><table><thead><tr><th>每格資料</th><th>用途與規則</th></tr></thead><tbody>
+<tr><td>腳底／身高</td><td>延用現有 foot anchor、body_height。只按解剖身高縮放，不把槍長、鹿角、刀光算進人物大小。左右翻面共用同一變換。</td></tr>
+<tr><td>主手＋副手</td><td><code>grip_main</code> 與 <code>grip_support</code> 均用人物格內座標。本多兩手須同落在槍桿上；信長雙手握刀時不能旋轉新刀後把副手留在原位。</td></tr>
+<tr><td>武器方向與投影</td><td>逐格標刀根／刀尖、槍尖／槍尾與投影長度。朝鏡頭刺、轉身或斜刃需要相應視角貼圖；只旋轉側面武器會出現紙片感。</td></tr>
+<tr><td>弓、弦、箭</td><td>弓握點、拉弦手、上下弓梢、箭搭弦點分開標記。使用對應張弓量的弓身與弦，放箭瞬間與碰撞／音效一致；背上與手上不重複出現第二把弓。</td></tr>
+<tr><td>前後遮擋</td><td>每格提供必要的前方手臂／衣袖圖層與武器遮罩。不得把手當成一個圓點覆蓋，也不得留殘刀或手指破洞。</td></tr>
+<tr><td>發射／命中資料</td><td>投射物從同一格的箭搭弦點／飛針手點出發。實體刃接觸與劍氣範圍分開；核心命中區與畫面效果使用相同經校準尺寸。</td></tr>
+</tbody></table></div>
+<p class="note">現有 <code>art_assets.gd</code> 的 <code>layers</code> 只是站立時鞋底與上半身的切分。<code>hand_offset</code> 和 <code>blade_offsets</code> 可作為標記起點，但不代表已具備武器替換。去掉舊武器後被擋住的衣甲、手掌仍須補畫。</p>
+<div class="review" data-review="layers"></div>
+</section>
+
+<section id="six">
+<h2>04｜六格試點：減張數，不把動作加速</h2>
+<p>先鎖三人共同規格：一致線條與陰影密度、清晰透明邊緣、固定腳底與解剖比例。信長／本多沿用現行約 155 px、阿市約 148 px 的場上身高。先交三人同場比例板，再延伸到所有招式。</p>
+<h3>第一份可驗收交付：信長重手六格＋兩把刀</h3>
+<div class="timeline" aria-label="信長重手六格與起始時間">
+<div class="pose"><b>1 起勢</b><small>tick 0</small>頭側立刀</div>
+<div class="pose"><b>2 引刀</b><small>tick 5</small>雙手轉腰蓄勢</div>
+<div class="pose"><b>3 蓄勢</b><small>tick 10</small>高位接下揮</div>
+<div class="pose"><b>4 命中</b><small>tick 14</small>跨步劈出</div>
+<div class="pose"><b>5 延伸</b><small>tick 22</small>刀尖走完弧線</div>
+<div class="pose"><b>6 收勢</b><small>tick 29–35</small>穩住回站姿</div>
+</div>
+<p>這是製作起始規格，保持現有重手命中 tick 14、總長 36 tick。新六格必須呈現完整刀路與肩腰轉動，不能拿同一張人物換六個刀角度。先用同長度普通刀與焰紋刀比較持握、左右朝向、刀尖範圍與傷害邊界。</p>
+<h3>輕手三刀的六格路徑</h3>
+<p>每刀先按 0、2、4、6、10、15 tick 排六格，保留命中 tick 6、總長 19 tick；動作速度再由既有角色攻速映射。第一刀從頭側高位開始，六格依序「立刀 → 肩腰起動 → 刀刃下行 → 接觸 → 切穿 → 低位收勢」，沿右上到左下下揮；每張刀根、刀尖與雙手位置都連續改變。第二刀由低位反切回高位，第三刀由左向右橫切，保留第三刀向前踏步與劍氣擊退。</p>
+<p>待機與走跑的六格上半身保持頭側雙手持柄，刀尖不穿頭、不蓋住臉、不突然前伸；衣袖、披風與腳步可以自然變化。攻擊收勢要接得回頭側立刀，連段則接下一刀起點，不插入不相干的站立格。</p>
+<h3>走路六格：兩條腿都要走完前後交換</h3>
+<div class="timeline" aria-label="六格走路腳開度">
+<div class="pose"><b>1 左前右後</b>開<small>落地承重</small></div>
+<div class="pose"><b>2 靠攏</b>窄<small>後腳離地</small></div>
+<div class="pose"><b>3 交錯</b>通過中線<small>擺腿前送</small></div>
+<div class="pose"><b>4 右前左後</b>開<small>另一腳承重</small></div>
+<div class="pose"><b>5 靠攏</b>窄<small>換腳離地</small></div>
+<div class="pose"><b>6 交錯</b>通過中線<small>接回第 1 格</small></div>
+</div>
+<p>走路先以 60 tick／完整一循環、每格 10 tick 製作；跑步先以 45 tick／循環試拍，用 7、8 tick 交替停留。放開方向立即回站立；按住才持續循環。角色攻速可沿用既有時序映射，影格數不改動攻擊判定時點。</p>
+<p>每格量出左右鞋尖／腳跟距離，確認「開 → 窄 → 交錯 → 換腿開」看得見；以實際遊戲尺寸播放驗收。站姿、持刀位置和身體重心要自然連回，不把站立格硬塞進移動循環。</p>
+<h3>第二、三個小試點</h3>
+<ul><li>本多：直立舉槍 → 蓄力 → 槍尾重擊地面六格。兩手持槍、上下端、前後遮擋與長槍裁圖先過關。</li><li>阿市：背弓 → 取弓 → 拉弦 → 出箭 → 收弦 → 背負六格。確認同一把弓、放箭起點與背負切換；另用轉身踢一格檢查背弓遮擋。</li></ul>
+<div class="review" data-review="six"></div>
+</section>
+
+<section id="rules">
+<h2>05｜同類才可拾取，武器有取捨</h2>
+<p>初版三類：信長只能拿刀、本多只能拿槍、阿市只能拿弓。兩人合作可由適合的人拾取；不相符的寶物保留在地上，短提示「需要長槍／太刀／長弓」，不扣除、不改裝備。</p>
+<div class="scroll"><table><thead><tr><th>候選武器</th><th>建議效果（待平衡）</th><th>適用限制</th></tr></thead><tbody>
+<tr><td>焰紋太刀／刀</td><td>刀擊傷害 +15%；重手末段帶小量燒傷。</td><td>不改抓摔與起身震開傷害；不疊加既有招式燒傷為無限傷害。</td></tr>
+<tr><td>嵐切／刀</td><td>已存在的劍氣範圍 +25%、擊退 +20%；不增加基礎刀傷。</td><td>本體刀刃仍依可見长度命中，不能讓無劍氣的招式憑空變長。</td></tr>
+<tr><td>震岳槍／槍</td><td>重手擊退 +30%；重手收尾可震倒雜兵。</td><td>大小王保留抗倒與起身保護；輕手不變成每擊必倒。</td></tr>
+<tr><td>寒月弓／弓</td><td>箭傷 +10%、指定強箭的單體冰凍略增。</td><td>飛針與踢腿不套用箭傷；不恢復全穿透，不擴大冰爆和衝擊波為全場。</td></tr>
+</tbody></table></div>
+<p>每人同時一把。新同類武器替換原裝備，先不加入背包、鍛造或自由混搭。初版武器保持同一握柄與長度級距，先透過材質、刀鐔、槍頭、弓飾與效果辨識；尺寸真的變大時，連同可見刃長與命中範圍一起校準。</p>
+<p>資料最少包含：<code>weapon_id</code>、<code>family</code>、加攻、劍氣倍率、擊退倍率、指定招式擊倒、元素與圖像。投射物發射時保存當次武器效果，避免箭飛到一半換裝就改變傷害；網路主機判定拾取與傷害，快照同步當前武器與掉落。</p>
+<div class="note"><strong>本輪護符與武器分開：</strong>金剛護符吸收 40、玄鐵護符吸收 75、明鏡護符吸收 110 傷害（數值可調）。受擊消耗剩餘抵傷量，耗完光環消失；這是有限抵傷，不要求重畫人物穿甲。武器方案不另增加永久護甲或重複裝備系統。</div>
+<div class="grid" style="margin-top:18px">
+<div class="card"><h3>金剛護符 · 40</h3><img src="../game/assets/v21/treasures/kongo.png" height="112" alt="紅繩金色五角護符"><p>金色主體、紅繩，視覺簡單明確。</p></div>
+<div class="card"><h3>玄鐵護符 · 75</h3><img src="../game/assets/v21/treasures/iron.png" height="112" alt="玄鐵刀鍔形護符與青玉"><p>深鐵護身輪廓，中央青綠玉。</p></div>
+<div class="card"><h3>明鏡護符 · 110</h3><img src="../game/assets/v21/treasures/mirror.png" height="112" alt="古銅圓鏡護符與白紫光芒"><p>古銅鏡緣、白紫鏡面，標示高抵傷量。</p></div>
+</div>
+<p class="muted">上方是本輪已生成的透明道具圖，預覽放大為 112 px；遊戲預定高 56 px。<a href="../game/assets/v21/treasures/registration.json">圖源、裁切與 SHA 紀錄</a>。</p>
+<div class="review" data-review="rules"></div>
+</section>
+
+<section id="delivery">
+<h2>06｜逐步製作，一個完整角色過關再套下一個</h2>
+<ol>
+<li><strong>保留基線與來源。</strong>現行 v0.20 已提交；保留原 PNG、registration、生成來源與 SHA。重新製作資產放新版本目錄，驗收前仍可回到原動作。</li>
+<li><strong>統一三人樣板。</strong>同地面比例板：站姿、重手命中姿勢、走路最開／最窄姿勢。定線條、衣甲陰影與人物尺寸，不一次重做全部招式。</li>
+<li><strong>完成三個小試點。</strong>先信長六格重手兩把刀，再本多立槍重擊、阿市背弓拉弦。每份均交身體、武器、遮擋與錨點原始檔。</li>
+<li><strong>接入最小換裝路徑。</strong>同類拾取、裝備資料、動畫圖層、HUD 名稱、投射物屬性快照；同時檢查單人、雙人、網路同步與切場保留。</li>
+<li><strong>完成信長全套。</strong>站立、走／跑、跳、輕手三段、重手兩段、三向蓄力、空中／方向技、抓摔、受擊、被擊飛、倒地、死亡、起身、格擋與勝利逐列接入；同一人物不混用有武器與無武器底圖。</li>
+<li><strong>套用本多與阿市。</strong>共用資料格式與驗收工具；保留各自槍、弓、飛針、踢腿的專屬動作與命中規則。其餘角色等待各自造型定案。</li>
+</ol>
+<div class="scroll"><table><thead><tr><th>驗收面向</th><th>必須看見的結果</th></tr></thead><tbody>
+<tr><td>素材</td><td>六個真正不同姿勢；透明邊緣無糊暈；所有武器在畫框內，裁圖不露鄰格。身體不隨刀槍大小縮放。</td></tr>
+<tr><td>持握／遮擋</td><td>每格主副手貼握柄、指節壓在前方，翻面不破位；本多槍桿同時穿過兩握點；阿市背上與手上只有一把弓。</td></tr>
+<tr><td>信長新預備姿勢</td><td>維持全身比例；頭側立刀雙手握柄。待機、走路、跑步沒有前伸舊刀，第一刀逐格下揮、第二反切、第三橫切。三刀連接與回到預備姿勢都沒有手位跳躍。</td></tr>
+<tr><td>時序</td><td>0.25 倍檢查逐格，1 倍檢查節奏。揮擊命中格對上音效與判定；走路開窄清楚、停走立即站立、腳底不滑動。</td></tr>
+<tr><td>戰鬥</td><td>刃尖剛碰得到就命中、刃尖外不命中；劍氣可見範圍與傷害一致。倒地保護、首領抗倒、抓摔、蓄力及投射物規則不退回舊版。</td></tr>
+<tr><td>裝備</td><td>各角色都測匹配與不匹配拾取，雙人同時靠近只讓一人拿走；死亡／重生／切場保留規則一致；客户端不自行生成裝備效果。</td></tr>
+<tr><td>整合證據</td><td>交 6 格聯絡表、帶錨點檢查板、三人同場截圖、原速短片、判定邊界測試及可啟動主程式。素材圖、靜態檢查、實際遊戲視覺各自列結果。</td></tr>
+</tbody></table></div>
+<p>第一個里程碑就是「信長重手兩把刀、六格真動作、左右手握住、刀尖範圍一致」；此時再確認分層品質，便能避開一次返工三人的全部影格。</p>
+<div class="review" data-review="delivery"></div>
+</section>
+<footer>
+<p>程式依據：<a href="../game/render/art_assets.gd">art_assets.gd</a>、<a href="../game/render/frame_animation.gd">frame_animation.gd</a>、<a href="../game/render/battle_view.gd">battle_view.gd</a>、<a href="../game/core/battle.gd">battle.gd</a>、<a href="weapon-layer-inventory-v21.json">v0.20 素材盤點</a>。</p>
+<p>本頁保留的 v0.21 評估當時只確認來源路徑與三張代表圖，尚未重畫人物或完成外觀換裝。v0.22 已接入三人新版六格與可換武器；現行範圍與驗證方式請以頁首新版說明為準，歷史評論不自動轉成新版驗收結果。</p>
+</footer>
+<script>
+'use strict';
+const FORMAT='sengoku-weapon-plan-v21-comments';
+const STORAGE_KEY='sengoku-weapon-plan-v21-comments';
+for(const box of document.querySelectorAll('[data-review]')){
+ const label=document.createElement('label');label.textContent='此節評論';
+ const field=document.createElement('textarea');field.dataset.field=box.dataset.review;field.maxLength=5000;field.placeholder='要調整的造型、武器效果、分層細節或驗收結果';
+ label.append(field);box.append(label);
+}
+const fields=[...document.querySelectorAll('[data-field]')];
+const fieldMap=new Map(fields.map(field=>[field.dataset.field,field]));
+let loadFailed=false;
+function validate(record){
+ if(!record||record.format!==FORMAT||!record.comments||typeof record.comments!=='object'||Array.isArray(record.comments))throw new Error('評論格式不符');
+ for(const [key,value] of Object.entries(record.comments))if(!fieldMap.has(key)||typeof value!=='string'||value.length>5000)throw new Error('評論欄位不符');
+ return record;
+}
+function collect(){return {format:FORMAT,saved_at:new Date().toISOString(),comments:Object.fromEntries(fields.map(field=>[field.dataset.field,field.value]))};}
+function message(text,error=false){const element=document.getElementById('save-status');element.textContent=text;element.className=error?'error':'';}
+function save(){
+ if(loadFailed){message('原記錄無法讀取，未覆寫；請匯出目前評論備份。',true);return;}
+ try{localStorage.setItem(STORAGE_KEY,JSON.stringify(collect()));message('已自動保存 · '+new Date().toLocaleTimeString('zh-TW'));}
+ catch{message('無法寫入瀏覽器儲存；請匯出 JSON 備份。',true);}
+}
+for(const field of fields)field.addEventListener('input',save);
+document.getElementById('export').addEventListener('click',()=>{
+ const url=URL.createObjectURL(new Blob([JSON.stringify(collect(),null,2)+'\n'],{type:'application/json;charset=utf-8'}));
+ const link=document.createElement('a');link.href=url;link.download='武器分層與六格角色評論-v0.21.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+document.getElementById('print').addEventListener('click',()=>window.print());
+try{
+ const saved=localStorage.getItem(STORAGE_KEY);
+ if(saved){const record=validate(JSON.parse(saved));for(const field of fields)field.value=record.comments[field.dataset.field]??'';}
+ message(saved?'已載入保存的評論。':'每段可填評論，會自動保存；重要意見請另匯出備份。');
+}catch{loadFailed=true;message('原有評論無法讀取，未覆寫；目前新輸入仍可匯出。',true);}
+</script>
+</body>
+</html>

@@ -1,0 +1,956 @@
+{
+  "format": "sengoku-weapon-layer-inventory-v21",
+  "baseline": "915690d (v0.20)",
+  "scope": "v12-v17 registrations; latest version per hero/clip name, not runtime route or unique image count",
+  "visual_check": {
+    "result": "Weapons are baked into the inspected hero PNGs; no replaceable weapon renderer is present.",
+    "samples": [
+      "game/assets/v12/nobunaga-heavy1.png",
+      "game/assets/v12/oichi-heavy1-a.png",
+      "game/assets/v17/tadakatsu-charged_slam-a.png"
+    ]
+  },
+  "heroes": [
+    {
+      "id": "nobunaga",
+      "name": "織田信長",
+      "registered_clips": 24,
+      "registered_frames": 288,
+      "clips": [
+        {
+          "clip": "light1",
+          "source": "v13",
+          "registration": "game/assets/v13/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 12,
+          "files": [
+            "nobunaga-light1-arc-a.png",
+            "nobunaga-light1-arc-b.png",
+            "nobunaga-light1-frame08.png",
+            "nobunaga-light2-arc-a.png"
+          ]
+        },
+        {
+          "clip": "light2",
+          "source": "v13",
+          "registration": "game/assets/v13/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 12,
+          "files": [
+            "nobunaga-light1-arc-b.png",
+            "nobunaga-light2-arc-a.png",
+            "nobunaga-light2-arc-b.png",
+            "nobunaga-light2-frame04.png",
+            "nobunaga-light2-frame05.png",
+            "nobunaga-light2-frame08.png",
+            "nobunaga-light2-frame10.png"
+          ]
+        },
+        {
+          "clip": "heavy1",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-heavy1.png"
+          ]
+        },
+        {
+          "clip": "heavy2",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-heavy2-cut-a.png",
+            "nobunaga-heavy2-cut-b.png"
+          ]
+        },
+        {
+          "clip": "light3",
+          "source": "v13",
+          "registration": "game/assets/v13/registration.json",
+          "registered_frames": 12,
+          "hand_points": 12,
+          "blade_pairs": 12,
+          "files": [
+            "nobunaga-light3-arc-a.png",
+            "nobunaga-light3-arc-b.png",
+            "nobunaga-light3-frame10.png",
+            "nobunaga-light3-frame11.png"
+          ]
+        },
+        {
+          "clip": "walk",
+          "source": "v13",
+          "registration": "game/assets/v13/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-walk-a.png",
+            "nobunaga-walk-b.png"
+          ]
+        },
+        {
+          "clip": "run",
+          "source": "v14",
+          "registration": "game/assets/v14/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-run-a.png",
+            "nobunaga-run-b.png"
+          ]
+        },
+        {
+          "clip": "jump",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-jump.png"
+          ]
+        },
+        {
+          "clip": "guard",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-guard.png"
+          ]
+        },
+        {
+          "clip": "throw",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-throw.png"
+          ]
+        },
+        {
+          "clip": "victory",
+          "source": "v15",
+          "registration": "game/assets/v15/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-victory-a.png",
+            "nobunaga-victory-b.png"
+          ]
+        },
+        {
+          "clip": "hurt",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-hurt.png"
+          ]
+        },
+        {
+          "clip": "stunned",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-stunned.png"
+          ]
+        },
+        {
+          "clip": "down",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-down-a.png",
+            "nobunaga-down-b.png"
+          ]
+        },
+        {
+          "clip": "recovering",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-recovering-a.png",
+            "nobunaga-recovering-b.png"
+          ]
+        },
+        {
+          "clip": "launched",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-launched-a.png",
+            "nobunaga-launched-b.png"
+          ]
+        },
+        {
+          "clip": "dash_strike",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-dash_strike.png"
+          ]
+        },
+        {
+          "clip": "rising",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-rising-cut-a.png",
+            "nobunaga-rising-cut-b.png"
+          ]
+        },
+        {
+          "clip": "low_sweep",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-low_sweep-cut-a.png",
+            "nobunaga-low_sweep-cut-b.png"
+          ]
+        },
+        {
+          "clip": "charged_upper",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-charged_upper-cut-a.png",
+            "nobunaga-charged_upper-cut-b.png"
+          ]
+        },
+        {
+          "clip": "charged_slam",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-charged_slam-cut-a.png",
+            "nobunaga-charged_slam-cut-b.png"
+          ]
+        },
+        {
+          "clip": "air_light",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-air_light-cut-a.png",
+            "nobunaga-air_light-cut-b.png"
+          ]
+        },
+        {
+          "clip": "air_heavy",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-air_heavy-cut-a.png",
+            "nobunaga-air_heavy-cut-b.png"
+          ]
+        },
+        {
+          "clip": "special",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "nobunaga-special-cut-a.png",
+            "nobunaga-special-cut-b.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oichi",
+      "name": "阿市",
+      "registered_clips": 25,
+      "registered_frames": 300,
+      "clips": [
+        {
+          "clip": "light1",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-light1.png"
+          ]
+        },
+        {
+          "clip": "light2",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-light2.png"
+          ]
+        },
+        {
+          "clip": "heavy1",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-heavy1-a.png",
+            "oichi-heavy1-b.png"
+          ]
+        },
+        {
+          "clip": "heavy2",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-heavy2-a.png",
+            "oichi-heavy2-b.png"
+          ]
+        },
+        {
+          "clip": "run",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-run.png"
+          ]
+        },
+        {
+          "clip": "jump",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-jump.png"
+          ]
+        },
+        {
+          "clip": "launched",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-launched.png"
+          ]
+        },
+        {
+          "clip": "recovering",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-recovering.png"
+          ]
+        },
+        {
+          "clip": "stunned",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-stunned.png"
+          ]
+        },
+        {
+          "clip": "victory",
+          "source": "v15",
+          "registration": "game/assets/v15/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-victory-a.png",
+            "oichi-victory-b.png"
+          ]
+        },
+        {
+          "clip": "rising",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-rising.png"
+          ]
+        },
+        {
+          "clip": "low_sweep",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-low_sweep.png"
+          ]
+        },
+        {
+          "clip": "air_light",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-air_light.png"
+          ]
+        },
+        {
+          "clip": "charged_upper",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-charged_upper-a.png",
+            "oichi-charged_upper-b.png"
+          ]
+        },
+        {
+          "clip": "charged_slam",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-charged_slam-a.png",
+            "oichi-charged_slam-b.png"
+          ]
+        },
+        {
+          "clip": "air_heavy",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-air_heavy-a.png",
+            "oichi-air_heavy-b.png"
+          ]
+        },
+        {
+          "clip": "special",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-special-a.png",
+            "oichi-special-b.png"
+          ]
+        },
+        {
+          "clip": "idle",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-idle.png"
+          ]
+        },
+        {
+          "clip": "walk",
+          "source": "v13",
+          "registration": "game/assets/v13/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-walk-08.png",
+            "oichi-walk-09.png",
+            "oichi-walk-10.png",
+            "oichi-walk-11.png",
+            "oichi-walk-a.png",
+            "oichi-walk-b.png"
+          ]
+        },
+        {
+          "clip": "light3",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-light3.png"
+          ]
+        },
+        {
+          "clip": "hurt",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-hurt.png"
+          ]
+        },
+        {
+          "clip": "guard",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-guard.png"
+          ]
+        },
+        {
+          "clip": "throw",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-throw.png"
+          ]
+        },
+        {
+          "clip": "down",
+          "source": "v12",
+          "registration": "game/assets/v12/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-down.png"
+          ]
+        },
+        {
+          "clip": "dash_heavy",
+          "source": "v13",
+          "registration": "game/assets/v13/registration.json",
+          "registered_frames": 12,
+          "hand_points": 1,
+          "blade_pairs": 0,
+          "files": [
+            "oichi-dash-heavy-a.png",
+            "oichi-dash-heavy-b.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tadakatsu",
+      "name": "本多忠勝",
+      "registered_clips": 29,
+      "registered_frames": 342,
+      "clips": [
+        {
+          "clip": "idle",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 6,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-idle.png"
+          ]
+        },
+        {
+          "clip": "light1",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-light1.png"
+          ]
+        },
+        {
+          "clip": "light2",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-light2.png"
+          ]
+        },
+        {
+          "clip": "light3",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-light3.png"
+          ]
+        },
+        {
+          "clip": "heavy1",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-heavy1-v17-a.png",
+            "tadakatsu-heavy1-v17-b.png",
+            "tadakatsu-heavy1.png"
+          ]
+        },
+        {
+          "clip": "heavy2",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-heavy2.png"
+          ]
+        },
+        {
+          "clip": "charge",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-charge.png"
+          ]
+        },
+        {
+          "clip": "grab",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-grab.png"
+          ]
+        },
+        {
+          "clip": "walk",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-walk-v17-a.png",
+            "tadakatsu-walk-v17-b.png",
+            "tadakatsu-walk.png"
+          ]
+        },
+        {
+          "clip": "run",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-run.png"
+          ]
+        },
+        {
+          "clip": "jump",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-jump.png"
+          ]
+        },
+        {
+          "clip": "reactions",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-reactions.png"
+          ]
+        },
+        {
+          "clip": "special",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-special-a.png",
+            "tadakatsu-special-b.png"
+          ]
+        },
+        {
+          "clip": "victory",
+          "source": "v16",
+          "registration": "game/assets/v16/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-victory.png"
+          ]
+        },
+        {
+          "clip": "slam_charge",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-slam_charge-a.png",
+            "tadakatsu-slam_charge-b.png"
+          ]
+        },
+        {
+          "clip": "charged_slam",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-charged_slam-a.png",
+            "tadakatsu-charged_slam-b.png"
+          ]
+        },
+        {
+          "clip": "upper",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-upper-a.png",
+            "tadakatsu-upper-b.png"
+          ]
+        },
+        {
+          "clip": "low_sweep",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-low_sweep-a.png",
+            "tadakatsu-low_sweep-b.png"
+          ]
+        },
+        {
+          "clip": "dash",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-dash-a.png",
+            "tadakatsu-dash-b.png"
+          ]
+        },
+        {
+          "clip": "air_light",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-air_light-a.png",
+            "tadakatsu-air_light-b.png"
+          ]
+        },
+        {
+          "clip": "air_heavy",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-air_heavy-a.png",
+            "tadakatsu-air_heavy-b.png"
+          ]
+        },
+        {
+          "clip": "hurt",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-hurt-a.png",
+            "tadakatsu-hurt-b.png"
+          ]
+        },
+        {
+          "clip": "guard",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-guard-a.png",
+            "tadakatsu-guard-b.png"
+          ]
+        },
+        {
+          "clip": "death",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-death-a.png",
+            "tadakatsu-death-b.png"
+          ]
+        },
+        {
+          "clip": "recover",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-recover-a.png",
+            "tadakatsu-recover-b.png"
+          ]
+        },
+        {
+          "clip": "charge_forward",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-charge_forward-a.png",
+            "tadakatsu-charge_forward-b.png"
+          ]
+        },
+        {
+          "clip": "holding",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-holding-a.png",
+            "tadakatsu-holding-b.png"
+          ]
+        },
+        {
+          "clip": "throw",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-throw-a.png",
+            "tadakatsu-throw-b.png"
+          ]
+        },
+        {
+          "clip": "launched",
+          "source": "v17",
+          "registration": "game/assets/v17/registration.json",
+          "registered_frames": 12,
+          "hand_points": 0,
+          "blade_pairs": 0,
+          "files": [
+            "tadakatsu-launched-a.png",
+            "tadakatsu-launched-b.png"
+          ]
+        }
+      ]
+    }
+  ]
+}

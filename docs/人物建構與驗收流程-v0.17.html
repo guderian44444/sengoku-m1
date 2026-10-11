@@ -3,19 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>吞食戰國｜人物建構與驗收流程 v0.17（v0.19 規則更新）</title>
+<title>吞食戰國｜人物建構與驗收流程 v0.17（v0.22 分層與六格更新）</title>
 <style>
 :root{color-scheme:dark;font-family:"Microsoft JhengHei",system-ui,sans-serif;background:#101b20;color:#e8eadf}*{box-sizing:border-box}body{max-width:1240px;margin:auto;padding:32px 24px 70px;line-height:1.7}header{border-top:4px solid #bb514b;padding:20px 0}h1{font-size:34px;line-height:1.3;margin:12px 0}h2{margin:34px 0 16px;color:#e1c495}h3{margin:0 0 10px}a{color:#aadbd3}nav{display:flex;gap:16px;flex-wrap:wrap;padding:14px 18px;background:#1c2b31;position:sticky;top:0;z-index:2;border-bottom:1px solid #354850}section{scroll-margin-top:100px}p{max-width:1080px}small,.muted{color:#afbdc2}code{font-family:Consolas,monospace;font-size:13px;color:#accdd1;overflow-wrap:anywhere}pre{overflow:auto;padding:16px;background:#0c161b;border:1px solid #354850;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}.card,.review{padding:18px;background:#1b2a30;border:1px solid #354850;border-radius:8px}.card{border-left:3px solid #aa5046}.card p:last-child{margin-bottom:0}.note{padding:14px 18px;border-left:3px solid #d0ac6d;background:#332e23}.tag{font-size:13px;color:#e7c98a;background:#423925;padding:4px 10px;border-radius:12px;white-space:nowrap}.flow{display:flex;gap:10px;flex-wrap:wrap;list-style:none;padding:0}.flow a{display:block;padding:8px 12px;background:#1b2a30;border:1px solid #354850;text-decoration:none}.stage{border-top:1px solid #354850;padding:24px 0}.stage h2{margin-top:0}.stage .gate{padding:12px 16px;background:#1b2a30;border-left:3px solid #8bbcb3}.stage .return{color:#e1b2a7}.stage li{margin:6px 0}.stage dl{display:grid;grid-template-columns:100px 1fr;gap:9px 16px;margin:16px 0}.stage dt{color:#e1c495;font-weight:600}.stage dd{margin:0}label{display:block;font-size:14px;color:#cfdbdd}input,select,textarea,button{font:inherit}input,select,textarea{color:#e8eadf;background:#101b20;border:1px solid #56707a;border-radius:5px;padding:9px 10px;width:100%}input:focus,select:focus,textarea:focus,button:focus,a:focus{outline:2px solid #e1c495;outline-offset:3px}textarea{min-height:80px;resize:vertical}button,.button{color:#f4f2e9;background:#355c59;border:1px solid #6e9d95;border-radius:5px;padding:9px 14px;cursor:pointer;text-decoration:none;display:inline-block}button:hover,.button:hover{background:#416e68}.secondary{background:#233640}.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}.review{margin-top:18px;display:grid;grid-template-columns:170px 1fr;gap:14px}.review .wide{grid-column:1/-1}.review label span{display:block;margin-bottom:5px}.scroll{overflow:auto;max-width:100%}table{border-collapse:collapse;width:100%;min-width:1000px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:12px 10px;border-bottom:1px solid #354850}th{color:#e1c495;background:#1b2a30}td:first-child{min-width:180px}td:nth-child(2){min-width:200px}td:last-child{width:290px;min-width:270px}td code{display:block;margin-top:3px}td label+label{margin-top:8px}td textarea{min-height:72px}.summary{display:flex;gap:12px;flex-wrap:wrap}.summary strong{color:#e1c495}.statusline{min-height:28px}#save-status{color:#a4e2c7}#save-status.error{color:#ffc1b4}footer{margin-top:36px;color:#acb9be;font-size:13px}.sr-only{position:absolute;left:-10000px}details{border:1px solid #354850;padding:12px 16px;border-radius:6px;margin:14px 0}summary{cursor:pointer;color:#e1c495}#progress{font-variant-numeric:tabular-nums}.print-note{display:none}@media(max-width:700px){body{padding:20px 14px}h1{font-size:28px}nav{position:static;gap:12px}section{scroll-margin-top:10px}.review{grid-template-columns:1fr}.stage dl{grid-template-columns:1fr;gap:3px}.stage dd{margin-bottom:10px}}@media print{:root{color-scheme:light;background:white;color:#111}body{max-width:none;padding:0;font-size:11px}nav,.actions,.hide-print{display:none}h1{font-size:25px}h2,h3,a,code,small,.muted,th{color:#111}.card,.review,.note,.stage .gate,th{background:#fafafa;border-color:#999}.stage{break-inside:avoid}input,textarea,select{background:white;color:#111;border-color:#aaa}table{min-width:0;font-size:10px}td:first-child,td:nth-child(2),td:last-child{min-width:0;width:auto}.scroll{overflow:visible}.print-note{display:block}}
 </style>
 </head>
 <body>
 <header>
-<small>製作與驗收工作表 / v0.17 保留頁面與紀錄 / v0.19 規則更新 / 2026-10-11</small>
+<small>製作與驗收工作表 / v0.17 保留頁面與紀錄 / v0.22 分層與六格更新 / 2026-10-11</small>
 <h1>一個人物，完整做完再往下複製</h1>
 <p>以信長、阿市累積的連續 PNG、解剖比例與原生實拍經驗為基準，把「造型 → 每個輸入 → 每張圖 → 每次命中 → 解壓試玩」串成同一份交付。這份流程也適用於後續主角、敵兵與小王；現有角色有多少圖，不代表已全部達標。</p>
-<p class="note" id="cadence-standard"><b>v0.19 規則更新：</b>新製動作以辨識、力道與自然節奏驗收，6 個真正關鍵姿勢可接受，不再要求所有動作湊滿 12 張。走路依「開 → 窄 → 交錯 → 換腿開 → 窄 → 交錯」完成左右換腿，採固定完整 cycle，不因減少張數而加快。信長、阿市、本多既有 12 張素材、個別規格與歷史證據保留，未宣稱已改成 6 張；逐招仍記錄實際 source 數、完整週期與每張停留時間。</p>
+<p class="note" id="cadence-standard"><b>v0.19 規則更新：</b>新製動作以辨識、力道與自然節奏驗收，6 個真正關鍵姿勢可接受，不再要求所有動作湊滿 12 張。走路依「開 → 窄 → 交錯 → 換腿開 → 窄 → 交錯」完成左右換腿，採固定完整 cycle，不因減少張數而加快。信長、阿市、本多既有 12 張素材、個別規格與歷史證據保留供追溯；v0.22 三人已改用真正重畫的六格來源。逐招仍記錄實際 source 數、完整週期與每張停留時間。</p>
+<div class="note" id="layered-v22"><b>v0.22 製作基準：</b>信長 25 組、阿市與本多各 26 組，共 77 動作組、462 格；別名路由與共用保持格不重複計數。新角色依以下順序完成，仍使用本頁原有逐招／逐關工作單記錄證據。
+<ol><li>保留定案造型與原始 RGBA 圖源、生成記錄及 SHA；每組六張真正不同姿態，不能以整圖晃動、放大或模糊插幀充數。每格解剖站立高度以至少 300 px 為目標；裁圖只取來源像素，不能修改原圖 alpha 或用刪除人物零件掩蓋鄰格污染。</li><li>身體與武器分層。逐格登錄 <code>file / rect / foot / body_height / hand / weapon_angle / weapon_behind</code>，必要時補 <code>hand_occluders / clip_polygon</code>，頭像登錄同一套新來源的 <code>portrait</code>。腳錨點與握點使用裁圖局部座標；武器基準刀尖向上為 0°、向右為 90°。倒地不能按外框高度放大；握柄、前後手遮擋、背弓、槍尖／槍尾要在實際畫面核對。</li><li>同類五種武器各保留來源、裁圖、握點與長度資料，接上角色握點後驗證左右翻面、刀尖離地、弓箭出手與槍底觸地。同類換裝不能再顯示烘焙在身體上的舊武器，也不能讓角色空手；招式與武器效果分開計算。來源與目前規則見 <a href="../game/assets/v22/weapons/README.md">武器素材說明</a>。</li><li>新版步行六格共 60 tick，跑步六格共 45 tick，放開立即站姿；勝利六格共 120 tick 後保持末格。六格總數不能直接決定播放速度，蓄力保持／格擋／凍結允許按用途停格。</li><li>執行 <code>node scripts/test-v19.mjs --only=hero_layers_v22 --render-heroes-v22</code>，以正式 renderer 檢查每人 40 種執行動作均使用新版來源，檢視 <code>artifacts/native-v22/hero-actions/coverage.json</code> 與逐招圖板；完整驗收不允許缺圖回退，<code>--available</code> 局部模式不能替代。40 種 action 不等於 40 組獨立新圖。換裝／存檔另跑 <code>--only=weapons_save_v22,loadout_menu_v22,weapon_render_v22 --render-v22</code>，涵蓋同類裝備、掉落、1P／2P 各角色獨立保存與損毀回復；不保存關卡進度。自動化、目視、實體搖桿、真人聽感分開記錄。</li></ol></div>
 <p><a href="角色動作與素材標準-v0.15.html">既有角色／音效標準</a>　<a href="character-assets-v17.json">本多 v0.17 新素材與登錄盤點</a>　<a href="character-assets-v15.json">信長、阿市及敵兵取樣清單</a>　<a href="character-assets-v16.json">本多 v0.16 歷史盤點</a></p>
-<div class="note"><b>本頁是驗收表，不是通過證明。</b>所有項目初始為「待驗收」；只有人工填入的狀態與證據才會保留。本多此次修正以最終 v0.17 原生測試與實拍為準，不能用 v0.16 的圖集總張數代替逐招驗收。</div>
+<div class="note"><b>本頁是驗收表，不是通過證明。</b>所有項目初始為「待驗收」；只有人工填入的狀態與證據才會保留。下方本多 v0.17 專項與十二格資料是歷史記錄，不能用舊版圖集總張數或報告代替 v0.22 的逐招驗收；評論欄位與匯入格式維持原樣。</div>
 </header>
 <nav aria-label="流程段落"><a href="#review-record">本次工作單</a><a href="#process">製作關卡</a><a href="#moves">逐招清單</a><a href="#tadakatsu">本多專項</a><a href="#evidence">證據與交付</a><a href="#record-end">匯出記錄</a></nav>
 <main>
@@ -66,7 +68,7 @@
 <h2>04｜真正關鍵姿勢與自然節奏；蓄力保持與釋放分開</h2>
 <dl><dt>入口</dt><dd>逐招節拍表與定案造型。</dd><dt>操作</dt><dd>主要招式、行走、跑步、反應、抓摔、慶祝以讀得清楚為準；6 個真正關鍵姿勢可接受。先做起手、命中、收勢，再安排肩胯、手腳、兵器軌跡的中間姿勢；每張有可辨識變化。站立、短反應與保持段依用途記錄實際格數與接受理由。</dd><dt>交付物</dt><dd>逐招實際格數聯絡表（逐格編號並標 hit），原始透明 PNG、生成記錄、唯一來源格集合、完整 cycle 與各格停留 tick。</dd></dl>
 <p>新製原圖以每格解剖站立身高至少 300 px 為目標，保留真正透明 alpha；縮放到遊戲後人物細節仍清楚。不得以放大低解析圖宣稱達標。既有較小素材若暫時沿用，需記錄實際身高與限制。</p>
-<ul><li>各格依動作軌跡逐步變化；出手可以加速，但不能多數格近乎同圖、只最後兩格跳躍。驗收姿勢與節奏，不以湊張數代替動作。</li><li>不可用複製、整張平移／旋轉、模糊插幀、影片抽取的壓縮圖充數。刀弧／槍風／震波是獨立特效，不掩蓋肢體缺幀。</li><li>蓄力分「進入 → 穩定保持循環 → 放開後釋放 → 收勢」。長按 3 秒仍停在保持段，不可反覆播放已出手圖片。逐招註記實際 source 數、保持週期與接受原因，共用格不重複計為新姿勢。</li><li>走路要有「開 → 窄 → 交錯 → 換腿開 → 窄 → 交錯」的真正腿位與重心變化。新 v0.19 敵兵完整 cycle 固定 60 tick（1 秒）：6 姿勢各 10 tick；若是 12 姿勢則各 5 tick。減少格數不縮短整輪，放開即站姿，不為走完整套而壓縮時間；退步只反轉步態方向。既有主角 12 張走路 12 fps／跑步 16 fps 的個別規格保留，跑步依實際完整週期驗收，攝影機保持平順。</li></ul>
+<ul><li>各格依動作軌跡逐步變化；出手可以加速，但不能多數格近乎同圖、只最後兩格跳躍。驗收姿勢與節奏，不以湊張數代替動作。</li><li>不可用複製、整張平移／旋轉、模糊插幀、影片抽取的壓縮圖充數。刀弧／槍風／震波是獨立特效，不掩蓋肢體缺幀。</li><li>蓄力分「進入 → 穩定保持循環 → 放開後釋放 → 收勢」。長按 3 秒仍停在保持段，不可反覆播放已出手圖片。逐招註記實際 source 數、保持週期與接受原因，共用格不重複計為新姿勢。</li><li>走路要有「開 → 窄 → 交錯 → 換腿開 → 窄 → 交錯」的真正腿位與重心變化。新 v0.19 敵兵完整 cycle 固定 60 tick（1 秒）：6 姿勢各 10 tick；若是 12 姿勢則各 5 tick。減少格數不縮短整輪，放開即站姿，不為走完整套而壓縮時間；退步只反轉步態方向。v0.22 三位主角走路六格共 60 tick，跑步六格共 45 tick；舊十二格規格只保留作歷史對照。跑步依完整週期驗收，攝影機保持平順。</li></ul>
 <p class="gate"><b>出口：</b>逐張與原速都能讀懂同一招；實際 source 數沒有重複充數。保持、出手、收勢用途分明，步態自然且完整 cycle 穩定。</p>
 <p class="return">不合格退回：比例漂移回第 02 關；動作缺幀、槍多長一把、腳步錯位回本關重畫；不能靠裁掉裝備修理。</p><div class="review" data-review="s04"></div>
 </article>
@@ -98,7 +100,7 @@
 <article class="stage" id="s08">
 <h2>08｜反應、抓摔、死亡與過關不能共用一張敷衍</h2>
 <dl><dt>入口</dt><dd>主要攻擊可用、反應來源完整。</dd><dt>操作</dt><dd>測普通命中彎腰痛苦、擊飛、落地、存活倒地、起身、死亡躺平、暈眩、防禦、被抓掙扎、抓人與放開摔；再測過關前仍在空中、倒地、被抓及死亡隊友。</dd><dt>交付物</dt><dd>生命／action 轉換記錄、逐張反應表、死亡停留至少 3 秒與過關原生片段。</dd></dl>
-<ul><li>受擊有軀幹反應與表情；不只全圖閃色／左右晃動。死亡落地保持躺平，不能回站姿或起身。</li><li>倒地者不可抓；被抓者有掙扎，0.5 秒時一次 50% 掙脫判定，使用固定種子分別覆蓋成功、失敗。</li><li>過關先落地／起身，再播個人慶祝；12 張約 6 fps、最後一張保持。活著的雙人都演出，台詞排隊，倒下隊友不喊。</li></ul>
+<ul><li>受擊有軀幹反應與表情；不只全圖閃色／左右晃動。死亡落地保持躺平，不能回站姿或起身。</li><li>倒地者不可抓；被抓者有掙扎，0.5 秒時一次 50% 掙脫判定，使用固定種子分別覆蓋成功、失敗。</li><li>過關先落地／起身，再播個人慶祝；v0.22 三人六格共 120 tick（兩秒），最後一張保持。活著的雙人都演出，台詞排隊，倒下隊友不喊。</li></ul>
 <p class="gate"><b>出口：</b>受擊、落地、死亡、起身、慶祝用途分明；死者不復活演出。使用共用姿勢時明列來源與差異，不能把一張 reactions 圖集全部勾完。</p>
 <p class="return">不合格退回：缺反應圖回第 04 關；落地或終態判斷錯留在本關。</p><div class="review" data-review="s08"></div>
 </article>
@@ -128,7 +130,8 @@
 </article>
 
 <article class="stage" id="s12">
-<h2>12｜從新 ZIP 解壓再跑，最後才交付</h2>
+<h2>12｜依交付範圍驗證；提供 ZIP 時從新目錄再跑</h2>
+<p class="note">若本輪只交付可續改主程式／Git，驗證範圍內的來源、登錄、文件及測試即可，不另產生試玩包。以下 ZIP 檢查僅在要求包裝交付時適用；未製作的包不能標成已驗收。</p>
 <dl><dt>入口</dt><dd>素材與程式凍結、所有必要軟體檢查完成。</dd><dt>操作</dt><dd>只包已登錄素材與所需腳本／說明；保留前版。計算新 ZIP SHA，解壓到全新目錄，比對 archive 每一檔與凍結工作區，再從解壓目錄啟動和執行關鍵測試。</dd><dt>交付物</dt><dd>新 ZIP、SHA／大小、fresh extraction 報告、啟動與操作說明、本頁匯出 JSON、素材清單、原生影片、已知限制。</dd></dl>
 <ul><li>檢查新素材、registration、來源 manifest、音訊、Godot 與啟動檔都在包內；無重複路徑、越界路徑或工作區絕對路徑依賴。</li><li>若打包後再改任何程式／素材／必要腳本，包就過期，重打包並重新比對。舊包驗證不能沿用到新包。</li><li>測試日誌有 assertion、SCRIPT ERROR 或 native crash 即失敗；不能只看 exit code 0 或某行 PASS。環境例外必須具體記錄，不做通用忽略。</li><li>完成說明只寫本次已驗證內容；區分「自動測試通過」「人眼影片檢視」「真人聽感」「實體搖桿／雙機」。未解釋的崩潰保留日誌並列限制。</li></ul>
 <p class="gate"><b>出口：</b>使用者拿到的 ZIP 與最後測試的內容完全相同，從新目錄能開局並做出本輪修改招式。所有殘留待驗收項能被看見。</p>
@@ -144,7 +147,7 @@
 </section>
 
 <section id="tadakatsu">
-<h2>本多此次兩個重點，獨立驗到放開後</h2>
+<h2>本多 v0.17 歷史專項：兩個重點獨立驗到放開後</h2>
 <div class="grid"><article class="card"><h3>下＋重手蓄力：槍尾震地</h3><p><b>輸入：</b>S＋按住 K → 蓄滿 → 放開。</p><ol><li>舉槍：長槍直立、高舉；槍尖朝上、鈍尾朝地。</li><li>保持：周身氣場由弱到強，角色穩定蓄力，不重複提前撞地。</li><li>釋放：重心下沉，雙手發力，用槍底重擊地面。</li><li>命中：槍尾觸地的同一拍產生以人物為中心的全周衝擊波，附近雜兵震飛。</li><li>收勢：特效衰減，人物回站姿；波不重複產生，小王抗性按設計另驗。</li></ol><p class="muted">證據須含正前／正後／兩側／範圍外敵人，證明範圍與擊飛結果；不能只拍一個正前方木樁。</p></article>
 <article class="card"><h3>一般滿蓄重手：平順向前衝</h3><p><b>輸入：</b>不按上下方向，按住 K → 蓄滿 → 放開。</p><ol><li>出手後在多個 tick 連續前進，無瞬間階梯跳位。</li><li>角色大小、槍身、腳底基準穩定；不是靠鏡頭抖動表現加速。</li><li>空地不出現反覆震屏，正常攝影機跟隨不左右來回抽動。</li><li>撞到一人或多人時保留有目的的命中回饋，不把每 tick 接觸都當新撞擊。</li><li>兩個面向、共同攝影機與地圖邊界都確認；不能因一處停住就蓄積後瞬移。</li></ol><p class="muted">留存角色 x／camera_x／shake 隨 tick 的記錄與原生片段；數值單調不取代人眼確認平順。</p></article></div>
 <div class="review" data-review="tadakatsu-special"></div>
@@ -160,7 +163,7 @@
 <p>測試入口：<a href="../game/tests/test_tadakatsu_combat_v17.gd">本多戰鬥行為</a>、<a href="../game/tests/test_tadakatsu_render_v17.gd">本多取樣與時序</a>、<a href="../game/tests/test_tadakatsu_atlas_v17.gd">圖集與裁圖檢查</a>。render 測試必須用 <code>-- --require-v17</code> 才可作最終真素材證據；fixture 模式只驗取樣程式，不能代替成品。</p>
 <p>新製 16 組的<a href="../game/assets/v17/registration.json">最終登錄</a>由 <a href="../scripts/register-v17.py">register-v17.py</a> 產生；加上既有修正 10 組，目標共 26 組／306 張，仍以實際登錄與輸出數量核對。<a href="../game/tests/capture_board_v17.gd">全動作圖板腳本</a>用來逐格看裁圖、比例與前後差異；<a href="../game/tests/capture_tadakatsu_clips_v17.gd">逐招 12 張及站姿等比例板</a>需加 <code>-- --require-all</code>；<a href="../game/tests/capture_tadakatsu_v17.gd">原生輸入實錄腳本</a>記錄左右前衝、下蓄力與 world／camera／foot trace。數字只是交付規模，不能替代觀看成品。</p>
 <p>這次裁圖的可重用檢查：<a href="../scripts/verify-tadakatsu-atlas-v17.py">來源／原生輪廓像素比對</a>與原生 atlas 測試 <code>-- --capture</code>。先記錄舊等分格帶入鄰人像素的數量，再驗證完整人物的 component bounds 與裁切輪廓；原圖已切斷或與特效黏連者另列重畫，不能拿零污染數量宣稱原本缺掉的槍尖已修好。</p>
-<p class="note">此次只補本多專用圖，其他英雄不重畫。本多語音沿用 v0.16 既有來源，本輪不宣稱新增三種完整錄音或已通過真人聽感；第 09 關仍按實際驗收層級填寫。新版交付包預定為 <code>artifacts/吞食戰國-M1-v0.17-Windows.zip</code>，要等最後解壓校驗完成才標通過。</p>
+<p class="note">以上為 v0.17 當時只補本多專用圖的歷史範圍，其他英雄當時未重畫；v0.22 三人六格與分層武器以頁首規則及現行登錄為準。本多語音沿用既有來源，不由圖片更新推定新增錄音或已通過真人聽感。此處歷史試玩包路徑為 <code>artifacts/吞食戰國-M1-v0.17-Windows.zip</code>，不是本輪交付物。</p>
 </details>
 </section>
 

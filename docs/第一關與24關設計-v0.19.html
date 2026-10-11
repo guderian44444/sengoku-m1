@@ -31,7 +31,7 @@
       "name": "竹林伏擊",
       "theme": "bamboo",
       "weather": "mist",
-      "music": "siege",
+      "music": "bamboo",
       "width": 3400,
       "civilians": "none",
       "encounters": [
@@ -91,7 +91,9 @@
           "cart",
           2670,
           405,
-          ""
+          "",
+          false,
+          "vajra"
         ],
         [
           "jar",
@@ -276,7 +278,9 @@
           "cart",
           3220,
           410,
-          ""
+          "",
+          false,
+          "iron"
         ],
         [
           "jar",
@@ -493,7 +497,7 @@
       "name": "池石指揮庭園",
       "theme": "courtyard",
       "weather": "clear",
-      "music": "castle",
+      "music": "bamboo",
       "width": 3400,
       "civilians": "none",
       "encounters": [
@@ -540,7 +544,9 @@
           "planter",
           580,
           395,
-          ""
+          "",
+          false,
+          "mirror"
         ],
         [
           "stone_lantern",
@@ -581,7 +587,7 @@
       "name": "前哨陣內室決戰",
       "theme": "chamber",
       "weather": "indoor",
-      "music": "boss",
+      "music": "castle",
       "width": 3200,
       "civilians": "none",
       "encounters": [
@@ -1133,12 +1139,13 @@ const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>
 function review(id,label){return '<label>'+esc(label)+'<textarea data-field="'+esc(id)+'" maxlength="5000" placeholder="想調整的節奏、區域、人物或素材；也可記錄實測結果"></textarea></label>';}
 document.getElementById('segment-route').innerHTML=design.segments.map(s=>'<li><a href="#segment-'+s.id+'">'+s.id+' '+esc(s.name)+'</a></li>').join('');
 const weatherNames={mist:'薄霧',rain:'雨天',storm:'暴雨',clear:'晴朗',indoor:'室內'};
-const musicNames={siege:'攻陣',town:'市集',castle:'營寨',boss:'決戰'};
+const musicNames={bamboo:'幽竹簫聲',siege:'攻陣',town:'市集',castle:'營寨',boss:'決戰'};
 const kindNames={soldier:'足輕',flag:'旗手',archer:'弓兵',gunner:'鐵砲',commander:'隊長',boss:'將領'};
 const propNames={jar:'陶甕',basket:'竹籃',crate:'木箱',large_crate:'大木箱',cart:'糧車',stall:'攤車',barricade:'拒馬',fence:'柵欄',planter:'盆栽',stone_lantern:'石燈籠',screen:'屏風',cabinet:'實木櫃'};
+const talismanNames={vajra:'金剛護符40',iron:'玄鐵護符75',mirror:'明鏡護符110'};
 const foodNames={rice:'飯糰35HP',fish:'烤魚50HP',dango:'糰子25HP',peach:'桃子60HP'};
 function waveText(w){const counts={};for(const kind of w)counts[kind]=(counts[kind]||0)+1;return Object.entries(counts).map(([kind,count])=>esc(kindNames[kind]||kind)+' × '+count).join('、');}
-document.getElementById('segments').innerHTML=design.segments.map(s=>'<article class="segment" id="segment-'+s.id+'"><h3>'+String(s.id).padStart(2,'0')+' · '+esc(s.name)+'</h3><p>'+s.width+' 世界座標寬 ｜ '+esc(weatherNames[s.weather])+' ｜ 音樂：'+esc(musicNames[s.music])+'</p><p>'+esc(s.ground)+'</p>'+s.encounters.map((e,i)=>'<div class="card"><h3>據點 '+(i+1)+' · '+(i?s.encounters[i-1].end:0)+'–'+e.end+(e.boss?' · '+esc(e.boss.name):'')+'</h3><ol>'+e.waves.map(w=>'<li>'+waveText(w)+' <small>（單人 '+w.length+'／雙人 '+(Math.ceil(w.filter(k=>k!=="boss").length*1.5)+w.filter(k=>k==="boss").length)+' 人）</small></li>').join('')+'</ol>'+review('checkpoint.'+s.id+'.'+(i+1),'此據點評論')+'</div>').join('')+'<dl><dt>物件</dt><dd>'+s.props.map(p=>esc(propNames[p[0]])+(p[4]?'〔必須破壞〕':'')).join('、')+'</dd><dt>固定補給</dt><dd>'+s.props.filter(p=>p[3]).map(p=>esc(propNames[p[0]])+' → '+esc(foodNames[p[3]])).join('；')+'</dd><dt>玩法</dt><dd>'+esc(s.play)+'</dd></dl><div class="review">'+review('segment.'+s.id,'第 '+s.id+' 場景評論')+'</div></article>').join('');
+document.getElementById('segments').innerHTML=design.segments.map(s=>'<article class="segment" id="segment-'+s.id+'"><h3>'+String(s.id).padStart(2,'0')+' · '+esc(s.name)+'</h3><p>'+s.width+' 世界座標寬 ｜ '+esc(weatherNames[s.weather])+' ｜ 音樂：'+esc(musicNames[s.music])+'</p><p>'+esc(s.ground)+'</p>'+s.encounters.map((e,i)=>'<div class="card"><h3>據點 '+(i+1)+' · '+(i?s.encounters[i-1].end:0)+'–'+e.end+(e.boss?' · '+esc(e.boss.name):'')+'</h3><ol>'+e.waves.map(w=>'<li>'+waveText(w)+' <small>（單人 '+w.length+'／雙人 '+(Math.ceil(w.filter(k=>k!=="boss").length*1.5)+w.filter(k=>k==="boss").length)+' 人）</small></li>').join('')+'</ol>'+review('checkpoint.'+s.id+'.'+(i+1),'此據點評論')+'</div>').join('')+'<dl><dt>物件</dt><dd>'+s.props.map(p=>esc(propNames[p[0]])+(p[4]?'〔必須破壞〕':'')).join('、')+'</dd><dt>固定補給</dt><dd>'+s.props.filter(p=>p[3]||p[5]).map(p=>esc(propNames[p[0]])+' → '+esc(p[5]?talismanNames[p[5]]:foodNames[p[3]])).join('；')+'</dd><dt>玩法</dt><dd>'+esc(s.play)+'</dd></dl><div class="review">'+review('segment.'+s.id,'第 '+s.id+' 場景評論')+'</div></article>').join('');
 document.getElementById('roster-rows').innerHTML=design.stages.map(s=>'<tr><td><b>'+String(s[0]).padStart(2,'0')+' '+esc(s[2])+'</b><br>'+esc(s[1])+'</td><td>'+esc(s[3])+'</td><td>'+esc(s[4])+'<br>'+s[6].map(id=>'<a href="#src-'+esc(id)+'">'+esc(design.sources.find(x=>x[0]===id)[1])+'</a>').join('／')+'</td><td>'+esc(s[5])+'</td><td>'+review('stage.'+s[0],'第 '+s[0]+' 關評論')+'</td></tr>').join('');
 document.getElementById('source-list').innerHTML=design.sources.map(s=>'<li id="src-'+esc(s[0])+'"><a href="'+esc(s[2])+'" target="_blank" rel="noopener noreferrer">'+esc(s[1])+'</a><br><small>'+esc(s[3])+'</small></li>').join('');
 for(const box of document.querySelectorAll('[data-review]'))box.innerHTML=review('section.'+box.dataset.review,'此節評論');

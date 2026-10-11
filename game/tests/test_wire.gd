@@ -98,7 +98,7 @@ func _test_invalid_snapshots() -> void:
 		var malformed := original.duplicate(true)
 		malformed[field] = [1]
 		_check(not Wire.valid_snapshot(malformed), "non-dictionary " + field + " item")
-	for field in ["x", "y", "z", "hp", "max_hp", "rage", "team", "kind", "player_index", "armor", "weapon", "face", "action", "action_tick", "charge", "poison", "invuln", "vz", "target_x"]:
+	for field in ["x", "y", "z", "hp", "max_hp", "rage", "team", "kind", "player_index", "armor", "weapon", "face", "action", "action_tick", "charge", "poison", "invuln", "vz", "target_x", "lives", "score", "next_life_score", "respawn_ticks", "shield_points", "shield_kind", "extra_life_tick"]:
 		var malformed := original.duplicate(true)
 		malformed.fighters[0][field] = []
 		_check(not Wire.valid_snapshot(malformed), "malformed fighter " + field)
@@ -114,6 +114,22 @@ func _test_invalid_snapshots() -> void:
 		var malformed := original.duplicate(true)
 		malformed.fighters[0][pair[0]] = pair[1]
 		_check(not Wire.valid_snapshot(malformed), "invalid fighter range " + str(pair))
+	for pair in [["lives",-1],["lives",1.5],["score",NAN],["score",-1],["next_life_score",0],["next_life_score",10001],["respawn_ticks",121],["shield_points",111],["shield_kind","unknown"],["extra_life_tick",INF]]:
+		var malformed := original.duplicate(true)
+		malformed.fighters[0][pair[0]] = pair[1]
+		_check(not Wire.valid_snapshot(malformed), "invalid progression stat " + str(pair))
+	for key in Battle.TALISMANS:
+		var shielded := original.duplicate(true)
+		shielded.fighters[0].shield_kind = key
+		shielded.fighters[0].shield_points = Battle.TALISMANS[key].shield
+		shielded.drops = [{"id":999,"kind":"talisman","x":300.0,"y":450.0,"talisman_id":key}]
+		_check(Wire.valid_snapshot(shielded), "Valid talisman and shield " + key)
+		shielded.fighters[0].shield_points += 1
+		_check(not Wire.valid_snapshot(shielded), "Shield cannot exceed its own capacity " + key)
+	for key in [null,"",[],"unknown"]:
+		var malformed := original.duplicate(true)
+		malformed.drops = [{"id":999,"kind":"talisman","x":300.0,"y":450.0,"talisman_id":key}]
+		_check(not Wire.valid_snapshot(malformed), "Talisman ID must be known")
 	for pair in [["x", NAN], ["kind", "unknown"], ["id", "1"]]:
 		var malformed := original.duplicate(true)
 		malformed.drops[0][pair[0]] = pair[1]

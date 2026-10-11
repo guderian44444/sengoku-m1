@@ -386,6 +386,8 @@ static func tadakatsu_v17_sample(fighter: Dictionary, action: String, tick: floa
 	return {"clip":action,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released,"source":"v17","hero":"tadakatsu"}
 
 static func hero_v12_sample(fighter: Dictionary, distance: float, height: float, sheets: Dictionary) -> Dictionary:
+	if sheets.has("v22_idle"):
+		return hero_v22_sample(fighter,sheets)
 	if fighter.get("action","") in ["dead","defeated"] and fighter.get("airborne_lock",false):
 		fighter = fighter.duplicate()
 		fighter.action = "launched"
@@ -461,6 +463,74 @@ static func hero_v12_sample(fighter: Dictionary, distance: float, height: float,
 	sample.merge({"source":sheet.get_slice("_",0),"sheet":sheet,"cell":sample.frame},true)
 	if clip == "walk": sample.clip = "walk"
 	return sample
+
+
+static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictionary:
+	var action := str(fighter.get("action","idle"))
+	var tick := float(fighter.get("action_tick",0))
+	var clip := action
+	if fighter.get("hp",1) <= 0: clip = "launched" if fighter.get("airborne_lock",false) else "down"
+	elif action == "idle": clip = "jump" if float(fighter.get("z",0)) > 0 else (("run" if fighter.get("sprinting",false) else "walk") if fighter.get("moving",false) else "idle")
+	elif action == "light": clip = "light%d" % clampi(int(fighter.get("combo",1)),1,3)
+	elif action == "heavy": clip = "heavy%d" % clampi(int(fighter.get("heavy_combo",1)),1,2)
+	elif action in ["defeated","dead"]: clip = "down"
+	elif action in ["frozen","pulled","grabbed"]: clip = "hurt"
+	elif action == "thrown": clip = "launched"
+	elif action == "counter_cut": clip = "light2"
+	elif action == "upper_heavy": clip = "charged_upper"
+	elif action == "ground_slam": clip = "charged_slam"
+	elif action == "holding": clip = "holding" if sheets.has("v22_holding") else "throw"
+	elif action == "charge":
+		clip = "charge_slam" if int(fighter.get("charge_direction",0)) > 0 else ("charge_upper" if int(fighter.get("charge_direction",0)) < 0 else "charge")
+		if not sheets.has("v22_"+clip): clip = "charged_slam" if int(fighter.get("charge_direction",0)) > 0 else ("charged_upper" if int(fighter.get("charge_direction",0)) < 0 else "heavy2")
+	elif action == "charged" and not sheets.has("v22_charged"): clip = "heavy2"
+	if action in ["mixed_finisher","mixed_rising"]:
+		clip = ("light2" if fighter.get("kind","") == "oichi" else "light3") if tick < 22 else ("charged_upper" if action == "mixed_rising" else "charged_slam")
+	var sheet := "v22_" + clip
+	if not sheets.has(sheet): return {}
+	var count: int = sheets[sheet].size()
+	var frame := 0
+	var duration := 0.0
+	var released := false
+	if clip in ["walk","run"]:
+		tick = float(fighter.get("locomotion_tick",0))
+		duration = 45.0 if clip == "run" else 60.0
+		frame = posmod(floori(tick * count / duration),count)
+	elif clip == "idle": frame = posmod(floori(tick / 12.0),count)
+	elif clip in ["jump","launched"]: frame = clampi(floori((10.0-float(fighter.get("vz",0))) / 20.0 * count),0,count-1)
+	elif clip == "down":
+		frame = mini(count-1,floori(tick*count/24.0))
+		if fighter.get("down_from_air",false): frame = count/2 + mini(count/2-1,floori(tick*count/24.0))
+	elif clip == "recovering": frame = mini(count-1,floori(tick*count/float(Battle.RECOVER_TICKS)))
+	elif clip == "hurt": frame = count/2 if action == "frozen" else mini(count-1,floori(tick*count/18.0))
+	elif clip == "stunned": frame = posmod(floori(tick/8.0),count)
+	elif clip == "victory":
+		duration = Battle.VICTORY_TICKS
+		frame = mini(count-1,floori(tick*count/duration))
+	elif action in ["charge","holding"]: frame = mini(count/2-1,floori(tick/6.0))
+	elif action == "guard": frame = 4 if fighter.get("guard_hit_tick",0)>0 else mini(2,floori(tick/4.0))
+	elif action == "special":
+		var pulses: Array = Battle.SPECIAL_HIT_TICKS.get(str(fighter.get("kind","nobunaga")),Battle.SPECIAL_HIT_TICKS.nobunaga)
+		var pulse := 0
+		for index in range(1,pulses.size()):
+			if tick >= (float(pulses[index-1])+float(pulses[index]))*.5: pulse=index
+		var hit := float(pulses[pulse])
+		var start := 0.0 if pulse == 0 else (float(pulses[pulse-1])+hit)*.5
+		var finish := float(Battle.SPECIAL_TICKS) if pulse == pulses.size()-1 else (hit+float(pulses[pulse+1]))*.5
+		frame = _attack_frame(tick-start,hit-start,finish-start,count)
+		duration = Battle.SPECIAL_TICKS
+		released = tick >= hit
+	else:
+		var timing: Array = {"light":[6,19],"heavy":[14,36],"charged":[14,36],"throw":[0,24],"rising":[6,24],"upper_heavy":[12,36],"low_sweep":[9,28],"ground_slam":[14,42],"charged_upper":[22,56],"charged_slam":[28,72],"air_light":[6,20],"air_heavy":[12,38],"dash_strike":[10,30],"dash_heavy":[12,34],"counter_cut":[5,24],"mixed_finisher":[5,26],"mixed_rising":[5,26]}.get(action,[14,36])
+		var local_tick := tick
+		if action in ["mixed_finisher","mixed_rising"]:
+			if tick < 22: timing = [9,22]
+			else: local_tick -= 22
+		if action == "charged" and fighter.get("kind","") == "tadakatsu": timing = [5,36]
+		frame = _attack_frame(local_tick,timing[0],timing[1],count) if timing[0] > 0 else mini(count-1,floori(local_tick*count/timing[1]))
+		duration = timing[1]
+		released = local_tick >= timing[0]
+	return {"source":"v22","hero":fighter.get("kind",""),"clip":clip,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released}
 
 static func hero_v11_sample(fighter: Dictionary, distance: float, height: float, counts: Dictionary) -> Dictionary:
 	var sample := hero_v10_sample(fighter, distance, height)

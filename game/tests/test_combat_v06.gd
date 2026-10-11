@@ -84,7 +84,7 @@ func _test_expanded_sword_geometry() -> void:
 		["light", 110.0, 30.0, 14],
 		["uppercut", 130.0, 42.0, 16],
 		["sweep", 260.0, 85.0, 18],
-		["heavy", 140.0, 68.0, 26],
+		["heavy", 200.0, 80.0, 26],
 		["charged", 255.0, 90.0, 43],
 	]:
 		for outside in [false, true]:

@@ -6,8 +6,10 @@ const CombatAudio = preload("res://render/combat_audio.gd")
 const CombatHUD = preload("res://render/combat_hud.gd")
 const Typography = preload("res://render/game_typography.gd")
 const Wire = preload("res://core/wire.gd")
+const Weapons = preload("res://core/weapon_catalog.gd")
+const SaveProfile = preload("res://core/save_profile.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
-const BUILD := "sengoku-m1-0.20.0"
+const BUILD := "sengoku-m1-0.22.0"
 const DEFAULT_PORT := 27860
 const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "光秀", "tadakatsu": "忠勝"}
@@ -100,6 +102,10 @@ var demo_capture_dir := ""
 var demo_capture_next := 0
 var demo_capture_busy := false
 var demo_facing_left := false
+var profiles = SaveProfile.new()
+var weapon_choices: Array[OptionButton] = []
+var weapon_rows: Array[HBoxContainer] = []
+var _saved_profile_signature := ""
 
 func _ready() -> void:
 	_actions()
@@ -326,7 +332,8 @@ func _build_menu(ui: Control) -> void:
 	_button("二 人 共 鬥", func(): _open_selection(true), "LocalCoop", main_page)
 	_button("遊 戲 設 定", _open_options, "Options", main_page)
 	_button("離 開 遊 戲", func(): get_tree().quit(), "Quit", main_page)
-	var select_page := _menu_page("select", Vector2(320,  90), 640, "選 擇 武 將")
+	var select_page := _menu_page("select", Vector2(320,  65), 640, "選 擇 武 將")
+	select_page.add_theme_constant_override("separation",8)
 	var first_row := HBoxContainer.new()
 	select_page.add_child(first_row)
 	_menu_label(first_row, "一番隊　", 25)
@@ -342,6 +349,27 @@ func _build_menu(ui: Control) -> void:
 	partner_heroes.selected = 1
 	partner_heroes.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	partner_row.add_child(partner_heroes)
+	for slot in range(2):
+		var row := HBoxContainer.new()
+		select_page.add_child(row)
+		_menu_label(row,"%dP 武器　" % (slot + 1),20)
+		var choice := OptionButton.new()
+		choice.name = "Weapon%d" % slot
+		choice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(choice)
+		weapon_rows.append(row)
+		weapon_choices.append(choice)
+		choice.item_selected.connect(func(index: int):
+			var hero: String = HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
+			var id: String = str(choice.get_item_metadata(index))
+			if profiles.equip(slot,hero,id):
+				if active and session in ["solo","local"] and not training_active:
+					for fighter in sim.state.fighters:
+						if fighter.team == 0 and fighter.player_index == slot and fighter.kind == hero and id in fighter.owned_weapons: fighter.weapon_id = id
+				status.text = "武器裝備已保存。" if profiles.save() == OK else "裝備已套用，但存檔失敗。" + profiles.warning
+		)
+	heroes.item_selected.connect(func(_index): _refresh_loadouts())
+	partner_heroes.item_selected.connect(func(_index): _refresh_loadouts())
 	var difficulty_row := HBoxContainer.new()
 	select_page.add_child(difficulty_row)
 	_menu_label(difficulty_row, "難　度　", 25)
@@ -388,6 +416,7 @@ func _build_menu(ui: Control) -> void:
 		elif session == "local": _start_local_coop()
 		else: _start_solo(), "Restart", pause_page)
 	_button("遊 戲 設 定", _open_options, "Options", pause_page)
+	_button("保 存 人 物", func(): _save_characters(true), "SaveCharacters", pause_page)
 	_button("返 回 主 畫 面", _leave_to_menu, "Leave", pause_page)
 	menu_panel = _menu_page("engineering", Vector2(260, 30), 760, "工 程 入 口")
 	menu_panel.add_theme_font_size_override("font_size", 18)
@@ -452,6 +481,7 @@ func _show_menu_page(page: String) -> void:
 	if page == "pause":
 		menu_pages.pause.get_node("Resume").visible = sim.state.get("phase", "") in ["playing", "won"]
 		menu_pages.pause.get_node("Restart").visible = session in ["solo", "local"]
+		menu_pages.pause.get_node("SaveCharacters").visible = session in ["solo","local"] and not training_active
 	for control in menu_pages[page].find_children("*", "Control", true, false):
 		if control.is_visible_in_tree() and control.focus_mode == Control.FOCUS_ALL:
 			control.grab_focus()
@@ -460,8 +490,42 @@ func _show_menu_page(page: String) -> void:
 func _open_selection(coop: bool) -> void:
 	selection_coop = coop
 	partner_row.visible = coop
-	status.text = "雙人合作請連接兩支搖桿。" if coop else ""
+	_refresh_loadouts()
+	status.text = profiles.warning if profiles.warning != "" else ("雙人合作請連接兩支搖桿。人物與武器自動保存。" if coop else "自動讀取人物與武器；每次出陣重新開始三條命。")
 	_show_menu_page("select")
+
+func _refresh_loadouts() -> void:
+	for slot in range(weapon_choices.size()):
+		weapon_rows[slot].visible = slot == 0 or selection_coop
+		var hero: String = HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
+		var row: Dictionary = profiles.character(slot,hero)
+		var choice := weapon_choices[slot]
+		choice.clear()
+		for id in row.owned_weapons:
+			var weapon: Dictionary = Weapons.item(id)
+			choice.add_item("%s　階%d" % [weapon.name,weapon.tier])
+			choice.set_item_metadata(choice.item_count - 1,id)
+			if id == row.weapon_id: choice.selected = choice.item_count - 1
+
+func _load_characters() -> void:
+	if testing or session not in ["solo","local"]: return
+	for fighter in sim.state.fighters:
+		if fighter.team == 0: profiles.apply_to(fighter)
+	sim.state.loot_rng = int(Time.get_unix_time_from_system()) & 0x7fffffff
+	_saved_profile_signature = ""
+
+func _save_characters(manual: bool = false) -> void:
+	if not active or testing or training_active or demo_active or session not in ["solo","local"]: return
+	for fighter in sim.state.fighters: profiles.capture(fighter)
+	var signature := JSON.stringify(profiles.data)
+	if not manual and signature == _saved_profile_signature: return
+	var err: Error = profiles.save()
+	if err == OK:
+		_saved_profile_signature = signature
+		if manual: status.text = "人物屬性與武器已保存。關卡、剩餘命數及戰鬥狀態不存檔。"
+	else:
+		if profiles.warning == "": profiles.warning = "角色存檔失敗 (%d)，原存檔與備份保留。" % err
+		if is_instance_valid(status): status.text = profiles.warning
 
 func _open_options() -> void:
 	options_return = menu_screen
@@ -492,7 +556,7 @@ func _build_controls(ui: Control) -> void:
 	text.add_theme_constant_override("line_separation", 5)
 	controls_dialog.add_child(text)
 	var guide: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://controls-v11.json"))
-	text.text = "[b]畫面與進軍[/b]\nF11 全螢幕／視窗 · Esc / Options 開啟選單 · F1 關閉本表\n畫面上方：肖像、姓名、體力／數值、氣力、武器與盔甲。滿氣 U / R1 必殺。\n每區兩個據點；擊破敵人與路障後，看到 GO → 就一起向右前進。\n食物可回復體力，走近按 E / L1 拾取；雙人需各接一支搖桿。\n\n[b]六主角操作表[/b]\n" + BATTLE_HINT + "\nU 滿怒必殺 · E 拾取 · 同方向雙點按住衝刺\n按住左右連打：出招時停止前進，停打恢復；新按左右＋J：突進技\n先衝刺再按 K：立即衝刺重手，朝面前攻擊；不進入蓄力\n\n[b]練習場[/b]\n" + TRAINING_HINT + "\n\n"
+	text.text = "[b]畫面與進軍[/b]\nF11 全螢幕／視窗 · Esc / Options 開啟選單 · F1 關閉本表\n畫面上方：肖像、體力、氣力、命數與積分。每人三條命（含目前），每 10000 分加一命。滿氣 U / R1 必殺。\n每區兩個據點；擊破敵人與路障後，看到 GO → 就一起向右前進。\n食物回復體力，護符提供 40／75／110 點抵傷；走近按 E / L1 拾取。護符光芒消失表示用盡。\n倒地死亡後約 2 秒再起、3 秒保護；三命用盡即出局。雙人需各接一支搖桿。\n\n[b]六主角操作表[/b]\n" + BATTLE_HINT + "\nU 滿怒必殺 · E 拾取 · 同方向雙點按住衝刺\n按住左右連打：出招時停止前進，停打恢復；新按左右＋J：突進技\n先衝刺再按 K：立即衝刺重手，朝面前攻擊；不進入蓄力\n\n[b]練習場[/b]\n" + TRAINING_HINT + "\n\n"
 	for row in guide.rows:
 		text.text += "[color=#ffd581][b]%s[/b][/color]\n" % row.input
 		for hero in HEROES:
@@ -538,6 +602,7 @@ func _choices() -> void:
 	selected_faction = FACTION_NAMES.keys()[factions.selected]
 
 func _close_network() -> void:
+	_save_characters()
 	_stop_rumble()
 	player_devices = [-1, -1]
 	audio.stop_speech()
@@ -567,6 +632,7 @@ func _start_solo() -> void:
 	_choices()
 	local_slot = 0
 	sim.reset_campaign(difficulty, 1, [selected_hero])
+	_load_characters()
 	_activate()
 
 func _start_local_coop() -> void:
@@ -578,6 +644,7 @@ func _start_local_coop() -> void:
 	session = "local"
 	local_slot = 0
 	sim.reset_campaign(difficulty, 2, [selected_hero, HEROES[partner_heroes.selected]])
+	_load_characters()
 	_activate()
 	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · △／Y 按住抓人、放開摔 · R1／RB 必殺 · L2／LT 防禦 · Options 暫停"
 
@@ -929,8 +996,10 @@ func _set_game_focus(focused: bool) -> void:
 	for action in CONTROL_ACTIONS: Input.action_release(action)
 	if active and session in ["solo", "local"]:
 		paused = true
-		_show_menu_page("pause")
-		status.text = "遊戲已暫停。回到視窗後，放開按鍵並按「繼續」。"
+		# A popup takes window focus while opening; hiding its page here crashes the native focus handoff.
+		if not menu.visible:
+			_show_menu_page("pause")
+			status.text = "遊戲已暫停。回到視窗後，放開按鍵並按「繼續」。"
 
 func _physics_process(_delta: float) -> void:
 	app_ticks += 1
@@ -979,6 +1048,7 @@ func _physics_process(_delta: float) -> void:
 				net_events.clear()
 	_update_view()
 	var smoke_done := int(sim.state.get("tick", 0)) >= (240 if smoke == "host" else 180)
+	if local_frame % 120 == 0 or sim.state.events.any(func(event): return event.type in ["pickup","defeat"]): _save_characters()
 	if smoke_terminal: smoke_done = smoke == "client" and sim.state.get("phase", "") == "lost"
 	if not smoke.is_empty() and smoke_done:
 		var player_count := 0
@@ -1054,6 +1124,7 @@ func _stop_rumble() -> void:
 		if device >= 0: Input.stop_joy_vibration(device)
 
 func _exit_tree() -> void:
+	_save_characters()
 	_stop_rumble()
 	if is_instance_valid(audio): audio.stop_music()
 

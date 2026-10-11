@@ -60,6 +60,7 @@ func _test_death_camera() -> void:
 		for player in battle.state.fighters:
 			player.x = 2800.0+player.player_index*100.0
 			player.y = 480.0
+			player.lives = 1
 			battle._damage(player,1000,0,false)
 		var before := Battle.camera_left(battle.state)
 		for tick in range(600): battle.step([])
@@ -78,6 +79,7 @@ func _test_terminal_effects() -> void:
 	var enemy: Dictionary = battle.state.fighters[1]
 	enemy.x = player.x+20.0
 	enemy.y = player.y
+	player.lives = 1
 	battle._damage(player,1000,enemy.id,false)
 	battle.state.phase = "lost"
 	check(battle.state.effects.any(func(e): return e.type == "damage") and battle.state.effects.any(func(e): return e.type == "hit"),"Fatal hit starts with visible impact and damage text")

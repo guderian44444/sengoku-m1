@@ -16,6 +16,8 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
+  'weapons_save_v22', 'loadout_menu_v22', 'weapon_render_v22', 'hero_layers_v22',
+  'progression_v21', 'music_v21', 'engineering_menu_v21', 'render_items_v21',
   'combat_v20', 'audio_v20', 'typography_v20', 'menu_v20',
   'stage_v19', 'stage_movement_v19', 'stage_occlusion_v19', 'knockdown_v18', 'stage_playthrough_v18', 'battle', 'wire', 'training',
   'combat_v06', 'combat_v07', 'combat_v09', 'combat_v10', 'combat_v11', 'combat_v13', 'combat_v14',
@@ -86,6 +88,17 @@ if (process.argv.includes('--render')) {
 if (process.argv.includes('--render-v20')) {
   await run('menu_v20_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_menu_v20.gd', '--', '--capture-v20']);
   await run('capture_death_v20', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/capture_death_v20.gd']);
+}
+if (process.argv.includes('--render-v21')) {
+  await run('engineering_v21_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_engineering_menu_v21.gd', '--', '--capture-v21']);
+  await run('items_v21_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_render_items_v21.gd', '--', '--capture']);
+}
+if (process.argv.includes('--render-v22')) {
+  await run('weapon_render_v22_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_weapon_render_v22.gd']);
+  await run('loadout_menu_v22_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_loadout_menu_v22.gd']);
+}
+if (process.argv.includes('--render-heroes-v22')) {
+  await run('hero_layers_v22_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_hero_layers_v22.gd'], 360000);
 }
 const failed = results.filter(result => !result.ok);
 console.log(`${failed.length ? 'FAIL' : 'PASS'}: ${results.length} selected native groups; ${failed.length} failed. ${skipped.length} groups excluded by the supplied selection flags.`);

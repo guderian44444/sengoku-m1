@@ -1,6 +1,8 @@
 extends Control
 
 const Typography = preload("res://render/game_typography.gd")
+const Battle = preload("res://core/battle.gd")
+const Weapons = preload("res://core/weapon_catalog.gd")
 const HERO_NAMES := {"nobunaga":"信長", "oichi":"阿市", "hideyoshi":"秀吉", "ieyasu":"家康", "mitsuhide":"光秀", "tadakatsu":"忠勝"}
 # Native source regions retain the accepted character art; no separately generated faces.
 const PORTRAITS := {
@@ -19,6 +21,17 @@ var portraits: Dictionary = {}
 var players: Array[Dictionary] = []
 var boss: Dictionary = {}
 var _font: Font
+var _tick := 0
+
+static func portrait_spec(hero: String) -> Dictionary:
+	var path := "res://assets/v22/" + hero + "/registration.json"
+	if FileAccess.file_exists(path):
+		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+		if data is Dictionary and data.get("portrait") is Dictionary:
+			var entry: Dictionary = data.portrait
+			if entry.get("rect") is Array and entry.rect.size() == 4 and entry.get("file") is String:
+				return {"file":path.get_base_dir().path_join(entry.file),"region":Rect2i(int(entry.rect[0]),int(entry.rect[1]),int(entry.rect[2]),int(entry.rect[3]))}
+	return {"file":PORTRAITS[hero][0],"region":PORTRAITS[hero][1]}
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -26,10 +39,12 @@ func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	_font = Typography.font()
 	for hero in PORTRAITS:
-		var source := Image.load_from_file(PORTRAITS[hero][0])
-		if source != null: portraits[hero] = ImageTexture.create_from_image(source.get_region(PORTRAITS[hero][1]))
+		var spec := portrait_spec(hero)
+		var source := Image.load_from_file(spec.file)
+		if source != null: portraits[hero] = ImageTexture.create_from_image(source.get_region(spec.region))
 
 func sync(world: Dictionary) -> void:
+	_tick = int(world.get("tick",0))
 	players.clear()
 	boss = {}
 	for fighter in world.get("fighters", []):
@@ -40,7 +55,15 @@ func sync(world: Dictionary) -> void:
 	queue_redraw()
 
 static func player_rect(slot: int) -> Rect2:
-	return Rect2(16 if slot == 0 else 872, 10, 392, 84)
+	return Rect2(16 if slot == 0 else 872, 10, 392, 104)
+
+static func player_status(fighter: Dictionary, tick: int) -> Dictionary:
+	var lives := maxi(0,int(fighter.get("lives",Battle.STARTING_LIVES)))
+	var extra_age := tick - int(fighter.get("extra_life_tick",-1000))
+	var extra := extra_age >= 0 and extra_age < 120
+	var shield := "盾 %d" % maxi(0,int(fighter.get("shield_points",0)))
+	if int(fighter.get("respawn_ticks",0)) > 0: shield = "再起 %.1f" % (float(fighter.respawn_ticks) / 60.0)
+	return {"lives":"命×%d" % lives if lives > 0 else "命盡", "score":"分 %07d" % maxi(0,int(fighter.get("score",0))), "shield":shield, "extra":extra and extra_age % 20 < 14}
 
 func _draw() -> void:
 	if _font == null: return
@@ -53,20 +76,30 @@ func _draw() -> void:
 		draw_rect(panel, Color(0.6, 0.51, 0.3, 0.7), false, 1.0)
 		var portrait := Rect2(origin + Vector2(6, 6), Vector2(72, 72))
 		draw_rect(portrait, Color("101a1a"))
-		if portraits.has(fighter.kind): draw_texture_rect(portraits[fighter.kind], portrait, false)
+		if portraits.has(fighter.kind):
+			var texture: Texture2D = portraits[fighter.kind]
+			var size := texture.get_size() * 72.0 / maxf(texture.get_width(),texture.get_height())
+			draw_texture_rect(texture,Rect2(portrait.position + (portrait.size - size) * .5,size),false)
 		draw_rect(portrait, GOLD, false, 1.0)
+		var labels := player_status(fighter,_tick)
+		draw_rect(Rect2(portrait.position + Vector2(0,53),Vector2(72,19)),Color(.025,.04,.04,.86))
+		_label(portrait.position + Vector2(0,68),labels.lives,14,GOLD,72,HORIZONTAL_ALIGNMENT_CENTER)
 		var text_x := origin.x + 89
 		_label(Vector2(text_x, origin.y + 24), "%dP  %s" % [slot + 1, HERO_NAMES.get(fighter.kind, fighter.kind)], 21, GOLD)
 		var hp := maxi(0, int(fighter.get("hp", 0)))
 		var max_hp := maxi(1, int(fighter.get("max_hp", 1)))
 		_label(Vector2(text_x + 114, origin.y + 24), "體力  %d / %d" % [hp, max_hp], 16, Typography.PAPER, 181, HORIZONTAL_ALIGNMENT_RIGHT)
-		var health := Rect2(text_x, origin.y + 33, 293, 16)
+		var health := Rect2(text_x, origin.y + 29, 293, 12)
 		_bar(health, float(hp) / max_hp, Color("dc6654") if hp < max_hp * 0.25 else Color("72bd7b"))
+		_label(Vector2(text_x,origin.y + 58),labels.score,14,Typography.PAPER)
+		if labels.extra: _label(Vector2(text_x + 120,origin.y + 58),"+1命",14,GOLD)
+		_label(Vector2(text_x + 193,origin.y + 58),labels.shield,14,GOLD,100,HORIZONTAL_ALIGNMENT_RIGHT)
 		var rage := clampf(float(fighter.get("rage", 0)), 0, 100)
-		_label(Vector2(text_x, origin.y + 71), "氣", 15, GOLD)
-		_bar(Rect2(text_x + 24, origin.y + 58, 150, 12), rage / 100.0, Color("ffd066") if rage >= 100 else Color("eea449"))
-		_label(Vector2(text_x + 181, origin.y + 70), "MAX" if rage >= 100 else str(int(rage)), 13, GOLD)
-		_label(Vector2(text_x + 221, origin.y + 71), "武%d  甲%d" % [fighter.get("weapon", 0), fighter.get("armor", 0)], 13, MUTED)
+		_label(Vector2(text_x, origin.y + 77), "氣", 15, GOLD)
+		_bar(Rect2(text_x + 24, origin.y + 65, 150, 12), rage / 100.0, Color("ffd066") if rage >= 100 else Color("eea449"))
+		_label(Vector2(text_x + 181, origin.y + 77), "MAX" if rage >= 100 else str(int(rage)), 13, GOLD)
+		_label(Vector2(text_x + 237, origin.y + 77), "甲%d" % fighter.get("armor", 0), 13, MUTED)
+		_label(Vector2(text_x, origin.y + 97), "武器　" + Weapons.name_for(fighter), 16, GOLD)
 	if not boss.is_empty():
 		draw_rect(BOSS_RECT, PANEL)
 		var name_text := str(boss.get("display_name", "陣營小王"))

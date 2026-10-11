@@ -9,10 +9,12 @@ const MUSIC_FADE_SECONDS := 1.4
 const CATEGORY_BUSES := {"music": "Music", "sfx": "SFX", "voice": "Voice"}
 const STAGE_MUSIC := {
 	"legacy": "res://audio/v14/sengoku-battle-loop.wav",
+	"bamboo": "res://audio/v21/bamboo-loop.wav",
 	"siege": "res://audio/v18/siege-loop.wav",
-	"town": "res://audio/v18/town-loop.wav",
+	"town": "res://audio/v21/town-loop.wav",
 	"castle": "res://audio/v18/castle-loop.wav",
-	"boss": "res://audio/v18/boss-loop.wav"
+	"miniboss": "res://audio/v21/miniboss-loop.wav",
+	"boss": "res://audio/v21/boss-loop.wav"
 }
 const EVENT_SOUNDS := {
 	"hit": "hit", "heavy_hit": "heavy_hit", "special": "special",
@@ -150,6 +152,10 @@ func _load_music(key: String) -> AudioStreamWAV:
 func sync_stage_music(world: Dictionary) -> void:
 	var stage: Variant = world.get("stage", {})
 	var key := str(stage.get("music", "legacy")) if stage is Dictionary else "legacy"
+	for fighter in world.get("fighters", []):
+		if fighter.get("team", 1) != 1 or fighter.get("kind", "") != "boss" or fighter.get("hp", 0) <= 0: continue
+		key = "boss" if fighter.get("stage_boss", false) else "miniboss"
+		if key == "boss": break
 	if not STAGE_MUSIC.has(key): key = "legacy"
 	if key == _music_key: return
 	var stream := _load_music(key)
@@ -234,6 +240,8 @@ static func sound_for_event(event: Dictionary) -> String:
 	if kind in ["hit", "heavy_hit", "shield_hit"]:
 		return {"arrow":"arrow_hit", "special_arrow":"arrow_hit", "bullet":"bullet_hit", "needle":"needle_hit", "blunt":"blunt_hit", "kick":"blunt_hit"}.get(weapon,kind)
 	if kind == "run_bump": return "blunt_hit"
+	if kind in ["extra_life", "revive", "armor_pickup"]: return "pickup"
+	if kind == "armor_break": return "guard_break"
 	if kind == "landing" and event.get("wet",false): return "splash"
 	return kind
 

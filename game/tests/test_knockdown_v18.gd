@@ -54,6 +54,8 @@ func _test_arrow_passes() -> void:
 	var battle = arena()
 	var player: Dictionary = battle.state.fighters[0]
 	player.kind = "oichi"
+	player.weapon_id = Battle.Weapons.default_for("oichi")
+	player.owned_weapons = [player.weapon_id]
 	player.action = "charged"
 	var down: Dictionary = battle.state.fighters[1]
 	down.x = 580.0

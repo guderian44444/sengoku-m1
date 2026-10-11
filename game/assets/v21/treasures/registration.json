@@ -1,0 +1,66 @@
+{
+  "format": "sengoku-treasures-v21",
+  "generator": "built-in image_gen",
+  "source": "treasures-source.png",
+  "source_sha256": "146cf75949370af900c7522967f546d72e0d61e35f455062a6b3f73d45d1c145",
+  "source_size": [
+    1983,
+    793
+  ],
+  "prompt": "prompt.txt",
+  "prompt_sha256": "d0336f755588cd4fefb53a6a6494cc2d994152cc78c01d88e995a6f94a1638d3",
+  "processing": "Crop only. Alpha and pixels inside each crop are unchanged. Bounds use alpha >= 8 plus 8px padding to exclude near-transparent empty-background noise.",
+  "items": {
+    "kongo": {
+      "name": "金剛護符",
+      "file": "kongo.png",
+      "absorption": 40,
+      "source_region_xywh": [
+        6,
+        31,
+        636,
+        683
+      ],
+      "size": [
+        636,
+        683
+      ],
+      "display_height": 56,
+      "sha256": "7f56a80449a0e8853e5369142835bf57ea0c1a1da3f860b26e5c44d4623bc7b7"
+    },
+    "iron": {
+      "name": "玄鐵護符",
+      "file": "iron.png",
+      "absorption": 75,
+      "source_region_xywh": [
+        722,
+        96,
+        577,
+        592
+      ],
+      "size": [
+        577,
+        592
+      ],
+      "display_height": 56,
+      "sha256": "a9389016da8fd4964e391dc0fd48774732fabfaace77705ddee4eda9bde253fc"
+    },
+    "mirror": {
+      "name": "明鏡護符",
+      "file": "mirror.png",
+      "absorption": 110,
+      "source_region_xywh": [
+        1386,
+        57,
+        564,
+        664
+      ],
+      "size": [
+        564,
+        664
+      ],
+      "display_height": 56,
+      "sha256": "564069bcc484660c59140c10945d7dbecbae54cab4bd7a86a24b04c1518d4541"
+    }
+  }
+}

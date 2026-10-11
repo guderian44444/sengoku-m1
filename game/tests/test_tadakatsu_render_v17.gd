@@ -1,7 +1,7 @@
 extends SceneTree
 
 const Battle = preload("res://core/battle.gd")
-const View = preload("res://render/battle_view.gd")
+const View = preload("res://tests/legacy_battle_view.gd")
 const Frames = preload("res://render/frame_animation.gd")
 const CLIPS := ["slam_charge","charged_slam","charge_forward","upper","low_sweep","dash","air_light","air_heavy","hurt","guard","death","recover","special","holding","throw","launched"]
 var checks := 0

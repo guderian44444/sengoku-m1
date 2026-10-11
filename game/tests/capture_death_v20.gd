@@ -27,6 +27,7 @@ func prepare(heroes: Array) -> RefCounted:
 		player.x = 2660.0 if heroes.size() == 1 else 2500.0 + 300.0 * player.player_index
 		player.y = 608.0
 		player.face = 1 if player.player_index == 0 else -1
+		player.lives = 1
 		assert(battle._damage(player,1000,0,false,true,true))
 	for tick in range(90): battle.step([])
 	assert(battle.state.phase == "lost")

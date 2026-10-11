@@ -50,6 +50,8 @@ func test_grip_alignment() -> void:
 			var battle = arena(face)
 			battle.state.fighters[0].kind = kind
 			var player: Dictionary = battle.state.fighters[0]
+			player.weapon_id = Battle.Weapons.default_for(kind)
+			player.owned_weapons = [player.weapon_id]
 			var victim := target(battle,player.x + face * 80.0)
 			step(battle,1,Battle.GRAB)
 			var offset := 72.0 if kind == "tadakatsu" else 56.0

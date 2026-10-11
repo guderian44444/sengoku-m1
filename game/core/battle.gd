@@ -1,6 +1,7 @@
 extends RefCounted
 
 const StageData = preload("res://core/stage_data.gd")
+const Weapons = preload("res://core/weapon_catalog.gd")
 const LIGHT := 1
 const HEAVY := 2
 const JUMP := 4
@@ -51,6 +52,15 @@ const SPECIAL_HIT_TICKS := {
 const ENEMY_SPEED := 0.7
 const DOWN_TICKS := 60
 const RECOVER_TICKS := 36
+const STARTING_LIVES := 3
+const RESPAWN_TICKS := 120
+const EXTRA_LIFE_SCORE := 10000
+const TALISMANS := {
+	"vajra": {"name":"金剛護符", "shield":40, "color":"ffd36d"},
+	"iron": {"name":"玄鐵護符", "shield":75, "color":"72e0c1"},
+	"mirror": {"name":"明鏡護符", "shield":110, "color":"d7b5ff"},
+}
+const KILL_SCORES := {"soldier":100, "flag":150, "commander":300, "archer":150, "gunner":200, "boss":1500}
 const ENEMY_ATTACKS := {
 	"soldier": ["spear_thrust", "spear_sweep", "spear_butt"],
 	"flag": ["flag_poke", "flag_sweep", "flag_slam"],
@@ -99,7 +109,7 @@ func reset(difficulty: String = "normal", player_count: int = 1, hero_ids: Array
 	_queued_light = []
 	_queued_heavy = []
 	_queued_slam = []
-	state = {"tick": 0, "phase": "playing", "wave": 1, "fighters": [], "drops": [], "effects": [], "event_seq": 0, "events": [], "difficulty": difficulty,
+	state = {"tick": 0, "phase": "playing", "wave": 1, "fighters": [], "drops": [], "effects": [], "event_seq": 0, "events": [], "difficulty": difficulty, "loot_rng":1,
 		"props": [], "wet_zones": [{"x": 700.0, "y": 515.0, "width": 360.0, "depth": 150.0}, {"x": 1650.0, "y": 465.0, "width": 380.0, "depth": 150.0}],
 		"civilian_spawn_enabled": true, "civilian_flee_tick": -1, "civilian_flee_x": 0.0, "faction": faction, "intro": {}}
 	for i in range(clampi(player_count, 1, 2)):
@@ -133,7 +143,7 @@ func _enter_segment(index: int) -> void:
 	for old in state.fighters:
 		if old.team != 0: continue
 		var player := _make_fighter(0, old.kind, 180.0 + old.player_index * 65.0, 450.0 + old.player_index * 65.0, old.max_hp)
-		for field in ["id", "player_index", "hp", "max_hp", "weapon", "armor", "rage"]: player[field] = old[field]
+		for field in ["id", "player_index", "hp", "max_hp", "max_hp_bonus", "weapon", "weapon_id", "owned_weapons", "armor", "rage", "lives", "score", "next_life_score", "extra_life_tick", "respawn_ticks", "shield_points", "shield_kind"]: player[field] = old[field]
 		if player.hp <= 0: player.action = "defeated"
 		party.append(player)
 	state.fighters = party
@@ -156,8 +166,9 @@ func _enter_segment(index: int) -> void:
 			"cart":[140,170.0,58.0],"stall":[110,160.0,48.0],"barricade":[160,155.0,52.0],"fence":[110,140.0,36.0],
 			"planter":[55,65.0,38.0],"stone_lantern":[240,64.0,40.0],"screen":[85,140.0,38.0],"cabinet":[220,130.0,62.0]}[row[0]]
 		var mandatory: bool = row.size() > 4 and row[4]
+		var talisman: String = str(row[5]) if row.size() > 5 else ""
 		state.props.append({"id":_next_id,"kind":str(row[0]),"x":float(row[1]),"y":float(row[2]),"hp":int(shape[0]),"max_hp":int(shape[0]),
-			"width":shape[1],"depth":130.0 if mandatory else shape[2],"broken":false,"drop":"food" if row[3] != "" else "", "food_id":str(row[3]),"mandatory":mandatory})
+			"width":shape[1],"depth":130.0 if mandatory else shape[2],"broken":false,"drop":"talisman" if TALISMANS.has(talisman) else ("food" if row[3] != "" else ""), "food_id":str(row[3]),"mandatory":mandatory,"talisman_id":talisman})
 		_next_id += 1
 	_start_checkpoint(0)
 
@@ -278,6 +289,7 @@ func _tick_segment() -> void:
 	state.fighters = state.fighters.filter(func(f):return f.team == 0 or f.hp > 0 or state.tick - f.damage_tick < 240)
 	if not state.intro.is_empty() and _fighter(state.intro.actor).is_empty(): state.intro = {}
 	var living_party: Array = state.fighters.filter(func(f): return f.team == 0 and f.hp > 0)
+	if state.fighters.any(func(f): return f.team == 0 and f.hp <= 0 and f.respawn_ticks > 0): return
 	if living_party.is_empty():
 		state.phase = "lost"
 		return
@@ -409,6 +421,7 @@ func step(inputs: Array) -> void:
 	for fighter in state.fighters:
 		_tick_motion(fighter)
 		if fighter.hp <= 0:
+			if fighter.team == 0: _tick_respawn(fighter)
 			continue
 		_tick_fighter(fighter)
 		if fighter.hp <= 0:
@@ -429,7 +442,11 @@ func step(inputs: Array) -> void:
 		return
 	var players_alive := false
 	var enemies_alive := false
+	var respawning := false
 	for fighter in state.fighters:
+		if fighter.team == 0 and fighter.respawn_ticks > 0:
+			players_alive = true
+			respawning = true
 		if fighter.hp > 0:
 			if fighter.team == 0:
 				players_alive = true
@@ -437,7 +454,7 @@ func step(inputs: Array) -> void:
 				enemies_alive = true
 	if not players_alive:
 		state.phase = "lost"
-	elif not enemies_alive:
+	elif not enemies_alive and not respawning:
 		if state.wave == 3:
 			state.phase = "won"
 		else:
@@ -505,7 +522,10 @@ func _make_fighter(team: int, kind: String, x: float, y: float, hp: int) -> Dict
 	var fighter := {
 		"id": _next_id, "team": team, "kind": kind, "x": x, "y": y, "z": 0.0, "vz": 0.0,
 		"hp": hp, "max_hp": hp, "rage": 0, "face": 1 if team == 0 else -1,
+		"lives": STARTING_LIVES if team == 0 else 0, "score":0, "next_life_score":EXTRA_LIFE_SCORE, "extra_life_tick":-1000, "respawn_ticks":0,
+		"shield_points":0, "shield_kind":"",
 		"action": "idle", "action_tick": 0, "charge": 0, "armor": 0, "weapon": 0,
+		"weapon_id":Weapons.default_for(kind) if team == 0 else "", "owned_weapons":[Weapons.default_for(kind)] if team == 0 else [], "max_hp_bonus":0,
 		"invuln": 0, "poison": 0, "poison_tick": 0, "poison_owner": 0,
 		"combo": 0, "combo_tick": 0, "player_index": -1, "target_x": x, "target_y": y,
 		"cooldown": 20, "knockback": 0.0, "heavy_combo": 0, "heavy_combo_tick": 0,
@@ -522,6 +542,41 @@ func _make_fighter(team: int, kind: String, x: float, y: float, hp: int) -> Dict
 	}
 	_next_id += 1
 	return fighter
+
+
+func _tick_respawn(player: Dictionary) -> void:
+	if player.respawn_ticks <= 0: return
+	player.respawn_ticks -= 1
+	if player.respawn_ticks > 0: return
+	# Finish the fall before getting up, including deaths caused by a throw.
+	if player.z > 0 or player.airborne_lock:
+		player.respawn_ticks = 1
+		return
+	var restored := _make_fighter(0,player.kind,clampf(player.x,_left_edge(),_right_edge()),player.y,player.max_hp)
+	for field in ["id","player_index","lives","score","next_life_score","extra_life_tick","weapon","weapon_id","owned_weapons","max_hp_bonus","armor","face"]: restored[field] = player[field]
+	player.merge(restored,true)
+	_begin(player,"recovering")
+	player.invuln = 180
+	player.pickup_flash_tick = state.tick
+	cancel_input(player.player_index)
+	_event("revive",player.x,player.y,player.id,player.id)
+
+
+func _award_score(owner: int, points: int) -> void:
+	if state.has("training"): return
+	var player := _fighter(owner)
+	if player.is_empty() or player.team != 0 or points <= 0: return
+	player.score += points
+	while player.score >= player.next_life_score:
+		player.next_life_score += EXTRA_LIFE_SCORE
+		player.lives += 1
+		player.extra_life_tick = state.tick
+		if player.hp <= 0 and player.respawn_ticks == 0: player.respawn_ticks = RESPAWN_TICKS
+		_event("extra_life",player.x,player.y,player.id,player.id)
+
+
+static func nobunaga_heavy_reach(combo: int) -> float:
+	return 230.0 if combo == 2 else 200.0
 
 
 func _spawn_wave() -> void:
@@ -807,7 +862,8 @@ func _tick_fighter(fighter: Dictionary) -> void:
 				if fighter.kind == "oichi":
 					_projectile(fighter, (43 if charged else (30 if second else 24)) + fighter.weapon * 6, 0, charged or second, "arrow", 1450.0 if charged else 760.0, 0.0, "ice" if charged else "", true, {"piercing": false, "burst_radius": 100.0, "burst_damage": 6} if charged else {})
 				else:
-					_melee(fighter, 255.0 if charged else 140.0, 90.0 if charged else 68.0, (43 if charged else (34 if second else 26)) + fighter.weapon * 8, charged or second, 0, charged or second, false, 18.0, HERO_PROFILES[fighter.kind].element if charged else "")
+					var reach := 255.0 if charged else (nobunaga_heavy_reach(fighter.heavy_combo) if fighter.kind == "nobunaga" else 140.0)
+					_melee(fighter, reach, 90.0 if charged else (80.0 if fighter.kind == "nobunaga" else 68.0), (43 if charged else (34 if second else 26)) + fighter.weapon * 8, charged or second, 0, charged or second, false, 18.0, HERO_PROFILES[fighter.kind].element if charged else "")
 			if fighter.action_tick >= hero_tick(fighter.kind, 36):
 				_begin(fighter, "idle")
 		"throw":
@@ -1069,10 +1125,12 @@ func _damage_prop(prop: Dictionary, damage: int, owner: int) -> void:
 	_effect("hit", prop.x, prop.y - 25.0, 10, {"heavy": damage >= 25})
 	if prop.hp == 0:
 		prop.broken = true
+		_award_score(owner,50)
 		_effect("debris", prop.x, prop.y, 36, {"kind": prop.kind, "target": prop.id})
 		_event("prop_break", prop.x, prop.y, owner, prop.id)
 		if not str(prop.drop).is_empty():
 			_add_drop(prop.drop, prop.x, prop.y)
+			if prop.drop == "talisman": state.drops[-1].talisman_id = prop.talisman_id
 			if prop.drop == "food" and not str(prop.get("food_id","")).is_empty():
 				state.drops[-1].food_id = prop.food_id
 				state.drops[-1].heal = {"rice":35,"fish":50,"dango":25,"peach":60}.get(prop.food_id,40)
@@ -1224,7 +1282,7 @@ func _tick_enemy_attack(fighter: Dictionary) -> void:
 		var target := _fighter(fighter.chain_target)
 		if not target.is_empty() and target.pull_owner == fighter.id:
 			target.pull_owner = 0
-			if _damage(target, int(24 * _difficulty.enemy_damage), fighter.id, false, true, false, true):
+			if _damage(target, int(24 * _difficulty.enemy_damage), fighter.id, false, true, false, true) and target.hp > 0:
 				target.stun = 65
 				_begin(target, "stunned")
 		fighter.chain_target = 0
@@ -1265,7 +1323,7 @@ func _enemy_melee(attacker: Dictionary, reach: float, depth: float, amount: int,
 			if target.held_by != 0: continue
 			if reaction == "down": _launch(target, attacker.face, 9.0, 6.0)
 			elif reaction == "push": target.knockback = attacker.face * 12.0
-			elif reaction == "stun":
+			elif reaction == "stun" and target.hp > 0:
 				target.stun = 45
 				_begin(target, "stunned")
 
@@ -1287,15 +1345,40 @@ func _cast_chain(attacker: Dictionary, reach: float = 430.0) -> void:
 		var shield := _front_shield(closest, attacker.x, attacker.y)
 		if not shield.is_empty():
 			_damage(shield, 12, attacker.id, false, true, true)
-		elif _damage(closest, 6, attacker.id, false):
+		elif _damage(closest, 6, attacker.id, false) and closest.hp > 0:
 			attacker.chain_target = closest.id
 			closest.pull_owner = attacker.id
 			_begin(closest, "pulled")
 	_effect("chain", attacker.x, attacker.y, 30, {"owner": attacker.id, "target": attacker.chain_target, "target_x": endpoint, "target_y": attacker.y, "face": attacker.face, "kind": attacker.get("boss_variant", "kusarigama")})
 
 
+func _attack_equipment(attacker: Dictionary) -> Dictionary:
+	if attacker.team != 0 or (attacker.kind == "oichi" and attacker.action != "dash_heavy"): return {}
+	return Weapons.item(str(attacker.get("weapon_id","")))
+
+func _loot_roll(limit: int) -> int:
+	# Authoritative snapshot holds the PRNG, so replays and network clients agree.
+	state.loot_rng = (int(state.loot_rng) * 1103515245 + 12345) & 0x7fffffff
+	return (int(state.loot_rng) >> 8) % limit
+
+func _drop_boss_weapon(boss: Dictionary, owner: int) -> void:
+	if state.has("training"): return
+	var player := _fighter(owner)
+	if player.is_empty() or player.team != 0: return
+	var major: bool = boss.get("stage_boss",false)
+	if not major and _loot_roll(100) >= 65: return
+	var current: Dictionary = Weapons.item(player.weapon_id)
+	var options := Weapons.upgrades(player.kind,player.weapon_id).filter(func(id): return Weapons.ITEMS[id].tier <= current.tier + (3 if major else 2))
+	if options.is_empty(): return
+	_add_drop("weapon",boss.x,boss.y)
+	state.drops[-1].weapon_id = options[_loot_roll(options.size())]
+
 func _melee(attacker: Dictionary, reach: float, depth: float, damage: int, heavy: bool, poison: int = 0, launch: bool = false, uppercut: bool = false, behind: float = 18.0, element: String = "", arc_degrees: float = 360.0) -> void:
 	_weapon_release(attacker, _melee_weapon(attacker))
+	var equipment := _attack_equipment(attacker)
+	damage += int(equipment.get("damage_bonus",0))
+	reach += float(equipment.get("reach_bonus",0))
+	if element == "": element = str(equipment.get("element",""))
 	if HERO_PROFILES.has(attacker.kind):
 		var profile: Dictionary = HERO_PROFILES[attacker.kind]
 		reach *= profile.reach
@@ -1315,6 +1398,7 @@ func _melee(attacker: Dictionary, reach: float, depth: float, damage: int, heavy
 				elif uppercut and target.weight == "light":
 					_launch(target, attacker.face, 12.0 if attacker.action == "charged_upper" else (1.4 if attacker.action == "rising" else 0.8), 9.0 if attacker.action == "charged_upper" else (7.0 if attacker.action == "rising" else 4.6))
 				attacker.rage = mini(100, attacker.rage + 14)
+				if target.weight != "heavy": target.knockback += attacker.face * float(equipment.get("knockback",0))
 				if poison > 0:
 					_poison(target, poison, attacker.id)
 				_apply_element(target, element, attacker.id)
@@ -1459,6 +1543,18 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 		_effect("shatter", target.x, target.y - target.z, 34, {"target": target.id, "radius": 100.0})
 		_event("shatter", target.x, target.y, actor, target.id)
 	var final_damage: int = maxi(1, amount - target.armor * 3)
+	if target.shield_points > 0:
+		var absorbed: int = mini(final_damage,target.shield_points)
+		target.shield_points -= absorbed
+		final_damage -= absorbed
+		_effect("shield_hit",target.x,target.y,12,{"target":target.id})
+		_event("shield_hit",target.x,target.y,actor,target.id,{"weapon":impact_weapon})
+		if target.shield_points == 0:
+			target.shield_kind = ""
+			_event("armor_break",target.x,target.y,target.id,target.id)
+		if final_damage == 0:
+			if reaction: target.invuln = maxi(target.invuln,14)
+			return false
 	var previous_hp: int = target.hp
 	target.hp = maxi(1 if target.kind == "dummy" or (target.team == 0 and state.has("training")) else 0, target.hp - final_damage)
 	var actual_damage: int = previous_hp - target.hp
@@ -1494,6 +1590,12 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 	elif target.poison > 0:
 		_effect("poison", target.x, target.y - 32.0, 10)
 	if target.hp == 0:
+		if target.team == 0:
+			target.lives = maxi(0,target.lives - 1)
+			target.respawn_ticks = RESPAWN_TICKS if target.lives > 0 else 0
+		else:
+			_award_score(actor,5000 if target.get("stage_boss",false) else int(KILL_SCORES.get(target.kind,0)))
+			if target.kind == "boss": _drop_boss_weapon(target,actor)
 		target.stun = 0
 		target.shield_hurt_tick = 0
 		target.invuln = 0
@@ -1620,6 +1722,10 @@ func _projectile(attacker: Dictionary, damage: int, poison: int, finisher: bool 
 	if attacker.team == 1 and weapon == "arrow":
 		_arc_arrow(attacker, damage)
 		return
+	var equipment: Dictionary = Weapons.item(str(attacker.get("weapon_id",""))) if attacker.team == 0 and weapon in ["arrow","special_arrow","blade"] else {}
+	damage += int(equipment.get("damage_bonus",0))
+	reach += float(equipment.get("reach_bonus",0))
+	if element == "": element = str(equipment.get("element",""))
 	var speed := 34.0 if weapon in ["bullet", "blade"] else (11.0 if weapon == "needle" else (9.0 if attacker.team == 1 else 22.0))
 	var angle := deg_to_rad(float(options.get("spread_angle", 0.0)))
 	var vx: float = attacker.face * speed * cos(angle)
@@ -1632,7 +1738,8 @@ func _projectile(attacker: Dictionary, damage: int, poison: int, finisher: bool 
 		"owner": attacker.id, "team": attacker.team, "damage": damage, "poison": poison, "finisher": finisher,
 		"action": attacker.action, "action_tick": attacker.action_tick, "combo": attacker.combo, "heavy_combo": attacker.heavy_combo,
 		"weapon": weapon, "element": element, "shatter_hit": shatter_hit, "charged": attacker.action in ["charged", "charged_upper", "charged_slam"], "rising": attacker.action in ["rising", "upper_heavy", "charged_upper"], "range_left": reach - origin, "hit_depth": 28.0 if weapon == "special_arrow" else (18.0 if weapon == "needle" else 12.0),
-		"height_tolerance": 100.0 if attacker.action in ["air_light", "air_heavy"] else 70.0, "piercing": weapon in ["special_arrow", "blade"] or element == "ice", "hit_ids": [], "stun": 0,
+		"equipment_id":str(attacker.get("weapon_id","")), "equipment_knockback":float(equipment.get("knockback",0)),
+		"height_tolerance": 100.0 if attacker.action in ["air_light", "air_heavy"] else 70.0, "piercing": weapon in ["special_arrow", "blade"] or (element == "ice" and weapon != "arrow"), "hit_ids": [], "stun": 0,
 	}
 	for field in ["piercing", "burst_radius", "burst_damage", "shatter_damage", "follow_freeze"]:
 		if options.has(field): extra[field] = options[field]
@@ -1746,6 +1853,7 @@ func _tick_effects() -> void:
 					if effect.get("finisher", false) and target.weight != "heavy": _launch(target, effect.face, 16.0 if effect.get("charged", false) else (13.0 if effect.get("weapon", "needle") == "arrow" else 8.0))
 					elif effect.get("rising", false) and target.weight == "light":
 						_launch(target, effect.face, 1.4, 7.0)
+					if target.weight != "heavy": target.knockback += effect.face * float(effect.get("equipment_knockback",0))
 					if effect.get("stun", 0) > 0 and target.hp > 0 and target.held_by == 0:
 						target.stun = effect.stun
 						_begin(target, "stunned")
@@ -1819,20 +1927,34 @@ func _pickup(fighter: Dictionary) -> void:
 				fighter.pickup_flash_tick = state.tick
 				_event("food_pickup",drop.x,drop.y,fighter.id,drop.id,{"food_id":str(drop.get("food_id","rice")),"heal":restored})
 			"weapon":
-				if fighter.weapon > 0:
-					continue
-				fighter.weapon = 1
+				var id: String = drop.get("weapon_id","")
+				if not Weapons.compatible(fighter.kind,id): continue
+				if id in fighter.owned_weapons and id == fighter.weapon_id: continue
+				if id not in fighter.owned_weapons: fighter.owned_weapons.append(id)
+				fighter.weapon_id = id
+				fighter.pickup_flash_tick = state.tick
 			"armor":
 				if fighter.armor > 0:
 					continue
 				fighter.armor = 1
-		if drop.kind != "food": _event("pickup", drop.x, drop.y, fighter.id, drop.id)
+			"talisman":
+				var key: String = drop.get("talisman_id","vajra")
+				if not TALISMANS.has(key) or fighter.shield_points >= TALISMANS[key].shield: continue
+				fighter.shield_kind = key
+				fighter.shield_points = TALISMANS[key].shield
+				fighter.pickup_flash_tick = state.tick
+				_event("armor_pickup",drop.x,drop.y,fighter.id,drop.id)
+		if drop.kind not in ["food","talisman"]: _event("pickup", drop.x, drop.y, fighter.id, drop.id)
 		state.drops.erase(drop)
 		return
 
 
 func _add_drop(kind: String, x: float, y: float) -> void:
 	state.drops.append({"id": _next_id, "kind": kind, "x": x, "y": y})
+	if kind == "weapon":
+		var hero: String = state.fighters[0].kind if not state.fighters.is_empty() else "nobunaga"
+		state.drops[-1].weapon_id = Weapons.upgrades(hero,Weapons.default_for(hero))[0]
+	if kind == "talisman": state.drops[-1].talisman_id = "vajra"
 	if kind == "food" and state.has("stage"):
 		state.drops[-1].food_id = ["rice","fish","dango","peach"][_next_id % 4]
 		state.drops[-1].heal = 40

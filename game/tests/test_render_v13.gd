@@ -1,5 +1,5 @@
 extends SceneTree
-const View = preload("res://render/battle_view.gd")
+const View = preload("res://tests/legacy_battle_view.gd")
 const Battle = preload("res://core/battle.gd")
 var checks := 0
 

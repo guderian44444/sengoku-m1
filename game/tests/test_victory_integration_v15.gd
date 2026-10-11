@@ -52,8 +52,10 @@ func run() -> void:
 	check(not app.audio.speech_playing(), "Held terminal state never repeats either victory line")
 	for fighter in app.sim.state.fighters:
 		var sample: Dictionary = app.view._fighter_animation(fighter)
-		check(sample.source == "v15" and sample.frame == 11 and sample.count == 12, "Actual registered victory stays on drawing twelve")
-		check(app.view._art.animation_frame(fighter.kind, sample).source == "v15", "Renderer retrieves the same new PNG selected by animation")
+		var source := "v22" if app.view._art.animations[fighter.kind].has("v22_victory") else "v15"
+		var count := 6 if source == "v22" else 12
+		check(sample.source == source and sample.frame == count - 1 and sample.count == count, "Actual registered victory stays on its last authored drawing")
+		check(app.view._art.animation_frame(fighter.kind, sample).source == source, "Renderer retrieves the same PNG selected by animation")
 	app._leave_to_menu()
 	app._start_local_coop()
 	check(app._victory_spoken.is_empty() and app._victory_subtitle.is_empty(), "New encounter clears both speech queue and old subtitle")
