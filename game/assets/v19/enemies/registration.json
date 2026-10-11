@@ -1,0 +1,5000 @@
+{
+  "version": "v19",
+  "notes": "True hand-redrawn generated sprites; originals retained. Source body rulers exclude weapons. Independent padded runtime textures prevent atlas bleed.",
+  "actors": {
+    "soldier-walk": {
+      "file": "soldier-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "soldier",
+      "sheet": "walk",
+      "key": "imagawa:soldier:walk",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 4,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        2,
+        3,
+        5,
+        8,
+        9
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          207.0,
+          356
+        ],
+        [
+          895.5,
+          356
+        ],
+        [
+          1289.0,
+          358
+        ],
+        [
+          550.0,
+          710
+        ],
+        [
+          202.5,
+          1067
+        ],
+        [
+          566.5,
+          1067
+        ]
+      ],
+      "body_height": 310,
+      "body_heights": [
+        310,
+        310,
+        310,
+        310,
+        310,
+        310
+      ],
+      "regions": {
+        "0": [
+          89,
+          5,
+          256,
+          355
+        ],
+        "1": [
+          838,
+          7,
+          174,
+          353
+        ],
+        "2": [
+          1209,
+          10,
+          176,
+          352
+        ],
+        "3": [
+          426,
+          364,
+          280,
+          350
+        ],
+        "4": [
+          122,
+          718,
+          174,
+          353
+        ],
+        "5": [
+          469,
+          715,
+          176,
+          356
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "9b7e27d0a05d764d8157a3e4db552fc4a48359266ed87fb0cd17ecba8487b358",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "foot_spans": [
+        243,
+        82,
+        97,
+        258,
+        137,
+        70
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "soldier-idle": {
+      "file": "soldier-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "soldier",
+      "sheet": "idle",
+      "key": "imagawa:soldier:idle",
+      "columns": 1,
+      "rows": 1,
+      "source_columns": 4,
+      "source_rows": 3,
+      "source_indices": [
+        0
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          207.0,
+          356
+        ]
+      ],
+      "body_height": 310,
+      "body_heights": [
+        310
+      ],
+      "regions": {
+        "0": [
+          89,
+          5,
+          256,
+          355
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "9b7e27d0a05d764d8157a3e4db552fc4a48359266ed87fb0cd17ecba8487b358",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "foot_spans": [
+        243
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "soldier-hurt": {
+      "file": "soldier-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "soldier",
+      "sheet": "hurt",
+      "key": "imagawa:soldier:hurt",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          247.5,
+          605
+        ],
+        [
+          554.5,
+          609
+        ],
+        [
+          941.5,
+          609
+        ]
+      ],
+      "body_height": 480,
+      "body_heights": [
+        480,
+        480,
+        480
+      ],
+      "regions": {
+        "0": [
+          64,
+          95,
+          352,
+          514
+        ],
+        "1": [
+          478,
+          249,
+          372,
+          364
+        ],
+        "2": [
+          888,
+          195,
+          361,
+          418
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "75485e0f36eca1c2a1e21831461f6d52729029121f3177a4c01c13e542fef301",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        342,
+        213,
+        264
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "soldier-struggle": {
+      "file": "soldier-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "soldier",
+      "sheet": "struggle",
+      "key": "imagawa:soldier:struggle",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          80.0,
+          1174
+        ],
+        [
+          653.5,
+          1174
+        ],
+        [
+          1193.5,
+          1166
+        ]
+      ],
+      "body_height": 480,
+      "body_heights": [
+        480,
+        480,
+        480
+      ],
+      "regions": {
+        "0": [
+          29,
+          709,
+          441,
+          469
+        ],
+        "1": [
+          476,
+          739,
+          352,
+          439
+        ],
+        "2": [
+          892,
+          684,
+          347,
+          486
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "75485e0f36eca1c2a1e21831461f6d52729029121f3177a4c01c13e542fef301",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        354,
+        346,
+        307
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "soldier-death": {
+      "file": "soldier-death.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "soldier",
+      "sheet": "death",
+      "key": "imagawa:soldier:death",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          125.0,
+          668
+        ],
+        [
+          515.0,
+          665
+        ],
+        [
+          845.0,
+          689
+        ],
+        [
+          201.0,
+          1142
+        ],
+        [
+          524.0,
+          1143
+        ],
+        [
+          985.5,
+          1137
+        ]
+      ],
+      "body_height": 535,
+      "body_heights": [
+        535,
+        535,
+        535,
+        535,
+        535,
+        535
+      ],
+      "regions": {
+        "0": [
+          46,
+          63,
+          384,
+          609
+        ],
+        "1": [
+          452,
+          146,
+          413,
+          523
+        ],
+        "2": [
+          782,
+          223,
+          450,
+          470
+        ],
+        "3": [
+          12,
+          866,
+          431,
+          280
+        ],
+        "4": [
+          370,
+          978,
+          463,
+          169
+        ],
+        "5": [
+          829,
+          1027,
+          422,
+          114
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "e4a82a1f318fdf68aaa94682dd38be7790cbfee7649c796372dd22116bc9743a",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        57,
+        253,
+        65,
+        340,
+        295,
+        396
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "soldier-spear_thrust": {
+      "file": "soldier-spear_thrust.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "soldier",
+      "sheet": "spear_thrust",
+      "key": "imagawa:soldier:spear_thrust",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          187.0,
+          615
+        ],
+        [
+          585.0,
+          616
+        ],
+        [
+          960.5,
+          618
+        ],
+        [
+          221.5,
+          1126
+        ],
+        [
+          661.0,
+          1127
+        ],
+        [
+          1074.5,
+          1132
+        ]
+      ],
+      "body_height": 395,
+      "body_heights": [
+        395,
+        395,
+        395,
+        395,
+        395,
+        395
+      ],
+      "regions": {
+        "0": [
+          40,
+          133,
+          294,
+          486
+        ],
+        "1": [
+          424,
+          241,
+          363,
+          379
+        ],
+        "2": [
+          797,
+          265,
+          448,
+          357
+        ],
+        "3": [
+          30,
+          806,
+          501,
+          324
+        ],
+        "4": [
+          483,
+          792,
+          416,
+          339
+        ],
+        "5": [
+          935,
+          689,
+          283,
+          447
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "76d45ba128e527831a066736ead2a72c75c8af40c3b622c05baed5e729b476ac",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        271,
+        294,
+        285,
+        356,
+        329,
+        272
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "soldier-spear_sweep": {
+      "file": "soldier-spear_sweep.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "soldier",
+      "sheet": "spear_sweep",
+      "key": "imagawa:soldier:spear_sweep",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          299.0,
+          397
+        ],
+        [
+          952.0,
+          398
+        ],
+        [
+          306.5,
+          777
+        ],
+        [
+          896.5,
+          781
+        ],
+        [
+          292.5,
+          1150
+        ],
+        [
+          923.5,
+          1153
+        ]
+      ],
+      "body_height": 285,
+      "body_heights": [
+        285,
+        285,
+        285,
+        285,
+        285,
+        285
+      ],
+      "regions": {
+        "0": [
+          177,
+          129,
+          376,
+          272
+        ],
+        "1": [
+          817,
+          150,
+          302,
+          252
+        ],
+        "2": [
+          163,
+          515,
+          430,
+          266
+        ],
+        "3": [
+          745,
+          529,
+          422,
+          256
+        ],
+        "4": [
+          145,
+          913,
+          462,
+          241
+        ],
+        "5": [
+          785,
+          889,
+          361,
+          268
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "ce5cd1fd1d93b5fd5d1740911188bec5bd61038f789dd271fd7df414e6291901",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        239,
+        264,
+        282,
+        298,
+        290,
+        272
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "soldier-spear_butt": {
+      "file": "soldier-spear_butt.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "soldier",
+      "sheet": "spear_butt",
+      "key": "imagawa:soldier:spear_butt",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          305.5,
+          386
+        ],
+        [
+          967.0,
+          386
+        ],
+        [
+          329.5,
+          780
+        ],
+        [
+          917.0,
+          775
+        ],
+        [
+          331.0,
+          1157
+        ],
+        [
+          941.5,
+          1159
+        ]
+      ],
+      "body_height": 280,
+      "body_heights": [
+        280,
+        280,
+        280,
+        280,
+        280,
+        280
+      ],
+      "regions": {
+        "0": [
+          184,
+          95,
+          330,
+          295
+        ],
+        "1": [
+          716,
+          124,
+          386,
+          266
+        ],
+        "2": [
+          131,
+          517,
+          335,
+          267
+        ],
+        "3": [
+          737,
+          527,
+          408,
+          252
+        ],
+        "4": [
+          118,
+          921,
+          450,
+          240
+        ],
+        "5": [
+          818,
+          865,
+          331,
+          298
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "952974ffa7920ecd08c4fe75c7c8fa0f8aa0d7ffc03b121f12608d7dcb13e052",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        238,
+        263,
+        268,
+        289,
+        287,
+        242
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "flag-walk": {
+      "file": "flag-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "flag",
+      "sheet": "walk",
+      "key": "imagawa:flag:walk",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          318.5,
+          610
+        ],
+        [
+          714.0,
+          613
+        ],
+        [
+          1120.0,
+          613
+        ],
+        [
+          314.0,
+          1225
+        ],
+        [
+          750.0,
+          1227
+        ],
+        [
+          1120.5,
+          1227
+        ]
+      ],
+      "body_height": 438,
+      "body_heights": [
+        438,
+        438,
+        438,
+        438,
+        438,
+        438
+      ],
+      "regions": {
+        "0": [
+          125,
+          1,
+          377,
+          613
+        ],
+        "1": [
+          536,
+          2,
+          272,
+          615
+        ],
+        "2": [
+          936,
+          3,
+          264,
+          614
+        ],
+        "3": [
+          123,
+          622,
+          403,
+          607
+        ],
+        "4": [
+          534,
+          621,
+          274,
+          610
+        ],
+        "5": [
+          936,
+          623,
+          264,
+          608
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "fa16f301f9111fa6042731536b1f1bbde09c7078696bad7e2bfceb93cb09b420",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        338,
+        157,
+        83,
+        362,
+        167,
+        84
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "flag-idle": {
+      "file": "flag-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "flag",
+      "sheet": "idle",
+      "key": "imagawa:flag:idle",
+      "columns": 1,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          318.5,
+          610
+        ]
+      ],
+      "body_height": 438,
+      "body_heights": [
+        438
+      ],
+      "regions": {
+        "0": [
+          125,
+          1,
+          377,
+          613
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "fa16f301f9111fa6042731536b1f1bbde09c7078696bad7e2bfceb93cb09b420",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        338
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "flag-hurt": {
+      "file": "flag-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "flag",
+      "sheet": "hurt",
+      "key": "imagawa:flag:hurt",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          328.0,
+          623
+        ],
+        [
+          679.0,
+          619
+        ],
+        [
+          1097.5,
+          614
+        ]
+      ],
+      "body_height": 457,
+      "body_heights": [
+        457,
+        457,
+        457
+      ],
+      "regions": {
+        "0": [
+          67,
+          22,
+          394,
+          605
+        ],
+        "1": [
+          476,
+          32,
+          323,
+          591
+        ],
+        "2": [
+          898,
+          30,
+          338,
+          588
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "a82b3f90d293134eba36cf6697e5b9d0db164d47d3e8b2396f9be4523206c08c",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        267,
+        229,
+        275
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "flag-struggle": {
+      "file": "flag-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "flag",
+      "sheet": "struggle",
+      "key": "imagawa:flag:struggle",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          301.0,
+          1199
+        ],
+        [
+          707.0,
+          1201
+        ],
+        [
+          1105.5,
+          1199
+        ]
+      ],
+      "body_height": 457,
+      "body_heights": [
+        457,
+        457,
+        457
+      ],
+      "regions": {
+        "0": [
+          45,
+          628,
+          444,
+          575
+        ],
+        "1": [
+          447,
+          632,
+          419,
+          573
+        ],
+        "2": [
+          844,
+          628,
+          402,
+          575
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "a82b3f90d293134eba36cf6697e5b9d0db164d47d3e8b2396f9be4523206c08c",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        357,
+        322,
+        283
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "flag-death": {
+      "file": "flag-death.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "flag",
+      "sheet": "death",
+      "key": "imagawa:flag:death",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          314.5,
+          550
+        ],
+        [
+          666.0,
+          551
+        ],
+        [
+          220.0,
+          1053
+        ],
+        [
+          726.0,
+          1037
+        ],
+        [
+          230.0,
+          1485
+        ],
+        [
+          753.5,
+          1477
+        ]
+      ],
+      "body_height": 350,
+      "body_heights": [
+        350,
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "regions": {
+        "0": [
+          87,
+          22,
+          380,
+          532
+        ],
+        "1": [
+          590,
+          76,
+          314,
+          479
+        ],
+        "2": [
+          93,
+          621,
+          381,
+          436
+        ],
+        "3": [
+          536,
+          651,
+          405,
+          390
+        ],
+        "4": [
+          46,
+          1127,
+          396,
+          362
+        ],
+        "5": [
+          516,
+          1357,
+          475,
+          124
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "c6ed4eaa90be94b2a03d63252884b13112de5b8d2a5ee4eeaeb7dfbc76bc7742",
+      "source_size": [
+        1024,
+        1536
+      ],
+      "foot_spans": [
+        295,
+        142,
+        370,
+        395,
+        389,
+        469
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "flag-flag_poke": {
+      "file": "flag-flag_poke.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "flag",
+      "sheet": "flag_poke",
+      "key": "imagawa:flag:flag_poke",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          279.5,
+          541
+        ],
+        [
+          841.5,
+          540
+        ],
+        [
+          272.5,
+          997
+        ],
+        [
+          787.0,
+          996
+        ],
+        [
+          276.5,
+          1459
+        ],
+        [
+          829.5,
+          1493
+        ]
+      ],
+      "body_height": 375,
+      "body_heights": [
+        375,
+        375,
+        375,
+        375,
+        375,
+        375
+      ],
+      "regions": {
+        "0": [
+          121,
+          23,
+          301,
+          522
+        ],
+        "1": [
+          578,
+          42,
+          420,
+          502
+        ],
+        "2": [
+          33,
+          565,
+          549,
+          436
+        ],
+        "3": [
+          569,
+          551,
+          436,
+          449
+        ],
+        "4": [
+          50,
+          1037,
+          560,
+          426
+        ],
+        "5": [
+          664,
+          980,
+          313,
+          517
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "e65872d9c4bbc6bdbed607a489c4d892f5f9941666f254fca55916818ee9d34c",
+      "source_size": [
+        1024,
+        1536
+      ],
+      "foot_spans": [
+        282,
+        308,
+        337,
+        318,
+        353,
+        292
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "flag-flag_sweep": {
+      "file": "flag-flag_sweep.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "flag",
+      "sheet": "flag_sweep",
+      "key": "imagawa:flag:flag_sweep",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          317.5,
+          440
+        ],
+        [
+          992.5,
+          434
+        ],
+        [
+          274.0,
+          790
+        ],
+        [
+          865.0,
+          789
+        ],
+        [
+          255,
+          1151
+        ],
+        [
+          917.0,
+          1166
+        ]
+      ],
+      "body_height": 292,
+      "body_heights": [
+        292,
+        292,
+        292,
+        292,
+        292,
+        292
+      ],
+      "regions": {
+        "0": [
+          179,
+          47,
+          241,
+          397
+        ],
+        "1": [
+          690,
+          120,
+          427,
+          318
+        ],
+        "2": [
+          140,
+          514,
+          420,
+          280
+        ],
+        "3": [
+          725,
+          551,
+          467,
+          242
+        ],
+        "4": [
+          123,
+          907,
+          474,
+          293
+        ],
+        "5": [
+          782,
+          829,
+          431,
+          341
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "a035c63e2f36bc95fc5f1f52901b6e1680807e39ae47644081d5aae785e3ba93",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        201,
+        245,
+        262,
+        273,
+        47,
+        263
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "flag-flag_slam": {
+      "file": "flag-flag_slam.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "flag",
+      "sheet": "flag_slam",
+      "key": "imagawa:flag:flag_slam",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          358.5,
+          389
+        ],
+        [
+          956.0,
+          400
+        ],
+        [
+          396.0,
+          757
+        ],
+        [
+          934.5,
+          762
+        ],
+        [
+          389.0,
+          1140
+        ],
+        [
+          924.5,
+          1148
+        ]
+      ],
+      "body_height": 255,
+      "body_heights": [
+        255,
+        255,
+        255,
+        255,
+        255,
+        255
+      ],
+      "regions": {
+        "0": [
+          236,
+          56,
+          211,
+          337
+        ],
+        "1": [
+          761,
+          63,
+          294,
+          341
+        ],
+        "2": [
+          224,
+          468,
+          282,
+          293
+        ],
+        "3": [
+          755,
+          469,
+          314,
+          297
+        ],
+        "4": [
+          213,
+          849,
+          320,
+          295
+        ],
+        "5": [
+          817,
+          829,
+          208,
+          323
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "4fdc7fcfa6cc8fa6fa17c593957ddf695022071148306ac207f745335807c17b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        175,
+        194,
+        196,
+        224,
+        284,
+        195
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "commander-walk": {
+      "file": "commander-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "commander",
+      "sheet": "walk",
+      "key": "imagawa:commander:walk",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          254.5,
+          609
+        ],
+        [
+          695.0,
+          609
+        ],
+        [
+          1080.5,
+          609
+        ],
+        [
+          276.0,
+          1200
+        ],
+        [
+          769.0,
+          1201
+        ],
+        [
+          1081.0,
+          1196
+        ]
+      ],
+      "body_height": 565,
+      "body_heights": [
+        565,
+        565,
+        565,
+        565,
+        565,
+        565
+      ],
+      "regions": {
+        "0": [
+          25,
+          42,
+          470,
+          571
+        ],
+        "1": [
+          481,
+          42,
+          387,
+          571
+        ],
+        "2": [
+          888,
+          42,
+          349,
+          571
+        ],
+        "3": [
+          26,
+          640,
+          495,
+          564
+        ],
+        "4": [
+          481,
+          641,
+          404,
+          564
+        ],
+        "5": [
+          901,
+          641,
+          344,
+          559
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "6b95d47c66b4ff5ddb6dc33e84440b4915add6d27c37a6f88cd905e9df0d9855",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        395,
+        220,
+        104,
+        408,
+        220,
+        113
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "commander-idle": {
+      "file": "commander-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "commander",
+      "sheet": "idle",
+      "key": "imagawa:commander:idle",
+      "columns": 1,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          254.5,
+          609
+        ]
+      ],
+      "body_height": 565,
+      "body_heights": [
+        565
+      ],
+      "regions": {
+        "0": [
+          25,
+          42,
+          470,
+          571
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "6b95d47c66b4ff5ddb6dc33e84440b4915add6d27c37a6f88cd905e9df0d9855",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        395
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "commander-hurt": {
+      "file": "commander-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "commander",
+      "sheet": "hurt",
+      "key": "imagawa:commander:hurt",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          354.0,
+          515
+        ],
+        [
+          739.0,
+          513
+        ],
+        [
+          203.5,
+          978
+        ]
+      ],
+      "body_height": 535,
+      "body_heights": [
+        535,
+        535,
+        535
+      ],
+      "regions": {
+        "0": [
+          94,
+          19,
+          439,
+          500
+        ],
+        "1": [
+          549,
+          58,
+          377,
+          459
+        ],
+        "2": [
+          100,
+          504,
+          381,
+          478
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "9098563ca8185a7b06dc3dbfe8a9790f8f3ed6e01b427f1e4722ce87276d7a63",
+      "source_size": [
+        1024,
+        1536
+      ],
+      "foot_spans": [
+        350,
+        257,
+        289
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "commander-struggle": {
+      "file": "commander-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "commander",
+      "sheet": "struggle",
+      "key": "imagawa:commander:struggle",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          771.0,
+          993
+        ],
+        [
+          124.0,
+          1470
+        ],
+        [
+          797.0,
+          1464
+        ]
+      ],
+      "body_height": 535,
+      "body_heights": [
+        535,
+        535,
+        535
+      ],
+      "regions": {
+        "0": [
+          565,
+          509,
+          391,
+          488
+        ],
+        "1": [
+          69,
+          975,
+          455,
+          499
+        ],
+        "2": [
+          568,
+          987,
+          426,
+          481
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "9098563ca8185a7b06dc3dbfe8a9790f8f3ed6e01b427f1e4722ce87276d7a63",
+      "source_size": [
+        1024,
+        1536
+      ],
+      "foot_spans": [
+        371,
+        360,
+        394
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "commander-death": {
+      "file": "commander-death.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "commander",
+      "sheet": "death",
+      "key": "imagawa:commander:death",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          357.0,
+          539
+        ],
+        [
+          864.5,
+          528
+        ],
+        [
+          319.0,
+          900
+        ],
+        [
+          1004.5,
+          897
+        ],
+        [
+          284.5,
+          1189
+        ],
+        [
+          857.5,
+          1188
+        ]
+      ],
+      "body_height": 545,
+      "body_heights": [
+        545,
+        545,
+        545,
+        545,
+        545,
+        545
+      ],
+      "regions": {
+        "0": [
+          92,
+          41,
+          423,
+          502
+        ],
+        "1": [
+          728,
+          139,
+          418,
+          393
+        ],
+        "2": [
+          61,
+          601,
+          579,
+          303
+        ],
+        "3": [
+          683,
+          679,
+          557,
+          222
+        ],
+        "4": [
+          27,
+          1014,
+          597,
+          179
+        ],
+        "5": [
+          637,
+          1052,
+          599,
+          140
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "0e482e1ab11fb02c0936ec1b5109f88d4812679287c9cb1ce6310590056460c9",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        107,
+        46,
+        553,
+        545,
+        574,
+        587
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "commander-commander_cut": {
+      "file": "commander-commander_cut.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "commander",
+      "sheet": "commander_cut",
+      "key": "imagawa:commander:commander_cut",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          140.5,
+          535
+        ],
+        [
+          742.5,
+          533
+        ],
+        [
+          288.0,
+          1006
+        ],
+        [
+          605.0,
+          1006
+        ],
+        [
+          262.5,
+          1516
+        ],
+        [
+          786.5,
+          1515
+        ]
+      ],
+      "body_height": 475,
+      "body_heights": [
+        475,
+        475,
+        475,
+        475,
+        475,
+        475
+      ],
+      "regions": {
+        "0": [
+          74,
+          76,
+          365,
+          463
+        ],
+        "1": [
+          563,
+          23,
+          362,
+          514
+        ],
+        "2": [
+          78,
+          577,
+          426,
+          433
+        ],
+        "3": [
+          549,
+          606,
+          465,
+          404
+        ],
+        "4": [
+          104,
+          1028,
+          331,
+          492
+        ],
+        "5": [
+          591,
+          1079,
+          372,
+          440
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "2cb4cf498d35304cc32f5e0ebc617c9668aa9aeb3deab0ef9a85699400587c99",
+      "source_size": [
+        1024,
+        1536
+      ],
+      "foot_spans": [
+        333,
+        347,
+        371,
+        355,
+        322,
+        353
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "commander-commander_rise": {
+      "file": "commander-commander_rise.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "commander",
+      "sheet": "commander_rise",
+      "key": "imagawa:commander:commander_rise",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          330.0,
+          384
+        ],
+        [
+          946.5,
+          386
+        ],
+        [
+          324.5,
+          784
+        ],
+        [
+          950.0,
+          783
+        ],
+        [
+          364.0,
+          1161
+        ],
+        [
+          927.5,
+          1161
+        ]
+      ],
+      "body_height": 300,
+      "body_heights": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "regions": {
+        "0": [
+          206,
+          98,
+          305,
+          290
+        ],
+        "1": [
+          729,
+          153,
+          335,
+          237
+        ],
+        "2": [
+          206,
+          497,
+          301,
+          291
+        ],
+        "3": [
+          800,
+          485,
+          317,
+          302
+        ],
+        "4": [
+          218,
+          881,
+          316,
+          284
+        ],
+        "5": [
+          789,
+          897,
+          329,
+          268
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "fd7641ef4945bbdef8d84bf908ff48fe3de9821ab5089aa29f7dd7ad278eaece",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        215,
+        228,
+        235,
+        287,
+        287,
+        272
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "commander-commander_dash": {
+      "file": "commander-commander_dash.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "commander",
+      "sheet": "commander_dash",
+      "key": "imagawa:commander:commander_dash",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          323.5,
+          372
+        ],
+        [
+          936.5,
+          373
+        ],
+        [
+          294.0,
+          764
+        ],
+        [
+          939.0,
+          767
+        ],
+        [
+          280.0,
+          1149
+        ],
+        [
+          926.0,
+          1148
+        ]
+      ],
+      "body_height": 295,
+      "body_heights": [
+        295,
+        295,
+        295,
+        295,
+        295,
+        295
+      ],
+      "regions": {
+        "0": [
+          135,
+          117,
+          319,
+          259
+        ],
+        "1": [
+          838,
+          94,
+          224,
+          283
+        ],
+        "2": [
+          140,
+          510,
+          405,
+          258
+        ],
+        "3": [
+          797,
+          529,
+          348,
+          242
+        ],
+        "4": [
+          141,
+          907,
+          409,
+          246
+        ],
+        "5": [
+          788,
+          902,
+          370,
+          250
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "8dac9f235d8f42f7e8cc5bf0cef18d65abdff4f34fda6465c9a601e4bd38fbe7",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        254,
+        162,
+        316,
+        279,
+        273,
+        271
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "archer-walk": {
+      "file": "archer-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "archer",
+      "sheet": "walk",
+      "key": "imagawa:archer:walk",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          242.0,
+          616
+        ],
+        [
+          674.0,
+          618
+        ],
+        [
+          1052.0,
+          616
+        ],
+        [
+          270.0,
+          1219
+        ],
+        [
+          703.5,
+          1218
+        ],
+        [
+          1082.5,
+          1216
+        ]
+      ],
+      "body_height": 503,
+      "body_heights": [
+        503,
+        503,
+        503,
+        503,
+        503,
+        503
+      ],
+      "regions": {
+        "0": [
+          42,
+          11,
+          415,
+          609
+        ],
+        "1": [
+          516,
+          17,
+          304,
+          605
+        ],
+        "2": [
+          944,
+          15,
+          250,
+          605
+        ],
+        "3": [
+          48,
+          635,
+          433,
+          588
+        ],
+        "4": [
+          542,
+          635,
+          280,
+          587
+        ],
+        "5": [
+          943,
+          640,
+          256,
+          580
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "85c98961532a0de7dcfab5e7d5b6356cf102216d7d09a10a27760ea4bce6e96e",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        367,
+        251,
+        91,
+        399,
+        240,
+        96
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "archer-idle": {
+      "file": "archer-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "archer",
+      "sheet": "idle",
+      "key": "imagawa:archer:idle",
+      "columns": 1,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          242.0,
+          616
+        ]
+      ],
+      "body_height": 503,
+      "body_heights": [
+        503
+      ],
+      "regions": {
+        "0": [
+          42,
+          11,
+          415,
+          609
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "85c98961532a0de7dcfab5e7d5b6356cf102216d7d09a10a27760ea4bce6e96e",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        367
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "archer-hurt": {
+      "file": "archer-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "archer",
+      "sheet": "hurt",
+      "key": "imagawa:archer:hurt",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          281.5,
+          626
+        ],
+        [
+          641.0,
+          626
+        ],
+        [
+          1045.0,
+          625
+        ]
+      ],
+      "body_height": 500,
+      "body_heights": [
+        500,
+        500,
+        500
+      ],
+      "regions": {
+        "0": [
+          50,
+          46,
+          377,
+          584
+        ],
+        "1": [
+          515,
+          100,
+          299,
+          530
+        ],
+        "2": [
+          914,
+          154,
+          317,
+          475
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "ff8fde783208d69171b4e7fe1f3208b176e8734e8e54c3afd8706f59d6baf887",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        290,
+        222,
+        262
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "archer-struggle": {
+      "file": "archer-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "archer",
+      "sheet": "struggle",
+      "key": "imagawa:archer:struggle",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          229.5,
+          1202
+        ],
+        [
+          633.0,
+          1197
+        ],
+        [
+          1140.5,
+          1207
+        ]
+      ],
+      "body_height": 500,
+      "body_heights": [
+        500,
+        500,
+        500
+      ],
+      "regions": {
+        "0": [
+          49,
+          712,
+          360,
+          494
+        ],
+        "1": [
+          463,
+          713,
+          359,
+          488
+        ],
+        "2": [
+          877,
+          732,
+          356,
+          479
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "ff8fde783208d69171b4e7fe1f3208b176e8734e8e54c3afd8706f59d6baf887",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        354,
+        331,
+        86
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "archer-death": {
+      "file": "archer-death.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "archer",
+      "sheet": "death",
+      "key": "imagawa:archer:death",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          232.0,
+          660
+        ],
+        [
+          656.0,
+          664
+        ],
+        [
+          1013.5,
+          667
+        ],
+        [
+          140.0,
+          1092
+        ],
+        [
+          537.5,
+          1087
+        ],
+        [
+          1170.5,
+          1093
+        ]
+      ],
+      "body_height": 490,
+      "body_heights": [
+        490,
+        490,
+        490,
+        490,
+        490,
+        490
+      ],
+      "regions": {
+        "0": [
+          58,
+          101,
+          325,
+          563
+        ],
+        "1": [
+          486,
+          157,
+          308,
+          511
+        ],
+        "2": [
+          821,
+          208,
+          408,
+          463
+        ],
+        "3": [
+          16,
+          864,
+          405,
+          232
+        ],
+        "4": [
+          423,
+          907,
+          396,
+          184
+        ],
+        "5": [
+          828,
+          961,
+          420,
+          136
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "3f402e676d910358f73e3057ae136cf8700615c580ea40574284decf8dc5e055",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        288,
+        277,
+        378,
+        258,
+        271,
+        357
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "archer-bow_shot": {
+      "file": "archer-bow_shot.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "archer",
+      "sheet": "bow_shot",
+      "key": "imagawa:archer:bow_shot",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          200.0,
+          555
+        ],
+        [
+          621.0,
+          555
+        ],
+        [
+          1022.5,
+          557
+        ],
+        [
+          203.5,
+          1135
+        ],
+        [
+          625.5,
+          1133
+        ],
+        [
+          1016.5,
+          1135
+        ]
+      ],
+      "body_height": 354,
+      "body_heights": [
+        354,
+        354,
+        354,
+        354,
+        354,
+        354
+      ],
+      "regions": {
+        "0": [
+          68,
+          191,
+          332,
+          368
+        ],
+        "1": [
+          492,
+          103,
+          310,
+          456
+        ],
+        "2": [
+          893,
+          102,
+          307,
+          459
+        ],
+        "3": [
+          69,
+          698,
+          305,
+          441
+        ],
+        "4": [
+          485,
+          752,
+          320,
+          385
+        ],
+        "5": [
+          878,
+          747,
+          320,
+          392
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "1293dcce7958600c0d151c1ec910911bb4c62eb4b34ac791e948533b0391c0c4",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        257,
+        250,
+        252,
+        259,
+        270,
+        268
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height",
+      "hands_global": true,
+      "hands": {
+        "0": [
+          364,
+          326
+        ],
+        "1": [
+          791,
+          279
+        ],
+        "2": [
+          1183,
+          278
+        ],
+        "3": [
+          358,
+          856
+        ],
+        "4": [
+          783,
+          874
+        ],
+        "5": [
+          1178,
+          874
+        ]
+      }
+    },
+    "gunner-walk": {
+      "file": "gunner-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "gunner",
+      "sheet": "walk",
+      "key": "imagawa:gunner:walk",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          247.5,
+          604
+        ],
+        [
+          718.0,
+          607
+        ],
+        [
+          1053.0,
+          606
+        ],
+        [
+          240.0,
+          1156
+        ],
+        [
+          734.5,
+          1157
+        ],
+        [
+          1083.5,
+          1158
+        ]
+      ],
+      "body_height": 460,
+      "body_heights": [
+        460,
+        460,
+        460,
+        460,
+        460,
+        460
+      ],
+      "regions": {
+        "0": [
+          40,
+          143,
+          435,
+          465
+        ],
+        "1": [
+          515,
+          143,
+          359,
+          468
+        ],
+        "2": [
+          951,
+          142,
+          294,
+          468
+        ],
+        "3": [
+          40,
+          697,
+          426,
+          463
+        ],
+        "4": [
+          513,
+          697,
+          358,
+          464
+        ],
+        "5": [
+          947,
+          695,
+          296,
+          467
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "37370da599cafc9460104569661d8cbf3e1827b3e0a08d099969e0797f65f45b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        389,
+        225,
+        99,
+        384,
+        237,
+        102
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "gunner-idle": {
+      "file": "gunner-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "gunner",
+      "sheet": "idle",
+      "key": "imagawa:gunner:idle",
+      "columns": 1,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          247.5,
+          604
+        ]
+      ],
+      "body_height": 460,
+      "body_heights": [
+        460
+      ],
+      "regions": {
+        "0": [
+          40,
+          143,
+          435,
+          465
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "37370da599cafc9460104569661d8cbf3e1827b3e0a08d099969e0797f65f45b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        389
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "gunner-hurt": {
+      "file": "gunner-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "gunner",
+      "sheet": "hurt",
+      "key": "imagawa:gunner:hurt",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          263.0,
+          579
+        ],
+        [
+          637.5,
+          590
+        ],
+        [
+          1044.0,
+          587
+        ]
+      ],
+      "body_height": 450,
+      "body_heights": [
+        450,
+        450,
+        450
+      ],
+      "regions": {
+        "0": [
+          85,
+          163,
+          369,
+          420
+        ],
+        "1": [
+          515,
+          242,
+          344,
+          352
+        ],
+        "2": [
+          910,
+          226,
+          325,
+          365
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "59449666c9422bccc234634188d84e7b0e13b38ff5fe6d41ecda88001038a97b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        327,
+        225,
+        250
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "gunner-struggle": {
+      "file": "gunner-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "gunner",
+      "sheet": "struggle",
+      "key": "imagawa:gunner:struggle",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          245.0,
+          1123
+        ],
+        [
+          659.0,
+          1132
+        ],
+        [
+          1078.5,
+          1121
+        ]
+      ],
+      "body_height": 450,
+      "body_heights": [
+        450,
+        450,
+        450
+      ],
+      "regions": {
+        "0": [
+          55,
+          721,
+          378,
+          406
+        ],
+        "1": [
+          499,
+          721,
+          337,
+          415
+        ],
+        "2": [
+          913,
+          735,
+          322,
+          390
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "59449666c9422bccc234634188d84e7b0e13b38ff5fe6d41ecda88001038a97b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        370,
+        312,
+        309
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "gunner-death": {
+      "file": "gunner-death.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "gunner",
+      "sheet": "death",
+      "key": "imagawa:gunner:death",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          128.5,
+          618
+        ],
+        [
+          661.0,
+          610
+        ],
+        [
+          845.5,
+          617
+        ],
+        [
+          274.0,
+          1058
+        ],
+        [
+          585.5,
+          1054
+        ],
+        [
+          1022.5,
+          1053
+        ]
+      ],
+      "body_height": 465,
+      "body_heights": [
+        465,
+        465,
+        465,
+        465,
+        465,
+        465
+      ],
+      "regions": {
+        "0": [
+          67,
+          186,
+          369,
+          436
+        ],
+        "1": [
+          471,
+          265,
+          357,
+          349
+        ],
+        "2": [
+          816,
+          321,
+          429,
+          300
+        ],
+        "3": [
+          13,
+          840,
+          438,
+          222
+        ],
+        "4": [
+          396,
+          911,
+          418,
+          147
+        ],
+        "5": [
+          803,
+          955,
+          439,
+          102
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "4136507ea5b29bd4a639165cc626c1c2f33008530e3835b1a12e14c6371c021b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        283,
+        231,
+        343,
+        359,
+        372,
+        433
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "gunner-gun_shot": {
+      "file": "gunner-gun_shot.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "gunner",
+      "sheet": "gun_shot",
+      "key": "imagawa:gunner:gun_shot",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          226.5,
+          593
+        ],
+        [
+          623.5,
+          588
+        ],
+        [
+          1016.5,
+          588
+        ],
+        [
+          250.5,
+          1146
+        ],
+        [
+          640.5,
+          1145
+        ],
+        [
+          1016.0,
+          1149
+        ]
+      ],
+      "body_height": 448,
+      "body_heights": [
+        448,
+        448,
+        448,
+        448,
+        448,
+        448
+      ],
+      "regions": {
+        "0": [
+          41,
+          157,
+          428,
+          440
+        ],
+        "1": [
+          443,
+          162,
+          414,
+          430
+        ],
+        "2": [
+          834,
+          180,
+          413,
+          412
+        ],
+        "3": [
+          58,
+          712,
+          379,
+          438
+        ],
+        "4": [
+          474,
+          713,
+          351,
+          436
+        ],
+        "5": [
+          830,
+          714,
+          412,
+          439
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "2f24bae0fa2650599bc86a5e62b4dcef8094a4a3edd067e30d5962421f87c640",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        352,
+        335,
+        356,
+        366,
+        310,
+        349
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height",
+      "hands_global": true,
+      "hands": {
+        "0": [
+          465,
+          294
+        ],
+        "1": [
+          851,
+          208
+        ],
+        "2": [
+          1241,
+          245
+        ],
+        "3": [
+          426,
+          716
+        ],
+        "4": [
+          819,
+          790
+        ],
+        "5": [
+          1238,
+          861
+        ]
+      }
+    },
+    "boss-walk": {
+      "file": "boss-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "boss",
+      "sheet": "walk",
+      "key": "imagawa:boss:walk",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          226.5,
+          600
+        ],
+        [
+          670.5,
+          607
+        ],
+        [
+          1051.5,
+          607
+        ],
+        [
+          232.0,
+          1211
+        ],
+        [
+          686.0,
+          1217
+        ],
+        [
+          1046.5,
+          1217
+        ]
+      ],
+      "body_height": 506,
+      "body_heights": [
+        506,
+        506,
+        506,
+        506,
+        506,
+        506
+      ],
+      "regions": {
+        "0": [
+          36,
+          17,
+          407,
+          587
+        ],
+        "1": [
+          477,
+          21,
+          358,
+          590
+        ],
+        "2": [
+          874,
+          21,
+          358,
+          590
+        ],
+        "3": [
+          36,
+          638,
+          416,
+          577
+        ],
+        "4": [
+          480,
+          637,
+          359,
+          584
+        ],
+        "5": [
+          870,
+          637,
+          361,
+          584
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "84c7b207e19364284e7a6d50d303ac9ca504ec40532d4fd3463cf1029583f5bb",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        363,
+        144,
+        90,
+        376,
+        164,
+        92
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "boss-idle": {
+      "file": "boss-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "boss",
+      "sheet": "idle",
+      "key": "imagawa:boss:idle",
+      "columns": 1,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          226.5,
+          600
+        ]
+      ],
+      "body_height": 506,
+      "body_heights": [
+        506
+      ],
+      "regions": {
+        "0": [
+          36,
+          17,
+          407,
+          587
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "84c7b207e19364284e7a6d50d303ac9ca504ec40532d4fd3463cf1029583f5bb",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        363
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "boss-hurt": {
+      "file": "boss-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "boss",
+      "sheet": "hurt",
+      "key": "imagawa:boss:hurt",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          128.0,
+          603
+        ],
+        [
+          585.0,
+          595
+        ],
+        [
+          995.5,
+          595
+        ]
+      ],
+      "body_height": 500,
+      "body_heights": [
+        500,
+        500,
+        500
+      ],
+      "regions": {
+        "0": [
+          56,
+          81,
+          403,
+          526
+        ],
+        "1": [
+          453,
+          179,
+          414,
+          420
+        ],
+        "2": [
+          871,
+          168,
+          374,
+          431
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "3154d27700dbe2fe64dbbd7e6759e04e436a618e4b6fa14083bb219ee7fde31d",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        340,
+        194,
+        188
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "boss-struggle": {
+      "file": "boss-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "boss",
+      "sheet": "struggle",
+      "key": "imagawa:boss:struggle",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          239.0,
+          1195
+        ],
+        [
+          632.5,
+          1194
+        ],
+        [
+          1056.5,
+          1187
+        ]
+      ],
+      "body_height": 500,
+      "body_heights": [
+        500,
+        500,
+        500
+      ],
+      "regions": {
+        "0": [
+          41,
+          660,
+          383,
+          539
+        ],
+        "1": [
+          450,
+          644,
+          357,
+          554
+        ],
+        "2": [
+          871,
+          681,
+          369,
+          510
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "3154d27700dbe2fe64dbbd7e6759e04e436a618e4b6fa14083bb219ee7fde31d",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        371,
+        341,
+        277
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "boss-death": {
+      "file": "boss-death.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "boss",
+      "sheet": "death",
+      "key": "imagawa:boss:death",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          213.0,
+          524
+        ],
+        [
+          774.0,
+          529
+        ],
+        [
+          80.0,
+          900
+        ],
+        [
+          861.5,
+          882
+        ],
+        [
+          226.0,
+          1172
+        ],
+        [
+          976.0,
+          1175
+        ]
+      ],
+      "body_height": 485,
+      "body_heights": [
+        485,
+        485,
+        485,
+        485,
+        485,
+        485
+      ],
+      "regions": {
+        "0": [
+          97,
+          52,
+          480,
+          476
+        ],
+        "1": [
+          646,
+          145,
+          550,
+          388
+        ],
+        "2": [
+          54,
+          610,
+          597,
+          294
+        ],
+        "3": [
+          628,
+          698,
+          610,
+          188
+        ],
+        "4": [
+          25,
+          1029,
+          584,
+          147
+        ],
+        "5": [
+          616,
+          1048,
+          622,
+          131
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "8f15b996f134b9877b421f2a8a67062341cc7e716449149966cda45db3e2318b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        63,
+        197,
+        315,
+        556,
+        497,
+        602
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "boss-boss_sweep": {
+      "file": "boss-boss_sweep.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "boss",
+      "sheet": "boss_sweep",
+      "key": "imagawa:boss:boss_sweep",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          291.0,
+          394
+        ],
+        [
+          938.5,
+          400
+        ],
+        [
+          278.0,
+          805
+        ],
+        [
+          858.5,
+          797
+        ],
+        [
+          259.0,
+          1169
+        ],
+        [
+          901.5,
+          1170
+        ]
+      ],
+      "body_height": 270,
+      "body_heights": [
+        270,
+        270,
+        270,
+        270,
+        270,
+        270
+      ],
+      "regions": {
+        "0": [
+          149,
+          127,
+          415,
+          271
+        ],
+        "1": [
+          768,
+          104,
+          308,
+          300
+        ],
+        "2": [
+          141,
+          510,
+          381,
+          299
+        ],
+        "3": [
+          707,
+          558,
+          475,
+          243
+        ],
+        "4": [
+          127,
+          906,
+          439,
+          267
+        ],
+        "5": [
+          758,
+          921,
+          403,
+          253
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "7b9633bd28965e023a63e6f5961a0681d339a44d79727ab46992b78f9666a44b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        235,
+        268,
+        265,
+        298,
+        259,
+        276
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "boss-boss_thrust": {
+      "file": "boss-boss_thrust.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "boss",
+      "sheet": "boss_thrust",
+      "key": "imagawa:boss:boss_thrust",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          294.5,
+          400
+        ],
+        [
+          885.5,
+          405
+        ],
+        [
+          285.0,
+          783
+        ],
+        [
+          806.5,
+          785
+        ],
+        [
+          260.0,
+          1160
+        ],
+        [
+          905.5,
+          1158
+        ]
+      ],
+      "body_height": 280,
+      "body_heights": [
+        280,
+        280,
+        280,
+        280,
+        280,
+        280
+      ],
+      "regions": {
+        "0": [
+          162,
+          106,
+          375,
+          298
+        ],
+        "1": [
+          756,
+          150,
+          390,
+          259
+        ],
+        "2": [
+          151,
+          516,
+          418,
+          271
+        ],
+        "3": [
+          666,
+          548,
+          504,
+          241
+        ],
+        "4": [
+          142,
+          909,
+          455,
+          255
+        ],
+        "5": [
+          768,
+          870,
+          379,
+          292
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "8a76854a65142bff3e37a09c35901ad8b0e8cc54d0d58e02d4ff108ff4d12543",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        234,
+        233,
+        270,
+        276,
+        231,
+        231
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "boss-boss_counter": {
+      "file": "boss-boss_counter.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "boss",
+      "sheet": "boss_counter",
+      "key": "imagawa:boss:boss_counter",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          290.5,
+          417
+        ],
+        [
+          956.0,
+          420
+        ],
+        [
+          335.5,
+          841
+        ],
+        [
+          926.5,
+          832
+        ],
+        [
+          294.0,
+          1162
+        ],
+        [
+          919.0,
+          1172
+        ]
+      ],
+      "body_height": 255,
+      "body_heights": [
+        255,
+        255,
+        255,
+        255,
+        255,
+        255
+      ],
+      "regions": {
+        "0": [
+          174,
+          189,
+          363,
+          232
+        ],
+        "1": [
+          839,
+          109,
+          239,
+          315
+        ],
+        "2": [
+          215,
+          511,
+          240,
+          334
+        ],
+        "3": [
+          807,
+          605,
+          339,
+          231
+        ],
+        "4": [
+          173,
+          963,
+          402,
+          203
+        ],
+        "5": [
+          799,
+          950,
+          323,
+          226
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "0ceb912e37e5f426b12045a05149d958bcdf90307841fa82d3443914b6acbed9",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        212,
+        217,
+        232,
+        322,
+        396,
+        225
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "boss-boss_dash": {
+      "file": "boss-boss_dash.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "boss",
+      "sheet": "boss_dash",
+      "key": "imagawa:boss:boss_dash",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          310.5,
+          387
+        ],
+        [
+          821.5,
+          388
+        ],
+        [
+          363.5,
+          777
+        ],
+        [
+          701.0,
+          771
+        ],
+        [
+          274.5,
+          1152
+        ],
+        [
+          896.5,
+          1158
+        ]
+      ],
+      "body_height": 270,
+      "body_heights": [
+        270,
+        270,
+        270,
+        270,
+        270,
+        270
+      ],
+      "regions": {
+        "0": [
+          113,
+          171,
+          323,
+          220
+        ],
+        "1": [
+          689,
+          167,
+          348,
+          225
+        ],
+        "2": [
+          171,
+          544,
+          351,
+          237
+        ],
+        "3": [
+          681,
+          587,
+          521,
+          188
+        ],
+        "4": [
+          161,
+          939,
+          470,
+          217
+        ],
+        "5": [
+          754,
+          935,
+          431,
+          227
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "c169aba3809e2f57f3dd6f2a483739285ea0c12b5bef2be159d165c94710839c",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        208,
+        166,
+        305,
+        236,
+        222,
+        280
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "matsui-walk": {
+      "file": "matsui-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "matsui",
+      "sheet": "walk",
+      "key": "imagawa:matsui:walk",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          227.5,
+          599
+        ],
+        [
+          658.0,
+          600
+        ],
+        [
+          1063.0,
+          600
+        ],
+        [
+          240.0,
+          1196
+        ],
+        [
+          697.5,
+          1209
+        ],
+        [
+          1064.0,
+          1210
+        ]
+      ],
+      "body_height": 508,
+      "body_heights": [
+        508,
+        508,
+        508,
+        508,
+        508,
+        508
+      ],
+      "regions": {
+        "0": [
+          33,
+          28,
+          421,
+          575
+        ],
+        "1": [
+          462,
+          28,
+          363,
+          576
+        ],
+        "2": [
+          889,
+          27,
+          348,
+          577
+        ],
+        "3": [
+          32,
+          640,
+          431,
+          560
+        ],
+        "4": [
+          468,
+          640,
+          356,
+          573
+        ],
+        "5": [
+          879,
+          640,
+          358,
+          574
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "99a73d3bc3a50c164cdadb7f9548bd6c8cc2ea4a235d1a6457797273e3522690",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        338,
+        218,
+        95,
+        368,
+        188,
+        99
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "matsui-idle": {
+      "file": "matsui-walk-cycle.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "matsui",
+      "sheet": "idle",
+      "key": "imagawa:matsui:idle",
+      "columns": 1,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          227.5,
+          599
+        ]
+      ],
+      "body_height": 508,
+      "body_heights": [
+        508
+      ],
+      "regions": {
+        "0": [
+          33,
+          28,
+          421,
+          575
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "99a73d3bc3a50c164cdadb7f9548bd6c8cc2ea4a235d1a6457797273e3522690",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        338
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "matsui-hurt": {
+      "file": "matsui-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "matsui",
+      "sheet": "hurt",
+      "key": "imagawa:matsui:hurt",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          155.0,
+          594
+        ],
+        [
+          625.5,
+          593
+        ],
+        [
+          1048.0,
+          595
+        ]
+      ],
+      "body_height": 510,
+      "body_heights": [
+        510,
+        510,
+        510
+      ],
+      "regions": {
+        "0": [
+          28,
+          47,
+          434,
+          551
+        ],
+        "1": [
+          462,
+          167,
+          412,
+          430
+        ],
+        "2": [
+          854,
+          145,
+          374,
+          454
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "228b75ca508119ecfd1f8a43ae873cc9c9af2797ad65e4b93726dcae1bb59ab2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        75,
+        260,
+        313
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "matsui-struggle": {
+      "file": "matsui-reactions.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "matsui",
+      "sheet": "struggle",
+      "key": "imagawa:matsui:struggle",
+      "columns": 3,
+      "rows": 1,
+      "source_columns": 3,
+      "source_rows": 2,
+      "source_indices": [
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          228.0,
+          1177
+        ],
+        [
+          737.5,
+          1184
+        ],
+        [
+          1200.0,
+          1175
+        ]
+      ],
+      "body_height": 510,
+      "body_heights": [
+        510,
+        510,
+        510
+      ],
+      "regions": {
+        "0": [
+          25,
+          714,
+          429,
+          467
+        ],
+        "1": [
+          459,
+          704,
+          360,
+          484
+        ],
+        "2": [
+          874,
+          680,
+          357,
+          499
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "228b75ca508119ecfd1f8a43ae873cc9c9af2797ad65e4b93726dcae1bb59ab2",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        399,
+        69,
+        55
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "matsui-death": {
+      "file": "matsui-death.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "matsui",
+      "sheet": "death",
+      "key": "imagawa:matsui:death",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          333.5,
+          502
+        ],
+        [
+          827.0,
+          510
+        ],
+        [
+          318.5,
+          905
+        ],
+        [
+          973.0,
+          918
+        ],
+        [
+          320,
+          1178
+        ],
+        [
+          925,
+          1187
+        ]
+      ],
+      "body_height": 495,
+      "body_heights": [
+        495,
+        495,
+        495,
+        495,
+        495,
+        495
+      ],
+      "regions": {
+        "0": [
+          44,
+          33,
+          611,
+          473
+        ],
+        "1": [
+          665,
+          132,
+          563,
+          382
+        ],
+        "2": [
+          53,
+          584,
+          553,
+          325
+        ],
+        "3": [
+          611,
+          713,
+          625,
+          209
+        ],
+        "4": [
+          18,
+          1029,
+          621,
+          175
+        ],
+        "5": [
+          634,
+          1067,
+          606,
+          141
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "7718446d804554d944c8162e1b3e5c5f693584671c4bbc3acdf9ba4eacd8c314",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        338,
+        243,
+        523,
+        524,
+        466,
+        485
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "matsui-boss_sweep": {
+      "file": "matsui-boss_sweep.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "matsui",
+      "sheet": "boss_sweep",
+      "key": "imagawa:matsui:boss_sweep",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          287.5,
+          393
+        ],
+        [
+          981.0,
+          393
+        ],
+        [
+          302.0,
+          762
+        ],
+        [
+          869.0,
+          763
+        ],
+        [
+          283.0,
+          1117
+        ],
+        [
+          914.5,
+          1117
+        ]
+      ],
+      "body_height": 278,
+      "body_heights": [
+        278,
+        278,
+        278,
+        278,
+        278,
+        278
+      ],
+      "regions": {
+        "0": [
+          155,
+          131,
+          416,
+          266
+        ],
+        "1": [
+          768,
+          99,
+          348,
+          298
+        ],
+        "2": [
+          162,
+          482,
+          383,
+          284
+        ],
+        "3": [
+          739,
+          520,
+          456,
+          247
+        ],
+        "4": [
+          143,
+          869,
+          405,
+          252
+        ],
+        "5": [
+          771,
+          875,
+          397,
+          246
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "fda5ae3066ced23560f9f6e8d8af60dbe7c0f5a1eead86321ac90276f45d550d",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        241,
+        261,
+        274,
+        255,
+        324,
+        281
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "matsui-boss_thrust": {
+      "file": "matsui-boss_thrust.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "matsui",
+      "sheet": "boss_thrust",
+      "key": "imagawa:matsui:boss_thrust",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          277.0,
+          401
+        ],
+        [
+          856.5,
+          399
+        ],
+        [
+          267.0,
+          766
+        ],
+        [
+          815.0,
+          756
+        ],
+        [
+          238.0,
+          1154
+        ],
+        [
+          904.5,
+          1162
+        ]
+      ],
+      "body_height": 302,
+      "body_heights": [
+        302,
+        302,
+        302,
+        302,
+        302,
+        302
+      ],
+      "regions": {
+        "0": [
+          141,
+          87,
+          366,
+          318
+        ],
+        "1": [
+          735,
+          135,
+          424,
+          268
+        ],
+        "2": [
+          130,
+          506,
+          417,
+          264
+        ],
+        "3": [
+          677,
+          521,
+          513,
+          239
+        ],
+        "4": [
+          101,
+          889,
+          464,
+          269
+        ],
+        "5": [
+          761,
+          831,
+          363,
+          335
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "6a152a8b53fdb00845a69331eaf1bcf2fea753f531c849ed849f3cd8f78a954e",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        247,
+        238,
+        279,
+        271,
+        254,
+        268
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "matsui-boss_counter": {
+      "file": "matsui-boss_counter.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "matsui",
+      "sheet": "boss_counter",
+      "key": "imagawa:matsui:boss_counter",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          296.0,
+          383
+        ],
+        [
+          912.0,
+          391
+        ],
+        [
+          332.5,
+          815
+        ],
+        [
+          885.5,
+          803
+        ],
+        [
+          283.0,
+          1145
+        ],
+        [
+          915.0,
+          1153
+        ]
+      ],
+      "body_height": 245,
+      "body_heights": [
+        245,
+        245,
+        245,
+        245,
+        245,
+        245
+      ],
+      "regions": {
+        "0": [
+          190,
+          173,
+          340,
+          214
+        ],
+        "1": [
+          799,
+          111,
+          274,
+          284
+        ],
+        "2": [
+          209,
+          507,
+          248,
+          312
+        ],
+        "3": [
+          762,
+          593,
+          374,
+          214
+        ],
+        "4": [
+          153,
+          948,
+          410,
+          201
+        ],
+        "5": [
+          799,
+          919,
+          317,
+          238
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "2d8d78eab04034fc49fc429c1180a362591cfb7d4d36f0c25285b51bf48bfa55",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        207,
+        219,
+        242,
+        304,
+        327,
+        227
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    },
+    "matsui-boss_earth": {
+      "file": "matsui-boss_earth.png",
+      "target": "enemy_clip",
+      "faction": "imagawa",
+      "kind": "matsui",
+      "sheet": "boss_earth",
+      "key": "imagawa:matsui:boss_earth",
+      "columns": 6,
+      "rows": 1,
+      "source_columns": 2,
+      "source_rows": 3,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "feet_global": true,
+      "feet": [
+        [
+          306.5,
+          388
+        ],
+        [
+          962.5,
+          390
+        ],
+        [
+          348.0,
+          824
+        ],
+        [
+          934.5,
+          824
+        ],
+        [
+          333.5,
+          1143
+        ],
+        [
+          923.0,
+          1155
+        ]
+      ],
+      "body_height": 230,
+      "body_heights": [
+        230,
+        230,
+        230,
+        230,
+        230,
+        230
+      ],
+      "regions": {
+        "0": [
+          200,
+          194,
+          328,
+          198
+        ],
+        "1": [
+          814,
+          101,
+          252,
+          293
+        ],
+        "2": [
+          243,
+          490,
+          211,
+          338
+        ],
+        "3": [
+          802,
+          609,
+          325,
+          219
+        ],
+        "4": [
+          183,
+          988,
+          356,
+          159
+        ],
+        "5": [
+          808,
+          963,
+          315,
+          196
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": "11746dfbbc66092c563975b8a44908daf20f1d1394017bf3eb8931fa31d0ca23",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "foot_spans": [
+        196,
+        200,
+        205,
+        313,
+        339,
+        225
+      ],
+      "scale_policy": "fixed anatomical ruler, never current pose bbox height"
+    }
+  },
+  "missing": []
+}

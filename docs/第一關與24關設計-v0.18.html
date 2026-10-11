@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>吞食戰國｜第一關與 24 關設計 v0.18</title>
+<style>
+:root{color-scheme:dark;font-family:"Microsoft JhengHei",system-ui,sans-serif;background:#101b20;color:#e8eadf}*{box-sizing:border-box}body{max-width:1320px;margin:auto;padding:28px 24px 64px;line-height:1.7}header{border-top:4px solid #b85149;padding-top:18px}h1{font-size:34px;line-height:1.35}h2{margin-top:36px;color:#e4c494}h3{color:#e4c494;margin-top:0}a{color:#a6d8d0}nav{display:flex;flex-wrap:wrap;gap:18px;padding:14px;background:#1d2d34;position:sticky;top:0;z-index:3}section{scroll-margin-top:76px}.note{border-left:3px solid #d9ae69;background:#302c23;padding:15px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px}.card{background:#1b2a30;border:1px solid #3a4d56;border-radius:8px;padding:18px}.card p:last-child{margin-bottom:0}.muted,small{color:#b3c0c5}.tag{display:inline-block;color:#ead098;border:1px solid #7b6847;border-radius:15px;padding:2px 9px;font-size:13px}.route{display:flex;gap:8px;flex-wrap:wrap;list-style:none;padding:0}.route a{display:block;background:#243b40;padding:7px 11px;border-radius:4px;text-decoration:none}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:1050px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid #3a4d56}th{background:#203239;color:#e4c494}td:first-child{min-width:170px}td:nth-child(2){min-width:145px}td:last-child{min-width:225px}.segment{margin:16px 0;padding:21px;border-left:4px solid #476f68;background:#1a2930}.segment h3{margin-bottom:6px}.segment dl{display:grid;grid-template-columns:95px 1fr;gap:7px 14px}.segment dt{color:#dfc699}.segment dd{margin:0}.review{border-top:1px solid #40555f;padding-top:12px;margin-top:15px}label{display:block;color:#cbd8da;font-size:14px}textarea{display:block;width:100%;min-height:74px;margin-top:6px;padding:10px;background:#0f1d23;border:1px solid #526c77;border-radius:4px;color:#eef0e7;font:inherit;resize:vertical}button{font:inherit;padding:9px 14px;background:#365d59;color:#fff;border:1px solid #72a296;border-radius:4px;cursor:pointer}a:focus,button:focus,textarea:focus{outline:2px solid #e9c982;outline-offset:3px}.actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:18px 0}#save-status{color:#b4e2c7;min-height:26px}.error{color:#ffc1aa!important}code{font-family:Consolas,monospace;font-size:13px;overflow-wrap:anywhere}details{margin:12px 0;padding:12px 16px;border:1px solid #40555f}summary{cursor:pointer;color:#e4c494}.source-list li{margin:12px 0}footer{margin-top:30px;border-top:1px solid #40555f;padding-top:15px;color:#b3c0c5}@media(max-width:650px){body{padding:16px 12px}h1{font-size:27px}nav{position:static}.segment dl{grid-template-columns:1fr;gap:3px}.segment dd{margin-bottom:8px}}@media print{:root{color-scheme:light;background:white;color:#111}nav,.actions{display:none}body{max-width:none;padding:0;font-size:10px}.card,.segment,.note,th{background:white;color:#111;border-color:#999}h2,h3,a,small,.muted,dt,th{color:#111!important}.scroll{overflow:visible}table{min-width:0;font-size:9px}td{min-width:0!important}.segment{break-inside:avoid}textarea{color:#111;background:white}}
+</style></head>
+<body>
+<header><span class="tag">LEVEL DESIGN · v0.18 · 2026-10-11</span><h1>由桶狹間竹林，打進高根山前哨陣</h1><p>第一關採 10 段推進、3 場中將戰、1 場關底戰。既有 24 關順序保留，先做第一關驗證，再把通關節奏與素材流程套到後續關卡。</p><p class="muted">這份是設計與史源審閱頁。波次、敵人血量及時間是調整基準；不把文件中的目標當成已測得的遊玩結果。</p></header>
+<nav aria-label="設計段落"><a href="#basis">參考與長度</a><a href="#first">第一關 10 段</a><a href="#rules">推進與互動</a><a href="#boss">中將與關底</a><a href="#roster">24 關鎮守表</a><a href="#acceptance">驗收</a><a href="#sources">史料來源</a></nav>
+<div class="actions"><button id="export">匯出本頁評論 JSON</button><button id="print">列印／存成 PDF</button><span id="save-status" role="status" aria-live="polite"></span></div>
+<section id="basis"><h2>沿用既定路線，將一關拆成可辨識的區域</h2><p>既有權威草案為 <code>planning-site/lib/plan-data.ts</code> 與 <code>planning-site/lib/enemy-data.ts</code>：第 1 關「桶狹間竹林」、第 3 關「今川本陣」，參考版本是 1996 年 Saturn《天地を喰らう II 赤壁の戦い》。本輪沿用這條路線，今川義元安排在第三關。</p><div class="grid"><article class="card"><h3>原作已核實的層級</h3><p>Capcom 的街機合輯介紹確認《Warriors of Fate》有 9 個大關。GAME Watch 的分關攻略可見沿路遭遇、補給、兵種變化、場景切換與關底戰；這可作節奏參考。它們<strong>沒有證明 Saturn 每關固定 8–10 個封鎖段，也沒有提供逐段耗時</strong>。<a href="#src-capcom">原廠資料</a>、<a href="#src-gamewatch">攻略與實錄索引</a>。</p></article><article class="card"><h3>本作的長度目標</h3><p>每大關 8–10 段，本關 10 段；設計預算為一般段約 40–65 秒、中將段約 70–95 秒、關底約 90–130 秒，另加走場與拾取。第一輪目標約 <strong>12–18 分鐘</strong>，這是本作預算，不是原作的實測數值。</p></article><article class="card"><h3>節奏先變化，再拉長</h3><p>短遭遇 → 遠程交叉火力 → 中將 → 補給喘息 → 障礙突破 → 中將 → 營寨伏擊 → 中將 → 壓力段 → 主將。避免只靠增加血量或等待出兵湊時間；普通兵波次間隔只保留短呼吸。</p></article></div><p class="note">城外、城門、城下町、二之丸、本丸、天守、內室是<strong>城郭關卡的範本</strong>。第一關是野戰前哨陣，改用竹林、村道、外寨、營庭、指揮所內室表現深入；內室採演義陣所設計，讓關底有明確的決戰空間。</p><div class="review" data-review="basis"></div></section>
+<section id="first"><h2>第一關：桶狹間竹林（1560）</h2><p>敵軍沿用今川陣營；從竹林外緣推進到松井宗信先陣。下表直接對齊 <code>game/data/stage-01.json</code>：共 22 波。數字是每波普通敵數，末波另加列名將領；第 10 段的第二波只有主將。單人共 86 名普通敵（含主將半血一次增援 3 人）＋3 中將＋1 關底＝90 人。雙人對 18 個非將領波各加 1 名足輕，共 108 人。單波最多單人 5 人、雙人 6 人；將領與其隊伍同波出場，沒有獨立停場。</p><ol id="segment-route" class="route"></ol><div id="segments"></div><div class="review" data-review="first-overall"></div></section>
+<section id="rules"><h2>GO、碰撞、近景與補給</h2><div class="grid"><article class="card"><h3>清場後才提示 GO →</h3><p>當區所有預定波次已出完、存活敵人清零、強制路障已毀後，右側亮起高對比 GO 與右箭頭。玩家自己向右走，才進入下段；仍可拾取補給。最後一段改進結算，沒有 GO。雙人須讓所有存活隊友落地並在出口區域結束出招，才進入下段；普通走路可直接過段。已倒下且 HP 歸零的角色跨段仍保持死亡，不自動復活。</p></article><article class="card"><h3>角色不能穿敵人</h3><p>目前以腳底平面的矩形範圍判定敵人與物件阻擋，沿 X、Y 軸依序掃掠位移（axis sweep）；斜走可繞過。貼身不持續抖動仍需實際操作驗收。衝撞、衝刺重手、擊飛先產生推開／擊倒，再釋放前進空間。不可用單純關閉全部碰撞來實現衝刺穿人。</p></article><article class="card"><h3>倒地保護與主將起身</h3><p>倒地敵人不可再受擊，保護持續到起身完成；箭會越過倒地者。小王與大王起身時會把近身玩家向外震飛，不額外扣血，並有短暫起身保護；拉開距離或跳起可以避開，站立後再接戰。</p></article><article class="card"><h3>大物件形成路線</h3><p>攤車、大木箱、拒馬與柵欄用腳底範圍擋路，圖像上方不當作實心牆。箱車可繞；封死出口的拒馬／柵欄必須可擊破，敵人出生點不可藏在無法抵達的障礙後。殘骸移除阻擋，不用透明牆續擋。</p></article><article class="card"><h3>可見的食物</h3><p>甕、竹籃與小箱破壞後按各段資料固定掉落飯糰、烤魚、糰子或桃子。1280×720 基準下，食物以內容高度設定為 46–50 px；地面金色弧光與陰影協助辨識。素材縮放依裁切內容高度計算，實際易讀性仍需試玩確認。</p></article><article class="card"><h3>高解析近景</h3><p>本輪已接入高解析近景物件、食物與旗幟新素材；人物與村民尚未全數重製。今川主將的站立、走路與攻擊已回用 v10 較清晰的 235 px 素材；受擊與死亡仍用 v11 舊動作素材，尚未重製。素材驗收標準是最大遊戲顯示尺寸不可超過裁切內容的原始像素。遠景慢移，地面與物件按世界座標移動，按腳底排序遮擋；各區視覺品質另以原生畫面驗收。</p></article><article class="card"><h3>村民與循環音樂</h3><p>本版路人依區域選用既有村民、商販與搬運者素材；戰鬥觸發後向左右邊緣逃離，不參與清場數量，也不掉寶。尚無尋找掩體的避難邏輯。四個氣氛音樂可重用：攻陣（1–2）、村落（3–4）、營寨（5–9）、決戰（10）。同曲跨段不中斷，換曲淡出／淡入；循環接點另做真人聽感驗收。</p></article></div><p class="muted">本版每段都有指定補給物：飯糰回 35、烤魚回 50、糰子回 25、桃子回 60 HP。不是隨機掉落；調整 <code>props</code> 的食物欄即可改掉落種類。每個物件只掉一次，雙人共用同一顆食物；補給量仍需通關實測。</p><div class="review" data-review="rules"></div></section>
+<section id="boss"><h2>中將是遊戲分級，關底要有獨特打法</h2><p>第 3、6、8 段配置中將，作為普通敵兵與關底大將之間的戰力級別。登場顯示姓名＋原創短句 4 秒，戰鬥持續進行。</p><div class="grid"><article class="card"><h3>瀨名氏俊 · 第 3 段</h3><p>「前軍已在此布陣！休想摸進本陣！」<br>本版共用今川中將四招：橫掃、前刺、反擊、突進。後續獨立調度斥候的招式為差異化目標。以今川先發陣地為背景，安排村道交鋒。</p></article><article class="card"><h3>鵜殿長照 · 第 6 段</h3><p>「守住寨門！今川的旗幟不會倒下！」<br>本版四招同上，血量升為 380；以寨門柵欄改變戰場。後續重刺／擒摔差異化仍待獨立製作。以三河城主形象安排守門戰。</p></article><article class="card"><h3>井伊直盛 · 第 8 段</h3><p>「井伊直盛在此！有膽便堂堂正正交鋒！」<br>本版四招同上，血量升為 420；後續需用二連斬／前突節拍與前兩將進一步區分。以桶狹間參戰人物安排庭院對決。</p></article><article class="card"><h3>松井宗信 · 第 10 段</h3><p>「我乃松井宗信！越過此陣，先問過我的刀！」<br>關底人體顯示高度已按玩家基準 155 px × 1.30 設為 201.5 px；程式比例已固定，視覺體格與素材清晰度仍待玩家目視驗收。本版四招為橫掃、長距前刺、反擊、全周震地波；雙向槍陣留作後續差異化設計；半血只補一次兵。大動作後有明確可反擊空檔，避免單純血厚。</p></article></div><p>名古屋市介紹松井宗信的今川先陣駐於高根山，也記錄瀨名氏俊為義元準備休息陣地；參見<a href="#src-okehazama">桶狹間史跡</a>。鵜殿與井伊的依據分列<a href="#src-udono">蒲郡市博物館</a>、<a href="#src-ii">龍潭寺</a>。三位中將不要求先製作全套獨立肖像；若沿用同陣營正式小王動作，需以頭飾、武器、配色、招式節奏區分，目前尚未完成三套獨立素材。</p><div class="review" data-review="boss"></div></section>
+<section id="roster"><h2>未來 24 關的鎮守武將候選</h2><p>保留原 24 關清單，以<strong>遊戲演義與戰鬥趣味</strong>配置鎮守武將。史實只作人物和場景的背景參考，角色可以跨戰場登場；不要求人物與關卡一一符合歷史。必要的改命運分支以 IF 簡記，重複登場者用不同招式與勝敗條件區分。</p><div class="scroll"><table><thead><tr><th>關卡／年代</th><th>最終鎮守武將</th><th>演義配置／背景靈感</th><th>玩法辨識</th><th>此關評論（自動保存）</th></tr></thead><tbody id="roster-rows"></tbody></table></div></section>
+<section id="acceptance"><h2>第一關驗收：先證明走得完，再看是否有趣</h2><ol><li>從第 1 段完整打到第 10 段：沒有提前 GO、漏波、無法殺到的敵人、殘骸堵路或空白底圖；死亡、重開與雙人落敗仍正常。</li><li>逐段確認環境辨識：十段入口與地面佈置不同；雨不下在內室，近景按腳底遮擋，路人不被算成敵人。</li><li>在箱角、敵群邊緣與雙人夾擊時連續斜走；撞上不穿越、不來回抖動。衝撞需要實際推開目標。</li><li>倒地敵人不再受到追加傷害；小王與大王起身時，近身玩家會被震退撞飛。確認雙人皆能正確結算，遠離範圍者不受影響。</li><li>打破每一種可破壞物：只掉一次食物，回血數字正確；兩玩家同時拾取只結算給一人。拒馬破壞前擋路、破壞後可過。</li><li>第 3／6／8 段及關底的姓名、對白不凍結戰鬥；姓名不可超出字幕區。最終主將能從裝備、比例與招式辨識。</li><li>音樂至少連續聽兩次完整循環：同曲跨段不重頭，切換無突兀爆音、瞬間過大或無聲；戰鬥音效仍聽得清楚。</li><li>信長、阿市、本多各完成一次普通難度；再做雙人一次。記錄每段秒數、死亡、吃補量、最長無敵人時間與阻擋卡住次數。用中位數調整波數，才能確認 12–18 分鐘目標。</li><li>保留原生畫面與數據，程式通過、目視通過、真人聽感與實體搖桿驗收各自填寫；不得互相代替。</li></ol><div class="review" data-review="acceptance"></div></section>
+<section id="sources"><h2>歷史背景參考</h2><p>查核日：2026-10-11。以下作為人物與場景的創作參考；關卡調度、招式、台詞及勝負依遊戲需求設計。傳說題材保留其傳說性質，作為劇情靈感。</p><ol id="source-list" class="source-list"></ol><div class="review" data-review="sources"></div></section>
+<footer>評論只保存在目前瀏覽器的此頁來源。移動檔案、更換瀏覽器或清除網站資料可能影響存取；請匯出 JSON 留存。此頁不自動向外部服務傳送評論。</footer>
+<script id="design-data" type="application/json">
+{
+  "format": "sengoku-stage-design-v18",
+  "segments": [
+    {
+      "id": 1,
+      "theme": "bamboo",
+      "name": "竹林入口",
+      "waves": [
+        3,
+        3
+      ],
+      "weather": "薄霧",
+      "music": "攻陣",
+      "boss": "",
+      "ground": "濕竹葉與淺色土路；遠景竹林慢移",
+      "props": "陶甕、竹籃；無平民。",
+      "food": "陶甕固定掉 飯糰（35 HP）；竹籃固定掉 糰子（25 HP）。每物件只掉一次。",
+      "play": "單側槍兵後接兩側包夾，學習清場後 GO；兩波間不加長空等。",
+      "weather_id": "mist",
+      "music_id": "siege",
+      "width": 1600,
+      "civilians": "none",
+      "wave_kinds": [
+        [
+          "soldier",
+          "soldier",
+          "flag"
+        ],
+        [
+          "soldier",
+          "archer",
+          "soldier"
+        ]
+      ],
+      "boss_line": ""
+    },
+    {
+      "id": 2,
+      "theme": "ridge",
+      "name": "高根山雨道",
+      "waves": [
+        4,
+        3
+      ],
+      "weather": "雨天",
+      "music": "攻陣",
+      "boss": "",
+      "ground": "坡腳碎石、排水溝與遠山剪影",
+      "props": "木箱、糧車；無平民。",
+      "food": "木箱固定掉 烤魚（50 HP）。每物件只掉一次。",
+      "play": "前方長槍＋後排弓兵；大糧車造成上下兩條繞路。",
+      "weather_id": "rain",
+      "music_id": "siege",
+      "width": 1750,
+      "civilians": "none",
+      "wave_kinds": [
+        [
+          "soldier",
+          "archer",
+          "soldier",
+          "flag"
+        ],
+        [
+          "soldier",
+          "soldier",
+          "archer"
+        ]
+      ],
+      "boss_line": ""
+    },
+    {
+      "id": 3,
+      "theme": "village",
+      "name": "山腳村落",
+      "waves": [
+        3,
+        4
+      ],
+      "weather": "雨天",
+      "music": "村落",
+      "boss": "瀨名氏俊",
+      "ground": "茅屋外牆、石井與泥路",
+      "props": "攤車、陶甕、竹籃；村民。",
+      "food": "攤車固定掉 飯糰（35 HP）；陶甕固定掉 桃子（60 HP）；竹籃固定掉 糰子（25 HP）。每物件只掉一次。",
+      "play": "第二波與中將一同入場，不停遊戲；留開闊側面供繞背。",
+      "weather_id": "rain",
+      "music_id": "town",
+      "width": 1700,
+      "civilians": "villagers",
+      "wave_kinds": [
+        [
+          "soldier",
+          "soldier",
+          "archer"
+        ],
+        [
+          "soldier",
+          "flag",
+          "archer",
+          "soldier",
+          "boss"
+        ]
+      ],
+      "boss_line": "前軍已在此布陣！休想摸進本陣！"
+    },
+    {
+      "id": 4,
+      "theme": "road",
+      "name": "泥濘補給街道",
+      "waves": [
+        4,
+        4
+      ],
+      "weather": "暴雨",
+      "music": "村落",
+      "boss": "",
+      "ground": "村道轉為軍用土路，車轍與淺水坑",
+      "props": "糧車、大木箱、竹籃；商販。",
+      "food": "糧車固定掉 飯糰（35 HP）；大木箱固定掉 烤魚（50 HP）；竹籃固定掉 糰子（25 HP）。每物件只掉一次。",
+      "play": "短距離遠程兵壓制，兩波後給補給喘息；豪雨不得遮住命中／蓄力提示。",
+      "weather_id": "storm",
+      "music_id": "town",
+      "width": 1900,
+      "civilians": "vendors",
+      "wave_kinds": [
+        [
+          "soldier",
+          "soldier",
+          "archer",
+          "flag"
+        ],
+        [
+          "commander",
+          "soldier",
+          "archer",
+          "soldier"
+        ]
+      ],
+      "boss_line": ""
+    },
+    {
+      "id": 5,
+      "theme": "outpost",
+      "name": "前哨拒馬",
+      "waves": [
+        4,
+        5
+      ],
+      "weather": "暴雨",
+      "music": "營寨",
+      "boss": "",
+      "ground": "夯土、營溝與前哨旗列",
+      "props": "陶甕、拒馬（必須擊破）、拒馬（必須擊破）；無平民。",
+      "food": "陶甕固定掉 桃子（60 HP）。每物件只掉一次。",
+      "play": "先破拒馬再打第二波；出口柵欄必須可破壞，破壞後移除碰撞。",
+      "weather_id": "storm",
+      "music_id": "castle",
+      "width": 1700,
+      "civilians": "none",
+      "wave_kinds": [
+        [
+          "soldier",
+          "flag",
+          "archer",
+          "soldier"
+        ],
+        [
+          "commander",
+          "soldier",
+          "archer",
+          "soldier",
+          "flag"
+        ]
+      ],
+      "boss_line": ""
+    },
+    {
+      "id": 6,
+      "theme": "gate",
+      "name": "外寨門突破",
+      "waves": [
+        4,
+        4,
+        3
+      ],
+      "weather": "雨天",
+      "music": "營寨",
+      "boss": "鵜殿長照",
+      "ground": "木門、土壘和濕滑木板",
+      "props": "大木箱、陶甕、柵欄（必須擊破）、柵欄（必須擊破）；無平民。",
+      "food": "大木箱固定掉 烤魚（50 HP）；陶甕固定掉 飯糰（35 HP）。每物件只掉一次。",
+      "play": "三波兵種遞進，第三波3名普通兵與鵜殿長照同時出場；出口柵欄必須擊破。",
+      "weather_id": "rain",
+      "music_id": "castle",
+      "width": 1800,
+      "civilians": "none",
+      "wave_kinds": [
+        [
+          "soldier",
+          "soldier",
+          "flag",
+          "archer"
+        ],
+        [
+          "commander",
+          "archer",
+          "soldier",
+          "soldier"
+        ],
+        [
+          "soldier",
+          "archer",
+          "flag",
+          "boss"
+        ]
+      ],
+      "boss_line": "守住寨門！今川的旗幟不會倒下！"
+    },
+    {
+      "id": 7,
+      "theme": "camp",
+      "name": "兵糧營",
+      "waves": [
+        4,
+        5
+      ],
+      "weather": "薄霧",
+      "music": "營寨",
+      "boss": "",
+      "ground": "米俵、營帳與灶炊煙",
+      "props": "糧車、大木箱、竹籃、陶甕；搬運者。",
+      "food": "糧車固定掉 飯糰（35 HP）；大木箱固定掉 烤魚（50 HP）；竹籃固定掉 糰子（25 HP）；陶甕固定掉 桃子（60 HP）。每物件只掉一次。",
+      "play": "箱車構成 S 形通道；敵兵由營帳兩端現身，清場後可回頭拿補。",
+      "weather_id": "mist",
+      "music_id": "castle",
+      "width": 1750,
+      "civilians": "porters",
+      "wave_kinds": [
+        [
+          "soldier",
+          "flag",
+          "archer",
+          "soldier"
+        ],
+        [
+          "commander",
+          "soldier",
+          "archer",
+          "soldier",
+          "flag"
+        ]
+      ],
+      "boss_line": ""
+    },
+    {
+      "id": 8,
+      "theme": "courtyard",
+      "name": "陣中庭院",
+      "waves": [
+        4,
+        4
+      ],
+      "weather": "晴朗",
+      "music": "營寨",
+      "boss": "井伊直盛",
+      "ground": "夯土地坪、低石牆與庭樹",
+      "props": "盆栽、陶甕、石燈籠；無平民。",
+      "food": "陶甕固定掉 桃子（60 HP）。每物件只掉一次。",
+      "play": "槍兵與旗手組合；第二波與中將同時入場，逼玩家用上下軸線避開突擊。",
+      "weather_id": "clear",
+      "music_id": "castle",
+      "width": 1750,
+      "civilians": "none",
+      "wave_kinds": [
+        [
+          "commander",
+          "soldier",
+          "archer",
+          "soldier"
+        ],
+        [
+          "soldier",
+          "flag",
+          "archer",
+          "soldier",
+          "boss"
+        ]
+      ],
+      "boss_line": "井伊直盛在此！有膽便堂堂正正交鋒！"
+    },
+    {
+      "id": 9,
+      "theme": "command",
+      "name": "指揮所前",
+      "waves": [
+        5,
+        5,
+        4
+      ],
+      "weather": "晴朗",
+      "music": "營寨",
+      "boss": "",
+      "ground": "木廊與土庭相接、陣幕遠景",
+      "props": "木箱、柵欄（必須擊破）、柵欄（必須擊破）、陶甕；無平民。",
+      "food": "木箱固定掉 烤魚（50 HP）；陶甕固定掉 飯糰（35 HP）。每物件只掉一次。",
+      "play": "關底前最後壓力段；三波兵種遞進，通路路障需打破，末尾放明顯補給。",
+      "weather_id": "clear",
+      "music_id": "castle",
+      "width": 1900,
+      "civilians": "none",
+      "wave_kinds": [
+        [
+          "commander",
+          "soldier",
+          "archer",
+          "flag",
+          "soldier"
+        ],
+        [
+          "soldier",
+          "commander",
+          "archer",
+          "soldier",
+          "flag"
+        ],
+        [
+          "commander",
+          "soldier",
+          "archer",
+          "soldier"
+        ]
+      ],
+      "boss_line": ""
+    },
+    {
+      "id": 10,
+      "theme": "chamber",
+      "name": "前哨陣內室",
+      "waves": [
+        4,
+        0
+      ],
+      "reinforcements": 3,
+      "weather": "室內、無雨粒子",
+      "music": "決戰",
+      "boss": "松井宗信",
+      "ground": "簡樸木造陣所、陣幕與地圖案几",
+      "props": "陶甕、大木箱；無平民。",
+      "food": "陶甕固定掉 桃子（60 HP）；大木箱固定掉 烤魚（50 HP）。每物件只掉一次。",
+      "play": "先打4名守衛，下一波主將獨自登場；主將半血一次增援3人。四招＋槍陣／震波，戰後結算無 GO。",
+      "weather_id": "indoor",
+      "music_id": "boss",
+      "width": 1600,
+      "civilians": "none",
+      "wave_kinds": [
+        [
+          "commander",
+          "soldier",
+          "flag",
+          "archer"
+        ],
+        [
+          "boss"
+        ]
+      ],
+      "boss_line": "我乃松井宗信！越過此陣，先問過我的刀！"
+    }
+  ],
+  "stages": [
+    [
+      1,
+      "1560",
+      "桶狹間竹林",
+      "松井宗信",
+      "高根山今川先陣背景；竹林一路打入前哨陣內室。",
+      "竹林雨道→外寨→陣所；橫掃、前刺、反擊與全周震地波。",
+      [
+        "okehazama"
+      ]
+    ],
+    [
+      2,
+      "1560",
+      "大高兵糧道",
+      "佐久間盛重",
+      "取丸根砦守將形象，從家康護糧出發安排跨角色共鬥。",
+      "移動糧車、破封鎖、砦門長槍戰。",
+      [
+        "marune",
+        "ieyasu"
+      ]
+    ],
+    [
+      3,
+      "1560",
+      "今川本陣",
+      "今川義元",
+      "桶狹間今川本陣；保留為第一場大名戰。",
+      "營寨、驟雨後急襲；薙刀大弧、護衛換列。",
+      [
+        "ieyasu",
+        "okehazama"
+      ]
+    ],
+    [
+      4,
+      "1560",
+      "三河歸途",
+      "鵜殿長照",
+      "三河城主提前在歸途登場；靈感取自 1562 年上之鄉城戰。",
+      "橋頭救援／追擊分支；長槍壓路、破包圍。",
+      [
+        "udono"
+      ]
+    ],
+    [
+      5,
+      "1566",
+      "墨俣渡河",
+      "氏家直元（卜全）",
+      "美濃三人眾搭配墨俣一夜城題材，設計渡河爭奪。",
+      "木筏與搭橋；擊落木障、岸邊突刺。",
+      [
+        "mino"
+      ]
+    ],
+    [
+      6,
+      "1567",
+      "稻葉山城下",
+      "安藤守就",
+      "以投向織田前的齋藤重臣形象守城下街道。",
+      "巷道箱車、居民避難；鉤槍與格擋反刺。",
+      [
+        "mino",
+        "gifu"
+      ]
+    ],
+    [
+      7,
+      "1567",
+      "美濃山道",
+      "稻葉良通（一鐵）",
+      "美濃山道安排一鐵交鋒，突出強硬武將形象。",
+      "山道落石警示、破柵繞背；重刀低位掃。",
+      [
+        "mino",
+        "gifu"
+      ]
+    ],
+    [
+      8,
+      "1567",
+      "岐阜城門",
+      "齋藤龍興",
+      "稻葉山城主守城門，關名沿用岐阜。",
+      "城門→二之丸→本丸；號令箭雨＋近身拔刀。",
+      [
+        "gifu"
+      ]
+    ],
+    [
+      9,
+      "1568",
+      "上洛街道",
+      "岩成友通（石成友通）",
+      "勝龍寺城抵抗上洛的背景，延伸為街道攻防。",
+      "撤離人群、交叉路障；長柄壓制＋後列鐵砲。",
+      [
+        "shoryuji"
+      ]
+    ],
+    [
+      10,
+      "1570",
+      "金崎退卻",
+      "朝倉義景",
+      "朝倉軍追擊背景，安排義景壓住突圍出口。",
+      "逆向壓力、殿後開路；限時擋軍後突圍。",
+      [
+        "kanegasaki"
+      ]
+    ],
+    [
+      11,
+      "1570",
+      "姊川渡口",
+      "朝倉景健",
+      "朝倉景健本陣與姊川合戰，化為渡口槍陣。",
+      "淺灘雙將夾擊；先破副將、再戰大將槍陣。",
+      [
+        "kagetake",
+        "anegawa"
+      ]
+    ],
+    [
+      12,
+      "1570",
+      "近江夜襲",
+      "磯野員昌",
+      "佐和山守將搭配原創近江夜襲。",
+      "火把明暗、斥候伏擊；連續前踏斬留側向空隙。",
+      [
+        "isono"
+      ]
+    ],
+    [
+      13,
+      "1572",
+      "三方原潰圍",
+      "武田信玄",
+      "三方原主將壓境；以突破追擊與護住隊友為目標。",
+      "夕雪／塵土、騎兵前兆；重甲陣壓與突破出口。",
+      [
+        "mikatagahara"
+      ]
+    ],
+    [
+      14,
+      "1572",
+      "犀崖山路",
+      "山縣昌景",
+      "武田遠江進軍搭配犀崖夜襲傳說，安排昌景守尾路。",
+      "窄道救將、邊緣落石；二連突擊與反向回槍。",
+      [
+        "yamagata",
+        "saigagake"
+      ]
+    ],
+    [
+      15,
+      "1573",
+      "小谷城下",
+      "淺井長政",
+      "小谷城主；分支可改為盟友共同守城。",
+      "城下→山城曲輪→本丸；長刀霸體、段落式反擊。",
+      [
+        "odani"
+      ]
+    ],
+    [
+      16,
+      "1573",
+      "小谷救援",
+      "羽柴秀吉",
+      "小谷攻城背景；阿市救援線與秀吉交鋒，打開撤離路。",
+      "護送分流、封鎖突破；投技、呼援與快速換位。",
+      [
+        "odani"
+      ]
+    ],
+    [
+      17,
+      "1575",
+      "長篠設樂原",
+      "武田勝賴",
+      "長篠與設樂原主將；騎兵、柵列及鐵砲形成關卡節奏。",
+      "柵列、鐵砲預警空窗；騎槍衝擊後下馬決戰。",
+      [
+        "nagashino"
+      ]
+    ],
+    [
+      18,
+      "1575",
+      "鳶巢奇襲",
+      "武田信實",
+      "鳶巢砦守將與奇襲題材，安排天明攻寨。",
+      "天明攀道、營寨破壞；守砦長槍與側門增援。",
+      [
+        "tobigasu",
+        "nagashino"
+      ]
+    ],
+    [
+      19,
+      "1575",
+      "越前山城",
+      "下間賴照",
+      "越前一向一揆總大將，安排山城分層防線。",
+      "山城石階、分層防線；薙刀圓掃、鼓聲集結。",
+      [
+        "echizen"
+      ]
+    ],
+    [
+      20,
+      "1576–81",
+      "安土火種",
+      "松永久秀（1577 篇候選）",
+      "取 1577 信貴山反亂為靈感；安土密謀戰採 IF 配置。",
+      "火場路障、滅火開道；火藥區域預警與近身短刃。",
+      [
+        "matsunaga"
+      ]
+    ],
+    [
+      21,
+      "1582",
+      "備中高松",
+      "清水宗治",
+      "高松城水攻背景；勝利後可接議和劇情。",
+      "水邊棧道、破壩支路；長刀控場＋水面震波。",
+      [
+        "takamatsu"
+      ]
+    ],
+    [
+      22,
+      "1582",
+      "本能寺",
+      "明智光秀／織田信長",
+      "依角色路線對上光秀或信長；存活結局為 IF。",
+      "火場、倒梁、室內決戰；反擊拔刀／全周火焰。",
+      [
+        "honnoji"
+      ]
+    ],
+    [
+      23,
+      "1582",
+      "伊賀越",
+      "明智秀滿（追擊 IF 候選）",
+      "演義追擊 IF：秀滿率明智追兵，服部半藏可作支援。",
+      "林道救援、假路口與突圍；長槍、遠程伏擊和換位。",
+      [
+        "hidemitsu",
+        "hattori"
+      ]
+    ],
+    [
+      24,
+      "1582",
+      "山崎決戰",
+      "明智光秀／羽柴秀吉",
+      "依角色立場對上光秀或秀吉；光秀勝出為 IF。",
+      "坡道爭奪、關底雙階段；精準反擊／投技與軍陣。",
+      [
+        "yamazaki"
+      ]
+    ]
+  ],
+  "sources": [
+    [
+      "capcom",
+      "Capcom：Beat ’Em Up Bundle 原廠介紹",
+      "https://news.capcomusa.com/lets/browse/capcom-beat-em-up-bundle-available-now-on-ps4-xbox-one-and-nintendo-switch-steam-coming-soon",
+      "街機版本九大關的原廠介紹。"
+    ],
+    [
+      "gamewatch",
+      "GAME Watch：吞食天地 II 分關攻略與遊玩片段",
+      "https://game.watch.impress.co.jp/docs/kikaku/1340684-2.html",
+      "遭遇、補給與主將節奏的玩法參考；GO 顯示依使用者指定設計。"
+    ],
+    [
+      "okehazama",
+      "名古屋市：桶狹間周邊史跡",
+      "https://www.city.nagoya.jp/midori/miryoku/1024793/1024801/1024811.html",
+      "松井宗信高根山先陣、瀨名氏俊先發陣地背景。"
+    ],
+    [
+      "marune",
+      "名古屋市：大高周邊、丸根砦",
+      "https://www.city.nagoya.jp/midori/miryoku/1024793/1024801/1024815.html",
+      "佐久間盛重守丸根砦，與松平元康等交戰。"
+    ],
+    [
+      "ieyasu",
+      "日本國立公文書館：桶狹間之戰",
+      "https://www.archives.go.jp/exhibition/digital/ieyasu/contents1_03/",
+      "元康的今川陣營、大高兵糧及義元敗死背景。"
+    ],
+    [
+      "udono",
+      "蒲郡市博物館：上之鄉城與鵜殿氏",
+      "https://www.city.gamagori.lg.jp/site/museum/kaminogo-index.html",
+      "鵜殿家與今川氏關係，以及 1562 年上之鄉城戰。"
+    ],
+    [
+      "ii",
+      "龍潭寺：寺史與井伊直盛",
+      "https://www.ryotanji.com/history/index.html",
+      "寺方記載直盛仕今川及桶狹間戰死。"
+    ],
+    [
+      "mino",
+      "岐阜縣觀光官方：美濃三人眾",
+      "https://www.toyotomi.kankou-gifu.jp/other.html",
+      "氏家直元、安藤守就、稻葉良通仕齋藤後轉向織田的背景。"
+    ],
+    [
+      "gifu",
+      "岐阜市：岐阜城歷代城主",
+      "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1034742/1034737.html",
+      "齋藤龍興、1567落城與重臣離反。"
+    ],
+    [
+      "shoryuji",
+      "長岡京市：京都防衛要地勝龍寺城",
+      "https://www.city.nagaokakyo.lg.jp/0000011496.html",
+      "1568岩成（石成）友通與上洛戰。"
+    ],
+    [
+      "kanegasaki",
+      "敦賀市：金崎城及周邊城跡導覽",
+      "https://www.city.tsuruga.lg.jp/page/4440.html",
+      "朝倉軍、越前攻城與金崎退卻背景。"
+    ],
+    [
+      "anegawa",
+      "長濱城歷史博物館：姊川合戰圖",
+      "https://nagahama-rekihaku.jp/digital-museum/70",
+      "1570 年兩軍陣營與戰事經過，含後世繪畫參考。"
+    ],
+    [
+      "kagetake",
+      "長濱市：百景與朝倉景健本陣",
+      "https://www.city.nagahama.lg.jp/cmsfiles/contents/0000002/2134/20120507-121001.pdf",
+      "景健本陣的背景資料。"
+    ],
+    [
+      "isono",
+      "彥根市：佐和山城",
+      "https://www.city.hikone.lg.jp/kakuka/kanko_bunka/8/2_2/4587.html",
+      "磯野員昌與姊川後佐和山守城背景。"
+    ],
+    [
+      "mikatagahara",
+      "濱松市文化財情報95：三方原、犀崖",
+      "https://www.city.hamamatsu.shizuoka.jp/bunkazai/info/bunkazaijyoho95.html",
+      "信玄進軍、三方原德川敗走及犀崖傳說。"
+    ],
+    [
+      "yamagata",
+      "濱松市歷史風致背景：武田軍進路",
+      "https://www.city.hamamatsu.shizuoka.jp/documents/133742/03dai1shou_1.pdf",
+      "山縣昌景別隊與遠江進軍背景。"
+    ],
+    [
+      "saigagake",
+      "濱松市：犀崖古戰場",
+      "https://www.city.hamamatsu.shizuoka.jp/bunkazai/shitei/hamatsu/hamatsu/saigagake.html",
+      "官方明標夜襲與布橋故事屬傳承。"
+    ],
+    [
+      "odani",
+      "長濱市：小谷城戰國體驗館基本計畫",
+      "https://www.city.nagahama.lg.jp/cmsfiles/contents/0000014/14058/odani_kihonkeikaku.pdf",
+      "淺井長政、阿市、小谷城與信長／秀吉攻城背景。"
+    ],
+    [
+      "nagashino",
+      "新城市：長篠、設樂原之戰",
+      "https://www.city.shinshiro.lg.jp/kanko/meisyo/nagashino-shitaragah.html",
+      "武田勝賴主軍、馬防柵與酒井忠次奇襲鳶巢等背景。"
+    ],
+    [
+      "tobigasu",
+      "新城市：長篠史跡步行導覽",
+      "https://www.city.shinshiro.lg.jp/mokuteki/shisetu/shiryokan/nagashinojyoshi/map.files/20160608-141629.pdf",
+      "列出鳶巢山砦守將武田信實、小宮山信近。"
+    ],
+    [
+      "echizen",
+      "福井縣史：越前一向一揆（二）",
+      "https://www.library-archives.pref.fukui.lg.jp/fukui/07/zusetsu/B22/B222.htm",
+      "1575 年越前防線與下間賴照。"
+    ],
+    [
+      "matsunaga",
+      "平群町：信貴山城跡",
+      "https://www.town.heguri.nara.jp/soshiki/14/1090.html",
+      "1577 年反亂與落城；平蜘蛛故事作為火藥招式靈感。"
+    ],
+    [
+      "takamatsu",
+      "岡山市：清水宗治自刃之地",
+      "https://www.city.okayama.jp/shisei/0000027717.html",
+      "高松城守將與水攻、議和背景。"
+    ],
+    [
+      "honnoji",
+      "京都市：明智光秀胴塚與本能寺／山崎背景",
+      "https://www2.city.kyoto.lg.jp/somu/rekishi/fm/ishibumi/html/ya063.html",
+      "1582 年本能寺與山崎的人物背景。"
+    ],
+    [
+      "hidemitsu",
+      "大津市：坂本城跡年表",
+      "https://www.city.otsu.lg.jp/material/files/group/67/sakamotoleaf.pdf",
+      "秀滿、坂本城與 1582 年的背景；第 23 關採追擊 IF。"
+    ],
+    [
+      "hattori",
+      "岡崎市觀光協會：服部半藏正成",
+      "https://okazaki-kanko.jp/okazaki-park/feature/busho-profile/hattori",
+      "半藏護送家康伊賀越的背景，可作支援角色靈感。"
+    ],
+    [
+      "yamazaki",
+      "京都府觀光聯盟：山崎合戰",
+      "https://www.kyoto-kankou.or.jp/info_search/357",
+      "光秀、秀吉在 1582 年山崎對峙的背景。"
+    ]
+  ],
+  "faction": "imagawa",
+  "title": "桶狹間竹林・高根山前哨"
+}
+</script>
+<script>
+'use strict';
+const design=JSON.parse(document.getElementById('design-data').textContent);
+const STORAGE_KEY='sengoku-stage-design-v18-comments';
+const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function review(id,label){return '<label>'+esc(label)+'<textarea data-field="'+esc(id)+'" maxlength="5000" placeholder="想調整的節奏、區域、人物或素材；也可記錄實測結果"></textarea></label>';}
+document.getElementById('segment-route').innerHTML=design.segments.map(s=>'<li><a href="#segment-'+s.id+'">'+s.id+' '+esc(s.name)+'</a></li>').join('');
+document.getElementById('segments').innerHTML=design.segments.map(s=>'<article class="segment" id="segment-'+s.id+'"><h3>'+String(s.id).padStart(2,'0')+' · '+esc(s.name)+(s.boss?' <span class="tag">'+esc(s.boss)+'</span>':'')+'</h3><dl><dt>波次</dt><dd>'+s.wave_kinds.map(w=>{const ordinary=w.filter(kind=>kind!=='boss').length;return (ordinary?ordinary+' 名普通兵':'')+(w.includes('boss')?(ordinary?' ＋ ':'')+esc(s.boss):'');}).join(' → ')+(s.reinforcements?'；主將半血一次增援 '+s.reinforcements+' 人':'')+'</dd><dt>氣氛</dt><dd>'+esc(s.weather)+' ｜ 音樂：'+esc(s.music)+'</dd><dt>地面／底圖</dt><dd>'+esc(s.ground)+'</dd><dt>近景／路人</dt><dd>'+esc(s.props)+'</dd><dt>補給</dt><dd>'+esc(s.food)+'</dd><dt>打法</dt><dd>'+esc(s.play)+'</dd></dl><div class="review">'+review('segment.'+s.id,'第 '+s.id+' 段評論')+'</div></article>').join('');
+document.getElementById('roster-rows').innerHTML=design.stages.map(s=>'<tr><td><b>'+String(s[0]).padStart(2,'0')+' '+esc(s[2])+'</b><br>'+esc(s[1])+'</td><td>'+esc(s[3])+'</td><td>'+esc(s[4])+'<br>'+s[6].map(id=>'<a href="#src-'+esc(id)+'">'+esc(design.sources.find(x=>x[0]===id)[1])+'</a>').join('／')+'</td><td>'+esc(s[5])+'</td><td>'+review('stage.'+s[0],'第 '+s[0]+' 關評論')+'</td></tr>').join('');
+document.getElementById('source-list').innerHTML=design.sources.map(s=>'<li id="src-'+esc(s[0])+'"><a href="'+esc(s[2])+'" target="_blank" rel="noopener noreferrer">'+esc(s[1])+'</a><br><small>'+esc(s[3])+'</small></li>').join('');
+for(const box of document.querySelectorAll('[data-review]'))box.innerHTML=review('section.'+box.dataset.review,'此節評論');
+const fields=[...document.querySelectorAll('[data-field]')];
+const fieldMap=new Map(fields.map(f=>[f.dataset.field,f]));
+let loadFailed=false;
+function validate(record){
+ if(!record||record.format!==design.format||!record.comments||typeof record.comments!=='object'||Array.isArray(record.comments))throw new Error('評論格式不符');
+ for(const [key,value] of Object.entries(record.comments))if(!fieldMap.has(key)||typeof value!=='string'||value.length>5000)throw new Error('評論欄位不符');
+ return record;
+}
+function collect(){return {format:design.format,saved_at:new Date().toISOString(),comments:Object.fromEntries(fields.map(f=>[f.dataset.field,f.value]))};}
+function message(text,error=false){const el=document.getElementById('save-status');el.textContent=text;el.className=error?'error':'';}
+function save(){
+ if(loadFailed){message('原記錄無法讀取，未覆寫；請先匯出目前評論備份。',true);return;}
+ try{localStorage.setItem(STORAGE_KEY,JSON.stringify(collect()));message('已自動保存 · '+new Date().toLocaleTimeString('zh-TW'));}
+ catch{message('無法寫入瀏覽器儲存；請匯出 JSON 備份。',true);}
+}
+for(const field of fields)field.addEventListener('input',save);
+document.getElementById('export').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(collect(),null,2)+'\n'],{type:'application/json;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='第一關與24關評論-v0.18.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+document.getElementById('print').addEventListener('click',()=>window.print());
+try{const saved=localStorage.getItem(STORAGE_KEY);if(saved){const record=validate(JSON.parse(saved));for(const field of fields)field.value=record.comments[field.dataset.field]??'';}message(saved?'已載入保存的評論。':'填寫任一區域即自動保存；重要意見請另匯出備份。');}
+catch{loadFailed=true;message('原有評論無法讀取，未覆寫；目前新輸入仍可匯出。',true);}
+</script>
+</body></html>

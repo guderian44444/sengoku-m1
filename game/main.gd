@@ -3,9 +3,11 @@ extends Node
 const Battle = preload("res://core/battle.gd")
 const BattleView = preload("res://render/battle_view.gd")
 const CombatAudio = preload("res://render/combat_audio.gd")
+const CombatHUD = preload("res://render/combat_hud.gd")
+const Typography = preload("res://render/game_typography.gd")
 const Wire = preload("res://core/wire.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
-const BUILD := "sengoku-m1-0.17.0"
+const BUILD := "sengoku-m1-0.20.0"
 const DEFAULT_PORT := 27860
 const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "光秀", "tadakatsu": "忠勝"}
@@ -18,10 +20,7 @@ var sim = Battle.new()
 var view: Node2D
 var audio: Node
 var active := false
-var paused := false:
-	set(value):
-		paused = value
-		if is_instance_valid(audio): audio.set_music_paused(value)
+var paused := false
 var session := "solo"
 var local_slot := 0
 var remote_id := 0
@@ -43,9 +42,22 @@ var difficulty := "normal"
 var net_events: Array = []
 var menu: Control
 var menu_panel: VBoxContainer
+var menu_pages: Dictionary = {}
+var menu_screen := "title"
+var options_return := "main"
+var selection_coop := false
+var partner_row: HBoxContainer
+var menu_backdrop: TextureRect
+var menu_shade: ColorRect
+var menu_logo: TextureRect
+var menu_caption: Label
+var engineer_entry: Button
+var volume_sliders: Dictionary = {}
+var _camera_scene := -1
 var status: Label
 var hud: Label
-var rage_bars: Array[ProgressBar] = []
+var combat_hud: Control
+var fullscreen_button: Button
 var hint: Label
 var end_label: Label
 var address: LineEdit
@@ -123,6 +135,7 @@ func _ready() -> void:
 		elif arg == "--art-facing-left": demo_facing_left = true
 		elif arg.begins_with("--art-pose="): demo_capture_pose = clampi(int(arg.trim_prefix("--art-pose=")), 0, ArtDemo.POSES.size() - 1)
 		elif arg.begins_with("--art-capture-dir="): demo_capture_dir = arg.trim_prefix("--art-capture-dir=")
+	_configure_display()
 	if smoke == "host":
 		port.value = 27861
 		_host()
@@ -133,6 +146,7 @@ func _ready() -> void:
 		_join()
 	elif local_coop_requested:
 		_start_local_coop()
+		if not active: _open_selection(true)
 	elif training_requested:
 		_start_training()
 	elif demo_requested:
@@ -149,7 +163,9 @@ func _ready() -> void:
 			_update_art_demo()
 	elif testing:
 		_start_solo()
-	if menu.visible: menu_panel.get_node("Training").grab_focus()
+	if menu.visible:
+		_show_menu_page("engineering" if not smoke.is_empty() else ("select" if local_coop_requested else "title"))
+		audio.play_music()
 	if capture_menu and not capture_path.is_empty(): _capture.call_deferred()
 
 func _actions() -> void:
@@ -177,160 +193,66 @@ func _actions() -> void:
 	guard_axis.axis_value = 1.0
 	InputMap.action_add_event("guard", guard_axis)
 
+static func should_start_fullscreen(args: PackedStringArray, display_name: String, automated: bool) -> bool:
+	if automated or display_name == "headless": return false
+	for arg in args:
+		if arg in ["--headless", "--script", "-s", "--windowed", "-w"] or arg.begins_with("--capture") or arg.begins_with("--art-capture") or arg.begins_with("--smoke"):
+			return false
+	return true
+
+func _configure_display() -> void:
+	var args := OS.get_cmdline_args()
+	args.append_array(OS.get_cmdline_user_args())
+	if should_start_fullscreen(args, DisplayServer.get_name(), testing or not capture_path.is_empty() or not demo_capture_dir.is_empty()):
+		_set_fullscreen(true)
+	else:
+		_update_fullscreen_button()
+
+func _set_fullscreen(enabled: bool) -> void:
+	get_window().mode = Window.MODE_FULLSCREEN if enabled else Window.MODE_WINDOWED
+	_update_fullscreen_button()
+
+func _toggle_fullscreen() -> void:
+	_set_fullscreen(get_window().mode not in [Window.MODE_FULLSCREEN, Window.MODE_EXCLUSIVE_FULLSCREEN])
+
+func _update_fullscreen_button() -> void:
+	fullscreen_button.text = "切換視窗 (F11)" if get_window().mode in [Window.MODE_FULLSCREEN, Window.MODE_EXCLUSIVE_FULLSCREEN] else "切換全螢幕 (F11)"
+
 func _build_ui() -> void:
 	var layer := CanvasLayer.new()
 	add_child(layer)
 	var ui := Control.new()
 	ui.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ui.theme = Typography.theme()
 	layer.add_child(ui)
-	var font := SystemFont.new()
-	font.font_names = PackedStringArray(["Microsoft JhengHei", "Noto Sans CJK TC", "sans-serif"])
-	var theme := Theme.new()
-	theme.default_font = font
-	theme.default_font_size = 19
-	ui.theme = theme
-	var hud_bg := ColorRect.new()
-	hud_bg.color = Color(0.025, 0.06, 0.065, 0.93)
-	hud_bg.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
-	hud_bg.offset_bottom = 112
-	hud_bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	ui.add_child(hud_bg)
-	var controls_bg := ColorRect.new()
-	controls_bg.color = Color(0.025, 0.06, 0.065, 0.93)
-	controls_bg.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-	controls_bg.offset_top = -82
-	controls_bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	ui.add_child(controls_bg)
+	combat_hud = CombatHUD.new()
+	ui.add_child(combat_hud)
 	hud = Label.new()
-	hud.position = Vector2(28, 15)
-	hud.size = Vector2(1220, 80)
-	hud.add_theme_color_override("font_color", Color("#eee2bd"))
+	hud.position = Vector2(416, 15)
+	hud.size = Vector2(448, 75)
+	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hud.add_theme_font_size_override("font_size", 18)
+	hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(hud)
-	for slot in range(2):
-		var meter := ProgressBar.new()
-		meter.position = Vector2(28 + slot * 620, 88)
-		meter.size = Vector2(290, 10)
-		meter.show_percentage = false
-		meter.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		var fill := StyleBoxFlat.new()
-		fill.bg_color = Color("bc6435")
-		meter.add_theme_stylebox_override("fill", fill)
-		meter.hide()
-		ui.add_child(meter)
-		rage_bars.append(meter)
 	hint = Label.new()
-	hint.position = Vector2(24, 650)
-	hint.size = Vector2(1230, 62)
-	hint.add_theme_font_size_override("font_size", 16)
-	hint.add_theme_color_override("font_color", Color("#c4d0bb"))
 	hint.text = BATTLE_HINT
+	hint.hide()
 	ui.add_child(hint)
 	end_label = Label.new()
-	end_label.position = Vector2(200, 210)
+	end_label.position = Vector2(200, 138)
 	end_label.size = Vector2(880, 130)
 	end_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	end_label.add_theme_font_size_override("font_size", 36)
-	end_label.add_theme_color_override("font_color", Color("#f7d797"))
-	end_label.add_theme_color_override("font_outline_color", Color("#17110d"))
-	end_label.add_theme_constant_override("outline_size", 6)
+	end_label.add_theme_font_size_override("font_size", 32)
+	end_label.add_theme_color_override("font_color", Typography.GOLD)
 	ui.add_child(end_label)
-	menu = CenterContainer.new()
-	menu.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	ui.add_child(menu)
-	var panel := PanelContainer.new()
-	panel.custom_minimum_size = Vector2(760, 0)
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color("#152c2b")
-	style.border_color = Color("#9a8856")
-	style.set_border_width_all(2)
-	style.set_content_margin_all(22)
-	panel.add_theme_stylebox_override("panel", style)
-	menu.add_child(panel)
-	menu_panel = VBoxContainer.new()
-	menu_panel.add_theme_constant_override("separation", 7)
-	panel.add_child(menu_panel)
-	var title := Label.new()
-	title.text = "吞 食 戰 國   ／   M1 戰鬥原型"
-	title.add_theme_font_size_override("font_size", 29)
-	title.add_theme_color_override("font_color", Color("#ead69b"))
-	menu_panel.add_child(title)
-	var subtitle := Label.new()
-	subtitle.text = "v0.17 本多忠勝完整招式 · 槍底震地 · 平順突進"
-	subtitle.add_theme_font_size_override("font_size", 17)
-	menu_panel.add_child(subtitle)
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 14)
-	menu_panel.add_child(row)
-	heroes = OptionButton.new()
-	for label in ["信長｜炎刀", "阿市｜短針・長弓", "秀吉｜短槍快攻", "家康｜太刀・防禦", "光秀｜拔刀反擊", "忠勝｜長槍重投"]: heroes.add_item(label)
-	row.add_child(heroes)
-	difficulties = OptionButton.new()
-	for label in ["故事難度", "標準難度", "挑戰難度"]: difficulties.add_item(label)
-	difficulties.selected = 1
-	row.add_child(difficulties)
-	factions = OptionButton.new()
-	for faction in FACTION_NAMES: factions.add_item(FACTION_NAMES[faction] + "軍")
-	row.add_child(factions)
-	_button("鍵盤練習場｜立即試打木樁", _start_training, "Training")
-	_button("目前陣營試戰｜分波攻防", func(): training_drill = "enemies"; _start_training(), "EnemyTraining")
-	_button("單人關卡／重新開始", _start_solo, "Solo")
-	var coop_row := HBoxContainer.new()
-	menu_panel.add_child(coop_row)
-	partner_heroes = OptionButton.new()
-	for hero in HEROES: partner_heroes.add_item("2P " + HERO_NAMES[hero])
-	partner_heroes.selected = 1
-	coop_row.add_child(partner_heroes)
-	_button("雙搖桿合作｜兩支搖桿同機遊玩", _start_local_coop, "LocalCoop", coop_row)
-	_button("信長／阿市｜逐招素材展示", _start_art_demo, "ArtDemo")
-	var network_row := HBoxContainer.new()
-	network_row.add_theme_constant_override("separation", 10)
-	menu_panel.add_child(network_row)
-	address = LineEdit.new()
-	address.placeholder_text = "主機 IPv4，例如 192.168.1.10"
-	address.text = "127.0.0.1"
-	address.custom_minimum_size.x = 350
-	network_row.add_child(address)
-	port = SpinBox.new()
-	port.custom_minimum_size.x = 170
-	port.min_value = 1024
-	port.max_value = 65535
-	port.value = DEFAULT_PORT
-	port.prefix = "UDP "
-	network_row.add_child(port)
-	var row_buttons := HBoxContainer.new()
-	menu_panel.add_child(row_buttons)
-	_button("建立雙人主機", _host, "Host", row_buttons)
-	_button("以 IP 加入", _join, "Join", row_buttons)
-	var ip_text := Label.new()
-	var ips: Array[String] = []
-	for ip in IP.get_local_addresses():
-		if ip.is_valid_ip_address() and "." in ip and not ip.begins_with("127.") and not ip.begins_with("169.254."): ips.append(ip)
-	ip_text.text = "本機 IPv4：" + (", ".join(ips) if not ips.is_empty() else "未偵測到區域網路位址")
-	ip_text.add_theme_font_size_override("font_size", 15)
-	menu_panel.add_child(ip_text)
-	status = Label.new()
-	status.text = "雙機同網段先行；無中繼。跨網路可能需 UDP 開埠，CGNAT 不保證。\n主機選難度與角色；對方加入後立即開始。"
-	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	status.custom_minimum_size.x = 700
-	status.add_theme_font_size_override("font_size", 16)
-	menu_panel.add_child(status)
-	feedback_label = Label.new()
-	feedback_label.text = "抓摔：△／Y 按住抓人、放開摔。支援的搖桿會震動；離開不保存進度。"
-	feedback_label.add_theme_font_size_override("font_size", 14)
-	menu_panel.add_child(feedback_label)
-	var bottom := HBoxContainer.new()
-	menu_panel.add_child(bottom)
-	_button("繼續遊戲／練習", _resume, "Resume", bottom)
-	_button("結束連線／返回", _leave_to_menu, "Leave", bottom)
-	_button("離開程式", func(): get_tree().quit(), "Quit", bottom)
-	_button("操作／COMBO表 (F1)", _show_controls, "Controls", bottom)
+	_build_menu(ui)
 	_build_controls(ui)
-	hud.text = "吞食戰國    M1 六武將試戰    0.15.0"
 	demo_controls = HBoxContainer.new()
 	demo_controls.position = Vector2(24, 652)
-	demo_controls.add_theme_constant_override("separation", 12)
+	demo_controls.add_theme_constant_override("separation", 8)
 	ui.add_child(demo_controls)
+	demo_controls.add_theme_font_size_override("font_size", 17)
 	demo_toggle = _button("暫停", _toggle_art_demo, "PauseDemo", demo_controls)
 	_button("上一招", func(): _seek_art_demo(-1), "PreviousPose", demo_controls)
 	_button("下一招", func(): _seek_art_demo(1), "NextPose", demo_controls)
@@ -345,9 +267,221 @@ func _build_ui() -> void:
 	_button("回到選單", _leave_to_menu, "ExitDemo", demo_controls)
 	demo_controls.hide()
 
+func _menu_label(parent: Node, text: String, font_size: int = 24) -> Label:
+	var label := Label.new()
+	label.text = text
+	label.add_theme_font_size_override("font_size", font_size)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	parent.add_child(label)
+	return label
+
+func _menu_page(key: String, at: Vector2, width: float, heading: String = "") -> VBoxContainer:
+	var page := VBoxContainer.new()
+	page.name = key.capitalize()
+	page.position = at
+	page.size.x = width
+	page.add_theme_constant_override("separation", 12)
+	menu.add_child(page)
+	menu_pages[key] = page
+	if not heading.is_empty():
+		var label := _menu_label(page, heading, 38)
+		label.custom_minimum_size.y = 70
+		label.add_theme_color_override("font_color", Typography.GOLD)
+	return page
+
+func _build_menu(ui: Control) -> void:
+	menu = Control.new()
+	menu.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	ui.add_child(menu)
+	menu_backdrop = TextureRect.new()
+	menu_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	menu_backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	menu_backdrop.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	menu_backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var background_path := "res://assets/v20/title/title-background.png"
+	if FileAccess.file_exists(background_path): menu_backdrop.texture = ImageTexture.create_from_image(Image.load_from_file(background_path))
+	menu.add_child(menu_backdrop)
+	menu_shade = ColorRect.new()
+	menu_shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	menu_shade.color = Color(0.06, 0.025, 0.06, 0.25)
+	menu_shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	menu.add_child(menu_shade)
+	menu_logo = TextureRect.new()
+	menu_logo.position = Vector2(220, 40)
+	menu_logo.size = Vector2(840, 280)
+	menu_logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	menu_logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	menu_logo.texture = ImageTexture.create_from_image(Image.load_from_file("res://assets/v20/title/title-logo.png"))
+	menu_logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	menu.add_child(menu_logo)
+	menu_caption = _menu_label(menu, "桶 狹 間 之 章", 25)
+	menu_caption.position = Vector2(240, 304)
+	menu_caption.size.x = 800
+	menu_caption.add_theme_color_override("font_color", Typography.GOLD)
+	var title_page := _menu_page("title", Vector2(380, 437), 520)
+	_button("按下開始   PRESS START", func(): _show_menu_page("main"), "Start", title_page)
+	_menu_label(title_page, "ENTER  ／  START", 17)
+	var main_page := _menu_page("main", Vector2(430, 358), 420)
+	_button("一 人 出 陣", func(): _open_selection(false), "Solo", main_page)
+	_button("二 人 共 鬥", func(): _open_selection(true), "LocalCoop", main_page)
+	_button("遊 戲 設 定", _open_options, "Options", main_page)
+	_button("離 開 遊 戲", func(): get_tree().quit(), "Quit", main_page)
+	var select_page := _menu_page("select", Vector2(320,  90), 640, "選 擇 武 將")
+	var first_row := HBoxContainer.new()
+	select_page.add_child(first_row)
+	_menu_label(first_row, "一番隊　", 25)
+	heroes = OptionButton.new()
+	for label in ["織田信長｜炎刀", "阿市｜短針・長弓", "豐臣秀吉｜短槍", "德川家康｜太刀", "明智光秀｜拔刀", "本多忠勝｜長槍"]: heroes.add_item(label)
+	heroes.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	first_row.add_child(heroes)
+	partner_row = HBoxContainer.new()
+	select_page.add_child(partner_row)
+	_menu_label(partner_row, "二番隊　", 25)
+	partner_heroes = OptionButton.new()
+	for hero in HEROES: partner_heroes.add_item(HERO_NAMES[hero])
+	partner_heroes.selected = 1
+	partner_heroes.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	partner_row.add_child(partner_heroes)
+	var difficulty_row := HBoxContainer.new()
+	select_page.add_child(difficulty_row)
+	_menu_label(difficulty_row, "難　度　", 25)
+	difficulties = OptionButton.new()
+	for label in ["故事", "標準", "挑戰"]: difficulties.add_item(label)
+	difficulties.selected = 1
+	difficulties.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	difficulty_row.add_child(difficulties)
+	_menu_label(select_page, "第一關　桶狹間竹林", 23)
+	_button("出　陣", func():
+		if selection_coop: _start_local_coop()
+		else: _start_solo(), "Begin", select_page)
+	_button("返　回", _menu_back, "Back", select_page)
+	var options := _menu_page("options", Vector2(310, 100), 660, "遊 戲 設 定")
+	for category in ["music", "sfx", "voice"]:
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 16)
+		options.add_child(row)
+		var label := _menu_label(row, {"music":"音 樂", "sfx":"音 效", "voice":"語 音"}[category], 25)
+		label.custom_minimum_size.x = 100
+		var slider := HSlider.new()
+		slider.name = category.capitalize() + "Volume"
+		slider.min_value = 0
+		slider.max_value = 100
+		slider.step = 5
+		slider.value = audio.get_category_volume(category) * 100
+		slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		slider.custom_minimum_size.y = 48
+		row.add_child(slider)
+		var number := _menu_label(row, "%d%%" % int(slider.value), 24)
+		number.custom_minimum_size.x = 88
+		slider.value_changed.connect(func(value: float):
+			number.text = "%d%%" % int(value)
+			if audio.set_category_volume(category, value / 100.0) != OK: status.text = "音量已套用，但設定儲存失敗。"
+		)
+		volume_sliders[category] = slider
+	fullscreen_button = _button("全螢幕 (F11)", _toggle_fullscreen, "Fullscreen", options)
+	_button("操 作 與 招 式", _show_controls, "Controls", options)
+	_button("返　回", _menu_back, "Back", options)
+	var pause_page := _menu_page("pause", Vector2(430, 150), 420, "暫 停")
+	_button("繼 續 戰 鬥", _resume, "Resume", pause_page)
+	_button("重 新 出 陣", func():
+		if training_active: _reset_training()
+		elif session == "local": _start_local_coop()
+		else: _start_solo(), "Restart", pause_page)
+	_button("遊 戲 設 定", _open_options, "Options", pause_page)
+	_button("返 回 主 畫 面", _leave_to_menu, "Leave", pause_page)
+	menu_panel = _menu_page("engineering", Vector2(260, 30), 760, "工 程 入 口")
+	menu_panel.add_theme_font_size_override("font_size", 18)
+	menu_panel.add_theme_constant_override("separation", 7)
+	factions = OptionButton.new()
+	for faction in FACTION_NAMES: factions.add_item(FACTION_NAMES[faction] + "軍")
+	menu_panel.add_child(factions)
+	var tools_row := HBoxContainer.new()
+	menu_panel.add_child(tools_row)
+	_button("武將與難度設定", func(): _open_selection(false), "Selection", tools_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_button("逐招素材展示", _start_art_demo, "ArtDemo", tools_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var trials_row := HBoxContainer.new()
+	menu_panel.add_child(trials_row)
+	_button("練習場", _start_training, "Training", trials_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_button("陣營試戰", func(): training_drill = "enemies"; _start_training(), "EnemyTraining", trials_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var network_row := HBoxContainer.new()
+	menu_panel.add_child(network_row)
+	address = LineEdit.new()
+	address.placeholder_text = "主機 IP"
+	address.text = "127.0.0.1"
+	address.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	network_row.add_child(address)
+	port = SpinBox.new()
+	port.min_value = 1024
+	port.max_value = 65535
+	port.value = DEFAULT_PORT
+	port.prefix = "UDP "
+	port.custom_minimum_size.x = 175
+	network_row.add_child(port)
+	var network_buttons := HBoxContainer.new()
+	menu_panel.add_child(network_buttons)
+	_button("建立雙人主機", _host, "Host", network_buttons)
+	_button("以 IP 加入", _join, "Join", network_buttons)
+	var ips: Array[String] = []
+	for ip in IP.get_local_addresses():
+		if ip.is_valid_ip_address() and "." in ip and not ip.begins_with("127.") and not ip.begins_with("169.254."): ips.append(ip)
+	_menu_label(menu_panel, "本機 IP：" + (", ".join(ips) if not ips.is_empty() else "未偵測"), 16)
+	feedback_label = _menu_label(menu_panel, "F1 操作表 · 區域網路 UDP 直連", 16)
+	_button("返　回", _menu_back, "Back")
+	status = _menu_label(menu, "", 18)
+	status.position = Vector2(190, 608)
+	status.size = Vector2(900, 48)
+	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	engineer_entry = _button("工程入口", func(): _show_menu_page("engineering"), "EngineeringEntry", menu)
+	engineer_entry.position = Vector2(535, 666)
+	engineer_entry.size = Vector2(210, 36)
+	engineer_entry.add_theme_font_size_override("font_size", 17)
+	_show_menu_page("title")
+
+func _show_menu_page(page: String) -> void:
+	menu_screen = page
+	menu.show()
+	for key in menu_pages: menu_pages[key].visible = key == page
+	menu_backdrop.visible = not active
+	menu_shade.color.a = 0.72 if active or page not in ["main", "title"] else 0.18
+	menu_logo.visible = page in ["title", "main"]
+	menu_caption.visible = menu_logo.visible
+	engineer_entry.visible = page != "engineering"
+	combat_hud.visible = active
+	hud.visible = active
+	end_label.visible = active
+	if page == "pause":
+		menu_pages.pause.get_node("Resume").visible = sim.state.get("phase", "") in ["playing", "won"]
+		menu_pages.pause.get_node("Restart").visible = session in ["solo", "local"]
+	for control in menu_pages[page].find_children("*", "Control", true, false):
+		if control.is_visible_in_tree() and control.focus_mode == Control.FOCUS_ALL:
+			control.grab_focus()
+			break
+
+func _open_selection(coop: bool) -> void:
+	selection_coop = coop
+	partner_row.visible = coop
+	status.text = "雙人合作請連接兩支搖桿。" if coop else ""
+	_show_menu_page("select")
+
+func _open_options() -> void:
+	options_return = menu_screen
+	status.text = "音量會自動保存；左右調整，確認返回。"
+	_show_menu_page("options")
+
+func _menu_back() -> void:
+	status.text = ""
+	if not active and session in ["host", "client"]:
+		_leave_to_menu()
+		return
+	if menu_screen == "options": _show_menu_page(options_return)
+	elif menu_screen == "pause": _resume()
+	elif menu_screen == "main": _show_menu_page("title")
+	elif menu_screen != "title": _show_menu_page("pause" if active else "main")
+
 func _build_controls(ui: Control) -> void:
 	controls_dialog = AcceptDialog.new()
-	controls_dialog.title = "吞食戰國 v0.17 · 操作與 COMBO"
+	controls_dialog.title = "吞食戰國 · 操作與 COMBO"
+	controls_dialog.theme = Typography.theme()
 	controls_dialog.ok_button_text = "回到遊戲"
 	controls_dialog.exclusive = true
 	ui.add_child(controls_dialog)
@@ -358,7 +492,7 @@ func _build_controls(ui: Control) -> void:
 	text.add_theme_constant_override("line_separation", 5)
 	controls_dialog.add_child(text)
 	var guide: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://controls-v11.json"))
-	text.text = "[b]六主角操作表[/b]\nWASD 移動 · 空白 跳躍 · E 拾取 · I 防禦 · 同方向雙點按住衝刺\n按住左右連打：出招時停止前進，停打恢復；新按左右＋J：突進技\n先衝刺再按 K：立即衝刺重手，朝面前攻擊；不進入蓄力\n\n"
+	text.text = "[b]畫面與進軍[/b]\nF11 全螢幕／視窗 · Esc / Options 開啟選單 · F1 關閉本表\n畫面上方：肖像、姓名、體力／數值、氣力、武器與盔甲。滿氣 U / R1 必殺。\n每區兩個據點；擊破敵人與路障後，看到 GO → 就一起向右前進。\n食物可回復體力，走近按 E / L1 拾取；雙人需各接一支搖桿。\n\n[b]六主角操作表[/b]\n" + BATTLE_HINT + "\nU 滿怒必殺 · E 拾取 · 同方向雙點按住衝刺\n按住左右連打：出招時停止前進，停打恢復；新按左右＋J：突進技\n先衝刺再按 K：立即衝刺重手，朝面前攻擊；不進入蓄力\n\n[b]練習場[/b]\n" + TRAINING_HINT + "\n\n"
 	for row in guide.rows:
 		text.text += "[color=#ffd581][b]%s[/b][/color]\n" % row.input
 		for hero in HEROES:
@@ -370,6 +504,9 @@ func _build_controls(ui: Control) -> void:
 	controls_dialog.window_input.connect(func(event: InputEvent):
 		if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F1:
 			_close_controls()
+			controls_dialog.set_input_as_handled()
+		elif event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F11:
+			_toggle_fullscreen()
 			controls_dialog.set_input_as_handled()
 	)
 
@@ -412,7 +549,9 @@ func _close_network() -> void:
 	view.art_demo = false
 	view.demo_pose = -1
 	demo_controls.hide()
-	hint.show()
+	hint.hide()
+	combat_hud.sync({})
+	hud.text = ""
 	hint.text = BATTLE_HINT
 	active = false
 	session = "solo"
@@ -427,7 +566,7 @@ func _start_solo() -> void:
 	_close_network()
 	_choices()
 	local_slot = 0
-	sim.reset(difficulty, 1, [selected_hero], selected_faction)
+	sim.reset_campaign(difficulty, 1, [selected_hero])
 	_activate()
 
 func _start_local_coop() -> void:
@@ -438,7 +577,7 @@ func _start_local_coop() -> void:
 	_choices()
 	session = "local"
 	local_slot = 0
-	sim.reset(difficulty, 2, [selected_hero, HEROES[partner_heroes.selected]], selected_faction)
+	sim.reset_campaign(difficulty, 2, [selected_hero, HEROES[partner_heroes.selected]])
 	_activate()
 	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · △／Y 按住抓人、放開摔 · R1／RB 必殺 · L2／LT 防禦 · Options 暫停"
 
@@ -469,6 +608,8 @@ func _start_art_demo() -> void:
 	demo_active = true
 	paused = false
 	menu.hide()
+	hud.show()
+	end_label.show()
 	hint.hide()
 	end_label.text = ""
 	demo_controls.show()
@@ -499,6 +640,10 @@ func _step_art_frame(direction: int) -> void:
 		if next.clip != current.clip or next.frame != current.frame: break
 
 func _update_art_demo() -> void:
+	combat_hud.hide()
+	hud.position = Vector2(28, 15)
+	hud.size = Vector2(1220, 80)
+	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	view.art_demo = true
 	view.art_time = art_demo.elapsed
 	view.demo_pose = art_demo.pose()
@@ -519,6 +664,7 @@ func _activate() -> void:
 	active = true
 	paused = false
 	audio.play_music()
+	audio.sync_stage_music(sim.state)
 	last_event = -1
 	local_frame = 0
 	remote_frame = -1
@@ -530,9 +676,13 @@ func _activate() -> void:
 	_cancel_sequence = -1
 	net_events.clear()
 	menu.hide()
+	hud.show()
+	end_label.show()
+	_camera_scene = -1
 	end_label.text = ""
 	end_label.position = Vector2(200, 210)
 	view.local_slot = local_slot
+	_update_view()
 	if smoke.is_empty() and not testing and sim.state.get("intro", {}).is_empty():
 		for fighter in sim.state.fighters:
 			if fighter.team == 0: audio.play_character(fighter.kind, "intro", fighter.player_index, true)
@@ -548,9 +698,10 @@ func _host() -> void:
 		return
 	multiplayer.multiplayer_peer = peer
 	session = "host"
+	audio.play_music()
 	local_slot = 0
-	status.text = "等待第二台電腦加入 · UDP %d\n輸入上方本機 IPv4。關閉本畫面請按「結束連線／返回」。" % int(port.value)
-	menu.show()
+	status.text = "等待第二台電腦加入 · UDP %d\n請隊友輸入本機 IPv4。按返回可結束等候。" % int(port.value)
+	_show_menu_page("engineering")
 
 func _join() -> void:
 	_close_network()
@@ -565,6 +716,7 @@ func _join() -> void:
 		return
 	multiplayer.multiplayer_peer = peer
 	session = "client"
+	audio.play_music()
 	local_slot = 1
 	connecting_since = Time.get_ticks_msec()
 	status.text = "正在連線至 %s:%d…" % [address.text, int(port.value)]
@@ -589,7 +741,7 @@ func hello(build: String, fingerprint: String, hero: String) -> void:
 		return
 	remote_id = sender
 	waiting_peer_since = 0
-	sim.reset(difficulty, 2, [selected_hero, hero], selected_faction)
+	sim.reset_campaign(difficulty, 2, [selected_hero, hero])
 	_activate()
 	begin_client.rpc_id(sender, sim.get_state(), difficulty)
 
@@ -658,7 +810,9 @@ func _peer_disconnected(id: int) -> void:
 
 func _fail(message: String) -> void:
 	_close_network()
-	menu.show()
+	paused = false
+	_show_menu_page("main")
+	audio.play_music()
 	status.text = message
 	if not smoke.is_empty():
 		_report({"ok": false, "error": message})
@@ -667,15 +821,16 @@ func _fail(message: String) -> void:
 func _leave_to_menu() -> void:
 	_close_network()
 	paused = false
-	menu.show()
+	_show_menu_page("main")
+	audio.play_music()
 	end_label.text = ""
-	status.text = "已返回選單。本次 M1 試玩不保存進度。"
+	status.text = ""
 
 func _resume() -> void:
 	if session == "local" and (player_devices[0] < 0 or player_devices[1] < 0):
 		status.text = "隊友搖桿尚未連接。接回兩支搖桿後再繼續。"
 		return
-	if active and session in ["solo", "local"] and sim.state.get("phase", "") in ["playing", "won"]:
+	if active:
 		paused = false
 		_input_armed = false
 		_partner_input_armed = false
@@ -764,6 +919,8 @@ func _keep_local_party_in_view() -> void:
 
 func _set_game_focus(focused: bool) -> void:
 	if testing or not smoke.is_empty(): return
+	# The F1 child window owns focus and pause until it closes.
+	if controls_dialog.visible: return
 	_has_focus = focused
 	_input_armed = false
 	_partner_input_armed = false
@@ -772,8 +929,8 @@ func _set_game_focus(focused: bool) -> void:
 	for action in CONTROL_ACTIONS: Input.action_release(action)
 	if active and session in ["solo", "local"]:
 		paused = true
-		menu.show()
-		status.text = "遊戲已暫停。回到視窗後，放開按鍵並按「繼續遊戲／練習」。"
+		_show_menu_page("pause")
+		status.text = "遊戲已暫停。回到視窗後，放開按鍵並按「繼續」。"
 
 func _physics_process(_delta: float) -> void:
 	app_ticks += 1
@@ -798,10 +955,6 @@ func _physics_process(_delta: float) -> void:
 		if local_frame == 130: assert(_cancel_sequence == -1, "Loopback cancellation must receive its reliable acknowledgement")
 	var request_cancel := _cancel_input_pending and _cancel_sequence < 0
 	var frame := _input_frame()
-	# Playback is real-time; leave the intro paused if rendering runs ahead of its spoken clip.
-	if session != "client" and (audio.intro_playing() or pending_intro_actor > 0) and int(sim.state.get("intro", {}).get("remaining_ticks", 0)) <= 1:
-		_update_view()
-		return
 	if session == "client":
 		# Wait for reliable cancellation acknowledgement before any neutral release can arrive.
 		if request_cancel:
@@ -840,7 +993,6 @@ func _physics_process(_delta: float) -> void:
 	if sim.state.get("phase", "") != "playing":
 		if not terminal_voice_played:
 			terminal_voice_played = true
-			audio.stop_music()
 			if sim.state.phase == "won":
 				for fighter in sim.state.fighters:
 					if fighter.team == 0 and fighter.hp > 0 and fighter.kind not in ["nobunaga", "oichi", "tadakatsu"]:
@@ -855,7 +1007,7 @@ func _physics_process(_delta: float) -> void:
 				_victory_subtitle = HERO_NAMES.get(fighter.kind, fighter.kind) + "：「" + str(line.get("subtitle", line.get("text", ""))) + "」"
 		end_label.position = Vector2(200, 138)
 		end_label.add_theme_font_size_override("font_size", 26)
-		end_label.text = "前哨突破！" if sim.state.phase == "won" else "此戰未竟"
+		end_label.text = ("第一關突破！" if sim.state.has("stage") else "前哨突破！") if sim.state.phase == "won" else "此戰未竟"
 		if not _victory_subtitle.is_empty(): end_label.text += "\n" + _victory_subtitle
 		end_label.text += "\n按 Esc 返回選單／重新開始"
 
@@ -925,28 +1077,39 @@ func boss_voice_finished(actor: int) -> void:
 
 func _update_view() -> void:
 	view.state = sim.state
+	combat_hud.show()
+	combat_hud.sync(sim.state)
+	hud.position = Vector2(416, 15)
+	hud.size = Vector2(448, 75)
+	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	if active and sim.state.get("phase","") == "playing": audio.sync_stage_music(sim.state)
 	var x := 480.0
 	var living_x: Array[float] = []
-	var lines: Array[String] = []
-	for meter in rage_bars: meter.hide()
 	for fighter in sim.state.get("fighters", []):
 		if int(fighter.get("team", 1)) != 0: continue
 		var slot := int(fighter.get("player_index", 0))
 		if slot == local_slot: x = float(fighter.x)
 		if fighter.hp > 0: living_x.append(float(fighter.x))
-		var name_text: String = HERO_NAMES.get(fighter.kind, fighter.kind)
-		if slot >= 0 and slot < rage_bars.size():
-			rage_bars[slot].show()
-			rage_bars[slot].value = fighter.rage
-			rage_bars[slot].modulate = Color("ffe0a1") if fighter.rage >= 100 else Color.WHITE
-		lines.append("%dP %s   體力 %d/%d   怒氣 %d   甲 %d / 武 %d" % [slot + 1, name_text, fighter.hp, fighter.max_hp, fighter.rage, fighter.armor, fighter.weapon])
-	if session == "local" and not living_x.is_empty():
+	if session in ["local","host","client"] and not living_x.is_empty():
 		x = 0.0
 		for position in living_x: x += position / living_x.size()
-	view.camera_x = clampf(x - (640.0 if session == "local" else 540.0), 0.0, 1100.0)
+	var camera_target := Battle.camera_left(sim.state) if sim.state.has("stage") else clampf(x - (640.0 if session in ["local","host","client"] else 540.0), 0.0, 1100.0)
+	var camera_scene := int(sim.state.get("stage", {}).get("index", -2))
+	# Unlocking the next checkpoint must scroll toward the party without a camera jump.
+	view.camera_x = camera_target if _camera_scene != camera_scene else move_toward(view.camera_x, camera_target, 10.0)
+	_camera_scene = camera_scene
+	if not living_x.is_empty():
+		view.camera_x = clampf(view.camera_x, maxf(0.0, living_x.max() - 1200.0), maxf(0.0, living_x.min() - 80.0))
+	if sim.state.has("stage"):
+		view.camera_x = clampf(view.camera_x, 0.0, maxf(0.0, float(sim.state.stage.encounter_end) - 1280.0))
 	view.queue_redraw()
 	var mode := "單人" if session == "solo" else ("雙搖桿合作" if session == "local" else "IP 直連 · " + ("主機" if session == "host" else "客端"))
-	hud.text = "吞食戰國  M1    %s    第 %d 波    %s\n%s" % [mode, int(sim.state.get("wave", 1)), difficulty, "    │    ".join(lines)]
+	hud.text = "吞食戰國・%s" % mode
+	if sim.state.has("stage"):
+		var stage: Dictionary = sim.state.stage
+		var objective := "GO → 全員向右前進" if stage.go else ""
+		if not stage.go and not sim.state.fighters.any(func(f): return f.team == 1 and f.hp > 0) and sim.state.props.any(func(p): return p.get("mandatory",false) and not p.broken): objective = "擊破拒馬／柵欄，打通出口"
+		hud.text = "%02d/%02d　%s\n據點 %d/%d　%s" % [stage.index + 1,stage.total,stage.name,int(stage.get("checkpoint", 0)) + 1,int(stage.get("checkpoint_total", 2)),objective]
 	if training_active:
 		var player: Dictionary = sim.state.fighters[0]
 		var stats: Dictionary = sim.state.training
@@ -965,24 +1128,39 @@ func _update_view() -> void:
 		var living := 0
 		for enemy in sim.state.fighters:
 			if enemy.team == 1 and enemy.hp > 0: living += 1
-		var rage_hint := "木樁怒氣無限" if training_drill == "dummy" else ("怒氣滿！按 U" if player.rage >= 100 else "挨打／格擋集怒")
-		hud.text = "%s v0.17  ·  %s  ·  %s\n體力 %d/%d   怒氣 %d/100   第 %d 波・敵人 %d   命中 %d 次   %s" % [drill_name, HERO_NAMES.get(player.kind, player.kind), move_name, player.hp, player.max_hp, player.rage, sim.state.wave, living, stats.hit_count, rage_hint]
+		hud.text = "%s・%s\n敵人 %d　命中 %d 次" % [drill_name,move_name,living,stats.hit_count]
 	var introduction: Dictionary = sim.state.get("intro", {})
 	if int(introduction.get("remaining_ticks", 0)) > 0 or audio.intro_playing():
 		var key := str(introduction.get("line_key", ""))
-		end_label.add_theme_font_size_override("font_size", 27)
-		end_label.text = str(introduction.get("name", "")) + "\n" + str(audio.speech_manifest.get("clips", {}).get(key, {}).get("text", ""))
-		end_label.text += "\n—— 武將出場・台詞結束後開戰 ——"
+		end_label.position = Vector2(200,100)
+		end_label.add_theme_font_size_override("font_size", 23)
+		end_label.text = str(introduction.get("name", "")) + "\n" + str(introduction.get("line",audio.speech_manifest.get("clips", {}).get(key, {}).get("text", "")))
 	elif sim.state.get("phase", "") == "playing":
 		end_label.text = ""
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F11:
+		_toggle_fullscreen()
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F1:
 		if controls_dialog.visible: _close_controls()
 		else: _show_controls()
 		get_viewport().set_input_as_handled()
 		return
 	if controls_dialog.visible: return
+	if menu.visible:
+		var back: bool = (event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_ESCAPE) or (event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_B)
+		var start: bool = event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_START
+		if back or start:
+			if start and menu_screen == "title": _show_menu_page("main")
+			elif start and menu_screen == "pause": _resume()
+			elif back: _menu_back()
+			get_viewport().set_input_as_handled()
+			return
+	if active and ((event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_ESCAPE) or (event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_START)):
+		_unhandled_input(event)
+		return
 	if training_active and active and not menu.visible and _has_focus and event is InputEventKey and event.pressed and not event.echo:
 		if event.physical_keycode == KEY_R:
 			_reset_training()
@@ -1021,18 +1199,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if (event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_ESCAPE) or (event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_START):
 		if not active: return
 		if event is InputEventJoypadButton and event.device not in player_devices: return
-		if session in ["host", "client"]:
-			menu.visible = not menu.visible
-			_input_armed = false
-			if menu.visible: _cancel_local_controls()
-			status.text = "連線中開啟選單不暫停全隊；你的角色停止輸入。離線請按結束連線。"
+		if menu.visible:
+			_menu_back()
 		else:
-			if paused: _resume()
-			else:
-				paused = true
-				menu.show()
-				_cancel_local_controls()
-		if menu.visible: menu_panel.get_node("Training").grab_focus()
+			paused = session in ["solo", "local"]
+			_show_menu_page("pause")
+			_cancel_local_controls()
+			status.text = "連線中選單不暫停全隊；你的角色停止輸入。" if session in ["host", "client"] else ""
+		get_viewport().set_input_as_handled()
 
 func _joy_changed(device: int, connected: bool) -> void:
 	var assigned := device in player_devices or player_devices[local_slot] < 0
@@ -1041,7 +1215,7 @@ func _joy_changed(device: int, connected: bool) -> void:
 		for action in CONTROL_ACTIONS: Input.action_release(action)
 		if session in ["solo", "local"]:
 			paused = true
-			menu.show()
+			_show_menu_page("pause")
 			status.text = "搖桿已拔除，遊戲暫停。接回搖桿、放開按鍵後按繼續。" if session == "local" else "搖桿已拔除，遊戲暫停。可重新連接或使用鍵盤繼續。"
 	var previous := player_devices.duplicate()
 	_sync_devices()

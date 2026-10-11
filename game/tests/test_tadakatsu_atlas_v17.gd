@@ -38,19 +38,23 @@ func _before_frames(board: Board, spec: Dictionary) -> Array:
 func _run() -> void:
 	var output := ProjectSettings.globalize_path("res://../artifacts/tadakatsu-atlas-v17")
 	assert(DirAccess.make_dir_recursive_absolute(output)==OK)
-	var before: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(output.path_join("registration-before.json")))
 	var after: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/v16/registration.json"))
+	var capture := "--capture" in OS.get_cmdline_user_args()
+	var before := {}
+	if capture:
+		var before_path := output.path_join("registration-before.json")
+		assert(FileAccess.file_exists(before_path),"Before/after capture requires the historical registration snapshot")
+		before = JSON.parse_string(FileAccess.get_file_as_string(before_path))
 	var viewport := SubViewport.new()
 	viewport.size=Vector2i(1600,1380)
 	viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	root.add_child(viewport)
 	var board := Board.new()
 	viewport.add_child(board)
-	var capture := "--capture" in OS.get_cmdline_user_args()
 	var report := {"registration_sha256":FileAccess.get_sha256("res://assets/v16/registration.json"),"original_sources":{},"frames":[],"boards":[],"assertions":0}
+	var source_images := {}
 	var total := 0
-	for actor in before.actors:
-		var old: Dictionary=before.actors[actor]
+	for actor in after.actors:
 		var spec: Dictionary=after.actors[actor]
 		var frames: Array=board._art.animations.tadakatsu[spec.sheet]
 		assert(frames.size()==int(spec.columns)*int(spec.rows))
@@ -58,6 +62,17 @@ func _run() -> void:
 		report.original_sources[spec.file]=FileAccess.get_sha256(original_path)
 		for index in range(frames.size()):
 			var frame: Dictionary=frames[index]
+			var source_file: String=str(spec.get("frame_files",{}).get(str(index),spec.file))
+			if not source_images.has(source_file):
+				var source: Image=Image.load_from_file("res://assets/v16/"+source_file)
+				assert(source!=null,"Tracked source image must load")
+				source_images[source_file]=source
+			var source_region: Array=spec.regions[str(index)]
+			var registered_region := Rect2i(source_region[0],source_region[1],source_region[2],source_region[3])
+			var source_image: Image=source_images[source_file]
+			var used: Rect2i=source_image.get_region(registered_region).get_used_rect()
+			assert(frame.source_region==Rect2(registered_region.position+used.position,used.size),"Native crop must retain the full opaque area of the tracked registration")
+			assert(Rect2(Vector2.ZERO,Vector2(source_image.get_size())).encloses(frame.source_region),"Native crop must stay inside its tracked source image")
 			assert(frame.source_region.has_area() and frame.body_height>=220)
 			assert(frame.region.position==Vector2(2,2),"Keep the independent transparent texture gutter")
 			assert(frame.texture.get_size()==frame.region.size+Vector2(4,4))
@@ -68,9 +83,10 @@ func _run() -> void:
 				for point in frame.clip_polygon: polygon.append([point.x,point.y])
 			var r: Rect2=frame.source_region
 			report.frames.append({"actor":actor,"index":index,"file":spec.get("frame_files",{}).get(str(index),spec.file),"region":[r.position.x,r.position.y,r.size.x,r.size.y],"body_height":frame.body_height,"support":[frame.support_point.x,frame.support_point.y],"polygon":polygon,"superseded":spec.sheet=="v16_special"})
-			report.assertions+=5 if spec.sheet!="v16_special" else 3
+			report.assertions+=7 if spec.sheet!="v16_special" else 5
 			total+=1
 		if capture:
+			var old: Dictionary=before.actors[actor]
 			for stage in ["before","after"]:
 				board.frames=_before_frames(board,old) if stage=="before" else frames
 				board.title=str(actor)+" / "+stage+" / native renderer / same 185px anatomical scale"

@@ -75,6 +75,7 @@ func _test_real_states() -> void:
 	for type in Wire.EVENTS:
 		valid.events = [{"type": type, "x": 500.0, "y": 450.0, "id": 1, "actor": 1, "target": 2}]
 		if type == "damage": valid.events[0].amount = 20
+		if type == "food_pickup": valid.events[0].merge({"food_id":"rice", "heal":40})
 		_check(Wire.valid_snapshot(valid), "event " + type)
 	for metadata in [{}, {"combo": 0, "heavy_combo": 0, "finisher": false}, {"combo": 3, "heavy_combo": 2, "finisher": true}]:
 		valid.events = [{"type": "swing", "x": 500.0, "y": 450.0, "id": 1, "actor": 1, "target": 0, "action": "light"}]
@@ -127,6 +128,11 @@ func _test_invalid_snapshots() -> void:
 		malformed.events = [{"type": "hit", "x": 1.0, "y": 2.0, "id": 1, "actor": 1, "target": 2}]
 		malformed.events[0][pair[0]] = pair[1]
 		_check(not Wire.valid_snapshot(malformed), "invalid event " + str(pair[0]))
+	for pair in [["food_id","unknown"],["food_id",null],["heal",0],["heal",121],["heal",1.5],["heal",null]]:
+		var malformed := original.duplicate(true)
+		malformed.events = [{"type":"food_pickup","x":500.0,"y":450.0,"id":1,"actor":1,"target":2,"food_id":"rice","heal":40}]
+		malformed.events[0][pair[0]] = pair[1]
+		_check(not Wire.valid_snapshot(malformed), "invalid healing event " + str(pair[0]))
 	for pair in [["action_tick",{}],["action_tick","12"],["action_tick",-1],["action_tick",1.5],["combo",{}],["combo","1"],["combo",-1],["combo",4],["heavy_combo",{}],["heavy_combo","1"],["heavy_combo",-1],["heavy_combo",3]]:
 		var malformed := original.duplicate(true)
 		malformed.effects = [{"type":"projectile","x":100.0,"y":300.0,"life":10,"max_life":50,"z":28.0,"vx":11.0,"owner":1,"team":0,"damage":20,"poison":0,"face":1}]

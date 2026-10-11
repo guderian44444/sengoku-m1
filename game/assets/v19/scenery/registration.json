@@ -1,0 +1,212 @@
+{
+  "version": "0.19",
+  "generator": "built-in image_gen.imagegen",
+  "extraction": "Generated RGBA pixels are retained. Crops use inspected atlas gutters and acquire transparent filter padding at runtime.",
+  "props": {
+    "screen": {
+      "source": "objects-source.png",
+      "region": [
+        447,
+        822,
+        362,
+        343
+      ],
+      "anchor": [
+        181.0,
+        340
+      ],
+      "body_height": 337,
+      "display_height": 155,
+      "footprint_depth": 34
+    },
+    "cabinet": {
+      "source": "objects-source.png",
+      "region": [
+        850,
+        830,
+        383,
+        338
+      ],
+      "anchor": [
+        191.5,
+        335
+      ],
+      "body_height": 332,
+      "display_height": 150,
+      "footprint_depth": 58
+    }
+  },
+  "borders": {
+    "grass": {
+      "source": "objects-source.png",
+      "region": [
+        9,
+        76,
+        411,
+        279
+      ],
+      "anchor": [
+        205.5,
+        276
+      ],
+      "body_height": 273,
+      "display_height": 62,
+      "footprint_depth": 0
+    },
+    "shrubs": {
+      "source": "objects-source.png",
+      "region": [
+        442,
+        150,
+        379,
+        203
+      ],
+      "anchor": [
+        189.5,
+        200
+      ],
+      "body_height": 197,
+      "display_height": 68,
+      "footprint_depth": 0
+    },
+    "earth_low": {
+      "source": "objects-source.png",
+      "region": [
+        838,
+        203,
+        404,
+        153
+      ],
+      "anchor": [
+        202.0,
+        150
+      ],
+      "body_height": 147,
+      "display_height": 45,
+      "footprint_depth": 0
+    },
+    "earth_high": {
+      "source": "objects-source.png",
+      "region": [
+        14,
+        485,
+        422,
+        288
+      ],
+      "anchor": [
+        211.0,
+        285
+      ],
+      "body_height": 282,
+      "display_height": 84,
+      "footprint_depth": 0
+    },
+    "wood_rail": {
+      "source": "objects-source.png",
+      "region": [
+        442,
+        535,
+        382,
+        223
+      ],
+      "anchor": [
+        191.0,
+        220
+      ],
+      "body_height": 217,
+      "display_height": 72,
+      "footprint_depth": 0
+    },
+    "bamboo_rail": {
+      "source": "objects-source.png",
+      "region": [
+        844,
+        529,
+        398,
+        230
+      ],
+      "anchor": [
+        199.0,
+        227
+      ],
+      "body_height": 224,
+      "display_height": 76,
+      "footprint_depth": 0
+    },
+    "interior_rail": {
+      "source": "objects-source.png",
+      "region": [
+        24,
+        928,
+        383,
+        233
+      ],
+      "anchor": [
+        191.5,
+        230
+      ],
+      "body_height": 227,
+      "display_height": 74,
+      "footprint_depth": 0
+    }
+  },
+  "border_themes": {
+    "bamboo": [
+      "grass",
+      "shrubs",
+      "bamboo_rail"
+    ],
+    "ridge": [
+      "earth_low",
+      "grass",
+      "earth_high"
+    ],
+    "village": [
+      "wood_rail",
+      "grass",
+      "earth_low"
+    ],
+    "gate": [
+      "wood_rail",
+      "earth_high",
+      "grass"
+    ],
+    "camp": [
+      "bamboo_rail",
+      "grass",
+      "earth_low"
+    ],
+    "courtyard": [
+      "shrubs",
+      "grass",
+      "earth_low"
+    ],
+    "chamber": [
+      "interior_rail"
+    ]
+  },
+  "backgrounds": {
+    "courtyard": {
+      "source": "courtyard.png",
+      "horizon": 0.585
+    }
+  },
+  "sources": {
+    "courtyard.png": {
+      "sha256": "2e3b3090812061188de3715dfbed31690c9813c4bb6ce5feb373590b7a5b24af",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    "objects-source.png": {
+      "sha256": "a198cdfeab30ddea86323bd48ddf8e54a1997cba0d5907b6eee516ca25fbfaab",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    }
+  }
+}

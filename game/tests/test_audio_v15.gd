@@ -133,7 +133,7 @@ func run() -> void:
 				heard.append(previous)
 			heard.sort()
 			check(heard == range(count),"Each random bag covers every take: " + kind)
-	check(take_count == 76,"All 24 categories have 76 real PCM takes")
+	check(take_count == 79,"The 24 combat categories and the new healing category have 79 real PCM takes")
 	var orders := []
 	for seed_value in [71,903]:
 		audio._rng.seed = seed_value

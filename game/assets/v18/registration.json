@@ -1,0 +1,473 @@
+{
+  "version": "0.18",
+  "generator": "built-in image_gen.imagegen",
+  "extraction": "RGBA source pixels are retained; independent padded textures prevent adjacent-cell filtering.",
+  "props": {
+    "jar": {
+      "source": "props.png",
+      "region": [
+        58,
+        77,
+        267,
+        267
+      ],
+      "anchor": [
+        133.5,
+        263
+      ],
+      "body_height": 259,
+      "display_height": 72
+    },
+    "basket": {
+      "source": "props.png",
+      "region": [
+        427,
+        85,
+        238,
+        256
+      ],
+      "anchor": [
+        119.0,
+        252
+      ],
+      "body_height": 248,
+      "display_height": 55
+    },
+    "crate": {
+      "source": "props.png",
+      "region": [
+        746,
+        108,
+        285,
+        237
+      ],
+      "anchor": [
+        142.5,
+        233
+      ],
+      "body_height": 229,
+      "display_height": 78
+    },
+    "large_crate": {
+      "source": "props.png",
+      "region": [
+        1087,
+        94,
+        335,
+        263
+      ],
+      "anchor": [
+        167.5,
+        259
+      ],
+      "body_height": 255,
+      "display_height": 102
+    },
+    "cart": {
+      "source": "props.png",
+      "region": [
+        51,
+        443,
+        291,
+        216
+      ],
+      "anchor": [
+        145.5,
+        212
+      ],
+      "body_height": 208,
+      "display_height": 120
+    },
+    "stall": {
+      "source": "props.png",
+      "region": [
+        379,
+        402,
+        338,
+        279
+      ],
+      "anchor": [
+        169.0,
+        275
+      ],
+      "body_height": 271,
+      "display_height": 185
+    },
+    "barricade": {
+      "source": "props.png",
+      "region": [
+        737,
+        432,
+        344,
+        254
+      ],
+      "anchor": [
+        172.0,
+        250
+      ],
+      "body_height": 246,
+      "display_height": 112
+    },
+    "fence": {
+      "source": "props.png",
+      "region": [
+        1095,
+        424,
+        311,
+        261
+      ],
+      "anchor": [
+        155.5,
+        257
+      ],
+      "body_height": 253,
+      "display_height": 112
+    },
+    "stone_lantern": {
+      "source": "props.png",
+      "region": [
+        93,
+        704,
+        200,
+        329
+      ],
+      "anchor": [
+        100.0,
+        325
+      ],
+      "body_height": 321,
+      "display_height": 118
+    },
+    "planter": {
+      "source": "props.png",
+      "region": [
+        385,
+        717,
+        314,
+        319
+      ],
+      "anchor": [
+        157.0,
+        315
+      ],
+      "body_height": 311,
+      "display_height": 88
+    },
+    "rice_bales": {
+      "source": "props.png",
+      "region": [
+        734,
+        774,
+        344,
+        263
+      ],
+      "anchor": [
+        172.0,
+        259
+      ],
+      "body_height": 255,
+      "display_height": 92
+    },
+    "lantern": {
+      "source": "props.png",
+      "region": [
+        1188,
+        705,
+        148,
+        326
+      ],
+      "anchor": [
+        74.0,
+        322
+      ],
+      "body_height": 318,
+      "display_height": 140
+    }
+  },
+  "food": {
+    "rice": {
+      "source": "food-source.png",
+      "region": [
+        35,
+        67,
+        721,
+        381
+      ],
+      "anchor": [
+        360.5,
+        377
+      ],
+      "body_height": 373,
+      "display_height": 50
+    },
+    "fish": {
+      "source": "food-source.png",
+      "region": [
+        788,
+        68,
+        713,
+        353
+      ],
+      "anchor": [
+        356.5,
+        349
+      ],
+      "body_height": 345,
+      "display_height": 46
+    },
+    "dango": {
+      "source": "food-source.png",
+      "region": [
+        71,
+        559,
+        673,
+        404
+      ],
+      "anchor": [
+        336.5,
+        400
+      ],
+      "body_height": 396,
+      "display_height": 50
+    },
+    "peach": {
+      "source": "food-source.png",
+      "region": [
+        911,
+        548,
+        485,
+        426
+      ],
+      "anchor": [
+        242.5,
+        422
+      ],
+      "body_height": 418,
+      "display_height": 50
+    }
+  },
+  "debris": {
+    "ceramic": {
+      "source": "debris.png",
+      "region": [
+        87,
+        175,
+        606,
+        278
+      ],
+      "anchor": [
+        303.0,
+        274
+      ],
+      "body_height": 270
+    },
+    "wood": {
+      "source": "debris.png",
+      "region": [
+        814,
+        189,
+        690,
+        262
+      ],
+      "anchor": [
+        345.0,
+        258
+      ],
+      "body_height": 254
+    },
+    "bamboo": {
+      "source": "debris.png",
+      "region": [
+        52,
+        637,
+        683,
+        299
+      ],
+      "anchor": [
+        341.5,
+        295
+      ],
+      "body_height": 291
+    },
+    "wicker": {
+      "source": "debris.png",
+      "region": [
+        787,
+        668,
+        698,
+        265
+      ],
+      "anchor": [
+        349.0,
+        261
+      ],
+      "body_height": 257
+    }
+  },
+  "backgrounds": {
+    "bamboo": {
+      "source": "bamboo.png",
+      "horizon": 0.595
+    },
+    "ridge": {
+      "source": "ridge.png",
+      "horizon": 0.515
+    },
+    "village": {
+      "source": "village.png",
+      "horizon": 0.545
+    },
+    "fort": {
+      "source": "fort.png",
+      "horizon": 0.565
+    },
+    "camp": {
+      "source": "camp.png",
+      "horizon": 0.535
+    },
+    "chamber": {
+      "source": "chamber.png",
+      "horizon": 0.475
+    }
+  },
+  "sources": {
+    "bamboo.png": {
+      "sha256": "206b2f0c5b12f259889e3bdd66801fecd785edf72eae18bd672efcd6d7e65f24",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    "camp.png": {
+      "sha256": "a6c90482b219667d25f742cd5516527ea82fbac9c59d6d0bad5d5434e5605eb8",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    "chamber.png": {
+      "sha256": "9c0f31f337fc0f793bb3abf3f7147f9959dc31812318a29771645a0a368b2a68",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    "debris.png": {
+      "sha256": "d612d6c609ecb51ac36d325c910c391e960c13f65e25b28be8d1403ddd6b7dda",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    "food-source.png": {
+      "sha256": "7f0aa61b30ae5cf2cbe1de0657ba677c752b8f5863b3baa91b545bb3b99bcabe",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    "fort.png": {
+      "sha256": "b04719bd1aabd96bd58ab298d486901eb460eec4c20078b951011e753b88e4be",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    "imagawa-flag.png": {
+      "sha256": "00226d486e302bbd77ab71050411d127090dbed2d7ff8844ad7184429bb3e766",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    "props.png": {
+      "sha256": "25f159e90b08962e80cc969dd18cb3f2a9ce3dc511a220a841583b2db554b46b",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA"
+    },
+    "ridge.png": {
+      "sha256": "85b5dde4e6bebb758c6de71fa007d3cc6fddbfa4be6c2583f8846540e25c302c",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    "village.png": {
+      "sha256": "4a5bdf6762633c62a9975ab9f57a77234ca15a238491b98f3c955e03491363b9",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    }
+  },
+  "flags": {
+    "0": {
+      "source": "imagawa-flag.png",
+      "region": [
+        237,
+        94,
+        233,
+        478
+      ],
+      "anchor": [
+        28.0,
+        474
+      ],
+      "body_height": 470
+    },
+    "1": {
+      "source": "imagawa-flag.png",
+      "region": [
+        795,
+        94,
+        309,
+        478
+      ],
+      "anchor": [
+        28.0,
+        474
+      ],
+      "body_height": 470
+    },
+    "2": {
+      "source": "imagawa-flag.png",
+      "region": [
+        226,
+        685,
+        338,
+        468
+      ],
+      "anchor": [
+        29.0,
+        464
+      ],
+      "body_height": 460
+    },
+    "3": {
+      "source": "imagawa-flag.png",
+      "region": [
+        798,
+        685,
+        323,
+        472
+      ],
+      "anchor": [
+        27.0,
+        468
+      ],
+      "body_height": 464
+    }
+  }
+}

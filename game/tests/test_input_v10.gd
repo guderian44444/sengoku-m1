@@ -72,23 +72,37 @@ func run() -> void:
 	app.training_drill="boss"
 	app._reset_training()
 	var snapshot: Dictionary=app.sim.get_state()
+	snapshot.tick+=1
 	snapshot.intro.remaining_ticks-=1
-	check(app._newer_snapshot(snapshot),"Frozen-tick intro countdown reaches network client")
+	check(app._newer_snapshot(snapshot),"Advancing world ticks carry the nonblocking introduction to clients")
 	var old: Dictionary=snapshot.duplicate(true)
 	app.sim.state=snapshot
+	old.tick-=1
 	old.intro.remaining_ticks+=1
 	check(not app._newer_snapshot(old),"Reordered intro packet cannot rewind countdown")
 	app._reset_training()
+	app.sim.state.fighters[1].x=1800.0
+	app.sim.state.fighters[1].cooldown=9999
 	tick(app,2)
 	check(app.audio.intro_playing(),"Native app starts the selected boss speech")
-	var frozen_tick: int=app.sim.state.tick
+	check(not app.sim.state.intro.get("blocking",true),"Training introductions use the same nonblocking rules as stage bosses")
+	var voice_tick: int=app.sim.state.tick
+	var voice_x: float=app.sim.state.fighters[0].x
+	key(KEY_A,true)
+	tick(app,6)
+	key(KEY_A,false)
+	check(app.audio.intro_playing() and app.sim.state.tick==voice_tick+6 and app.sim.state.fighters[0].x<voice_x,"Movement and world time continue while the introduction is spoken")
+	key(KEY_J,true)
+	tick(app)
+	key(KEY_J,false)
+	check(app.audio.intro_playing() and app.sim.state.fighters[0].action=="light","Attack input remains live during boss speech")
 	tick(app,400)
-	check(app.sim.state.tick==frozen_tick and app.sim.state.intro.remaining_ticks==1,"Fast simulation waits for actual spoken audio completion")
+	check(app.sim.state.tick==voice_tick+407 and app.sim.state.intro.remaining_ticks==0 and app.audio.intro_playing(),"Simulation continues even when the display countdown ends before real-time audio")
 	var clip_seconds: float=app.audio._intro_player.stream.get_length()
 	await create_timer(clip_seconds+0.15).timeout
 	if app.audio.intro_playing(): await app.audio._intro_player.finished
 	tick(app,3)
-	check(not app.audio.intro_playing() and app.sim.state.tick>frozen_tick,"Combat resumes after speech ends")
+	check(not app.audio.intro_playing() and app.sim.state.tick==voice_tick+410,"Speech completion does not reset or interrupt continued combat")
 	var connected=[]
 	for id in Input.get_connected_joypads(): connected.append({"id":id,"name":Input.get_joy_name(id),"guid":Input.get_joy_guid(id)})
 	print("CONNECTED JOYPADS: ",JSON.stringify(connected))

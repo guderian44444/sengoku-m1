@@ -46,7 +46,13 @@ func _initialize() -> void:
 	var view := View.new()
 	for hero in Battle.HEROES:
 		var thrower := {"kind":hero,"team":0,"action":"throw","action_tick":11}
-		if view._art.animations[hero].has("v12_throw"):
+		if hero == "tadakatsu":
+			thrower.action_tick = 0
+			var release: Dictionary = view._fighter_animation(thrower)
+			check(release.sheet == "v17_throw" and release.frame == 0 and release.released,"Tadakatsu v17 throw releases immediately from its first drawing")
+			thrower.action_tick = 23
+			check(view._fighter_animation(thrower).frame == 11,"Tadakatsu v17 throw completes all twelve drawings before the simulation ends")
+		elif view._art.animations[hero].has("v12_throw"):
 			thrower.action_tick = 0
 			var release: Dictionary = view._fighter_animation(thrower)
 			check(release.frame == 6 and release.released,hero + " throw follows the immediate grab release")
@@ -72,7 +78,8 @@ func _initialize() -> void:
 			if pulse:
 				emitted.append(player.action_tick)
 				var drawing := view._fighter_animation(player)
-				check(drawing.sheet == "v12_special" or (drawing.sheet == "v11_skills" and drawing.cell / 8 == 5),hero + " emitted attack uses the special sequence")
+				var expected_sequence: bool = drawing.sheet == "v17_special" if hero == "tadakatsu" else (drawing.sheet == "v12_special" or (drawing.sheet == "v11_skills" and drawing.cell / 8 == 5))
+				check(expected_sequence,hero + " emitted attack uses the special sequence")
 				check(drawing.frame == drawing.count / 2 and drawing.released,hero + " live emission matches its strike drawing")
 		check(emitted == EXPECTED_PULSES[hero],hero + " simulation retains all original pulse times")
 		check(player.action == "idle",hero + " special still ends after 210 simulation ticks")

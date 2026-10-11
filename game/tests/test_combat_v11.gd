@@ -136,7 +136,9 @@ func _test_boss_guard() -> void:
 			"cooldown": boss.counter_ticks = 1
 			"frozen": boss.freeze = 30
 			"recovering": boss.action = "recovering"
-		_check(battle._damage(boss, 20, player.id, false), situation + " cannot trigger an unfair automatic boss parry")
+		var accepted: bool = battle._damage(boss, 20, player.id, false)
+		_check(not accepted and boss.hp == 1000 if situation == "recovering" else accepted, situation + " uses ground recovery protection instead of automatic parry")
+		_check(not battle.state.events.any(func(e: Dictionary) -> bool: return e.type == "guard"), situation + " does not trigger an automatic parry")
 
 
 func _test_projectile_guard_origin() -> void:

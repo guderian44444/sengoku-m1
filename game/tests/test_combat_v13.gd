@@ -71,7 +71,7 @@ func _test_dash_heavy() -> void:
 			var front := _target(battle, impact_x + face * 100.0)
 			var flank := _target(battle, impact_x + face * 95.0, 525.0)
 			var outside_arc := _target(battle, impact_x + face * 20.0, 530.0)
-			var rear := _target(battle, impact_x - face * 60.0)
+			var rear := _target(battle, player.x - face * 60.0)
 			_step(battle, 1, Battle.HEAVY, face)
 			_check(player.action == "dash_heavy" and player.action_tick == 0 and player.charge == 0, hero + " sprint heavy begins immediately without charge")
 			_check(battle.state.events.any(func(e: Dictionary) -> bool: return e.type == "swing" and e.action == "dash_heavy"), "dash heavy emits the new swing action")

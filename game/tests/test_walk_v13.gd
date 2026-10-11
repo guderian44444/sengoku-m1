@@ -128,7 +128,10 @@ func _test_legacy_dash() -> void:
 		var fighter := {"kind":hero,"team":0,"action":"dash_heavy","action_tick":Battle.hero_tick(hero,12)}
 		var sample := view._fighter_animation(fighter)
 		var row := 4 if hero in ["hideyoshi","tadakatsu"] else 5
-		check(sample.source == "v10" and sample.cell == row * 6 + 3 and sample.released and sample.clip == "dash_heavy","Legacy dash uses the correct heavy strike at its real damage tick for " + hero)
+		if hero == "tadakatsu":
+			check(sample.source == "v17" and sample.sheet == "v17_dash" and sample.frame == 6 and sample.count == 12 and sample.released and sample.clip == "dash_heavy","Tadakatsu dash uses the v17 twelve-frame strike at its real damage tick")
+		else:
+			check(sample.source == "v10" and sample.cell == row * 6 + 3 and sample.released and sample.clip == "dash_heavy","Legacy dash uses the correct heavy strike at its real damage tick for " + hero)
 		fighter.action_tick -= 1
 		check(not view._fighter_animation(fighter).released,"Legacy dash remains in windup before damage for " + hero)
 	view.free()

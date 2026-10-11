@@ -35,6 +35,7 @@ func _arena(hero: String = "nobunaga"):
 	var player: Dictionary = battle.state.fighters[0]
 	var enemy: Dictionary = battle.state.fighters[1]
 	battle.state.fighters = [player, enemy]
+	battle.state.props = []
 	player.x = 500.0
 	player.y = 460.0
 	enemy.x = 560.0

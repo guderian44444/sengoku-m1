@@ -34,7 +34,7 @@ func run() -> void:
 	check(app._victory_spoken.size() == 1 and app._victory_spoken.has(app.sim.state.fighters[0].id), "First living partner speaks at tick sixty")
 	check(app.audio.speech_playing(), "A real character channel occupies the speech queue")
 	check(app._victory_subtitle.begins_with("信長：「") and app._victory_subtitle.length() > 7, "The spoken victory take supplies its localized subtitle")
-	check(not app.audio._music_player.playing, "Victory speech follows the stopped battle score")
+	check(app.audio._music_player.playing and not app.audio._music_player.stream_paused, "Victory speech plays over the continuously looping battle score")
 	for tick in range(160): app._physics_process(1.0 / 60)
 	check(app._victory_spoken.size() == 1, "Second partner cannot interrupt the first victory line")
 	var victory_tick: int = app.sim.state.fighters[0].action_tick

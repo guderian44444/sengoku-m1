@@ -1,0 +1,463 @@
+{
+  "tool": "built-in image_gen",
+  "version": "0.19",
+  "notes": "Six secondary troop attacks, each with six actually articulated frames. Alpha source PNGs copied unchanged. Metadata validation does not repaint, resize or retouch pixels. Use transparent gutters instead of assuming exact equal thirds.",
+  "recipes": [
+    {
+      "role": "soldier",
+      "clip": "spear_sweep",
+      "file": "soldier-spear_sweep.png",
+      "prompt": "Production sprite atlas layout repair. Preserve same six chronological drawings, exact identity/armor/face, weapon length, painted detail and TRUE ALPHA. Shrink ALL SIX drawings including every weapon/banner uniformly to 65 PERCENT of current size, then CENTER each WHOLE drawing inside its own equal TWO COLUMNS x THREE ROWS cell. Large blank transparent gutters are required; keep at least40px clearance to every boundary. Entire top of flag, cloth, blade, shaft, hat and shoe must be complete, with no pixels crossing into another cell. Do not fill empty space with enlarged figures. No backgrounds, floor/shadow/checkerboard/effects/text. Keep six distinct poses and crisp quality. ACTION CORRECTION: this is a ROTATIONAL HORIZONTAL SWEEP, not a forward thrust. Correct frame2 to coil hips left with weapon drawn far behind-left. Correct frame4 to turn torso through front-three-quarter toward camera, both elbows BENT, both hands near waist, swinging the whole horizontal pole ACROSS the body from left to right; NO straight rightward arm extension. Preserve all six positions as one continuous left-to-right swing, with obvious torso rotation and rear foot pivot. Flagcloth stays attached with unchanged white emblem if present.",
+      "references": [
+        "D:/AI/吞食戰國/game/assets/v19/enemies/soldier-walk.png",
+        "D:/AI/吞食戰國/game/assets/v19/enemies/boss-boss_sweep.png"
+      ],
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-72e40553-3c97-4534-a802-4c503aec5056.png",
+      "original_prompt": "Use case: identity-preserve. Make a NEW production high-resolution 2D Sengoku game attack sprite atlas. Image1 is ONLY character/costume identity authority. Image2 is ONLY the small drawing SCALE, transparent spacing and TWO COLUMNS by THREE ROWS layout reference; do not copy image2 character or weapon. Exactly SIX distinct chronological full-body action drawings, facing RIGHT, read left-right then next row. Square canvas. Each body about250px tall, whole person-plus-weapon group fits within460px wide by300px high. A lot of empty transparency is intentional! Six equally sized cells; groups centered with large minimum40px empty margins at every cell edge. Maintain identical anatomical/head size throughout, do not enlarge drawings. Crisp richly detailed painted illustration, no blur/haze. True transparent alpha background, no shadow, no floor, no checkerboard, no text, labels, spark, motion trails or energy effects. Full blade, shaft, cloth, hat and shoes visible, no overlap between cells.\nIDENTITY: Lean adult Japanese spear foot soldier: black broad conical jingasa helmet with chin tie, beige rolled sleeve shirt, dark brown lamellar cuirass with gold rivets, gray hakama, darkblue waist sash, white/cream forearm and shin wraps, straw sandals. Straight brown wooden yari spear, small straight steel spearhead. Exactly match first reference identity, no plume or cape.\nACTION: Six sequential keyframes of waist-height SPEAR SHAFT SWEEP, facing RIGHT:1 neutral two-handed spear guard;2 knees crouch and hips twist left drawing shaft back;3 pivot shoulders and bring shaft diagonally across waist;4 full broad horizontal swing to RIGHT with wide planted stance;5 follow-through blade and shaft low right, sash follows;6 balanced diagonal guard restored. Six distinct articulated torso/limb/weapon positions, one continuous attack.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-72e40553-3c97-4534-a802-4c503aec5056.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-bc1142c8-25b3-42c3-a987-dc033856a50a.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          671,
+          1254
+        ],
+        "y": [
+          0,
+          458,
+          837,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          179,
+          131,
+          550,
+          399
+        ],
+        [
+          819,
+          153,
+          1117,
+          399
+        ],
+        [
+          166,
+          518,
+          590,
+          778
+        ],
+        [
+          747,
+          532,
+          1164,
+          782
+        ],
+        [
+          148,
+          915,
+          604,
+          1151
+        ],
+        [
+          788,
+          892,
+          1144,
+          1154
+        ]
+      ],
+      "sha256": "ce5cd1fd1d93b5fd5d1740911188bec5bd61038f789dd271fd7df414e6291901",
+      "transparent_fraction": 0.8459
+    },
+    {
+      "role": "soldier",
+      "clip": "spear_butt",
+      "file": "soldier-spear_butt.png",
+      "prompt": "Production sprite atlas layout repair. Preserve same six chronological drawings, exact identity/armor/face, weapon length, painted detail and TRUE ALPHA. Shrink ALL SIX drawings including every weapon/banner uniformly to 65 PERCENT of current size, then CENTER each WHOLE drawing inside its own equal TWO COLUMNS x THREE ROWS cell. Large blank transparent gutters are required; keep at least40px clearance to every boundary. Entire top of flag, cloth, blade, shaft, hat and shoe must be complete, with no pixels crossing into another cell. Do not fill empty space with enlarged figures. No backgrounds, floor/shadow/checkerboard/effects/text. Keep six distinct poses and crisp quality.",
+      "references": [
+        "D:/AI/吞食戰國/game/assets/v19/enemies/soldier-walk.png",
+        "D:/AI/吞食戰國/game/assets/v19/enemies/boss-boss_sweep.png"
+      ],
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-b63adb64-5390-4dd2-bc55-06e54d5dd832.png",
+      "original_prompt": "Use case: identity-preserve. Make a NEW production high-resolution 2D Sengoku game attack sprite atlas. Image1 is ONLY character/costume identity authority. Image2 is ONLY the small drawing SCALE, transparent spacing and TWO COLUMNS by THREE ROWS layout reference; do not copy image2 character or weapon. Exactly SIX distinct chronological full-body action drawings, facing RIGHT, read left-right then next row. Square canvas. Each body about250px tall, whole person-plus-weapon group fits within460px wide by300px high. A lot of empty transparency is intentional! Six equally sized cells; groups centered with large minimum40px empty margins at every cell edge. Maintain identical anatomical/head size throughout, do not enlarge drawings. Crisp richly detailed painted illustration, no blur/haze. True transparent alpha background, no shadow, no floor, no checkerboard, no text, labels, spark, motion trails or energy effects. Full blade, shaft, cloth, hat and shoes visible, no overlap between cells.\nIDENTITY: Lean adult Japanese spear foot soldier: black broad conical jingasa helmet with chin tie, beige rolled sleeve shirt, dark brown lamellar cuirass with gold rivets, gray hakama, darkblue waist sash, white/cream forearm and shin wraps, straw sandals. Straight brown wooden yari spear, small straight steel spearhead. Exactly match first reference identity, no plume or cape.\nACTION: Six sequential keyframes of close-range SPEAR BUTT STRIKE to the RIGHT (blunt wooden rear tip, not metal spearhead):1 diagonal normal guard;2 twist both hands to rotate weapon, spearhead swings behind toward LEFT;3 draw wooden blunt butt back by chest, point still behind-left;4 short forceful step and sharp thrust of wooden BUTT END forward RIGHT at chest height;5 compressed follow-through right elbow extending while rear knee braces;6 rotate spear back into normal front-point guard. Full spear retained all frames, no missing shaft, same length.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-b63adb64-5390-4dd2-bc55-06e54d5dd832.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-381e0568-2cc1-4707-ad46-f73d7f3c6226.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          642,
+          1254
+        ],
+        "y": [
+          0,
+          453,
+          824,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          187,
+          98,
+          511,
+          388
+        ],
+        [
+          719,
+          127,
+          1100,
+          388
+        ],
+        [
+          134,
+          519,
+          463,
+          781
+        ],
+        [
+          739,
+          530,
+          1142,
+          776
+        ],
+        [
+          120,
+          923,
+          566,
+          1158
+        ],
+        [
+          821,
+          868,
+          1146,
+          1160
+        ]
+      ],
+      "sha256": "952974ffa7920ecd08c4fe75c7c8fa0f8aa0d7ffc03b121f12608d7dcb13e052",
+      "transparent_fraction": 0.8422
+    },
+    {
+      "role": "flag",
+      "clip": "flag_sweep",
+      "file": "flag-flag_sweep.png",
+      "prompt": "Production sprite atlas layout repair. Preserve same six chronological drawings, exact identity/armor/face, weapon length, painted detail and TRUE ALPHA. Shrink ALL SIX drawings including every weapon/banner uniformly to 65 PERCENT of current size, then CENTER each WHOLE drawing inside its own equal TWO COLUMNS x THREE ROWS cell. Large blank transparent gutters are required; keep at least40px clearance to every boundary. Entire top of flag, cloth, blade, shaft, hat and shoe must be complete, with no pixels crossing into another cell. Do not fill empty space with enlarged figures. No backgrounds, floor/shadow/checkerboard/effects/text. Keep six distinct poses and crisp quality. ACTION CORRECTION: this is a ROTATIONAL HORIZONTAL SWEEP, not a forward thrust. Correct frame2 to coil hips left with weapon drawn far behind-left. Correct frame4 to turn torso through front-three-quarter toward camera, both elbows BENT, both hands near waist, swinging the whole horizontal pole ACROSS the body from left to right; NO straight rightward arm extension. Preserve all six positions as one continuous left-to-right swing, with obvious torso rotation and rear foot pivot. Flagcloth stays attached with unchanged white emblem if present.",
+      "references": [
+        "D:/AI/吞食戰國/game/assets/v19/enemies/flag-walk.png",
+        "D:/AI/吞食戰國/game/assets/v19/enemies/boss-boss_sweep.png"
+      ],
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-46a14cb0-e5cc-4e96-8034-38ea33396370.png",
+      "original_prompt": "Use case: identity-preserve. Make a NEW production high-resolution 2D Sengoku game attack sprite atlas. Image1 is ONLY character/costume identity authority. Image2 is ONLY the small drawing SCALE, transparent spacing and TWO COLUMNS by THREE ROWS layout reference; do not copy image2 character or weapon. Exactly SIX distinct chronological full-body action drawings, facing RIGHT, read left-right then next row. Square canvas. Each body about250px tall, whole person-plus-weapon group fits within460px wide by300px high. A lot of empty transparency is intentional! Six equally sized cells; groups centered with large minimum40px empty margins at every cell edge. Maintain identical anatomical/head size throughout, do not enlarge drawings. Crisp richly detailed painted illustration, no blur/haze. True transparent alpha background, no shadow, no floor, no checkerboard, no text, labels, spark, motion trails or energy effects. Full blade, shaft, cloth, hat and shoes visible, no overlap between cells.\nIDENTITY: Lean adult Japanese banner infantry: black rounded jingasa helmet, beige rolled sleeve shirt, darkbrown lamellar cuirass, gray hakama, darkblue waist sash, cream forearm/shin wraps, straw sandals. Tall sturdy brown flagpole with brass fittings and top horizontal crossbar. Deep blue rectangular banner with EXACT WHITE Imagawa comb-like bird emblem from first reference (ring head over a broad wing bar and pointed hanging feather teeth). Keep flagcloth attached physically to pole throughout and keep emblem visible where fabric allows. No extra spear, no plume.\nACTION: Six sequential keyframes of FLAGPOLE HORIZONTAL SWEEP to RIGHT:1 upright banner guard;2 lower pole diagonally and coil hips left;3 swing pole across upper torso and flagcloth trails;4 wide forceful waist/chest-height horizontal sweep to RIGHT, both hands separated securely, banner flutters at pole's forward end;5 follow-through pole low right and body rotated;6 recover pole to diagonal guard. The cloth follows the top crossbar physically, same white bird emblem, never vanishes. No effects.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-46a14cb0-e5cc-4e96-8034-38ea33396370.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-08e66766-a750-4185-9947-5d066e585656.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          643,
+          1254
+        ],
+        "y": [
+          0,
+          479,
+          811,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          182,
+          50,
+          417,
+          442
+        ],
+        [
+          693,
+          123,
+          1114,
+          435
+        ],
+        [
+          142,
+          517,
+          558,
+          791
+        ],
+        [
+          728,
+          553,
+          1189,
+          790
+        ],
+        [
+          126,
+          910,
+          594,
+          1198
+        ],
+        [
+          784,
+          832,
+          1210,
+          1168
+        ]
+      ],
+      "sha256": "a035c63e2f36bc95fc5f1f52901b6e1680807e39ae47644081d5aae785e3ba93",
+      "transparent_fraction": 0.8144
+    },
+    {
+      "role": "flag",
+      "clip": "flag_slam",
+      "file": "flag-flag_slam.png",
+      "prompt": "Production sprite atlas layout repair. Preserve same six chronological drawings, exact identity/armor/face, weapon length, painted detail and TRUE ALPHA. Shrink ALL SIX drawings including every weapon/banner uniformly to 65 PERCENT of current size, then CENTER each WHOLE drawing inside its own equal TWO COLUMNS x THREE ROWS cell. Large blank transparent gutters are required; keep at least40px clearance to every boundary. Entire top of flag, cloth, blade, shaft, hat and shoe must be complete, with no pixels crossing into another cell. Do not fill empty space with enlarged figures. No backgrounds, floor/shadow/checkerboard/effects/text. Keep six distinct poses and crisp quality.",
+      "references": [
+        "D:/AI/吞食戰國/game/assets/v19/enemies/flag-walk.png",
+        "D:/AI/吞食戰國/game/assets/v19/enemies/boss-boss_sweep.png"
+      ],
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-eb1aaf71-303b-4804-bed9-c10d19c06b51.png",
+      "original_prompt": "Use case: identity-preserve. Make a NEW production high-resolution 2D Sengoku game attack sprite atlas. Image1 is ONLY character/costume identity authority. Image2 is ONLY the small drawing SCALE, transparent spacing and TWO COLUMNS by THREE ROWS layout reference; do not copy image2 character or weapon. Exactly SIX distinct chronological full-body action drawings, facing RIGHT, read left-right then next row. Square canvas. Each body about250px tall, whole person-plus-weapon group fits within460px wide by300px high. A lot of empty transparency is intentional! Six equally sized cells; groups centered with large minimum40px empty margins at every cell edge. Maintain identical anatomical/head size throughout, do not enlarge drawings. Crisp richly detailed painted illustration, no blur/haze. True transparent alpha background, no shadow, no floor, no checkerboard, no text, labels, spark, motion trails or energy effects. Full blade, shaft, cloth, hat and shoes visible, no overlap between cells.\nIDENTITY: Lean adult Japanese banner infantry: black rounded jingasa helmet, beige rolled sleeve shirt, darkbrown lamellar cuirass, gray hakama, darkblue waist sash, cream forearm/shin wraps, straw sandals. Tall sturdy brown flagpole with brass fittings and top horizontal crossbar. Deep blue rectangular banner with EXACT WHITE Imagawa comb-like bird emblem from first reference (ring head over a broad wing bar and pointed hanging feather teeth). Keep flagcloth attached physically to pole throughout and keep emblem visible where fabric allows. No extra spear, no plume.\nACTION: Six sequential keyframes of heavy FLAGPOLE OVERHEAD SLAM to RIGHT:1 upright banner guard;2 knees bend, hands shift and lift pole diagonally back;3 entire pole held high overhead, banner gathered to one side with emblem visible;4 begin downward forceful diagonal swing, both elbows drive;5 deep low impact stance with end of pole reaching invisible ground just forward-right, cloth trails above hands;6 recoil to half-standing and bring banner upright. Whole crossbar, pole, cloth and boots inside cell, no ground/shockwave effects.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-eb1aaf71-303b-4804-bed9-c10d19c06b51.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-38d35904-a4a6-43f1-915a-6041d4e1c530.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          634,
+          1254
+        ],
+        "y": [
+          0,
+          436,
+          797,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          239,
+          59,
+          445,
+          391
+        ],
+        [
+          764,
+          66,
+          1052,
+          401
+        ],
+        [
+          227,
+          471,
+          503,
+          758
+        ],
+        [
+          758,
+          472,
+          1066,
+          764
+        ],
+        [
+          215,
+          852,
+          530,
+          1142
+        ],
+        [
+          819,
+          831,
+          1022,
+          1149
+        ]
+      ],
+      "sha256": "4fdc7fcfa6cc8fa6fa17c593957ddf695022071148306ac207f745335807c17b",
+      "transparent_fraction": 0.8541
+    },
+    {
+      "role": "commander",
+      "clip": "commander_rise",
+      "file": "commander-commander_rise.png",
+      "prompt": "Production sprite atlas layout repair. Preserve same six chronological drawings, exact identity/armor/face, weapon length, painted detail and TRUE ALPHA. Shrink ALL SIX drawings including every weapon/banner uniformly to 65 PERCENT of current size, then CENTER each WHOLE drawing inside its own equal TWO COLUMNS x THREE ROWS cell. Large blank transparent gutters are required; keep at least40px clearance to every boundary. Entire top of flag, cloth, blade, shaft, hat and shoe must be complete, with no pixels crossing into another cell. Do not fill empty space with enlarged figures. No backgrounds, floor/shadow/checkerboard/effects/text. Keep six distinct poses and crisp quality.",
+      "references": [
+        "D:/AI/吞食戰國/game/assets/v19/enemies/commander-walk.png",
+        "D:/AI/吞食戰國/game/assets/v19/enemies/boss-boss_sweep.png"
+      ],
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-aa8234f3-1c75-450a-8abb-9993b2200727.png",
+      "original_prompt": "Use case: identity-preserve. Make a NEW production high-resolution 2D Sengoku game attack sprite atlas. Image1 is ONLY character/costume identity authority. Image2 is ONLY the small drawing SCALE, transparent spacing and TWO COLUMNS by THREE ROWS layout reference; do not copy image2 character or weapon. Exactly SIX distinct chronological full-body action drawings, facing RIGHT, read left-right then next row. Square canvas. Each body about250px tall, whole person-plus-weapon group fits within460px wide by300px high. A lot of empty transparency is intentional! Six equally sized cells; groups centered with large minimum40px empty margins at every cell edge. Maintain identical anatomical/head size throughout, do not enlarge drawings. Crisp richly detailed painted illustration, no blur/haze. True transparent alpha background, no shadow, no floor, no checkerboard, no text, labels, spark, motion trails or energy effects. Full blade, shaft, cloth, hat and shoes visible, no overlap between cells.\nIDENTITY: Adult Japanese commanding officer with small moustache, rounded black kabuto with vertical gold ribs, black-and-gold lamellar armor, dark blue tunic, long WHITE sleeveless jinbaori panels with darkblue outer edge, gray hakama, white waist knot, cream wraps, straw sandals. First reference's commander identity. For this sword attack, FOLD AND TUCK the war fan into belt and draw the curved silver katana with black/gold hilt from hip scabbard. Empty scabbard remains at waist; only one drawn sword, no fan in the attacking hand.\nACTION: Six sequential keyframes of KATANA RISING CUT from LOW LEFT to HIGH RIGHT:1 sword ready across waist, fan tucked at belt;2 deep knee bend, drawn sword lowered behind-left hip;3 hips rise and both hands sweep blade upward diagonally;4 full strong upward cut toward upper RIGHT, front leg straightens and shoulders turn;5 high right follow-through with hands above shoulder and blade extended;6 settle into balanced front guard. Clearly changing angles and articulated joints, recognizable Japanese sword technique. Do not keep sword straight ahead in all frames.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-aa8234f3-1c75-450a-8abb-9993b2200727.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-82e0b6f9-6f6e-4f1e-b624-670225825c9c.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          632,
+          1254
+        ],
+        "y": [
+          0,
+          437,
+          834,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          209,
+          101,
+          508,
+          385
+        ],
+        [
+          732,
+          156,
+          1061,
+          387
+        ],
+        [
+          209,
+          500,
+          504,
+          785
+        ],
+        [
+          803,
+          488,
+          1114,
+          784
+        ],
+        [
+          220,
+          884,
+          532,
+          1162
+        ],
+        [
+          792,
+          900,
+          1116,
+          1162
+        ]
+      ],
+      "sha256": "fd7641ef4945bbdef8d84bf908ff48fe3de9821ab5089aa29f7dd7ad278eaece",
+      "transparent_fraction": 0.8465
+    },
+    {
+      "role": "commander",
+      "clip": "commander_dash",
+      "file": "commander-commander_dash.png",
+      "prompt": "Production sprite atlas layout repair. Preserve same six chronological drawings, exact identity/armor/face, weapon length, painted detail and TRUE ALPHA. Shrink ALL SIX drawings including every weapon/banner uniformly to 65 PERCENT of current size, then CENTER each WHOLE drawing inside its own equal TWO COLUMNS x THREE ROWS cell. Large blank transparent gutters are required; keep at least40px clearance to every boundary. Entire top of flag, cloth, blade, shaft, hat and shoe must be complete, with no pixels crossing into another cell. Do not fill empty space with enlarged figures. No backgrounds, floor/shadow/checkerboard/effects/text. Keep six distinct poses and crisp quality.",
+      "references": [
+        "D:/AI/吞食戰國/game/assets/v19/enemies/commander-walk.png",
+        "D:/AI/吞食戰國/game/assets/v19/enemies/boss-boss_sweep.png"
+      ],
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-f77af7cb-72a2-4cdd-8e02-ee99db45c90c.png",
+      "original_prompt": "Use case: identity-preserve. Make a NEW production high-resolution 2D Sengoku game attack sprite atlas. Image1 is ONLY character/costume identity authority. Image2 is ONLY the small drawing SCALE, transparent spacing and TWO COLUMNS by THREE ROWS layout reference; do not copy image2 character or weapon. Exactly SIX distinct chronological full-body action drawings, facing RIGHT, read left-right then next row. Square canvas. Each body about250px tall, whole person-plus-weapon group fits within460px wide by300px high. A lot of empty transparency is intentional! Six equally sized cells; groups centered with large minimum40px empty margins at every cell edge. Maintain identical anatomical/head size throughout, do not enlarge drawings. Crisp richly detailed painted illustration, no blur/haze. True transparent alpha background, no shadow, no floor, no checkerboard, no text, labels, spark, motion trails or energy effects. Full blade, shaft, cloth, hat and shoes visible, no overlap between cells.\nIDENTITY: Adult Japanese commanding officer with small moustache, rounded black kabuto with vertical gold ribs, black-and-gold lamellar armor, dark blue tunic, long WHITE sleeveless jinbaori panels with darkblue outer edge, gray hakama, white waist knot, cream wraps, straw sandals. First reference's commander identity. For this sword attack, FOLD AND TUCK the war fan into belt and draw the curved silver katana with black/gold hilt from hip scabbard. Empty scabbard remains at waist; only one drawn sword, no fan in the attacking hand.\nACTION: Six sequential keyframes of FORWARD STEP/RUSH KATANA SLASH facing RIGHT:1 low compact readiness sword drawn back;2 back foot pushes and lead knee rises, sword cocks high behind shoulder;3 long lead step reaches right, blade accelerates diagonally forward;4 powerful downward diagonal cut from upper-left to lower-right during long lunge, hips/shoulders rotate;5 trailing foot catches, blade finishes low forward-right;6 regain balanced forward guard. Six actual anatomical redraws; same center within each cell, no duplicate translated pose, no motion trails.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-f77af7cb-72a2-4cdd-8e02-ee99db45c90c.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-f5b8a3a1-7eb6-4397-86c7-91816409f5ce.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          642,
+          1254
+        ],
+        "y": [
+          0,
+          443,
+          836,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          138,
+          120,
+          451,
+          374
+        ],
+        [
+          841,
+          97,
+          1059,
+          374
+        ],
+        [
+          142,
+          512,
+          542,
+          765
+        ],
+        [
+          800,
+          531,
+          1142,
+          768
+        ],
+        [
+          144,
+          909,
+          547,
+          1150
+        ],
+        [
+          791,
+          904,
+          1155,
+          1149
+        ]
+      ],
+      "sha256": "8dac9f235d8f42f7e8cc5bf0cef18d65abdff4f34fda6465c9a601e4bd38fbe7",
+      "transparent_fraction": 0.8544
+    }
+  ]
+}

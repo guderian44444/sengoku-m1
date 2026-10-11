@@ -16,7 +16,7 @@ func _initialize() -> void:
 	var impacts := {"light":6,"heavy":14,"charged":14,"rising":6,"ground_slam":14,"low_sweep":9,"dash_strike":10,"air_light":6,"air_heavy":12,"upper_heavy":12,"charged_upper":22,"charged_slam":28,"mixed_finisher":9,"mixed_rising":9,"counter_cut":5}
 	for hero in Battle.HEROES:
 		for action in impacts:
-			var hit := int(impacts[action])
+			var hit := 5 if hero == "tadakatsu" and action == "charged" else int(impacts[action])
 			var actual_hit := Battle.hero_tick(hero,hit)
 			var fighter := {"kind":hero,"team":0,"action":action,"action_tick":actual_hit,"combo":1,"heavy_combo":1}
 			var sample := view._fighter_animation(fighter)
@@ -45,11 +45,15 @@ func _initialize() -> void:
 			sim._enemy_input(ranged)
 			check(ranged.move_dx == -face and View._retreat_backwards(ranged),"Ordinary backstep must reverse gait for either facing")
 			view._walk_distance[ranged.id] = 106.0 / 8.0 + 0.1
+			var walk_key: String = "imagawa:" + kind + ":walk"
+			var formal: bool = view._art.enemy_clips.has(walk_key)
+			var walk_count: int = view._art.enemy_clips[walk_key].size() if formal else 8
+			if formal: view._walk_ticks[ranged.id] = 60.0 / walk_count
 			ranged.moving = true
 			var backwards := view._fighter_animation(ranged)
 			ranged.move_dx = face
 			var forwards := view._fighter_animation(ranged)
-			check(backwards.cell == 7 and forwards.cell == 1,"Live new atlas reverses only actual backsteps")
+			check(backwards.cell == walk_count - 1 and forwards.cell == 1,"Live new atlas reverses only actual backsteps")
 	view.free()
 	print("PASS" if failures == 0 else "FAIL", ": rounded attack timings and direction-aware ranged retreat: ",checks)
 	quit(0 if failures == 0 else 1)

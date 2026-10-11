@@ -168,7 +168,8 @@ static func primary_enemy_sample(fighter: Dictionary, count: int) -> Dictionary:
 	return {"clip":fighter.action,"sheet":"enemy_attack","frame":frame,"cell":frame,"count":count,"tick":tick,"duration":timing[1],"released":local_tick >= hit,"source":"v11","hero":fighter.kind}
 
 static func enemy_v14_sample(fighter: Dictionary, locomotion_tick: float, idle_tick: float, clips: Dictionary) -> Dictionary:
-	if fighter.get("faction","mori") != "mori": return {}
+	var faction := str(fighter.get("faction","mori"))
+	if faction not in ["mori", "imagawa"]: return {}
 	var action := str(fighter.get("action","idle"))
 	var clip := action
 	var tick := float(fighter.get("action_tick",0))
@@ -177,16 +178,21 @@ static func enemy_v14_sample(fighter: Dictionary, locomotion_tick: float, idle_t
 	elif action in ["down","dead","defeated","recovering","launched","thrown"]: clip = "death"
 	elif action == "grabbed": clip = "struggle"
 	elif action in ["hurt","pulled","stunned","frozen","guard"]: clip = "hurt"
-	var key := "mori:" + str(fighter.get("kind","soldier")) + ":" + clip
+	var role := str(fighter.get("kind","soldier"))
+	if faction == "imagawa" and fighter.get("stage_boss",false): role = "matsui"
+	var key := faction + ":" + role + ":" + clip
 	if not clips.has(key): return {}
 	var count: int = clips[key].size()
 	if count <= 0: return {}
+	var source := str(clips[key][0].get("source", "v14"))
 	var frame := 0
 	var duration := 0.0
 	var released := false
 	if clip in ["walk","idle","struggle"]:
 		tick = locomotion_tick if clip == "walk" else (idle_tick if clip == "idle" else tick)
 		var fps := 12.0 if clip == "walk" else 6.0
+		# Six v19 key poses keep a natural one-second gait; fewer drawings do not speed up walking.
+		if clip == "walk" and source == "v19": fps = float(count)
 		frame = posmod(floori(maxf(tick,0) * fps / 60.0),count)
 		if action == "retreat" and float(fighter.get("move_dx",-float(fighter.get("face",1)))) * float(fighter.get("face",1)) < 0: frame = posmod(-frame,count)
 		duration = count * 60.0 / fps
@@ -210,7 +216,7 @@ static func enemy_v14_sample(fighter: Dictionary, locomotion_tick: float, idle_t
 	else:
 		duration = 18.0
 		frame = mini(count - 1,floori(tick * count / duration))
-	return {"clip":clip,"sheet":"enemy_clip:" + key,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released,"source":"v14","hero":fighter.get("kind","soldier")}
+	return {"clip":clip,"sheet":"enemy_clip:" + key,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released,"source":source,"hero":fighter.get("kind","soldier")}
 
 static func enemy_sample(kind: String, action: String, tick: float, distance: float, walking: bool, expanded: bool = false) -> Dictionary:
 	var cell := 0

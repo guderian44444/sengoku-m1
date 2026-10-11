@@ -22,9 +22,15 @@ func run() -> void:
 	await process_frame
 	app.set_physics_process(false)
 	var music: AudioStreamPlayer = app.audio._music_player
-	check(not music.playing, "Menu starts without battle music")
+	check(music.playing and not music.stream_paused and app.audio._music_key == "legacy", "Title screen starts its looping theme")
 	check(is_equal_approx(music.volume_db, -19.0), "Battle music stays below character voices")
+	var title_playback := music.get_stream_playback()
+	app._show_menu_page("main")
+	app._open_options()
+	check(music.playing and not music.stream_paused and music.get_stream_playback() == title_playback, "Main menu and audio options preserve the title theme without restarting it")
+	app._menu_back()
 	app._start_training()
+	music = app.audio._music_player
 	check(music.playing and not music.stream_paused, "Training starts the battle score")
 	app.audio.stop_speech()
 	music.seek(20.0)
@@ -34,25 +40,30 @@ func run() -> void:
 	escape.physical_keycode = KEY_ESCAPE
 	escape.pressed = true
 	app._unhandled_input(escape)
-	check(app.paused and music.stream_paused, "Escape pauses game and score together")
+	check(app.paused and music.playing and not music.stream_paused, "Escape pauses combat while the score continues")
+	app._open_options()
+	check(app.paused and music.playing and not music.stream_paused, "Pause options leave the score playing so music volume can be heard")
+	app._menu_back()
 	app._show_controls()
 	app._close_controls()
-	check(app.paused and music.stream_paused, "Closing F1 preserves an existing pause")
+	check(app.paused and music.playing and not music.stream_paused, "Closing F1 preserves the existing combat pause and continuous score")
 	app._resume()
 	check(music.playing and not music.stream_paused, "Resume continues the score")
 	app._show_controls()
-	check(app.paused and music.stream_paused, "F1 pauses local battle music")
+	check(app.paused and music.playing and not music.stream_paused, "F1 pauses local combat while music continues")
 	app._close_controls()
-	check(not app.paused and not music.stream_paused, "Closing F1 restores local music playback")
+	check(not app.paused and music.playing and not music.stream_paused, "Closing F1 resumes combat without interrupting music")
 	app._set_game_focus(false)
-	check(app.paused and music.stream_paused, "Focus loss pauses local music")
+	check(app.paused and music.playing and not music.stream_paused, "Focus loss pauses combat while music continues")
 	app._set_game_focus(true)
 	app._resume()
 	app._joy_changed(3, false)
-	check(app.paused and music.stream_paused, "Controller disconnect pauses local music")
+	check(app.paused and music.playing and not music.stream_paused, "Controller disconnect pauses combat while music continues")
 	app._leave_to_menu()
-	check(not music.playing, "Leaving the encounter stops music")
+	music = app.audio._music_player
+	check(music.playing and not music.stream_paused and app.menu.visible and app.menu_screen == "main" and app.audio._music_key == "legacy", "Leaving an encounter restores the main menu and title theme")
 	app._start_local_coop()
+	music = app.audio._music_player
 	check(music.playing and not music.stream_paused, "Two-player battle starts its score")
 	app.session = "client"
 	app._show_controls()
@@ -60,17 +71,26 @@ func run() -> void:
 	app._close_controls()
 	app._leave_to_menu()
 	app._start_solo()
+	music = app.audio._music_player
 	check(music.playing and not music.stream_paused, "Solo battle starts its score")
 	app.sim.state.phase = "won"
 	app._physics_process(1.0 / 60.0)
-	check(not music.playing, "Victory stops the battle loop for the result voice")
+	check(music.playing and not music.stream_paused, "Victory keeps the score playing beneath the result voice")
+	app.sim.state.phase = "lost"
+	app.terminal_voice_played = false
+	app._physics_process(1.0 / 60.0)
+	check(music.playing and not music.stream_paused, "Defeat keeps the score playing beneath the result screen")
 	app._start_art_demo()
 	check(not music.playing, "Art demonstration does not inherit battle music")
 	app._leave_to_menu()
 	app._start_solo()
 	app._fail("test disconnect")
-	check(not music.playing and app.menu.visible, "Connection failure stops the score")
+	music = app.audio._music_player
+	check(music.playing and not music.stream_paused and app.menu.visible and app.menu_screen == "main" and app.audio._music_key == "legacy", "Connection failure restores the main menu and title theme")
+	app._close_network()
+	check(not app.audio._music_player.playing and not app.audio._music_tail.playing, "Direct network cleanup still stops both music players")
 	app.queue_free()
 	await process_frame
-	print("V14 MUSIC INTEGRATION: %d checks, %d failures" % [checks, failures])
+	await create_timer(.2).timeout
+	print("V20 MUSIC INTEGRATION: %d checks, %d failures" % [checks, failures])
 	quit(0 if failures == 0 else 1)

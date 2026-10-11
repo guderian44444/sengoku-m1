@@ -33,27 +33,31 @@ func _initialize() -> void:
 			var cells := []
 			for tick in range(Battle.hero_tick(hero,19)):
 				var sample := view._fighter_animation({"kind":hero,"team":0,"action":"light","combo":combo,"action_tick":tick})
-				check(sample.source in ["v11","v12","v13"] and sample.sheet in ["v11_combat","v12_light%d" % combo,"v13_light%d" % combo],"Live combo must use its independently drawn sequence")
+				var expected_sequence: bool = (sample.source == "v16" and sample.sheet == "v16_light%d" % combo) if hero == "tadakatsu" else (sample.source in ["v11","v12","v13"] and sample.sheet in ["v11_combat","v12_light%d" % combo,"v13_light%d" % combo])
+				check(expected_sequence,"Live combo must use its independently drawn sequence")
 				if not cells.has(sample.cell): cells.append(sample.cell)
 			check(cells.size() >= 7,"Live light sequence must traverse seven or more drawings")
 		var pain_cells := []
 		for tick in range(18):
 			var pain := view._fighter_animation({"kind":hero,"team":0,"action":"hurt","action_tick":tick})
-			check(pain.sheet in ["v11_reactions","v12_hurt"],"All heroes need an independently drawn pain sequence")
+			check(pain.sheet == "v17_hurt" if hero == "tadakatsu" else pain.sheet in ["v11_reactions","v12_hurt"],"All heroes need an independently drawn pain sequence")
 			if not pain_cells.has(pain.cell): pain_cells.append(pain.cell)
 		check(pain_cells.size() >= 7,"Every hero shows at least seven actual pain drawings")
 	for faction in Battle.FACTIONS:
 		for kind in ["soldier","flag","commander","archer","gunner","boss"]:
 			var fighter := {"kind":kind,"faction":faction,"team":1,"action":"hurt","action_tick":0}
 			var clip_prefix: String = faction + ":" + kind + ":"
+			var formal: bool = faction == "imagawa" and view._art.enemy_clips.has(clip_prefix + "hurt")
 			var hd_pain: bool = faction == "mori" and view._art.enemy_clips.has(clip_prefix + "hurt")
 			var cells := []
 			for tick in range(18):
 				fighter.action_tick = tick
 				var pain := view._fighter_animation(fighter)
-				check((pain.source == "v14" and pain.sheet == "enemy_clip:" + clip_prefix + "hurt") if hd_pain else (pain.source == "v11" and pain.sheet == "enemy_reaction"),"Every faction needs actual pain poses from its current source")
+				var expected_pain: bool = pain.source == "v19" and pain.sheet == "enemy_clip:" + clip_prefix + "hurt" if formal else ((pain.source == "v14" and pain.sheet == "enemy_clip:" + clip_prefix + "hurt") if hd_pain else (pain.source == "v11" and pain.sheet == "enemy_reaction"))
+				check(expected_pain,"Every faction needs actual pain poses from its current source")
 				if not cells.has(pain.cell): cells.append(pain.cell)
-			check(cells.size() == (6 if kind == "boss" else 3) if hd_pain else cells.size() == 4,"Pain traverses the actual bent poses of the new or legacy source")
+			var pain_count: int = 3 if formal else ((6 if kind == "boss" else 3) if hd_pain else 4)
+			check(cells.size() == pain_count,"Pain traverses the actual bent poses of the new or legacy source")
 			fighter.action = "defeated"
 			fighter.action_tick = 30
 			var dead := view._fighter_animation(fighter)
@@ -61,21 +65,22 @@ func _initialize() -> void:
 			check(view._fighter_animation(fighter).cell == dead.cell,"Dead actors stay on the flat endpoint")
 			var drawing: Dictionary = view._art.enemy_frame(kind,dead.cell,faction,dead.sheet)
 			check(drawing.region.size.x > drawing.region.size.y * 1.7,"Death drawing must actually be horizontal")
-			check((dead.frame == dead.count - 1 and dead.count >= 6) if dead.source == "v14" else dead.frame >= 6,"Death finishes on the final drawn collapse pose")
+			check((dead.frame == dead.count - 1 and dead.count >= 6) if dead.source in ["v14","v19"] else dead.frame >= 6,"Death finishes on the final drawn collapse pose")
 			fighter.action = "retreat"
 			fighter.moving = true
 			fighter.id = 7
 			var role := ["soldier","flag","commander","archer","gunner","boss"].find(kind)
 			check(counts.has("movement-" + faction),"Each faction needs real movement frames")
-			var hd_walk: bool = faction == "mori" and view._art.enemy_clips.has(clip_prefix + "walk")
+			var hd_walk: bool = faction in ["mori","imagawa"] and view._art.enemy_clips.has(clip_prefix + "walk")
 			var walk_count: int = view._art.enemy_clips[clip_prefix + "walk"].size() if hd_walk else int(counts["movement-" + faction][role])
-			check(walk_count == (12 if kind == "boss" else 6) if hd_walk else walk_count >= 7,"Walking uses the approved high-resolution cycle or the existing legacy drawings")
+			var expected_walk: bool = walk_count >= 6 if formal else (walk_count == (12 if kind == "boss" else 6) if hd_walk else walk_count >= 7)
+			check(expected_walk,"Walking uses the approved high-resolution cycle or the existing legacy drawings")
 			if kind in ["archer","gunner"]:
 				var steps := []
 				var expected := []
 				for phase in range(walk_count):
 					view._walk_distance[7] = (phase + .01) * 106.0 / walk_count
-					view._walk_ticks[7] = phase * 5
+					view._walk_ticks[7] = phase * 60.0 / walk_count if formal else phase * 5
 					var step := view._fighter_animation(fighter)
 					check(step.sheet == ("enemy_clip:" + clip_prefix + "walk" if hd_walk else "enemy_movement"),"Backsteps use actual movement drawings")
 					steps.append(step.cell)
@@ -83,13 +88,14 @@ func _initialize() -> void:
 				check(steps == expected,"Retreat must run separate walk poses backward while facing target")
 			fighter.boss_variant = Battle.FACTIONS[faction].boss
 			fighter.action = Frames.primary_enemy_action(fighter)
-			var hd_attack: bool = faction == "mori" and view._art.enemy_clips.has(clip_prefix + fighter.action)
+			var hd_attack: bool = faction in ["mori","imagawa"] and view._art.enemy_clips.has(clip_prefix + fighter.action)
 			var timing: Array = Battle.enemy_timing(fighter)
 			var attack_cells := []
 			for tick in range(timing[1]):
 				fighter.action_tick = tick
 				var strike := view._fighter_animation(fighter)
-				check((strike.sheet == "enemy_clip:" + clip_prefix + fighter.action and strike.count >= 6) if hd_attack else (strike.sheet == "enemy_attack" and strike.count >= 7),"Every role and faction needs actual primary attack drawings")
+				if formal: check(strike.source == "v19","Formal Imagawa attacks must not fall back to older artwork")
+				check((strike.sheet == "enemy_clip:" + clip_prefix + fighter.action and strike.count >= 6) if hd_attack else (strike.sheet == "enemy_attack" and strike.count >= 7),"Every role and faction needs actual primary attack drawings: %s%s sheet=%s count=%d" % [clip_prefix,fighter.action,strike.sheet,strike.count])
 				if not attack_cells.has(strike.cell): attack_cells.append(strike.cell)
 				var attack_drawing: Dictionary = view._art.enemy_frame(kind,strike.cell,faction,strike.sheet)
 				check(not attack_drawing.is_empty() and attack_drawing.region.has_area(),"Primary attack must resolve the same actual source sheet")

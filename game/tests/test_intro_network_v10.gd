@@ -6,7 +6,7 @@ class IntroClient:
 	var client_checked := false
 
 	func _input_frame() -> Dictionary:
-		return _neutral()
+		return {"dx": -1 if audio != null and audio.intro_playing() else 0, "dy": 0, "buttons": 0}
 
 	@rpc("any_peer", "call_remote", "reliable")
 	func confirm_intro_checks() -> void:
@@ -32,11 +32,12 @@ var app: IntroClient
 var host := false
 var injected := false
 var heard := false
-var frozen := false
-var resumed := false
-var waited_for_remote_voice := false
-var start_tick := -1
-var last_intro_tick := -1
+var advanced_during_voice := false
+var moved_during_voice := false
+var advanced_before_remote_ack := false
+var voice_start_tick := -1
+var voice_start_x := 0.0
+var pending_voice_tick := -1
 var started := 0
 var finishing := false
 
@@ -59,29 +60,32 @@ func run() -> void:
 func _process(_delta: float) -> bool:
 	if app == null or started == 0 or finishing: return false
 	if Time.get_ticks_msec() - started > 25000:
-		push_error("Intro network test timeout")
+		push_error("Intro network test timeout: " + JSON.stringify({"host":host,"heard":heard,"advanced_during_voice":advanced_during_voice,"moved_during_voice":moved_during_voice,"advanced_before_remote_ack":advanced_before_remote_ack,"dropped_unreliable_intro_events":app.dropped_intro_events}))
 		quit(1)
 		return false
 	if host and app.active and not injected and app.remote_id != 0 and app.sim.state.tick >= 15:
 		injected = true
 		app.sim.state.fighters = app.sim.state.fighters.filter(func(f):return f.team==0)
 		var boss: Dictionary = app.sim._make_fighter(1,"boss",850.0,480.0,600)
+		boss.cooldown = 9999
 		app.sim.state.fighters.append(boss)
 		app.sim._start_boss_intro(boss)
-	if app.audio.intro_playing(): heard = true
-	if host and app.pending_intro_actor > 0 and not app.audio.intro_playing() and int(app.sim.state.get("intro",{}).get("remaining_ticks",0)) <= 1:
-		waited_for_remote_voice = true
-	if int(app.sim.state.get("intro",{}).get("remaining_ticks",0)) > 0:
-		if start_tick < 0: start_tick = app.sim.state.tick
-		if app.sim.state.tick == last_intro_tick: frozen = true
-		last_intro_tick = app.sim.state.tick
-	if start_tick >= 0 and int(app.sim.state.get("intro",{}).get("remaining_ticks",0)) == 0 and int(app.sim.state.tick)>start_tick:
-		assert(not app.audio.intro_playing(), "Combat must not resume before this peer finishes the introduction")
-		resumed = true
-	if heard and frozen and resumed and ((host and app.client_checked and (app.sim.state.tick > start_tick + 6 or not app.active)) or (not host and app.dropped_intro_events > 0)):
+	if app.audio.intro_playing():
+		heard = true
+		var players: Array = app.sim.state.fighters.filter(func(f): return f.team == 0 and f.player_index == app.local_slot)
+		if not players.is_empty():
+			if voice_start_tick < 0:
+				voice_start_tick = app.sim.state.tick
+				voice_start_x = float(players[0].x)
+			advanced_during_voice = advanced_during_voice or int(app.sim.state.tick) > voice_start_tick + 6
+			moved_during_voice = moved_during_voice or float(players[0].x) < voice_start_x - 5.0
+		assert(not app.sim.state.get("intro",{}).get("blocking",true), "Reliable boss speech must never suspend gameplay")
+	if host and app.pending_intro_actor > 0 and heard and not app.audio.intro_playing():
+		if pending_voice_tick < 0: pending_voice_tick = app.sim.state.tick
+		advanced_before_remote_ack = advanced_before_remote_ack or int(app.sim.state.tick) > pending_voice_tick + 6
+	if heard and advanced_during_voice and moved_during_voice and not app.audio.intro_playing() and ((host and app.client_checked and advanced_before_remote_ack) or (not host and app.dropped_intro_events > 0)):
 		finishing = true
-		assert(not host or waited_for_remote_voice, "Host must wait for the delayed client's voice acknowledgement")
-		print("INTRO NETWORK PASS ",JSON.stringify({"host":host,"heard":heard,"frozen":frozen,"resumed":resumed,"waited_for_remote_voice":waited_for_remote_voice,"dropped_unreliable_intro_events":app.dropped_intro_events}))
+		print("INTRO NETWORK PASS ",JSON.stringify({"host":host,"heard":heard,"advanced_during_voice":advanced_during_voice,"moved_during_voice":moved_during_voice,"advanced_before_remote_ack":advanced_before_remote_ack,"dropped_unreliable_intro_events":app.dropped_intro_events}))
 		if not host: app.confirm_intro_checks.rpc_id(1)
 		finish.call_deferred()
 	return false

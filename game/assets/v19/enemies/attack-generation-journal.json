@@ -1,0 +1,595 @@
+{
+  "tool": "built-in image_gen",
+  "version": "0.19",
+  "notes": "New six-frame attacks based on approved boss/matsui walk identities. Generated alpha source PNGs preserved verbatim. No programmatic repaint or rescaling. Use actual transparent gutters for crop boundaries, since generated row centers are not pixel-exact equal thirds.",
+  "recipes": [
+    {
+      "role": "boss",
+      "clip": "boss_sweep",
+      "file": "boss-boss_sweep.png",
+      "prompt": "Precise atlas layout repair only. Preserve these EXACT SIX distinct poses, identity, face, equipment, garment details, full weapon length, colors and crisp drawing quality. Keep strict TWO COLUMNS by THREE ROWS on a square canvas. SHRINK ALL SIX figures AND weapons uniformly to 65 PERCENT of their current drawing scale, then center each complete figure-plus-weapon within its own same cell. Large fully TRANSPARENT gaps between all drawings are ESSENTIAL. Minimum 50 pixels transparent margin to every cell edge. Do not maximize drawings to fill space. Whole weapon tip, butt, cloth and shoes must fit safely; no element crosses into adjacent cell. Preserve true transparent alpha, no shadow, no text, no checkerboard. Do not add/change any action poses.",
+      "reference": "D:/AI/吞食戰國/game/assets/v19/enemies/boss-walk.png",
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-5e07e30e-b8ba-43a1-91c8-1630bbc0c092.png",
+      "original_prompt": "Use case: identity-preserve. NEW production attack sprite atlas for a 2D Sengoku action game. Reference image is ONLY identity/costume/painting reference, NOT its walking poses or 3-column layout. Create exactly SIX distinct sequential full-body attack drawings of this one same adult warrior, facing RIGHT, in a strict TWO COLUMNS by THREE ROWS grid, reading left-to-right then next row. Square canvas about 1536x1536. Each frame's standing anatomical body scale about 290-310 pixels tall, same head size and same armor proportions in every frame. Make the figure SMALL inside each cell so there is ample space for the entire long polearm: every shoe, plume, cloth, shaft and blade tip must be completely inside its own cell, with AT LEAST 50 pixels of fully transparent clearance to every cell edge and canvas edge. Do not maximize figure size. All six cells equal size. No figure crosses a cell boundary. Crisp intricate painted Japanese game sprites, strongly articulated hips, knees, shoulders and elbows, identical weapon length/physical grip across poses. Actual transparent alpha background, no ground, no floor shadow, no checkerboard, no background, no labels, no numbers, no written text, no motion blur, no slash effects. Six genuinely redrawn anatomical keyframes, not duplicated or rotated cutouts.\nIDENTITY: One Imagawa elite commander, exactly matching reference: black kabuto with black upright feather/plume and small gold fitting, clean-shaven adult Japanese face, deep blue tunic/hakama, dark lacquered black-and-gold lamellar armor, WHITE tied waist sash with trailing cloth, cream forearm and shin wraps, straw sandals. Wooden-shaft naginata with long curved polished silver blade. Keep same slender athletic build, no red cape, no horned crest.\nATTACK: wide horizontal naginata SWEEP, one continuous sequence. Frame1 broad guard facing right. Frame2 wind up strongly counterrotating shoulders left, blade behind upper-left. Frame3 rotate hips, blade crosses diagonally toward upper-right. Frame4 full powerful horizontal waist-height sweep to RIGHT, extended arms, torso turns, front leg planted and back heel pivots. Frame5 blade follows down through right, shoulders turned and cloth follows momentum. Frame6 balanced low recovery with polearm diagonally forward. Show clearly different shaft angles at all six moments; maintain same full polearm length. No energy effects.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-5e07e30e-b8ba-43a1-91c8-1630bbc0c092.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-2a292117-a392-497c-9dcd-d3e617dbb3e5.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          636,
+          1254
+        ],
+        "y": [
+          0,
+          457,
+          857,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          152,
+          129,
+          561,
+          395
+        ],
+        [
+          771,
+          107,
+          1073,
+          402
+        ],
+        [
+          143,
+          513,
+          519,
+          806
+        ],
+        [
+          709,
+          561,
+          1179,
+          798
+        ],
+        [
+          130,
+          909,
+          564,
+          1171
+        ],
+        [
+          760,
+          924,
+          1159,
+          1171
+        ]
+      ],
+      "sha256": "7b9633bd28965e023a63e6f5961a0681d339a44d79727ab46992b78f9666a44b",
+      "transparent_fraction": 0.8448
+    },
+    {
+      "role": "boss",
+      "clip": "boss_thrust",
+      "file": "boss-boss_thrust.png",
+      "prompt": "Precise atlas layout repair only. Preserve these EXACT SIX distinct poses, identity, face, equipment, garment details, full weapon length, colors and crisp drawing quality. Keep strict TWO COLUMNS by THREE ROWS on a square canvas. SHRINK ALL SIX figures AND weapons uniformly to 65 PERCENT of their current drawing scale, then center each complete figure-plus-weapon within its own same cell. Large fully TRANSPARENT gaps between all drawings are ESSENTIAL. Minimum 50 pixels transparent margin to every cell edge. Do not maximize drawings to fill space. Whole weapon tip, butt, cloth and shoes must fit safely; no element crosses into adjacent cell. Preserve true transparent alpha, no shadow, no text, no checkerboard. Do not add/change any action poses.",
+      "reference": "D:/AI/吞食戰國/game/assets/v19/enemies/boss-walk.png",
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-e0c0d772-50dc-4c8b-9f49-f0237412bc7a.png",
+      "original_prompt": "Use case: identity-preserve. NEW production attack sprite atlas for a 2D Sengoku action game. Reference image is ONLY identity/costume/painting reference, NOT its walking poses or 3-column layout. Create exactly SIX distinct sequential full-body attack drawings of this one same adult warrior, facing RIGHT, in a strict TWO COLUMNS by THREE ROWS grid, reading left-to-right then next row. Square canvas about 1536x1536. Each frame's standing anatomical body scale about 290-310 pixels tall, same head size and same armor proportions in every frame. Make the figure SMALL inside each cell so there is ample space for the entire long polearm: every shoe, plume, cloth, shaft and blade tip must be completely inside its own cell, with AT LEAST 50 pixels of fully transparent clearance to every cell edge and canvas edge. Do not maximize figure size. All six cells equal size. No figure crosses a cell boundary. Crisp intricate painted Japanese game sprites, strongly articulated hips, knees, shoulders and elbows, identical weapon length/physical grip across poses. Actual transparent alpha background, no ground, no floor shadow, no checkerboard, no background, no labels, no numbers, no written text, no motion blur, no slash effects. Six genuinely redrawn anatomical keyframes, not duplicated or rotated cutouts.\nIDENTITY: One Imagawa elite commander, exactly matching reference: black kabuto with black upright feather/plume and small gold fitting, clean-shaven adult Japanese face, deep blue tunic/hakama, dark lacquered black-and-gold lamellar armor, WHITE tied waist sash with trailing cloth, cream forearm and shin wraps, straw sandals. Wooden-shaft naginata with long curved polished silver blade. Keep same slender athletic build, no red cape, no horned crest.\nATTACK: long-range forward naginata THRUST, one continuous sequence. Frame1 ready with spear diagonally forward, feet braced. Frame2 coil torso and draw both hands/polearm back at waist, rear knee deeply loaded. Frame3 lead foot strides RIGHT, blade levels toward target. Frame4 FULL extension thrust horizontally RIGHT, torso lunges, rear leg straight, two hands separated on shaft; ENTIRE blade and butt stay in cell. Frame5 follow-through lean right, front knee bent and arms begin pulling back. Frame6 retract polearm to guard while hips and legs recover. Huge visible differences in weapon position between each frame, no energy effects.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-e0c0d772-50dc-4c8b-9f49-f0237412bc7a.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-2aa1441a-d75a-401f-8f43-43739d47aee8.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          631,
+          1254
+        ],
+        "y": [
+          0,
+          462,
+          829,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          165,
+          109,
+          534,
+          401
+        ],
+        [
+          758,
+          153,
+          1144,
+          406
+        ],
+        [
+          154,
+          519,
+          566,
+          784
+        ],
+        [
+          669,
+          551,
+          1168,
+          786
+        ],
+        [
+          145,
+          912,
+          594,
+          1162
+        ],
+        [
+          771,
+          873,
+          1145,
+          1160
+        ]
+      ],
+      "sha256": "8a76854a65142bff3e37a09c35901ad8b0e8cc54d0d58e02d4ff108ff4d12543",
+      "transparent_fraction": 0.8455
+    },
+    {
+      "role": "boss",
+      "clip": "boss_counter",
+      "file": "boss-boss_counter.png",
+      "prompt": "Repair ONLY the transparent sprite atlas spacing. Same exact SIX drawings, identity, gear, action poses and colors. Strict 2 COLUMNS x3 ROWS, each equally sized cell. REDUCE every figure AND its entire weapon to 78 percent of current size, uniformly; preserve head scale consistency. Then CENTER EACH COMPLETE DRAWING (including blade/boots) inside its own cell both vertically and horizontally. Use large completely transparent bands between rows and between columns: minimum 60px empty bands. The first row must not spill below the FIRST THIRD line; second row not below TWO THIRDS line. All six complete silhouettes must have at least35px transparent space to own cell boundaries. Important: polearm blades and boots need extra clearance! Do NOT enlarge drawings to fill space, leave generous actual transparency. Preserve crisp detailed painting, no shadows, no background, no text, no checkerboard. No pose changes.",
+      "reference": "D:/AI/吞食戰國/game/assets/v19/enemies/boss-boss_sweep.png",
+      "authority": "game/assets/v19/enemies/boss-walk.png",
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-d4d74246-f269-4e2c-97e7-e04491b58570.png",
+      "original_prompt": "Create a NEW action atlas from the attached layout/identity reference. KEEP EXACTLY its small figure scale, two-column by three-row layout, large transparent space, same armor/face/weapon and crisp painted rendering. REPLACE all six action poses with the requested NEW action below. Do NOT enlarge figures; actually make every figure/weapon group 10 percent SMALLER than reference to leave more space. Complete spear blade, butt and boots at least 40px from cell edges, especially every horizontal row divider. Same body/head/armor scale in every pose. Actual alpha transparency, no floor, shadow, background, text, effects or checkerboard.\nIDENTITY: One Imagawa elite commander, exactly matching reference: black kabuto with black upright feather/plume and small gold fitting, clean-shaven adult Japanese face, deep blue tunic/hakama, dark lacquered black-and-gold lamellar armor, WHITE tied waist sash with trailing cloth, cream forearm and shin wraps, straw sandals. Wooden-shaft naginata with long curved polished silver blade. Keep same slender athletic build, no red cape, no horned crest.\nATTACK: DEFENSIVE PARRY into a forceful COUNTER SLASH, six consecutive poses. Frame1 calm lowered naginata guard facing RIGHT. Frame2 braces with both knees flexed and raises shaft diagonally across front of upper body. Frame3 hard parry with shaft nearly vertical before face, crossed forearms and torso leans back. Frame4 suddenly turns hips and reverses grip pressure, blade accelerates diagonally down toward RIGHT. Frame5 full extended diagonal counter cut to low RIGHT, shoulders rotate and leading knee bends. Frame6 returns to balanced diagonal guard, trailing fabric settles. The same single naginata held in both hands throughout; every intermediate shaft angle differs visibly. No incoming enemy, projectile, effects or contact spark.\nExactly six detailed distinctly articulated drawings in 2 columns x3 rows, reading left-right then next row.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-d4d74246-f269-4e2c-97e7-e04491b58570.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-f21b9f03-ac8d-4374-a44a-5cf20a725133.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          650,
+          1254
+        ],
+        "y": [
+          0,
+          467,
+          894,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          177,
+          192,
+          535,
+          418
+        ],
+        [
+          842,
+          111,
+          1075,
+          421
+        ],
+        [
+          217,
+          514,
+          453,
+          842
+        ],
+        [
+          809,
+          608,
+          1143,
+          833
+        ],
+        [
+          175,
+          965,
+          572,
+          1163
+        ],
+        [
+          802,
+          953,
+          1119,
+          1173
+        ]
+      ],
+      "sha256": "0ceb912e37e5f426b12045a05149d958bcdf90307841fa82d3443914b6acbed9",
+      "transparent_fraction": 0.8719
+    },
+    {
+      "role": "boss",
+      "clip": "boss_dash",
+      "file": "boss-boss_dash.png",
+      "prompt": "Repair ONLY the transparent sprite atlas spacing. Same exact SIX drawings, identity, gear, action poses and colors. Strict 2 COLUMNS x3 ROWS, each equally sized cell. REDUCE every figure AND its entire weapon to 78 percent of current size, uniformly; preserve head scale consistency. Then CENTER EACH COMPLETE DRAWING (including blade/boots) inside its own cell both vertically and horizontally. Use large completely transparent bands between rows and between columns: minimum 60px empty bands. The first row must not spill below the FIRST THIRD line; second row not below TWO THIRDS line. All six complete silhouettes must have at least35px transparent space to own cell boundaries. Important: polearm blades and boots need extra clearance! Do NOT enlarge drawings to fill space, leave generous actual transparency. Preserve crisp detailed painting, no shadows, no background, no text, no checkerboard. No pose changes.",
+      "reference": "D:/AI/吞食戰國/game/assets/v19/enemies/boss-boss_sweep.png",
+      "authority": "game/assets/v19/enemies/boss-walk.png",
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-b2181620-60c8-4b6a-856a-7685b926d654.png",
+      "original_prompt": "Create a NEW action atlas from the attached layout/identity reference. KEEP EXACTLY its small figure scale, two-column by three-row layout, large transparent space, same armor/face/weapon and crisp painted rendering. REPLACE all six action poses with the requested NEW action below. Do NOT enlarge figures; actually make every figure/weapon group 10 percent SMALLER than reference to leave more space. Complete spear blade, butt and boots at least 40px from cell edges, especially every horizontal row divider. Same body/head/armor scale in every pose. Actual alpha transparency, no floor, shadow, background, text, effects or checkerboard.\nIDENTITY: One Imagawa elite commander, exactly matching reference: black kabuto with black upright feather/plume and small gold fitting, clean-shaven adult Japanese face, deep blue tunic/hakama, dark lacquered black-and-gold lamellar armor, WHITE tied waist sash with trailing cloth, cream forearm and shin wraps, straw sandals. Wooden-shaft naginata with long curved polished silver blade. Keep same slender athletic build, no red cape, no horned crest.\nATTACK: low-body FORWARD RUSH SLASH with naginata, six consecutive redraws. Frame1 compressed low running-ready stance facing RIGHT, weapon drawn back. Frame2 torso leans forward, rear foot pushes and leading knee lifts, shaft nearly horizontal behind waist. Frame3 powerful stride forward, lead foot reaches far RIGHT, blade comes diagonally around torso. Frame4 maximum lunge with knees low, naginata extends in a broad low cutting sweep to RIGHT. Frame5 opposite leg catches the body, arms follow-through blade to lower right and cloak/sash trails. Frame6 brakes in balanced low guard. Keep character centered within each cell; show actual limb/body changes, not merely shifted duplicates. No motion streaks, no energy effects.\nExactly six detailed distinctly articulated drawings in 2 columns x3 rows, reading left-right then next row.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-b2181620-60c8-4b6a-856a-7685b926d654.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-12d177ae-7df0-423c-a6f5-86f77f9da6dd.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          655,
+          1254
+        ],
+        "y": [
+          0,
+          459,
+          858,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          116,
+          173,
+          433,
+          388
+        ],
+        [
+          692,
+          169,
+          1034,
+          389
+        ],
+        [
+          173,
+          547,
+          520,
+          778
+        ],
+        [
+          683,
+          590,
+          1200,
+          772
+        ],
+        [
+          164,
+          942,
+          628,
+          1154
+        ],
+        [
+          757,
+          938,
+          1182,
+          1159
+        ]
+      ],
+      "sha256": "c169aba3809e2f57f3dd6f2a483739285ea0c12b5bef2be159d165c94710839c",
+      "transparent_fraction": 0.8573
+    },
+    {
+      "role": "matsui",
+      "clip": "boss_sweep",
+      "file": "matsui-boss_sweep.png",
+      "prompt": "Precise atlas layout repair only. Preserve these EXACT SIX distinct poses, identity, face, equipment, garment details, full weapon length, colors and crisp drawing quality. Keep strict TWO COLUMNS by THREE ROWS on a square canvas. SHRINK ALL SIX figures AND weapons uniformly to 65 PERCENT of their current drawing scale, then center each complete figure-plus-weapon within its own same cell. Large fully TRANSPARENT gaps between all drawings are ESSENTIAL. Minimum 50 pixels transparent margin to every cell edge. Do not maximize drawings to fill space. Whole weapon tip, butt, cloth and shoes must fit safely; no element crosses into adjacent cell. Preserve true transparent alpha, no shadow, no text, no checkerboard. Do not add/change any action poses.",
+      "reference": "D:/AI/吞食戰國/game/assets/v19/enemies/matsui-walk.png",
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-dd6cb77d-8040-4b5b-85c2-889100c639d1.png",
+      "original_prompt": "Use case: identity-preserve. NEW production attack sprite atlas for a 2D Sengoku action game. Reference image is ONLY identity/costume/painting reference, NOT its walking poses or 3-column layout. Create exactly SIX distinct sequential full-body attack drawings of this one same adult warrior, facing RIGHT, in a strict TWO COLUMNS by THREE ROWS grid, reading left-to-right then next row. Square canvas about 1536x1536. Each frame's standing anatomical body scale about 290-310 pixels tall, same head size and same armor proportions in every frame. Make the figure SMALL inside each cell so there is ample space for the entire long polearm: every shoe, plume, cloth, shaft and blade tip must be completely inside its own cell, with AT LEAST 50 pixels of fully transparent clearance to every cell edge and canvas edge. Do not maximize figure size. All six cells equal size. No figure crosses a cell boundary. Crisp intricate painted Japanese game sprites, strongly articulated hips, knees, shoulders and elbows, identical weapon length/physical grip across poses. Actual transparent alpha background, no ground, no floor shadow, no checkerboard, no background, no labels, no numbers, no written text, no motion blur, no slash effects. Six genuinely redrawn anatomical keyframes, not duplicated or rotated cutouts.\nIDENTITY: Matsui Munenobu, exactly matching reference: mature Japanese man with small moustache, black lacquered kabuto with prominent GOLD kuwagata crest, broad shoulder plates, black/navy armor edged gold, blue hakama, white waist knot, RED short cloak with restrained gold bird motif, black/gold armored shins and boots. Long wooden-shaft naginata, broad curved silver blade, RED tassel below blade. Keep robust but human proportions; never giant or excessively muscular.\nATTACK: wide horizontal naginata SWEEP, one continuous sequence. Frame1 broad guard facing right. Frame2 wind up strongly counterrotating shoulders left, blade behind upper-left. Frame3 rotate hips, blade crosses diagonally toward upper-right. Frame4 full powerful horizontal waist-height sweep to RIGHT, extended arms, torso turns, front leg planted and back heel pivots. Frame5 blade follows down through right, shoulders turned and cloth follows momentum. Frame6 balanced low recovery with polearm diagonally forward. Show clearly different shaft angles at all six moments; maintain same full polearm length. No energy effects.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-dd6cb77d-8040-4b5b-85c2-889100c639d1.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-1181c08f-b431-4701-b05b-86c3e852e29d.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          648,
+          1254
+        ],
+        "y": [
+          0,
+          439,
+          818,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          158,
+          133,
+          568,
+          394
+        ],
+        [
+          771,
+          101,
+          1114,
+          394
+        ],
+        [
+          165,
+          485,
+          543,
+          764
+        ],
+        [
+          742,
+          523,
+          1192,
+          764
+        ],
+        [
+          146,
+          872,
+          545,
+          1118
+        ],
+        [
+          773,
+          877,
+          1165,
+          1118
+        ]
+      ],
+      "sha256": "fda5ae3066ced23560f9f6e8d8af60dbe7c0f5a1eead86321ac90276f45d550d",
+      "transparent_fraction": 0.8367
+    },
+    {
+      "role": "matsui",
+      "clip": "boss_thrust",
+      "file": "matsui-boss_thrust.png",
+      "prompt": "Precise atlas layout repair only. Preserve these EXACT SIX distinct poses, identity, face, equipment, garment details, full weapon length, colors and crisp drawing quality. Keep strict TWO COLUMNS by THREE ROWS on a square canvas. SHRINK ALL SIX figures AND weapons uniformly to 65 PERCENT of their current drawing scale, then center each complete figure-plus-weapon within its own same cell. Large fully TRANSPARENT gaps between all drawings are ESSENTIAL. Minimum 50 pixels transparent margin to every cell edge. Do not maximize drawings to fill space. Whole weapon tip, butt, cloth and shoes must fit safely; no element crosses into adjacent cell. Preserve true transparent alpha, no shadow, no text, no checkerboard. Do not add/change any action poses.",
+      "reference": "D:/AI/吞食戰國/game/assets/v19/enemies/matsui-walk.png",
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-b9985526-f026-412d-92b1-973ef1978cf8.png",
+      "original_prompt": "Use case: identity-preserve. NEW production attack sprite atlas for a 2D Sengoku action game. Reference image is ONLY identity/costume/painting reference, NOT its walking poses or 3-column layout. Create exactly SIX distinct sequential full-body attack drawings of this one same adult warrior, facing RIGHT, in a strict TWO COLUMNS by THREE ROWS grid, reading left-to-right then next row. Square canvas about 1536x1536. Each frame's standing anatomical body scale about 290-310 pixels tall, same head size and same armor proportions in every frame. Make the figure SMALL inside each cell so there is ample space for the entire long polearm: every shoe, plume, cloth, shaft and blade tip must be completely inside its own cell, with AT LEAST 50 pixels of fully transparent clearance to every cell edge and canvas edge. Do not maximize figure size. All six cells equal size. No figure crosses a cell boundary. Crisp intricate painted Japanese game sprites, strongly articulated hips, knees, shoulders and elbows, identical weapon length/physical grip across poses. Actual transparent alpha background, no ground, no floor shadow, no checkerboard, no background, no labels, no numbers, no written text, no motion blur, no slash effects. Six genuinely redrawn anatomical keyframes, not duplicated or rotated cutouts.\nIDENTITY: Matsui Munenobu, exactly matching reference: mature Japanese man with small moustache, black lacquered kabuto with prominent GOLD kuwagata crest, broad shoulder plates, black/navy armor edged gold, blue hakama, white waist knot, RED short cloak with restrained gold bird motif, black/gold armored shins and boots. Long wooden-shaft naginata, broad curved silver blade, RED tassel below blade. Keep robust but human proportions; never giant or excessively muscular.\nATTACK: long-range forward naginata THRUST, one continuous sequence. Frame1 ready with spear diagonally forward, feet braced. Frame2 coil torso and draw both hands/polearm back at waist, rear knee deeply loaded. Frame3 lead foot strides RIGHT, blade levels toward target. Frame4 FULL extension thrust horizontally RIGHT, torso lunges, rear leg straight, two hands separated on shaft; ENTIRE blade and butt stay in cell. Frame5 follow-through lean right, front knee bent and arms begin pulling back. Frame6 retract polearm to guard while hips and legs recover. Huge visible differences in weapon position between each frame, no energy effects.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-b9985526-f026-412d-92b1-973ef1978cf8.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-d9d46c89-8a5c-4d3f-9549-3b16db1d0cac.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          621,
+          1254
+        ],
+        "y": [
+          0,
+          455,
+          800,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          144,
+          89,
+          505,
+          402
+        ],
+        [
+          738,
+          138,
+          1157,
+          401
+        ],
+        [
+          133,
+          509,
+          544,
+          767
+        ],
+        [
+          680,
+          524,
+          1187,
+          757
+        ],
+        [
+          104,
+          892,
+          562,
+          1155
+        ],
+        [
+          764,
+          834,
+          1121,
+          1163
+        ]
+      ],
+      "sha256": "6a152a8b53fdb00845a69331eaf1bcf2fea753f531c849ed849f3cd8f78a954e",
+      "transparent_fraction": 0.8267
+    },
+    {
+      "role": "matsui",
+      "clip": "boss_counter",
+      "file": "matsui-boss_counter.png",
+      "prompt": "Repair ONLY the transparent sprite atlas spacing. Same exact SIX drawings, identity, gear, action poses and colors. Strict 2 COLUMNS x3 ROWS, each equally sized cell. REDUCE every figure AND its entire weapon to 78 percent of current size, uniformly; preserve head scale consistency. Then CENTER EACH COMPLETE DRAWING (including blade/boots) inside its own cell both vertically and horizontally. Use large completely transparent bands between rows and between columns: minimum 60px empty bands. The first row must not spill below the FIRST THIRD line; second row not below TWO THIRDS line. All six complete silhouettes must have at least35px transparent space to own cell boundaries. Important: polearm blades and boots need extra clearance! Do NOT enlarge drawings to fill space, leave generous actual transparency. Preserve crisp detailed painting, no shadows, no background, no text, no checkerboard. No pose changes.",
+      "reference": "D:/AI/吞食戰國/game/assets/v19/enemies/matsui-boss_sweep.png",
+      "authority": "game/assets/v19/enemies/matsui-walk.png",
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-42a465d9-0b8d-4b3f-a959-3904c3fc6516.png",
+      "original_prompt": "Create a NEW action atlas from the attached layout/identity reference. KEEP EXACTLY its small figure scale, two-column by three-row layout, large transparent space, same armor/face/weapon and crisp painted rendering. REPLACE all six action poses with the requested NEW action below. Do NOT enlarge figures; actually make every figure/weapon group 10 percent SMALLER than reference to leave more space. Complete spear blade, butt and boots at least 40px from cell edges, especially every horizontal row divider. Same body/head/armor scale in every pose. Actual alpha transparency, no floor, shadow, background, text, effects or checkerboard.\nIDENTITY: Matsui Munenobu, exactly matching reference: mature Japanese man with small moustache, black lacquered kabuto with prominent GOLD kuwagata crest, broad shoulder plates, black/navy armor edged gold, blue hakama, white waist knot, RED short cloak with restrained gold bird motif, black/gold armored shins and boots. Long wooden-shaft naginata, broad curved silver blade, RED tassel below blade. Keep robust but human proportions; never giant or excessively muscular.\nATTACK: DEFENSIVE PARRY into a forceful COUNTER SLASH, six consecutive poses. Frame1 calm lowered naginata guard facing RIGHT. Frame2 braces with both knees flexed and raises shaft diagonally across front of upper body. Frame3 hard parry with shaft nearly vertical before face, crossed forearms and torso leans back. Frame4 suddenly turns hips and reverses grip pressure, blade accelerates diagonally down toward RIGHT. Frame5 full extended diagonal counter cut to low RIGHT, shoulders rotate and leading knee bends. Frame6 returns to balanced diagonal guard, trailing fabric settles. The same single naginata held in both hands throughout; every intermediate shaft angle differs visibly. No incoming enemy, projectile, effects or contact spark.\nExactly six detailed distinctly articulated drawings in 2 columns x3 rows, reading left-right then next row.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-42a465d9-0b8d-4b3f-a959-3904c3fc6516.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-0e078060-73a2-46bd-9e57-46c0e92a488f.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          644,
+          1254
+        ],
+        "y": [
+          0,
+          451,
+          869,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          193,
+          175,
+          528,
+          384
+        ],
+        [
+          802,
+          114,
+          1070,
+          392
+        ],
+        [
+          212,
+          510,
+          455,
+          816
+        ],
+        [
+          764,
+          595,
+          1133,
+          804
+        ],
+        [
+          156,
+          951,
+          560,
+          1146
+        ],
+        [
+          802,
+          922,
+          1113,
+          1154
+        ]
+      ],
+      "sha256": "2d8d78eab04034fc49fc429c1180a362591cfb7d4d36f0c25285b51bf48bfa55",
+      "transparent_fraction": 0.8779
+    },
+    {
+      "role": "matsui",
+      "clip": "boss_earth",
+      "file": "matsui-boss_earth.png",
+      "prompt": "Repair ONLY the transparent sprite atlas spacing. Same exact SIX drawings, identity, gear, action poses and colors. Strict 2 COLUMNS x3 ROWS, each equally sized cell. REDUCE every figure AND its entire weapon to 78 percent of current size, uniformly; preserve head scale consistency. Then CENTER EACH COMPLETE DRAWING (including blade/boots) inside its own cell both vertically and horizontally. Use large completely transparent bands between rows and between columns: minimum 60px empty bands. The first row must not spill below the FIRST THIRD line; second row not below TWO THIRDS line. All six complete silhouettes must have at least35px transparent space to own cell boundaries. Important: polearm blades and boots need extra clearance! Do NOT enlarge drawings to fill space, leave generous actual transparency. Preserve crisp detailed painting, no shadows, no background, no text, no checkerboard. No pose changes.",
+      "reference": "D:/AI/吞食戰國/game/assets/v19/enemies/matsui-boss_sweep.png",
+      "authority": "game/assets/v19/enemies/matsui-walk.png",
+      "grid": [
+        2,
+        3
+      ],
+      "transparent_background": true,
+      "original_source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-2bec2751-e6fa-4df3-a642-02a896f0cefa.png",
+      "original_prompt": "Create a NEW action atlas from the attached layout/identity reference. KEEP EXACTLY its small figure scale, two-column by three-row layout, large transparent space, same armor/face/weapon and crisp painted rendering. REPLACE all six action poses with the requested NEW action below. Do NOT enlarge figures; actually make every figure/weapon group 10 percent SMALLER than reference to leave more space. Complete spear blade, butt and boots at least 40px from cell edges, especially every horizontal row divider. Same body/head/armor scale in every pose. Actual alpha transparency, no floor, shadow, background, text, effects or checkerboard.\nIDENTITY: Matsui Munenobu, exactly matching reference: mature Japanese man with small moustache, black lacquered kabuto with prominent GOLD kuwagata crest, broad shoulder plates, black/navy armor edged gold, blue hakama, white waist knot, RED short cloak with restrained gold bird motif, black/gold armored shins and boots. Long wooden-shaft naginata, broad curved silver blade, RED tassel below blade. Keep robust but human proportions; never giant or excessively muscular.\nATTACK: overhead naginata GROUND SLAM, six continuous phases. Frame1 low firm guard. Frame2 knee bends and hands raise weapon diagonally back. Frame3 weapon lifted high overhead with both hands and body stretched, entire upright blade fits safely in cell. Frame4 powerful downward diagonal cut, torso and hips fall forward, knees flex. Frame5 deep crouched impact, blade just above invisible floor to RIGHT, front knee bent and back knee low. Frame6 recoil to half-standing with naginata low across body. Do not draw floor or impact effects. Anatomical height changes only because posture changes; consistent head/armor scale.\nExactly six detailed distinctly articulated drawings in 2 columns x3 rows, reading left-right then next row.",
+      "repair_of": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-2bec2751-e6fa-4df3-a642-02a896f0cefa.png",
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a129a1-9a88-7111-9d18-027549f2a93d\\exec-38a66a1c-38c6-40bf-9ac6-ed5a329d9693.png",
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "recommended_grid_boundaries": {
+        "x": [
+          0,
+          632,
+          1254
+        ],
+        "y": [
+          0,
+          441,
+          886,
+          1254
+        ]
+      },
+      "opaque_bounds": [
+        [
+          203,
+          197,
+          526,
+          389
+        ],
+        [
+          817,
+          103,
+          1064,
+          391
+        ],
+        [
+          245,
+          492,
+          451,
+          825
+        ],
+        [
+          805,
+          612,
+          1124,
+          825
+        ],
+        [
+          185,
+          991,
+          537,
+          1144
+        ],
+        [
+          811,
+          966,
+          1121,
+          1157
+        ]
+      ],
+      "sha256": "11746dfbbc66092c563975b8a44908daf20f1d1394017bf3eb8931fa31d0ca23",
+      "transparent_fraction": 0.8782
+    }
+  ]
+}

@@ -5,8 +5,10 @@ const Battle = preload("res://core/battle.gd")
 const ACTIONS := ["victory", "idle", "light", "charge", "heavy", "charged", "throw", "special", "windup", "hurt", "down", "defeated", "holding", "grabbed", "thrown", "stunned", "rising", "ground_slam", "low_sweep", "dash_strike", "dash_heavy", "air_light", "air_heavy", "upper_heavy", "charged_upper", "charged_slam", "mixed_finisher", "mixed_rising", "retreat", "pulled", "frozen", "spear_thrust", "spear_sweep", "spear_butt", "flag_poke", "flag_sweep", "flag_slam", "commander_cut", "commander_rise", "commander_dash", "boss_sweep", "boss_smash", "boss_chain", "bow_shot", "gun_shot", "guard", "recovering", "launched"]
 const KINDS := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu", "soldier", "flag", "commander", "archer", "gunner", "boss", "dummy"]
 const EFFECTS := ["projectile", "slash", "warning", "slam", "hit", "poison", "shield_hit", "shockwave", "chain", "fire_hit", "ice_hit", "shatter", "fire_wave", "ice_wave", "guard", "guard_break", "damage", "landing", "debris", "arrow_target", "arrow_impact", "wind_hit", "earth_hit", "blade_hit", "wind_wave", "earth_wave", "blade_wave"]
-const EVENTS := ["hit", "heavy_hit", "special", "pickup", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_break", "swing", "weapon_swing", "boss_intro"]
+const EVENTS := ["hit", "heavy_hit", "special", "pickup", "food_pickup", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_break", "swing", "weapon_swing", "boss_intro"]
 const ARRAY_LIMITS := {"fighters": 64, "drops": 64, "effects": 256, "events": 128, "props": 32, "wet_zones": 16}
+const PROP_KINDS := ["stall","cart","jar","basket","crate","large_crate","barricade","fence","planter","stone_lantern","lantern","rice_bales","screen","cabinet"]
+const FOODS := ["","rice","fish","dango","peach"]
 const FIGHTER_RANGES := {
 	"id": [1, 1000000000], "team": [0, 1], "player_index": [-1, 1],
 	"hp": [-1000000, 1000000], "max_hp": [1, 1000000], "rage": [0, 100],
@@ -25,6 +27,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		return false
 	if not world.get("civilian_spawn_enabled") is bool or not _integer(world.get("civilian_flee_tick"), -1) or not _number(world.get("civilian_flee_x")): return false
 	if not _choice(world.get("faction"), Battle.FACTIONS.keys()) or not world.get("intro") is Dictionary: return false
+	if world.has("stage") and not _valid_stage(world.stage): return false
 	for field in ARRAY_LIMITS:
 		if not world.get(field) is Array or world[field].size() > ARRAY_LIMITS[field]:
 			return false
@@ -48,18 +51,24 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if not _integer(intro.get("duration"), 1, 1800) or not _integer(intro.get("remaining_ticks"), 0, intro.duration) or not intro.get("announced") is bool: return false
 		for field in ["name", "line_key"]:
 			if not intro.get(field) is String or intro[field].length() > 200: return false
+		if intro.has("line") and (not intro.line is String or intro.line.length() > 200): return false
+		if intro.has("blocking") and not intro.blocking is bool: return false
 	for drop in world.drops:
 		if not _integer(drop.get("id"), 1) or not _choice(drop.get("kind"), ["food", "weapon", "armor"]) or not _position(drop):
 			return false
 		if drop.has("type") and not drop.type is String:
 			return false
+		if drop.has("food_id") and not _choice(drop.food_id,FOODS): return false
+		if drop.has("heal") and not _integer(drop.heal,1,120): return false
 	for prop in world.props:
-		if not _position(prop) or not _integer(prop.get("id"), 1) or not _choice(prop.get("kind"), ["stall", "cart", "jar", "basket", "crate"]): return false
+		if not _position(prop) or not _integer(prop.get("id"), 1) or not _choice(prop.get("kind"), PROP_KINDS): return false
 		if by_id.has(prop.id): return false
 		by_id[prop.id] = prop
 		if not _integer(prop.get("hp"), 0) or not _integer(prop.get("max_hp"), 1) or prop.hp > prop.max_hp: return false
 		if not prop.get("broken") is bool or prop.broken != (prop.hp == 0): return false
-		if not _number(prop.get("width"), 1.0, 1000.0) or not _number(prop.get("depth"), 1.0, 1000.0) or not _choice(prop.get("drop"), ["food", "weapon", "armor"]): return false
+		if not _number(prop.get("width"), 1.0, 1000.0) or not _number(prop.get("depth"), 1.0, 1000.0) or not _choice(prop.get("drop"), ["", "food", "weapon", "armor"]): return false
+		if prop.has("food_id") and not _choice(prop.food_id,FOODS): return false
+		if prop.has("mandatory") and not prop.mandatory is bool: return false
 	for zone in world.wet_zones:
 		if not _position(zone) or not _number(zone.get("width"), 1.0, 10000.0) or not _number(zone.get("depth"), 1.0, 10000.0): return false
 	for effect in world.effects:
@@ -79,6 +88,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 			if event.has(field) and not _choice(event[field], ["heroes"] + Battle.FACTIONS.keys()): return false
 		if event.has("amount") and not _integer(event.amount, 0, 1000000): return false
 		if event.type == "damage" and not event.has("amount"): return false
+		if event.type == "food_pickup" and (not _choice(event.get("food_id"),FOODS) or not _integer(event.get("heal"),1,120)): return false
 		if event.has("wet") and not event.wet is bool: return false
 		if event.has("action") and not _action(event.action): return false
 		if event.has("combo") and not _integer(event.combo, 0, 3): return false
@@ -86,6 +96,25 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if event.has("finisher") and not event.finisher is bool: return false
 		for field in ["name", "line_key"]:
 			if event.has(field) and (not event[field] is String or event[field].length() > 200): return false
+	return true
+
+
+static func _valid_stage(stage: Variant) -> bool:
+	if not stage is Dictionary: return false
+	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),6,8) or not _integer(stage.get("index"),0,stage.total - 1): return false
+	if not _choice(stage.get("theme"),["bamboo","ridge","village","road","outpost","gate","camp","courtyard","command","chamber"]): return false
+	if not _choice(stage.get("weather"),["clear","rain","storm","mist","indoor"]) or not _choice(stage.get("music"),["siege","town","castle","boss"]): return false
+	if not _choice(stage.get("civilians"),["none","villagers","vendors","porters"]): return false
+	if not _number(stage.get("width"),3200,4800) or not _integer(stage.get("wave_total"),2,3): return false
+	if not _integer(stage.get("checkpoint_total"),2,4) or not _integer(stage.get("checkpoint"),0,stage.checkpoint_total-1): return false
+	if not _number(stage.get("encounter_start"),0,stage.width) or not _number(stage.get("encounter_end"),stage.encounter_start+1280,stage.width): return false
+	if not _choice(stage.get("phase"),["combat","exit"]) or not stage.get("go") is bool or stage.go != (stage.phase == "exit"): return false
+	for field in ["next_wave_tick","entered_tick","clear_tick","next_reinforce_tick"]:
+		if not _integer(stage.get(field),-1): return false
+	for field in ["reinforcement_queue","reinforcement_calls"]:
+		if not _integer(stage.get(field),0): return false
+	for field in ["title","name"]:
+		if not stage.get(field) is String or stage[field].length() > 100: return false
 	return true
 
 
@@ -111,6 +140,9 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 	if fighter.has("throw_hits") and not _id_list(fighter.throw_hits): return false
 	if fighter.has("charge_direction") and not _integer(fighter.charge_direction, -1, 1): return false
 	if fighter.has("shattered_tick") and not _integer(fighter.shattered_tick, -1): return false
+	if fighter.has("pickup_flash_tick") and not _integer(fighter.pickup_flash_tick,-1000): return false
+	if fighter.has("entering") and not fighter.entering is bool: return false
+	if fighter.has("entry_x") and not _number(fighter.entry_x): return false
 	if fighter.has("attack_variant") and not _integer(fighter.attack_variant, 0, 3): return false
 	if fighter.has("mixed_ready") and not fighter.mixed_ready is bool: return false
 	for field in ["sprinting", "airborne_lock", "down_from_air"]:
@@ -124,6 +156,14 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 		if fighter.has(field) and not _integer(fighter[field], 0, 1000): return false
 	if fighter.has("faction") and not _choice(fighter.faction, ["heroes"] + Battle.FACTIONS.keys()): return false
 	if fighter.has("boss_variant") and not _choice(fighter.boss_variant, [""] + Battle.BOSS_PROFILES.keys()): return false
+	if fighter.has("stage_boss") and not fighter.stage_boss is bool: return false
+	if fighter.has("render_scale") and not _number(fighter.render_scale,0.8,1.5): return false
+	for field in ["display_name","intro_line"]:
+		if fighter.has(field) and (not fighter[field] is String or fighter[field].length() > 200): return false
+	if fighter.has("boss_actions"):
+		if not fighter.boss_actions is Array or fighter.boss_actions.size() != 4: return false
+		for action in fighter.boss_actions:
+			if not _choice(action,Battle.ENEMY_TIMING.keys()): return false
 	if fighter.has("last_attack") and not _choice(fighter.last_attack, ["", "light", "heavy"]): return false
 	for field in ["charge", "invuln", "poison", "poison_tick", "poison_owner", "combo", "combo_tick", "heavy_combo_tick", "cooldown", "grab_target", "held_by", "thrown_by", "throw_ticks", "stun", "shield_hurt_tick", "damage_tick", "burn", "burn_tick", "burn_owner", "freeze", "freeze_owner", "mixed_tick", "ai_cycle", "chain_target", "pull_owner"]:
 		if fighter.has(field) and not _integer(fighter[field], 0):
@@ -201,7 +241,7 @@ static func _valid_effect(effect: Dictionary) -> bool:
 			if not effect.has(field): return false
 	if effect.type == "damage" and (not effect.has("amount") or not effect.has("target")): return false
 	if effect.type == "landing" and (not effect.has("wet") or not effect.has("bounce") or not effect.has("target")): return false
-	if effect.type == "debris" and not _choice(effect.get("kind"), ["stall", "cart", "jar", "basket", "crate"]): return false
+	if effect.type == "debris" and not _choice(effect.get("kind"), PROP_KINDS): return false
 	return true
 
 

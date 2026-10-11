@@ -16,6 +16,11 @@ check(data.stageIds.length === 13 && data.moves.length === 42, 'Twelve stages, o
 check(new Set(data.moves.map(row => row[0])).size === 42, 'Move identifiers must be unique');
 check(['charge-neutral','charged','charge-up','charged_upper','charge-down','charged_slam','dead','victory','dash_heavy'].every(id=>data.moves.some(row=>row[0]===id)), 'Charge holds, releases and terminal states must be separate');
 check(!html.includes('value="pass" selected'), 'New records must not pre-certify acceptance');
+check(html.includes('v0.19 規則更新') && html.includes('6 個真正關鍵姿勢可接受') && !html.includes('以每動作 12 張真正重畫為目標'), 'Current workflow accepts six real key poses without a universal twelve-frame target');
+const walk = data.moves.find(row => row[0] === 'walk')[3];
+check(walk.includes('開→窄→交錯→換腿開→窄→交錯') && walk.includes('固定完整 cycle') && walk.includes('60 tick'), 'Walking preserves both-leg phases and its natural complete cycle');
+check(html.includes('既有 12 張素材、個別規格與歷史證據保留') && html.includes('idle 6；walk、run、jump、light1–3、heavy1–2、victory 各 12'), 'Existing hero and Tadakatsu twelve-frame evidence remains intact');
+check(source.includes('實際 source 數；cycle／每格 tick；hit tick'), 'Each move records its actual source count and timing rather than a target count');
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);
 check(ids.length === new Set(ids).size, 'HTML IDs must be unique');
 const links = [...html.matchAll(/\bhref="([^"]+)"/g)].map(match=>match[1]);

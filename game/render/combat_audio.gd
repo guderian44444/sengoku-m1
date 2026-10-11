@@ -4,9 +4,19 @@ const SAMPLE_RATE := 22050
 const VOICE_COUNT := 6
 const IMPACT_VARIANTS := 5
 const SFX_VARIANTS := 3
+const MUSIC_VOLUME_DB := -19.0
+const MUSIC_FADE_SECONDS := 1.4
+const CATEGORY_BUSES := {"music": "Music", "sfx": "SFX", "voice": "Voice"}
+const STAGE_MUSIC := {
+	"legacy": "res://audio/v14/sengoku-battle-loop.wav",
+	"siege": "res://audio/v18/siege-loop.wav",
+	"town": "res://audio/v18/town-loop.wav",
+	"castle": "res://audio/v18/castle-loop.wav",
+	"boss": "res://audio/v18/boss-loop.wav"
+}
 const EVENT_SOUNDS := {
 	"hit": "hit", "heavy_hit": "heavy_hit", "special": "special",
-	"pickup": "pickup", "defeat": "defeat", "shield_hit": "shield_hit", "grab": "grab", "bow_release": "bow_release",
+	"pickup": "pickup", "food_pickup": "food_pickup", "defeat": "defeat", "shield_hit": "shield_hit", "grab": "grab", "bow_release": "bow_release",
 	"gunshot": "gunshot", "shatter": "shatter", "sword_whoosh":"sword_whoosh", "spear_wind":"spear_wind",
 	"landing":"landing", "splash":"splash", "guard":"guard", "guard_break":"guard_break", "prop_break":"prop_break",
 	"arrow_hit":"arrow_hit", "bullet_hit":"bullet_hit", "needle_hit":"needle_hit", "blunt_hit":"blunt_hit",
@@ -15,6 +25,7 @@ const EVENT_SOUNDS := {
 
 var _sounds: Dictionary = {}
 var _voices: Array[AudioStreamPlayer] = []
+var _food_player: AudioStreamPlayer
 var _next_voice: int = 0
 var _impact_sounds: Dictionary = {}
 var _sound_variants: Dictionary = {}
@@ -29,10 +40,20 @@ var _speech_streams: Dictionary = {}
 var _speech_players: Dictionary = {}
 var _intro_player: AudioStreamPlayer
 var _music_player: AudioStreamPlayer
+var _music_tail: AudioStreamPlayer
+var _music_streams: Dictionary = {}
+var _music_key := "legacy"
+var _music_active := false
+var _music_paused := false
+var _music_fade := 1.0
+var _music_tail_gain := 0.0
 var last_spoken := ""
 var _intro_token := ""
+var settings_path := "user://audio-settings.cfg"
+var _category_volumes := {"music": 1.0, "sfx": 1.0, "voice": 1.0}
 
 func _ready() -> void:
+	_restore_volumes()
 	_rng.randomize()
 	for kind in EVENT_SOUNDS:
 		_sound_variants[kind] = []
@@ -42,10 +63,15 @@ func _ready() -> void:
 		if kind in ["hit", "heavy_hit"]: _impact_sounds[kind] = _sound_variants[kind]
 	for index in range(VOICE_COUNT):
 		var player := AudioStreamPlayer.new()
+		player.bus = CATEGORY_BUSES.sfx
 		player.volume_db = -17.0
 		add_child(player)
 		_voices.append(player)
 	assert(_sounds.size() == EVENT_SOUNDS.size() and _voices.size() == VOICE_COUNT)
+	_food_player = AudioStreamPlayer.new()
+	_food_player.bus = CATEGORY_BUSES.sfx
+	_food_player.volume_db = -10.0
+	add_child(_food_player)
 	var voice_root := "res://audio/v15/" if FileAccess.file_exists("res://audio/v15/manifest.json") else ("res://audio/v14/" if FileAccess.file_exists("res://audio/v14/manifest.json") else ("res://audio/v11/" if FileAccess.file_exists("res://audio/v11/manifest.json") else "res://audio/v10/"))
 	var manifest_path := voice_root + "manifest.json"
 	if FileAccess.file_exists(manifest_path):
@@ -57,45 +83,146 @@ func _ready() -> void:
 		if stream != null: _speech_streams[key] = stream
 	for channel in ["hero0", "hero1", "enemy", "boss"]:
 		var speaker := AudioStreamPlayer.new()
+		speaker.bus = CATEGORY_BUSES.voice
 		speaker.volume_db = -5.0 if channel.begins_with("hero") else -9.0
 		add_child(speaker)
 		_speech_players[channel] = speaker
 	_intro_player = AudioStreamPlayer.new()
+	_intro_player.bus = CATEGORY_BUSES.voice
 	_intro_player.volume_db = -3.0
 	add_child(_intro_player)
 	_music_player = AudioStreamPlayer.new()
-	_music_player.volume_db = -19.0
+	_music_player.bus = CATEGORY_BUSES.music
+	_music_player.volume_db = MUSIC_VOLUME_DB
 	add_child(_music_player)
-	var music := AudioStreamWAV.load_from_file("res://audio/v14/sengoku-battle-loop.wav") if FileAccess.file_exists("res://audio/v14/sengoku-battle-loop.wav") else null
-	if music != null:
-		music.loop_mode = AudioStreamWAV.LOOP_FORWARD
-		music.loop_begin = 0
-		music.loop_end = music.data.size() / (4 if music.stereo else 2)
-		_music_player.stream = music
+	_music_tail = AudioStreamPlayer.new()
+	_music_tail.bus = CATEGORY_BUSES.music
+	add_child(_music_tail)
+	_music_player.stream = _load_music("legacy")
+
+func _restore_volumes() -> void:
+	var config := ConfigFile.new()
+	var error := config.load(settings_path)
+	if error not in [OK, ERR_FILE_NOT_FOUND]: push_warning("Audio settings could not be read; using the default mix.")
+	for category in CATEGORY_BUSES:
+		var value: Variant = config.get_value("audio", category, 1.0) if error == OK else 1.0
+		if (value is float or value is int) and is_finite(float(value)):
+			_category_volumes[category] = clampf(float(value), 0.0, 1.0)
+		var bus_name: String = CATEGORY_BUSES[category]
+		if AudioServer.get_bus_index(bus_name) < 0:
+			AudioServer.add_bus()
+			AudioServer.set_bus_name(AudioServer.bus_count - 1, bus_name)
+			AudioServer.set_bus_send(AudioServer.bus_count - 1, "Master")
+		_apply_volume(category)
+
+func get_category_volume(category: String) -> float:
+	return float(_category_volumes.get(category, 1.0))
+
+func set_category_volume(category: String, value: float) -> Error:
+	if not CATEGORY_BUSES.has(category) or not is_finite(value): return ERR_INVALID_PARAMETER
+	_category_volumes[category] = clampf(value, 0.0, 1.0)
+	_apply_volume(category)
+	var config := ConfigFile.new()
+	var error := config.load(settings_path)
+	if error not in [OK, ERR_FILE_NOT_FOUND]: return error
+	for key in _category_volumes: config.set_value("audio", key, _category_volumes[key])
+	return config.save(settings_path)
+
+func _apply_volume(category: String) -> void:
+	var bus := AudioServer.get_bus_index(CATEGORY_BUSES[category])
+	if bus < 0: return
+	var level := get_category_volume(category)
+	AudioServer.set_bus_volume_db(bus, linear_to_db(maxf(level, 0.0001)))
+	AudioServer.set_bus_mute(bus, is_zero_approx(level))
+
+func _load_music(key: String) -> AudioStreamWAV:
+	if _music_streams.has(key): return _music_streams[key]
+	var path: String = STAGE_MUSIC[key]
+	if not FileAccess.file_exists(path): return null
+	var music := AudioStreamWAV.load_from_file(path)
+	if music == null: return null
+	music.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	music.loop_begin = 0
+	music.loop_end = music.data.size() / (4 if music.stereo else 2)
+	_music_streams[key] = music
+	return music
+
+func sync_stage_music(world: Dictionary) -> void:
+	var stage: Variant = world.get("stage", {})
+	var key := str(stage.get("music", "legacy")) if stage is Dictionary else "legacy"
+	if not STAGE_MUSIC.has(key): key = "legacy"
+	if key == _music_key: return
+	var stream := _load_music(key)
+	if stream == null:
+		key = "legacy"
+		stream = _load_music(key)
+	if key == _music_key or stream == null: return
+	_music_key = key
+	if not _music_active:
+		_music_player.stream = stream
+		return
+	# Keep the outgoing score on its own player; speech and impacts never share it.
+	_music_tail.stop()
+	var outgoing := _music_player
+	_music_player = _music_tail
+	_music_tail = outgoing
+	_music_tail_gain = _music_tail.volume_linear
+	_music_player.stream = stream
+	_music_player.volume_linear = 0.0
+	_music_player.play()
+	_music_player.stream_paused = _music_paused
+	_music_fade = 0.0
+
+func _process(delta: float) -> void:
+	if not _music_active or _music_paused: return
+	# Recover an interrupted stream without restarting healthy loops or same-score areas.
+	if not _music_player.playing and _music_player.stream != null: _music_player.play()
+	if _music_fade >= 1.0: return
+	_music_fade = minf(1.0, _music_fade + delta / MUSIC_FADE_SECONDS)
+	_music_player.volume_linear = db_to_linear(MUSIC_VOLUME_DB) * sin(_music_fade * PI * 0.5)
+	_music_tail.volume_linear = _music_tail_gain * cos(_music_fade * PI * 0.5)
+	if _music_fade >= 1.0:
+		_music_tail.stop()
+		_music_tail.stream = null
 
 func play_music() -> void:
 	if _music_player == null or _music_player.stream == null: return
+	_music_active = true
 	if not _music_player.playing: _music_player.play()
-	_music_player.stream_paused = false
+	set_music_paused(false)
 
 func stop_music() -> void:
 	if _music_player != null: _music_player.stop()
+	if _music_tail != null:
+		_music_tail.stop()
+		_music_tail.stream = null
+	_music_active = false
+	_music_fade = 1.0
+	_music_key = "legacy"
+	if _music_player != null:
+		_music_player.stream = _load_music("legacy")
+		_music_player.volume_db = MUSIC_VOLUME_DB
+	set_music_paused(false)
 
 func set_music_paused(paused: bool) -> void:
+	_music_paused = paused
 	if _music_player != null: _music_player.stream_paused = paused
+	if _music_tail != null: _music_tail.stream_paused = paused
 
 func play_event(event: Dictionary) -> void:
 	_play_character_event(event)
 	var kind := sound_for_event(event)
 	if not _sound_variants.has(kind) or _voices.is_empty():
 		return
-	var player := _voices[_next_voice]
-	_next_voice = (_next_voice + 1) % VOICE_COUNT
+	# A crowded impact burst must not steal the healing confirmation.
+	var player := _food_player if kind == "food_pickup" else _voices[_next_voice]
+	if kind != "food_pickup": _next_voice = (_next_voice + 1) % VOICE_COUNT
 	last_sound = kind
 	last_sound_variant = _choose_variant("sfx:" + kind, _sound_variants[kind].size())
 	player.stream = _sound_variants[kind][last_sound_variant]
 	if _impact_sounds.has(kind): last_impact_variant = last_sound_variant
 	player.volume_db = -13.0 if kind in ["heavy_hit", "bullet_hit", "gunshot"] else -17.0
+	if kind == "food_pickup": player.volume_db = -10.0
 	player.play()
 
 static func sound_for_event(event: Dictionary) -> String:
@@ -209,6 +336,8 @@ func _synthesize(kind: String, variant: int = 0) -> AudioStreamWAV:
 		duration = 0.22
 	elif kind == "pickup":
 		duration = 0.24
+	elif kind == "food_pickup":
+		duration = 0.34
 	elif kind == "defeat":
 		duration = 0.23
 	elif kind in ["gunshot", "shatter"]:
@@ -291,6 +420,15 @@ func _synthesize(kind: String, variant: int = 0) -> AudioStreamWAV:
 			value = (sin(TAU*(120+variant*29)*t)*.43+low_noise*1.1+high_noise*.16)*envelope
 		elif kind == "pickup":
 			value = metal*attack*exp(-t*(22.0+variant*7.0))*.62 + high_noise*bite*.16
+		elif kind == "food_pickup":
+			# Three short ascending bell notes distinguish healing from gear and weapon impacts.
+			var roots := [659.25, 739.99, 587.33]
+			for note in range(3):
+				var note_t := t - note * 0.06
+				if note_t < 0: continue
+				var hz: float = roots[variant] * [1.0, 1.25, 1.5][note]
+				var note_envelope := minf(note_t / 0.003, 1.0) * exp(-note_t * 24.0) * pow(1.0 - progress, 0.7)
+				value += (sin(TAU * hz * note_t) * 0.46 + sin(TAU * hz * 2.0 * note_t) * 0.13) * note_envelope
 		elif kind in ["arrow_hit","bullet_hit","needle_hit","blunt_hit"]:
 			var body_hz: float = (185.0 if kind=="arrow_hit" else (92.0 if kind=="bullet_hit" else (330.0 if kind=="needle_hit" else 115.0))) + variant*21.0
 			var body := sin(TAU*(body_hz*t-150*t*t))*attack*exp(-t*(27.0+variant*5.0))

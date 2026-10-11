@@ -49,7 +49,8 @@ func _test_enemy_pace_and_arrows() -> void:
 		enemy.x = 800.0
 		enemy.cooldown = 9999
 		battle._enemy_input(enemy)
-		_check(is_equal_approx(800.0 - enemy.x, (1.65 if kind == "boss" else 1.4) * 0.7), kind + " pursuit moves at 70% previous pace")
+		var expected: float = 3.5 * Battle.HERO_PROFILES[battle.state.fighters[0].kind].move_speed * 0.8 if kind == "boss" else 1.4 * 0.7
+		_check(is_equal_approx(800.0 - enemy.x, expected), "Boss pursues at 80% of the target hero's same-direction walk speed" if kind == "boss" else kind + " pursuit moves at 70% previous pace")
 	for kind in ["archer", "gunner"]:
 		var battle = _arena()
 		var enemy: Dictionary = battle.state.fighters[1]
@@ -133,10 +134,10 @@ func _test_sprint() -> void:
 	var enemy: Dictionary = battle.state.fighters[1]
 	enemy.x = 545.0
 	_step(battle, 1, 0, 1)
-	_check(not player.sprinting and is_equal_approx(player.x, 503.5), "single direction press walks")
+	_check(not player.sprinting and is_equal_approx(player.x, 500.0), "single direction press cannot walk through an adjacent enemy")
 	_step(battle)
 	_step(battle, 1, 0, 1)
-	_check(player.sprinting and is_equal_approx(player.x, 510.5), "same direction second tap starts held sprint")
+	_check(player.sprinting and is_equal_approx(player.x, 507.0), "same direction second tap starts held sprint and shoves the enemy")
 	_check(enemy.hp == 994 and enemy.bump_cooldown > 0, "sprint collision lightly damages enemy")
 	battle._sprint_bump(player)
 	_check(enemy.hp == 994, "same enemy cannot take repeated bump during cooldown")
@@ -304,12 +305,16 @@ func _test_intro_and_boundaries() -> void:
 	battle.reset_training("nobunaga", "boss")
 	var boss: Dictionary = battle.state.fighters[1]
 	var start_x: float = boss.x
-	_step(battle, 1, Battle.LIGHT, 1)
-	_check(battle.state.events.size() == 1 and battle.state.events[0].type == "boss_intro" and battle.state.events[0].actor_faction == "mori", "boss intro emits one faction-specific voice event")
-	_step(battle, 29, Battle.LIGHT, 1)
-	_check(battle.state.tick == 0 and boss.x == start_x and boss.action_tick == 0 and battle.state.intro.remaining_ticks == 0, "intro countdown freezes battle movement, actions and world time")
+	var player_start: float = battle.state.fighters[0].x
+	_step(battle, 1, 0, -1)
+	var introductions: Array = battle.state.events.filter(func(e): return e.type == "boss_intro")
+	_check(introductions.size() == 1 and introductions[0].actor_faction == "mori", "boss intro emits one faction-specific voice event alongside combat events")
+	_step(battle, 1, Battle.LIGHT)
+	_check(not battle.state.intro.get("blocking",true) and battle.state.tick == 2 and battle.state.fighters[0].action == "light", "boss name and dialogue leave attack input and simulation active")
+	_step(battle, 28, 0, -1)
+	_check(battle.state.tick == 30 and boss.x < start_x and battle.state.fighters[0].x < player_start and battle.state.intro.remaining_ticks == 0, "intro countdown runs alongside enemy pursuit and player movement")
 	_step(battle)
-	_check(battle.state.tick == 1, "battle resumes after configured voice duration")
+	_check(battle.state.tick == 31, "dialogue completion does not pause or reset world time")
 	_check(Wire.valid_input({"dx": 0, "dy": 0, "buttons": Battle.GUARD}) and not Wire.valid_input({"dx": 0, "dy": 0, "buttons": 256}), "wire accepts guardbit and rejects unknown higher bits")
 	var snapshot: Dictionary = Battle.new().get_state()
 	for pair in [["sprinting", 1], ["airborne_lock", "yes"], ["bounces_left", 3], ["tap_tick", -1001], ["move_dx", 2], ["faction", "unknown"], ["boss_variant", "unknown"]]:
