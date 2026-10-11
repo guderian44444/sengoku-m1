@@ -1,0 +1,1474 @@
+{
+  "version": "0.10",
+  "generator": "built-in image_gen",
+  "pixel_processing": "None; generated PNG files copied unchanged. Registration and alpha outlines measured read-only.",
+  "assets": [
+    {
+      "id": "nobunaga-reactions",
+      "columns": 6,
+      "rows": 6,
+      "ref": "game/assets/v09/nobunaga.png",
+      "prompt": "Use case: stylized-concept. Asset type: real sequential sprite animation for a traditional 2D Sengoku arcade beat-em-up. Reference is ONLY approved character identity/outfit/hand-painted arcade style. TRUE transparent alpha background. No scenery, ground, shadows, gradients, text, numbering, panel borders or gridlines. Equally sized invisible cells, one COMPLETE full-body figure per cell, always face RIGHT in side/slight three-quarter arcade view. Every cell must be a separately drawn chronological pose with correct anatomy. SAME character proportions, head size, costume and body scale throughout. Animation continuity matters: small progressive limb and weight shifts, no duplicated static poses, no teleporting limb positions. Feet baseline identical within each row. Keep full body, hair, weapon and clothing within its own cell, with LARGE transparent gaps between neighboring silhouettes, minimum 20% empty margin per cell. Never allow any sprites or weapon tips to touch, overlap or enter adjacent cells. No effects baked in. Swords are ordinary STEEL GRAY with dark edge, NOT glowing, no blue blade, no energy sword, no neon, no bloom. Generate large canvas so all frames remain legible.\nSubject identity: adult Nobunaga from reference, athletic mature Japanese samurai, black high ponytail, black mustache and pointed beard, red and gold lamellar armor, red haori with gold floral patterns, black trousers, red shin armor and dark boots. Exactly same costume. Steel katana when held, sheathed at waist otherwise.\nLayout EXACTLY 6 columns by 6 rows, THIRTY SIX complete poses. Wide-empty-gutter square atlas 3072x3072 requested. Each row has exactly SIX distinct chronological frames left-to-right. Row0 guard/parry six frames: guard rises from waist, front shoulder sets, steady blocking posture, stronger brace, recoil on successful block, firm counter-parry motion. Row1 hurt/stagger six frames: surprisedflinch, chestjerkback, headandshoulderrecoil, crouchedribclutch, lowstagger, stabilizefeet. Row2 airborne knockback six frames: backward lift fromground, archedbackfeetleavingground, sideways midairtuck, backward tumble withtorso rotated drawn naturally, descendingkneestuck, sidewayslanding pose justabovevirtualfloor. Draw actual whole anatomy in each different orientation, do not just rotate one same flatpose. Row3 prone/settle six frames: complete figure side-lying after landing, cloth settles and limbs recoil, smaller firstbodybounce, secondarysettlingbodybounce, lying still withbreathing, exhausted proppedelbow. Clothes look rumpled and slightly loosened, armor/robe disarranged but fully cover chest, pelvis, buttocks and underwear at all times; NO torn revealing clothes, no nudity, no blood. Row4 drunken dizzy six frames: swayleft, swayright, kneesloosehandtohead, lurchforwardarmsbalancing, bentkneestumble, wearyheadtiltrecover; humorousgroggyexpression, visibly differentbalanceposes butsameperson. Row5 slow getup six frames: lieononeside, pushupwithoneforearm, handsandknees, one-kneekneel, shakystandwithhandonknee, standready. Eachrow exactlysix sequential full-bodyposes. Katana is used for guard/parry, then safelysheathkatana in all remainingrows toavoidweapons intersectingbody whilefallen."
+    },
+    {
+      "id": "oichi-reactions",
+      "columns": 6,
+      "rows": 6,
+      "ref": "game/assets/v09/oichi.png",
+      "prompt": "Use case: stylized-concept. Asset type: real sequential sprite animation for a traditional 2D Sengoku arcade beat-em-up. Reference is ONLY approved character identity/outfit/hand-painted arcade style. TRUE transparent alpha background. No scenery, ground, shadows, gradients, text, numbering, panel borders or gridlines. Equally sized invisible cells, one COMPLETE full-body figure per cell, always face RIGHT in side/slight three-quarter arcade view. Every cell must be a separately drawn chronological pose with correct anatomy. SAME character proportions, head size, costume and body scale throughout. Animation continuity matters: small progressive limb and weight shifts, no duplicated static poses, no teleporting limb positions. Feet baseline identical within each row. Keep full body, hair, weapon and clothing within its own cell, with LARGE transparent gaps between neighboring silhouettes, minimum 20% empty margin per cell. Never allow any sprites or weapon tips to touch, overlap or enter adjacent cells. No effects baked in. Swords are ordinary STEEL GRAY with dark edge, NOT glowing, no blue blade, no energy sword, no neon, no bloom. Generate large canvas so all frames remain legible.\nSubject identity: clearly ADULT Oichi from reference, long black hair with scarlet braided ribbon, white sleeveless archery top with red lapels, red pleated skirt with fully opaque covered shorts underneath, black bracers, white ankle socks and red-white sandals, quiver and stowed bow on back. Keep exact costume, full modest coverage at all angles. LIGHT attacks use tiny slender steel throwing NEEDLES from RIGHT HAND, no held bow.\nLayout EXACTLY 6 columns by 6 rows, THIRTY SIX complete poses. Wide-empty-gutter square atlas 3072x3072 requested. Each row has exactly SIX distinct chronological frames left-to-right. Row0 guard/parry six frames: guard rises from waist, front shoulder sets, steady blocking posture, stronger brace, recoil on successful block, firm counter-parry motion. Row1 hurt/stagger six frames: surprisedflinch, chestjerkback, headandshoulderrecoil, crouchedribclutch, lowstagger, stabilizefeet. Row2 airborne knockback six frames: backward lift fromground, archedbackfeetleavingground, sideways midairtuck, backward tumble withtorso rotated drawn naturally, descendingkneestuck, sidewayslanding pose justabovevirtualfloor. Draw actual whole anatomy in each different orientation, do not just rotate one same flatpose. Row3 prone/settle six frames: complete figure side-lying after landing, cloth settles and limbs recoil, smaller firstbodybounce, secondarysettlingbodybounce, lying still withbreathing, exhausted proppedelbow. Clothes look rumpled and slightly loosened, armor/robe disarranged but fully cover chest, pelvis, buttocks and underwear at all times; NO torn revealing clothes, no nudity, no blood. Row4 drunken dizzy six frames: swayleft, swayright, kneesloosehandtohead, lurchforwardarmsbalancing, bentkneestumble, wearyheadtiltrecover; humorousgroggyexpression, visibly differentbalanceposes butsameperson. Row5 slow getup six frames: lieononeside, pushupwithoneforearm, handsandknees, one-kneekneel, shakystandwithhandonknee, standready. Eachrow exactlysix sequential full-bodyposes. Guard withcrossedblackbracersanddefensivesidestance, emptyhands afterguard. Bowandquiverstaystowedonback, no weaponintersectsbody. Oichi remainsanADULT withfullycoveredcostumeincludinglongopaqueundershorts inlyingposes."
+    },
+    {
+      "id": "nobunaga-combat",
+      "columns": 6,
+      "rows": 5,
+      "ref": "game/assets/v09/nobunaga.png",
+      "prompt": "Use case: stylized-concept. Asset type: real sequential sprite animation for a traditional 2D Sengoku arcade beat-em-up. Reference is ONLY approved character identity/outfit/hand-painted arcade style. TRUE transparent alpha background. No scenery, ground, shadows, gradients, text, numbering, panel borders or gridlines. Equally sized invisible cells, one COMPLETE full-body figure per cell, always face RIGHT in side/slight three-quarter arcade view. Every cell must be a separately drawn chronological pose with correct anatomy. SAME character proportions, head size, costume and body scale throughout. Animation continuity matters: small progressive limb and weight shifts, no duplicated static poses, no teleporting limb positions. Feet baseline identical within each row. Keep full body, hair, weapon and clothing within its own cell, with LARGE transparent gaps between neighboring silhouettes, minimum 20% empty margin per cell. Never allow any sprites or weapon tips to touch, overlap or enter adjacent cells. No effects baked in. Swords are ordinary STEEL GRAY with dark edge, NOT glowing, no blue blade, no energy sword, no neon, no bloom. Generate large canvas so all frames remain legible.\nSubject identity: adult Nobunaga from reference, athletic mature Japanese samurai, black high ponytail, black mustache and pointed beard, red and gold lamellar armor, red haori with gold floral patterns, black trousers, red shin armor and dark boots. Exactly same costume. Steel katana when held, sheathed at waist otherwise.\nLayout EXACTLY 6 columns by 5 rows, THIRTY complete poses, 3072x2560 requested. Each row exactly SIX sequential frames. Row0 WALK loop: contact rightfootforward, weighttransfer, passinglegs, contact leftfootforward, oppositeweighttransfer, oppositepassinglegs; armsandponytailfollowstride, katanaheldsafelylow. Row1 LIGHT COMBO A sixframe waist-horizontal katana cut: neutralguard, smallrearwindup, torsoaccelerates, horizontalrightcutimpact, shortfollowthrough, resetguard. Row2 LIGHT COMBO B sixframe rising diagonal slash: lowerblade tolefthip, bendknees, upwardacceleration, bladecrossesupRIGHTatimpact, followthroughabovehead, recover. Row3 LIGHT COMBO C sixframe heavy diagonalfinisher: highrearblade, cockhips, stepforward, downwardrightcleave, deepfollowthrough, recoverlowguard. Allthreerows have DISTINCT weapontrajectories, buteachsixframe sequenceissmooth. Row4 SPRINT sixframe runloop: extendedstride, weightcompression, trailinglegpush, oppositeextendedstride, oppositecompression, oppositepush; bodyforwardlean andmovingarms, swordheldbehindawayfromlimbs. SWORD plainsteelgray notblue, nodrawntrail."
+    },
+    {
+      "id": "oichi-combat",
+      "columns": 6,
+      "rows": 5,
+      "ref": "game/assets/v09/oichi.png",
+      "prompt": "Use case: stylized-concept. Asset type: real sequential sprite animation for a traditional 2D Sengoku arcade beat-em-up. Reference is ONLY approved character identity/outfit/hand-painted arcade style. TRUE transparent alpha background. No scenery, ground, shadows, gradients, text, numbering, panel borders or gridlines. Equally sized invisible cells, one COMPLETE full-body figure per cell, always face RIGHT in side/slight three-quarter arcade view. Every cell must be a separately drawn chronological pose with correct anatomy. SAME character proportions, head size, costume and body scale throughout. Animation continuity matters: small progressive limb and weight shifts, no duplicated static poses, no teleporting limb positions. Feet baseline identical within each row. Keep full body, hair, weapon and clothing within its own cell, with LARGE transparent gaps between neighboring silhouettes, minimum 20% empty margin per cell. Never allow any sprites or weapon tips to touch, overlap or enter adjacent cells. No effects baked in. Swords are ordinary STEEL GRAY with dark edge, NOT glowing, no blue blade, no energy sword, no neon, no bloom. Generate large canvas so all frames remain legible.\nSubject identity: clearly ADULT Oichi from reference, long black hair with scarlet braided ribbon, white sleeveless archery top with red lapels, red pleated skirt with fully opaque covered shorts underneath, black bracers, white ankle socks and red-white sandals, quiver and stowed bow on back. Keep exact costume, full modest coverage at all angles. LIGHT attacks use tiny slender steel throwing NEEDLES from RIGHT HAND, no held bow.\nLayout EXACTLY 6 columns by 5 rows, THIRTY complete poses, 3072x2560 requested. Each row exactly SIX sequential frames. Row0 WALK loop: rightfootcontact, rightweighttransfer, passinglegs, leftfootcontact, leftweighttransfer, oppositepassinglegs; relaxedarmsandhairfollowstride. Row1 LIGHT COMBO A sixframe single-right-hand needlethrow: reachwaist, gathertinyneedles, bringhandtorightcheek, extendforearmandflickRIGHT, openhandfollowthrough, reset. Row2 LIGHT COMBO B sixframe sidearmneedlefan: lowwindupnearwaist, torsocoil, sidearmaccelerates, fullsidearmsweepatshoulderheightRIGHT, relaxedfollowthrough, reset. Row3 LIGHT COMBO C sixframe lowlungingneedlevolley: lowkneebend, pullrightarmback, forwardstep, deepforwardlungerightarmshootsstraightRIGHT, staylowfollowthrough, recoverguard. Threerows DISTINCT trajectories/bodymoves. Needles slenderlikeacupuncturedarts, nofatdaggers, noprojectiletrails, noheldbow. Row4 SPRINT sixframe runloop: extendedstride, weightcompression, trailinglegpush, oppositeextendedstride, oppositecompression, oppositepush; forwardlean, visiblelegcycle, freehandsbalanced."
+    },
+    {
+      "id": "soldier",
+      "columns": 6,
+      "rows": 4,
+      "ref": "game/assets/v09/soldier.png",
+      "prompt": "Use case: stylized-concept. Asset type: real sequential sprite animation for a traditional 2D Sengoku arcade beat-em-up. Reference is ONLY approved character identity/outfit/hand-painted arcade style. TRUE transparent alpha background. No scenery, ground, shadows, gradients, text, numbering, panel borders or gridlines. Equally sized invisible cells, one COMPLETE full-body figure per cell, always face RIGHT in side/slight three-quarter arcade view. Every cell must be a separately drawn chronological pose with correct anatomy. SAME character proportions, head size, costume and body scale throughout. Animation continuity matters: small progressive limb and weight shifts, no duplicated static poses, no teleporting limb positions. Feet baseline identical within each row. Keep full body, hair, weapon and clothing within its own cell, with LARGE transparent gaps between neighboring silhouettes, minimum 20% empty margin per cell. Never allow any sprites or weapon tips to touch, overlap or enter adjacent cells. No effects baked in. Swords are ordinary STEEL GRAY with dark edge, NOT glowing, no blue blade, no energy sword, no neon, no bloom. Generate large canvas so all frames remain legible. SubjectexactapprovedMoriashigaru: leanadult, darkconicaljingasahat,beigeclothsleeves,blacklamellarvest,tealwaistcord,graytrousers,shinwraps,strawsandals,woodenyaristeelpoint. EXACTLY6columns4rows24frames landscape3072x2048. Row0sixframewalkingcycle: rightcontact,weight,passing,leftcontact,weight,passing, spearhelddiagonallyclearofbody. Row1 SIX frames straight spear thrust: relaxedguard, pullrearshaftback, lowerweightandstep, fullrightwaistheightthrustimpact, recoilshaft, recoverguard. Row2 SIX frames low sweep:lowerstance, shaftswingback, acceleratewaistside, lowrightwardankleheightsweepimpact, followthrough, reset. Row3 SIX frames overhead spear smash: gatherspear, raisehandsbehindhead, apexwindup, forwarddownstrokeimpact, lowfollowthrough, returnguard. Mustgenuinelydrawall24smallprogressions, no repeatedstaticpose. Keep entire spearinsideitscell diagonallyorforeshortened; never touches otherframes."
+    },
+    {
+      "id": "npc-family",
+      "columns": 6,
+      "rows": 4,
+      "ref": "game/assets/v05/scenery/villager-walk-run.png",
+      "prompt": "Use case: stylized-concept. Production 2D Sengoku arcade sprite atlas, warm hand-painted sprite illustration matching the reference's period villager design language but NO reference background. True transparent alpha; no background, shadows, ground line, text, labels, gridlines, panels or scenery. Each person is separately and completely drawn, correct whole anatomy and clothing, all face RIGHT. EXACTLY6columns4rows=24fullspriteframes, wide3072x2048requested. Everyrow6chronologicaldistinctframes, notcopies, withsmallprogressivelegandarmchanges toform a smooth loop. Same character scale and outfit across its two rows. Constantfootbaselinewithinrow, largeblankpaddingatleast20%cellsize, no neighbor touching, no croppedbody, no weapon or armor. No injury or violence depicted. Walking phases RIGHTcontact,weighttransfer,passing,LEFTcontact,weighttransfer,passing. Running phases longstride,compressedlanding,push,oppositestride,oppositecompressedlanding,oppositepush. Runningexpressionsalarmed, lookaheadorbrieflybackbutalwaysrightwardbody. Rows0and1: ordinary ADULT mother-aged villagewoman, simple muted plum full-length kimono, indigoobi, blackhairinbun, modest straw sandals, carries a smallclothbasket atwaist. Row0sixcalmwalkingphases. Row1sixalarmedESCAPErunningphases, clutchbasketclose,liftemptyhandprotectively,kimonohemallowsnaturalstepsbutlegcoveragekept. Rows2and3: a CHILD about9years old, shortdarkhair, simple mustardcottonjacket and darkblue knee-lengthtraditionaltrousers, straw sandals. Childcharacterstandingbodyabout70percentadultheight. Row2sixordinaryplayfulwalkingphaseswithrelaxedarms. Row3sixfrightenedbutuninjuredrunningphaseswitharmsbalancing. No adulttouchingchild, singlepersonperframe, childclothingfullycoversbody. 12motherand12childsprites,total24."
+    },
+    {
+      "id": "npc-elders",
+      "columns": 6,
+      "rows": 4,
+      "ref": "game/assets/v05/scenery/villager-walk-run.png",
+      "prompt": "Use case: stylized-concept. Production 2D Sengoku arcade sprite atlas, warm hand-painted sprite illustration matching the reference's period villager design language but NO reference background. True transparent alpha; no background, shadows, ground line, text, labels, gridlines, panels or scenery. Each person is separately and completely drawn, correct whole anatomy and clothing, all face RIGHT. EXACTLY6columns4rows=24fullspriteframes, wide3072x2048requested. Everyrow6chronologicaldistinctframes, notcopies, withsmallprogressivelegandarmchanges toform a smooth loop. Same character scale and outfit across its two rows. Constantfootbaselinewithinrow, largeblankpaddingatleast20%cellsize, no neighbor touching, no croppedbody, no weapon or armor. No injury or violence depicted. Walking phases RIGHTcontact,weighttransfer,passing,LEFTcontact,weighttransfer,passing. Running phases longstride,compressedlanding,push,oppositestride,oppositecompressedlanding,oppositepush. Runningexpressionsalarmed, lookaheadorbrieflybackbutalwaysrightwardbody. Rows0and1: elderlyvillagegrandfather,grayhairshortbun,wrinkledkindface,modestgray-brownkimonoanddarktrousers,strawsandals,smallwoodenwalkingstick. Bodyhunched butwholeanatomy. Row0sixslowwalkingphases withsticktouchsupport variedcorrectly. Row1sixalarmedhurrying/fleeingphases, clutchstick diagonally,smallquickstepsnotathleticsprint. Rows2and3: adult male CART MERCHANT, tanstrawhat, mutedochrejacket,darkblueworktrousers,clothwaistbelt,sandals. Row2sixwalkingphases PUSHING a smallwoodentwo-wheelhandcartloadedwithcoveredproducebasket; clearhandsgrippinghandles, bothfeetcorrect,merchantandcartfitentirelyinsideeachcell. Row3sixrunningescapephases ofsamecartmerchant ALONE afterabandoningcart, armsfreeandhatheldwithonehand;nocartinrow3. Samebodyheightscaleasrow2 despitecartwidth. Exactly24cells. Carts inrow2noindependentbystander."
+    },
+    {
+      "id": "npc-vendors",
+      "columns": 6,
+      "rows": 4,
+      "ref": "game/assets/v05/scenery/villager-walk-run.png",
+      "prompt": "Use case: stylized-concept. Production 2D Sengoku arcade sprite atlas, warm hand-painted sprite illustration matching the reference's period villager design language but NO reference background. True transparent alpha; no background, shadows, ground line, text, labels, gridlines, panels or scenery. Each person is separately and completely drawn, correct whole anatomy and clothing, all face RIGHT. EXACTLY6columns4rows=24fullspriteframes, wide3072x2048requested. Everyrow6chronologicaldistinctframes, notcopies, withsmallprogressivelegandarmchanges toform a smooth loop. Same character scale and outfit across its two rows. Constantfootbaselinewithinrow, largeblankpaddingatleast20%cellsize, no neighbor touching, no croppedbody, no weapon or armor. No injury or violence depicted. Walking phases RIGHTcontact,weighttransfer,passing,LEFTcontact,weighttransfer,passing. Running phases longstride,compressedlanding,push,oppositestride,oppositecompressedlanding,oppositepush. Runningexpressionsalarmed, lookaheadorbrieflybackbutalwaysrightwardbody. Rows0and1: ADULT female HERB SHOPKEEPER, darkgreenkimono,beigeapron,grayheadkerchief,hairbun,smallclothbagofherbsatbelt,sandals. Row0sixordinarywalkingphases holdingherbbundle. Row1sixalarmedrunningescapephases withapronflappingandherbbundleclutched. Rows2and3: ADULT male VEGETABLE SELLER, mutedrustrobe,ochreapron,whiteheadband,darkcroppedtrousers,sandals,blackshortbeard. Row2sixwalkingphaseswithsmallwickerbasketofgreensheldclose. Row3sixalarmedrunningescapephasescarryingbasket, apronandarmsvarynaturally. No stand/table drawn in these character frames. Friendly noncombatants,6realposesineachrow, noarmor,no weapons,total24."
+    },
+    {
+      "id": "props",
+      "columns": 5,
+      "rows": 3,
+      "prompt": "Use case: stylized-concept. Production destructible scenery sprite atlas for traditional 2D Sengoku arcade beat-em-up. Hand-painted crispoutlined periodwood/clay/wicker, warmmutedearthtones matchinghistoricalJapan, side/slightthreequarterview facingright. TRUE transparentalpha, nofloor,shadow,scenery,people,text,labels,numbers,gridlines,borders. EXACTLY5columns3rows=15separateobjectsprites onwide2560x1536canvasrequested. Sameobjectscaleandanglewithin eachcolumn, fixedbottomfloorbaseline perrow, 25percent transparentpaddingaroundeachentireobject, no neighbor touching. COLUMN0 wooden roadside market STALL: plainweatheredwoodtable withsmallfadedgreenclothcanopy,noletters; COLUMN1 smalltwo-wheelwooden HANDCART withcoveredbasketcargo; COLUMN2 largebrown CLAYSTORAGEJAR withroundedbodyandsmallrim; COLUMN3 wovenwicker PRODUCEBASKET withfewcabbageleaves; COLUMN4 simpleclosed WOODENCRATE. ROW0 allfiveobjects INTACT. ROW1 samefiveobjects visiblyDAMAGED butstanding: stalllegsplinterandcanopytear, cartbrokenboard/crackedwheel, jarlargecrack, basketfrayandsplitrim, crateloosebrokenplanks. ROW2 samefiveobjects DESTROYEDsmallground-levelwreckpiles: stallcollapsedboardsandfoldedgreencloth, cartdetachedwheelandbrokenboards, jarclayshards, basketcollapsedwickerandscatteredleaves, cratebrokenplanks. Wreckfragmentsallclusteredwithinowncell, notoffscreen. Row2samephysicalscalecorrespondstoformerobject,noenlargementofdebris. No magicaleffects,nofire,noblueglow. Exactly15usableisolatedsprites."
+    },
+    {
+      "id": "boss-imagawa",
+      "faction": "imagawa",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/imagawa.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: darkblue armor and cloth, youthful male naginata warrior.\nRow1 broad waist-high naginata sweep.\nRow2 straight forward naginata thrust.\nRow3 cross-shaft parry then sharp riposte cut.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-oda",
+      "faction": "oda",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/oda.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: adult moustached man black armor with red short coat and plain rounded helmet; matchlock and sheathed katana.\nRow1 raise and shoulder matchlock, carefully aim then fire at pose4, recoil at5 and lower at6; no muzzle effects.\nRow2 draw katana and rushing diagonal cut, matchlock stowed.\nRow3 two quick alternating katana cuts with visible distinct arcs, firearm stowed.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-saito",
+      "faction": "saito",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/saito.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: stocky bearded man muted brown cloth dark armor and helmet, hooked yari spear.\nRow1 hooked spear reaches low then draws back in forceful pull.\nRow2 straight spear thrust at chest height.\nRow3 low sweeping spear arc at knees.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-miyoshi",
+      "faction": "miyoshi",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/miyoshi.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: lean adult man dark cloth light cuirass violet belt plume helmet and twin short wakizashi.\nRow1 crossed blades open into paired slashes.\nRow2 low forward lunging twin blade strike.\nRow3 crossed blade block then one blade riposte.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-azai",
+      "faction": "azai",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/azai.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: adult male dark armor gray cloth rope sash dome helmet, cruciform cross-headed spear.\nRow1 long straight cross-spear lunge.\nRow2 wide low cross-spear sweep.\nRow3 cross-head hooks then forceful backward drag.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-asakura",
+      "faction": "asakura",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/asakura.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: large older gray-haired bearded man ragged pale fur-like cloak dark armor and helmet, massive ordinary steel odachi.\nRow1 wide two-handed odachi horizontal slash.\nRow2 two-handed overhead odachi smash.\nRow3 raise sword with braced stance and slam sword down to ground, no earth FX.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-takeda",
+      "faction": "takeda",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/takeda.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: adult moustached man RED samurai armor black sleeves helmet, very long straight yari spear.\nRow1 spear tucked and powerful running lunge; full weapon inside cell.\nRow2 static long thrust with both hands.\nRow3 double jab with retract between two extensions.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-ikko",
+      "faction": "ikko",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/ikko.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: older gray-bearded monk-warrior with ragged gray robe, muted ochre vest strips dark cuirass and helmet, naginata.\nRow1 broad low naginata sweep.\nRow2 shaft butt lifted then struck down into ground, no dust effect.\nRow3 cross-shaft guard then forward countercut.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-akechi",
+      "faction": "akechi",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/akechi.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: slim adult male dark gray long robe simple black cuirass blue sash black helmet, sheathed katana and iron fan.\nRow1 iron fan catches incoming imagined attack then katana quick riposte.\nRow2 iaijutsu draw into low forward sword lunge.\nRow3 alternating sharp fan strike and katana cut.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-hashiba",
+      "faction": "hashiba",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/hashiba.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: short stocky moustached adult man ochre sleeves plain dark cuirass and black helmet, short yari and small black warfan.\nRow1 two rapid short-spear jabs with retraction between.\nRow2 deep forward short-spear thrust.\nRow3 nimble stepping lunge with short spear, fan stowed.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "boss-iga",
+      "faction": "iga",
+      "columns": 6,
+      "rows": 4,
+      "ref": "planning-site/public/art-v08/enemies/iga.png",
+      "prompt": "Use case: stylized-concept. Create a genuine 2D arcade game sprite animation atlas with TRUE TRANSPARENT ALPHA, no background or scene. Reference sheet contains five different people: use ONLY the FIFTH RIGHTMOST CHARACTER as identity/outfit/weapon reference, never the other four people. Retain that character's face, build, plain historically grounded Sengoku cloth/armor and helmet and palette exactly. Traditional detailed hand-painted 2D beat-em-up style, full body side / slight three-quarter view facing RIGHT, strong ink contour. Layout EXACTLY SIX columns by FOUR rows = 24 separately drawn chronological animation poses. No labels, text, gridlines, shadows, smoke, light streaks or decorative effects. Each invisible cell same size; each full figure and FULL weapon must fit wholly inside its OWN cell with at least20% blank transparent margin, shrink all figures equally to make long weapon fit. Never any overlap, touch, clipping, weapon point entering adjacent cell, duplicate pose or missing cell. Every chronological frame has incremental distinct arm/leg/weapon movement; body, head, armor proportions remain stable. Standing body scale equal in all24 cells; fixed soles floor within eachrow. Steel weapons ordinary gray, no glow/no blue or energy blade. Row0 SIX FRAME WALK CYCLE, alternating legs: right contact, right down, pass, left contact, left down, opposite pass. Attack rows each SIX frames: ready, windup1, windup2, impact extension, followthrough, recovery. Frames4-5 not repeats. \nIdentity: ADULT female warrior ponytail, dark plain cuirass tan ragged sleeves and trousers blue sash, rounded helmet; small dagger and short chain with iron weight, fully covered historical outfit.\nRow1 swing short weighted chain in overhead loop then cast RIGHT with clear entire chain inside cell; keep chain short enough to fit cell and connected to casting hand.\nRow2 low forward dagger dash while chain gathered in other hand.\nRow3 alternating dagger slash and compact weighted-chain sweep.\nExactly24 complete separated poses, nothing else. Never draw the other4 people. Preserve reference identity; no extra luxury armor."
+    },
+    {
+      "id": "nobunaga-special",
+      "ref": "game/assets/v07/nobunaga/special.png",
+      "prompt": "Edit this EXACT 4column x3row 12pose Nobunaga special animation atlas. Preserve ALL12 existing fullbody poses, placement, scale, costume and weapon geometry precisely. Remove EVERY glowing blue / purple blade edge, all orange sparks, all halos and background. Repaint katana as plain dark STEEL GRAY blade with modest non-emissive metallic highlight, black ink outline, no white glowing halo. No glow, flames, sparks, beam, lightsaber or VFX at all. True transparent alpha background around each character. Preserve adult male black ponytail moustache red armor and cloak. Natural hand-painted traditional2D arcade art. One complete figure percell no changes tolayout. Keep clothes/head/feet positions and original transparent edges; no flat opaque rectangle."
+    },
+    {
+      "id": "oichi-special",
+      "ref": "game/assets/v06/oichi/special.png",
+      "prompt": "Edit this EXACT 4column x3row 12pose Oichi special archery animation atlas. Preserve ALL12 existing fullbody poses, placement, scale, costume, bow and handgeometry precisely. Remove EVERY neon cyan / blue / yellow magic arrow, starburst, circle, energy ring, glow, halo and background. Keep the ordinary reddish wooden yumi bow, naturalstring and small plain steel-tipped wooden arrow whereheld. At released poses there is NO magic projectile painted and NO starburst atbowhand. True transparent alpha around eachfigure. No light effects, no glow, no smoke, no background. Preserve adultwoman white topred skirtfullopaque shorts, blackbracers, whitesocks redsandals andlongblackhairscarlet ribbon. Keep ALL12 figures no blank cells; originalposefeetpositions unchanged."
+    },
+    {
+      "id": "faction-imagawa-troops-a",
+      "faction": "imagawa",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/imagawa.png",
+      "groups": {
+        "soldier-imagawa": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-imagawa": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-imagawa-troops-b",
+      "faction": "imagawa",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/imagawa.png",
+      "groups": {
+        "commander-imagawa": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-imagawa": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-imagawa": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-oda-troops-a",
+      "faction": "oda",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/oda.png",
+      "groups": {
+        "soldier-oda": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-oda": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-oda-troops-b",
+      "faction": "oda",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/oda.png",
+      "groups": {
+        "commander-oda": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-oda": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-oda": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-saito-troops-a",
+      "faction": "saito",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/saito.png",
+      "groups": {
+        "soldier-saito": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-saito": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-saito-troops-b",
+      "faction": "saito",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/saito.png",
+      "groups": {
+        "commander-saito": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-saito": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-saito": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-miyoshi-troops-a",
+      "faction": "miyoshi",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/miyoshi.png",
+      "groups": {
+        "soldier-miyoshi": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-miyoshi": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-miyoshi-troops-b",
+      "faction": "miyoshi",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/miyoshi.png",
+      "groups": {
+        "commander-miyoshi": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-miyoshi": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-miyoshi": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-azai-troops-a",
+      "faction": "azai",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/azai.png",
+      "groups": {
+        "soldier-azai": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-azai": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-azai-troops-b",
+      "faction": "azai",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/azai.png",
+      "groups": {
+        "commander-azai": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-azai": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-azai": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-asakura-troops-a",
+      "faction": "asakura",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/asakura.png",
+      "groups": {
+        "soldier-asakura": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-asakura": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-asakura-troops-b",
+      "faction": "asakura",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/asakura.png",
+      "groups": {
+        "commander-asakura": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-asakura": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-asakura": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-takeda-troops-a",
+      "faction": "takeda",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/takeda.png",
+      "groups": {
+        "soldier-takeda": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-takeda": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-takeda-troops-b",
+      "faction": "takeda",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/takeda.png",
+      "groups": {
+        "commander-takeda": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-takeda": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-takeda": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-ikko-troops-a",
+      "faction": "ikko",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/ikko.png",
+      "groups": {
+        "soldier-ikko": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-ikko": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-ikko-troops-b",
+      "faction": "ikko",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/ikko.png",
+      "groups": {
+        "commander-ikko": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-ikko": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-ikko": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-akechi-troops-a",
+      "faction": "akechi",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/akechi.png",
+      "groups": {
+        "soldier-akechi": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-akechi": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-akechi-troops-b",
+      "faction": "akechi",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/akechi.png",
+      "groups": {
+        "commander-akechi": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-akechi": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-akechi": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-hashiba-troops-a",
+      "faction": "hashiba",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/hashiba.png",
+      "groups": {
+        "soldier-hashiba": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-hashiba": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-hashiba-troops-b",
+      "faction": "hashiba",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/hashiba.png",
+      "groups": {
+        "commander-hashiba": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-hashiba": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-hashiba": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "faction-iga-troops-a",
+      "faction": "iga",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/iga.png",
+      "groups": {
+        "soldier-iga": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "flag-iga": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FIRST LEFTMOST ordinary spear footsoldier. rows4-7 use THIRD flagbearer. Preserve their OWN simple cuirass/cloths/helmet/sash fromreference. Onlythese TWO characters, ignoreother3referencepeople. Row0 footsoldier WALK4poses. Row1 spear straight THRUST4poses: ready diagonal, pullback, extendstraightRIGHT, withdraw. Row2 spear LOW SWEEP4poses: lowerstance, coil, lowwidehorizontalright sweep, recover. Row3 SPEAR BUTT STRIKE4poses: reversegripwindup, butt lifts, bluntwoodenENDstrikesright, recover; NOT sword. Row4 flagbearer WALK4poses holding large clothstandardpole with originalapproved flagdesign. Row5 flagpole forward POKE4poses. Row6 low sweeping flagpole4poses. Row7 raise standard high then downward POLE SLAM4poses. Flagcloth follows pole and remains fullyvisible with clear space. Exactly32fullbody separateframes and correct character switch afterfirst16."
+    },
+    {
+      "id": "faction-iga-troops-b",
+      "faction": "iga",
+      "columns": 4,
+      "rows": 8,
+      "ref": "planning-site/public/art-v08/enemies/iga.png",
+      "groups": {
+        "commander-iga": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "archer-iga": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "gunner-iga": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      "prompt": "Create a finished hand-painted traditional2D Sengoku beat-em-up sprite animation atlas with TRUE transparent alpha. Use supplied approved faction reference ONLY for character identities, simple historical armor, cloth, helmets, sash colors and flag. Do not turn ordinary footsoldiers into luxurious ornate generals. Sharp ink outline and readable anatomy, natural gray steel no glow. EXACTLY4COLUMNS x8ROWS=32 separately drawn fullbody chronological poses. PORTRAIT canvas1024x2048 requested; evenly spaced invisible cells. Everycomplete figure AND weapon/flag fit within its own cell at consistent percharacterbody scale; leave25px fully transparent gap to ALL neighbors. Longspears may be drawn diagonally or foreshortened carefully but never crop or touch neighboringcell. No background, floor, shadows, VFX, lightingglow, grid, labels, text. Characters faceRIGHT, side/slightthreequarter arcade view. Eachrow4genuine sequential poses: ready, windup, strike/release, recover. WALK rows4different legcycle poses. Preserve fullweapon andbody; no duplicates, blankcells or overlappingfigures. Fixedsolesbaseline eachrow. NO added coatsofarmor, modernweapons or inventedcrest. \nREFERENCE SUBJECTS: rows0-3 use FOURTH squad commander, plain armorwithcoatandwarfan/sheath. rows4-5 archer and rows6-7 gunner use SECOND rangedtrooper face/helmet/cloth/armorfromreference; ifreferencehasoneweapon only, retain sameuniform andequip historicallyshaped yumi bow or matchlock forother role. Never turnrangedtrooperintoboss. Row0 commanderWALK4. Row1 commander downward KATANA CUT4 (fan stowed): ready, lift, downcut, recover. Row2 commander upward sword RISING CUT4: blade low, twist, upwardright cut, recover. Row3 commander DASHING LUNGE4: lean, loadrearleg, lungingswordcut, recover. Row4 ARCHER WALK4holding yumi andquiver. Row5 BOW SHOT4: nockarrow, drawbow, RELEASEtowardRIGHT, lowerbow; plain woodarrow andstring noFX. Row6 GUNNER WALK4holding matchlock. Row7 MATCHLOCK SHOT4: raiserifle, shoulderaim, firebodyrecoil, lowerrifle; noflashsmokeVFX. Correct32fullbodyframes:16commander+8archer+8gunner. Allbows/rifles/swordsfullyvisible andno cellcontact."
+    },
+    {
+      "id": "nobunaga-motion",
+      "ref": "game/assets/v07/nobunaga/motion.png",
+      "prompt": "Minimal material correction to this EXACT4columns x3rows 12pose Nobunaga sprite atlas. Preserve ALL12fullbodyposes and their precise positions, body proportions, redarmor/cloak, ponytail, face, feet, chronologicalmotion. Change ONLY ALL swordblades from glowingblue/purple/white edges to ordinary dark STEELGRAY with subtle nonemissive gray metallic highlight andblackoutline. Remove EVERY halo, glow and background. Do NOTchange anyweaponlength/angle or crop/resize/repose afigure. All12 poses maintained onSAMEcanvas andsamegrid. True transparentalpha background, noflatrectangle. No VFX, sparks, text/grid.",
+      "columns": 4,
+      "rows": 3
+    },
+    {
+      "id": "faction-ikko-commander",
+      "ref": "game/assets/v10/faction-ikko-troops-b.png",
+      "columns": 4,
+      "rows": 4,
+      "prompt": "Create a transparent traditional2D sprite atlas of ONLY the commander from TOP FOUR ROWS of supplied reference. Same simple black cuirass, offwhite loose sleeves, ragged ocher-gold cloth belt, plain black helmet and katana. Not archer, not gunner. Exactly4columns x4rows=16 fullbody distinct animation drawings; nootherpeople. Row0fourwalkingposes. Row1fourdownwardkatana cuttingframes: ready, lift, downcutright, recover. Row2fourrisingcuts: lowblade, windup, upwardcutright, recover. Row3fourdashslash: lean, loadrearleg, lungingforwardcut withsword diagonalUPRIGHT, recover. Entire figure and katana within eachcell, huge25percentemptygap aroundeachsprite. Sword must NOTextendhorizontally intonextfigure; slightlyforeshortened diagonalsteelswordproperlygripped. White/gray ordinaryblade, noVFX. Keep consistentstandingbodyscaleandfeetbaselineperrow. No labels, grid, scenery, shadows. TRUEtransparentalpha. Onlysixteencompletefigures, fourrows offour."
+    },
+    {
+      "id": "faction-akechi-gunner",
+      "ref": "game/assets/v10/faction-akechi-troops-b.png",
+      "columns": 4,
+      "rows": 2,
+      "prompt": "Create a transparent traditional2D sprite atlas of ONLY the matchlock gunner from BOTTOM ROW of supplied reference. Same plain black chest cuirass, lighttan rolledsleevesandpants, bluebeltsash, whiteheadband, darkponytail; exactclothandfaceidentity. Fullwoodmatchlockgunwithhistoricalsteelbarrel. Exactly4columns x2rows=8 completefullbodydifferentdrawings. Toprow FOUR chronologicalwalkingloopposes holdingriflesafelydiagonal: rightfootcontact,passing,oppositefootcontact,passing. Bottomrow FOURmatchlockshotframes: shoulderlift, aimright, gunrecoilreleaseRIGHT, lowerrecovery. No arrows, no bow. Fullrifleinsideeachcell, shortforeshorteningifnecessary, at least25percentemptytransparentgutter. Bodiesandweaponsmustnotintersectneighbors. Fixedsamebodyproportionsandperrowgroundbaseline. Nobackground,text,grid,shadow,flash,smoke,neon. TRUEtransparentalpha,8isolatedfigures."
+    },
+    {
+      "id": "faction-azai-commander",
+      "columns": 4,
+      "rows": 4,
+      "ref": "game/assets/v10/faction-azai-troops-b.png",
+      "prompt": "Create a NEW smaller sprite sheet derived from only the helmeted Azai COMMANDER at the top of the reference. Exactly FOUR ROWS by FOUR COLUMNS = SIXTEEN drawings of ONLY this commander. Keep his approved helmet, dark navy partial armor, beige sleeves/trousers, blue sash, war fan and steel sword. Do not include archers or gunners. Row1 WALK four grounded footsteps. Row2 overhead sword CUT: prepare, sword overhead, downward contact, recover. Row3 upward sword RISE: low ready, windup below waist, sword cutting upward, recover. Row4 forward DASH THRUST: crouch, low forward dash, sword thrust fully extended, recover. Four distinct drawing stages per row. Square sprite atlas with generous transparent gutters of 30 pixels between whole figures INCLUDING sword tips. Entire character and weapon contained within own cell. Fully transparent alpha background, no floor, no shadows, no outlines around cells, no text. Original painted 2D Sengoku arcade character style.",
+      "generated_file": "exec-e79bd25e-ee5c-4f12-b0e4-670a998ec571.png"
+    },
+    {
+      "id": "faction-azai-ranged",
+      "columns": 4,
+      "rows": 4,
+      "ref": "game/assets/v10/faction-azai-troops-b.png",
+      "prompt": "Create a NEW, small, square transparent sprite atlas derived from just the ARCHER and GUNNER of this approved Azai faction reference. EXACTLY FOUR ROWS and FOUR COLUMNS = SIXTEEN drawings, no commander. Preserve dark navy cuirass, beige loose clothing, blue sash, historical black hair with white headband on archer and jingasa on gunner, straw sandals. Row1 archer WALK, four distinct grounded steps with long Japanese bow held upward. Row2 archer SHOT, four phases: nock arrow, draw holding bow aimed upward, release with empty bowstring and right hand behind cheek, recover. Row3 gunner WALK, four distinct steps carrying wooden matchlock. Row4 gunner SHOT: shoulder/aim, ready/hold, discharge/recoil, lower to reload. ONLY16figures. Wide clear alpha gaps between whole figures and all bow/sword/gun tips, at least30pixels. Draw the characters smaller so the bow top DOES NOT touch the feet of anybody in the row above. No touching any other character or canvas border. True transparent alpha background; no ground/shadows/grid/text. Painted2D Sengoku arcade sprite art matching reference.",
+      "generated_file": "exec-2ce9043e-c4c5-485c-9a8a-40b6c3ba38b2.png"
+    },
+    {
+      "id": "faction-ikko-soldier",
+      "columns": 4,
+      "rows": 4,
+      "ref": "game/assets/v10/faction-ikko-troops-a.png",
+      "prompt": "Create a NEW smaller sprite sheet derived from only the hat-wearing IKKO ASHIGARU SOLDIER in the first row of this reference. Exactly FOUR ROWS by FOUR COLUMNS = SIXTEEN drawings of ONLY the soldier with long polearm. Keep approved conical metal jingasa, simple frayed off-white sleeves and loose trousers, ochre sash and cloth strips, limited dark cuirass, straw sandals. No flag bearers. Row1 WALK four grounded footsteps. Row2 long spear THRUST: ready, pull shaft back, point straight forward fully extended, recover. Row3 LOW SWEEP: lower blade, windup across rear hip, sweep broad low arc at knees, recover. Row4 reversed SPEAR BUTT STRIKE: start ready, rotate shaft to point WOODEN REAR BUTT forward, strong forward butt strike, restore grip. Four distinct stages in each row. All16 same man. Square sprite atlas with generous transparent gutters of30 pixels including entire weapons, no touching neighboring frames. Transparent alpha background, no floor, shadows or cell labels. Original painted2D arcade style.",
+      "generated_file": "exec-079ca96f-9458-478e-be19-18c8a9b249af.png"
+    },
+    {
+      "id": "faction-ikko-flag",
+      "columns": 4,
+      "rows": 4,
+      "ref": "game/assets/v10/faction-ikko-troops-a.png",
+      "prompt": "Create a NEW smaller sprite sheet derived from only the IKKO FLAG BEARER in the last rows of this reference. Exactly FOUR ROWS by FOUR COLUMNS = SIXTEEN drawings of ONLY this flag bearer. Keep white hachimaki, rough off-white tunic, gray trousers, ochre waist cloth, sandals and large weathered ochre cloth on wood flagpole. No helmets or spear soldiers. Row1 WALK four alternating grounded steps carrying flag upright. Row2 forward FLAGPOLE POKE: lower pole, pull pole back, thrust pole forward horizontally, recover upright. Row3 distinct broad LOW FLAGPOLE SWEEP: begin flag low beside hip, turn body winding back, sweep flag across knee-height from rear to front, recover. Row4 overhead FLAG SLAM: upright, raise entire pole overhead, slam down toward ground in front, recover. Four distinct full-body sequential poses in each row. Square sprite atlas with generous transparent gutters30pixels between every whole character INCLUDING flags/poles. True transparent alpha background, no floor, shadows or drawn grid. Original painted2D Sengoku arcade art style.",
+      "generated_file": "exec-e5622951-a6b8-4d4f-883e-7fffa1e2648c.png"
+    }
+  ],
+  "edits": [
+    {
+      "id": "oichi-combat",
+      "prompt": "Use case: precise-object-edit. Complete this Oichi animation sprite atlas. It MUST have exactly 6 columns and FIVE rows (30 full sprites). The FOURTH ROW FROM TOP is currently blank: fill that blank row with SIX chronological low-lunging right-hand throwing needle attack poses, at the same scale as otherrows: 1lowkneebendhandgatheringneedlesatbeltright,2pullrightarmbacktotorsobehind,3stepforwardandbeginextendforearm,4deepforwardlungewithrightarmstraightfullyextendedRIGHTwristflick,5staylowopenhandfollowthrough,6recoverguard. Tiny steel needles, no fatdaggers, no bow held. Keep all other24figures exactly unchanged in position, identity, costume, scale and poses. Preserve adult Oichi full coverage including opaqueundershorts. Transparentbackground, no scenery labels gridlines shadows. Make all new sixsprites complete and clearly separated from otherrows and adjacentcells by large transparent gutters. No cell may beempty."
+    },
+    {
+      "id": "oichi-reactions",
+      "prompt": "Use case: precise-object-edit. SPACING CORRECTION ONLY for this36frame Oichi reaction atlas. Preserve all THIRTY SIX exact poses and frame order in EXACTLY6columns6rows. Do not omit any pose or change outfit or anatomy. Reduce everycompletefigure to80percent current size within itscell. Use an evenlyspaced6by6invisiblegrid withatleast35pixels of transparent emptycorridors separating everypair of neighboring figures, horizontally and vertically, especially prone lying figures in row4 that must not touch adjacenthair or feet. No silhouettes may touch, overlap or crosscellboundaries. Same adultOichi identity, full clothing coverage, no newexposure,noextraeffects. True transparentalpha background no gridlines no text no shadows. Exactly36 isolatedfullbodyfigures."
+    },
+    {
+      "id": "oichi-combat",
+      "prompt": "Edit this existing transparent sprite atlas. Preserve EXACT canvas, all 30 poses, 6 columns x 5 rows, all character proportions/outfit colors and true transparent alpha. Change ONLY the THIRD ROW from the top (cells12-17). That row wrongly duplicates the crouched low lunge in fourth row. Replace third row with SIX chronological, distinct STANDING sidearm needle fan poses, fully upright or slightly leaning, knees never kneeling: pose1 hands at waist windup; pose2 upper torso twists left and throwing hand behind hip; pose3 torso rotates right and elbow arcs outward; pose4 right arm extends HORIZONTALLY across chest height toward RIGHT in broad sidearm fling; pose5 arm sweeps past right shoulder, weight shifts front foot; pose6 recovers standing. Tiny steel throwing needles in right hand only, bow stowed. No glow, no trails. Other rows (walk, first combo, low lunge, sprint) unchanged. Every full body independent with transparent gutters, weapons never overlap another figure. Outfit adult Oichi white top, red pleated skirt with opaque shorts, bracers, white socks, red-white sandals. Keep all clothing fully opaque and covered. No text, grid, shadows, background, duplicate row."
+    },
+    {
+      "id": "nobunaga-combat",
+      "ref": "game/assets/v10/nobunaga-combat.png",
+      "prompt": "Edit ONLY attack poses in this transparent 6columns x5rows /30pose arcade sprite atlas. Preserve walk row0, rising attack row2, sprint row4, Nobunaga identity black ponytail, moustache red armor and cloak. Ordinary steelgray katana, no emissive edge or VFX. Correct SECOND ROW (row1) to six chronological DOWNWARD CUT poses: low ready, lift to shoulder, blade high diagonal windup, small downward cut, low followthrough, guard recovery. Correct FOURTH ROW (row3) to six chronological BROAD HORIZONTAL SWEEP finisher poses: blade held back left waist; deeply rotate shoulders away; hips start forward rotation; wide two-handed horizontal blade sweep toward RIGHT at waist height; weight follows broad sweep with blade fully extended; recover. Sweep must look WIDE not another overhead chop. Every frame separately drawn, stable proportions, clean anatomy and natural progressive movement. ALL30 figures and weapons wholly contained in separate cells, minimum25px clear transparent gutters, no touching even weapon/cape. Exact30 cells no blanks. Preserve TRUE alpha transparency."
+    },
+    {
+      "id": "oichi-combat",
+      "ref": "oichi-combat intermediate standing-sidearm correction",
+      "prompt": "Edit ONLY FOURTH ROW (row3 cells18-23) in this transparent6columns x5rows sprite atlas. Preserve other24 poses exactly including thirdrow STANDING sidearm fan. Replace crouching duplicate fourthrow with six sequential FULL ROTATIONAL SPIN needle volley poses: 1 upright low ready;2 shoulders rotate away and back of torso becomes visible;3 full back-three-quarter view with arms winding and skirt/hair following spin;4 unwind sharply toward RIGHT, forward hand releases thin needles at chestheight;5 frontthreequarter side followthrough arms wide;6 settle facingRIGHT guard. This is distinct from firstrow singlehand throw and thirdrow sidearmfan. Anatomically correct clearly ADULT Oichi, original white top red pleatedskirt with FULLY OPAQUE coverage shorts underneath, blackbracers whitesocks sandals. NO exposure through clothes or upskirt. Do not duplicate rows. Everyfigure same scale fully inside its own cell with at least25px transparent gutters includinglonghair andneedles. No glow/VFX/background/grid/text. Keep EXACT30figures and true alpha."
+    },
+    {
+      "id": "nobunaga-combat",
+      "ref": "game/assets/v10/nobunaga-combat.png",
+      "prompt": "SPACING REPAIR ONLY. Preserve every existing pose and chronological order, character identity, outfit, weapon, anatomy, drawing style and TRUE alpha in this sprite animation atlas. There are SIX columns x FIVE rows =30 full-body figures. The error is long weapons from neighboring figures TOUCH. Re-layout EVERY figure with exactly65% of its current printed scale, uniformly for ALL figures and weapons. Recenter each smaller full figure and entire weapon inside its original invisible cell. No crop; redraw any contact areas so each person and weapon is ONE separate intact silhouette with at least25px of completely transparent gap to ALL other figures. Keep SAME canvas dimensions and grid count. Each weapon's FULL blade/shaft/chain must be visible, correct and attached to its own hand, never attached to another person. Only change scale and cellspacing, NOT poses or chronological motion. Do NOT duplicate or omit any figure or row. Fixed floor baseline for every cell in eachrow. Steel gray no glow, no effects, no shadows, no grid/text or background. All poses retain clean full bodies and costumes, no enlarged individual cells."
+    },
+    {
+      "id": "oichi-combat",
+      "ref": "game/assets/v10/oichi-combat.png",
+      "prompt": "SPACING REPAIR ONLY. Preserve every existing pose and chronological order, character identity, outfit, weapon, anatomy, drawing style and TRUE alpha in this sprite animation atlas. There are SIX columns x FIVE rows =30 full-body figures. The error is long weapons from neighboring figures TOUCH. Re-layout EVERY figure with exactly65% of its current printed scale, uniformly for ALL figures and weapons. Recenter each smaller full figure and entire weapon inside its original invisible cell. No crop; redraw any contact areas so each person and weapon is ONE separate intact silhouette with at least25px of completely transparent gap to ALL other figures. Keep SAME canvas dimensions and grid count. Each weapon's FULL blade/shaft/chain must be visible, correct and attached to its own hand, never attached to another person. Only change scale and cellspacing, NOT poses or chronological motion. Do NOT duplicate or omit any figure or row. Fixed floor baseline for every cell in eachrow. Steel gray no glow, no effects, no shadows, no grid/text or background. All poses retain clean full bodies and costumes, no enlarged individual cells."
+    },
+    {
+      "id": "boss-akechi",
+      "ref": "game/assets/v10/boss-akechi.png",
+      "prompt": "SPACING REPAIR ONLY. Preserve every existing pose and chronological order, character identity, outfit, weapon, anatomy, drawing style and TRUE alpha in this sprite animation atlas. There are SIX columns x FOUR rows =24 full-body figures. The error is long weapons from neighboring figures TOUCH. Re-layout EVERY figure with exactly65% of its current printed scale, uniformly for ALL figures and weapons. Recenter each smaller full figure and entire weapon inside its original invisible cell. No crop; redraw any contact areas so each person and weapon is ONE separate intact silhouette with at least25px of completely transparent gap to ALL other figures. Keep SAME canvas dimensions and grid count. Each weapon's FULL blade/shaft/chain must be visible, correct and attached to its own hand, never attached to another person. Only change scale and cellspacing, NOT poses or chronological motion. Do NOT duplicate or omit any figure or row. Fixed floor baseline for every cell in eachrow. Steel gray no glow, no effects, no shadows, no grid/text or background. All poses retain clean full bodies and costumes, no enlarged individual cells."
+    },
+    {
+      "id": "boss-azai",
+      "ref": "game/assets/v10/boss-azai.png",
+      "prompt": "SPACING REPAIR ONLY. Preserve every existing pose and chronological order, character identity, outfit, weapon, anatomy, drawing style and TRUE alpha in this sprite animation atlas. There are SIX columns x FOUR rows =24 full-body figures. The error is long weapons from neighboring figures TOUCH. Re-layout EVERY figure with exactly65% of its current printed scale, uniformly for ALL figures and weapons. Recenter each smaller full figure and entire weapon inside its original invisible cell. No crop; redraw any contact areas so each person and weapon is ONE separate intact silhouette with at least25px of completely transparent gap to ALL other figures. Keep SAME canvas dimensions and grid count. Each weapon's FULL blade/shaft/chain must be visible, correct and attached to its own hand, never attached to another person. Only change scale and cellspacing, NOT poses or chronological motion. Do NOT duplicate or omit any figure or row. Fixed floor baseline for every cell in eachrow. Steel gray no glow, no effects, no shadows, no grid/text or background. All poses retain clean full bodies and costumes, no enlarged individual cells."
+    },
+    {
+      "id": "boss-ikko",
+      "ref": "game/assets/v10/boss-ikko.png",
+      "prompt": "SPACING REPAIR ONLY. Preserve every existing pose and chronological order, character identity, outfit, weapon, anatomy, drawing style and TRUE alpha in this sprite animation atlas. There are SIX columns x FOUR rows =24 full-body figures. The error is long weapons from neighboring figures TOUCH. Re-layout EVERY figure with exactly65% of its current printed scale, uniformly for ALL figures and weapons. Recenter each smaller full figure and entire weapon inside its original invisible cell. No crop; redraw any contact areas so each person and weapon is ONE separate intact silhouette with at least25px of completely transparent gap to ALL other figures. Keep SAME canvas dimensions and grid count. Each weapon's FULL blade/shaft/chain must be visible, correct and attached to its own hand, never attached to another person. Only change scale and cellspacing, NOT poses or chronological motion. Do NOT duplicate or omit any figure or row. Fixed floor baseline for every cell in eachrow. Steel gray no glow, no effects, no shadows, no grid/text or background. All poses retain clean full bodies and costumes, no enlarged individual cells."
+    },
+    {
+      "id": "boss-miyoshi",
+      "ref": "game/assets/v10/boss-miyoshi.png",
+      "prompt": "SPACING REPAIR ONLY. Preserve every existing pose and chronological order, character identity, outfit, weapon, anatomy, drawing style and TRUE alpha in this sprite animation atlas. There are SIX columns x FOUR rows =24 full-body figures. The error is long weapons from neighboring figures TOUCH. Re-layout EVERY figure with exactly65% of its current printed scale, uniformly for ALL figures and weapons. Recenter each smaller full figure and entire weapon inside its original invisible cell. No crop; redraw any contact areas so each person and weapon is ONE separate intact silhouette with at least25px of completely transparent gap to ALL other figures. Keep SAME canvas dimensions and grid count. Each weapon's FULL blade/shaft/chain must be visible, correct and attached to its own hand, never attached to another person. Only change scale and cellspacing, NOT poses or chronological motion. Do NOT duplicate or omit any figure or row. Fixed floor baseline for every cell in eachrow. Steel gray no glow, no effects, no shadows, no grid/text or background. All poses retain clean full bodies and costumes, no enlarged individual cells."
+    },
+    {
+      "id": "boss-saito",
+      "ref": "game/assets/v10/boss-saito.png",
+      "prompt": "SPACING REPAIR ONLY. Preserve every existing pose and chronological order, character identity, outfit, weapon, anatomy, drawing style and TRUE alpha in this sprite animation atlas. There are SIX columns x FOUR rows =24 full-body figures. The error is long weapons from neighboring figures TOUCH. Re-layout EVERY figure with exactly65% of its current printed scale, uniformly for ALL figures and weapons. Recenter each smaller full figure and entire weapon inside its original invisible cell. No crop; redraw any contact areas so each person and weapon is ONE separate intact silhouette with at least25px of completely transparent gap to ALL other figures. Keep SAME canvas dimensions and grid count. Each weapon's FULL blade/shaft/chain must be visible, correct and attached to its own hand, never attached to another person. Only change scale and cellspacing, NOT poses or chronological motion. Do NOT duplicate or omit any figure or row. Fixed floor baseline for every cell in eachrow. Steel gray no glow, no effects, no shadows, no grid/text or background. All poses retain clean full bodies and costumes, no enlarged individual cells."
+    },
+    {
+      "id": "boss-takeda",
+      "ref": "game/assets/v10/boss-takeda.png",
+      "prompt": "SPACING REPAIR ONLY. Preserve every existing pose and chronological order, character identity, outfit, weapon, anatomy, drawing style and TRUE alpha in this sprite animation atlas. There are SIX columns x FOUR rows =24 full-body figures. The error is long weapons from neighboring figures TOUCH. Re-layout EVERY figure with exactly65% of its current printed scale, uniformly for ALL figures and weapons. Recenter each smaller full figure and entire weapon inside its original invisible cell. No crop; redraw any contact areas so each person and weapon is ONE separate intact silhouette with at least25px of completely transparent gap to ALL other figures. Keep SAME canvas dimensions and grid count. Each weapon's FULL blade/shaft/chain must be visible, correct and attached to its own hand, never attached to another person. Only change scale and cellspacing, NOT poses or chronological motion. Do NOT duplicate or omit any figure or row. Fixed floor baseline for every cell in eachrow. Steel gray no glow, no effects, no shadows, no grid/text or background. All poses retain clean full bodies and costumes, no enlarged individual cells."
+    },
+    {
+      "id": "boss-saito",
+      "prompt": "Edit ONLY BOTTOM FOURTH ROW of this 6columns x4rows/24pose transparent sprite atlas. Keep everycharacter, sameuniform, face andbody size. Bottomrow currently neighboring hooked spears touch. Redraw SIX bottomrow low sweep poses with each spear held diagonally DOWN-RIGHT at 35degrees and foreshortened enough that TOTAL silhouette width is under210pixels per256px cell. Sixchronological phases: ready diagonal, coil behindhip, swing starts downward, lowdownsweep impact, followthrough, recovery. Make full spear andhookedtip inside EACHcell with35px emptygap. Recenter these sixwhole figures and weapons only. No truncating tips, no contactwithneighbor. Other18poses unchanged. Truealpha noBG noVFX. Exactly24separatefullbodyfigures."
+    },
+    {
+      "id": "boss-takeda",
+      "prompt": "Minimal exact edit to this6x4 transparent atlas: in SECOND ROW FOURTH COLUMN (cell9), spear thrust has a bare wooden flat tip on farRIGHT. Add the missing pointed silver-steel spearhead at shaft farRIGHT end, connected naturally, ordinary small yari blade12-20px long. Preserve ALL24 fullbodyposes, placement, scale, gaps, allotherpixels and truealpha; no glow/nootherchanges."
+    },
+    {
+      "id": "faction-imagawa-troops-b",
+      "prompt": "Repair wrong rowcount/mixedcharacters in this transparent sprite atlas. The required final layout is EXACTLY4columns x8rows=32completefigures; current version has7rows and a corrupt mixed fourthrow. Re-layout whole sheet to8 EVEN horizontal rows with30px emptygaps. Preserve existingbluecoatCOMMANDER identity andapprovedsimplearmor. TOP FOUR ROWS are ONLY that commander16poses: row0walk4; row1downwardkatana cut4; row2risingkatana cut4; row3DASHINGkatana lunge4 (all4commander, noarchers). FIFTHrow is ONLY headbandARCHER walking4poses (nocknoarrow); SIXTHrow SAMEarcher nock/draw/release/lower4poses. SEVENTHrow plaininfantryMATCHLOCKGUNNER walk4, EIGHTHrowgunner raise/aim/recoil/lower4. TinyplainsteelnoVFX. 16commander+8archer+8gunner exactly. Use samecanvasportrait, uniformly scalecharacters enough tofit8rows. Eachfullybody/fullweaponindependent andtransparentmargin; no neighboringcontact. Do notomitdashrow ormixroles. Truealpha noBG."
+    },
+    {
+      "id": "faction-saito-troops-b",
+      "prompt": "Repair missing row in this transparent sprite atlas. Final required EXACT4columns x8rows=32completefigures. Current sheet has ONLY7rows because COMMANDER DASH ROW missing. Insert that missing chronological4pose row immediatelyAFTER existing thirdrow ofrisingcuts. All firstFOURrows mustbe SAME brown-coated armored COMMANDER=16poses: walk4,downcut4,risingcut4,DASHINGLUNGE4. Following FOUR rows existingarcherwalk4,archershot4,gunnerwalk4,gunnershot4. Respaceall32figuresuniformly into8rows and4columnswith25px transparentgutters. Preserveindividualidentities,plainarmors,weaponandchronology; minimumfullbodyanatomy andfullweaponnooverlap. Graysteelnoeffects. Truealpha noBG/grid/text."
+    },
+    {
+      "id": "faction-miyoshi-troops-a",
+      "prompt": "Repair missing FLAG SWEEP row in this transparent animation atlas. Final EXACT4columns x8rows=32fullbodyfigures. Current7rows lacksone flag attack. Preserve first16spearmanfigures (top4rows walk/thrust/lowsweep/buttstrike). BOTTOM FOURROWS are SAMEpurpleflagbearer andpurplestandard: row4walk4, row5polepoke4, INSERTrow6lowPOLESWEEP4, row7raiseanddownPOLESLAM4. For inserted6thzeroindexrow drawreadycoil,windup,lowwide sweep, recoverfourchronologicalposes, fullflagcloth. Re-layoutall32figures into8evenrows4colswithatleast25px transparentgap andFULLweaponandflaginsidecell; allscaleduniformly ifneeded. Preserveallidentitiesandcostume. Truealpha noBG/VFX/grid/text."
+    },
+    {
+      "id": "faction-saito-troops-a",
+      "prompt": "SPACING REPAIR ONLY: keep all32existingposes, same4columns x8rows, samecharacters,outfitsweaponsandchronologicalorder. Uniformly scaleALL32fullfigures includingtheirweaponsandflag to70% currentprintedsize,recenterintheirowncells, ensure30pxfullytransparentgutter inbothdirections. In particular last2rows flagcloth/weapon mustnot touch neighboringfigures above orside. PreserveFULLflagsandspear tips insideeachcell,nocropping,noblanks orduplicatedposes. Fixedfloor baselineperrow. Truealpha noBG/effects/grid/text."
+    },
+    {
+      "id": "faction-azai-troops-b",
+      "prompt": "Repair missing COMMANDER DASH ROW. This transparent atlas currently only7rows/28figures. Required exact4columns x8rows/32figures. Preserve first3commanderrows (walk,downcut,risingcut). INSERT fourthrow of SAME COMMANDER fourchronological DASHING KATANA LUNGE poses: forwardleanwindup, rearlegpushwithkatana, deepforwardlungecutRIGHT, recovertoguard. Commander remainshisoriginalhelmet/cuirass/coat andNO bow. Thereafter keep archerwalk4,archershot4,gunnerwalk4,gunnershot4 asrows4,5,6,7. Re-layout all32fullbodyfigures uniformly into8evenrowswithlarge25px transparentgutters. Fullweaponsindependent no touching. Do notomitanyexistingrow, duplicatepose, ormixroles. Truealpha noBG/VFX/text/grid."
+    },
+    {
+      "id": "faction-akechi-troops-b",
+      "prompt": "Repair missing COMMANDER DASH ROW. This transparent atlas currently only7rows/28figures. Required exact4columns x8rows/32figures. Preserve first3commanderrows (walk,downcut,risingcut). INSERT fourthrow of SAME COMMANDER fourchronological DASHING KATANA LUNGE poses: forwardleanwindup, rearlegpushwithkatana, deepforwardlungecutRIGHT, recovertoguard. Commander remainshisoriginalhelmet/cuirass/coat andNO bow. Thereafter keep archerwalk4,archershot4,gunnerwalk4,gunnershot4 asrows4,5,6,7. Re-layout all32fullbodyfigures uniformly into8evenrowswithlarge25px transparentgutters. Fullweaponsindependent no touching. Do notomitanyexistingrow, duplicatepose, ormixroles. Truealpha noBG/VFX/text/grid."
+    },
+    {
+      "id": "faction-iga-troops-b",
+      "prompt": "Repair missing COMMANDER DASH ROW. This transparent atlas currently only7rows/28figures. Required exact4columns x8rows/32figures. Preserve first3commanderrows (walk,downcut,risingcut). INSERT fourthrow of SAME COMMANDER fourchronological DASHING KATANA LUNGE poses: forwardleanwindup, rearlegpushwithkatana, deepforwardlungecutRIGHT, recovertoguard. Commander remainshisoriginalhelmet/cuirass/coat andNO bow. Thereafter keep archerwalk4,archershot4,gunnerwalk4,gunnershot4 asrows4,5,6,7. Re-layout all32fullbodyfigures uniformly into8evenrowswithlarge25px transparentgutters. Fullweaponsindependent no touching. Do notomitanyexistingrow, duplicatepose, ormixroles. Truealpha noBG/VFX/text/grid."
+    },
+    {
+      "id": "faction-iga-troops-a",
+      "prompt": "Repair missing SPEARMAN BUTT STRIKE ROW. Currenttransparentatlas has7rows/28figures. Required exact4columns x8rows=32figures. Preserve firstthree spearmanrowswalk/thrust/lowsweep. INSERT fourthrow SAME plainarmored spearman4chronological SPEAR BUTTSTRIKE poses: reversegripready, raisebluntend, drivewoodenbuttRIGHT, recover. FULL spearwithsteeltipvisible oppositeend. Keepbottom4flagbearerrowswalk/poke/sweep/slam. Re-layout32fullbodyposes into8evenrows4columns preservinguniforms/identities andsourcecolors. Atleast25pxtransparentgutters betweenallfullbodyandweapons/flag. Noexposure nocropping nofakeposes. Truealpha noBG/effects/text/grid."
+    },
+    {
+      "id": "faction-akechi-troops-a",
+      "prompt": "SPACING REPAIR ONLY. Preserve all32poses in4columns x8rows, exactcharacters/costume/weapons. Currentneighboringweapons TOUCH. Uniformly scaleall32fullbodyfiguresANDweapons to70%currentsize, recenter each completefullsilhouetteinsideowncell with30px transparentgaps horizontallyandvertically. Maintain chronologicalposes no repeats,no missingrows, no rolemix. Entireblade/flag/spear mustremaininsidecell andconnectedonlytoownhand, no contactwithneighbor. Don'tshortenweaponbycropping. Truealpha noBG/noVFX/grid/text."
+    },
+    {
+      "id": "faction-asakura-troops-b",
+      "prompt": "SPACING REPAIR ONLY. Preserve all32poses in4columns x8rows, exactcharacters/costume/weapons. Currentneighboringweapons TOUCH. Uniformly scaleall32fullbodyfiguresANDweapons to70%currentsize, recenter each completefullsilhouetteinsideowncell with30px transparentgaps horizontallyandvertically. Maintain chronologicalposes no repeats,no missingrows, no rolemix. Entireblade/flag/spear mustremaininsidecell andconnectedonlytoownhand, no contactwithneighbor. Don'tshortenweaponbycropping. Truealpha noBG/noVFX/grid/text."
+    },
+    {
+      "id": "faction-ikko-troops-b",
+      "prompt": "SPACING REPAIR ONLY. Preserve all32poses in4columns x8rows, exactcharacters/costume/weapons. Currentneighboringweapons TOUCH. Uniformly scaleall32fullbodyfiguresANDweapons to70%currentsize, recenter each completefullsilhouetteinsideowncell with30px transparentgaps horizontallyandvertically. Maintain chronologicalposes no repeats,no missingrows, no rolemix. Entireblade/flag/spear mustremaininsidecell andconnectedonlytoownhand, no contactwithneighbor. Don'tshortenweaponbycropping. Truealpha noBG/noVFX/grid/text."
+    },
+    {
+      "id": "faction-takeda-troops-b",
+      "prompt": "Minimalcorrectedit ONLY fourthrow secondcolumn (cell13) inthis4columns x8rows transparentatlas. Thatcell erroneously shows commander holdinganARCHERYBOW. Removebowandquiver fromthisONEcommanderpose anddraw SAME commander in browncoat blackarmorblackhelmet in katana dashanticipation: leanforward kneesbent katana heldbackbehindhip toLEFT forforthcomingforwardcut. No bow in ANY top16commanderposes. Preserve allother31existingposes andallspacingsizecolorsidentities. Exactly32figures truealpha noBG/noFX."
+    },
+    {
+      "id": "faction-ikko-troops-a",
+      "prompt": "Correct ONLY seventhrow (row6 cells24-27) ofthis4columns x8rows/32pose transparentatlas. Those4flagbearerSWEEPposes incorrectly turnedintohelmetedarmoredsoldier. They must use SAME HEADBAND FLAGBEARER identity/outfit asrows4/5/7: longwhiteheadband, loose lighttan robe, ochresash, nohelmet/nocuirass, sameheadandhairstyle. Eachholdingthe SAME ochreclothstandard andlowpoleSWEEP4chronologicalposes. Preserve thosefour sweepbodymotions andflagangles butchangeclotheshead toproperflagbearer. Allother28framesunchanged. Noomissionduplicate orcontact. Truealpha noBG/noglow."
+    },
+    {
+      "id": "faction-saito-troops-a",
+      "prompt": "Edit supplied transparent sprite atlas. Keep ALL existing 31 character drawings, armor, weapons, colors and exact positions unchanged. There is ONE missing character at seventh row, THIRD column: empty area centered x560 y1480 on 887x1774 image. Draw the missing fullbody FLAGBEARER in low crouched follow-through of sweeping flagpole to RIGHT, same olive cloth flag and simple helmet/black cuirass/tan clothes as other flagbearers. Fit the new character and whole short-diagonal flagpole ONLY within x460..655,y1385..1520. Keep clear of adjacent second-column flag cloth, which ends x563, so point new flag diagonally upward-right within the cell and leave 10px clear gap. This is the third frame of a four-frame low flag sweep. Exactly32 individual fullbody characters total, 4columns x8rows. Do not remove or merge any of the existing drawings. True transparent alpha, no background, no text, no glow.",
+      "ref": "game/assets/v10/faction-saito-troops-a.png"
+    },
+    {
+      "id": "faction-iga-troops-b",
+      "prompt": "Precise spacing repair only on this transparent32-character4column8row sprite sheet. Keep every pose, character costume and weapon. At fifth row SECOND column the walking archer's foot touches the tip of the bow in the SIXTH row SECOND column directly below. Shrink these TWO archer drawings uniformly to85percent around their own body centers to make at least15pixels transparent gap between their full weapons and bodies. Do not crop bow tips or feet. Keep all other30drawings unchanged. Exactly32 complete separate figures, 4columns x8rows, chronological poses preserved. True transparent background alpha; no newglow or VFX or labels.",
+      "ref": "game/assets/v10/faction-iga-troops-b.png"
+    },
+    {
+      "id": "faction-akechi-troops-b",
+      "ref": "game/assets/v10/faction-akechi-troops-b.png",
+      "prompt": "Repair only sprite SPACING in supplied32figure sprite atlas. Preserve exact character identities, simple historical outfits, weapons, all32poses and chronological order. TRUE transparent alpha background, no painted backdrop. Layout exactly4columns x8rows=32fullbody figures. Redraw/reposition EACH existing figure at 65percent of current printed size, maintaining correct proportions, at center of its own evenly spaced invisible cell. In particular leave huge empty gaps above bow tips and between sword tips and next character. ALL weapons and feet must fit entirely within their own cell with at least25pixel transparent margin. Tiny fullfigures are acceptable because game later rescales; intersecting feet, bows, blades, shoulders are NOT. Do not delete any row or character. Rows0,1,2,3 are same commander walk/downslash/upslash/dash. Rows4,5 same archer walk/bowshot. Rows6,7 same gunner walk/shot. Four complete distinct drawings in EACH of these8rows. No repeated cloned poses. No floor shadows, glow, labels, panels, numbers. Keep all period colors as reference. Choose a portrait canvas tall enough for8rows and wide enough for4columns."
+    },
+    {
+      "id": "faction-ikko-troops-b",
+      "ref": "game/assets/v10/faction-ikko-troops-b.png",
+      "prompt": "Repair only sprite SPACING in supplied32figure sprite atlas. Preserve exact character identities, simple historical outfits, weapons, all32poses and chronological order. TRUE transparent alpha background, no painted backdrop. Layout exactly4columns x8rows=32fullbody figures. Redraw/reposition EACH existing figure at 65percent of current printed size, maintaining correct proportions, at center of its own evenly spaced invisible cell. In particular leave huge empty gaps above bow tips and between sword tips and next character. ALL weapons and feet must fit entirely within their own cell with at least25pixel transparent margin. Tiny fullfigures are acceptable because game later rescales; intersecting feet, bows, blades, shoulders are NOT. Do not delete any row or character. Rows0,1,2,3 are same commander walk/downslash/upslash/dash. Rows4,5 same archer walk/bowshot. Rows6,7 same gunner walk/shot. Four complete distinct drawings in EACH of these8rows. No repeated cloned poses. No floor shadows, glow, labels, panels, numbers. Keep all period colors as reference. Choose a portrait canvas tall enough for8rows and wide enough for4columns."
+    },
+    {
+      "id": "faction-takeda-troops-b",
+      "ref": "game/assets/v10/faction-takeda-troops-b.png",
+      "prompt": "Repair only sprite SPACING in supplied32figure sprite atlas. Preserve exact character identities, simple historical outfits, weapons, all32poses and chronological order. TRUE transparent alpha background, no painted backdrop. Layout exactly4columns x8rows=32fullbody figures. Redraw/reposition EACH existing figure at 65percent of current printed size, maintaining correct proportions, at center of its own evenly spaced invisible cell. In particular leave huge empty gaps above bow tips and between sword tips and next character. ALL weapons and feet must fit entirely within their own cell with at least25pixel transparent margin. Tiny fullfigures are acceptable because game later rescales; intersecting feet, bows, blades, shoulders are NOT. Do not delete any row or character. Rows0,1,2,3 are same commander walk/downslash/upslash/dash. Rows4,5 same archer walk/bowshot. Rows6,7 same gunner walk/shot. Four complete distinct drawings in EACH of these8rows. No repeated cloned poses. No floor shadows, glow, labels, panels, numbers. Keep all period colors as reference. Choose a portrait canvas tall enough for8rows and wide enough for4columns."
+    },
+    {
+      "id": "faction-iga-troops-b",
+      "ref": "game/assets/v10/faction-iga-troops-b.png",
+      "prompt": "Repair only sprite SPACING in supplied32figure sprite atlas. Preserve exact character identities, simple historical outfits, weapons, all32poses and chronological order. TRUE transparent alpha background, no painted backdrop. Layout exactly4columns x8rows=32fullbody figures. Redraw/reposition EACH existing figure at 65percent of current printed size, maintaining correct proportions, at center of its own evenly spaced invisible cell. In particular leave huge empty gaps above bow tips and between sword tips and next character. ALL weapons and feet must fit entirely within their own cell with at least25pixel transparent margin. Tiny fullfigures are acceptable because game later rescales; intersecting feet, bows, blades, shoulders are NOT. Do not delete any row or character. Rows0,1,2,3 are same commander walk/downslash/upslash/dash. Rows4,5 same archer walk/bowshot. Rows6,7 same gunner walk/shot. Four complete distinct drawings in EACH of these8rows. No repeated cloned poses. No floor shadows, glow, labels, panels, numbers. Keep all period colors as reference. Choose a portrait canvas tall enough for8rows and wide enough for4columns."
+    }
+  ],
+  "root_final_repairs": {
+    "generator": "image_gen.imagegen",
+    "transparent_background": true,
+    "entries": [
+      {
+        "id": "iga-a",
+        "prompt": "Edit the provided Iga Sengoku animation sprite atlas, preserving the exact approved characters, clothes, helmets, colors, realistic painted 2D arcade style. CRITICAL BUG: reference has only SEVEN rows, it needs EIGHT rows. Output exactly FOUR columns and EIGHT horizontal rows = THIRTY TWO full body character drawings on transparent background. Make the canvas taller if needed, draw characters smaller to fit all eight complete rows with clear transparent gutters. At least 20 pixels blank space must separate every entire figure INCLUDING sword/spear/flag/bow tips from all neighboring figures and image borders. No touching. No labels, no grid. Each row is four chronological drawings: anticipation, windup, contact, recovery. Do not replace a missing row with duplicate poses. Maintain distinct motions. Exact top-to-bottom row layout (do not omit ROW SEVEN): ROW 1 ashigaru spear WALK, four different grounded steps. ROW 2 ashigaru spear THRUST. ROW 3 ashigaru spear LOW SWEEP. ROW 4 ashigaru reversed spear BUTT STRIKE. ROW 5 standard bearer WALK holding faction cloth flag. ROW 6 standard bearer flagpole forward POKE. ROW 7 NEW MISSING ROW: standard bearer LOW HORIZONTAL FLAGPOLE SWEEP, four fresh frames winding pole beside hip, sweeping across knees, extended sweep, recover. ROW 8 standard bearer overhead FLAGPOLE SLAM, lift over head then slam downward and recover. There must be FOUR ashigaru rows plus FOUR flag bearer rows, 16 figures of each role. Count all eight rows before completion.",
+        "generated_file": "exec-bffd2af7-eace-4a0b-922b-2629e49702f8.png"
+      },
+      {
+        "id": "miyoshi-a",
+        "prompt": "Edit the provided Miyoshi Sengoku animation sprite atlas, preserving the exact approved characters, clothes, helmets, colors, realistic painted 2D arcade style. CRITICAL BUG: reference has only SEVEN rows, it needs EIGHT rows. Output exactly FOUR columns and EIGHT horizontal rows = THIRTY TWO full body character drawings on transparent background. Make the canvas taller if needed, draw characters smaller to fit all eight complete rows with clear transparent gutters. At least 20 pixels blank space must separate every entire figure INCLUDING sword/spear/flag/bow tips from all neighboring figures and image borders. No touching. No labels, no grid. Each row is four chronological drawings: anticipation, windup, contact, recovery. Do not replace a missing row with duplicate poses. Maintain distinct motions. Exact top-to-bottom row layout (do not omit ROW SEVEN): ROW 1 ashigaru spear WALK, four different grounded steps. ROW 2 ashigaru spear THRUST. ROW 3 ashigaru spear LOW SWEEP. ROW 4 ashigaru reversed spear BUTT STRIKE. ROW 5 standard bearer WALK holding faction cloth flag. ROW 6 standard bearer flagpole forward POKE. ROW 7 NEW MISSING ROW: standard bearer LOW HORIZONTAL FLAGPOLE SWEEP, four fresh frames winding pole beside hip, sweeping across knees, extended sweep, recover. ROW 8 standard bearer overhead FLAGPOLE SLAM, lift over head then slam downward and recover. There must be FOUR ashigaru rows plus FOUR flag bearer rows, 16 figures of each role. Count all eight rows before completion.",
+        "generated_file": "exec-5926025c-a97e-4081-8e2b-ad75f3e2fcf1.png"
+      },
+      {
+        "id": "azai-b",
+        "prompt": "Edit the provided Azai Sengoku animation sprite atlas, preserving the exact approved characters, clothes, helmets, colors, realistic painted 2D arcade style. CRITICAL BUG: reference has only SEVEN rows, it needs EIGHT rows. Output exactly FOUR columns and EIGHT horizontal rows = THIRTY TWO full body character drawings on transparent background. Make the canvas taller if needed, draw characters smaller to fit all eight complete rows with clear transparent gutters. At least 20 pixels blank space must separate every entire figure INCLUDING sword/spear/flag/bow tips from all neighboring figures and image borders. No touching. No labels, no grid. Each row is four chronological drawings: anticipation, windup, contact, recovery. Do not replace a missing row with duplicate poses. Maintain distinct motions. Exact top-to-bottom row layout (do not omit ROW FOUR): ROW 1 helmeted commander WALK. ROW 2 commander overhead SWORD CUT. ROW 3 commander upward SWORD RISE from low to high. ROW 4 NEW MISSING ROW: commander forward DASH STRIKE, four fresh frames crouch preparing, leaning dash, sword extended thrust, recovery. ROW 5 archer WALK with bow. ROW 6 archer draw, hold aim upward, RELEASE with empty string, recover. ROW 7 gunner WALK with matchlock. ROW 8 gunner shoulder AIM, FIRE, RECOIL, LOWER weapon. There must be SIXTEEN commander drawings, EIGHT archer drawings, EIGHT gunner drawings. Count all eight rows before completion.",
+        "generated_file": "exec-d19e7e8b-f55e-4440-ac71-8f84ba668421.png"
+      },
+      {
+        "id": "ikko-a",
+        "prompt": "Edit this Ikko Sengoku sprite atlas. Correct the missing animation row and repeated flag poses. Preserve exact existing costume designs, ochre sashes/flags, modest cloth and partial armor, painted 2D arcade art. TRANSPARENT background. Exactly FOUR columns and EIGHT rows = THIRTY TWO distinct full-body drawings. Reference only has SEVEN rows and lacks the fourth ashigaru row; fix that. A tall canvas is appropriate. Scale figures down to fit with wide transparent gutters, entire weapon and flag tips included and never touching a neighbor. Strict row order: ROW1 ashigaru WALK with long polearm, four grounded steps. ROW2 ashigaru long spear forward THRUST (windup,extend,hit,recover). ROW3 ashigaru LOW POLEARM SWEEP across the knees. ROW4 NEW MISSING ROW: ashigaru reversed SPEAR BUTT STRIKE, four fresh poses with shaft rear end striking, not the blade. ROW5 flag bearer WALK. ROW6 flag bearer forward FLAGPOLE POKE: start upright, draw pole back, thrust forward, recover. ROW7 flag bearer broad LOW HORIZONTAL SWEEP: lower pole by hip, swing across the knees, extended horizontal sweep, recover. ROW8 flag bearer overhead FLAGPOLE SLAM: raise overhead, wind up, slam down near ground, recover. No repeated walk rows. All four final rows must be distinct. 16 ashigaru and 16 flag bearer drawings. Exactly 8 rows 4 columns, no labels or drawn grid, no effects, no shadows, no adjoining weapons. Do not omit the new spear-butt row four.",
+        "generated_file": "exec-f5985e74-cb9a-45b8-9bf3-847fc861111c.png"
+      },
+      {
+        "id": "iga-a-alpha",
+        "prompt": "Remove the entire brown/gray background from this finished 32-figure sprite atlas and make it fully transparent alpha. Preserve all EIGHT rows and FOUR columns of characters and their weapons exactly, including all flag sweep frames. Every gap must be fully transparent, no brown fog, no floor, no background, no shadow. Preserve every figure's position and pixel dimensions. This is a background removal only, do not redraw or remove any character.",
+        "generated_file": "exec-6b34b211-8f71-4d7b-89c3-324ddcda15bf.png"
+      },
+      {
+        "id": "miyoshi-a-alpha",
+        "prompt": "Remove the entire brown/gray background from this finished 32-figure sprite atlas and make it fully transparent alpha. Preserve all EIGHT rows and FOUR columns of characters and their weapons exactly, including all flag sweep frames. Every gap must be fully transparent, no brown fog, no floor, no background, no shadow. Preserve every figure's position and pixel dimensions. This is a background removal only, do not redraw or remove any character.",
+        "generated_file": "exec-293b21dd-edea-401c-9a11-e7dc72a72bd5.png"
+      },
+      {
+        "id": "azai-commander",
+        "prompt": "Create a NEW smaller sprite sheet derived from only the helmeted Azai COMMANDER at the top of the reference. Exactly FOUR ROWS by FOUR COLUMNS = SIXTEEN drawings of ONLY this commander. Keep his approved helmet, dark navy partial armor, beige sleeves/trousers, blue sash, war fan and steel sword. Do not include archers or gunners. Row1 WALK four grounded footsteps. Row2 overhead sword CUT: prepare, sword overhead, downward contact, recover. Row3 upward sword RISE: low ready, windup below waist, sword cutting upward, recover. Row4 forward DASH THRUST: crouch, low forward dash, sword thrust fully extended, recover. Four distinct drawing stages per row. Square sprite atlas with generous transparent gutters of 30 pixels between whole figures INCLUDING sword tips. Entire character and weapon contained within own cell. Fully transparent alpha background, no floor, no shadows, no outlines around cells, no text. Original painted 2D Sengoku arcade character style.",
+        "generated_file": "exec-e79bd25e-ee5c-4f12-b0e4-670a998ec571.png"
+      },
+      {
+        "id": "ikko-soldier",
+        "prompt": "Create a NEW smaller sprite sheet derived from only the hat-wearing IKKO ASHIGARU SOLDIER in the first row of this reference. Exactly FOUR ROWS by FOUR COLUMNS = SIXTEEN drawings of ONLY the soldier with long polearm. Keep approved conical metal jingasa, simple frayed off-white sleeves and loose trousers, ochre sash and cloth strips, limited dark cuirass, straw sandals. No flag bearers. Row1 WALK four grounded footsteps. Row2 long spear THRUST: ready, pull shaft back, point straight forward fully extended, recover. Row3 LOW SWEEP: lower blade, windup across rear hip, sweep broad low arc at knees, recover. Row4 reversed SPEAR BUTT STRIKE: start ready, rotate shaft to point WOODEN REAR BUTT forward, strong forward butt strike, restore grip. Four distinct stages in each row. All16 same man. Square sprite atlas with generous transparent gutters of30 pixels including entire weapons, no touching neighboring frames. Transparent alpha background, no floor, shadows or cell labels. Original painted2D arcade style.",
+        "generated_file": "exec-079ca96f-9458-478e-be19-18c8a9b249af.png"
+      },
+      {
+        "id": "ikko-flag",
+        "prompt": "Create a NEW smaller sprite sheet derived from only the IKKO FLAG BEARER in the last rows of this reference. Exactly FOUR ROWS by FOUR COLUMNS = SIXTEEN drawings of ONLY this flag bearer. Keep white hachimaki, rough off-white tunic, gray trousers, ochre waist cloth, sandals and large weathered ochre cloth on wood flagpole. No helmets or spear soldiers. Row1 WALK four alternating grounded steps carrying flag upright. Row2 forward FLAGPOLE POKE: lower pole, pull pole back, thrust pole forward horizontally, recover upright. Row3 distinct broad LOW FLAGPOLE SWEEP: begin flag low beside hip, turn body winding back, sweep flag across knee-height from rear to front, recover. Row4 overhead FLAG SLAM: upright, raise entire pole overhead, slam down toward ground in front, recover. Four distinct full-body sequential poses in each row. Square sprite atlas with generous transparent gutters30pixels between every whole character INCLUDING flags/poles. True transparent alpha background, no floor, shadows or drawn grid. Original painted2D Sengoku arcade art style.",
+        "generated_file": "exec-e5622951-a6b8-4d4f-883e-7fffa1e2648c.png"
+      },
+      {
+        "id": "azai-ranged",
+        "prompt": "Create a NEW, small, square transparent sprite atlas derived from just the ARCHER and GUNNER of this approved Azai faction reference. EXACTLY FOUR ROWS and FOUR COLUMNS = SIXTEEN drawings, no commander. Preserve dark navy cuirass, beige loose clothing, blue sash, historical black hair with white headband on archer and jingasa on gunner, straw sandals. Row1 archer WALK, four distinct grounded steps with long Japanese bow held upward. Row2 archer SHOT, four phases: nock arrow, draw holding bow aimed upward, release with empty bowstring and right hand behind cheek, recover. Row3 gunner WALK, four distinct steps carrying wooden matchlock. Row4 gunner SHOT: shoulder/aim, ready/hold, discharge/recoil, lower to reload. ONLY16figures. Wide clear alpha gaps between whole figures and all bow/sword/gun tips, at least30pixels. Draw the characters smaller so the bow top DOES NOT touch the feet of anybody in the row above. No touching any other character or canvas border. True transparent alpha background; no ground/shadows/grid/text. Painted2D Sengoku arcade sprite art matching reference.",
+        "generated_file": "exec-2ce9043e-c4c5-485c-9a8a-40b6c3ba38b2.png"
+      },
+      {
+        "id": "iga-a-gap",
+        "prompt": "Preserve this finished sprite sheet EXACTLY: 8 rows,4 columns,32 full-body poses. Only fix one collision. In ROW3 COLUMN2, the horizontally rightward spear tip touches the rear foot of the neighboring man in ROW3 COLUMN3, approximately x500,y480 on this1024x1536image. Shorten just the very end of that spear by25pixels and angle its point slightly UPWARD so a clear20pixel transparent gap separates it from the neighboring foot. Do not change the neighboring man or any other pose. All32figures must remain. Background fully transparent alpha, no colors or fog in alpha-visible spaces. This is a single weapon-tip correction, not a redesign.",
+        "generated_file": "exec-5b7c5f28-c504-421d-ae7e-0617fea16f52.png"
+      },
+      {
+        "id": "miyoshi-a-gap",
+        "prompt": "Preserve this finished sprite sheet EXACTLY:8 rows,4 columns,32 full-body poses. Fix only the collision between ROW7 COLUMN1 flag and ROW8 COLUMN1 flag. Their flag corners overlap around the boundary y1300 in the leftmost column of this1024x1536image; their shared connected bounds are x22..217,y1144..1518. Angle the flag held by ROW7 COLUMN1 to extend more horizontally LEFT, trim/reshape its lowest fabric corner so it ends ABOVE y1280. Keep ROW8 COLUMN1's raised overhead flag intact. There must be20pixels of transparent alpha between the two flags, with neither weapon/fabric touching the man above or below. Keep all32characters and eight rows, no duplication, no other redesign. Transparent alpha background.",
+        "generated_file": "exec-b18edb91-5820-4ee4-9dcc-b47af37b3d55.png"
+      }
+    ]
+  }
+}

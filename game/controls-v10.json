@@ -1,0 +1,30 @@
+{
+  "version": "0.10.0",
+  "heroes": [{"id":"nobunaga","name":"信長"},{"id":"oichi","name":"阿市"},{"id":"hideyoshi","name":"秀吉"},{"id":"ieyasu","name":"家康"},{"id":"mitsuhide","name":"光秀"},{"id":"tadakatsu","name":"忠勝"}],
+  "rows": [
+    {"input":"J → J → J","nobunaga":"下砍 → 上揮 → 大橫掃","oichi":"左針 → 右針 → 轉身末發","hideyoshi":"短槍三連快攻","ieyasu":"太刀三段寬斬","mitsuhide":"拔刀三連切","tadakatsu":"長槍三段重突","note":"每段重新按；第三段擊飛，前兩段停按就收招。六人攻速、距離與傷害不同。"},
+    {"input":"K → K（短按放開）","nobunaga":"破陣重斬 → 迴旋斬","oichi":"長弓直射 → 追射","hideyoshi":"短槍連續重突","ieyasu":"太刀兩段重掃","mitsuhide":"拔刀重切 → 追切","tadakatsu":"長槍兩段重擊","note":"兩段重擊；按住 K 約 0.58 秒再放開，改走滿蓄分歧。"},
+    {"input":"J → K / J → J → K","nobunaga":"連斬接破甲終結","oichi":"飛針接弓舞終結","hideyoshi":"快刺接槍擊終結","ieyasu":"連斬接寬掃終結","mitsuhide":"快切接拔刀終結","tadakatsu":"槍突接重掃終結","note":"輕轉重；兩次追擊，最後一擊範圍較大。"},
+    {"input":"K（短按放開）→ J","nobunaga":"重斬接上挑追斬","oichi":"長弓接飛針追射","hideyoshi":"重突接上挑快刺","ieyasu":"重掃接上挑斬","mitsuhide":"重切接上挑追切","tadakatsu":"重槍接挑空追突","note":"重轉輕；在連段窗口重新按 J，觸發兩次追擊。"},
+    {"input":"W + J","nobunaga":"逆袈裟上挑","oichi":"上揚飛針","hideyoshi":"短槍快挑","ieyasu":"太刀上挑","mitsuhide":"拔刀上切","tadakatsu":"長槍挑空","note":"挑起輕型敵人；主角收招後可跳起追擊。"},
+    {"input":"S + J","nobunaga":"低身掃腿斬","oichi":"低位散針","hideyoshi":"短槍低掃","ieyasu":"太刀低位寬掃","mitsuhide":"低身拔刀切","tadakatsu":"長槍低位橫掃","note":"低位攻擊；距離與橫向覆蓋依武器不同。"},
+    {"input":"A / D + J","nobunaga":"踏步突刺","oichi":"滑步飛針","hideyoshi":"踏步短槍突刺","ieyasu":"踏步太刀突刺","mitsuhide":"踏步拔刀突進","tadakatsu":"踏步長槍突進","note":"朝輸入方向突進。"},
+    {"input":"W + K（短按放開）","nobunaga":"挑空重斬","oichi":"仰射破空箭","hideyoshi":"短槍重挑","ieyasu":"太刀重挑","mitsuhide":"拔刀上切重擊","tadakatsu":"長槍挑空重擊","note":"重手上挑；起手比輕挑長。"},
+    {"input":"W + 按住 K → 放開","nobunaga":"炎龍升斬","oichi":"冰羽昇射","hideyoshi":"旋風升槍","ieyasu":"岩破升斬","mitsuhide":"裂空拔刀","tadakatsu":"破風升槍","note":"滿蓄上挑增加威力、範圍與演出；信長附火、阿市附冰。"},
+    {"input":"S + K（短按放開）","nobunaga":"震地刀","oichi":"低位散羽","hideyoshi":"短槍震地","ieyasu":"太刀震地","mitsuhide":"拔刀震地","tadakatsu":"長槍震地","note":"一般地面震波；阿市射出三支低位箭。與滿蓄版本分開。"},
+    {"input":"S + 按住 K → 放開","nobunaga":"炎獄裂地","oichi":"霜華冰陣","hideyoshi":"旋風裂地","ieyasu":"大地崩斬","mitsuhide":"裂地刀氣","tadakatsu":"破陣槍震","note":"滿蓄地面技：更大傷害、範圍與特效。火可燃燒、冰可凍結；其餘為風、土、刀氣演出。"},
+    {"input":"按住 K → 放開","nobunaga":"炎刃斷陣","oichi":"穿幕冰箭","hideyoshi":"旋風短槍","ieyasu":"岩破太刀","mitsuhide":"裂空拔刀斬","tadakatsu":"破風長槍","note":"約 0.58 秒滿蓄；阿市冰箭可跨越畫面，其餘為依武器範圍的近戰重擊。"},
+    {"input":"空白 → J","nobunaga":"空中斜斬","oichi":"凌空飛針","hideyoshi":"空中短槍刺","ieyasu":"空中太刀斬","mitsuhide":"空中拔刀切","tadakatsu":"空中長槍刺","note":"先跳躍再按攻擊。遭擊飛時不能出招。"},
+    {"input":"空白 → K","nobunaga":"墜地重斬","oichi":"空中落矢","hideyoshi":"短槍墜擊","ieyasu":"太刀墜擊","mitsuhide":"拔刀墜擊","tadakatsu":"長槍墜擊","note":"空中重擊；可接上挑後的追擊，仍需等待可出招時機。"},
+    {"input":"L 按住 → 放開","nobunaga":"抓人 → 飛摔","oichi":"擒拿 → 迴身摔","hideyoshi":"廣判定擒拿 → 強摔","ieyasu":"擒拿 → 重摔","mitsuhide":"擒拿 → 迴身摔","tadakatsu":"擒拿 → 大力投摔","note":"最長 3 秒；超時放下。正面可擋箭與小攻，打倒型重攻與背擊會穿過肉盾；飛摔可撞倒其他敵兵。"},
+    {"input":"I 按住","nobunaga":"正面防禦","oichi":"正面防禦","hideyoshi":"正面防禦","ieyasu":"強防禦／較高格擋怒氣","mitsuhide":"正面防禦／反擊準備","tadakatsu":"正面防禦","note":"站地格擋正面小攻；背擊、強攻可突破。挨打與成功格擋都累積怒氣。"},
+    {"input":"成功格擋後，按住 I + J","nobunaga":"—","oichi":"—","hideyoshi":"—","ieyasu":"—","mitsuhide":"拔刀反擊","tadakatsu":"—","note":"光秀專用：格擋後約 0.75 秒內按 J；短暫無敵的反擊斬。"},
+    {"input":"U（怒氣 100）","nobunaga":"炎獄・天魔斬（5 波）","oichi":"霜華・千羽葬（5 波）","hideyoshi":"旋風・千本槍（8 連）","ieyasu":"大地・三重震（3 波）","mitsuhide":"月影・裂空斬（5 組刀氣）","tadakatsu":"蜻蛉・破陣槍（4 波）","note":"六人皆約 3.5 秒、全程無敵；不同攻擊節奏與範圍。信長燃燒；阿市先凍結、末波碎冰。"},
+    {"input":"同方向雙點後按住","nobunaga":"衝刺","oichi":"衝刺","hideyoshi":"快速衝刺","ieyasu":"重步衝刺","mitsuhide":"快速衝刺","tadakatsu":"重步衝刺","note":"0.25 秒內點同方向兩次，第二次按住；鬆開或改方向停止。衝刺可輕撞敵人，同一敵人有撞擊冷卻。"}
+  ],
+  "chains": ["入門：J → J → J，或短按放開 K → K。", "混合：J → J → K；或 K 短按放開 → J。", "追空：W＋J 收招 → 空白，離地後 J → 空中 K；跳躍與攻擊分開按。", "元素：阿市滿蓄 K 凍結 → 重擊碎冰；信長火焰造成持續燃燒。", "控場：S＋滿蓄 K → 滿怒 U；先範圍壓制，再接必殺。", "反擊：光秀按住 I 成功格擋 → 0.75 秒內 J。", "人群：L 抓住擋箭 → 放開撞倒後排 → 方向＋J 追擊。"],
+  "gamepad": "PS5：左類比／十字鍵移動，同方向雙點後按住衝刺；□ 輕擊、○ 重擊／按住蓄力、× 跳躍、△ 按住抓人／放開摔、R1 滿怒必殺、L1 拾取、L2 按住防禦、Options 選單。方向＋按鍵同鍵盤。Xbox 對應 X／B／A／Y、RB／LB／LT／Start。",
+  "training": "WASD 移動、空白跳躍、E 拾取、I 防禦。1 木樁；2 肉盾；3 三波敵軍；4 遠程兵；5 該陣營小王；R 重置；Tab 六角色輪換；F1 操作表；Esc 選單選陣營。僅木樁自動滿怒，其他試戰須累積怒氣。",
+  "scope": "M1 v0.10：六主角與十二陣營試戰；尚非二十四關故事完成版。"
+}
+

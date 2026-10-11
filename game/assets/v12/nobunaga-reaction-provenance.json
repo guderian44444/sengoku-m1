@@ -1,0 +1,648 @@
+{
+  "generator": "built-in image_gen",
+  "image_pixel_policy": "Original PNG bytes, copied without resampling, alpha editing or any pixel modification.",
+  "scope": "Nobunaga hurt, stunned, down, recovering and launched only; 12 genuinely drawn source poses each.",
+  "references": [
+    {
+      "file": "game/assets/v10/nobunaga-motion.png",
+      "sha256": "c8d69bfebc8b06ec868c5d22700d06cd353160dfa80a6943b2a7372051de3829"
+    },
+    {
+      "file": "game/assets/v12/nobunaga-light1.png",
+      "sha256": "cf22292b7c866bf60ac4bd44f2fc04747a1d1bb258d011a3d1f65082b08d4b02"
+    }
+  ],
+  "anatomical_scale_notes": "body_height is upright anatomical skull-to-sole equivalent, excluding ponytail. Lying and airborne frames keep the same anatomical scale; horizontal bounding-box height is never used. Launched virtual feet follow pelvis plus half anatomical height to avoid using a rotating foot as the flight anchor.",
+  "validation": "All 8 sheets are RGBA, independently viewed, complete separate figure counts (12 or 6), no alpha>90 at canvas edges, and registration creates 12 frames for each clip. Final in-game timing/scale acceptance remains with integration.",
+  "clips": {
+    "nobunaga-hurt": {
+      "file": "nobunaga-hurt.png",
+      "rows": 3,
+      "columns": 4,
+      "frame_count": 12,
+      "body_height": 330
+    },
+    "nobunaga-stunned": {
+      "file": "nobunaga-stunned.png",
+      "rows": 3,
+      "columns": 4,
+      "frame_count": 12,
+      "body_height": 330
+    },
+    "nobunaga-down": {
+      "frame_count": 12,
+      "parts": [
+        {
+          "file": "nobunaga-down-a.png",
+          "rows": 3,
+          "columns": 2,
+          "frame_count": 6,
+          "body_height": 390
+        },
+        {
+          "file": "nobunaga-down-b.png",
+          "rows": 3,
+          "columns": 2,
+          "frame_count": 6,
+          "body_height": 390
+        }
+      ]
+    },
+    "nobunaga-recovering": {
+      "frame_count": 12,
+      "parts": [
+        {
+          "file": "nobunaga-recovering-a.png",
+          "rows": 3,
+          "columns": 2,
+          "frame_count": 6,
+          "body_height": 390
+        },
+        {
+          "file": "nobunaga-recovering-b.png",
+          "rows": 3,
+          "columns": 2,
+          "frame_count": 6,
+          "body_height": 390
+        }
+      ]
+    },
+    "nobunaga-launched": {
+      "frame_count": 12,
+      "parts": [
+        {
+          "file": "nobunaga-launched-a.png",
+          "rows": 3,
+          "columns": 2,
+          "frame_count": 6,
+          "body_height": 390,
+          "feet": [
+            [
+              343,
+              399
+            ],
+            [
+              970,
+              389
+            ],
+            [
+              351,
+              820
+            ],
+            [
+              958,
+              840
+            ],
+            [
+              355,
+              1255
+            ],
+            [
+              978,
+              1275
+            ]
+          ]
+        },
+        {
+          "file": "nobunaga-launched-b.png",
+          "rows": 3,
+          "columns": 2,
+          "frame_count": 6,
+          "body_height": 410,
+          "feet": [
+            [
+              323,
+              438
+            ],
+            [
+              916,
+              509
+            ],
+            [
+              326,
+              905
+            ],
+            [
+              945,
+              991
+            ],
+            [
+              355,
+              1322
+            ],
+            [
+              966,
+              1351
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-32929af9-4f11-4576-a84d-ed1d2717d463.png",
+      "prompt": "Generate a production 2D game sprite sheet of exactly the SAME Nobunaga character in BOTH reference sheets. Match the reference cel-shaded colorful illustrated style, exact face, moustache and pointed black beard, large black ponytail tied with red dotted band, RED lamellar chest and skirt armor with fine GOLD borders, dark plum baggy trousers, red shin armor, black-and-gold shoes, red cape with small gold flower pattern and gold edging, black sword sheath at waist and katana. Match the approved head-to-body ratio and stocky heroic physique, do not redesign or change head size. Adult man. Clear opaque painted interiors with crisp black outlines, sharp clean RGBA alpha edge, completely transparent empty background. NO lighting glow, NO outline glow, no aura, no drop shadows, no motion blur, no trails, no speed lines, no sparks, no blood, no icons, no words/numbers/grid. Only the separate character drawings. Full body, full hair and cape, full katana including point within each cell; sword held close and angled down to fit. Each drawing has unique changing joints/face/cape, genuine sequential animation poses, never duplicate pose with global wobble, never interpolation-smear. Camera is constant side/threequarter facing RIGHT. All drawings have IDENTICAL anatomical head/torso/limb scale, independently of crouching or lying; a flat lying person stays as large as the standing person's unfolded anatomy.\n\nCANVAS square 1536x1536 or highest native square output. Body from skull to sole in upright stance must be at least 330 source pixels (excluding ponytail); no tiny figures or upscaling. Keep at least 25px fully transparent gap around all figures and all canvas edges. Keep head and limb lengths identical all frames.\nFORMAT exactly FOUR COLUMNS by THREE ROWS = TWELVE figures, read left to right then nextrow. Keep each figure body upright-equivalent height330px or more, with identical head and torso size across all twelve cells. Sword held compactly to avoid neighbor overlap. This is the HURT animation, NOT an attack. Exact consecutive poses:\n1. neutral ready stance, katana near right hip\n2. hit first registers, eyes start squeezing closed, shoulders tense\n3. eyes shut, brows strongly frown, teeth grit as upper body recoils\n4. waist bends forward, left hand begins clutching belly\n5. more pronounced bend, knees flex, painful closed-eye grimace\n6. deepest forward fold, shoulders drawn together, clutch abdomen\n7. body absorbs shock low, face twisted in pain, sword safe near hip\n8. small rebound up, belly still held\n9. bent posture begins to unfold slowly\n10. knees extend slightly, shoulders remain hunched\n11. nearly regained guard, eyes open slightly, still wincing\n12. returned toward neutral ready, arms settle and cape settles",
+      "file": "nobunaga-hurt.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "b4914e1b4b9e35d8aff405dcf2851127cf9fdf227e08d607ea986d0e1a28242e",
+      "components": 12,
+      "boxes": [
+        [
+          11,
+          52,
+          331,
+          371
+        ],
+        [
+          309,
+          52,
+          332,
+          371
+        ],
+        [
+          623,
+          35,
+          334,
+          388
+        ],
+        [
+          980,
+          104,
+          263,
+          319
+        ],
+        [
+          38,
+          495,
+          281,
+          326
+        ],
+        [
+          342,
+          531,
+          294,
+          288
+        ],
+        [
+          653,
+          510,
+          297,
+          309
+        ],
+        [
+          973,
+          478,
+          269,
+          342
+        ],
+        [
+          12,
+          840,
+          306,
+          371
+        ],
+        [
+          330,
+          844,
+          303,
+          367
+        ],
+        [
+          630,
+          847,
+          317,
+          363
+        ],
+        [
+          950,
+          843,
+          296,
+          368
+        ]
+      ],
+      "edge_pixels": 0,
+      "transparent_fraction": 0.503587244899257,
+      "original_source_sha256": "b4914e1b4b9e35d8aff405dcf2851127cf9fdf227e08d607ea986d0e1a28242e",
+      "copy_matches_original": true
+    },
+    {
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-3414271e-3efe-4466-948a-8427f5c76f27.png",
+      "prompt": "Generate a production 2D game sprite sheet of exactly the SAME Nobunaga character in BOTH reference sheets. Match the reference cel-shaded colorful illustrated style, exact face, moustache and pointed black beard, large black ponytail tied with red dotted band, RED lamellar chest and skirt armor with fine GOLD borders, dark plum baggy trousers, red shin armor, black-and-gold shoes, red cape with small gold flower pattern and gold edging, black sword sheath at waist and katana. Match the approved head-to-body ratio and stocky heroic physique, do not redesign or change head size. Adult man. Clear opaque painted interiors with crisp black outlines, sharp clean RGBA alpha edge, completely transparent empty background. NO lighting glow, NO outline glow, no aura, no drop shadows, no motion blur, no trails, no speed lines, no sparks, no blood, no icons, no words/numbers/grid. Only the separate character drawings. Full body, full hair and cape, full katana including point within each cell; sword held close and angled down to fit. Each drawing has unique changing joints/face/cape, genuine sequential animation poses, never duplicate pose with global wobble, never interpolation-smear. Camera is constant side/threequarter facing RIGHT. All drawings have IDENTICAL anatomical head/torso/limb scale, independently of crouching or lying; a flat lying person stays as large as the standing person's unfolded anatomy.\n\nCANVAS square 1536x1536 or highest native square output. Body from skull to sole in upright stance must be at least 330 source pixels (excluding ponytail); no tiny figures or upscaling. Keep at least 25px fully transparent gap around all figures and all canvas edges. Keep head and limb lengths identical all frames.\nFORMAT exactly FOUR COLUMNS by THREE ROWS = TWELVE figures, read left to right then nextrow. Keep each figure body upright-equivalent height330px or more, with identical head and torso size across all twelve cells. Sword held compactly to avoid neighbor overlap. This is the STUNNED animation, NOT an attack. Exact consecutive poses:\n1. dazed stance, knees slightly bent, eyes half closed\n2. head droops forward, left hand rises toward forehead\n3. hand reaches left temple, brows pinched\n4. head turns slightly right with pained shut eyes, torso bends\n5. left hand presses temple, right shoulder drops\n6. knees buckle a little farther, left elbow comes inward\n7. head and chest slowly lift, still disoriented\n8. head inclines to other side, left palm moves across brow\n9. torso shifts with a small real knee step, eyes squeeze closed\n10. hand starts lowering from head, shoulders turn back\n11. regains balance, feet settle apart\n12. dazed ready stance, left hand lowered, eyes half open",
+      "file": "nobunaga-stunned.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "03d3c981b0d4bbaf215f5d55c67049f000a4ceb1f2b89ae1f43e4ce04d1140b4",
+      "components": 12,
+      "boxes": [
+        [
+          15,
+          38,
+          294,
+          382
+        ],
+        [
+          322,
+          41,
+          296,
+          379
+        ],
+        [
+          619,
+          42,
+          311,
+          378
+        ],
+        [
+          940,
+          56,
+          306,
+          364
+        ],
+        [
+          13,
+          431,
+          297,
+          378
+        ],
+        [
+          315,
+          450,
+          320,
+          358
+        ],
+        [
+          625,
+          435,
+          320,
+          373
+        ],
+        [
+          955,
+          434,
+          287,
+          375
+        ],
+        [
+          14,
+          823,
+          313,
+          382
+        ],
+        [
+          322,
+          822,
+          312,
+          382
+        ],
+        [
+          629,
+          821,
+          302,
+          386
+        ],
+        [
+          952,
+          824,
+          290,
+          380
+        ]
+      ],
+      "edge_pixels": 0,
+      "transparent_fraction": 0.4786590406711283,
+      "original_source_sha256": "03d3c981b0d4bbaf215f5d55c67049f000a4ceb1f2b89ae1f43e4ce04d1140b4",
+      "copy_matches_original": true
+    },
+    {
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-85ee8c0c-d866-48b4-bb89-4a36a1a25a7f.png",
+      "prompt": "Generate a production 2D game sprite sheet of exactly the SAME Nobunaga character in BOTH reference sheets. Match the reference cel-shaded colorful illustrated style, exact face, moustache and pointed black beard, large black ponytail tied with red dotted band, RED lamellar chest and skirt armor with fine GOLD borders, dark plum baggy trousers, red shin armor, black-and-gold shoes, red cape with small gold flower pattern and gold edging, black sword sheath at waist and katana. Match the approved head-to-body ratio and stocky heroic physique, do not redesign or change head size. Adult man. Clear opaque painted interiors with crisp black outlines, sharp clean RGBA alpha edge, completely transparent empty background. NO lighting glow, NO outline glow, no aura, no drop shadows, no motion blur, no trails, no speed lines, no sparks, no blood, no icons, no words/numbers/grid. Only the separate character drawings. Full body, full hair and cape, full katana including point within each cell; sword held close and angled down to fit. Each drawing has unique changing joints/face/cape, genuine sequential animation poses, never duplicate pose with global wobble, never interpolation-smear. Camera is constant side/threequarter facing RIGHT. All drawings have IDENTICAL anatomical head/torso/limb scale, independently of crouching or lying; a flat lying person stays as large as the standing person's unfolded anatomy.\n\nCANVAS square 1536x1536 or highest native square output. Body from skull to sole in upright stance must be at least 330 source pixels (excluding ponytail); no tiny figures or upscaling. Keep at least 25px fully transparent gap around all figures and all canvas edges. Keep head and limb lengths identical all frames.\nFORMAT exactly TWO COLUMNS by THREE ROWS = SIX figures, read left to right then next row. Square 1536x1536. Every cell is generous and roughly750px wide by500px tall. All figures and weapon fully inside with 30px empty margins. Each character has equivalent standing BODY HEIGHT350–370px (excluding ponytail); preserve that same head size when lying horizontally. Do NOT fill lying figures vertically or enlarge them. This is first half of a twelve-frame DEFEAT / FALL TO GROUND. When lying, HEAD LEFT and FEET RIGHT. Keep katana very close beside body and continually touching the sword hand; no detached objects. No ground or shadow is drawn. Exact six incremental poses:\n1. Hit recoil, eyes squeeze shut and knees buckle, sword lowered\n2. Torso folds and one knee nears ground, left palm reaches for support\n3. Both knees drop, upper body pitches sideways, painful closed eyes\n4. Left hand makes ground contact, right hip lowers, cape folds under him\n5. Hip touches ground, torso rolls toward left side with elbow bending\n6. Upper back lowers almost to ground, legs begin extending away\nThe final defeated pose must be fully flat, NOT propped on an elbow, NOT sitting, NOT kneeling. All six drawings differ naturally in joints, hands, head, legs and cape folds.",
+      "file": "nobunaga-down-a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "9a78c4a655ea4352881365473c51130581a4eebb753fecb551854210526fba93",
+      "components": 6,
+      "boxes": [
+        [
+          36,
+          21,
+          500,
+          470
+        ],
+        [
+          710,
+          79,
+          451,
+          421
+        ],
+        [
+          90,
+          525,
+          464,
+          371
+        ],
+        [
+          664,
+          589,
+          567,
+          305
+        ],
+        [
+          28,
+          985,
+          565,
+          219
+        ],
+        [
+          645,
+          1016,
+          586,
+          181
+        ]
+      ],
+      "edge_pixels": 0,
+      "transparent_fraction": 0.6160814897908828,
+      "original_source_sha256": "9a78c4a655ea4352881365473c51130581a4eebb753fecb551854210526fba93",
+      "copy_matches_original": true
+    },
+    {
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-34118868-27d5-4ca9-8a12-b58961be97fd.png",
+      "prompt": "Generate a production 2D game sprite sheet of exactly the SAME Nobunaga character in BOTH reference sheets. Match the reference cel-shaded colorful illustrated style, exact face, moustache and pointed black beard, large black ponytail tied with red dotted band, RED lamellar chest and skirt armor with fine GOLD borders, dark plum baggy trousers, red shin armor, black-and-gold shoes, red cape with small gold flower pattern and gold edging, black sword sheath at waist and katana. Match the approved head-to-body ratio and stocky heroic physique, do not redesign or change head size. Adult man. Clear opaque painted interiors with crisp black outlines, sharp clean RGBA alpha edge, completely transparent empty background. NO lighting glow, NO outline glow, no aura, no drop shadows, no motion blur, no trails, no speed lines, no sparks, no blood, no icons, no words/numbers/grid. Only the separate character drawings. Full body, full hair and cape, full katana including point within each cell; sword held close and angled down to fit. Each drawing has unique changing joints/face/cape, genuine sequential animation poses, never duplicate pose with global wobble, never interpolation-smear. Camera is constant side/threequarter facing RIGHT. All drawings have IDENTICAL anatomical head/torso/limb scale, independently of crouching or lying; a flat lying person stays as large as the standing person's unfolded anatomy.\n\nCANVAS square 1536x1536 or highest native square output. Body from skull to sole in upright stance must be at least 330 source pixels (excluding ponytail); no tiny figures or upscaling. Keep at least 25px fully transparent gap around all figures and all canvas edges. Keep head and limb lengths identical all frames.\nFORMAT exactly TWO COLUMNS by THREE ROWS = SIX figures, read left to right then next row. Square 1536x1536. Every cell is generous and roughly750px wide by500px tall. All figures and weapon fully inside with 30px empty margins. Each character has equivalent standing BODY HEIGHT350–370px (excluding ponytail); preserve that same head size when lying horizontally. Do NOT fill lying figures vertically or enlarge them. This is second half of a twelve-frame DEFEAT / FALL TO GROUND. When lying, HEAD LEFT and FEET RIGHT. Keep katana very close beside body and continually touching the sword hand; no detached objects. No ground or shadow is drawn. Exact six incremental poses:\n1. Shoulder and side of head contact ground, legs extend more, no elbow prop\n2. Entire torso rests horizontally, left arm slides out, hips relax\n3. Head fully rests on ground, both knees ease straighter, right arm lowers katana beside body\n4. Flat motionless-looking body, final small finger uncurl and cape folds flatten\n5. Entire body fully reclined with eyes closed, legs settle, head stays flat on ground\n6. Final defeated/dead hold: fully FLAT lying on side/back, head/shoulder/hips/legs supported on ground, eyes closed, arms completely relaxed, no raised elbow/head, katana lying alongside still touching hand\nThe final defeated pose must be fully flat, NOT propped on an elbow, NOT sitting, NOT kneeling. All six drawings differ naturally in joints, hands, head, legs and cape folds.",
+      "file": "nobunaga-down-b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "fa902383239c85f7eb3ede73eebec5bc5a3be1734a2198cd85c01fc1af84e06e",
+      "components": 6,
+      "boxes": [
+        [
+          41,
+          161,
+          543,
+          212
+        ],
+        [
+          639,
+          194,
+          581,
+          192
+        ],
+        [
+          27,
+          585,
+          581,
+          170
+        ],
+        [
+          639,
+          590,
+          591,
+          163
+        ],
+        [
+          27,
+          975,
+          593,
+          153
+        ],
+        [
+          653,
+          980,
+          578,
+          154
+        ]
+      ],
+      "edge_pixels": 0,
+      "transparent_fraction": 0.7065308079536233,
+      "original_source_sha256": "fa902383239c85f7eb3ede73eebec5bc5a3be1734a2198cd85c01fc1af84e06e",
+      "copy_matches_original": true
+    },
+    {
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-337c1c26-2c89-4b78-bb39-cd8eb9909a4f.png",
+      "prompt": "Generate a production 2D game sprite sheet of exactly the SAME Nobunaga character in BOTH reference sheets. Match the reference cel-shaded colorful illustrated style, exact face, moustache and pointed black beard, large black ponytail tied with red dotted band, RED lamellar chest and skirt armor with fine GOLD borders, dark plum baggy trousers, red shin armor, black-and-gold shoes, red cape with small gold flower pattern and gold edging, black sword sheath at waist and katana. Match the approved head-to-body ratio and stocky heroic physique, do not redesign or change head size. Adult man. Clear opaque painted interiors with crisp black outlines, sharp clean RGBA alpha edge, completely transparent empty background. NO lighting glow, NO outline glow, no aura, no drop shadows, no motion blur, no trails, no speed lines, no sparks, no blood, no icons, no words/numbers/grid. Only the separate character drawings. Full body, full hair and cape, full katana including point within each cell; sword held close and angled down to fit. Each drawing has unique changing joints/face/cape, genuine sequential animation poses, never duplicate pose with global wobble, never interpolation-smear. Camera is constant side/threequarter facing RIGHT. All drawings have IDENTICAL anatomical head/torso/limb scale, independently of crouching or lying; a flat lying person stays as large as the standing person's unfolded anatomy.\n\nCANVAS square 1536x1536 or highest native square output. Body from skull to sole in upright stance must be at least 330 source pixels (excluding ponytail); no tiny figures or upscaling. Keep at least 25px fully transparent gap around all figures and all canvas edges. Keep head and limb lengths identical all frames.\nFORMAT exactly TWO COLUMNS by THREE ROWS = SIX figures, read left to right then next row. Square1536x1536. Each cell approx750px wide by500px tall. Each character equivalent standing BODY HEIGHT350–370px excluding ponytail. All cells identical body scale whether lying down or standing. Lying figure's head/limbs must not be magnified to fill cell. At least30px transparent air at edges and between figures. This is first half of twelve-frame GET UP / RECOVER animation. Third reference shows the exact lying pose to start from, use same anatomical proportions and gear. Initial lying orientation is HEAD LEFT FEET RIGHT; rotate the actual skeleton to rise to right-facing ready guard, rather than rotate whole image. Katana kept angled down and close, never held rigidly straight horizontally. Ground contact flows hand to knee to planted foot with believable weight. Exact incremental poses:\n1. Start fully flat lying on ground, eyes closed, same final down pose\n2. Eyes begin opening, left hand moves close to chest while entire torso stays down\n3. Left palm plants on ground, head begins lifting a little\n4. Elbow straightens lifting upper torso, knees draw in\n5. Roll onto one hip, free hand draws sword safely inward\n6. Sit low while legs bend underneath, left palm supports weight\nEach pose must differ in arm, hip and leg articulation; no rigid image tilts. No floor plane or shadow.",
+      "file": "nobunaga-recovering-a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "c880dfdf0a9131a3dff6550b282f49f5cef4b6ba229d50b0f138b97ef4d3230f",
+      "components": 6,
+      "boxes": [
+        [
+          16,
+          209,
+          607,
+          207
+        ],
+        [
+          637,
+          211,
+          597,
+          217
+        ],
+        [
+          36,
+          546,
+          606,
+          280
+        ],
+        [
+          662,
+          488,
+          570,
+          331
+        ],
+        [
+          60,
+          851,
+          586,
+          316
+        ],
+        [
+          710,
+          869,
+          519,
+          313
+        ]
+      ],
+      "edge_pixels": 0,
+      "transparent_fraction": 0.6362975003116026,
+      "original_source_sha256": "c880dfdf0a9131a3dff6550b282f49f5cef4b6ba229d50b0f138b97ef4d3230f",
+      "copy_matches_original": true,
+      "additional_lying_pose_reference": {
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-34118868-27d5-4ca9-8a12-b58961be97fd.png",
+        "sha256": "fa902383239c85f7eb3ede73eebec5bc5a3be1734a2198cd85c01fc1af84e06e"
+      }
+    },
+    {
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-2636a4e1-94c1-4615-bed1-28c44f7da094.png",
+      "prompt": "Generate a production 2D game sprite sheet of exactly the SAME Nobunaga character in BOTH reference sheets. Match the reference cel-shaded colorful illustrated style, exact face, moustache and pointed black beard, large black ponytail tied with red dotted band, RED lamellar chest and skirt armor with fine GOLD borders, dark plum baggy trousers, red shin armor, black-and-gold shoes, red cape with small gold flower pattern and gold edging, black sword sheath at waist and katana. Match the approved head-to-body ratio and stocky heroic physique, do not redesign or change head size. Adult man. Clear opaque painted interiors with crisp black outlines, sharp clean RGBA alpha edge, completely transparent empty background. NO lighting glow, NO outline glow, no aura, no drop shadows, no motion blur, no trails, no speed lines, no sparks, no blood, no icons, no words/numbers/grid. Only the separate character drawings. Full body, full hair and cape, full katana including point within each cell; sword held close and angled down to fit. Each drawing has unique changing joints/face/cape, genuine sequential animation poses, never duplicate pose with global wobble, never interpolation-smear. Camera is constant side/threequarter facing RIGHT. All drawings have IDENTICAL anatomical head/torso/limb scale, independently of crouching or lying; a flat lying person stays as large as the standing person's unfolded anatomy.\n\nCANVAS square 1536x1536 or highest native square output. Body from skull to sole in upright stance must be at least 330 source pixels (excluding ponytail); no tiny figures or upscaling. Keep at least 25px fully transparent gap around all figures and all canvas edges. Keep head and limb lengths identical all frames.\nFORMAT exactly TWO COLUMNS by THREE ROWS = SIX figures, read left to right then next row. Square1536x1536. Each cell approx750px wide by500px tall. Each character equivalent standing BODY HEIGHT350–370px excluding ponytail. All cells identical body scale whether lying down or standing. Lying figure's head/limbs must not be magnified to fill cell. At least30px transparent air at edges and between figures. This is second half of twelve-frame GET UP / RECOVER animation. Third reference shows the exact lying pose to start from, use same anatomical proportions and gear. Initial lying orientation is HEAD LEFT FEET RIGHT; rotate the actual skeleton to rise to right-facing ready guard, rather than rotate whole image. Katana kept angled down and close, never held rigidly straight horizontally. Ground contact flows hand to knee to planted foot with believable weight. Exact incremental poses:\n1. Move onto one knee, torso leans forward\n2. Right foot plants, left knee on ground, left hand pushes thigh\n3. Push from the planted foot, hips rise, torso still bent\n4. Both feet now support him, straighten knees partway\n5. Rise toward upright ready, katana moves near hip\n6. Return to normal ready stance with knees softly bent and eyes alert\nEach pose must differ in arm, hip and leg articulation; no rigid image tilts. No floor plane or shadow.",
+      "file": "nobunaga-recovering-b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "6c773708a01fe1f6145cb0c31ae39dde8923b108381f5e344bb5b4143f6ad276",
+      "components": 6,
+      "boxes": [
+        [
+          101,
+          93,
+          498,
+          322
+        ],
+        [
+          727,
+          38,
+          436,
+          377
+        ],
+        [
+          157,
+          437,
+          380,
+          380
+        ],
+        [
+          698,
+          432,
+          408,
+          386
+        ],
+        [
+          133,
+          808,
+          485,
+          422
+        ],
+        [
+          694,
+          806,
+          502,
+          426
+        ]
+      ],
+      "edge_pixels": 0,
+      "transparent_fraction": 0.6363706315229861,
+      "original_source_sha256": "6c773708a01fe1f6145cb0c31ae39dde8923b108381f5e344bb5b4143f6ad276",
+      "copy_matches_original": true,
+      "additional_lying_pose_reference": {
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-34118868-27d5-4ca9-8a12-b58961be97fd.png",
+        "sha256": "fa902383239c85f7eb3ede73eebec5bc5a3be1734a2198cd85c01fc1af84e06e"
+      }
+    },
+    {
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-ed01a445-ce07-437e-b23e-ba1079ebf975.png",
+      "prompt": "Generate a production 2D game sprite sheet of exactly the SAME Nobunaga character in BOTH reference sheets. Match the reference cel-shaded colorful illustrated style, exact face, moustache and pointed black beard, large black ponytail tied with red dotted band, RED lamellar chest and skirt armor with fine GOLD borders, dark plum baggy trousers, red shin armor, black-and-gold shoes, red cape with small gold flower pattern and gold edging, black sword sheath at waist and katana. Match the approved head-to-body ratio and stocky heroic physique, do not redesign or change head size. Adult man. Clear opaque painted interiors with crisp black outlines, sharp clean RGBA alpha edge, completely transparent empty background. NO lighting glow, NO outline glow, no aura, no drop shadows, no motion blur, no trails, no speed lines, no sparks, no blood, no icons, no words/numbers/grid. Only the separate character drawings. Full body, full hair and cape, full katana including point within each cell; sword held close and angled down to fit. Each drawing has unique changing joints/face/cape, genuine sequential animation poses, never duplicate pose with global wobble, never interpolation-smear. Camera is constant side/threequarter facing RIGHT. All drawings have IDENTICAL anatomical head/torso/limb scale, independently of crouching or lying; a flat lying person stays as large as the standing person's unfolded anatomy.\n\nCANVAS square 1536x1536 or highest native square output. Body from skull to sole in upright stance must be at least 330 source pixels (excluding ponytail); no tiny figures or upscaling. Keep at least 25px fully transparent gap around all figures and all canvas edges. Keep head and limb lengths identical all frames.\nFORMAT exactly TWO COLUMNS by THREE ROWS = SIX figures, read left to right then next row. Square1536x1536. Each cell approx750px wide by500px tall. Each character equivalent standing BODY HEIGHT350–370px excluding ponytail. IDENTICAL anatomical scale for airborne/horizontal poses; do not enlarge a lying pose to fill height. At least30px empty transparency around every body and sword. This is first half of twelve-frame KNOCKED BACK INTO AIR reaction, NOT a voluntary jump or attack. Painful tightly shut eyes, brows pinched. When near horizontal, HEAD LEFT and FEET RIGHT. Sword is loosely carried near hip in one hand, point angled down alongside body, never rigidly extended straight forward. Believable passive momentum in shoulders, elbows, hips and knees; retain natural arm/leg lengths and armor. Cape and ponytail follow momentum. Exact incremental poses:\n1. Impact recoil with eyes shut, chest arches backward, knees unload\n2. Both feet leave ground, arms spread slightly, torso tilts back\n3. Airborne body rises in an arc, knees flex, ponytail and cape lag\n4. Body rotates backward further, left knee lifts, right leg extends\n5. Near horizontal airborne, head LEFT and feet RIGHT, arms still attached naturally\n6. Horizontal airborne peak, belly up, cape folds behind torso\nDo not draw motion trails, effects, floor or shadow. One character per cell, every complete person and blade isolated. No extra people or altered outfits.",
+      "file": "nobunaga-launched-a.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "409adede7f59e042dd8b91f00e544ecd0293975db923434a055bfc7c1ad30a1f",
+      "components": 6,
+      "boxes": [
+        [
+          79,
+          28,
+          406,
+          405
+        ],
+        [
+          668,
+          20,
+          510,
+          413
+        ],
+        [
+          81,
+          457,
+          517,
+          397
+        ],
+        [
+          687,
+          502,
+          539,
+          337
+        ],
+        [
+          44,
+          921,
+          571,
+          287
+        ],
+        [
+          673,
+          941,
+          562,
+          272
+        ]
+      ],
+      "edge_pixels": 0,
+      "transparent_fraction": 0.6101629490574341,
+      "original_source_sha256": "409adede7f59e042dd8b91f00e544ecd0293975db923434a055bfc7c1ad30a1f",
+      "copy_matches_original": true
+    },
+    {
+      "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12451-52fe-7a93-ac04-1ac1b87c9170\\exec-6df4b4e3-7b51-4aa8-9449-07f331204c25.png",
+      "prompt": "Generate a production 2D game sprite sheet of exactly the SAME Nobunaga character in BOTH reference sheets. Match the reference cel-shaded colorful illustrated style, exact face, moustache and pointed black beard, large black ponytail tied with red dotted band, RED lamellar chest and skirt armor with fine GOLD borders, dark plum baggy trousers, red shin armor, black-and-gold shoes, red cape with small gold flower pattern and gold edging, black sword sheath at waist and katana. Match the approved head-to-body ratio and stocky heroic physique, do not redesign or change head size. Adult man. Clear opaque painted interiors with crisp black outlines, sharp clean RGBA alpha edge, completely transparent empty background. NO lighting glow, NO outline glow, no aura, no drop shadows, no motion blur, no trails, no speed lines, no sparks, no blood, no icons, no words/numbers/grid. Only the separate character drawings. Full body, full hair and cape, full katana including point within each cell; sword held close and angled down to fit. Each drawing has unique changing joints/face/cape, genuine sequential animation poses, never duplicate pose with global wobble, never interpolation-smear. Camera is constant side/threequarter facing RIGHT. All drawings have IDENTICAL anatomical head/torso/limb scale, independently of crouching or lying; a flat lying person stays as large as the standing person's unfolded anatomy.\n\nCANVAS square 1536x1536 or highest native square output. Body from skull to sole in upright stance must be at least 330 source pixels (excluding ponytail); no tiny figures or upscaling. Keep at least 25px fully transparent gap around all figures and all canvas edges. Keep head and limb lengths identical all frames.\nFORMAT exactly TWO COLUMNS by THREE ROWS = SIX figures, read left to right then next row. Square1536x1536. Each cell approx750px wide by500px tall. Each character equivalent standing BODY HEIGHT350–370px excluding ponytail. IDENTICAL anatomical scale for airborne/horizontal poses; do not enlarge a lying pose to fill height. At least30px empty transparency around every body and sword. This is second half of twelve-frame KNOCKED BACK INTO AIR reaction, NOT a voluntary jump or attack. Painful tightly shut eyes, brows pinched. When near horizontal, HEAD LEFT and FEET RIGHT. Sword is loosely carried near hip in one hand, point angled down alongside body, never rigidly extended straight forward. Believable passive momentum in shoulders, elbows, hips and knees; retain natural arm/leg lengths and armor. Cape and ponytail follow momentum. Exact incremental poses:\n1. Beginning descent, torso curls slightly, knees draw in\n2. Descent continues, left shoulder lowers and legs extend\n3. Falling toward left side, closed eyes, left hand reaches outward\n4. Almost reaches ground, shoulder and hip aimed toward ground, legs no longer tucked\n5. Low descending pose just before landing, head and shoulder close to ground\n6. Final low horizontal airborne pose leading directly into ground contact, eyes squeezed closed\nDo not draw motion trails, effects, floor or shadow. One character per cell, every complete person and blade isolated. No extra people or altered outfits.",
+      "file": "nobunaga-launched-b.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "ffdd307a04258733793c1f9d75f36a2a76cc0fe4f4b097c68e8b602572529350",
+      "components": 6,
+      "boxes": [
+        [
+          62,
+          35,
+          485,
+          402
+        ],
+        [
+          645,
+          75,
+          550,
+          422
+        ],
+        [
+          38,
+          508,
+          562,
+          382
+        ],
+        [
+          639,
+          591,
+          595,
+          283
+        ],
+        [
+          32,
+          948,
+          585,
+          263
+        ],
+        [
+          637,
+          976,
+          587,
+          229
+        ]
+      ],
+      "edge_pixels": 0,
+      "transparent_fraction": 0.6013477764296198,
+      "original_source_sha256": "ffdd307a04258733793c1f9d75f36a2a76cc0fe4f4b097c68e8b602572529350",
+      "copy_matches_original": true
+    }
+  ]
+}

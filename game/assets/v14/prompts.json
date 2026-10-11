@@ -1,0 +1,1706 @@
+{
+  "version": "0.14",
+  "tool": "builtin image_gen",
+  "accepted_pngs": [
+    {
+      "file": "mori-archer-bow_shot.png",
+      "sha256": "e348d2260373b9bb9e1bdf6f1c84ff9c34ef64f9e0d914c43852e9aa875083e0",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.648011212604514,
+      "recipe": {
+        "stem": "mori-archer-bow_shot",
+        "prompt": "Use case: background-extraction and precise-object-edit. EDIT the existing SIX character drawings from the reference, preserve all six exact articulated poses and SAME identity/costume/face/body proportions. Reproduce on GENUINELY TRANSPARENT ALPHA, crisp fully opaque character and weapon paint. Remove ALL beige/brown/gray background, gradients/haze, floor/ground/shadows, grids, borders, labels, numbers, arrows, dust, flashes, white motion trails, instructional graphics, and all nonphysical effects. Spaces between limbs and weapon must be transparent. No text whatsoever. SIX isolated complete characters in THREE columns TWO rows, same anatomical scale all six, body>=340px native. All weapons/flags/poles/hats/shoes complete with>=16px margin beyond every extremity, no touching neighboringdrawings. Highresolution. 1536x1536 SQUARE canvas3columns2rows so complete asymmetric Japanese longbows fit. Restore the UPPER BOW TIPS cut off in firstFIVE frames, reconstruct continuous woodlimb and bowstring curvingnaturally fromexistingvisiblebow. Keep original six shootingposes, arrows, quiver, whiteheadband and armor. Every upperbowtip stays20px insidecanvasorcell. Bodyheightabout400px allsix, do NOT shrink char to tiny size tofitbow. Frame6bowalreadycompletepreserveit.",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-archer-bow_shot-candidate-before-repair.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-40508a64-e4c5-48d7-b7ce-2777205477b2.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-archer-bow_shot-repaired.png",
+        "status": "accepted six poses; alpha and outer edges passed; scale_audit independently registered read-only",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-archer-bow_shot.png",
+        "sha256": "e348d2260373b9bb9e1bdf6f1c84ff9c34ef64f9e0d914c43852e9aa875083e0",
+        "source_sha256": "e348d2260373b9bb9e1bdf6f1c84ff9c34ef64f9e0d914c43852e9aa875083e0",
+        "measurements": {
+          "stem": "mori-archer-bow_shot",
+          "size": [
+            1254,
+            1254
+          ],
+          "alpha0": 0.648011212604514,
+          "components": [
+            [
+              848,
+              9,
+              402,
+              634
+            ],
+            [
+              40,
+              11,
+              323,
+              631
+            ],
+            [
+              419,
+              13,
+              405,
+              627
+            ],
+            [
+              20,
+              642,
+              404,
+              576
+            ],
+            [
+              449,
+              642,
+              383,
+              575
+            ],
+            [
+              852,
+              784,
+              382,
+              434
+            ]
+          ],
+          "body_height_estimate": 455,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-archer-death.png",
+      "sha256": "f1f5a420196296ae66a54036a8a83e00827dc1a9cb25020262488a33c3febd97",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7272618611653646,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-15b383b5-02ce-46f8-a9fe-e2c25912eb16.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "Use case: identity-preserve. Production game sprite atlas based precisely on supplied approved Mori concept. Genuine alpha transparent background. SIX full body drawings, exactly 3 columns x 2 rows reading left to right. 1536x1024 canvas, human anatomy head-to-shoes around 350px high, same constant proportions and scale in every cell. Complete weapons, feet and clothes within each cell, large transparent gutters, nothing touching neighbors, no text/grid/ground/shadows/blur/effects. Mature realistic 7-head adult human, crisp detailed historical hand painted ink game art matching reference. Cream shirt, dark brown/black simple lamellar armor/tassets, grey baggy trousers, dark shinwraps, straw sandals, teal waistcord. All face screen RIGHT three-quarter side view. Archer adapted SECOND column, white headband black tied hair, long wood bow and quiver. SIX chronological KNOCKDOWN AND DEATH full-body poses, every frame progresses a real collapse: 1 knees buckle with torso leaning back; 2 loses balance and folds down; 3 falling sideways close to ground with elbows protecting; 4 lands on side hip and shoulder; 5 settling almost flat with legs extending; 6 FINISHED LYING COMPLETELY HORIZONTAL on back/side, face quiet eyes closed, shoulder/torso/hips resting at same ground line, legs relaxed and extended, never kneeling or sitting. Equipment stays nearby within own cell, flag cloth with crest collapses naturally beside flag bearer. No blood. Constant anatomical bone lengths; never enlarge later prone figures to fill the height. Entire human and whole weapon fit inside its own cell; no clipped hands/feet. Bare alpha outside figures and attached equipment, no floor, no shadow, NO PAPER BACKGROUND, NO GRID DIVIDERS, NO NUMBERS, NO DIAGRAM ARROWS OR LABELS. Only six isolated painted character cutouts."
+      }
+    },
+    {
+      "file": "mori-archer-hurt-struggle.png",
+      "sha256": "8231f9687de6d7c01960e1a16322544cec13a6df5ad26bf55dd5fa45f70f7dd2",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6499436696370443,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-3b2fa74e-54c6-4829-9780-8cb631bf10b9.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "undefinedArcher adapted SECOND column, white headband black tied hair, long wood bow and quiver. SIX distinct unnumbered reaction drawings: TOP ROW three consecutive severe HIT REACTIONS: 1 torso flinches backward from blow with jaw clenched; 2 bends forward sharply at waist, head low, painful grimace eyes squinted and one hand clutches stomach; 3 one knee bent recovering halfway, face strained. BOTTOM ROW three consecutive GRABBED STRUGGLE poses with NO captor drawn: 4 both upper arms restrained near ribs, elbows tense, torso twists LEFT as fists push outward; 5 shoulders hunch forward, clenched teeth, pulls arm up to break grip; 6 twists torso RIGHT and pulls opposite elbow back, knees brace. Clearly articulate different arms/spine and facial pain each frame, no blood. Equipment remains hanging in hands or on body not floating. Same constant underlying anatomy scale all frames, don't enlarge crouched frames. NO numbers, NO labels, NO background."
+      }
+    },
+    {
+      "file": "mori-archer-walk.png",
+      "sha256": "5ebe46132fd92a8b06571465afd598e84c2f918a576f5838bc089cc8c3c81b41",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7043679555257162,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-5dd3182c-135f-48d0-9f86-da41119431bf.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "Use case: identity-preserve. Production game sprite atlas based precisely on supplied approved Mori concept. Genuine alpha transparent background. SIX full body drawings, exactly 3 columns x 2 rows reading left to right. 1536x1024 canvas, human anatomy head-to-shoes around 350px high, same constant proportions and scale in every cell. Complete weapons, feet and clothes within each cell, large transparent gutters, nothing touching neighbors, no text/grid/ground/shadows/blur/effects. Mature realistic 7-head adult human, crisp detailed historical hand painted ink game art matching reference. Cream shirt, dark brown/black simple lamellar armor/tassets, grey baggy trousers, dark shinwraps, straw sandals, teal waistcord. All face screen RIGHT three-quarter side view. Adapt SECOND column headband soldier to archer with slender long yumi bow in left hand and quiver of arrows on back, white headband tied around black hair, same armor as gunner. SIX consecutive phases walking RIGHT: left foot reaches/right back; left knee bends/right heel lifted; right knee passes left; RIGHT foot forward/LEFT back; right knee bends; left knee passes right. Change knees ankles and cloth each frame, no duplicated leg position."
+      }
+    },
+    {
+      "file": "mori-boss-death.png",
+      "sha256": "165c8748f5de77263daadf556a184b8e1222fa365e4d25f3d8e4154bfb1d0341",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.7026656644511089,
+      "recipe": {
+        "stem": "mori-boss-death",
+        "action": "death",
+        "rows": 3,
+        "columns": 2,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "prompt": "Use case: stylized-concept. High-resolution 2D game transparent sprite sheet. SOURCE IMAGE: only the RIGHTMOST COLUMN of reference 1 is the approved MORI KUSARIGAMA ELITE. Do NOT draw the spear man, gunner, flag or fan officer. Preserve that rightmost man's mature angular mustached face, black segmented iron round samurai helmet and neck plates, charcoal lamellar cuirass with muted gold edging, beige rolled sleeves, dark gray loose trousers, dark shin wraps with gold cord, straw/black sandals and dark teal knotted sash. Same short wooden sickle with curved steel blade, iron chain and round iron weight. Make him stout and broad-shouldered but anatomically human, approximately 5.5 heads tall, consistently same head/body proportions. Reference 2 is ONLY the accepted game drawing quality/character proportion guide, NEVER copy its red hero costume. Crisp dark ink, opaque sharp flat/cel illustrated shading, NO motion blur, NO soft fuzzy painterly edges. Actual transparent alpha background, no paper, gradient, ground, shadow, fog, colored glow or labels.\nEXACTLY SIX separate full-body drawings in TWO columns THREE rows, reading left-right then downward. Square high resolution 1536x1536 preferred. Each cell 768x512: body from helmet top to sandals about 370-400 pixels, equal anatomical size in all frames. Keep complete sickle and chain inside each cell; spacious transparent gutters, no touching between cells. Chain can loop close to body; do not shrink man to fit it. New articulated anatomy in every frame; never paste/rotate one sprite. Each figure facing screen RIGHT in same 3/4 side game view. Isolated solo character only.\nACTION: continuous defeated fall ending completely prone.0 painful backward stumble bent knees, sickle lowers;1 one knee collapses body tips sideways;2 hip hits ground supporting forearm catches;3 torso descends onto side legs unfolding;4 fully horizontal lying side/back on ground with head resting, both legs stretched nearly flat and arms relaxed;5 final still corpse FULLY LYING FLAT stretched horizontal, head and helmet on ground, knees not raised, torso not sitting, weapon/chain rests touching hand alongside. Frame4 and5 differ small finalsettle but both flat. Keep same anatomy size: a horizontal final body should be as long as the upright anatomical height, not scale-up to cellheight. No tombstone/no blood/no ground painting/no extra props.",
+        "refs": [
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-9bc6ba07-a279-4ece-af4d-9b5cc6b26657.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/mori-boss-death.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "165c8748f5de77263daadf556a184b8e1222fa365e4d25f3d8e4154bfb1d0341",
+        "source_sha256": "165c8748f5de77263daadf556a184b8e1222fa365e4d25f3d8e4154bfb1d0341",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png": "371b1c5bbd05a303f3808dc297d3a36c2040e6fd7945f65cf4f3f790649f434e",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0"
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.70267,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 2,
+          "rows": 3
+        }
+      }
+    },
+    {
+      "file": "mori-boss-hurt.png",
+      "sha256": "39dc1c075bc33e141470f39fa5b039e61725430ccc7b424eae94c442760f2f9c",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.6928457325712425,
+      "recipe": {
+        "stem": "mori-boss-hurt",
+        "action": "hurt",
+        "rows": 3,
+        "columns": 2,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "prompt": "Use case: stylized-concept. High-resolution 2D game transparent sprite sheet. SOURCE IMAGE: only the RIGHTMOST COLUMN of reference 1 is the approved MORI KUSARIGAMA ELITE. Do NOT draw the spear man, gunner, flag or fan officer. Preserve that rightmost man's mature angular mustached face, black segmented iron round samurai helmet and neck plates, charcoal lamellar cuirass with muted gold edging, beige rolled sleeves, dark gray loose trousers, dark shin wraps with gold cord, straw/black sandals and dark teal knotted sash. Same short wooden sickle with curved steel blade, iron chain and round iron weight. Make him stout and broad-shouldered but anatomically human, approximately 5.5 heads tall, consistently same head/body proportions. Reference 2 is ONLY the accepted game drawing quality/character proportion guide, NEVER copy its red hero costume. Crisp dark ink, opaque sharp flat/cel illustrated shading, NO motion blur, NO soft fuzzy painterly edges. Actual transparent alpha background, no paper, gradient, ground, shadow, fog, colored glow or labels.\nEXACTLY SIX separate full-body drawings in TWO columns THREE rows, reading left-right then downward. Square high resolution 1536x1536 preferred. Each cell 768x512: body from helmet top to sandals about 370-400 pixels, equal anatomical size in all frames. Keep complete sickle and chain inside each cell; spacious transparent gutters, no touching between cells. Chain can loop close to body; do not shrink man to fit it. New articulated anatomy in every frame; never paste/rotate one sprite. Each figure facing screen RIGHT in same 3/4 side game view. Isolated solo character only.\nACTION: one continuous clearly painful hit reaction followed by recovery. 0 recoil begins chest compressed and pained grimace; 1 shoulders fold forward, head lowers teeth clenched; 2 deep waist bend, free forearm clutches abdomen, knees flex, sickle hangs low outward safely; 3 same peak pain but shoulders begin lifting and back leg catches balance; 4 brace on knees and raise torso halfway; 5 return guarded crouch with tense face. This is NOT six standing wiggles: joints and face genuinely deform. No blood, no separate attacker. Same anatomy size despite torso bending.",
+        "refs": [
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-2fc61ea9-74c5-4a6c-87a5-68fd1551b46f.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/mori-boss-hurt.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "39dc1c075bc33e141470f39fa5b039e61725430ccc7b424eae94c442760f2f9c",
+        "source_sha256": "39dc1c075bc33e141470f39fa5b039e61725430ccc7b424eae94c442760f2f9c",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png": "371b1c5bbd05a303f3808dc297d3a36c2040e6fd7945f65cf4f3f790649f434e",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0"
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.69285,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 2,
+          "rows": 3
+        }
+      }
+    },
+    {
+      "file": "mori-boss-idle.png",
+      "sha256": "06c1b4d1c4417a8f0dd3671091e3f81dc0f54c1e84a407cc679df1b458d52c45",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.7274139023068764,
+      "recipe": {
+        "stem": "mori-boss-idle",
+        "action": "idle",
+        "rows": 3,
+        "columns": 2,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "prompt": "Use case: stylized-concept. High-resolution 2D game transparent sprite sheet. SOURCE IMAGE: only the RIGHTMOST COLUMN of reference 1 is the approved MORI KUSARIGAMA ELITE. Do NOT draw the spear man, gunner, flag or fan officer. Preserve that rightmost man's mature angular mustached face, black segmented iron round samurai helmet and neck plates, charcoal lamellar cuirass with muted gold edging, beige rolled sleeves, dark gray loose trousers, dark shin wraps with gold cord, straw/black sandals and dark teal knotted sash. Same short wooden sickle with curved steel blade, iron chain and round iron weight. Make him stout and broad-shouldered but anatomically human, approximately 5.5 heads tall, consistently same head/body proportions. Reference 2 is ONLY the accepted game drawing quality/character proportion guide, NEVER copy its red hero costume. Crisp dark ink, opaque sharp flat/cel illustrated shading, NO motion blur, NO soft fuzzy painterly edges. Actual transparent alpha background, no paper, gradient, ground, shadow, fog, colored glow or labels.\nEXACTLY SIX separate full-body drawings in TWO columns THREE rows, reading left-right then downward. Square high resolution 1536x1536 preferred. Each cell 768x512: body from helmet top to sandals about 370-400 pixels, equal anatomical size in all frames. Keep complete sickle and chain inside each cell; spacious transparent gutters, no touching between cells. Chain can loop close to body; do not shrink man to fit it. New articulated anatomy in every frame; never paste/rotate one sprite. Each figure facing screen RIGHT in same 3/4 side game view. Isolated solo character only.\nACTION: six continuous alert breathing poses, feet remain firmly planted in modest wide guard. 0 settled guard sickle up near chest chain slack looping to hip; 1 inhale shoulders rise slightly elbows open; 2 chest fuller and head turns subtly toward right threat, hand adjusts sickle; 3 exhale shoulder/hips ease, sickle wrist rotates subtly; 4 knees soften and weight shifts to front foot; 5 return near0 with natural chain settling. Subtle genuinely redrawn joint changes, no rocking identical picture.",
+        "refs": [
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-1547faee-c697-4049-8289-26632d315931.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/mori-boss-idle.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "06c1b4d1c4417a8f0dd3671091e3f81dc0f54c1e84a407cc679df1b458d52c45",
+        "source_sha256": "06c1b4d1c4417a8f0dd3671091e3f81dc0f54c1e84a407cc679df1b458d52c45",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png": "371b1c5bbd05a303f3808dc297d3a36c2040e6fd7945f65cf4f3f790649f434e",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0"
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.72741,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 2,
+          "rows": 3
+        }
+      }
+    },
+    {
+      "file": "mori-boss-walk-a.png",
+      "sha256": "86cda4f15dae82a1ab1547ab5e11e9f13357502dc557d799aeea09140506d922",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.748083326338174,
+      "recipe": {
+        "stem": "mori-boss-walk-a",
+        "action": "walk",
+        "rows": 3,
+        "columns": 2,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "prompt": "Use case: stylized-concept. High-resolution 2D game transparent sprite sheet. SOURCE IMAGE: only the RIGHTMOST COLUMN of reference 1 is the approved MORI KUSARIGAMA ELITE. Do NOT draw the spear man, gunner, flag or fan officer. Preserve that rightmost man's mature angular mustached face, black segmented iron round samurai helmet and neck plates, charcoal lamellar cuirass with muted gold edging, beige rolled sleeves, dark gray loose trousers, dark shin wraps with gold cord, straw/black sandals and dark teal knotted sash. Same short wooden sickle with curved steel blade, iron chain and round iron weight. Make him stout and broad-shouldered but anatomically human, approximately 5.5 heads tall, consistently same head/body proportions. Reference 2 is ONLY the accepted game drawing quality/character proportion guide, NEVER copy its red hero costume. Crisp dark ink, opaque sharp flat/cel illustrated shading, NO motion blur, NO soft fuzzy painterly edges. Actual transparent alpha background, no paper, gradient, ground, shadow, fog, colored glow or labels.\nEXACTLY SIX separate full-body drawings in TWO columns THREE rows, reading left-right then downward. Square high resolution 1536x1536 preferred. Each cell 768x512: body from helmet top to sandals about 370-400 pixels, equal anatomical size in all frames. Keep complete sickle and chain inside each cell; spacious transparent gutters, no touching between cells. Chain can loop close to body; do not shrink man to fit it. New articulated anatomy in every frame; never paste/rotate one sprite. Each figure facing screen RIGHT in same 3/4 side game view. Isolated solo character only.\nACTION: FIRST HALF of 12 evenly spaced frames of heavy natural walking, rightwards in place, no high marching knees. Hold sickle near belt blade upward, slack chain held safely near hip. Frames0 right foot forward heel contact, left foot behind on toe; 1 weight arrives on right foot both knees slightly flex; 2 right leg vertical support, left toe leaves ground; 3 left foot passes right ankle close to ground; 4 left leg swings forward modest knee flex, right heel lifts; 5 left foot reaches forward, right toes pushing behind. Clear separate leg positions each frame. Upper body counterrotates calmly, no huge up/down bob.",
+        "refs": [
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-b2f3b65f-1bce-466c-952c-9cc47de9d383.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/mori-boss-walk-a.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "86cda4f15dae82a1ab1547ab5e11e9f13357502dc557d799aeea09140506d922",
+        "source_sha256": "86cda4f15dae82a1ab1547ab5e11e9f13357502dc557d799aeea09140506d922",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png": "371b1c5bbd05a303f3808dc297d3a36c2040e6fd7945f65cf4f3f790649f434e",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0"
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.74808,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 2,
+          "rows": 3
+        }
+      }
+    },
+    {
+      "file": "mori-boss-walk-b.png",
+      "sha256": "9c64edefd5e8c1da7d6b6a75f76f58e2212bb71aa4d7beeef6f3cd3fcc18bef4",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.7374634025981294,
+      "recipe": {
+        "stem": "mori-boss-walk-b",
+        "action": "walk",
+        "rows": 3,
+        "columns": 2,
+        "frames": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "prompt": "Use case: stylized-concept. High-resolution 2D game transparent sprite sheet. SOURCE IMAGE: only the RIGHTMOST COLUMN of reference 1 is the approved MORI KUSARIGAMA ELITE. Do NOT draw the spear man, gunner, flag or fan officer. Preserve that rightmost man's mature angular mustached face, black segmented iron round samurai helmet and neck plates, charcoal lamellar cuirass with muted gold edging, beige rolled sleeves, dark gray loose trousers, dark shin wraps with gold cord, straw/black sandals and dark teal knotted sash. Same short wooden sickle with curved steel blade, iron chain and round iron weight. Make him stout and broad-shouldered but anatomically human, approximately 5.5 heads tall, consistently same head/body proportions. Reference 2 is ONLY the accepted game drawing quality/character proportion guide, NEVER copy its red hero costume. Crisp dark ink, opaque sharp flat/cel illustrated shading, NO motion blur, NO soft fuzzy painterly edges. Actual transparent alpha background, no paper, gradient, ground, shadow, fog, colored glow or labels.\nEXACTLY SIX separate full-body drawings in TWO columns THREE rows, reading left-right then downward. Square high resolution 1536x1536 preferred. Each cell 768x512: body from helmet top to sandals about 370-400 pixels, equal anatomical size in all frames. Keep complete sickle and chain inside each cell; spacious transparent gutters, no touching between cells. Chain can loop close to body; do not shrink man to fit it. New articulated anatomy in every frame; never paste/rotate one sprite. Each figure facing screen RIGHT in same 3/4 side game view. Isolated solo character only.\nADDITIONAL REFERENCE3 is the newly accepted first SIX drawings of THIS walking character. Match its exact helmet, head size, body length and stance scale. Now draw only SECOND HALF of same12framewalk in SIXcells. Continue from its last drawing through OPPOSITE SUPPORT PHASE. Frame6 LEFT/front foot forward heel lands with rightleg trailingtoe;7 left knee receivesweight, rightheelrises;8 leftlegstraightunderhips while righttoe lifts, rightleg starts passing;9 rightfoot passes leftankle low aboveground, leftleg supports;10 rightkneeswings forward modestly, leftheelstarts rising;11 rightlegextendsforward heeljustabouttoland, lefttoepushesbehind. Alternate front/back leg occlusion clearly; do not repeat first6 or highstep. Both limbs trulyredrawn. Keep sickle nearbelt sameorientation, chain slack safely.",
+        "refs": [
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png",
+          "D:/AI/吞食戰國/game/assets/v14/mori-boss-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-8c7911da-e681-4fef-9a9d-2fabfee14838.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/mori-boss-walk-b.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "9c64edefd5e8c1da7d6b6a75f76f58e2212bb71aa4d7beeef6f3cd3fcc18bef4",
+        "source_sha256": "9c64edefd5e8c1da7d6b6a75f76f58e2212bb71aa4d7beeef6f3cd3fcc18bef4",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png": "371b1c5bbd05a303f3808dc297d3a36c2040e6fd7945f65cf4f3f790649f434e",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0",
+          "D:/AI/吞食戰國/game/assets/v14/mori-boss-walk-a.png": "86cda4f15dae82a1ab1547ab5e11e9f13357502dc557d799aeea09140506d922"
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.73746,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 2,
+          "rows": 3
+        }
+      }
+    },
+    {
+      "file": "mori-boss_chain.png",
+      "sha256": "a84b06872c7fb93ae4b721983959eb6c82d2d0a1b661565d28971ad78879d0d2",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.6917017060557731,
+      "recipe": {
+        "stem": "mori-boss_chain",
+        "action": "boss_chain",
+        "rows": 3,
+        "columns": 2,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "frame_ticks": [
+          0,
+          14,
+          26,
+          54,
+          72,
+          91
+        ],
+        "prompt": "Use case: stylized-concept. High-resolution 2D game transparent sprite sheet. SOURCE IMAGE: only the RIGHTMOST COLUMN of reference 1 is the approved MORI KUSARIGAMA ELITE. Do NOT draw the spear man, gunner, flag or fan officer. Preserve that rightmost man's mature angular mustached face, black segmented iron round samurai helmet and neck plates, charcoal lamellar cuirass with muted gold edging, beige rolled sleeves, dark gray loose trousers, dark shin wraps with gold cord, straw/black sandals and dark teal knotted sash. Same short wooden sickle with curved steel blade, iron chain and round iron weight. Make him stout and broad-shouldered but anatomically human, approximately 5.5 heads tall, consistently same head/body proportions. Reference 2 is ONLY the accepted game drawing quality/character proportion guide, NEVER copy its red hero costume. Crisp dark ink, opaque sharp flat/cel illustrated shading, NO motion blur, NO soft fuzzy painterly edges. Actual transparent alpha background, no paper, gradient, ground, shadow, fog, colored glow or labels.\nEXACTLY SIX separate full-body drawings in TWO columns THREE rows, reading left-right then downward. Square high resolution 1536x1536 preferred. Each cell 768x512: body from helmet top to sandals about 370-400 pixels, equal anatomical size in all frames. Keep complete sickle and chain inside each cell; spacious transparent gutters, no touching between cells. Chain can loop close to body; do not shrink man to fit it. New articulated anatomy in every frame; never paste/rotate one sprite. Each figure facing screen RIGHT in same 3/4 side game view. Isolated solo character only.\nClan emblem only if present: Mori crest a horizontal bar above THREE solid circles arranged one over two. Do not add a flag or invent another crest.\nACTION six sequential drawings LONG CHAIN CAST AND JERK.0 sickle held in right handnearhip, leftchainweightready.1 leftarm draws ironweight behind and torso twistsback.2 RELEASE tick26: leftarm extends rightward castingchainweight toward screenright, chain straightens horizontally endinginroundweight; show entirechainwithincell using foreshortening, keepmanlarge.3 PULL/THROW tick54: planted widefeet, elbows sharply pulltowardwaist, torsoleansback, tautchainangledright; sickle hand also heldsafe.4 chain slackens and loopsback nearfoot, shouldersunwind.5 gatheredchain and returnguard. Exactlyonechain,onesickle,oneweight. No otherperson, chainweightcannotbe giantball, no motiontrails.",
+        "refs": [
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-7a399635-1980-4afb-97d3-2c4326ea7c60.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/mori-boss_chain.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "a84b06872c7fb93ae4b721983959eb6c82d2d0a1b661565d28971ad78879d0d2",
+        "source_sha256": "a84b06872c7fb93ae4b721983959eb6c82d2d0a1b661565d28971ad78879d0d2",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png": "371b1c5bbd05a303f3808dc297d3a36c2040e6fd7945f65cf4f3f790649f434e",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0"
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.6917,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 2,
+          "rows": 3
+        }
+      }
+    },
+    {
+      "file": "mori-boss_grab_throw.png",
+      "sha256": "1f36eb9052b31af56ac33ea578c642c4b229dc959ad76c5d5d7c3543b4da34a2",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.6642018268812527,
+      "recipe": {
+        "stem": "mori-boss_grab_throw",
+        "action": "boss_grab_throw",
+        "rows": 3,
+        "columns": 2,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "frame_ticks": [
+          0,
+          14,
+          26,
+          54,
+          72,
+          91
+        ],
+        "prompt": "Use case: stylized-concept. High-resolution 2D game transparent sprite sheet. SOURCE IMAGE: only the RIGHTMOST COLUMN of reference 1 is the approved MORI KUSARIGAMA ELITE. Do NOT draw the spear man, gunner, flag or fan officer. Preserve that rightmost man's mature angular mustached face, black segmented iron round samurai helmet and neck plates, charcoal lamellar cuirass with muted gold edging, beige rolled sleeves, dark gray loose trousers, dark shin wraps with gold cord, straw/black sandals and dark teal knotted sash. Same short wooden sickle with curved steel blade, iron chain and round iron weight. Make him stout and broad-shouldered but anatomically human, approximately 5.5 heads tall, consistently same head/body proportions. Reference 2 is ONLY the accepted game drawing quality/character proportion guide, NEVER copy its red hero costume. Crisp dark ink, opaque sharp flat/cel illustrated shading, NO motion blur, NO soft fuzzy painterly edges. Actual transparent alpha background, no paper, gradient, ground, shadow, fog, colored glow or labels.\nEXACTLY SIX separate full-body drawings in TWO columns THREE rows, reading left-right then downward. Square high resolution 1536x1536 preferred. Each cell 768x512: body from helmet top to sandals about 370-400 pixels, equal anatomical size in all frames. Keep complete sickle and chain inside each cell; spacious transparent gutters, no touching between cells. Chain can loop close to body; do not shrink man to fit it. New articulated anatomy in every frame; never paste/rotate one sprite. Each figure facing screen RIGHT in same 3/4 side game view. Isolated solo character only.\nClan emblem only if present: Mori crest a horizontal bar above THREE solid circles arranged one over two. Do not add a flag or invent another crest.\nACTION six sequential drawings of close GRAB AND HIP THROW, SOLOACTOR; do not draw grabbedopponent.0 tightguardchaincoiledatbelt/sicklelowered.1 stepforward leftopenhandreaches at chestheight, rightelbowstaysclose.2 GRAB tick26: leftfingersclench grippingimaginarycollar, elbowdrawsin andbodylowers into knees.3 THROW tick54: deepstablehipturn partlybackview, leftarm extends outward/downasreleasingopponenttowardright; rightarmcounterbalances withsickleheldaway.4 throwfollowthrough leaningforward, lefthandopenslow, reartoe pivots.5 rises toguard. Clear reaching→gripping→turning→release sequence, not six punchingposes. Samefixedfeetbaselineandhumananatomy.",
+        "refs": [
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-c1444d00-a037-4555-8062-fb5e7f057757.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/mori-boss_grab_throw.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "1f36eb9052b31af56ac33ea578c642c4b229dc959ad76c5d5d7c3543b4da34a2",
+        "source_sha256": "1f36eb9052b31af56ac33ea578c642c4b229dc959ad76c5d5d7c3543b4da34a2",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png": "371b1c5bbd05a303f3808dc297d3a36c2040e6fd7945f65cf4f3f790649f434e",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0"
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.6642,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 2,
+          "rows": 3
+        }
+      }
+    },
+    {
+      "file": "mori-boss_smash.png",
+      "sha256": "87c4c4b342d1a7e6122ae868cb1eb4e8c5bfc7b866cab8893ad60643aba265a6",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.6311598737310145,
+      "recipe": {
+        "stem": "mori-boss_smash",
+        "action": "boss_smash",
+        "rows": 3,
+        "columns": 2,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "frame_ticks": [
+          0,
+          20,
+          38,
+          48,
+          64,
+          85
+        ],
+        "prompt": "Use case: stylized-concept. High-resolution 2D game transparent sprite sheet. SOURCE IMAGE: only the RIGHTMOST COLUMN of reference 1 is the approved MORI KUSARIGAMA ELITE. Do NOT draw the spear man, gunner, flag or fan officer. Preserve that rightmost man's mature angular mustached face, black segmented iron round samurai helmet and neck plates, charcoal lamellar cuirass with muted gold edging, beige rolled sleeves, dark gray loose trousers, dark shin wraps with gold cord, straw/black sandals and dark teal knotted sash. Same short wooden sickle with curved steel blade, iron chain and round iron weight. Make him stout and broad-shouldered but anatomically human, approximately 5.5 heads tall, consistently same head/body proportions. Reference 2 is ONLY the accepted game drawing quality/character proportion guide, NEVER copy its red hero costume. Crisp dark ink, opaque sharp flat/cel illustrated shading, NO motion blur, NO soft fuzzy painterly edges. Actual transparent alpha background, no paper, gradient, ground, shadow, fog, colored glow or labels.\nEXACTLY SIX separate full-body drawings in TWO columns THREE rows, reading left-right then downward. Square high resolution 1536x1536 preferred. Each cell 768x512: body from helmet top to sandals about 370-400 pixels, equal anatomical size in all frames. Keep complete sickle and chain inside each cell; spacious transparent gutters, no touching between cells. Chain can loop close to body; do not shrink man to fit it. New articulated anatomy in every frame; never paste/rotate one sprite. Each figure facing screen RIGHT in same 3/4 side game view. Isolated solo character only.\nClan emblem only if present: Mori crest a horizontal bar above THREE solid circles arranged one over two. Do not add a flag or invent another crest.\nACTION six sequential drawings of one SHORT CLOSE-RANGE SICKLE STRIKE. Frame0 low compact guard.1 forearm draws sickle up behind right shoulder, front knee bends.2 sickle raised over head elbowfolded, left hand keeps slackchain nearwaist.3 IMPACT at tick48: step forward and drive sickle diagonally down across front, shoulders/hips visibly turn, blade is waistlevel forward, NOT stabbing straight arm.4 followthrough blade continues low toward oppositehip, chest followsrotation.5 recovers guardedstance. Full true blade arc from shoulder overhead to waist, six distinct joint poses. Short chain stayscoiled/slack in left hand, not whipped.",
+        "refs": [
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-63298728-2367-4b1d-b191-af88e2c8b390.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/mori-boss_smash.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "87c4c4b342d1a7e6122ae868cb1eb4e8c5bfc7b866cab8893ad60643aba265a6",
+        "source_sha256": "87c4c4b342d1a7e6122ae868cb1eb4e8c5bfc7b866cab8893ad60643aba265a6",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png": "371b1c5bbd05a303f3808dc297d3a36c2040e6fd7945f65cf4f3f790649f434e",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0"
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.63116,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 3,
+          "rows": 2
+        },
+        "layout_note": "Generator chose3x2 instead of requested2x3; metadata uses actual grid."
+      }
+    },
+    {
+      "file": "mori-boss_sweep.png",
+      "sha256": "94d375a45cc247bbcc68cc64988a513a4aacaf8bb6cee89941c1605cada0c18a",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.686902390818281,
+      "recipe": {
+        "stem": "mori-boss_sweep",
+        "action": "boss_sweep",
+        "rows": 3,
+        "columns": 2,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "frame_ticks": [
+          0,
+          16,
+          30,
+          40,
+          56,
+          75
+        ],
+        "prompt": "Use case: stylized-concept. High-resolution 2D game transparent sprite sheet. SOURCE IMAGE: only the RIGHTMOST COLUMN of reference 1 is the approved MORI KUSARIGAMA ELITE. Do NOT draw the spear man, gunner, flag or fan officer. Preserve that rightmost man's mature angular mustached face, black segmented iron round samurai helmet and neck plates, charcoal lamellar cuirass with muted gold edging, beige rolled sleeves, dark gray loose trousers, dark shin wraps with gold cord, straw/black sandals and dark teal knotted sash. Same short wooden sickle with curved steel blade, iron chain and round iron weight. Make him stout and broad-shouldered but anatomically human, approximately 5.5 heads tall, consistently same head/body proportions. Reference 2 is ONLY the accepted game drawing quality/character proportion guide, NEVER copy its red hero costume. Crisp dark ink, opaque sharp flat/cel illustrated shading, NO motion blur, NO soft fuzzy painterly edges. Actual transparent alpha background, no paper, gradient, ground, shadow, fog, colored glow or labels.\nEXACTLY SIX separate full-body drawings in TWO columns THREE rows, reading left-right then downward. Square high resolution 1536x1536 preferred. Each cell 768x512: body from helmet top to sandals about 370-400 pixels, equal anatomical size in all frames. Keep complete sickle and chain inside each cell; spacious transparent gutters, no touching between cells. Chain can loop close to body; do not shrink man to fit it. New articulated anatomy in every frame; never paste/rotate one sprite. Each figure facing screen RIGHT in same 3/4 side game view. Isolated solo character only.\nClan emblem only if present: Mori crest a horizontal bar above THREE solid circles arranged one over two. Do not add a flag or invent another crest.\nACTION six sequential drawings of LARGE WAIST-DRIVEN CHAIN SWEEP.0 lowguardkneesbent.1 pivot backward draw chainweight towardscreenleftbehindshoulder, sickle nearbelt.2 shouldersrotate, leftarm drivesweight acrossupperfront, curvingchainsinglevisiblearc.3 IMPACT tick40: wide grounded lunge and stronghipturn, leftarm and chainweight sweepthrough screenright at chestheight; wholebodyfollows.4 continue rotating into moreback-threequarter view, elbowretracts, chainweight descends rightlower side.5 recover guard andcoil. Broadsidewaistrotationclearlydifferent from straight chaincast and overheadsickle. Keep completebodyandweapon insidecellswithouttinyfigure. No trailFX,blood,extraactors.",
+        "refs": [
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-736aa069-e743-430f-a4ac-f515789fecf8.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/mori-boss_sweep.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "94d375a45cc247bbcc68cc64988a513a4aacaf8bb6cee89941c1605cada0c18a",
+        "source_sha256": "94d375a45cc247bbcc68cc64988a513a4aacaf8bb6cee89941c1605cada0c18a",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/assets/enemies-v0.8/mori.png": "371b1c5bbd05a303f3808dc297d3a36c2040e6fd7945f65cf4f3f790649f434e",
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0"
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.6869,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 2,
+          "rows": 3
+        }
+      }
+    },
+    {
+      "file": "mori-camp-flag.png",
+      "sha256": "fd66d4758a2a5b7497eaaa868d59cb66f6f95666bf4215af1b17d5ed0dbba465",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7673346201578776,
+      "recipe": {
+        "tool": "builtin image_gen",
+        "prompt": "Use case: stylized-concept. Asset type: a production 2D Sengoku battle-game sprite sheet, six genuine consecutive cloth-animation drawings of ONE freestanding Mori camp banner, no people.\nLayout: exactly 3 equal columns by 2 equal rows, reading left to right then top to bottom. Prefer 1536x1024 canvas. Each cell has one COMPLETE isolated flag assembly from finial to entire tripod wooden base, with at least 25 pixels clear margin from every cell edge. Entire wooden pole is perfectly upright and stationary, identical size and grounded base position in all six cells. Pole plus base approx 430 pixels tall inside each 512x512 cell. No panel borders, no labels, no numbers.\nSubject: a slim wooden pole with small metal fittings and a short top crossbar, stable humble wooden tripod/cross base. A deep dark teal vertical rectangular cloth banner hangs from the short top crossbar alongside the pole, natural worn fabric texture, not torn into strips. Cloth approximately 115px wide x 270px tall; leave substantial pole visible beneath it. Clearly readable WHITE Mori Ichimonji Mitsuboshi crest centered on cloth in EVERY frame: exactly ONE broad horizontal white bar above exactly THREE WHITE CIRCULAR DISCS in a compact triangular arrangement (one upper circle, two lower circles). The crest is solid white, no black outlines, no additional emblems, no lettering. Preserve same crest design through folds, never omit or add a disk.\nAnimation: six distinct evenly spaced moments in one gentle repeating cloth wind cycle, 0 small outward billow, 1 billow rising toward free right edge, 2 upper fold leading and lower hem trailing right, 3 billow relaxed through center, 4 lower fold returning and upper cloth softening, 5 returning smoothly toward frame0. Cloth contour and fold lines are actually redrawn each frame; do not simply rotate/tilt/sway the entire same image. Keep rod and base fixed absolutely. Natural small flag flutter suitable for 5fps looping, never violent flips or fully obscured crest.\nArt: crisp high resolution hand-painted 2D game illustration, clear dark edge definition, earthy wood, black iron, teal cloth and white crest; understated warm directional lighting. No glow, blur, drop shadow, ground puddle, backdrop, halo or outside haze. Keep consistent scale, exposure, camera angle and outline weight across every frame.\nTransparency: true alpha background, completely clear between sprites and through the tripod gaps. No checkerboard painted into the image, no parchment or colored background, no scenery and absolutely no humans.\nThis is a brand-new isolated prop asset. The requested six frames must be fully drawn, complete, uncropped and mutually separated.",
+        "transparent_background": true,
+        "source": "C:/Users/guder/.codex/generated_images/01a12451-bd76-7222-9b1d-e8d840d0642c/exec-6407a1aa-0f51-4c46-a233-4a9be27aced3.png",
+        "file": "mori-camp-flag.png",
+        "original_png_preserved": true,
+        "canvas": [
+          1536,
+          1024
+        ],
+        "columns": 3,
+        "rows": 2,
+        "frame_count": 6,
+        "body_heights": [
+          489,
+          490,
+          490,
+          488,
+          489,
+          489
+        ],
+        "alpha_measurement": {
+          "below_5_fraction": 0.8089949289957682,
+          "above_240_fraction": 0.16649754842122397
+        },
+        "qa": "All six flags have an identical white Mori crest (one bar above three circular discs), complete poles and complete wooden bases; cloth contours are independently redrawn. Raw PNG has actual alpha, no postprocessing or opaque-background removal.",
+        "source_sha256": "fd66d4758a2a5b7497eaaa868d59cb66f6f95666bf4215af1b17d5ed0dbba465",
+        "sha256": "fd66d4758a2a5b7497eaaa868d59cb66f6f95666bf4215af1b17d5ed0dbba465"
+      }
+    },
+    {
+      "file": "mori-commander-commander_cut.png",
+      "sha256": "b7320f9cfa101166f0e3777f0e03e9fc366d5a486b6a331a9ff76f401d755ec2",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.6803307565709983,
+      "recipe": {
+        "stem": "mori-commander-commander_cut",
+        "prompt": "Use case: background-extraction and precise-object-edit. EDIT the existing SIX character drawings from the reference, preserve all six exact articulated poses and SAME identity/costume/face/body proportions. Reproduce on GENUINELY TRANSPARENT ALPHA, crisp fully opaque character and weapon paint. Remove ALL beige/brown/gray background, gradients/haze, floor/ground/shadows, grids, borders, labels, numbers, arrows, dust, flashes, white motion trails, instructional graphics, and all nonphysical effects. Spaces between limbs and weapon must be transparent. No text whatsoever. SIX isolated complete characters in THREE columns TWO rows, same anatomical scale all six, body>=340px native. All weapons/flags/poles/hats/shoes complete with>=16px margin beyond every extremity, no touching neighboringdrawings. Highresolution. Change layout from original six-in-one-horizontal-row into THREE columns TWO rows, originalframes1,2,3 ontop and4,5,6 below. Use SQUARE1536x1536 canvas for tall overheadkatana, keeping upright helmet-to-sandals approximately450px each; swordup canextendabove withoutclipping. Preserve EACH exact swordangle and torso/legpose. Restore original firstframe's SCREEN LEFT shoe which touchededge; full sandals withmargin. Do not cram six inonerow.",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-commander-commander_cut-candidate-before-repair.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-dbfb5b76-3bcb-4d37-b967-e2e5a67a2556.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-commander-commander_cut-repaired.png",
+        "status": "accepted six poses; alpha and outer edges passed; scale_audit independently registered read-only",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-commander-commander_cut.png",
+        "sha256": "b7320f9cfa101166f0e3777f0e03e9fc366d5a486b6a331a9ff76f401d755ec2",
+        "source_sha256": "b7320f9cfa101166f0e3777f0e03e9fc366d5a486b6a331a9ff76f401d755ec2",
+        "measurements": {
+          "stem": "mori-commander-commander_cut",
+          "size": [
+            1254,
+            1254
+          ],
+          "alpha0": 0.6803307565709983,
+          "components": [
+            [
+              904,
+              3,
+              294,
+              732
+            ],
+            [
+              496,
+              130,
+              286,
+              597
+            ],
+            [
+              74,
+              221,
+              309,
+              501
+            ],
+            [
+              922,
+              739,
+              315,
+              495
+            ],
+            [
+              39,
+              751,
+              359,
+              492
+            ],
+            [
+              466,
+              782,
+              420,
+              461
+            ]
+          ],
+          "body_height_estimate": 500,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-commander-commander_dash.png",
+      "sha256": "566e3b4c87cce637bd7195189f7b651e47c5243147cd317bc18397a780ee89a3",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6453342437744141,
+      "recipe": {
+        "stem": "mori-commander-commander_dash",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-commander-commander_dash-candidate-before-repair.png"
+        ],
+        "prompt": "Use case: background-extraction and precise-object-edit. EDIT this exact existing six-pose sprite sheet. Preserve all SIX original identities, costumes, facial features, weapon positions, articulated poses, and body proportions; do not invent new poses. Keep THREE columns TWO rows high-resolution1536x1024 layout. Extract crisp opaque characters/weapons onto GENUINE TRANSPARENT ALPHA. Remove ALL beige/brown/gray background, ground shadows, gradient, colored haze, grid lines, labels, numbers, red arrows, white motion trails and nonphysical effects. Empty space between limbs and weapons must also be fully transparent. No new text/grid/effects. Full figure and complete weapon per cell with >=12px transparent margins at canvas edges and clear gutters. Never shrink only one character or crop its body to fit. All six figures retain equal anatomical scale. Necessary local repairs: remove lower-left white nonphysical sword-light streaks; lower-middle character's SCREEN LEFT sandal and ankle were clipped by the internal grid line. Restore that complete rear foot/shoe naturally, preserve bent-lunge pose and all six original katana positions. Keep single solid steel sword no ghost blades, six full characters, complete shoes and armor. Remove all beige background/grid/shadows.",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-a40070fc-5ca5-472e-a9f9-cd206745b7d2.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-commander-commander_dash-repaired.png",
+        "status": "accepted: visually reviewed six original poses; genuine alpha, no grids/effects, local cropped extremity repaired",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-commander-commander_dash.png",
+        "sha256": "566e3b4c87cce637bd7195189f7b651e47c5243147cd317bc18397a780ee89a3",
+        "source_sha256": "566e3b4c87cce637bd7195189f7b651e47c5243147cd317bc18397a780ee89a3",
+        "measurements": {
+          "stem": "mori-commander-commander_dash",
+          "size": [
+            1536,
+            1024
+          ],
+          "alpha0": 0.6453342437744141,
+          "components": [
+            [
+              28,
+              24,
+              447,
+              469
+            ],
+            [
+              1005,
+              26,
+              526,
+              466
+            ],
+            [
+              511,
+              30,
+              453,
+              461
+            ],
+            [
+              1060,
+              506,
+              447,
+              475
+            ],
+            [
+              13,
+              508,
+              548,
+              466
+            ],
+            [
+              523,
+              527,
+              566,
+              439
+            ]
+          ],
+          "body_height_estimate": 475,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-commander-commander_rise.png",
+      "sha256": "aaf92bfd73cfb0430973fc4ec08b27825848daffba395196e5b3374f121e2cf5",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6695353190104166,
+      "recipe": {
+        "stem": "mori-commander-commander_rise",
+        "prompt": "Use case: background-extraction and precise-object-edit. EDIT the existing SIX character drawings from the reference, preserve all six exact articulated poses and SAME identity/costume/face/body proportions. Reproduce on GENUINELY TRANSPARENT ALPHA, crisp fully opaque character and weapon paint. Remove ALL beige/brown/gray background, gradients/haze, floor/ground/shadows, grids, borders, labels, numbers, arrows, dust, flashes, white motion trails, instructional graphics, and all nonphysical effects. Spaces between limbs and weapon must be transparent. No text whatsoever. SIX isolated complete characters in THREE columns TWO rows, same anatomical scale all six, body>=340px native. All weapons/flags/poles/hats/shoes complete with>=16px margin beyond every extremity, no touching neighboringdrawings. Highresolution. 1536x1024. Original contains near-transparent colored PANELS and faintgrid: remove completely; every empty pixel alpha0. Ensure armor/skin opaque, not semitransparent. Preserve exact six rising-katana poses, single steel blade and complete sandals, no blur/haze.",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-commander-commander_rise-candidate-before-repair.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-2a44650a-8d67-4233-9766-3c6442597e1f.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-commander-commander_rise-repaired.png",
+        "status": "accepted six poses; alpha and outer edges passed; scale_audit independently registered read-only",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-commander-commander_rise.png",
+        "sha256": "aaf92bfd73cfb0430973fc4ec08b27825848daffba395196e5b3374f121e2cf5",
+        "source_sha256": "aaf92bfd73cfb0430973fc4ec08b27825848daffba395196e5b3374f121e2cf5",
+        "measurements": {
+          "stem": "mori-commander-commander_rise",
+          "size": [
+            1536,
+            1024
+          ],
+          "alpha0": 0.6695353190104166,
+          "components": [
+            [
+              57,
+              27,
+              409,
+              447
+            ],
+            [
+              1006,
+              41,
+              520,
+              439
+            ],
+            [
+              555,
+              51,
+              429,
+              424
+            ],
+            [
+              528,
+              473,
+              462,
+              513
+            ],
+            [
+              43,
+              490,
+              431,
+              493
+            ],
+            [
+              1044,
+              502,
+              459,
+              480
+            ]
+          ],
+          "body_height_estimate": 470,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-commander-death.png",
+      "sha256": "ea331be1722404eb35d5324d5132048e567e2aad34556cc6b6832daa793d00db",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7387383778889974,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-97eec293-b638-4b8a-bbec-8d580ab55fd4.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "Use case: identity-preserve. Production game sprite atlas based precisely on supplied approved Mori concept. Genuine alpha transparent background. SIX full body drawings, exactly 3 columns x 2 rows reading left to right. 1536x1024 canvas, human anatomy head-to-shoes around 350px high, same constant proportions and scale in every cell. Complete weapons, feet and clothes within each cell, large transparent gutters, nothing touching neighbors, no text/grid/ground/shadows/blur/effects. Mature realistic 7-head adult human, crisp detailed historical hand painted ink game art matching reference. Cream shirt, dark brown/black simple lamellar armor/tassets, grey baggy trousers, dark shinwraps, straw sandals, teal waistcord. All face screen RIGHT three-quarter side view. FOURTH column moustached commander, practical ridged kabuto, sword in sheath and black war fan. SIX chronological KNOCKDOWN AND DEATH full-body poses, every frame progresses a real collapse: 1 knees buckle with torso leaning back; 2 loses balance and folds down; 3 falling sideways close to ground with elbows protecting; 4 lands on side hip and shoulder; 5 settling almost flat with legs extending; 6 FINISHED LYING COMPLETELY HORIZONTAL on back/side, face quiet eyes closed, shoulder/torso/hips resting at same ground line, legs relaxed and extended, never kneeling or sitting. Equipment stays nearby within own cell, flag cloth with crest collapses naturally beside flag bearer. No blood. Constant anatomical bone lengths; never enlarge later prone figures to fill the height. Entire human and whole weapon fit inside its own cell; no clipped hands/feet. Bare alpha outside figures and attached equipment, no floor, no shadow, NO PAPER BACKGROUND, NO GRID DIVIDERS, NO NUMBERS, NO DIAGRAM ARROWS OR LABELS. Only six isolated painted character cutouts."
+      }
+    },
+    {
+      "file": "mori-commander-hurt-struggle.png",
+      "sha256": "54a6a17778487e284539c5f41587d1b5c1b0d68d41b9472594b46fbdc5e08593",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6371326446533203,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-131ee4a1-ceb9-4f56-939a-7e3e423345bf.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "undefinedFOURTH column moustached commander, practical ridged kabuto, sword in sheath and black war fan. SIX distinct unnumbered reaction drawings: TOP ROW three consecutive severe HIT REACTIONS: 1 torso flinches backward from blow with jaw clenched; 2 bends forward sharply at waist, head low, painful grimace eyes squinted and one hand clutches stomach; 3 one knee bent recovering halfway, face strained. BOTTOM ROW three consecutive GRABBED STRUGGLE poses with NO captor drawn: 4 both upper arms restrained near ribs, elbows tense, torso twists LEFT as fists push outward; 5 shoulders hunch forward, clenched teeth, pulls arm up to break grip; 6 twists torso RIGHT and pulls opposite elbow back, knees brace. Clearly articulate different arms/spine and facial pain each frame, no blood. Equipment remains hanging in hands or on body not floating. Same constant underlying anatomy scale all frames, don't enlarge crouched frames. NO numbers, NO labels, NO background."
+      }
+    },
+    {
+      "file": "mori-commander-walk.png",
+      "sha256": "617d1237b336d98afac15aeab50217cd787b2615cfdb423afc84de63b4706b57",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7101294199625651,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-462f9abd-1b44-48af-8f65-698a682b500a.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "Use case: identity-preserve. Production game sprite atlas based precisely on supplied approved Mori concept. Genuine alpha transparent background. SIX full body drawings, exactly 3 columns x 2 rows reading left to right. 1536x1024 canvas, human anatomy head-to-shoes around 350px high, same constant proportions and scale in every cell. Complete weapons, feet and clothes within each cell, large transparent gutters, nothing touching neighbors, no text/grid/ground/shadows/blur/effects. Mature realistic 7-head adult human, crisp detailed historical hand painted ink game art matching reference. Cream shirt, dark brown/black simple lamellar armor/tassets, grey baggy trousers, dark shinwraps, straw sandals, teal waistcord. All face screen RIGHT three-quarter side view. FOURTH column officer, black ridged practical kabuto and neckguard, moustache, slightly complete lamellar, black war fan in one hand and sheathed katana at waist. SIX consecutive walking RIGHT poses: left foot reaches/right back; left knee bends/right heel lifts; right knee passes left; RIGHT foot forward/LEFT back; right knee bends; left knee passes right. Actual alternating gait with same proportions."
+      }
+    },
+    {
+      "file": "mori-flag-death.png",
+      "sha256": "997dc5d50ec4dd1d6edc21f1347758ddc53361fdda84eba41d0520022973b749",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7093995412190756,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-e50bc62e-4ae4-426b-ba13-117e8fc8a0e4.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "Use case: identity-preserve. Production game sprite atlas based precisely on supplied approved Mori concept. Genuine alpha transparent background. SIX full body drawings, exactly 3 columns x 2 rows reading left to right. 1536x1024 canvas, human anatomy head-to-shoes around 350px high, same constant proportions and scale in every cell. Complete weapons, feet and clothes within each cell, large transparent gutters, nothing touching neighbors, no text/grid/ground/shadows/blur/effects. Mature realistic 7-head adult human, crisp detailed historical hand painted ink game art matching reference. Cream shirt, dark brown/black simple lamellar armor/tassets, grey baggy trousers, dark shinwraps, straw sandals, teal waistcord. All face screen RIGHT three-quarter side view. THIRD column flag bearer, practical black helmet, teal flag with WHITE ONE BAR above THREE DISCS arranged one upper center two lower (Mori crest). Flag/pole always retained. SIX chronological KNOCKDOWN AND DEATH full-body poses, every frame progresses a real collapse: 1 knees buckle with torso leaning back; 2 loses balance and folds down; 3 falling sideways close to ground with elbows protecting; 4 lands on side hip and shoulder; 5 settling almost flat with legs extending; 6 FINISHED LYING COMPLETELY HORIZONTAL on back/side, face quiet eyes closed, shoulder/torso/hips resting at same ground line, legs relaxed and extended, never kneeling or sitting. Equipment stays nearby within own cell, flag cloth with crest collapses naturally beside flag bearer. No blood. Constant anatomical bone lengths; never enlarge later prone figures to fill the height. Entire human and whole weapon fit inside its own cell; no clipped hands/feet. Bare alpha outside figures and attached equipment, no floor, no shadow, NO PAPER BACKGROUND, NO GRID DIVIDERS, NO NUMBERS, NO DIAGRAM ARROWS OR LABELS. Only six isolated painted character cutouts."
+      }
+    },
+    {
+      "file": "mori-flag-flag_slam.png",
+      "sha256": "5c73fde495034a03e196a6dcc36b16a992d7bb00f9fc03d9d6ec882d0d7ff95d",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.5621488112044647,
+      "recipe": {
+        "stem": "mori-flag-flag_slam",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-flag_slam-separated.png"
+        ],
+        "prompt": "Use case: precise-object-edit. ONE TINY LOCAL FIX ONLY to this transparent6sprite sheet: change ONLY the teal loose FABRIC in the BOTTOM-LEFT cell. It currently hangs to the floor touching the neighboring middle character's left sandal. FOLD that bottom-left loose fabric BACK UP toward its own pole, as wind curls it, so its LOWEST POINT stops at the BOTTOM-LEFT SOLDIER'S KNEE HEIGHT, well above his ankles. Keep its ivory Mori bar-and-three-circles emblem fully visible on the folded compact cloth. This bottom-left flag must NOT extend toward or touch the middle soldier's left foot/leg. Clear transparent emptygap minimum30px between that cloth and middlefigure. DO NOT change any person's body/pose/size/face/clothing; DO NOT change other five flags or poses; DO NOT change pole shaft, hand grips, or sandals. Exactlysix separate sprites, 3columns2rows. Preserve transparent background and all crisp opaque characterpaint. No effects/text/arrows/grids/glow. Necessary change is ONLY folding/shortening free tealcloth in lower-left cell to kneeheight, preventing cross-cell physical contact. Keepimage1254squareorhighres equivalent; no cropping.",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-1091c31d-f7b3-425d-ae88-110c65774c04.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-flag_slam-folded.png",
+        "status": "accepted: six disconnected sprites, no outer-edge crop, same poses; only bottom-left free cloth folded to avoid touching adjacent sandal",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-flag-flag_slam.png",
+        "sha256": "5c73fde495034a03e196a6dcc36b16a992d7bb00f9fc03d9d6ec882d0d7ff95d",
+        "source_sha256": "5c73fde495034a03e196a6dcc36b16a992d7bb00f9fc03d9d6ec882d0d7ff95d",
+        "actual_layout": {
+          "columns": 3,
+          "rows": 2
+        },
+        "actual_size": [
+          1254,
+          1254
+        ],
+        "alpha_zero_fraction": 0.5621488112044647,
+        "body_height": 455,
+        "component_count": 6,
+        "game_matches_candidate": true
+      }
+    },
+    {
+      "file": "mori-flag-flag_sweep.png",
+      "sha256": "7adbd6c03d2a9559328e9d488b5fa7eba3618028a87324b4a2a9370ba149fe5a",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7028446197509766,
+      "recipe": {
+        "stem": "mori-flag-flag_sweep",
+        "prompt": "Use case: background-extraction and precise-object-edit. EDIT the existing SIX character drawings from the reference, preserve all six exact articulated poses and SAME identity/costume/face/body proportions. Reproduce on GENUINELY TRANSPARENT ALPHA, crisp fully opaque character and weapon paint. Remove ALL beige/brown/gray background, gradients/haze, floor/ground/shadows, grids, borders, labels, numbers, arrows, dust, flashes, white motion trails, instructional graphics, and all nonphysical effects. Spaces between limbs and weapon must be transparent. No text whatsoever. SIX isolated complete characters in THREE columns TWO rows, same anatomical scale all six, body>=340px native. All weapons/flags/poles/hats/shoes complete with>=16px margin beyond every extremity, no touching neighboringdrawings. Highresolution. 1536x1024 or1536square sufficient margin. Preserve six flag-sweep poses, flag identity deepteal fabric and correctMori crest: ivoryhorizontalbar above3filledcircles arranged1above2, follows flagrotation. Keep fullpoleandraggedcloth, no newemblem. Remove originalpaperbackgroundandgrid. Firstframepolecap mustnot touchtopedge. Bodydimensionsconsistent evenwhenflagextendsfar.",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-flag_sweep-candidate-before-repair.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-aebfd43b-41cb-4009-a515-6dbe52ab82c2.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-flag_sweep-repaired.png",
+        "status": "accepted six poses; alpha and outer edges passed; scale_audit independently registered read-only",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-flag-flag_sweep.png",
+        "sha256": "7adbd6c03d2a9559328e9d488b5fa7eba3618028a87324b4a2a9370ba149fe5a",
+        "source_sha256": "7adbd6c03d2a9559328e9d488b5fa7eba3618028a87324b4a2a9370ba149fe5a",
+        "measurements": {
+          "stem": "mori-flag-flag_sweep",
+          "size": [
+            1536,
+            1024
+          ],
+          "alpha0": 0.7028446197509766,
+          "components": [
+            [
+              110,
+              9,
+              272,
+              525
+            ],
+            [
+              523,
+              11,
+              439,
+              525
+            ],
+            [
+              1051,
+              95,
+              433,
+              436
+            ],
+            [
+              1184,
+              517,
+              336,
+              476
+            ],
+            [
+              526,
+              586,
+              645,
+              393
+            ],
+            [
+              20,
+              637,
+              508,
+              329
+            ]
+          ],
+          "body_height_estimate": 365,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-flag-hurt-struggle.png",
+      "sha256": "1877b75e032aa565d8c973cc67191ab763b46ed7a02e0581d59d9bc3ed266401",
+      "original_bytes_unchanged": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_fraction": 0.557027718636885,
+      "recipe": {
+        "stem": "mori-flag-hurt-struggle",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-hurt-struggle-candidate-before-repair.png"
+        ],
+        "prompt": "Use case: precise-object-edit and background-extraction. Repair exact provided SIX frames of Mori FLAG BEARER hurt and struggle. Preserve all SIX existing poses, exact body/head/costume proportions and painful faces, hands and poleangle. Restore COMPLETE TOP OF EVERY FLAG and wooden pole cap/crossbar, currently all6cropped by canvas or celltop. Use SQUARE1536x1536, THREEcolumns TWOrows so eachcell taller and fullflag+bodyfit. Keep consistent anatomical bodyheightaround400px, nottinyfigures. Alltopcaps/tealcloth with>=20px transparent margin. Same correct Mori emblem eachflag: ivory horizontalbar ABOVE threeivoryfilledcircles in1over2 arrangement. GENUINE transparent alpha behind and between all figures, removeall brown/blackgradient/haze/glow entirely, skin/armor fullyopaque, crispinkedge. NO numbers/grids/arrows/shadows/effects/text. Exactly6 isolatedcompletefigures, no newposes, no mirroring, no cropped flags/shoes.",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-6259ea5f-b3fa-4427-bc99-e68a96f9fc06.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-hurt-struggle-repaired.png",
+        "status": "accepted six poses; alpha and outer edges passed; scale_audit independently registered read-only",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-flag-hurt-struggle.png",
+        "sha256": "1877b75e032aa565d8c973cc67191ab763b46ed7a02e0581d59d9bc3ed266401",
+        "source_sha256": "1877b75e032aa565d8c973cc67191ab763b46ed7a02e0581d59d9bc3ed266401",
+        "measurements": {
+          "stem": "mori-flag-hurt-struggle",
+          "size": [
+            1254,
+            1254
+          ],
+          "alpha0": 0.557027718636885,
+          "components": [
+            [
+              76,
+              6,
+              381,
+              607
+            ],
+            [
+              481,
+              6,
+              363,
+              611
+            ],
+            [
+              898,
+              7,
+              354,
+              612
+            ],
+            [
+              859,
+              622,
+              391,
+              601
+            ],
+            [
+              12,
+              623,
+              421,
+              596
+            ],
+            [
+              449,
+              631,
+              401,
+              591
+            ]
+          ],
+          "body_height_estimate": 460,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-flag-poke.png",
+      "sha256": "6d933cc6a682fb7c9d3650bf8187fada3979a367fa7ed06dac498bf1624bc369",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7123343149820963,
+      "recipe": {
+        "stem": "mori-flag-poke",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-poke-candidate-conical-hat.png",
+          "D:/AI/吞食戰國/game/assets/v14/mori-flag-walk.png"
+        ],
+        "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET: six Mori FLAG POKE poses. Image2 is ONLY a HELMET IDENTITY reference. Make ONE narrowly local change in Image1: replace the shallow wide conical jingasa hat on EACH of its SIX heads with the black round-domed iron helmet worn by the flag bearer in Image2. Exact same rounded dome silhouette, small brim, dark metal segments/rivets and neck/side protection as Image2, fitted naturally to each existing head angle. Keep each face, hair, expression, head size and all neck/shoulder/body positions otherwise unchanged. PRESERVE ALL six original poses, original flag/pole geometry, original body proportions/anatomical scale, armor/beige sleeves/teal sash, Mori banner emblem (ivory horizontalbar above three filled circles arranged1over2), weapon direction, shoes and hands. NO restaging, no pose changes, no new characters, no new equipment besides replacingthehat. Preserve the threecolumns tworows layout and 1536x1024 framing, all six isolated full figures with actual transparent alpha background. No background gradients/haze/shadows/labels/arrows/grids/effects. All sandals, flagcloth, poleends and newhelmettops remain fully insidecanvas with transparentmargin. Keep sharp opaque linework and colors; do NOT make skin/armor semitransparent. Do NOT redraw other materials. EXACTLY SIX figures, only hats change from wide cones to round black iron domes.",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-845cc4dd-1892-4d8d-8017-4fc6a355121d.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-poke-round-helmet.png",
+        "status": "accepted: six matching round iron helmets, original poses/body/flags/crests retained; alpha and six separated complete components passed",
+        "tool": "builtin image_gen",
+        "accepted_output": "D:\\AI\\吞食戰國\\game\\assets\\v14\\mori-flag-poke.png",
+        "sha256": "6d933cc6a682fb7c9d3650bf8187fada3979a367fa7ed06dac498bf1624bc369",
+        "source_sha256": "6d933cc6a682fb7c9d3650bf8187fada3979a367fa7ed06dac498bf1624bc369",
+        "original_bytes_preserved": true,
+        "actual_size": [
+          1536,
+          1024
+        ],
+        "actual_layout": {
+          "columns": 3,
+          "rows": 2
+        },
+        "frame_count": 6,
+        "body_height": 365,
+        "alpha_zero_fraction": 0.7123343149820963,
+        "original_edit_target": "D:/AI/吞食戰國/game/assets/v14/mori-flag-poke.png",
+        "old_edit_reference_backup": "D:\\AI\\吞食戰國\\artifacts\\art-native-v14\\mori-flag-poke-candidate-conical-hat.png",
+        "old_edit_reference_sha256": "c7d0840e90c5cf6d12a7a5416831860ca0a4a5590de8b6bea2e057ba3219cf7d",
+        "reference_sha256": {
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-poke-candidate-conical-hat.png": "c7d0840e90c5cf6d12a7a5416831860ca0a4a5590de8b6bea2e057ba3219cf7d",
+          "D:/AI/吞食戰國/game/assets/v14/mori-flag-walk.png": "376033ab62df1163939b40cf3956fac22d8f9f14184cf51e6d809f350b064ffc"
+        },
+        "component_boxes": [
+          [
+            141,
+            3,
+            217,
+            509
+          ],
+          [
+            568,
+            25,
+            399,
+            484
+          ],
+          [
+            1082,
+            54,
+            438,
+            456
+          ],
+          [
+            47,
+            542,
+            549,
+            427
+          ],
+          [
+            533,
+            567,
+            613,
+            402
+          ],
+          [
+            1159,
+            522,
+            362,
+            454
+          ]
+        ]
+      }
+    },
+    {
+      "file": "mori-flag-walk.png",
+      "sha256": "376033ab62df1163939b40cf3956fac22d8f9f14184cf51e6d809f350b064ffc",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.659491221110026,
+      "recipe": {
+        "stem": "mori-flag-walk",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-walk-candidate-before-repair.png"
+        ],
+        "prompt": "Use case: background-extraction and precise-object-edit. EDIT this exact existing six-pose sprite sheet. Preserve all SIX original identities, costumes, facial features, weapon positions, articulated poses, and body proportions; do not invent new poses. Keep THREE columns TWO rows high-resolution1536x1024 layout. Extract crisp opaque characters/weapons onto GENUINE TRANSPARENT ALPHA. Remove ALL beige/brown/gray background, ground shadows, gradient, colored haze, grid lines, labels, numbers, red arrows, white motion trails and nonphysical effects. Empty space between limbs and weapons must also be fully transparent. No new text/grid/effects. Full figure and complete weapon per cell with >=12px transparent margins at canvas edges and clear gutters. Never shrink only one character or crop its body to fit. All six figures retain equal anatomical scale. Necessary local repair: top-middle flagpole/flag upper tip was clipped by top canvas edge. Restore the complete small wood pole cap and full horizontal top crossbar, shift this entire sprite down enough for a12px transparent margin; preserve exact six walking poses and visible MORI crest on everyflag (horizontalbar above three filled ivorycircles, one overtwo). No different symbol. Preserve existing sharpcolor/alpha elsewhere.",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-4066fead-2d98-4a32-8378-f51ec20abe1c.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-flag-walk-repaired.png",
+        "status": "accepted: visually reviewed six original poses; genuine alpha, no grids/effects, local cropped extremity repaired",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-flag-walk.png",
+        "sha256": "376033ab62df1163939b40cf3956fac22d8f9f14184cf51e6d809f350b064ffc",
+        "source_sha256": "376033ab62df1163939b40cf3956fac22d8f9f14184cf51e6d809f350b064ffc",
+        "measurements": {
+          "stem": "mori-flag-walk",
+          "size": [
+            1536,
+            1024
+          ],
+          "alpha0": 0.659491221110026,
+          "components": [
+            [
+              604,
+              9,
+              355,
+              508
+            ],
+            [
+              1102,
+              11,
+              401,
+              508
+            ],
+            [
+              129,
+              12,
+              400,
+              507
+            ],
+            [
+              610,
+              522,
+              400,
+              489
+            ],
+            [
+              129,
+              525,
+              416,
+              487
+            ],
+            [
+              1101,
+              525,
+              417,
+              486
+            ]
+          ],
+          "body_height_estimate": 365,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-gunner-death.png",
+      "sha256": "325db83c8d3526844740609477c1271867e36e033a23dc0b7baf1f40faebc135",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7373040517171224,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-eb997414-dfd4-466f-a26f-1625b5a0b8f0.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "Use case: identity-preserve. Production game sprite atlas based precisely on supplied approved Mori concept. Genuine alpha transparent background. SIX full body drawings, exactly 3 columns x 2 rows reading left to right. 1536x1024 canvas, human anatomy head-to-shoes around 350px high, same constant proportions and scale in every cell. Complete weapons, feet and clothes within each cell, large transparent gutters, nothing touching neighbors, no text/grid/ground/shadows/blur/effects. Mature realistic 7-head adult human, crisp detailed historical hand painted ink game art matching reference. Cream shirt, dark brown/black simple lamellar armor/tassets, grey baggy trousers, dark shinwraps, straw sandals, teal waistcord. All face screen RIGHT three-quarter side view. SECOND column matchlock rifleman, white headband black tied hair, wood rifle and powder boxes. SIX chronological KNOCKDOWN AND DEATH full-body poses, every frame progresses a real collapse: 1 knees buckle with torso leaning back; 2 loses balance and folds down; 3 falling sideways close to ground with elbows protecting; 4 lands on side hip and shoulder; 5 settling almost flat with legs extending; 6 FINISHED LYING COMPLETELY HORIZONTAL on back/side, face quiet eyes closed, shoulder/torso/hips resting at same ground line, legs relaxed and extended, never kneeling or sitting. Equipment stays nearby within own cell, flag cloth with crest collapses naturally beside flag bearer. No blood. Constant anatomical bone lengths; never enlarge later prone figures to fill the height. Entire human and whole weapon fit inside its own cell; no clipped hands/feet. Bare alpha outside figures and attached equipment, no floor, no shadow, NO PAPER BACKGROUND, NO GRID DIVIDERS, NO NUMBERS, NO DIAGRAM ARROWS OR LABELS. Only six isolated painted character cutouts."
+      }
+    },
+    {
+      "file": "mori-gunner-gun_shot.png",
+      "sha256": "9c2951ea4039b6c1272b137cc9daddf3e5f7a5e40d116dff844b2dd8d044ce7e",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6676915486653646,
+      "recipe": {
+        "stem": "mori-gunner-gun_shot",
+        "prompt": "Use case: background-extraction and precise-object-edit. EDIT the existing SIX character drawings from the reference, preserve all six exact articulated poses and SAME identity/costume/face/body proportions. Reproduce on GENUINELY TRANSPARENT ALPHA, crisp fully opaque character and weapon paint. Remove ALL beige/brown/gray background, gradients/haze, floor/ground/shadows, grids, borders, labels, numbers, arrows, dust, flashes, white motion trails, instructional graphics, and all nonphysical effects. Spaces between limbs and weapon must be transparent. No text whatsoever. SIX isolated complete characters in THREE columns TWO rows, same anatomical scale all six, body>=340px native. All weapons/flags/poles/hats/shoes complete with>=16px margin beyond every extremity, no touching neighboringdrawings. Highresolution. 1536x1024. Preserve exact six matchlockshooting/reloading poses and mature whiteheadbandman, samematchlockgun and woodstock, especially finalramrodaboveheadfullyvisible. Only background/grid/shadowremoval; no muzzleflash or smoke added. Opaque skin/armor, truealpha emptyspace.",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-gunner-gun_shot-candidate-before-repair.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-e89a7f8f-d7ba-421e-ad45-ba76ca30872a.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-gunner-gun_shot-repaired.png",
+        "status": "accepted six poses; alpha and outer edges passed; scale_audit independently registered read-only",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-gunner-gun_shot.png",
+        "sha256": "9c2951ea4039b6c1272b137cc9daddf3e5f7a5e40d116dff844b2dd8d044ce7e",
+        "source_sha256": "9c2951ea4039b6c1272b137cc9daddf3e5f7a5e40d116dff844b2dd8d044ce7e",
+        "measurements": {
+          "stem": "mori-gunner-gun_shot",
+          "size": [
+            1536,
+            1024
+          ],
+          "alpha0": 0.6676915486653646,
+          "components": [
+            [
+              68,
+              25,
+              423,
+              452
+            ],
+            [
+              1048,
+              26,
+              464,
+              452
+            ],
+            [
+              566,
+              28,
+              449,
+              449
+            ],
+            [
+              1073,
+              465,
+              424,
+              516
+            ],
+            [
+              563,
+              507,
+              443,
+              466
+            ],
+            [
+              55,
+              510,
+              483,
+              463
+            ]
+          ],
+          "body_height_estimate": 460,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-gunner-hurt-struggle.png",
+      "sha256": "7c7de84f8712ed98813a54f86c50218b1ae5c216741c05929c28f6ddd9bd9396",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6545117696126302,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-b9b0d89b-e724-478d-8ebc-02f276253213.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "undefinedSECOND column matchlock rifleman, white headband black tied hair, wood rifle and powder boxes. SIX distinct unnumbered reaction drawings: TOP ROW three consecutive severe HIT REACTIONS: 1 torso flinches backward from blow with jaw clenched; 2 bends forward sharply at waist, head low, painful grimace eyes squinted and one hand clutches stomach; 3 one knee bent recovering halfway, face strained. BOTTOM ROW three consecutive GRABBED STRUGGLE poses with NO captor drawn: 4 both upper arms restrained near ribs, elbows tense, torso twists LEFT as fists push outward; 5 shoulders hunch forward, clenched teeth, pulls arm up to break grip; 6 twists torso RIGHT and pulls opposite elbow back, knees brace. Clearly articulate different arms/spine and facial pain each frame, no blood. Equipment remains hanging in hands or on body not floating. Same constant underlying anatomy scale all frames, don't enlarge crouched frames. NO numbers, NO labels, NO background."
+      }
+    },
+    {
+      "file": "mori-gunner-walk.png",
+      "sha256": "444117b67ec08caff47be3be241569600474dc00eeb832701673bf16b9033da7",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7157999674479166,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-d3b4b14e-b554-4400-97d3-d93ac5bbe234.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "Use case: identity-preserve. Production game sprite atlas based precisely on supplied approved Mori concept. Genuine alpha transparent background. SIX full body drawings, exactly 3 columns x 2 rows reading left to right. 1536x1024 canvas, human anatomy head-to-shoes around 350px high, same constant proportions and scale in every cell. Complete weapons, feet and clothes within each cell, large transparent gutters, nothing touching neighbors, no text/grid/ground/shadows/blur/effects. Mature realistic 7-head adult human, crisp detailed historical hand painted ink game art matching reference. Cream shirt, dark brown/black simple lamellar armor/tassets, grey baggy trousers, dark shinwraps, straw sandals, teal waistcord. All face screen RIGHT three-quarter side view. SECOND column matchlock rifleman, white headband and tied black hair, wooden matchlock held diagonally close to chest safely upward, powder boxes at waist. SIX consecutive phases walking RIGHT: left foot reaches/right back; left knee bends/right heel lifted; right knee passes left; RIGHT foot forward/LEFT back; right knee bends; left knee passes right. Change knees ankles and cloth each frame, no duplicated leg position."
+      }
+    },
+    {
+      "file": "mori-soldier-death.png",
+      "sha256": "a36654a91806c15effc87566dc65f3cdcc94404ac1f37bd40131eadc06a9cd6d",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7610333760579427,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-30077a5f-da21-4173-a555-b0ac2c7e73bb.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "Use case: identity-preserve. Production game sprite atlas based precisely on supplied approved Mori concept. Genuine alpha transparent background. SIX full body drawings, exactly 3 columns x 2 rows reading left to right. 1536x1024 canvas, human anatomy head-to-shoes around 350px high, same constant proportions and scale in every cell. Complete weapons, feet and clothes within each cell, large transparent gutters, nothing touching neighbors, no text/grid/ground/shadows/blur/effects. Mature realistic 7-head adult human, crisp detailed historical hand painted ink game art matching reference. Cream shirt, dark brown/black simple lamellar armor/tassets, grey baggy trousers, dark shinwraps, straw sandals, teal waistcord. All face screen RIGHT three-quarter side view. FIRST column spearman, black conical jingasa hat, plain wooden spear. SIX chronological KNOCKDOWN AND DEATH full-body poses, every frame progresses a real collapse: 1 knees buckle with torso leaning back; 2 loses balance and folds down; 3 falling sideways close to ground with elbows protecting; 4 lands on side hip and shoulder; 5 settling almost flat with legs extending; 6 FINISHED LYING COMPLETELY HORIZONTAL on back/side, face quiet eyes closed, shoulder/torso/hips resting at same ground line, legs relaxed and extended, never kneeling or sitting. Equipment stays nearby within own cell, flag cloth with crest collapses naturally beside flag bearer. No blood. Constant anatomical bone lengths; never enlarge later prone figures to fill the height. Entire human and whole weapon fit inside its own cell; no clipped hands/feet. Bare alpha outside figures and attached equipment, no floor, no shadow, NO PAPER BACKGROUND, NO GRID DIVIDERS, NO NUMBERS, NO DIAGRAM ARROWS OR LABELS. Only six isolated painted character cutouts."
+      }
+    },
+    {
+      "file": "mori-soldier-hurt-struggle.png",
+      "sha256": "a46d678f0fb27f8c00d6df979fd7fcd3a917b4797a07cecca4335a468bae8a9d",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6795622507731119,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-bb277d22-cb1f-4b6b-bfff-27ea98e0c0dd.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "undefinedFIRST column spearman, black conical jingasa hat, plain wooden spear. SIX distinct unnumbered reaction drawings: TOP ROW three consecutive severe HIT REACTIONS: 1 torso flinches backward from blow with jaw clenched; 2 bends forward sharply at waist, head low, painful grimace eyes squinted and one hand clutches stomach; 3 one knee bent recovering halfway, face strained. BOTTOM ROW three consecutive GRABBED STRUGGLE poses with NO captor drawn: 4 both upper arms restrained near ribs, elbows tense, torso twists LEFT as fists push outward; 5 shoulders hunch forward, clenched teeth, pulls arm up to break grip; 6 twists torso RIGHT and pulls opposite elbow back, knees brace. Clearly articulate different arms/spine and facial pain each frame, no blood. Equipment remains hanging in hands or on body not floating. Same constant underlying anatomy scale all frames, don't enlarge crouched frames. NO numbers, NO labels, NO background."
+      }
+    },
+    {
+      "file": "mori-soldier-spear_butt.png",
+      "sha256": "3a734fb8673e7d11a76ec7a2d44c962020d5c20168a7a465936aefeb2c1768db",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6631863911946615,
+      "recipe": {
+        "stem": "mori-soldier-spear_butt",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-soldier-spear_butt-candidate-opaque.png"
+        ],
+        "prompt": "Use case: precise-object-edit and background-extraction. EDIT the supplied SIX-FRAME samurai spear-butt sprite sheet, keeping the same SIX existing poses, SAME face/body proportions/costume, SAME 3 columns by2rows layout, same framing and character size. Preserve all six figures and their hands/legs/clothing artwork. Required changes only: (1) Remove the entire brown background, floor shadows, vertical/horizontal grid lines, and circled1–6 labels completely, replace with GENUINELY TRANSPARENT ALPHA. No colored glow, haze or gradient remnants. All empty pixels including spaces between arms/legs/spear must be transparent. (2) Spears must be SINGLE-TIPPED. In top-left frame and bottom-right frame, remove the SECOND silver spear point on SCREEN RIGHT and replace only that end with a smooth blunt round wooden butt matching the shaft. Keep their screen LEFT silver spearpoint. Other4 poses retain their existing single steel tip and wooden butt. Do not invent a new weapon or change any pose. Clean crisp opaque character edges, no blur/no ghosting. Exactly6 isolated full-body sprite drawings, no numbers, no text, no borders, no extra objects, all sandals and both spear ends visible. Highresolution1536x1024. Transparent background mandatory.",
+        "status": "accepted source repair; same6poses, no labels, single steel tip + wooden butt, transparent alpha",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-9aafa157-6eae-47b3-9a6a-73b2ebfbad26.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-soldier-spear_butt-repaired.png",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-soldier-spear_butt.png",
+        "sha256": "3a734fb8673e7d11a76ec7a2d44c962020d5c20168a7a465936aefeb2c1768db",
+        "source_sha256": "3a734fb8673e7d11a76ec7a2d44c962020d5c20168a7a465936aefeb2c1768db",
+        "alpha_zero_fraction": 0.6631863911946615,
+        "actual_grid": {
+          "columns": 3,
+          "rows": 2
+        },
+        "anatomical_body_height_estimate": 455
+      }
+    },
+    {
+      "file": "mori-soldier-spear_sweep.png",
+      "sha256": "4179c20c207953e8f7041c5e56151563e741af930ea4caf83b3634c850b7effe",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7063547770182291,
+      "recipe": {
+        "stem": "mori-soldier-spear_sweep",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-soldier-spear_sweep-candidate-before-repair.png"
+        ],
+        "prompt": "Use case: background-extraction and precise-object-edit. EDIT this exact existing six-pose sprite sheet. Preserve all SIX original identities, costumes, facial features, weapon positions, articulated poses, and body proportions; do not invent new poses. Keep THREE columns TWO rows high-resolution1536x1024 layout. Extract crisp opaque characters/weapons onto GENUINE TRANSPARENT ALPHA. Remove ALL beige/brown/gray background, ground shadows, gradient, colored haze, grid lines, labels, numbers, red arrows, white motion trails and nonphysical effects. Empty space between limbs and weapons must also be fully transparent. No new text/grid/effects. Full figure and complete weapon per cell with >=12px transparent margins at canvas edges and clear gutters. Never shrink only one character or crop its body to fit. All six figures retain equal anatomical scale. Necessary repair is remove all RED directional teaching arrows as well as beige background/grid/shadows. Restore any tiny clothing/weapon areas formerly covered by arrows. Preserve six original body/spear-angle poses, SINGLE steel spear tip and opposite wooden butt. No red curves, no trails, no new arrows.",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-e669c21e-a1cd-4461-a7d0-1daa2fd2cc49.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-soldier-spear_sweep-repaired.png",
+        "status": "accepted: visually reviewed six original poses; genuine alpha, no grids/effects, local cropped extremity repaired",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-soldier-spear_sweep.png",
+        "sha256": "4179c20c207953e8f7041c5e56151563e741af930ea4caf83b3634c850b7effe",
+        "source_sha256": "4179c20c207953e8f7041c5e56151563e741af930ea4caf83b3634c850b7effe",
+        "measurements": {
+          "stem": "mori-soldier-spear_sweep",
+          "size": [
+            1536,
+            1024
+          ],
+          "alpha0": 0.7063547770182291,
+          "components": [
+            [
+              502,
+              72,
+              466,
+              396
+            ],
+            [
+              1046,
+              81,
+              486,
+              400
+            ],
+            [
+              10,
+              91,
+              518,
+              374
+            ],
+            [
+              1082,
+              500,
+              443,
+              458
+            ],
+            [
+              17,
+              538,
+              488,
+              400
+            ],
+            [
+              529,
+              586,
+              551,
+              333
+            ]
+          ],
+          "body_height_estimate": 410,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-soldier-spear_thrust.png",
+      "sha256": "186e7809d994710c0a0d32d658c2e32d9388a6b47fa5e6c2862f69b1cca3f576",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6728814442952474,
+      "recipe": {
+        "stem": "mori-soldier-spear_thrust",
+        "refs": [
+          "D:/AI/吞食戰國/artifacts/art-native-v14/mori-soldier-spear_thrust-candidate-before-repair.png"
+        ],
+        "prompt": "Use case: background-extraction and precise-object-edit. EDIT this exact existing six-pose sprite sheet. Preserve all SIX original identities, costumes, facial features, weapon positions, articulated poses, and body proportions; do not invent new poses. Keep THREE columns TWO rows high-resolution1536x1024 layout. Extract crisp opaque characters/weapons onto GENUINE TRANSPARENT ALPHA. Remove ALL beige/brown/gray background, ground shadows, gradient, colored haze, grid lines, labels, numbers, red arrows, white motion trails and nonphysical effects. Empty space between limbs and weapons must also be fully transparent. No new text/grid/effects. Full figure and complete weapon per cell with >=12px transparent margins at canvas edges and clear gutters. Never shrink only one character or crop its body to fit. All six figures retain equal anatomical scale. Necessary repair is background extraction only. Keep exact six spear-thrust poses, one steel spear tip and blunt wooden butt, complete spear and sandals; remove beige floor/grid. Lower-middle spear overlaps neighboring cell space: allow transparent gutters without clipping any tip or limb.",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-29ccef02-311d-42d6-8b6e-6b5f37063dfe.png",
+        "output": "D:/AI/吞食戰國/artifacts/art-native-v14/mori-soldier-spear_thrust-repaired.png",
+        "status": "accepted: visually reviewed six original poses; genuine alpha, no grids/effects, local cropped extremity repaired",
+        "tool": "builtin image_gen",
+        "accepted_output": "game\\assets\\v14\\mori-soldier-spear_thrust.png",
+        "sha256": "186e7809d994710c0a0d32d658c2e32d9388a6b47fa5e6c2862f69b1cca3f576",
+        "source_sha256": "186e7809d994710c0a0d32d658c2e32d9388a6b47fa5e6c2862f69b1cca3f576",
+        "measurements": {
+          "stem": "mori-soldier-spear_thrust",
+          "size": [
+            1536,
+            1024
+          ],
+          "alpha0": 0.6728814442952474,
+          "components": [
+            [
+              29,
+              40,
+              478,
+              465
+            ],
+            [
+              521,
+              97,
+              515,
+              409
+            ],
+            [
+              1036,
+              99,
+              488,
+              409
+            ],
+            [
+              12,
+              556,
+              538,
+              385
+            ],
+            [
+              1064,
+              558,
+              460,
+              391
+            ],
+            [
+              477,
+              571,
+              646,
+              374
+            ]
+          ],
+          "body_height_estimate": 425,
+          "pass": true
+        }
+      }
+    },
+    {
+      "file": "mori-soldier-walk.png",
+      "sha256": "e80e9b28066cd460681389d6c57558cc3419a9d1148bb4aab313ef114b6f7167",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.7664960225423177,
+      "recipe": {
+        "tool": "builtin imagegen",
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a1237e-bec0-7b73-9d2a-1d4d7554840e\\exec-a4ce36d8-b66b-49ad-843f-7b75490bc006.png",
+        "reference": "assets/enemies-v0.8/mori.png",
+        "prompt": "Use case: identity-preserve. Production game sprite atlas based precisely on supplied approved Mori concept. Genuine alpha transparent background. SIX full body drawings, exactly 3 columns x 2 rows reading left to right. 1536x1024 canvas, human anatomy head-to-shoes around 350px high, same constant proportions and scale in every cell. Complete weapons, feet and clothes within each cell, large transparent gutters, nothing touching neighbors, no text/grid/ground/shadows/blur/effects. Mature realistic 7-head adult human, crisp detailed historical hand painted ink game art matching reference. Cream shirt, dark brown/black simple lamellar armor/tassets, grey baggy trousers, dark shinwraps, straw sandals, teal waistcord. All face screen RIGHT three-quarter side view. FIRST column spearman, plain black conical jingasa hat, long wooden spear carried mostly upright slant forward. SIX consecutive phases of walking cycle: left heel forward right rear; weight drops and left knee bends; right knee passes LEFT leg; right heel forward LEFT rear; weight drops right knee bends; LEFT knee passes RIGHT leg. Actually swap front and rear legs, advance foot positions evenly, natural arms balancing spear. KEEP SAME MAN."
+      }
+    },
+    {
+      "file": "nobunaga-run-a.png",
+      "sha256": "eee2d182df0b6ce292789fd177ef1b691ccda6d813efea93730f785be0676012",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.6275119781494141,
+      "recipe": {
+        "stem": "nobunaga-run-a",
+        "action": "run",
+        "rows": 2,
+        "columns": 3,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "prompt": "Use case: stylized-concept. New high-resolution transparent game sprite atlas. Reference image is APPROVED NOBUNAGA WALK and exact identity/scale/costume target. Same mature Japanese man black mustache pointed beard, swept black high ponytail red bead tie, compact strong 4.8-head anatomy, vivid red gold-edged lamellar armor, red gold-flower cloak, black/purple balloon trousers, red shin armor, black gold-soled shoes, black hip scabbard, drawn katana. Retain exact face and body proportions, no realistic tall/slender redesign. Draw a genuine evenly sampled RUN CYCLE facing screen RIGHT; running differs from walking via forward torso lean, stronger rear push-off, actual short flight and alternating front/back feet. Sword carried low forward safely and steadily, NOT swung as attack. Arms/shoulders move subtly against hips while holding sword. Cloak and ponytail trail left naturally. Crisp black ink/cel colors, NO blur or ghost trails. Actual transparent alpha background, no red/black gradient, no shadows, no floor/labels.\nEXACTLY SIX separate full-body drawings THREE columns TWO rows, reading left-right then downward. Landscape 1536x1024. Body skull to sole around400-420px in each 512px-highcell; same head/body scale allframes, clear gutters and all sword tips/cloak/shoes entirely inside each cell. Every frame newly articulated. These are half of a12-framecycle evenly advancing30degrees perframe, no repeated held pose and no anticipation/attack/recovery.\nFirst half frames0..5 of12.0 right/front foot lands forward, left leg trailing lifted;1 right knee compresses underbody, left heel folds behind;2 right supports and starts extending, left knee passes underhips;3 right toes push behind, left knee lifts forward with ankle belowknee;4 brief flight: left leg extends forward, right folds backward;5 left/front foot approaches ground extended, right knee flexed behind. Uniform small changes between each adjacentframe, sameforwardlean.",
+        "refs": [
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-db106e50-ba8d-475c-975a-1ba68557f74e.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/nobunaga-run-a.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "eee2d182df0b6ce292789fd177ef1b691ccda6d813efea93730f785be0676012",
+        "source_sha256": "eee2d182df0b6ce292789fd177ef1b691ccda6d813efea93730f785be0676012",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0"
+        },
+        "actual_size": [
+          1536,
+          1024
+        ],
+        "alpha_zero_fraction": 0.62751,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 3,
+          "rows": 2
+        }
+      }
+    },
+    {
+      "file": "nobunaga-run-b.png",
+      "sha256": "ecfcbb140124629769978dcc1ae5688ecc2e310c731f552b263deb3d2a30dffd",
+      "original_bytes_unchanged": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "transparent_fraction": 0.5988229115804037,
+      "recipe": {
+        "stem": "nobunaga-run-b",
+        "action": "run",
+        "rows": 2,
+        "columns": 3,
+        "frames": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "prompt": "Use case: stylized-concept. New high-resolution transparent game sprite atlas. Reference image is APPROVED NOBUNAGA WALK and exact identity/scale/costume target. Same mature Japanese man black mustache pointed beard, swept black high ponytail red bead tie, compact strong 4.8-head anatomy, vivid red gold-edged lamellar armor, red gold-flower cloak, black/purple balloon trousers, red shin armor, black gold-soled shoes, black hip scabbard, drawn katana. Retain exact face and body proportions, no realistic tall/slender redesign. Draw a genuine evenly sampled RUN CYCLE facing screen RIGHT; running differs from walking via forward torso lean, stronger rear push-off, actual short flight and alternating front/back feet. Sword carried low forward safely and steadily, NOT swung as attack. Arms/shoulders move subtly against hips while holding sword. Cloak and ponytail trail left naturally. Crisp black ink/cel colors, NO blur or ghost trails. Actual transparent alpha background, no red/black gradient, no shadows, no floor/labels.\nEXACTLY SIX separate full-body drawings THREE columns TWO rows, reading left-right then downward. Landscape 1536x1024. Body skull to sole around400-420px in each 512px-highcell; same head/body scale allframes, clear gutters and all sword tips/cloak/shoes entirely inside each cell. Every frame newly articulated. These are half of a12-framecycle evenly advancing30degrees perframe, no repeated held pose and no anticipation/attack/recovery.\nReference2 is freshly generated FIRST HALF runA: match its character pixel/body scale, forward lean, armor and exact drawing treatment. Draw SECOND HALF with opposite leg support, NOT a repeat of firsthalf. Frame6 left/front foot landsforward and rightleg trailslifted;7 left kneecompresses toreceiveweight while rightheel foldsbehind;8 leftsupportsandpushes and rightknee passesunderhips;9 lefttoespushback while rightknee liftsforward with anklebelowknee;10 brief flight rightleg extendsforward leftfoldsback;11 right/frontfoot approachesground leftkneebehind preparing seamless returntofirstimageframe0. Exact SIX distinct evenly advancing poses, left/right legs clearly alternate, natural readable sprint ratherthan highkneemarching. Backgroundmustbetransparent; reference redglow IS NOT artwork to preserve.",
+        "refs": [
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png",
+          "D:/AI/吞食戰國/game/assets/v14/nobunaga-run-a.png"
+        ],
+        "source": "C:\\Users\\guder\\.codex\\generated_images\\01a12457-eaca-7e03-b059-3a4b6b655e3f\\exec-bbe8d795-c5bb-4cdd-8f99-b6ed75bd79ee.png",
+        "output": "D:/AI/吞食戰國/game/assets/v14/nobunaga-run-b.png",
+        "status": "source visually reviewed; exact-original PNG; runtime proportions/grounding require native acceptance",
+        "tool": "builtin image_gen",
+        "output_sha256": "ecfcbb140124629769978dcc1ae5688ecc2e310c731f552b263deb3d2a30dffd",
+        "source_sha256": "ecfcbb140124629769978dcc1ae5688ecc2e310c731f552b263deb3d2a30dffd",
+        "original_bytes_preserved": true,
+        "reference_sha256": {
+          "D:/AI/吞食戰國/game/assets/v13/nobunaga-walk-a.png": "c04e83f0df8d5cb5d0144aa39e43cd569d928bc3d9ba7e3ea69423b29a7e1bf0",
+          "D:/AI/吞食戰國/game/assets/v14/nobunaga-run-a.png": "eee2d182df0b6ce292789fd177ef1b691ccda6d813efea93730f785be0676012"
+        },
+        "actual_size": [
+          1536,
+          1024
+        ],
+        "alpha_zero_fraction": 0.59882,
+        "actual_component_count": 6,
+        "actual_layout": {
+          "columns": 3,
+          "rows": 2
+        }
+      }
+    }
+  ],
+  "registration_sha256": "14777034adffd89aa221dcbcfd2435e9dd2d20a0c41e3e540c04ba5ee189afe8"
+}

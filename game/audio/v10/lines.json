@@ -1,0 +1,533 @@
+{
+  "version": "0.10",
+  "mode": "Microsoft Edge neural TTS via edge-tts; synthetic test voices, not cloned voices or actor recordings",
+  "actors": {
+    "nobunaga": {
+      "name": "織田信長",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-12Hz",
+      "rate": "+12%",
+      "clips": {
+        "intro": [
+          "我こそは、織田信長。道を開けい！"
+        ],
+        "attack": [
+          "せいっ！",
+          "消えよ！"
+        ],
+        "heavy": [
+          "消えよ！"
+        ],
+        "hurt": [
+          "ぐっ！",
+          "ぬかった！"
+        ],
+        "guard": [
+          "効かぬ！"
+        ],
+        "special": [
+          "天下に轟け！天魔の刃！"
+        ],
+        "victory": [
+          "これが、天下布武だ。"
+        ],
+        "defeat": [
+          "まだ、終わらぬ。"
+        ]
+      }
+    },
+    "oichi": {
+      "name": "阿市",
+      "voice": "ja-JP-NanamiNeural",
+      "pitch": "+4Hz",
+      "rate": "+5%",
+      "clips": {
+        "intro": [
+          "市と申します。皆を、必ず守ります。"
+        ],
+        "attack": [
+          "はっ！",
+          "そこです！"
+        ],
+        "heavy": [
+          "そこです！"
+        ],
+        "hurt": [
+          "あっ！",
+          "痛いっ！"
+        ],
+        "guard": [
+          "させません！"
+        ],
+        "special": [
+          "舞い散れ、氷の羽！"
+        ],
+        "victory": [
+          "皆、無事でよかった。"
+        ],
+        "defeat": [
+          "まだ、守りたい人が。"
+        ]
+      }
+    },
+    "hideyoshi": {
+      "name": "羽柴秀吉",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "+18Hz",
+      "rate": "+24%",
+      "clips": {
+        "intro": [
+          "藤吉郎、参上！ここはわしに任せろ！"
+        ],
+        "attack": [
+          "ほいっ！",
+          "そらよっ！"
+        ],
+        "heavy": [
+          "そらよっ！"
+        ],
+        "hurt": [
+          "うわっ！",
+          "いててっ！"
+        ],
+        "guard": [
+          "おっと、危ない！"
+        ],
+        "special": [
+          "一気に決めるぞ！大返し！"
+        ],
+        "victory": [
+          "はっはっは！また手柄じゃ！"
+        ],
+        "defeat": [
+          "まだ、上に行けるはずじゃ。"
+        ]
+      }
+    },
+    "ieyasu": {
+      "name": "德川家康",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-20Hz",
+      "rate": "-6%",
+      "clips": {
+        "intro": [
+          "徳川家康だ。焦らず、一歩ずつ参ろう。"
+        ],
+        "attack": [
+          "ふんっ！",
+          "退けい！"
+        ],
+        "heavy": [
+          "退けい！"
+        ],
+        "hurt": [
+          "ぐうっ！",
+          "まだ耐える！"
+        ],
+        "guard": [
+          "ここは通さぬ！"
+        ],
+        "special": [
+          "崩れぬ山よ！三河の意地を見よ！"
+        ],
+        "victory": [
+          "生き残った。それが何よりだ。"
+        ],
+        "defeat": [
+          "皆を、頼む。"
+        ]
+      }
+    },
+    "mitsuhide": {
+      "name": "明智光秀",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "+2Hz",
+      "rate": "-1%",
+      "clips": {
+        "intro": [
+          "明智光秀。迷いは、この刃で断つ。"
+        ],
+        "attack": [
+          "はっ！",
+          "見切った！"
+        ],
+        "heavy": [
+          "見切った！"
+        ],
+        "hurt": [
+          "くっ！",
+          "不覚！"
+        ],
+        "guard": [
+          "そこだ。"
+        ],
+        "special": [
+          "月光一閃！すべてを断つ！"
+        ],
+        "victory": [
+          "勝利の先に、何がある。"
+        ],
+        "defeat": [
+          "我が道は、ここまでか。"
+        ]
+      }
+    },
+    "tadakatsu": {
+      "name": "本多忠勝",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-28Hz",
+      "rate": "+3%",
+      "clips": {
+        "intro": [
+          "本多忠勝、推して参る！この背は越えさせぬ！"
+        ],
+        "attack": [
+          "おりゃあ！",
+          "どけえ！"
+        ],
+        "heavy": [
+          "どけえ！"
+        ],
+        "hurt": [
+          "ぬうっ！",
+          "この程度！"
+        ],
+        "guard": [
+          "びくともせぬ！"
+        ],
+        "special": [
+          "蜻蛉切！天地を砕け！"
+        ],
+        "victory": [
+          "守るべき者は、すべて守った。"
+        ],
+        "defeat": [
+          "殿、申し訳ござらぬ。"
+        ]
+      }
+    },
+    "soldier": {
+      "name": "雜兵共用",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "+5Hz",
+      "rate": "+15%",
+      "clips": {
+        "attack": [
+          "やあっ！",
+          "くらえ！"
+        ],
+        "hurt": [
+          "ぐあっ！",
+          "うわあっ！"
+        ],
+        "guard": [
+          "ふん！"
+        ],
+        "defeat": [
+          "無念！"
+        ]
+      }
+    },
+    "boss_imagawa": {
+      "name": "今川義元",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-5Hz",
+      "rate": "-3%",
+      "faction": "imagawa",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "今川義元である。駿河の力、思い知るがよい！"
+        ],
+        "attack": [
+          "優雅に、斬り伏せよ！"
+        ],
+        "special": [
+          "優雅に、斬り伏せよ！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_oda": {
+      "name": "佐佐成政",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-15Hz",
+      "rate": "+9%",
+      "faction": "oda",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "佐々成政、ここを守る。鉄砲隊、構え！"
+        ],
+        "attack": [
+          "撃てい！続いて、斬れ！"
+        ],
+        "special": [
+          "撃てい！続いて、斬れ！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_saito": {
+      "name": "齋藤龍興",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "+6Hz",
+      "rate": "+7%",
+      "faction": "saito",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "斎藤龍興だ。美濃の城は渡さぬ！"
+        ],
+        "attack": [
+          "引き寄せて、突き崩す！"
+        ],
+        "special": [
+          "引き寄せて、突き崩す！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_miyoshi": {
+      "name": "三好長逸",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-3Hz",
+      "rate": "+18%",
+      "faction": "miyoshi",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "三好長逸、参る。二つの刃、見切れるか！"
+        ],
+        "attack": [
+          "逃がさぬ！双刃の舞！"
+        ],
+        "special": [
+          "逃がさぬ！双刃の舞！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_azai": {
+      "name": "淺井長政",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "+1Hz",
+      "rate": "+4%",
+      "faction": "azai",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "浅井長政だ。この近江は、我らが守る！"
+        ],
+        "attack": [
+          "十文字に、薙ぎ払え！"
+        ],
+        "special": [
+          "十文字に、薙ぎ払え！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_asakura": {
+      "name": "朝倉義景",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-17Hz",
+      "rate": "-5%",
+      "faction": "asakura",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "朝倉義景である。越前の誇りを、侮るな！"
+        ],
+        "attack": [
+          "この大太刀、受けてみよ！"
+        ],
+        "special": [
+          "この大太刀、受けてみよ！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_takeda": {
+      "name": "武田信玄",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-24Hz",
+      "rate": "-4%",
+      "faction": "takeda",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "武田信玄、ここにあり。甲斐の兵よ、進め！"
+        ],
+        "attack": [
+          "疾きこと風の如し！突撃！"
+        ],
+        "special": [
+          "疾きこと風の如し！突撃！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_ikko": {
+      "name": "下間賴照",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-10Hz",
+      "rate": "-8%",
+      "faction": "ikko",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "下間頼照。この地は、我らの手で守る！"
+        ],
+        "attack": [
+          "退かぬ！この一撃に込める！"
+        ],
+        "special": [
+          "退かぬ！この一撃に込める！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_mori": {
+      "name": "清水宗治",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "-14Hz",
+      "rate": "+2%",
+      "faction": "mori",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "清水宗治。高松の城は、命にかえても守る！"
+        ],
+        "attack": [
+          "鎖よ、捕らえよ！"
+        ],
+        "special": [
+          "鎖よ、捕らえよ！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_akechi": {
+      "name": "明智光秀",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "+2Hz",
+      "rate": "-1%",
+      "faction": "akechi",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "明智光秀。この戦、もはや後には引けぬ。"
+        ],
+        "attack": [
+          "迷いを断て！一閃！"
+        ],
+        "special": [
+          "迷いを断て！一閃！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_hashiba": {
+      "name": "羽柴秀吉",
+      "voice": "ja-JP-KeitaNeural",
+      "pitch": "+18Hz",
+      "rate": "+24%",
+      "faction": "hashiba",
+      "fictional": false,
+      "clips": {
+        "intro": [
+          "羽柴秀吉じゃ！この機、逃してなるものか！"
+        ],
+        "attack": [
+          "大返し！まとめて退けえ！"
+        ],
+        "special": [
+          "大返し！まとめて退けえ！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    },
+    "boss_iga": {
+      "name": "霞（原創）",
+      "voice": "ja-JP-NanamiNeural",
+      "pitch": "-8Hz",
+      "rate": "+8%",
+      "faction": "iga",
+      "fictional": true,
+      "clips": {
+        "intro": [
+          "霞と呼ばれている。この林道は通さない。"
+        ],
+        "attack": [
+          "捕らえた！もう逃げられない！"
+        ],
+        "special": [
+          "捕らえた！もう逃げられない！"
+        ],
+        "hurt": [
+          "くっ、まだだ！"
+        ],
+        "defeat": [
+          "ここまで、か。"
+        ]
+      }
+    }
+  },
+  "boss_note": "歷史人物作各陣營試戰代表。指定武器、元素招式及台詞均為原創演義；伊賀霞保留先前核准的原創女頭領。完整劇情按各關年份另選將領，例如1575武田不能使用已逝信玄。"
+}

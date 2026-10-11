@@ -1,0 +1,76 @@
+REQUEST 1
+FILE: nobunaga-transparent.png
+SOURCE: D:\AI\吞食戰國\assets\concept-v0.3\nobunaga-moves-v03.png
+MODE: built-in image_gen edit
+TRANSPARENT_BACKGROUND: true
+Use case: background-extraction
+Asset type: transparent 3x3 game action sprite atlas extracted from the supplied original art.
+Input image 1 is the EDIT TARGET. This is a cleanup/export task, not a character redesign. Preserve the original rugged mature Nobunaga character exactly: face, hair, red/black armor, red cloak pattern, katana, the SAME nine action poses and their SAME reading order. Preserve the original 32-bit pixel-painted artwork and colors.
+Output a TRUE TRANSPARENT PNG, 1536x1024 pixels, exactly three equal-width columns and three equal-height rows. Column boundaries at x=0,512,1024,1536; row boundaries at y=0,341,683,1024, allowing the one-pixel rounding inherent in dividing 1024 by three. No visible grid.
+REMOVE the entire beige paper background, paper texture, all grid lines, all 01-09 number labels, and all ground/foot/drop shadows from every cell. The game draws its own ground shadows. Every empty pixel between characters and attack effects must be genuine alpha zero, not white, black, beige, a checkerboard, or a faint colored background. Do not leave a paper-colored matte around hair, clothing, sword, or fire effects.
+KEEP all nine original action concepts: 1 guard; 2 light horizontal slash; 3 heavy overhead amber slash; 4 katana overhead charged preparation; 5 airborne jump attack; 6 grab and throw with the complete gray-armored enemy soldier; 7 hurt stagger; 8 rage fiery golden sweeping slash; 9 upgraded red armor and sword showcase.
+Keep slash arcs, blade light, controlled charge energy, sparks and golden fire as real colored effect pixels with appropriate alpha. Keep the gray soldier in cell 6. Remove only background and ground shadows, not these attack effects. No blood.
+Preserve the character scale and placement as closely as possible, making only minimal registration adjustments needed for a correct equal-cell atlas. Each complete figure, weapon tip, enemy and effect must fit strictly inside its own cell with at least 12 pixels transparent margin and NEVER cross any cell boundary. In particular, complete and fit the raised katana tip in cell 4; do not let it touch the row above. Slightly reduce oversized effects to fit rather than crop them. Grounded stances share a local foot baseline about 310 pixels from their cell top; preserve the airborne pose floating higher in cell 5. Keep the selected faces and costumes, do not invent any new pose, object, text, label or additional panel.
+
+
+REQUEST 2
+FILE: oichi-transparent.png
+SOURCE: D:\AI\吞食戰國\assets\concept-v0.3\oichi-moves-v03.png
+MODE: built-in image_gen edit
+TRANSPARENT_BACKGROUND: true
+Use case: background-extraction
+Asset type: transparent 3x3 game action sprite atlas extracted from the supplied original art.
+Input image 1 is the EDIT TARGET. This is a cleanup/export task, not a character redesign. Preserve the original adult Oichi character exactly: feminine face, tied long black hair and crimson ribbon, dusty-plum floral kosode, cream lapel, teal sash, dark hakama, needle fan, the SAME nine action poses and their SAME reading order. Preserve the original 32-bit pixel-painted artwork and colors, modest dignified body language.
+Output a TRUE TRANSPARENT PNG, 1536x1024 pixels, exactly three equal-width columns and three equal-height rows. Column boundaries at x=0,512,1024,1536; row boundaries at y=0,341,683,1024, allowing the one-pixel rounding inherent in dividing 1024 by three. No visible grid.
+REMOVE the entire beige paper background, paper texture, all grid lines, all 01-09 number labels, and all ground/foot/drop shadows from every cell. The game draws its own ground shadows. Every empty pixel between characters and attack effects must be genuine alpha zero, not white, black, beige, a checkerboard, or a faint colored background. Do not leave a paper-colored matte around hair, sleeves, needles, or effects.
+KEEP all nine original action concepts: 1 poised needle-fan guard; 2 light needle throw and short white trails; 3 heavy sage-green poison needle volley; 4 charged needle fan preparation; 5 airborne backward needle attack; 6 close sleeve-sweep escape with the complete gray-armored enemy footman; 7 hurt brace; 8 wide purple-and-green poison needle fan special; 9 discreet upgraded armor under the kosode and decorated needles.
+Keep all individual needles, needle trails, sage-green poison wisps, purple/green attack effects and small impact spark as real colored effect pixels with appropriate alpha. Keep the gray soldier in cell 6. Remove only background and ground shadows, not these attack effects. No blood, no polearms or swords added to Oichi.
+Preserve the character scale and placement as closely as possible, making only minimal registration adjustments needed for a correct equal-cell atlas. Each complete figure, hair ribbon, needle, enemy and effect must fit strictly inside its own cell with at least 12 pixels transparent margin and NEVER cross any cell boundary. Slightly reduce oversized effects to fit rather than crop them, especially the wide cell 8 special. Grounded stances share a local foot baseline about 310 pixels from their cell top; preserve the airborne pose floating higher in cell 5. Keep the selected faces and costumes, do not invent any new pose, object, text, label or additional panel.
+
+
+REQUEST 3
+FILE: nobunaga-transparent.png
+SOURCE: D:\AI\吞食戰國\artifacts\native-v03-transparency\nobunaga-draft.png
+MODE: built-in image_gen edit
+TRANSPARENT_BACKGROUND: true
+Use case: precise-object-edit
+Input image 1 is an already transparent atlas EDIT TARGET. Keep its EXACT nine Nobunaga poses, face, outfit, sword colors, slash effects and gray enemy in pose 6. Keep real alpha transparency. Make ONLY the following necessary export-layout correction:
+The final canvas must be exactly 1536 pixels wide by 1024 pixels high, not 1535 pixels wide. It contains a STRICT 3x3 equal-cell atlas. Column ranges are 0-511,512-1023,1024-1535. Row ranges are 0-340,341-682,683-1023.
+REDUCE the ENTIRE composite of EACH action (character plus weapon plus effects plus enemy) to about 75 percent of its current size and center it safely in its own cell. This smaller scale is mandatory: leave at least 35 pixels of FULLY TRANSPARENT empty padding at ALL four sides of EVERY cell. No flame, hand, blade, cape or soldier may touch any cell edge. Keep all nine poses in the same original reading order. Every complete weapon and effect silhouette must fit inside its cell; restore any tip clipped in the input, especially raised sword pose 4 and top-right overhead arc pose 3.
+For grounded poses, line up the bottoms of feet at the same local Y=295 inside their cells. Keep airborne pose 5 above that baseline. Effects may extend slightly below feet but never into another row.
+Do not redesign, redraw a different pose, add textures, add text, add numbers or draw a grid. No ground shadows, no paper, no solid background. The large negative space is intentional and REQUIRED for reliable game cropping. Preserve transparent alpha zero outside each isolated composite; no rectangular glow fields.
+
+
+REQUEST 4
+FILE: oichi-transparent.png
+SOURCE: D:\AI\吞食戰國\artifacts\native-v03-transparency\oichi-draft.png
+MODE: built-in image_gen edit
+TRANSPARENT_BACKGROUND: true
+Use case: precise-object-edit
+Input image 1 is an already transparent atlas EDIT TARGET. Keep its EXACT nine adult Oichi poses, face, plum floral kosode, cream lapel, teal sash, hair ribbon, needle fan, white needle trails, sage-green/purple poison effects and complete gray enemy in pose 6. Keep real alpha transparency. Make ONLY the following necessary export-layout correction:
+The final canvas must be exactly 1536 pixels wide by 1024 pixels high. It contains a STRICT 3x3 equal-cell atlas. Column ranges are 0-511,512-1023,1024-1535. Row ranges are 0-340,341-682,683-1023.
+REDUCE the ENTIRE composite of EACH action (character plus needles plus effects plus enemy) to about 75 percent of its current size and center it safely in its own cell. This smaller scale is mandatory: leave at least 35 pixels of FULLY TRANSPARENT empty padding at ALL four sides of EVERY cell. No needle, sleeve, hair, poison wisp or soldier may touch any cell edge. Keep all nine poses in the same original reading order. Every complete needle and effect silhouette must fit inside its cell, especially the wide purple/green special in pose 8.
+For grounded poses, line up the bottoms of feet at the same local Y=295 inside their cells. Keep airborne pose 5 above that baseline. Effects may extend slightly below feet but never into another row.
+Do not redesign, redraw a different pose, add textures, add text, add numbers or draw a grid. No ground shadows, no paper, no solid background. The large negative space is intentional and REQUIRED for reliable game cropping. Preserve transparent alpha zero outside each isolated composite; remove broad soft glow fields, retaining only the actual needle trails and discrete poison wisps. No rectangular glow or haze fields.
+
+REQUEST 5
+FILE: nobunaga-transparent.png
+SOURCE AT REQUEST TIME: D:\AI\吞食戰國\assets\native-v0.3\nobunaga-transparent.png
+MODE: built-in image_gen edit
+TRANSPARENT_BACKGROUND: true
+Use case: precise-object-edit
+Input image 1 is a 1536x1024 TRUE TRANSPARENT 3x3 atlas. Preserve it unchanged EXCEPT the BOTTOM-CENTER action group (pose 8: red-armored Nobunaga surrounded by a circular golden fire slash). Keep the same exact character and pose.
+Only correct bottom-center registration: shrink this ONE entire composite, including hero, sword and every flame/spark, to 85 percent of its current size. Then position the whole composite safely inside the bottom-center cell x=512..1023,y=683..1023, centered around x=768,y=840. Its FULL visible bounding box including faint effect pixels must be contained inside x=550..990,y=715..985. This means leave clear transparent space above it; it must NEVER enter the middle-center jumping cell. No gold/orange flame pixels at y=683 or above from this group.
+Keep the other eight action groups exactly as in the input, same placement, face, colors, size and weapons. Do not introduce shadows, texture, backgrounds, numbers, labels, grid lines or extra effects. Preserve real alpha zero between objects. Output EXACTLY 1536x1024 PNG with true transparency, no automatic canvas crop. This is a targeted atlas registration fix, not a redesign.
+
+
+REQUEST 6
+FILE: oichi-transparent.png
+SOURCE AT REQUEST TIME: D:\AI\吞食戰國\assets\native-v0.3\oichi-transparent.png
+MODE: built-in image_gen edit
+TRANSPARENT_BACKGROUND: true
+Use case: precise-object-edit
+Input image 1 is a 1536x1024 TRUE TRANSPARENT 3x3 atlas. Preserve it unchanged EXCEPT the BOTTOM-CENTER action group (pose 8: Oichi with the wide purple/green poison needle fan). Keep the same exact adult woman, clothing, pose and individual needles.
+Only correct bottom-center registration: shrink this ONE entire composite, including Oichi, every needle and all poison wisps, to 85 percent of its current size. Then position the whole composite safely inside the bottom-center cell x=512..1023,y=683..1023, centered around x=768,y=840. Its FULL visible bounding box including faint poison/glow pixels must be contained inside x=550..990,y=715..985. No purple/green particle or needle from this group may touch or cross x=1024 into the upgraded costume cell on the right. There must be a clean transparent gap at both sides of the group.
+Keep the other eight action groups exactly as in the input, same placement, face, colors, size and needle weapons. Keep the complete gray soldier in pose 6. Do not introduce shadows, texture, backgrounds, numbers, labels, grid lines or extra effects. Preserve real alpha zero between objects; remove vague haze outside actual poison wisps. Output EXACTLY 1536x1024 PNG with true transparency, no automatic canvas crop. This is a targeted atlas registration fix, not a redesign.
+

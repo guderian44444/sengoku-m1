@@ -1,0 +1,242 @@
+{
+  "mode": "built-in image_gen",
+  "rowOrder": [
+    "soldier",
+    "flag",
+    "commander",
+    "archer",
+    "gunner",
+    "boss"
+  ],
+  "requestedGrid": {
+    "columns": 8,
+    "rows": 6,
+    "aspectRatio": "2:1"
+  },
+  "specs": [
+    {
+      "faction": "mori",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-mori.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\reactions-mori.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v09\\boss.png"
+      ],
+      "description": "Mori palette beige sleeves charcoal armor tealwaist+tealflag. Row6 boss Shimizu darkkabuto/moustache, KUSARIGAMA sickle with short chain+weight. MAIN ATTACK: sickle sweeping cleave, plant rearfoot and wind sicklearmback throughframes1-4, impactframe5 swing bladeforwardacrossbody, followthrough6 thenrecover7-8; chain/weight coilclose to otherhand without extending beyondcell. Not naginata.",
+      "prompt": "Use case: stylized-concept. New transparent 2D game PRIMARY ATTACK sprite sheet, WIDE2:1 at3072x1536 (or1774x887), exactly8 COLUMNS ×6 ROWS=48 separate FULLBODY figures. Reference1 supplies all SIX role identities and the safe small-figure layout, NOT the action. Other references clarify weapons and attack style. Draw every cell as a NEW SKELETAL ATTACK POSE, no walking sequence and no repeated stance shifted/tilted. Facing RIGHT throughout. Large completely empty transparent bands separate all rows/columns. Body human height should occupy only60% of cell height, full weapons within75%cellwidth; at least30px blank bands between rows and40px outer transparent margin. Long weapons can angle toward top-right but cannot touch edges or any neighbor. No cropped parts, detached projectiles or attack trails, no groundshadows, text or grids. Same painterly arcade character outlines as references; uniform body size each row.\nROW1 spear soldier: windup thrust. ROW2 flagbearer: staff horizontal swing while full flag stays attached. ROW3 sword commander: powerful katana diagonal cleave. ROW4 archer: bow draw, release then nock next arrow. ROW5 gunner: shoulder matchlock, fire/recoil, reload and recover. ROW6 factionboss unique main attack described below.\nEvery row is EIGHT successive different keyframes lefttoright:1 ready stance;2 weight shifts rearward with arms beginning preparation;3 stronger crouch/torso coil with weapon drawn fully back;4 final maximum windup before release;5 IMPACT decisive extension towardRIGHT, front knee bent and shoulders rotate to drive weapon;6 followthrough momentum with distinct lower weapon and changed knee bend;7 recover feet and arms towardguard;8 settled ready recovery with visible limb change. ARCHER row:1bowatready low,2raisebow andsetarrow,3drawhalf,4fullstring atcheek,5RELEASE fingers open stringrelaxed and bowextended,6followthrough armheld/string settled,7lowerbow and reachbackquiver,8nockfresharrow. GUNNER row:1readycarry,2raise/shoulder,3alignaim andbendknees,4finalaim,5FIRESHOT recoil weaponup/back bysmallangle with shoulder/elbow change (NO flash bullet or smoke),6lowerweapon andopenpowder,7reload withramrod closebarrel,8restoreweapon ready. All bodies, fingers, twolegs and roleweapon remain coherent and different frame-to-frame. Fullweapon attached toholder, never touchesneighbor. Not8 copies, no artificially duplicated mirrorposes. Background true transparent RGBA.\nMori palette beige sleeves charcoal armor tealwaist+tealflag. Row6 boss Shimizu darkkabuto/moustache, KUSARIGAMA sickle with short chain+weight. MAIN ATTACK: sickle sweeping cleave, plant rearfoot and wind sicklearmback throughframes1-4, impactframe5 swing bladeforwardacrossbody, followthrough6 thenrecover7-8; chain/weight coilclose to otherhand without extending beyondcell. Not naginata."
+    },
+    {
+      "faction": "imagawa",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-imagawa.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-imagawa-troops-a.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-imagawa-troops-b.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\boss-imagawa.png"
+      ],
+      "description": "Bluecream Imagawa outfits/blueflag. Row6 boss blue lamellararmor with blackkabuto and whitewaiststreamers, curved NAGINATA. MAIN ATTACK: broad naginata sweep, waisttorque and deep frontkneebend at impactframe5, complete blade/shaft contained withbody small. Not a firearm.",
+      "prompt": "Use case: stylized-concept. New transparent 2D game PRIMARY ATTACK sprite sheet, WIDE2:1 at3072x1536 (or1774x887), exactly8 COLUMNS ×6 ROWS=48 separate FULLBODY figures. Reference1 supplies all SIX role identities and the safe small-figure layout, NOT the action. Other references clarify weapons and attack style. Draw every cell as a NEW SKELETAL ATTACK POSE, no walking sequence and no repeated stance shifted/tilted. Facing RIGHT throughout. Large completely empty transparent bands separate all rows/columns. Body human height should occupy only60% of cell height, full weapons within75%cellwidth; at least30px blank bands between rows and40px outer transparent margin. Long weapons can angle toward top-right but cannot touch edges or any neighbor. No cropped parts, detached projectiles or attack trails, no groundshadows, text or grids. Same painterly arcade character outlines as references; uniform body size each row.\nROW1 spear soldier: windup thrust. ROW2 flagbearer: staff horizontal swing while full flag stays attached. ROW3 sword commander: powerful katana diagonal cleave. ROW4 archer: bow draw, release then nock next arrow. ROW5 gunner: shoulder matchlock, fire/recoil, reload and recover. ROW6 factionboss unique main attack described below.\nEvery row is EIGHT successive different keyframes lefttoright:1 ready stance;2 weight shifts rearward with arms beginning preparation;3 stronger crouch/torso coil with weapon drawn fully back;4 final maximum windup before release;5 IMPACT decisive extension towardRIGHT, front knee bent and shoulders rotate to drive weapon;6 followthrough momentum with distinct lower weapon and changed knee bend;7 recover feet and arms towardguard;8 settled ready recovery with visible limb change. ARCHER row:1bowatready low,2raisebow andsetarrow,3drawhalf,4fullstring atcheek,5RELEASE fingers open stringrelaxed and bowextended,6followthrough armheld/string settled,7lowerbow and reachbackquiver,8nockfresharrow. GUNNER row:1readycarry,2raise/shoulder,3alignaim andbendknees,4finalaim,5FIRESHOT recoil weaponup/back bysmallangle with shoulder/elbow change (NO flash bullet or smoke),6lowerweapon andopenpowder,7reload withramrod closebarrel,8restoreweapon ready. All bodies, fingers, twolegs and roleweapon remain coherent and different frame-to-frame. Fullweapon attached toholder, never touchesneighbor. Not8 copies, no artificially duplicated mirrorposes. Background true transparent RGBA.\nBluecream Imagawa outfits/blueflag. Row6 boss blue lamellararmor with blackkabuto and whitewaiststreamers, curved NAGINATA. MAIN ATTACK: broad naginata sweep, waisttorque and deep frontkneebend at impactframe5, complete blade/shaft contained withbody small. Not a firearm."
+    },
+    {
+      "faction": "oda",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-oda.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-oda-troops-a.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-oda-troops-b.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\boss-oda.png"
+      ],
+      "description": "Oda redwaistties/blackflagwithcreamcrest, commanderredhaori. Row6 boss RED HAORI moustacheddarkarmoredman with MATCHLOCK. MAIN ATTACK: aiming volley;1ready2shoulder3aim4brace5FIRESHOTrecoil6lower7reload8ready, all distinctbodyarmposes. NO slash/katana/naginata forboss; firingmatchlock must stayatshoulderframe5 with backward recoil.",
+      "prompt": "Use case: stylized-concept. New transparent 2D game PRIMARY ATTACK sprite sheet, WIDE2:1 at3072x1536 (or1774x887), exactly8 COLUMNS ×6 ROWS=48 separate FULLBODY figures. Reference1 supplies all SIX role identities and the safe small-figure layout, NOT the action. Other references clarify weapons and attack style. Draw every cell as a NEW SKELETAL ATTACK POSE, no walking sequence and no repeated stance shifted/tilted. Facing RIGHT throughout. Large completely empty transparent bands separate all rows/columns. Body human height should occupy only60% of cell height, full weapons within75%cellwidth; at least30px blank bands between rows and40px outer transparent margin. Long weapons can angle toward top-right but cannot touch edges or any neighbor. No cropped parts, detached projectiles or attack trails, no groundshadows, text or grids. Same painterly arcade character outlines as references; uniform body size each row.\nROW1 spear soldier: windup thrust. ROW2 flagbearer: staff horizontal swing while full flag stays attached. ROW3 sword commander: powerful katana diagonal cleave. ROW4 archer: bow draw, release then nock next arrow. ROW5 gunner: shoulder matchlock, fire/recoil, reload and recover. ROW6 factionboss unique main attack described below.\nEvery row is EIGHT successive different keyframes lefttoright:1 ready stance;2 weight shifts rearward with arms beginning preparation;3 stronger crouch/torso coil with weapon drawn fully back;4 final maximum windup before release;5 IMPACT decisive extension towardRIGHT, front knee bent and shoulders rotate to drive weapon;6 followthrough momentum with distinct lower weapon and changed knee bend;7 recover feet and arms towardguard;8 settled ready recovery with visible limb change. ARCHER row:1bowatready low,2raisebow andsetarrow,3drawhalf,4fullstring atcheek,5RELEASE fingers open stringrelaxed and bowextended,6followthrough armheld/string settled,7lowerbow and reachbackquiver,8nockfresharrow. GUNNER row:1readycarry,2raise/shoulder,3alignaim andbendknees,4finalaim,5FIRESHOT recoil weaponup/back bysmallangle with shoulder/elbow change (NO flash bullet or smoke),6lowerweapon andopenpowder,7reload withramrod closebarrel,8restoreweapon ready. All bodies, fingers, twolegs and roleweapon remain coherent and different frame-to-frame. Fullweapon attached toholder, never touchesneighbor. Not8 copies, no artificially duplicated mirrorposes. Background true transparent RGBA.\nOda redwaistties/blackflagwithcreamcrest, commanderredhaori. Row6 boss RED HAORI moustacheddarkarmoredman with MATCHLOCK. MAIN ATTACK: aiming volley;1ready2shoulder3aim4brace5FIRESHOTrecoil6lower7reload8ready, all distinctbodyarmposes. NO slash/katana/naginata forboss; firingmatchlock must stayatshoulderframe5 with backward recoil."
+    },
+    {
+      "faction": "saito",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-saito.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-saito-troops-a.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-saito-troops-b.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\boss-saito.png"
+      ],
+      "description": "Saito olivegreenwaists/flag, tanhaoricommander. Row6 stockybearded helmetedboss with hooked SICKLE SPEAR. MAIN ATTACK: hookthrust thenpull;1ready2backswing3kneebend4maxwindup5extendhookforward6pullspearbackwithbackwardtorsoweight7straighten8ready. Correct hook head retained; no long detachedeffect.",
+      "prompt": "Use case: stylized-concept. New transparent 2D game PRIMARY ATTACK sprite sheet, WIDE2:1 at3072x1536 (or1774x887), exactly8 COLUMNS ×6 ROWS=48 separate FULLBODY figures. Reference1 supplies all SIX role identities and the safe small-figure layout, NOT the action. Other references clarify weapons and attack style. Draw every cell as a NEW SKELETAL ATTACK POSE, no walking sequence and no repeated stance shifted/tilted. Facing RIGHT throughout. Large completely empty transparent bands separate all rows/columns. Body human height should occupy only60% of cell height, full weapons within75%cellwidth; at least30px blank bands between rows and40px outer transparent margin. Long weapons can angle toward top-right but cannot touch edges or any neighbor. No cropped parts, detached projectiles or attack trails, no groundshadows, text or grids. Same painterly arcade character outlines as references; uniform body size each row.\nROW1 spear soldier: windup thrust. ROW2 flagbearer: staff horizontal swing while full flag stays attached. ROW3 sword commander: powerful katana diagonal cleave. ROW4 archer: bow draw, release then nock next arrow. ROW5 gunner: shoulder matchlock, fire/recoil, reload and recover. ROW6 factionboss unique main attack described below.\nEvery row is EIGHT successive different keyframes lefttoright:1 ready stance;2 weight shifts rearward with arms beginning preparation;3 stronger crouch/torso coil with weapon drawn fully back;4 final maximum windup before release;5 IMPACT decisive extension towardRIGHT, front knee bent and shoulders rotate to drive weapon;6 followthrough momentum with distinct lower weapon and changed knee bend;7 recover feet and arms towardguard;8 settled ready recovery with visible limb change. ARCHER row:1bowatready low,2raisebow andsetarrow,3drawhalf,4fullstring atcheek,5RELEASE fingers open stringrelaxed and bowextended,6followthrough armheld/string settled,7lowerbow and reachbackquiver,8nockfresharrow. GUNNER row:1readycarry,2raise/shoulder,3alignaim andbendknees,4finalaim,5FIRESHOT recoil weaponup/back bysmallangle with shoulder/elbow change (NO flash bullet or smoke),6lowerweapon andopenpowder,7reload withramrod closebarrel,8restoreweapon ready. All bodies, fingers, twolegs and roleweapon remain coherent and different frame-to-frame. Fullweapon attached toholder, never touchesneighbor. Not8 copies, no artificially duplicated mirrorposes. Background true transparent RGBA.\nSaito olivegreenwaists/flag, tanhaoricommander. Row6 stockybearded helmetedboss with hooked SICKLE SPEAR. MAIN ATTACK: hookthrust thenpull;1ready2backswing3kneebend4maxwindup5extendhookforward6pullspearbackwithbackwardtorsoweight7straighten8ready. Correct hook head retained; no long detachedeffect."
+    },
+    {
+      "faction": "miyoshi",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-miyoshi.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-miyoshi-troops-a.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-miyoshi-troops-b.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\boss-miyoshi.png"
+      ],
+      "description": "Miyoshi purplewaist andflag. Row6 lean young boss in blackplumedhelmet with TWO SHORT SWORDS. MAIN ATTACK: doublecut;1readytwo blades2backarmwindup3coil4maxcrossblades5leadbladecutsforward6secondbladefollowsacrossbody7recoverbotharms8ready. Bothblades remain complete, actual handpositionschange. Not giantnaginata.",
+      "prompt": "Use case: stylized-concept. New transparent 2D game PRIMARY ATTACK sprite sheet, WIDE2:1 at3072x1536 (or1774x887), exactly8 COLUMNS ×6 ROWS=48 separate FULLBODY figures. Reference1 supplies all SIX role identities and the safe small-figure layout, NOT the action. Other references clarify weapons and attack style. Draw every cell as a NEW SKELETAL ATTACK POSE, no walking sequence and no repeated stance shifted/tilted. Facing RIGHT throughout. Large completely empty transparent bands separate all rows/columns. Body human height should occupy only60% of cell height, full weapons within75%cellwidth; at least30px blank bands between rows and40px outer transparent margin. Long weapons can angle toward top-right but cannot touch edges or any neighbor. No cropped parts, detached projectiles or attack trails, no groundshadows, text or grids. Same painterly arcade character outlines as references; uniform body size each row.\nROW1 spear soldier: windup thrust. ROW2 flagbearer: staff horizontal swing while full flag stays attached. ROW3 sword commander: powerful katana diagonal cleave. ROW4 archer: bow draw, release then nock next arrow. ROW5 gunner: shoulder matchlock, fire/recoil, reload and recover. ROW6 factionboss unique main attack described below.\nEvery row is EIGHT successive different keyframes lefttoright:1 ready stance;2 weight shifts rearward with arms beginning preparation;3 stronger crouch/torso coil with weapon drawn fully back;4 final maximum windup before release;5 IMPACT decisive extension towardRIGHT, front knee bent and shoulders rotate to drive weapon;6 followthrough momentum with distinct lower weapon and changed knee bend;7 recover feet and arms towardguard;8 settled ready recovery with visible limb change. ARCHER row:1bowatready low,2raisebow andsetarrow,3drawhalf,4fullstring atcheek,5RELEASE fingers open stringrelaxed and bowextended,6followthrough armheld/string settled,7lowerbow and reachbackquiver,8nockfresharrow. GUNNER row:1readycarry,2raise/shoulder,3alignaim andbendknees,4finalaim,5FIRESHOT recoil weaponup/back bysmallangle with shoulder/elbow change (NO flash bullet or smoke),6lowerweapon andopenpowder,7reload withramrod closebarrel,8restoreweapon ready. All bodies, fingers, twolegs and roleweapon remain coherent and different frame-to-frame. Fullweapon attached toholder, never touchesneighbor. Not8 copies, no artificially duplicated mirrorposes. Background true transparent RGBA.\nMiyoshi purplewaist andflag. Row6 lean young boss in blackplumedhelmet with TWO SHORT SWORDS. MAIN ATTACK: doublecut;1readytwo blades2backarmwindup3coil4maxcrossblades5leadbladecutsforward6secondbladefollowsacrossbody7recoverbotharms8ready. Bothblades remain complete, actual handpositionschange. Not giantnaginata."
+    },
+    {
+      "faction": "azai",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-azai.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-azai-troops-a.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-azai-troops-b.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\boss-azai.png"
+      ],
+      "description": "Azai beige/lightgray darkarmor bluegreywaist+flag. Row6 leanhelmetedboss darklamellar/whitebackstreamers, CROSS SPEAR tenmonji silverhead with lateral crossblade. MAIN ATTACK: longcrossspearTHRUST;1carry2drawback3lowerhips4deepwindup5twohand fullforwardthrust6followthrough7withdraw8ready. Keep fullcrosshead andshaft inside eachcell.",
+      "prompt": "Use case: stylized-concept. New transparent 2D game PRIMARY ATTACK sprite sheet, WIDE2:1 at3072x1536 (or1774x887), exactly8 COLUMNS ×6 ROWS=48 separate FULLBODY figures. Reference1 supplies all SIX role identities and the safe small-figure layout, NOT the action. Other references clarify weapons and attack style. Draw every cell as a NEW SKELETAL ATTACK POSE, no walking sequence and no repeated stance shifted/tilted. Facing RIGHT throughout. Large completely empty transparent bands separate all rows/columns. Body human height should occupy only60% of cell height, full weapons within75%cellwidth; at least30px blank bands between rows and40px outer transparent margin. Long weapons can angle toward top-right but cannot touch edges or any neighbor. No cropped parts, detached projectiles or attack trails, no groundshadows, text or grids. Same painterly arcade character outlines as references; uniform body size each row.\nROW1 spear soldier: windup thrust. ROW2 flagbearer: staff horizontal swing while full flag stays attached. ROW3 sword commander: powerful katana diagonal cleave. ROW4 archer: bow draw, release then nock next arrow. ROW5 gunner: shoulder matchlock, fire/recoil, reload and recover. ROW6 factionboss unique main attack described below.\nEvery row is EIGHT successive different keyframes lefttoright:1 ready stance;2 weight shifts rearward with arms beginning preparation;3 stronger crouch/torso coil with weapon drawn fully back;4 final maximum windup before release;5 IMPACT decisive extension towardRIGHT, front knee bent and shoulders rotate to drive weapon;6 followthrough momentum with distinct lower weapon and changed knee bend;7 recover feet and arms towardguard;8 settled ready recovery with visible limb change. ARCHER row:1bowatready low,2raisebow andsetarrow,3drawhalf,4fullstring atcheek,5RELEASE fingers open stringrelaxed and bowextended,6followthrough armheld/string settled,7lowerbow and reachbackquiver,8nockfresharrow. GUNNER row:1readycarry,2raise/shoulder,3alignaim andbendknees,4finalaim,5FIRESHOT recoil weaponup/back bysmallangle with shoulder/elbow change (NO flash bullet or smoke),6lowerweapon andopenpowder,7reload withramrod closebarrel,8restoreweapon ready. All bodies, fingers, twolegs and roleweapon remain coherent and different frame-to-frame. Fullweapon attached toholder, never touchesneighbor. Not8 copies, no artificially duplicated mirrorposes. Background true transparent RGBA.\nAzai beige/lightgray darkarmor bluegreywaist+flag. Row6 leanhelmetedboss darklamellar/whitebackstreamers, CROSS SPEAR tenmonji silverhead with lateral crossblade. MAIN ATTACK: longcrossspearTHRUST;1carry2drawback3lowerhips4deepwindup5twohand fullforwardthrust6followthrough7withdraw8ready. Keep fullcrosshead andshaft inside eachcell."
+    }
+  ],
+  "repairs": [
+    {
+      "factions": [
+        "mori",
+        "imagawa",
+        "oda",
+        "saito",
+        "miyoshi",
+        "azai"
+      ],
+      "prompt": "Use case: precise-object-edit. Repair ONLY SPACING and clipped extremities on this exact PRIMARY ATTACK atlas. Keep EXACT SAME48bodyposes, roleidentity, clothing, hairstyle, equipment, 8columns×6rows and2:1widecanvas. Current figures overfill theircells and longweapons/bottomfeet areclipped or touchneighbors. REDRAW EVERY COMPLETE FIGURE INCLUDING FULL WEAPON/FLAG much SMALLER at65%current total size, centered inside same invisiblecell. Reconstruct clean spear/blade tips andfeet currently cut off. Uniform proportional humanscale withinrow. Minimum30pixels completelytransparent gap between every row and minimum25pixels between every neighboring FULL silhouette; minimum45transparentpixels allfouredges. Noone touches rowaboveorbelow, and no sword/pole extends into nextcharacter. Everybow/flagpole/spear complete. Preserve all actual8 distinct attackkeyframes and limbangles: first4 preparation, fifth IMPACT, sixthfollowthrough, seventhrecovery, eighthready. Bowfifthstringreleased handopen; gunfifthrecoil. Only reducefiguresrelativecell and restorecutextremities. Full48 complete separatedfigures; do not simplycroporwiden margin aroundsamebigfigures. True transparentRGBA background, no textextraeffects/grids/shadows. Keep all48 poses and exact roworder.",
+      "purpose": "Separate all48 figures and restore full extremities. Each source was viewed before editing."
+    },
+    {
+      "factions": [
+        "imagawa",
+        "miyoshi",
+        "azai"
+      ],
+      "prompt": "Use case: precise-object-edit. Edit target is this exact 8-column by 6-row transparent game attack atlas. Change ONLY ONE sprite: fourth row, fifth column (zero-based row 3 column 4), the archer centered near x=1000,y=550. That frame MUST show the instant AFTER bowstring release: front arm still straight toward right gripping bow, rear drawing hand OPEN and relaxed extended behind shoulder to left, NO arrow nocked, and bow string straight between bow tips instead of pulled back to cheek. Current drawing hand incorrectly remains at cheek pulling string. Preserve the same archer identity, clothing, stance, scale, complete bow silhouette, transparency, all other 47 sprites and exact placements unchanged. Never enlarge figures or shift rows. 1774x887 wide 2:1 output. No text or effects.",
+      "purpose": "Open bowstring hand and relax string in impact frame4."
+    },
+    {
+      "factions": [
+        "saito"
+      ],
+      "prompt": "Use case: precise-object-edit. This is an exact 8-column by 6-row attack animation sheet. Change ONLY the bottom row's SIXTH AND SEVENTH sprites. Preserve all other 46 sprites, the transparent background, all exact placements, 1774x887 2:1 canvas and character scale. Bottom row shows stocky bearded olive-clad hook-spear boss. His hook-cast occurs in fifth column and must remain unchanged. SIXTH column at x=1280,y=830: make boss PULL HIS HOOKED SPEAR BACK CLOSE against his chest, elbow bent to rear, torso leaning backward and weight on rear leg; visible hooked blade near him, this is the pull-in beat. SEVENTH column at x=1480,y=820: he follows by lunging FORWARD with the BARE BUTT END of the same spear, strongly bent leading knee, torso forward, both arms reaching to right. Bare shaft tip extends right horizontally; hooked blade behind him pointing left. This is a close-range butt-strike second hit. Eighth column stays ready with hook facing right. Do not exchange the sixth and seventh poses. Do not change any of top five rows or first five / eighth sprite in bottom row. Keep all complete silhouettes separated by transparent gaps, no cropped extremities.",
+      "purpose": "Frame5 pulls hooked target close, frame6 forward spear-butt strike."
+    }
+  ],
+  "accepted": [
+    {
+      "faction": "mori",
+      "file": "attacks-mori.png",
+      "generatedSource": "C:/Users/guder/.codex/generated_images/01a123ab-4f86-7582-b2c6-af7e5839fdcf/exec-85119f05-4374-44de-91f6-a5514a7323d1.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "humanHeightsFile": "attack-measurements.json",
+      "handsFile": "attacks-mori-hands.json",
+      "impactFrame": 4,
+      "pixelsUnmodified": true
+    },
+    {
+      "faction": "imagawa",
+      "file": "attacks-imagawa.png",
+      "generatedSource": "C:/Users/guder/.codex/generated_images/01a123ab-4f86-7582-b2c6-af7e5839fdcf/exec-de49fa6c-0e06-413a-b7d2-446dfe50a58c.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "humanHeightsFile": "attack-measurements.json",
+      "handsFile": "attacks-imagawa-hands.json",
+      "impactFrame": 4,
+      "pixelsUnmodified": true
+    },
+    {
+      "faction": "oda",
+      "file": "attacks-oda.png",
+      "generatedSource": "C:/Users/guder/.codex/generated_images/01a123ab-4f86-7582-b2c6-af7e5839fdcf/exec-6eda0a6d-21f1-453b-959e-0292e2a632da.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "humanHeightsFile": "attack-measurements.json",
+      "handsFile": "attacks-oda-hands.json",
+      "impactFrame": 4,
+      "pixelsUnmodified": true
+    },
+    {
+      "faction": "saito",
+      "file": "attacks-saito.png",
+      "generatedSource": "C:/Users/guder/.codex/generated_images/01a123ab-4f86-7582-b2c6-af7e5839fdcf/exec-bf1f80a9-5549-4fb5-b246-edd647d9d1e2.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "humanHeightsFile": "attack-measurements.json",
+      "handsFile": "attacks-saito-hands.json",
+      "impactFrame": 4,
+      "pixelsUnmodified": true
+    },
+    {
+      "faction": "miyoshi",
+      "file": "attacks-miyoshi.png",
+      "generatedSource": "C:/Users/guder/.codex/generated_images/01a123ab-4f86-7582-b2c6-af7e5839fdcf/exec-663f0d4e-8097-438b-82eb-90fc3c13cf50.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "humanHeightsFile": "attack-measurements.json",
+      "handsFile": "attacks-miyoshi-hands.json",
+      "impactFrame": 4,
+      "pixelsUnmodified": true
+    },
+    {
+      "faction": "azai",
+      "file": "attacks-azai.png",
+      "generatedSource": "C:/Users/guder/.codex/generated_images/01a123ab-4f86-7582-b2c6-af7e5839fdcf/exec-e3f5b189-4c60-49ff-bd3c-ed04e9b9df78.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "humanHeightsFile": "attack-measurements.json",
+      "handsFile": "attacks-azai-hands.json",
+      "impactFrame": 4,
+      "pixelsUnmodified": true
+    }
+  ],
+  "validation": "Fresh register-v11 measure() produced eight alpha-separated complete body silhouettes per row. Visual inspection checked windup, limb articulation, impact/release and recovery. No duplicate frames added; PNG bytes copied unchanged. Body height excludes flag, pole, weapon and bow. Manual hand coordinates are global source pixels; gun positions use muzzle."
+}

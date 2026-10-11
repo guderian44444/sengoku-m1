@@ -1,0 +1,3576 @@
+{
+  "version": "0.14",
+  "actors": {
+    "mori-camp-flag": {
+      "file": "mori-camp-flag.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          224.5,
+          499
+        ],
+        [
+          726,
+          500
+        ],
+        [
+          1227.5,
+          500
+        ],
+        [
+          224.5,
+          1007
+        ],
+        [
+          726.5,
+          1007
+        ],
+        [
+          1227,
+          1007
+        ]
+      ],
+      "regions": {
+        "0": [
+          152,
+          7,
+          214,
+          495
+        ],
+        "1": [
+          653,
+          7,
+          231,
+          496
+        ],
+        "2": [
+          1155,
+          7,
+          275,
+          495
+        ],
+        "3": [
+          152,
+          515,
+          245,
+          495
+        ],
+        "4": [
+          654,
+          515,
+          262,
+          495
+        ],
+        "5": [
+          1155,
+          515,
+          214,
+          495
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 489,
+      "component_clip": true,
+      "body_heights": [
+        489,
+        490,
+        490,
+        488,
+        489,
+        489
+      ],
+      "target": "prop",
+      "groups": {
+        "mori-camp-flag": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "boss-mori-idle": {
+      "file": "mori-boss-idle.png",
+      "columns": 2,
+      "rows": 3,
+      "feet_global": true,
+      "feet": [
+        [
+          365.0,
+          419
+        ],
+        [
+          918.0,
+          419
+        ],
+        [
+          368.0,
+          837
+        ],
+        [
+          926.0,
+          838
+        ],
+        [
+          372.0,
+          1234
+        ],
+        [
+          926.0,
+          1242
+        ]
+      ],
+      "regions": {
+        "0": [
+          195,
+          13,
+          347,
+          408
+        ],
+        "1": [
+          747,
+          11,
+          345,
+          410
+        ],
+        "2": [
+          196,
+          425,
+          398,
+          414
+        ],
+        "3": [
+          755,
+          435,
+          371,
+          405
+        ],
+        "4": [
+          192,
+          848,
+          407,
+          388
+        ],
+        "5": [
+          766,
+          839,
+          342,
+          405
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 420,
+      "component_clip": true,
+      "body_heights": [
+        420,
+        420,
+        425,
+        420,
+        420,
+        420
+      ],
+      "target": "enemy_clip",
+      "key": "mori:boss:idle",
+      "sheet": "idle"
+    },
+    "boss-mori-walk": {
+      "file": "mori-boss-walk-a.png",
+      "columns": 4,
+      "rows": 3,
+      "feet_global": true,
+      "feet": [
+        [
+          392.0,
+          412
+        ],
+        [
+          906.0,
+          413
+        ],
+        [
+          400.0,
+          835
+        ],
+        [
+          933.0,
+          832
+        ],
+        [
+          421.0,
+          1246
+        ],
+        [
+          958.0,
+          1243
+        ],
+        [
+          398.0,
+          426
+        ],
+        [
+          913.0,
+          427
+        ],
+        [
+          401.0,
+          841
+        ],
+        [
+          928.0,
+          843
+        ],
+        [
+          408.0,
+          1241
+        ],
+        [
+          940.0,
+          1241
+        ]
+      ],
+      "regions": {
+        "0": [
+          242,
+          2,
+          340,
+          412
+        ],
+        "1": [
+          771,
+          6,
+          326,
+          409
+        ],
+        "2": [
+          271,
+          419,
+          314,
+          418
+        ],
+        "3": [
+          813,
+          423,
+          321,
+          411
+        ],
+        "4": [
+          270,
+          839,
+          338,
+          409
+        ],
+        "5": [
+          773,
+          842,
+          370,
+          403
+        ],
+        "6": [
+          237,
+          6,
+          352,
+          422
+        ],
+        "7": [
+          778,
+          6,
+          327,
+          423
+        ],
+        "8": [
+          275,
+          430,
+          315,
+          413
+        ],
+        "9": [
+          783,
+          432,
+          333,
+          413
+        ],
+        "10": [
+          237,
+          848,
+          365,
+          395
+        ],
+        "11": [
+          810,
+          847,
+          327,
+          396
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "body_height": 430,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "frame_files": {
+        "0": "mori-boss-walk-a.png",
+        "1": "mori-boss-walk-a.png",
+        "2": "mori-boss-walk-a.png",
+        "3": "mori-boss-walk-a.png",
+        "4": "mori-boss-walk-a.png",
+        "5": "mori-boss-walk-a.png",
+        "6": "mori-boss-walk-b.png",
+        "7": "mori-boss-walk-b.png",
+        "8": "mori-boss-walk-b.png",
+        "9": "mori-boss-walk-b.png",
+        "10": "mori-boss-walk-b.png",
+        "11": "mori-boss-walk-b.png"
+      },
+      "body_heights": [
+        430,
+        430,
+        430,
+        430,
+        430,
+        430,
+        435,
+        435,
+        435,
+        435,
+        435,
+        435
+      ],
+      "hands": {},
+      "hands_global": true,
+      "blades": {},
+      "blades_global": true,
+      "key": "mori:boss:walk",
+      "sheet": "walk"
+    },
+    "boss-mori-boss_smash": {
+      "file": "mori-boss_smash.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          211.0,
+          622
+        ],
+        [
+          639.0,
+          626
+        ],
+        [
+          1057.0,
+          625
+        ],
+        [
+          251.0,
+          1197
+        ],
+        [
+          675.0,
+          1197
+        ],
+        [
+          1050.0,
+          1197
+        ]
+      ],
+      "regions": {
+        "0": [
+          22,
+          138,
+          397,
+          486
+        ],
+        "1": [
+          451,
+          88,
+          384,
+          540
+        ],
+        "2": [
+          869,
+          18,
+          374,
+          609
+        ],
+        "3": [
+          9,
+          706,
+          469,
+          493
+        ],
+        "4": [
+          455,
+          723,
+          430,
+          476
+        ],
+        "5": [
+          877,
+          710,
+          370,
+          489
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 500,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "key": "mori:boss:boss_smash",
+      "sheet": "boss_smash",
+      "frame_ticks": [
+        0,
+        20,
+        38,
+        48,
+        64,
+        85
+      ]
+    },
+    "boss-mori-boss_chain": {
+      "file": "mori-boss_chain.png",
+      "columns": 2,
+      "rows": 3,
+      "feet_global": true,
+      "feet": [
+        [
+          274.0,
+          415
+        ],
+        [
+          932.0,
+          412
+        ],
+        [
+          195.0,
+          830
+        ],
+        [
+          850.0,
+          831
+        ],
+        [
+          248.0,
+          1236
+        ],
+        [
+          926.0,
+          1234
+        ]
+      ],
+      "regions": {
+        "0": [
+          84,
+          6,
+          355,
+          411
+        ],
+        "1": [
+          632,
+          19,
+          495,
+          395
+        ],
+        "2": [
+          43,
+          451,
+          628,
+          381
+        ],
+        "3": [
+          710,
+          455,
+          527,
+          378
+        ],
+        "4": [
+          56,
+          847,
+          558,
+          391
+        ],
+        "5": [
+          738,
+          847,
+          356,
+          389
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 420,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "hands": {
+        "0": [
+          395,
+          240
+        ],
+        "1": [
+          746,
+          135
+        ],
+        "2": [
+          414,
+          522
+        ],
+        "3": [
+          930,
+          568
+        ],
+        "4": [
+          438,
+          983
+        ],
+        "5": [
+          1043,
+          1051
+        ]
+      },
+      "hands_global": true,
+      "key": "mori:boss:boss_chain",
+      "sheet": "boss_chain",
+      "frame_ticks": [
+        0,
+        14,
+        26,
+        54,
+        72,
+        91
+      ]
+    },
+    "boss-mori-boss_sweep": {
+      "file": "mori-boss_sweep.png",
+      "columns": 2,
+      "rows": 3,
+      "feet_global": true,
+      "feet": [
+        [
+          334.0,
+          430
+        ],
+        [
+          984.0,
+          430
+        ],
+        [
+          288.0,
+          817
+        ],
+        [
+          909.0,
+          813
+        ],
+        [
+          317.0,
+          1218
+        ],
+        [
+          959.0,
+          1230
+        ]
+      ],
+      "regions": {
+        "0": [
+          113,
+          29,
+          556,
+          403
+        ],
+        "1": [
+          658,
+          44,
+          533,
+          388
+        ],
+        "2": [
+          65,
+          433,
+          686,
+          386
+        ],
+        "3": [
+          615,
+          464,
+          624,
+          351
+        ],
+        "4": [
+          83,
+          823,
+          621,
+          397
+        ],
+        "5": [
+          758,
+          833,
+          415,
+          399
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 430,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "key": "mori:boss:boss_sweep",
+      "sheet": "boss_sweep",
+      "frame_ticks": [
+        0,
+        16,
+        30,
+        40,
+        56,
+        75
+      ]
+    },
+    "boss-mori-boss_grab_throw": {
+      "file": "mori-boss_grab_throw.png",
+      "columns": 2,
+      "rows": 3,
+      "feet_global": true,
+      "feet": [
+        [
+          310.0,
+          423
+        ],
+        [
+          904.0,
+          424
+        ],
+        [
+          324.0,
+          820
+        ],
+        [
+          941.0,
+          819
+        ],
+        [
+          369.0,
+          1217
+        ],
+        [
+          946.0,
+          1233
+        ]
+      ],
+      "regions": {
+        "0": [
+          87,
+          6,
+          391,
+          419
+        ],
+        "1": [
+          684,
+          13,
+          485,
+          413
+        ],
+        "2": [
+          102,
+          443,
+          423,
+          379
+        ],
+        "3": [
+          651,
+          439,
+          518,
+          382
+        ],
+        "4": [
+          77,
+          852,
+          541,
+          367
+        ],
+        "5": [
+          714,
+          819,
+          442,
+          416
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 435,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "hands": {
+        "0": [
+          393,
+          200
+        ],
+        "1": [
+          1144,
+          112
+        ],
+        "2": [
+          503,
+          541
+        ],
+        "3": [
+          1137,
+          651
+        ],
+        "4": [
+          594,
+          1040
+        ],
+        "5": [
+          1136,
+          943
+        ]
+      },
+      "hands_global": true,
+      "key": "mori:boss:boss_grab_throw",
+      "sheet": "boss_grab_throw",
+      "frame_ticks": [
+        0,
+        14,
+        26,
+        54,
+        72,
+        91
+      ]
+    },
+    "boss-mori-hurt": {
+      "file": "mori-boss-hurt.png",
+      "columns": 2,
+      "rows": 3,
+      "feet_global": true,
+      "feet": [
+        [
+          354.0,
+          417
+        ],
+        [
+          958.0,
+          419
+        ],
+        [
+          359.0,
+          806
+        ],
+        [
+          971.0,
+          810
+        ],
+        [
+          356.0,
+          1222
+        ],
+        [
+          957.0,
+          1219
+        ]
+      ],
+      "regions": {
+        "0": [
+          156,
+          6,
+          420,
+          413
+        ],
+        "1": [
+          766,
+          76,
+          452,
+          345
+        ],
+        "2": [
+          143,
+          506,
+          466,
+          302
+        ],
+        "3": [
+          756,
+          462,
+          465,
+          350
+        ],
+        "4": [
+          161,
+          816,
+          429,
+          408
+        ],
+        "5": [
+          745,
+          825,
+          471,
+          396
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 430,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "key": "mori:boss:hurt",
+      "sheet": "hurt"
+    },
+    "boss-mori-death": {
+      "file": "mori-boss-death.png",
+      "columns": 2,
+      "rows": 3,
+      "feet_global": true,
+      "feet": [
+        [
+          350,
+          493
+        ],
+        [
+          930,
+          505
+        ],
+        [
+          320,
+          820
+        ],
+        [
+          930,
+          828
+        ],
+        [
+          325,
+          1168
+        ],
+        [
+          945,
+          1156
+        ]
+      ],
+      "regions": {
+        "0": [
+          141,
+          41,
+          426,
+          454
+        ],
+        "1": [
+          697,
+          156,
+          463,
+          353
+        ],
+        "2": [
+          48,
+          599,
+          553,
+          261
+        ],
+        "3": [
+          648,
+          659,
+          574,
+          206
+        ],
+        "4": [
+          36,
+          1019,
+          577,
+          185
+        ],
+        "5": [
+          656,
+          1026,
+          566,
+          185
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 500,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "key": "mori:boss:death",
+      "sheet": "death"
+    },
+    "mori-soldier-walk": {
+      "file": "mori-soldier-walk.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          277.0,
+          514
+        ],
+        [
+          774.0,
+          514
+        ],
+        [
+          1281.0,
+          514
+        ],
+        [
+          281.0,
+          981
+        ],
+        [
+          781.0,
+          984
+        ],
+        [
+          1299.0,
+          978
+        ]
+      ],
+      "regions": {
+        "0": [
+          105,
+          18,
+          327,
+          498
+        ],
+        "1": [
+          636,
+          17,
+          270,
+          499
+        ],
+        "2": [
+          1154,
+          18,
+          285,
+          498
+        ],
+        "3": [
+          110,
+          520,
+          341,
+          463
+        ],
+        "4": [
+          627,
+          514,
+          293,
+          472
+        ],
+        "5": [
+          1156,
+          514,
+          295,
+          466
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 400,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "walk",
+      "key": "mori:soldier:walk"
+    },
+    "mori-soldier-idle": {
+      "file": "mori-soldier-walk.png",
+      "columns": 1,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          277.0,
+          514
+        ]
+      ],
+      "regions": {
+        "0": [
+          105,
+          18,
+          327,
+          498
+        ]
+      },
+      "unplanted": [
+        0
+      ],
+      "body_height": 400,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "idle",
+      "key": "mori:soldier:idle"
+    },
+    "mori-archer-walk": {
+      "file": "mori-archer-walk.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          251.0,
+          505
+        ],
+        [
+          750.0,
+          508
+        ],
+        [
+          1243.0,
+          508
+        ],
+        [
+          279.0,
+          992
+        ],
+        [
+          768.0,
+          998
+        ],
+        [
+          1260.0,
+          998
+        ]
+      ],
+      "regions": {
+        "0": [
+          110,
+          10,
+          314,
+          497
+        ],
+        "1": [
+          601,
+          10,
+          332,
+          500
+        ],
+        "2": [
+          1111,
+          12,
+          315,
+          498
+        ],
+        "3": [
+          108,
+          506,
+          374,
+          488
+        ],
+        "4": [
+          620,
+          503,
+          298,
+          497
+        ],
+        "5": [
+          1133,
+          504,
+          315,
+          496
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 425,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "walk",
+      "key": "mori:archer:walk"
+    },
+    "mori-archer-idle": {
+      "file": "mori-archer-walk.png",
+      "columns": 1,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          251.0,
+          505
+        ]
+      ],
+      "regions": {
+        "0": [
+          110,
+          10,
+          314,
+          497
+        ]
+      },
+      "unplanted": [
+        0
+      ],
+      "body_height": 425,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "idle",
+      "key": "mori:archer:idle"
+    },
+    "mori-gunner-walk": {
+      "file": "mori-gunner-walk.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          284.0,
+          498
+        ],
+        [
+          783.0,
+          501
+        ],
+        [
+          1278.0,
+          501
+        ],
+        [
+          286.0,
+          984
+        ],
+        [
+          800.0,
+          983
+        ],
+        [
+          1312.0,
+          984
+        ]
+      ],
+      "regions": {
+        "0": [
+          144,
+          31,
+          362,
+          469
+        ],
+        "1": [
+          650,
+          36,
+          338,
+          467
+        ],
+        "2": [
+          1169,
+          41,
+          320,
+          462
+        ],
+        "3": [
+          140,
+          532,
+          351,
+          454
+        ],
+        "4": [
+          669,
+          536,
+          323,
+          449
+        ],
+        "5": [
+          1181,
+          537,
+          318,
+          449
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 460,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "walk",
+      "key": "mori:gunner:walk"
+    },
+    "mori-gunner-idle": {
+      "file": "mori-gunner-walk.png",
+      "columns": 1,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          284.0,
+          498
+        ]
+      ],
+      "regions": {
+        "0": [
+          144,
+          31,
+          362,
+          469
+        ]
+      },
+      "unplanted": [
+        0
+      ],
+      "body_height": 460,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "idle",
+      "key": "mori:gunner:idle"
+    },
+    "mori-flag-flag_poke": {
+      "file": "mori-flag-poke.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          245.0,
+          512
+        ],
+        [
+          758.0,
+          509
+        ],
+        [
+          1337.0,
+          510
+        ],
+        [
+          275.0,
+          969
+        ],
+        [
+          807.0,
+          969
+        ],
+        [
+          1344.0,
+          976
+        ]
+      ],
+      "regions": {
+        "0": [
+          139,
+          1,
+          221,
+          513
+        ],
+        "1": [
+          566,
+          23,
+          403,
+          488
+        ],
+        "2": [
+          1080,
+          52,
+          442,
+          460
+        ],
+        "3": [
+          45,
+          540,
+          553,
+          431
+        ],
+        "4": [
+          531,
+          565,
+          617,
+          406
+        ],
+        "5": [
+          1157,
+          520,
+          366,
+          458
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 365,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "flag_poke",
+      "key": "mori:flag:flag_poke"
+    },
+    "mori-commander-walk": {
+      "file": "mori-commander-walk.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          347.0,
+          499
+        ],
+        [
+          837.0,
+          497
+        ],
+        [
+          1330.0,
+          497
+        ],
+        [
+          345.0,
+          985
+        ],
+        [
+          845.0,
+          990
+        ],
+        [
+          1339.0,
+          991
+        ]
+      ],
+      "regions": {
+        "0": [
+          98,
+          34,
+          430,
+          467
+        ],
+        "1": [
+          615,
+          33,
+          327,
+          466
+        ],
+        "2": [
+          1096,
+          28,
+          373,
+          471
+        ],
+        "3": [
+          109,
+          527,
+          432,
+          460
+        ],
+        "4": [
+          614,
+          526,
+          330,
+          466
+        ],
+        "5": [
+          1108,
+          531,
+          391,
+          462
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 465,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "walk",
+      "key": "mori:commander:walk"
+    },
+    "mori-commander-idle": {
+      "file": "mori-commander-walk.png",
+      "columns": 1,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          347.0,
+          499
+        ]
+      ],
+      "regions": {
+        "0": [
+          98,
+          34,
+          430,
+          467
+        ]
+      },
+      "unplanted": [
+        0
+      ],
+      "body_height": 465,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "idle",
+      "key": "mori:commander:idle"
+    },
+    "mori-soldier-hurt": {
+      "file": "mori-soldier-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          296.0,
+          500
+        ],
+        [
+          763.0,
+          490
+        ],
+        [
+          1236.0,
+          494
+        ]
+      ],
+      "regions": {
+        "0": [
+          156,
+          3,
+          337,
+          499
+        ],
+        "1": [
+          595,
+          3,
+          372,
+          489
+        ],
+        "2": [
+          1072,
+          24,
+          381,
+          472
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 470,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "hurt",
+      "key": "mori:soldier:hurt"
+    },
+    "mori-soldier-struggle": {
+      "file": "mori-soldier-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          298.0,
+          995
+        ],
+        [
+          773.0,
+          982
+        ],
+        [
+          1279.0,
+          978
+        ]
+      ],
+      "regions": {
+        "0": [
+          118,
+          478,
+          395,
+          519
+        ],
+        "1": [
+          587,
+          481,
+          408,
+          503
+        ],
+        "2": [
+          1053,
+          494,
+          442,
+          486
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 470,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "struggle",
+      "key": "mori:soldier:struggle"
+    },
+    "mori-gunner-hurt": {
+      "file": "mori-gunner-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          303.0,
+          472
+        ],
+        [
+          775.0,
+          476
+        ],
+        [
+          1288.0,
+          470
+        ]
+      ],
+      "regions": {
+        "0": [
+          96,
+          11,
+          388,
+          463
+        ],
+        "1": [
+          610,
+          44,
+          343,
+          434
+        ],
+        "2": [
+          1106,
+          27,
+          350,
+          445
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 470,
+      "component_clip": true,
+      "body_heights": [
+        470,
+        470,
+        470
+      ],
+      "target": "enemy_clip",
+      "sheet": "hurt",
+      "key": "mori:gunner:hurt"
+    },
+    "mori-gunner-struggle": {
+      "file": "mori-gunner-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          294.0,
+          969
+        ],
+        [
+          772.0,
+          971
+        ],
+        [
+          1291.0,
+          974
+        ]
+      ],
+      "regions": {
+        "0": [
+          97,
+          476,
+          418,
+          495
+        ],
+        "1": [
+          601,
+          491,
+          375,
+          482
+        ],
+        "2": [
+          1081,
+          492,
+          426,
+          484
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 470,
+      "component_clip": true,
+      "body_heights": [
+        485,
+        485,
+        485
+      ],
+      "target": "enemy_clip",
+      "sheet": "struggle",
+      "key": "mori:gunner:struggle"
+    },
+    "mori-archer-hurt": {
+      "file": "mori-archer-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          322.0,
+          483
+        ],
+        [
+          762.0,
+          478
+        ],
+        [
+          1212.0,
+          483
+        ]
+      ],
+      "regions": {
+        "0": [
+          95,
+          7,
+          424,
+          478
+        ],
+        "1": [
+          587,
+          4,
+          330,
+          476
+        ],
+        "2": [
+          1044,
+          0,
+          365,
+          485
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 480,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "hurt",
+      "key": "mori:archer:hurt"
+    },
+    "mori-archer-struggle": {
+      "file": "mori-archer-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          285.0,
+          995
+        ],
+        [
+          774.0,
+          992
+        ],
+        [
+          1258.0,
+          993
+        ]
+      ],
+      "regions": {
+        "0": [
+          102,
+          469,
+          412,
+          528
+        ],
+        "1": [
+          588,
+          482,
+          406,
+          512
+        ],
+        "2": [
+          1050,
+          484,
+          432,
+          511
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 480,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "struggle",
+      "key": "mori:archer:struggle"
+    },
+    "mori-gunner-death": {
+      "file": "mori-gunner-death.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          279,
+          550
+        ],
+        [
+          770,
+          541
+        ],
+        [
+          1275,
+          543
+        ],
+        [
+          256,
+          894
+        ],
+        [
+          759,
+          895
+        ],
+        [
+          1271,
+          884
+        ]
+      ],
+      "regions": {
+        "0": [
+          84,
+          102,
+          376,
+          452
+        ],
+        "1": [
+          540,
+          164,
+          464,
+          381
+        ],
+        "2": [
+          1066,
+          284,
+          439,
+          266
+        ],
+        "3": [
+          32,
+          692,
+          461,
+          207
+        ],
+        "4": [
+          505,
+          739,
+          495,
+          172
+        ],
+        "5": [
+          1003,
+          766,
+          517,
+          148
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 485,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "death",
+      "key": "mori:gunner:death"
+    },
+    "mori-soldier-spear_butt": {
+      "file": "mori-soldier-spear_butt.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          284.0,
+          488
+        ],
+        [
+          780.0,
+          488
+        ],
+        [
+          1283.0,
+          488
+        ],
+        [
+          252.0,
+          959
+        ],
+        [
+          761.0,
+          953
+        ],
+        [
+          1264.0,
+          977
+        ]
+      ],
+      "regions": {
+        "0": [
+          12,
+          29,
+          517,
+          461
+        ],
+        "1": [
+          576,
+          46,
+          461,
+          444
+        ],
+        "2": [
+          1076,
+          63,
+          447,
+          427
+        ],
+        "3": [
+          12,
+          530,
+          521,
+          431
+        ],
+        "4": [
+          516,
+          532,
+          523,
+          423
+        ],
+        "5": [
+          1042,
+          504,
+          477,
+          475
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 455,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "spear_butt",
+      "key": "mori:soldier:spear_butt"
+    },
+    "mori-soldier-death": {
+      "file": "mori-soldier-death.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          264,
+          511
+        ],
+        [
+          701,
+          507
+        ],
+        [
+          1208,
+          510
+        ],
+        [
+          258,
+          917
+        ],
+        [
+          759,
+          911
+        ],
+        [
+          1267,
+          907
+        ]
+      ],
+      "regions": {
+        "0": [
+          87,
+          14,
+          338,
+          500
+        ],
+        "1": [
+          510,
+          97,
+          437,
+          413
+        ],
+        "2": [
+          913,
+          162,
+          604,
+          355
+        ],
+        "3": [
+          24,
+          719,
+          474,
+          203
+        ],
+        "4": [
+          518,
+          758,
+          487,
+          176
+        ],
+        "5": [
+          1024,
+          792,
+          496,
+          131
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 440,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "death",
+      "key": "mori:soldier:death"
+    },
+    "mori-archer-death": {
+      "file": "mori-archer-death.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          298,
+          547
+        ],
+        [
+          797,
+          550
+        ],
+        [
+          1264,
+          540
+        ],
+        [
+          300,
+          936
+        ],
+        [
+          784,
+          934
+        ],
+        [
+          1302,
+          944
+        ]
+      ],
+      "regions": {
+        "0": [
+          91,
+          31,
+          379,
+          519
+        ],
+        "1": [
+          602,
+          70,
+          360,
+          484
+        ],
+        "2": [
+          1026,
+          135,
+          477,
+          413
+        ],
+        "3": [
+          10,
+          600,
+          529,
+          368
+        ],
+        "4": [
+          527,
+          784,
+          481,
+          198
+        ],
+        "5": [
+          1030,
+          813,
+          493,
+          170
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 430,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "death",
+      "key": "mori:archer:death"
+    },
+    "mori-commander-death": {
+      "file": "mori-commander-death.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          296,
+          536
+        ],
+        [
+          788,
+          539
+        ],
+        [
+          1278,
+          543
+        ],
+        [
+          263,
+          896
+        ],
+        [
+          754,
+          903
+        ],
+        [
+          1266,
+          912
+        ]
+      ],
+      "regions": {
+        "0": [
+          45,
+          82,
+          415,
+          456
+        ],
+        "1": [
+          501,
+          172,
+          493,
+          372
+        ],
+        "2": [
+          985,
+          273,
+          530,
+          273
+        ],
+        "3": [
+          18,
+          690,
+          468,
+          212
+        ],
+        "4": [
+          501,
+          738,
+          504,
+          184
+        ],
+        "5": [
+          1010,
+          773,
+          513,
+          162
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 465,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "death",
+      "key": "mori:commander:death"
+    },
+    "mori-commander-hurt": {
+      "file": "mori-commander-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          278.0,
+          478
+        ],
+        [
+          790.0,
+          478
+        ],
+        [
+          1279.0,
+          481
+        ]
+      ],
+      "regions": {
+        "0": [
+          54,
+          6,
+          459,
+          474
+        ],
+        "1": [
+          618,
+          60,
+          362,
+          420
+        ],
+        "2": [
+          1111,
+          15,
+          330,
+          468
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 485,
+      "component_clip": true,
+      "body_heights": [
+        485,
+        485,
+        485
+      ],
+      "target": "enemy_clip",
+      "sheet": "hurt",
+      "key": "mori:commander:hurt"
+    },
+    "mori-commander-struggle": {
+      "file": "mori-commander-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          287.0,
+          984
+        ],
+        [
+          782.0,
+          985
+        ],
+        [
+          1295.0,
+          988
+        ]
+      ],
+      "regions": {
+        "0": [
+          68,
+          478,
+          420,
+          508
+        ],
+        "1": [
+          596,
+          493,
+          382,
+          494
+        ],
+        "2": [
+          1074,
+          491,
+          449,
+          499
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 485,
+      "component_clip": true,
+      "body_heights": [
+        500,
+        500,
+        500
+      ],
+      "target": "enemy_clip",
+      "sheet": "struggle",
+      "key": "mori:commander:struggle"
+    },
+    "mori-flag-death": {
+      "file": "mori-flag-death.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          278,
+          555
+        ],
+        [
+          795,
+          556
+        ],
+        [
+          1292,
+          557
+        ],
+        [
+          290,
+          935
+        ],
+        [
+          779,
+          934
+        ],
+        [
+          1290,
+          935
+        ]
+      ],
+      "regions": {
+        "0": [
+          94,
+          34,
+          333,
+          522
+        ],
+        "1": [
+          588,
+          50,
+          392,
+          509
+        ],
+        "2": [
+          1086,
+          90,
+          416,
+          470
+        ],
+        "3": [
+          59,
+          576,
+          443,
+          378
+        ],
+        "4": [
+          530,
+          672,
+          473,
+          287
+        ],
+        "5": [
+          1039,
+          778,
+          477,
+          186
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 420,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "death",
+      "key": "mori:flag:death"
+    },
+    "mori-flag-walk": {
+      "file": "mori-flag-walk.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          375.0,
+          519
+        ],
+        [
+          830.0,
+          517
+        ],
+        [
+          1345.0,
+          519
+        ],
+        [
+          371.0,
+          1012
+        ],
+        [
+          840.0,
+          1011
+        ],
+        [
+          1352.0,
+          1011
+        ]
+      ],
+      "regions": {
+        "0": [
+          127,
+          10,
+          404,
+          511
+        ],
+        "1": [
+          602,
+          7,
+          359,
+          512
+        ],
+        "2": [
+          1100,
+          9,
+          405,
+          512
+        ],
+        "3": [
+          127,
+          523,
+          420,
+          491
+        ],
+        "4": [
+          608,
+          520,
+          404,
+          493
+        ],
+        "5": [
+          1099,
+          523,
+          421,
+          490
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 365,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "walk",
+      "key": "mori:flag:walk"
+    },
+    "mori-flag-idle": {
+      "file": "mori-flag-walk.png",
+      "columns": 1,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          375.0,
+          519
+        ]
+      ],
+      "regions": {
+        "0": [
+          127,
+          10,
+          404,
+          511
+        ]
+      },
+      "unplanted": [
+        0
+      ],
+      "body_height": 365,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "idle",
+      "key": "mori:flag:idle"
+    },
+    "mori-soldier-spear_thrust": {
+      "file": "mori-soldier-spear_thrust.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          175.0,
+          505
+        ],
+        [
+          687.0,
+          506
+        ],
+        [
+          1205.0,
+          508
+        ],
+        [
+          179.0,
+          941
+        ],
+        [
+          729.0,
+          945
+        ],
+        [
+          1230.0,
+          949
+        ]
+      ],
+      "regions": {
+        "0": [
+          27,
+          38,
+          482,
+          469
+        ],
+        "1": [
+          519,
+          95,
+          519,
+          413
+        ],
+        "2": [
+          1034,
+          97,
+          492,
+          413
+        ],
+        "3": [
+          10,
+          554,
+          542,
+          389
+        ],
+        "4": [
+          475,
+          569,
+          650,
+          378
+        ],
+        "5": [
+          1062,
+          556,
+          464,
+          395
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 440,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "spear_thrust",
+      "key": "mori:soldier:spear_thrust"
+    },
+    "mori-soldier-spear_sweep": {
+      "file": "mori-soldier-spear_sweep.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          185.0,
+          465
+        ],
+        [
+          796.0,
+          468
+        ],
+        [
+          1278.0,
+          481
+        ],
+        [
+          210.0,
+          938
+        ],
+        [
+          721.0,
+          919
+        ],
+        [
+          1247.0,
+          958
+        ]
+      ],
+      "regions": {
+        "0": [
+          8,
+          89,
+          522,
+          378
+        ],
+        "1": [
+          500,
+          70,
+          470,
+          400
+        ],
+        "2": [
+          1044,
+          79,
+          490,
+          404
+        ],
+        "3": [
+          15,
+          536,
+          492,
+          404
+        ],
+        "4": [
+          527,
+          584,
+          555,
+          337
+        ],
+        "5": [
+          1080,
+          498,
+          447,
+          462
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 430,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "spear_sweep",
+      "key": "mori:soldier:spear_sweep"
+    },
+    "mori-commander-commander_dash": {
+      "file": "mori-commander-commander_dash.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          238.0,
+          493
+        ],
+        [
+          730.0,
+          491
+        ],
+        [
+          1248.0,
+          492
+        ],
+        [
+          241.0,
+          974
+        ],
+        [
+          771.0,
+          966
+        ],
+        [
+          1267.0,
+          981
+        ]
+      ],
+      "regions": {
+        "0": [
+          26,
+          22,
+          451,
+          473
+        ],
+        "1": [
+          509,
+          28,
+          457,
+          465
+        ],
+        "2": [
+          1003,
+          24,
+          530,
+          470
+        ],
+        "3": [
+          11,
+          506,
+          552,
+          470
+        ],
+        "4": [
+          521,
+          525,
+          570,
+          443
+        ],
+        "5": [
+          1058,
+          504,
+          451,
+          479
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 465,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "commander_dash",
+      "key": "mori:commander:commander_dash"
+    },
+    "mori-archer-bow_shot": {
+      "file": "mori-archer-bow_shot.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          201.0,
+          642
+        ],
+        [
+          569.0,
+          640
+        ],
+        [
+          996.0,
+          643
+        ],
+        [
+          175.0,
+          1218
+        ],
+        [
+          612.0,
+          1217
+        ],
+        [
+          1013.0,
+          1218
+        ]
+      ],
+      "regions": {
+        "0": [
+          38,
+          9,
+          327,
+          635
+        ],
+        "1": [
+          417,
+          11,
+          409,
+          631
+        ],
+        "2": [
+          846,
+          7,
+          406,
+          638
+        ],
+        "3": [
+          18,
+          640,
+          408,
+          580
+        ],
+        "4": [
+          447,
+          640,
+          387,
+          579
+        ],
+        "5": [
+          850,
+          782,
+          386,
+          438
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 455,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "bow_shot",
+      "hands": {
+        "4": [
+          817,
+          872
+        ]
+      },
+      "hands_global": true,
+      "key": "mori:archer:bow_shot",
+      "frame_ticks": [
+        0,
+        8,
+        16,
+        23,
+        30,
+        46
+      ]
+    },
+    "mori-gunner-gun_shot": {
+      "file": "mori-gunner-gun_shot.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          235.0,
+          477
+        ],
+        [
+          718.0,
+          477
+        ],
+        [
+          1197.0,
+          478
+        ],
+        [
+          229.0,
+          973
+        ],
+        [
+          743.0,
+          973
+        ],
+        [
+          1249.0,
+          981
+        ]
+      ],
+      "regions": {
+        "0": [
+          66,
+          23,
+          427,
+          456
+        ],
+        "1": [
+          564,
+          26,
+          453,
+          453
+        ],
+        "2": [
+          1046,
+          24,
+          468,
+          456
+        ],
+        "3": [
+          53,
+          508,
+          487,
+          467
+        ],
+        "4": [
+          561,
+          505,
+          447,
+          470
+        ],
+        "5": [
+          1071,
+          463,
+          428,
+          520
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 460,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "gun_shot",
+      "hands": {
+        "3": [
+          532,
+          552
+        ]
+      },
+      "hands_global": true,
+      "key": "mori:gunner:gun_shot"
+    },
+    "mori-commander-commander_cut": {
+      "file": "mori-commander-commander_cut.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          218.0,
+          722
+        ],
+        [
+          640.0,
+          727
+        ],
+        [
+          1046.0,
+          735
+        ],
+        [
+          194.0,
+          1243
+        ],
+        [
+          617.0,
+          1243
+        ],
+        [
+          1054.0,
+          1234
+        ]
+      ],
+      "regions": {
+        "0": [
+          72,
+          219,
+          313,
+          505
+        ],
+        "1": [
+          494,
+          128,
+          290,
+          601
+        ],
+        "2": [
+          902,
+          1,
+          298,
+          736
+        ],
+        "3": [
+          37,
+          749,
+          363,
+          496
+        ],
+        "4": [
+          464,
+          780,
+          424,
+          465
+        ],
+        "5": [
+          920,
+          737,
+          319,
+          499
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 500,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "commander_cut",
+      "key": "mori:commander:commander_cut"
+    },
+    "mori-commander-commander_rise": {
+      "file": "mori-commander-commander_rise.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          262.0,
+          474
+        ],
+        [
+          729.0,
+          475
+        ],
+        [
+          1207.0,
+          480
+        ],
+        [
+          228.0,
+          983
+        ],
+        [
+          749.0,
+          986
+        ],
+        [
+          1242.0,
+          982
+        ]
+      ],
+      "regions": {
+        "0": [
+          55,
+          25,
+          413,
+          451
+        ],
+        "1": [
+          553,
+          49,
+          433,
+          428
+        ],
+        "2": [
+          1004,
+          39,
+          524,
+          443
+        ],
+        "3": [
+          41,
+          488,
+          435,
+          497
+        ],
+        "4": [
+          526,
+          471,
+          466,
+          517
+        ],
+        "5": [
+          1042,
+          500,
+          463,
+          484
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 470,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "commander_rise",
+      "key": "mori:commander:commander_rise"
+    },
+    "mori-flag-flag_sweep": {
+      "file": "mori-flag-flag_sweep.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          236.0,
+          534
+        ],
+        [
+          791.0,
+          536
+        ],
+        [
+          1295.0,
+          531
+        ],
+        [
+          221.0,
+          966
+        ],
+        [
+          711.0,
+          979
+        ],
+        [
+          1330.0,
+          993
+        ]
+      ],
+      "regions": {
+        "0": [
+          108,
+          7,
+          276,
+          529
+        ],
+        "1": [
+          521,
+          9,
+          443,
+          529
+        ],
+        "2": [
+          1049,
+          93,
+          437,
+          440
+        ],
+        "3": [
+          18,
+          635,
+          512,
+          333
+        ],
+        "4": [
+          524,
+          584,
+          649,
+          397
+        ],
+        "5": [
+          1182,
+          515,
+          340,
+          480
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 365,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "flag_sweep",
+      "key": "mori:flag:flag_sweep"
+    },
+    "mori-flag-hurt": {
+      "file": "mori-flag-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          242.0,
+          613
+        ],
+        [
+          643.0,
+          617
+        ],
+        [
+          1070.0,
+          619
+        ]
+      ],
+      "regions": {
+        "0": [
+          74,
+          4,
+          385,
+          611
+        ],
+        "1": [
+          479,
+          4,
+          367,
+          615
+        ],
+        "2": [
+          896,
+          5,
+          358,
+          616
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 460,
+      "component_clip": true,
+      "body_heights": [
+        460,
+        460,
+        460
+      ],
+      "target": "enemy_clip",
+      "sheet": "hurt",
+      "key": "mori:flag:hurt"
+    },
+    "mori-flag-struggle": {
+      "file": "mori-flag-hurt-struggle.png",
+      "columns": 3,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          205.0,
+          1219
+        ],
+        [
+          637.0,
+          1222
+        ],
+        [
+          1063.0,
+          1223
+        ]
+      ],
+      "regions": {
+        "0": [
+          10,
+          621,
+          425,
+          600
+        ],
+        "1": [
+          447,
+          629,
+          405,
+          595
+        ],
+        "2": [
+          857,
+          620,
+          395,
+          605
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2
+      ],
+      "body_height": 460,
+      "component_clip": true,
+      "body_heights": [
+        480,
+        480,
+        480
+      ],
+      "target": "enemy_clip",
+      "sheet": "struggle",
+      "key": "mori:flag:struggle"
+    },
+    "mori-flag-flag_slam": {
+      "file": "mori-flag-flag_slam.png",
+      "columns": 3,
+      "rows": 2,
+      "feet_global": true,
+      "feet": [
+        [
+          195.0,
+          656
+        ],
+        [
+          563.0,
+          650
+        ],
+        [
+          1015.0,
+          655
+        ],
+        [
+          203.0,
+          1197
+        ],
+        [
+          659.0,
+          1195
+        ],
+        [
+          1045.0,
+          1207
+        ]
+      ],
+      "regions": {
+        "0": [
+          31,
+          18,
+          349,
+          640
+        ],
+        "1": [
+          393,
+          53,
+          492,
+          599
+        ],
+        "2": [
+          846,
+          141,
+          408,
+          516
+        ],
+        "3": [
+          0,
+          675,
+          420,
+          524
+        ],
+        "4": [
+          426,
+          686,
+          469,
+          511
+        ],
+        "5": [
+          850,
+          648,
+          404,
+          561
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "body_height": 455,
+      "component_clip": true,
+      "target": "enemy_clip",
+      "sheet": "flag_slam",
+      "key": "mori:flag:flag_slam"
+    },
+    "nobunaga-run": {
+      "file": "nobunaga-run-a.png",
+      "columns": 4,
+      "rows": 3,
+      "feet_global": true,
+      "feet": [
+        [
+          280,
+          474
+        ],
+        [
+          770,
+          474
+        ],
+        [
+          1270,
+          474
+        ],
+        [
+          280,
+          975
+        ],
+        [
+          790,
+          975
+        ],
+        [
+          1290,
+          975
+        ],
+        [
+          275,
+          477
+        ],
+        [
+          760,
+          477
+        ],
+        [
+          1265,
+          477
+        ],
+        [
+          280,
+          979
+        ],
+        [
+          790,
+          979
+        ],
+        [
+          1290,
+          979
+        ]
+      ],
+      "regions": {
+        "0": [
+          20,
+          21,
+          496,
+          451
+        ],
+        "1": [
+          521,
+          27,
+          493,
+          449
+        ],
+        "2": [
+          1040,
+          27,
+          478,
+          450
+        ],
+        "3": [
+          15,
+          507,
+          509,
+          470
+        ],
+        "4": [
+          522,
+          508,
+          507,
+          428
+        ],
+        "5": [
+          1042,
+          517,
+          483,
+          460
+        ],
+        "6": [
+          17,
+          25,
+          509,
+          454
+        ],
+        "7": [
+          505,
+          28,
+          505,
+          454
+        ],
+        "8": [
+          1009,
+          27,
+          494,
+          457
+        ],
+        "9": [
+          17,
+          511,
+          515,
+          469
+        ],
+        "10": [
+          505,
+          510,
+          543,
+          430
+        ],
+        "11": [
+          1048,
+          518,
+          484,
+          465
+        ]
+      },
+      "unplanted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "body_height": 430,
+      "component_clip": true,
+      "target": "hero",
+      "hero": "nobunaga",
+      "sheet": "v14_run",
+      "frame_files": {
+        "0": "nobunaga-run-a.png",
+        "1": "nobunaga-run-a.png",
+        "2": "nobunaga-run-a.png",
+        "3": "nobunaga-run-a.png",
+        "4": "nobunaga-run-a.png",
+        "5": "nobunaga-run-a.png",
+        "6": "nobunaga-run-b.png",
+        "7": "nobunaga-run-b.png",
+        "8": "nobunaga-run-b.png",
+        "9": "nobunaga-run-b.png",
+        "10": "nobunaga-run-b.png",
+        "11": "nobunaga-run-b.png"
+      },
+      "body_heights": [
+        430,
+        430,
+        430,
+        430,
+        430,
+        430,
+        430,
+        430,
+        430,
+        430,
+        430,
+        430
+      ],
+      "hands": {},
+      "hands_global": true,
+      "blades": {},
+      "blades_global": true
+    }
+  }
+}

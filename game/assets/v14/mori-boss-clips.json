@@ -1,0 +1,230 @@
+{
+  "boss-mori-idle": {
+    "kind": "boss",
+    "sheet": "idle",
+    "file": "mori-boss-idle.png",
+    "columns": 2,
+    "rows": 3,
+    "frame_count": 6,
+    "body_height": 420,
+    "body_heights": [
+      420,
+      420,
+      425,
+      420,
+      420,
+      420
+    ],
+    "faction": "mori",
+    "qa_status": "source-reviewed; anatomical scale estimate excludes weapon/pose bbox, native calibration pending"
+  },
+  "boss-mori-walk": {
+    "kind": "boss",
+    "sheet": "walk",
+    "frame_count": 12,
+    "parts": [
+      {
+        "file": "mori-boss-walk-a.png",
+        "columns": 2,
+        "rows": 3,
+        "frame_count": 6,
+        "body_height": 430
+      },
+      {
+        "file": "mori-boss-walk-b.png",
+        "columns": 2,
+        "rows": 3,
+        "frame_count": 6,
+        "body_height": 435
+      }
+    ],
+    "faction": "mori",
+    "qa_status": "source-reviewed; anatomical scale estimate excludes weapon/pose bbox, native calibration pending"
+  },
+  "boss-mori-boss_smash": {
+    "kind": "boss",
+    "sheet": "boss_smash",
+    "file": "mori-boss_smash.png",
+    "columns": 3,
+    "rows": 2,
+    "frame_count": 6,
+    "body_height": 500,
+    "frame_ticks": [
+      0,
+      20,
+      38,
+      48,
+      64,
+      85
+    ],
+    "impact_frame": 3,
+    "faction": "mori",
+    "qa_status": "source-reviewed; anatomical scale estimate excludes weapon/pose bbox, native calibration pending"
+  },
+  "boss-mori-boss_chain": {
+    "kind": "boss",
+    "sheet": "boss_chain",
+    "file": "mori-boss_chain.png",
+    "columns": 2,
+    "rows": 3,
+    "frame_count": 6,
+    "body_height": 420,
+    "frame_ticks": [
+      0,
+      14,
+      26,
+      54,
+      72,
+      91
+    ],
+    "release_frame": 2,
+    "throw_frame": 3,
+    "faction": "mori",
+    "qa_status": "source-reviewed; anatomical scale estimate excludes weapon/pose bbox, native calibration pending",
+    "hands": {
+      "0": [
+        395,
+        240
+      ],
+      "1": [
+        746,
+        135
+      ],
+      "2": [
+        414,
+        522
+      ],
+      "3": [
+        930,
+        568
+      ],
+      "4": [
+        438,
+        983
+      ],
+      "5": [
+        1043,
+        1051
+      ]
+    }
+  },
+  "boss-mori-boss_sweep": {
+    "kind": "boss",
+    "sheet": "boss_sweep",
+    "file": "mori-boss_sweep.png",
+    "columns": 2,
+    "rows": 3,
+    "frame_count": 6,
+    "body_height": 430,
+    "frame_ticks": [
+      0,
+      16,
+      30,
+      40,
+      56,
+      75
+    ],
+    "impact_frame": 3,
+    "faction": "mori",
+    "qa_status": "source-reviewed; anatomical scale estimate excludes weapon/pose bbox, native calibration pending"
+  },
+  "boss-mori-boss_grab_throw": {
+    "kind": "boss",
+    "sheet": "boss_grab_throw",
+    "file": "mori-boss_grab_throw.png",
+    "columns": 2,
+    "rows": 3,
+    "frame_count": 6,
+    "body_height": 435,
+    "frame_ticks": [
+      0,
+      14,
+      26,
+      54,
+      72,
+      91
+    ],
+    "grab_frame": 2,
+    "throw_frame": 3,
+    "faction": "mori",
+    "qa_status": "source-reviewed; anatomical scale estimate excludes weapon/pose bbox, native calibration pending",
+    "hands": {
+      "0": [
+        393,
+        200
+      ],
+      "1": [
+        1144,
+        112
+      ],
+      "2": [
+        503,
+        541
+      ],
+      "3": [
+        1137,
+        651
+      ],
+      "4": [
+        594,
+        1040
+      ],
+      "5": [
+        1136,
+        943
+      ]
+    }
+  },
+  "boss-mori-hurt": {
+    "kind": "boss",
+    "sheet": "hurt",
+    "file": "mori-boss-hurt.png",
+    "columns": 2,
+    "rows": 3,
+    "frame_count": 6,
+    "body_height": 430,
+    "faction": "mori",
+    "qa_status": "source-reviewed; anatomical scale estimate excludes weapon/pose bbox, native calibration pending"
+  },
+  "boss-mori-death": {
+    "kind": "boss",
+    "sheet": "death",
+    "file": "mori-boss-death.png",
+    "columns": 2,
+    "rows": 3,
+    "frame_count": 6,
+    "body_height": 500,
+    "feet": [
+      [
+        350,
+        493
+      ],
+      [
+        930,
+        505
+      ],
+      [
+        320,
+        820
+      ],
+      [
+        930,
+        828
+      ],
+      [
+        325,
+        1168
+      ],
+      [
+        945,
+        1156
+      ]
+    ],
+    "final_prone_frames": [
+      4,
+      5
+    ],
+    "faction": "mori",
+    "qa_status": "source-reviewed; anatomical scale estimate excludes weapon/pose bbox, native calibration pending"
+  }
+}

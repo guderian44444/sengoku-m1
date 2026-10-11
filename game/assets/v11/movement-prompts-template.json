@@ -1,0 +1,192 @@
+{
+  "mode": "built-in image_gen",
+  "rowOrder": [
+    "soldier",
+    "flag",
+    "commander",
+    "archer",
+    "gunner",
+    "boss"
+  ],
+  "specs": [
+    {
+      "faction": "mori",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-imagawa.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\reactions-mori.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v09\\commander.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v09\\boss.png"
+      ],
+      "description": "Image2 supplies all SIX Mori role identities (ignore hurt/death); Image3 intact sword commander; Image4 boss Shimizu. Mori beige sleeves/gray pants, charcoal armor, teal waist sash and teal flag. Commander layered samurai armor and kabuto. Boss moustached dark armored kabuto man carries KUSARIGAMA sickle and safely coiled short chain/iron weight, NOT the naginata of image1. Keep distinctive boss weapon. Each role same face/gear in every frame.",
+      "prompt": "Use case: compositing. Create a NEW faction movement sprite atlas. Image1 is strictly the walking POSE and LAYOUT template: preserve its EXACT wide2:1 canvas, 8columns × 6rows, small figure scale, generous clear transparent gutters, complete weapons and 45px outer margins. Do not enlarge figures or fill blank areas. Images2 onwards define the NEW faction's body armor, faces, clothing, colors, helmets and role-specific weapons, which you must draw faithfully. Render actual changed costume/gear shapes, not a simple recolor. All48 figures face RIGHT. Rows TOPTOBOTTOM: spear soldier, flag bearer, sword commander, bow archer/quiver, matchlock gunner, faction miniboss. Within EACH row, keep the eight-frame walking anatomy from image1: columns1/5 WIDE CONTACT with opposite foot forward, columns2/6 visibly folded airborne trailing calf and bent support knee, columns3/7 NARROW PASSING one thigh lifted high with 90-degree bent knee and one nearly vertical planted leg, columns4/8 airborne heel reach before opposite contact. No frozen repeated wide stance. True alternate left/right feet, actual joint movement and subtle weight shift. Archer/gunner upper body remains facing RIGHT to allow later backwards playback while watching target. No attacks or hurt poses. Every complete figure including flag/weapon must be fully isolated by transparent pixels from EVERY neighbor, no cropped spear tips or bottom feet. Preserve tiny complete characters at the scale of image1, don't maximize detail by making bigger. Genuine transparent RGBA, no groundshadows, boxes, text, labels or scenery. Image2 supplies all SIX Mori role identities (ignore hurt/death); Image3 intact sword commander; Image4 boss Shimizu. Mori beige sleeves/gray pants, charcoal armor, teal waist sash and teal flag. Commander layered samurai armor and kabuto. Boss moustached dark armored kabuto man carries KUSARIGAMA sickle and safely coiled short chain/iron weight, NOT the naginata of image1. Keep distinctive boss weapon. Each role same face/gear in every frame."
+    },
+    {
+      "faction": "oda",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-imagawa.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-oda-troops-a.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-oda-troops-b.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\boss-oda.png"
+      ],
+      "description": "Image2 Oda spear soldier and BLACK FLAG with cream crest, beige/gray garments, charcoal armor and RED waist sash. Image3 Oda commander with red haori/kabuto/sword, white-headband bow archer, conicalhat matchlock gunner. Image4 Oda miniboss in RED HAORI and dark armor, moustache, MATCHLOCK GUN as unique boss weapon, NOT naginata. Follow these exact identities, keep all equipment contained.",
+      "prompt": "Use case: compositing. Create a NEW faction movement sprite atlas. Image1 is strictly the walking POSE and LAYOUT template: preserve its EXACT wide2:1 canvas, 8columns × 6rows, small figure scale, generous clear transparent gutters, complete weapons and 45px outer margins. Do not enlarge figures or fill blank areas. Images2 onwards define the NEW faction's body armor, faces, clothing, colors, helmets and role-specific weapons, which you must draw faithfully. Render actual changed costume/gear shapes, not a simple recolor. All48 figures face RIGHT. Rows TOPTOBOTTOM: spear soldier, flag bearer, sword commander, bow archer/quiver, matchlock gunner, faction miniboss. Within EACH row, keep the eight-frame walking anatomy from image1: columns1/5 WIDE CONTACT with opposite foot forward, columns2/6 visibly folded airborne trailing calf and bent support knee, columns3/7 NARROW PASSING one thigh lifted high with 90-degree bent knee and one nearly vertical planted leg, columns4/8 airborne heel reach before opposite contact. No frozen repeated wide stance. True alternate left/right feet, actual joint movement and subtle weight shift. Archer/gunner upper body remains facing RIGHT to allow later backwards playback while watching target. No attacks or hurt poses. Every complete figure including flag/weapon must be fully isolated by transparent pixels from EVERY neighbor, no cropped spear tips or bottom feet. Preserve tiny complete characters at the scale of image1, don't maximize detail by making bigger. Genuine transparent RGBA, no groundshadows, boxes, text, labels or scenery. Image2 Oda spear soldier and BLACK FLAG with cream crest, beige/gray garments, charcoal armor and RED waist sash. Image3 Oda commander with red haori/kabuto/sword, white-headband bow archer, conicalhat matchlock gunner. Image4 Oda miniboss in RED HAORI and dark armor, moustache, MATCHLOCK GUN as unique boss weapon, NOT naginata. Follow these exact identities, keep all equipment contained."
+    },
+    {
+      "faction": "saito",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-imagawa.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-saito-troops-a.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-saito-troops-b.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\boss-saito.png"
+      ],
+      "description": "Saito beige/grey/brown uniforms, dark armor, OLIVE GREEN waist ties and olive flag. Commander tan/brown haori and kabuto. Archer brown garment with headband/quiver. Boss from image4 is a STOCKY BEARDED MAN in dark brown kabuto/lamellar armor and olive sash, carries distinctive long hooked SICKLE SPEAR, not image1 naginata. Capture his stocky size/face while staying within tiny isolated cells.",
+      "prompt": "Use case: compositing. Create a NEW faction movement sprite atlas. Image1 is strictly the walking POSE and LAYOUT template: preserve its EXACT wide2:1 canvas, 8columns × 6rows, small figure scale, generous clear transparent gutters, complete weapons and 45px outer margins. Do not enlarge figures or fill blank areas. Images2 onwards define the NEW faction's body armor, faces, clothing, colors, helmets and role-specific weapons, which you must draw faithfully. Render actual changed costume/gear shapes, not a simple recolor. All48 figures face RIGHT. Rows TOPTOBOTTOM: spear soldier, flag bearer, sword commander, bow archer/quiver, matchlock gunner, faction miniboss. Within EACH row, keep the eight-frame walking anatomy from image1: columns1/5 WIDE CONTACT with opposite foot forward, columns2/6 visibly folded airborne trailing calf and bent support knee, columns3/7 NARROW PASSING one thigh lifted high with 90-degree bent knee and one nearly vertical planted leg, columns4/8 airborne heel reach before opposite contact. No frozen repeated wide stance. True alternate left/right feet, actual joint movement and subtle weight shift. Archer/gunner upper body remains facing RIGHT to allow later backwards playback while watching target. No attacks or hurt poses. Every complete figure including flag/weapon must be fully isolated by transparent pixels from EVERY neighbor, no cropped spear tips or bottom feet. Preserve tiny complete characters at the scale of image1, don't maximize detail by making bigger. Genuine transparent RGBA, no groundshadows, boxes, text, labels or scenery. IMPORTANT: choose new figure scale 15% SMALLER than image1 so newly added weapons remain safe. Saito beige/grey/brown uniforms, dark armor, OLIVE GREEN waist ties and olive flag. Commander tan/brown haori and kabuto. Archer brown garment with headband/quiver. Boss from image4 is a STOCKY BEARDED MAN in dark brown kabuto/lamellar armor and olive sash, carries distinctive long hooked SICKLE SPEAR, not image1 naginata. Capture his stocky size/face while staying within tiny isolated cells."
+    },
+    {
+      "faction": "miyoshi",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-imagawa.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-miyoshi-troops-a.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-miyoshi-troops-b.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\boss-miyoshi.png"
+      ],
+      "description": "Miyoshi beige sleeves, charcoal armor, PURPLE waist sash and purple flag. Commander gray/white haori with samurai kabuto. Headband archer and conicalgunner. Boss from image4 is young and lean, BLACK PLUMED HELMET, purple sash, carries TWO SHORT SWORDS while walking, not image1 naginata. Complete visible two small blades safely contained.",
+      "prompt": "Use case: compositing. Create a NEW faction movement sprite atlas. Image1 is strictly the walking POSE and LAYOUT template: preserve its EXACT wide2:1 canvas, 8columns × 6rows, small figure scale, generous clear transparent gutters, complete weapons and 45px outer margins. Do not enlarge figures or fill blank areas. Images2 onwards define the NEW faction's body armor, faces, clothing, colors, helmets and role-specific weapons, which you must draw faithfully. Render actual changed costume/gear shapes, not a simple recolor. All48 figures face RIGHT. Rows TOPTOBOTTOM: spear soldier, flag bearer, sword commander, bow archer/quiver, matchlock gunner, faction miniboss. Within EACH row, keep the eight-frame walking anatomy from image1: columns1/5 WIDE CONTACT with opposite foot forward, columns2/6 visibly folded airborne trailing calf and bent support knee, columns3/7 NARROW PASSING one thigh lifted high with 90-degree bent knee and one nearly vertical planted leg, columns4/8 airborne heel reach before opposite contact. No frozen repeated wide stance. True alternate left/right feet, actual joint movement and subtle weight shift. Archer/gunner upper body remains facing RIGHT to allow later backwards playback while watching target. No attacks or hurt poses. Every complete figure including flag/weapon must be fully isolated by transparent pixels from EVERY neighbor, no cropped spear tips or bottom feet. Preserve tiny complete characters at the scale of image1, don't maximize detail by making bigger. Genuine transparent RGBA, no groundshadows, boxes, text, labels or scenery. IMPORTANT: choose new figure scale 15% SMALLER than image1 so newly added weapons remain safe. Miyoshi beige sleeves, charcoal armor, PURPLE waist sash and purple flag. Commander gray/white haori with samurai kabuto. Headband archer and conicalgunner. Boss from image4 is young and lean, BLACK PLUMED HELMET, purple sash, carries TWO SHORT SWORDS while walking, not image1 naginata. Complete visible two small blades safely contained."
+    },
+    {
+      "faction": "azai",
+      "refs": [
+        "D:\\AI\\吞食戰國\\game\\assets\\v11\\movement-imagawa.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-azai-troops-a.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\faction-azai-troops-b.png",
+        "D:\\AI\\吞食戰國\\game\\assets\\v10\\boss-azai.png"
+      ],
+      "description": "Azai troops beige/lightgrey clothes, darkgray armor, DUSTY BLUE waist sash, bluegrey flag. Commander has black kabuto and layered shoulder armor, katana and command fan. Archer whiteheadband/quiver, gunner conicalhat/matchlock. Boss from image4 is lean man with black simple samurai kabuto and two white tied streamers from back, darkgray lamellar armor, palegreysleeves/pants and bluegrey sash, carries straight silver pointed YARI SPEAR, not curved naginata. Spear carryangled within safe cell.",
+      "prompt": "Use case: compositing. Create a NEW faction movement sprite atlas. Image1 is strictly the walking POSE and LAYOUT template: preserve its EXACT wide2:1 canvas, 8columns × 6rows, small figure scale, generous clear transparent gutters, complete weapons and 45px outer margins. Do not enlarge figures or fill blank areas. Images2 onwards define the NEW faction's body armor, faces, clothing, colors, helmets and role-specific weapons, which you must draw faithfully. Render actual changed costume/gear shapes, not a simple recolor. All48 figures face RIGHT. Rows TOPTOBOTTOM: spear soldier, flag bearer, sword commander, bow archer/quiver, matchlock gunner, faction miniboss. Within EACH row, keep the eight-frame walking anatomy from image1: columns1/5 WIDE CONTACT with opposite foot forward, columns2/6 visibly folded airborne trailing calf and bent support knee, columns3/7 NARROW PASSING one thigh lifted high with 90-degree bent knee and one nearly vertical planted leg, columns4/8 airborne heel reach before opposite contact. No frozen repeated wide stance. True alternate left/right feet, actual joint movement and subtle weight shift. Archer/gunner upper body remains facing RIGHT to allow later backwards playback while watching target. No attacks or hurt poses. Every complete figure including flag/weapon must be fully isolated by transparent pixels from EVERY neighbor, no cropped spear tips or bottom feet. Preserve tiny complete characters at the scale of image1, don't maximize detail by making bigger. Genuine transparent RGBA, no groundshadows, boxes, text, labels or scenery. IMPORTANT: choose new figure scale 15% SMALLER than image1 so newly added weapons remain safe. Azai troops beige/lightgrey clothes, darkgray armor, DUSTY BLUE waist sash, bluegrey flag. Commander has black kabuto and layered shoulder armor, katana and command fan. Archer whiteheadband/quiver, gunner conicalhat/matchlock. Boss from image4 is lean man with black simple samurai kabuto and two white tied streamers from back, darkgray lamellar armor, palegreysleeves/pants and bluegrey sash, carries straight silver pointed YARI SPEAR, not curved naginata. Spear carryangled within safe cell."
+    }
+  ],
+  "targetedRepairs": [
+    {
+      "faction": "imagawa",
+      "input": "movement-imagawa-draft.png",
+      "output": "movement-imagawa-gait-draft.png",
+      "prompt": "Use case: precise-object-edit. Repair this WALK-CYCLE sprite atlas. Keep exactly the SAME 6-row × 8-column layout, same 48 characters, same uniforms, role weapons, heads, facing RIGHT, linework style and transparency. Keep all bodies and weapons clearly isolated with generous blank gutter. THE REQUIRED CHANGE IS LEG ANIMATION: the current picture incorrectly repeats a wide split stride in every cell. Repaint hips, thighs, knees, calves and feet into a VERY OBVIOUS 8-frame brisk military march, with changing torso weight and arm balance. In EVERY one of the SIX rows, columns are: 1 WIDE STRIDE, forward leg straight and rear heel off ground; 2 REAR LEG SWINGS: support knee bends, trailing calf folds sharply backward so its foot is visibly in the AIR; 3 NARROW PASSING POSE: support leg almost vertical, other thigh lifted forward almost horizontal, knee bent 90 degrees and free foot in the air directly beneath the raised knee, NO wide split stance; 4 FRONT HEEL REACH: raised leg unfolds forward with airborne heel, support heel lifts; 5 OPPOSITE WIDE STRIDE with other foot now forward; 6 OPPOSITE TRAILING LEG SWINGS with one folded calf visibly airborne; 7 OPPOSITE NARROW PASSING POSE with tall planted support leg and other thigh lifted forward with deeply bent knee, NO split stance; 8 OPPOSITE HEEL REACH before next contact. Most important: COLUMNS THREE AND SEVEN MUST HAVE ONE KNEE LIFTED HIGH and the two feet close horizontally, sharply different silhouette from columns ONE AND FIVE with spread legs. Columns TWO AND SIX need bent lifted trailing feet. No eight identical stance silhouettes. Preserve each row's identity and body size. Keep completely transparent background. Never merely tilt, translate, rotate, stretch or mirror an existing sprite. Draw actual different bent-limb anatomy. Flag cloth and long weapons stay fully contained; archer and gunner keep upper body/weapon facing RIGHT so motion can also play backwards. Add no labels, text, shadows, frame borders, scenery, pain or attack poses."
+    },
+    {
+      "faction": "imagawa",
+      "input": "movement-imagawa-gait-draft.png",
+      "output": "movement-imagawa.png",
+      "prompt": "Use case: precise-object-edit. Make a production sprite sheet from this atlas WITHOUT changing any of its 48 walking poses, character identities, equipment, style, or its exact 8 columns and 6 rows. Main required edit: redraw EVERY FULL FIGURE including its complete weapon, hair, flag and feet uniformly MUCH SMALLER, approximately 65% of its current total bounding-box size, centered inside its current invisible cell. This is a layout spacing correction, not cropping. There must be a completely blank transparent horizontal band of at least 30 pixels between EVERY row and blank transparent vertical gaps between EVERY column. Top and bottom outside margins at least 45 pixels. No spear may touch the top or right canvas edge. No bottom-row foot touches the bottom edge. NO figure ever touches a figure, flag, weapon or hair in the row above or below. The flag bearer body can be smaller to fit the full flag within his cell; retain exact full flag. Keep the gait anatomy: columns3 and7 each have a raised passing knee and only one planted foot; columns2 and6 one folded airborne trailing calf, columns1 and5 wide contact strides. Keep all eight poses visible and separated for every one of six rows. True transparent RGBA background. Output WIDE 2:1 atlas with 48 isolated connected character components, each cleanly surrounded by empty alpha on every side. No shadows, grid lines, text or borders. Preserve palette and linework from reference. Everything smaller with much more blank area, never fill the blank margins."
+    },
+    {
+      "faction": "miyoshi",
+      "input": "movement-miyoshi-template-draft.png",
+      "output": "movement-miyoshi.png",
+      "prompt": "Use case: precise-object-edit. Make a production sprite sheet from this atlas WITHOUT changing any of its 48 walking poses, character identities, equipment, style, or its exact 8 columns and 6 rows. Main required edit: redraw EVERY FULL FIGURE including its complete weapon, hair, flag and feet uniformly MUCH SMALLER, approximately 65% of its current total bounding-box size, centered inside its current invisible cell. This is a layout spacing correction, not cropping. There must be a completely blank transparent horizontal band of at least 30 pixels between EVERY row and blank transparent vertical gaps between EVERY column. Top and bottom outside margins at least 45 pixels. No spear may touch the top or right canvas edge. No bottom-row foot touches the bottom edge. NO figure ever touches a figure, flag, weapon or hair in the row above or below. The flag bearer body can be smaller to fit the full flag within his cell; retain exact full flag. Keep the gait anatomy: columns3 and7 each have a raised passing knee and only one planted foot; columns2 and6 one folded airborne trailing calf, columns1 and5 wide contact strides. Keep all eight poses visible and separated for every one of six rows. True transparent RGBA background. Output WIDE 2:1 atlas with 48 isolated connected character components, each cleanly surrounded by empty alpha on every side. No shadows, grid lines, text or borders. Preserve palette and linework from reference. Everything smaller with much more blank area, never fill the blank margins."
+    }
+  ],
+  "acceptedFirstSix": [
+    {
+      "faction": "mori",
+      "file": "movement-mori.png",
+      "size": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "validation": "alpha-body component measurement and visual gait review; no raster processing; source copied unchanged"
+    },
+    {
+      "faction": "imagawa",
+      "file": "movement-imagawa.png",
+      "size": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "validation": "alpha-body component measurement and visual gait review; no raster processing; source copied unchanged"
+    },
+    {
+      "faction": "oda",
+      "file": "movement-oda.png",
+      "size": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "validation": "alpha-body component measurement and visual gait review; no raster processing; source copied unchanged"
+    },
+    {
+      "faction": "saito",
+      "file": "movement-saito.png",
+      "size": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "validation": "alpha-body component measurement and visual gait review; no raster processing; source copied unchanged"
+    },
+    {
+      "faction": "miyoshi",
+      "file": "movement-miyoshi.png",
+      "size": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "validation": "alpha-body component measurement and visual gait review; no raster processing; source copied unchanged"
+    },
+    {
+      "faction": "azai",
+      "file": "movement-azai.png",
+      "size": [
+        1774,
+        887
+      ],
+      "actualFrameCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "validation": "alpha-body component measurement and visual gait review; no raster processing; source copied unchanged"
+    }
+  ]
+}

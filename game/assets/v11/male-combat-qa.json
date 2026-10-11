@@ -1,0 +1,143 @@
+{
+  "mode": "built-in image_gen",
+  "rowOrder": [
+    "walk",
+    "light1",
+    "light2",
+    "light3",
+    "heavy1",
+    "heavy2"
+  ],
+  "drafts": {
+    "nobunaga": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      7
+    ],
+    "hideyoshi": [
+      8,
+      7,
+      7,
+      7,
+      6,
+      6
+    ],
+    "ieyasu": [
+      8,
+      8,
+      8,
+      8,
+      7,
+      8
+    ],
+    "mitsuhide": [
+      8,
+      8,
+      8,
+      7,
+      8,
+      7
+    ],
+    "tadakatsu": [
+      8,
+      8,
+      8,
+      8,
+      7,
+      7
+    ]
+  },
+  "wide": {
+    "nobunaga": [
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "hideyoshi": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "ieyasu": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "mitsuhide": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "tadakatsu": [
+      8,
+      7,
+      8,
+      8,
+      8,
+      7
+    ]
+  },
+  "composedFrameCounts": {
+    "nobunaga": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "hideyoshi": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "ieyasu": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "mitsuhide": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "tadakatsu": [
+      8,
+      7,
+      8,
+      8,
+      8,
+      7
+    ]
+  },
+  "notes": [
+    "All saved images were inspected as complete source atlases; real drawn pose counts are recorded, never padded by repeated frames.",
+    "Nobunaga wide source contains only five rows; heavy1 selects draft row4 and heavy2 selects wide row4.",
+    "Wide-source sprites retain source silhouette/weapon identity and have substantially better spacing than drafts.",
+    "Some long weapon tips approach or cross neighboring cell boundaries. Final registration requires per-frame alpha-bound QA and render inspection, not blind equal-cell cropping.",
+    "Tadakatsu light1 and heavy2 contain seven genuine poses each; the missing nominal grid cell is skipped."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.14",
+  "backend": "Local Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+  "delivery": {
+    "attack": "Shout one sharp explosive martial-arts kiai during a forceful strike. High projected pitch, fierce effort, hard consonant onset, one breath, sudden cutoff. Never narrate or calmly pronounce the word. Keep the voiced burst compact, about half a second.",
+    "heavy": "Shout an intense, high-pitched full-body effort cry at the instant of a powerful finishing strike. An abrupt explosive onset with diaphragm support and gritty vocal pressure, then cut off sharply. One forceful breath, well under a second; not a sustained singing note, not conversational speech.",
+    "hurt": "A sudden painful combat impact makes this adult warrior involuntarily cry out: a sharp high-pitched pained yelp, a strained voiced burst followed by an abrupt breath cutoff. Clearly hurt and shocked, muscular tension, intense but brief. Not a sigh, whisper, gentle moan or spoken narration. Shout the short exclamation with a forceful rising onset and broken cutoff.",
+    "special": "Shout this Japanese battle cry with explosive heroic fighting-game intensity. High projection, fierce urgency, rising energy with a strongly accented final syllable. A single compact breath, no calm recitation, no extra words, no singing."
+  },
+  "actors": {
+    "oichi": {
+      "voice_description": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy.",
+      "clips": {
+        "attack": ["はっ！", "せいっ！", "やっ！", "えいっ！"],
+        "heavy": ["やあっ！", "はあっ！", "せいやっ！", "たあっ！"],
+        "hurt": ["ぐあっ！", "ああっ！", "うあっ！"]
+      }
+    },
+    "boss_mori": {
+      "voice_description": "A fierce adult Japanese male samurai commander, resonant rugged baritone with a strong bright cutting upper edge when shouting. Confident and imposing, explosive breath support, rough combat effort rather than a calm announcer.",
+      "clips": {
+        "attack": ["ふんっ！", "せいやっ！", "喰らえっ！"],
+        "special": ["鎖牙旋風！", "逃がさん！", "毛利の刃！"]
+      }
+    }
+  }
+}

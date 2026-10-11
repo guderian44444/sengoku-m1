@@ -1,0 +1,90 @@
+{
+  "mode": "built-in image_gen",
+  "rowOrder": [
+    "soldier",
+    "flag",
+    "commander",
+    "archer",
+    "gunner",
+    "boss"
+  ],
+  "requestedGrid": {
+    "columns": 8,
+    "rows": 6,
+    "aspectRatio": "2:1"
+  },
+  "atlases": {
+    "asakura": {
+      "file": "movement-asakura.png",
+      "prompt": "Use case: stylized-concept. Transparent game WALK-CYCLE sprite atlas. Image1 is the APPROVED POSE AND SPACING TEMPLATE: EXACT8columns×6rows,48small isolated complete fullbodyfigures, 2:1landscape1774×887. Follow image1's exact48 positions, small body scale, safe transparent gaps and all8 true walkcycle phases. NOT its faction colors! Images2/3/4 supply correct faction costumes, faces and gear. Replace all templatefigures with these referenced designs while preserving separate small completebody poses, not large sourceportraits. Keep at least45transparentpixels exterior top/bottom, generousallfour edges, minimum18%cellsidegutter. Fullweapons/flags/hair/feet wholly insideowncell, no touchingneighbors, no clipping. Transparentalpha0background, no shadows, scene, effects, text or grid.\nROWS topdown:1spear SOLDIER;2FLAGbearer;3armored swordCOMMANDER;4bowARCHERwithquiver;5matchlockGUNNER;6specificMINIBOSS. Eachrow8genuinewalkdrawings always facingRIGHT. Torso remains aimedright, particularlyrangedtroops who canplayreversebackwards. Eight real alternating skeletalposes notsameimages shifted/tilted. Columns1/5 wide alternatingfootcontact. Columns2/6 SUPPORTINGknee bends and TRAILINGCALFfolds back with foot airborne. Columns3/7 narrowpassingpose with clearlyRAISEDforwardKNEE,bentat90degrees,oneplantedleg. Columns4/8 frontheelreachesforward as rearheelrises. Arms/clothlag andweaponsmove naturally while recognizable andcontained. Eight fullposes everyrow includingflag/boss. No attacks, falling, corpses orkneeling. Keep bodyheightconsistentineachrow excludingtallflag/spear. Keep EXACTlayoutandlargeclearspacing oftemplate. FACTION ASAKURA: image2 spear ashigaru and taupe/beige FLAG, beige sleeves,charcoal armor/baggy grey pants, rustredwaisttie, darkconicalhat. Image3 commander with pale cream outercoat edgedrustbrown, helmetandsword; archerwhiteheadband/woodbowquiver; gunnerdarkconicalhatbrownmatchlock. Image4BOSS: tallmature roughbearded man,longgreyinghair, batteredblackhelmet,darkarmor under shaggytorn OFFWHITE fur/layeredcloak, largesilverKATANA. Bossmustbe ownuniqueruggedfurcharacter,nottemplateblue man. Carrylongsworddiagonally insidecell, notspear.",
+      "repairPrompt": "Spacing/edge-repair only ofthis exact Asakura walk atlas. Preserve all48 actual gaitposes in8columns6rows, correctrolesandcostumes includingraggedwhitefurkatana boss. Currentrightmostcommander sword andleftmostboss sword are clipped bycanvas edges. Some spears/flags nearlytouch rows. Make ALL figures smallerat70%theircurrent sizeRELATIVE TO CELL, including theirwholeweapon andflag, equalanatomicalscalewithineachrow. Centercompletefigure ineachslot. Restore anycutweapon tip to a cleancompletepoint. Keep at least40pixels completelyEMPTYtransparentmargin aroundallfourouteredges and at least15pxcleantransparentgap between everyneighboring fullfigureincludingweaponsandflag. Nofigure touchesanotherrow. Bottomrowboss shouldbeabout110pxhumanheight not170px, with sword/capeentirelycontained. Same1774×8872:1canvas8×6, no posechanges, no additionalcharacters, no effects, no text, nogrid. Transparentalpha0 outside actualsprites, cleanedges. Everyfullbody hasoneheadtwoarms twolegsandcompleteappropriateweapon. EXACT48smallseparatefigures.",
+      "referenceImages": [
+        "game/assets/v11/movement-imagawa.png",
+        "game/assets/v10/faction-asakura-troops-a.png",
+        "game/assets/v10/faction-asakura-troops-b.png",
+        "game/assets/v10/boss-asakura.png"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "actualCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "verification": "Viewed complete sheet; register-v11.py measure passed all four edge separation and 48 component counts. Manual human heights exclude flags and weapons; runtime scale calibration remains integration QA."
+    },
+    "takeda": {
+      "file": "movement-takeda.png",
+      "prompt": "Use case: stylized-concept. Transparent game WALK-CYCLE sprite atlas. Image1 is the APPROVED POSE AND SPACING TEMPLATE: EXACT8columns×6rows,48small isolated complete fullbodyfigures, 2:1landscape1774×887. Follow image1's exact48 positions, small body scale, safe transparent gaps and all8 true walkcycle phases. NOT its faction colors! Images2/3/4 supply correct faction costumes, faces and gear. Replace all templatefigures with these referenced designs while preserving separate small completebody poses, not large sourceportraits. Keep at least45transparentpixels exterior top/bottom, generousallfour edges, minimum18%cellsidegutter. Fullweapons/flags/hair/feet wholly insideowncell, no touchingneighbors, no clipping. Transparentalpha0background, no shadows, scene, effects, text or grid.\nROWS topdown:1spear SOLDIER;2FLAGbearer;3armored swordCOMMANDER;4bowARCHERwithquiver;5matchlockGUNNER;6specificMINIBOSS. Eachrow8genuinewalkdrawings always facingRIGHT. Torso remains aimedright, particularlyrangedtroops who canplayreversebackwards. Eight real alternating skeletalposes notsameimages shifted/tilted. Columns1/5 wide alternatingfootcontact. Columns2/6 SUPPORTINGknee bends and TRAILINGCALFfolds back with foot airborne. Columns3/7 narrowpassingpose with clearlyRAISEDforwardKNEE,bentat90degrees,oneplantedleg. Columns4/8 frontheelreachesforward as rearheelrises. Arms/clothlag andweaponsmove naturally while recognizable andcontained. Eight fullposes everyrow includingflag/boss. No attacks, falling, corpses orkneeling. Keep bodyheightconsistentineachrow excludingtallflag/spear. Keep EXACTlayoutandlargeclearspacing oftemplate. FACTION TAKEDA: image2 spearashigaru and DEEPREDflag, beige rolledsleeves,charcoal armor/baggydarkpants,rustwaisttie,darkconicalhelmet. Image3 commanderbrown/greyarmoredcoatandhelmet withkatana, archerwhiteheadband andquiver,longwoodbow; gunnerwhiteheadclothbrownmatchlock. Image4BOSS is DISTINCT REDarmored SPEARwarrior: redlamellarchest/shoulders/legguards, roundredhelmet,darkgreytrousers,whitewaistsash,browngoldsandals, longyari spear. Do not replacehimwithtemplateblue/naginataman. Wholefullspearhelddiagonalwithinowncell.",
+      "repairPrompt": null,
+      "referenceImages": [
+        "game/assets/v11/movement-imagawa.png",
+        "game/assets/v10/faction-takeda-troops-a.png",
+        "game/assets/v10/faction-takeda-troops-b.png",
+        "game/assets/v10/boss-takeda.png"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "actualCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "verification": "Viewed complete sheet; register-v11.py measure passed all four edge separation and 48 component counts. Manual human heights exclude flags and weapons; runtime scale calibration remains integration QA."
+    },
+    "ikko": {
+      "file": "movement-ikko.png",
+      "prompt": "Use case: stylized-concept. Transparent game WALK-CYCLE sprite atlas. Image1 is the APPROVED POSE AND SPACING TEMPLATE: EXACT8columns×6rows,48small isolated complete fullbodyfigures, 2:1landscape1774×887. Follow image1's exact48 positions, small body scale, safe transparent gaps and all8 true walkcycle phases. NOT its faction colors! Images2/3/4 supply correct faction costumes, faces and gear. Replace all templatefigures with these referenced designs while preserving separate small completebody poses, not large sourceportraits. Keep at least45transparentpixels exterior top/bottom, generousallfour edges, minimum18%cellsidegutter. Fullweapons/flags/hair/feet wholly insideowncell, no touchingneighbors, no clipping. Transparentalpha0background, no shadows, scene, effects, text or grid.\nROWS topdown:1spear SOLDIER;2FLAGbearer;3armored swordCOMMANDER;4bowARCHERwithquiver;5matchlockGUNNER;6specificMINIBOSS. Eachrow8genuinewalkdrawings always facingRIGHT. Torso remains aimedright, particularlyrangedtroops who canplayreversebackwards. Eight real alternating skeletalposes notsameimages shifted/tilted. Columns1/5 wide alternatingfootcontact. Columns2/6 SUPPORTINGknee bends and TRAILINGCALFfolds back with foot airborne. Columns3/7 narrowpassingpose with clearlyRAISEDforwardKNEE,bentat90degrees,oneplantedleg. Columns4/8 frontheelreachesforward as rearheelrises. Arms/clothlag andweaponsmove naturally while recognizable andcontained. Eight fullposes everyrow includingflag/boss. No attacks, falling, corpses orkneeling. Keep bodyheightconsistentineachrow excludingtallflag/spear. Keep EXACTlayoutandlargeclearspacing oftemplate. \nNew faction: IKKO. Reference2 soldier/flag: spear soldier dark conical hat, white/beige torn short sleeves over charcoal armor, loose grey-brown trousers, OCHRE/YELLOW waist ties, sandals; flag bearer WHITE HEADBAND and ragged cream robe, ochre sash, ochre/yellow tall flag. Reference3: commander dark samurai helmet/moustache, charcoal armor cream short sleeves, ochre cape strips and katana. Archer AND gunner WHITE HEADBAND (no conical hat), white sleeves, charcoal bodyarmor, grey pants, ochre sash and gourds; archer longbow+quiver, gunner brown matchlock. Reference4 miniboss elderly greybearded warrior monk wearing DARK HELMET, grey/white ragged layered robe over dark armor, ochre scarf/streamers, long NAGINATA curved silver blade and gold tassel. Keep his exact identity NOT generic blue template armor. All 48 characters SMALL (maximum65% cell width) with very large empty outer margins of at least45px. Wide poses and sword/naginata must entirely fit within their cell. Body height ~100 pixels on1774x887 template, do not enlarge to fill canvas. 8 real walking drawings each row, especially lifted knee phases3/7. Keep rows separate. Output transparent PNG at2:1ratio.",
+      "repairPrompt": null,
+      "referenceImages": [
+        "game/assets/v11/movement-imagawa.png",
+        "game/assets/v10/faction-ikko-troops-a.png",
+        "game/assets/v10/faction-ikko-troops-b.png",
+        "game/assets/v10/boss-ikko.png"
+      ],
+      "dimensions": [
+        1774,
+        887
+      ],
+      "actualCounts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "verification": "Viewed complete sheet; register-v11.py measure passed all four edge separation and 48 component counts. Manual human heights exclude flags and weapons; runtime scale calibration remains integration QA."
+    }
+  }
+}

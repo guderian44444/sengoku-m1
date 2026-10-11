@@ -1,0 +1,1816 @@
+{
+  "version": "0.14",
+  "backend": "Local Qwen3-TTS expressive variants; prior dialogue retained",
+  "actors": {
+    "nobunaga": {
+      "intro": [
+        "nobunaga_intro_0"
+      ],
+      "attack": [
+        "nobunaga_attack_0",
+        "nobunaga_attack_1"
+      ],
+      "heavy": [
+        "nobunaga_heavy_0"
+      ],
+      "hurt": [
+        "nobunaga_hurt_0",
+        "nobunaga_hurt_1"
+      ],
+      "guard": [
+        "nobunaga_guard_0"
+      ],
+      "special": [
+        "nobunaga_special_0"
+      ],
+      "victory": [
+        "nobunaga_victory_0"
+      ],
+      "defeat": [
+        "nobunaga_defeat_0"
+      ]
+    },
+    "oichi": {
+      "intro": [
+        "oichi_intro_0"
+      ],
+      "attack": [
+        "oichi_v14_attack_0",
+        "oichi_v14_attack_1",
+        "oichi_v14_attack_2",
+        "oichi_v14_attack_3"
+      ],
+      "heavy": [
+        "oichi_v14_heavy_0",
+        "oichi_v14_heavy_1",
+        "oichi_v14_heavy_2",
+        "oichi_v14_heavy_3"
+      ],
+      "hurt": [
+        "oichi_v14_hurt_0",
+        "oichi_v14_hurt_1",
+        "oichi_v14_hurt_2"
+      ],
+      "guard": [
+        "oichi_guard_0"
+      ],
+      "special": [
+        "oichi_special_0"
+      ],
+      "victory": [
+        "oichi_victory_0"
+      ],
+      "defeat": [
+        "oichi_defeat_0"
+      ]
+    },
+    "hideyoshi": {
+      "intro": [
+        "hideyoshi_intro_0"
+      ],
+      "attack": [
+        "hideyoshi_attack_0",
+        "hideyoshi_attack_1"
+      ],
+      "heavy": [
+        "hideyoshi_heavy_0"
+      ],
+      "hurt": [
+        "hideyoshi_hurt_0",
+        "hideyoshi_hurt_1"
+      ],
+      "guard": [
+        "hideyoshi_guard_0"
+      ],
+      "special": [
+        "hideyoshi_special_0"
+      ],
+      "victory": [
+        "hideyoshi_victory_0"
+      ],
+      "defeat": [
+        "hideyoshi_defeat_0"
+      ]
+    },
+    "ieyasu": {
+      "intro": [
+        "ieyasu_intro_0"
+      ],
+      "attack": [
+        "ieyasu_attack_0",
+        "ieyasu_attack_1"
+      ],
+      "heavy": [
+        "ieyasu_heavy_0"
+      ],
+      "hurt": [
+        "ieyasu_hurt_0",
+        "ieyasu_hurt_1"
+      ],
+      "guard": [
+        "ieyasu_guard_0"
+      ],
+      "special": [
+        "ieyasu_special_0"
+      ],
+      "victory": [
+        "ieyasu_victory_0"
+      ],
+      "defeat": [
+        "ieyasu_defeat_0"
+      ]
+    },
+    "mitsuhide": {
+      "intro": [
+        "mitsuhide_intro_0"
+      ],
+      "attack": [
+        "mitsuhide_attack_0",
+        "mitsuhide_attack_1"
+      ],
+      "heavy": [
+        "mitsuhide_heavy_0"
+      ],
+      "hurt": [
+        "mitsuhide_hurt_0",
+        "mitsuhide_hurt_1"
+      ],
+      "guard": [
+        "mitsuhide_guard_0"
+      ],
+      "special": [
+        "mitsuhide_special_0"
+      ],
+      "victory": [
+        "mitsuhide_victory_0"
+      ],
+      "defeat": [
+        "mitsuhide_defeat_0"
+      ]
+    },
+    "tadakatsu": {
+      "intro": [
+        "tadakatsu_intro_0"
+      ],
+      "attack": [
+        "tadakatsu_attack_0",
+        "tadakatsu_attack_1"
+      ],
+      "heavy": [
+        "tadakatsu_heavy_0"
+      ],
+      "hurt": [
+        "tadakatsu_hurt_0",
+        "tadakatsu_hurt_1"
+      ],
+      "guard": [
+        "tadakatsu_guard_0"
+      ],
+      "special": [
+        "tadakatsu_special_0"
+      ],
+      "victory": [
+        "tadakatsu_victory_0"
+      ],
+      "defeat": [
+        "tadakatsu_defeat_0"
+      ]
+    },
+    "soldier": {
+      "attack": [
+        "soldier_attack_0",
+        "soldier_attack_1"
+      ],
+      "hurt": [
+        "soldier_hurt_0",
+        "soldier_hurt_1"
+      ],
+      "guard": [
+        "soldier_guard_0"
+      ],
+      "defeat": [
+        "soldier_defeat_0"
+      ]
+    },
+    "boss_imagawa": {
+      "intro": [
+        "boss_imagawa_intro_0"
+      ],
+      "attack": [
+        "boss_imagawa_attack_0"
+      ],
+      "special": [
+        "boss_imagawa_special_0"
+      ],
+      "hurt": [
+        "boss_imagawa_hurt_0"
+      ],
+      "defeat": [
+        "boss_imagawa_defeat_0"
+      ]
+    },
+    "boss_oda": {
+      "intro": [
+        "boss_oda_intro_0"
+      ],
+      "attack": [
+        "boss_oda_attack_0"
+      ],
+      "special": [
+        "boss_oda_special_0"
+      ],
+      "hurt": [
+        "boss_oda_hurt_0"
+      ],
+      "defeat": [
+        "boss_oda_defeat_0"
+      ]
+    },
+    "boss_saito": {
+      "intro": [
+        "boss_saito_intro_0"
+      ],
+      "attack": [
+        "boss_saito_attack_0"
+      ],
+      "special": [
+        "boss_saito_special_0"
+      ],
+      "hurt": [
+        "boss_saito_hurt_0"
+      ],
+      "defeat": [
+        "boss_saito_defeat_0"
+      ]
+    },
+    "boss_miyoshi": {
+      "intro": [
+        "boss_miyoshi_intro_0"
+      ],
+      "attack": [
+        "boss_miyoshi_attack_0"
+      ],
+      "special": [
+        "boss_miyoshi_special_0"
+      ],
+      "hurt": [
+        "boss_miyoshi_hurt_0"
+      ],
+      "defeat": [
+        "boss_miyoshi_defeat_0"
+      ]
+    },
+    "boss_azai": {
+      "intro": [
+        "boss_azai_intro_0"
+      ],
+      "attack": [
+        "boss_azai_attack_0"
+      ],
+      "special": [
+        "boss_azai_special_0"
+      ],
+      "hurt": [
+        "boss_azai_hurt_0"
+      ],
+      "defeat": [
+        "boss_azai_defeat_0"
+      ]
+    },
+    "boss_asakura": {
+      "intro": [
+        "boss_asakura_intro_0"
+      ],
+      "attack": [
+        "boss_asakura_attack_0"
+      ],
+      "special": [
+        "boss_asakura_special_0"
+      ],
+      "hurt": [
+        "boss_asakura_hurt_0"
+      ],
+      "defeat": [
+        "boss_asakura_defeat_0"
+      ]
+    },
+    "boss_takeda": {
+      "intro": [
+        "boss_takeda_intro_0"
+      ],
+      "attack": [
+        "boss_takeda_attack_0"
+      ],
+      "special": [
+        "boss_takeda_special_0"
+      ],
+      "hurt": [
+        "boss_takeda_hurt_0"
+      ],
+      "defeat": [
+        "boss_takeda_defeat_0"
+      ]
+    },
+    "boss_ikko": {
+      "intro": [
+        "boss_ikko_intro_0"
+      ],
+      "attack": [
+        "boss_ikko_attack_0"
+      ],
+      "special": [
+        "boss_ikko_special_0"
+      ],
+      "hurt": [
+        "boss_ikko_hurt_0"
+      ],
+      "defeat": [
+        "boss_ikko_defeat_0"
+      ]
+    },
+    "boss_mori": {
+      "intro": [
+        "boss_mori_intro_0"
+      ],
+      "attack": [
+        "boss_mori_v14_attack_0",
+        "boss_mori_v14_attack_1",
+        "boss_mori_v14_attack_2"
+      ],
+      "special": [
+        "boss_mori_v14_special_0",
+        "boss_mori_v14_special_1",
+        "boss_mori_v14_special_2"
+      ],
+      "hurt": [
+        "boss_mori_hurt_0"
+      ],
+      "defeat": [
+        "boss_mori_defeat_0"
+      ]
+    },
+    "boss_akechi": {
+      "intro": [
+        "boss_akechi_intro_0"
+      ],
+      "attack": [
+        "boss_akechi_attack_0"
+      ],
+      "special": [
+        "boss_akechi_special_0"
+      ],
+      "hurt": [
+        "boss_akechi_hurt_0"
+      ],
+      "defeat": [
+        "boss_akechi_defeat_0"
+      ]
+    },
+    "boss_hashiba": {
+      "intro": [
+        "boss_hashiba_intro_0"
+      ],
+      "attack": [
+        "boss_hashiba_attack_0"
+      ],
+      "special": [
+        "boss_hashiba_special_0"
+      ],
+      "hurt": [
+        "boss_hashiba_hurt_0"
+      ],
+      "defeat": [
+        "boss_hashiba_defeat_0"
+      ]
+    },
+    "boss_iga": {
+      "intro": [
+        "boss_iga_intro_0"
+      ],
+      "attack": [
+        "boss_iga_attack_0"
+      ],
+      "special": [
+        "boss_iga_special_0"
+      ],
+      "hurt": [
+        "boss_iga_hurt_0"
+      ],
+      "defeat": [
+        "boss_iga_defeat_0"
+      ]
+    }
+  },
+  "clips": {
+    "nobunaga_intro_0": {
+      "file": "../v11/../v10/nobunaga_intro_0.wav",
+      "seconds": 3.139683,
+      "text": "我こそは、織田信長。道を開けい！",
+      "actor": "nobunaga",
+      "event": "intro"
+    },
+    "nobunaga_attack_0": {
+      "file": "../v11/nobunaga_attack_0.wav",
+      "seconds": 0.3325170068027211,
+      "text": "はっ！",
+      "actor": "nobunaga",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A commanding adult Japanese male samurai, clear powerful mid-low voice with a rough edge. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 2349112820,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "nobunaga_attack_1": {
+      "file": "../v11/nobunaga_attack_1.wav",
+      "seconds": 0.43029478458049886,
+      "text": "せいっ！",
+      "actor": "nobunaga",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A commanding adult Japanese male samurai, clear powerful mid-low voice with a rough edge. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 3879830899,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "nobunaga_heavy_0": {
+      "file": "../v11/nobunaga_heavy_0.wav",
+      "seconds": 0.2919727891156463,
+      "text": "はあっ！",
+      "actor": "nobunaga",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A commanding adult Japanese male samurai, clear powerful mid-low voice with a rough edge. An explosive forceful battle cry as a powerful weapon is swung. Shout with full diaphragm support, fierce high energy and an upward burst in pitch. One short clipped cry under one second. Abrupt cutoff, do not sustain the vowel. Not a sentence, no calm narration.",
+      "seed": 3279043092,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "nobunaga_hurt_0": {
+      "file": "../v11/../v10/nobunaga_hurt_0.wav",
+      "seconds": 0.141406,
+      "text": "ぐっ！",
+      "actor": "nobunaga",
+      "event": "hurt"
+    },
+    "nobunaga_hurt_1": {
+      "file": "../v11/../v10/nobunaga_hurt_1.wav",
+      "seconds": 0.380045,
+      "text": "ぬかった！",
+      "actor": "nobunaga",
+      "event": "hurt"
+    },
+    "nobunaga_guard_0": {
+      "file": "../v11/../v10/nobunaga_guard_0.wav",
+      "seconds": 0.298277,
+      "text": "効かぬ！",
+      "actor": "nobunaga",
+      "event": "guard"
+    },
+    "nobunaga_special_0": {
+      "file": "../v11/nobunaga_special_0.wav",
+      "seconds": 1.5896145124716554,
+      "text": "天魔の刃！",
+      "actor": "nobunaga",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A commanding adult Japanese male samurai, clear powerful mid-low voice with a rough edge. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 537299061,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "nobunaga_victory_0": {
+      "file": "../v11/../v10/nobunaga_victory_0.wav",
+      "seconds": 1.267755,
+      "text": "これが、天下布武だ。",
+      "actor": "nobunaga",
+      "event": "victory"
+    },
+    "nobunaga_defeat_0": {
+      "file": "../v11/../v10/nobunaga_defeat_0.wav",
+      "seconds": 0.929206,
+      "text": "まだ、終わらぬ。",
+      "actor": "nobunaga",
+      "event": "defeat"
+    },
+    "oichi_intro_0": {
+      "file": "../v11/../v10/oichi_intro_0.wav",
+      "seconds": 3.693741,
+      "text": "市と申します。皆を、必ず守ります。",
+      "actor": "oichi",
+      "event": "intro"
+    },
+    "oichi_attack_0": {
+      "file": "../v11/oichi_attack_0.wav",
+      "seconds": 0.19941043083900226,
+      "text": "はっ！",
+      "actor": "oichi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fearless adult Japanese female warrior, bright clear strong voice, confident and athletic. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 3928730461,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "oichi_attack_1": {
+      "file": "../v11/oichi_attack_1.wav",
+      "seconds": 0.4449886621315193,
+      "text": "せいっ！",
+      "actor": "oichi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fearless adult Japanese female warrior, bright clear strong voice, confident and athletic. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 1126533133,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "oichi_heavy_0": {
+      "file": "../v11/oichi_heavy_0.wav",
+      "seconds": 0.6148299319727891,
+      "text": "やあっ！",
+      "actor": "oichi",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fearless adult Japanese female warrior, bright clear strong voice, confident and athletic. An explosive forceful battle cry as a powerful weapon is swung. Shout with full diaphragm support, fierce high energy and an upward burst in pitch. One short clipped cry under one second. Abrupt cutoff, do not sustain the vowel. Not a sentence, no calm narration.",
+      "seed": 3379811524,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "oichi_hurt_0": {
+      "file": "../v11/../v10/oichi_hurt_0.wav",
+      "seconds": 0.128118,
+      "text": "あっ！",
+      "actor": "oichi",
+      "event": "hurt"
+    },
+    "oichi_hurt_1": {
+      "file": "../v11/../v10/oichi_hurt_1.wav",
+      "seconds": 0.405488,
+      "text": "痛いっ！",
+      "actor": "oichi",
+      "event": "hurt"
+    },
+    "oichi_guard_0": {
+      "file": "../v11/../v10/oichi_guard_0.wav",
+      "seconds": 0.678141,
+      "text": "させません！",
+      "actor": "oichi",
+      "event": "guard"
+    },
+    "oichi_special_0": {
+      "file": "../v11/oichi_special_0.wav",
+      "seconds": 0.9477097505668934,
+      "text": "氷の羽！",
+      "actor": "oichi",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fearless adult Japanese female warrior, bright clear strong voice, confident and athletic. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 483090878,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "oichi_victory_0": {
+      "file": "../v11/../v10/oichi_victory_0.wav",
+      "seconds": 1.468163,
+      "text": "皆、無事でよかった。",
+      "actor": "oichi",
+      "event": "victory"
+    },
+    "oichi_defeat_0": {
+      "file": "../v11/../v10/oichi_defeat_0.wav",
+      "seconds": 1.265805,
+      "text": "まだ、守りたい人が。",
+      "actor": "oichi",
+      "event": "defeat"
+    },
+    "hideyoshi_intro_0": {
+      "file": "../v11/../v10/hideyoshi_intro_0.wav",
+      "seconds": 2.974694,
+      "text": "藤吉郎、参上！ここはわしに任せろ！",
+      "actor": "hideyoshi",
+      "event": "intro"
+    },
+    "hideyoshi_attack_0": {
+      "file": "../v11/hideyoshi_attack_0.wav",
+      "seconds": 0.4076190476190476,
+      "text": "せいっ！",
+      "actor": "hideyoshi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An energetic adult Japanese male warrior, nimble bright tenor with a gravelly bite. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 3815341967,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "hideyoshi_attack_1": {
+      "file": "../v11/hideyoshi_attack_1.wav",
+      "seconds": 1.1663492063492062,
+      "text": "やっ！",
+      "actor": "hideyoshi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An energetic adult Japanese male warrior, nimble bright tenor with a gravelly bite. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 2129802123,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "hideyoshi_heavy_0": {
+      "file": "../v11/hideyoshi_heavy_0.wav",
+      "seconds": 0.5795918367346938,
+      "text": "おりゃあっ！",
+      "actor": "hideyoshi",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An energetic adult Japanese male warrior, nimble bright tenor with a gravelly bite. An explosive forceful battle cry as a powerful weapon is swung. Shout with full diaphragm support, fierce high energy and an upward burst in pitch. One short clipped cry under one second. Abrupt cutoff, do not sustain the vowel. Not a sentence, no calm narration.",
+      "seed": 577648769,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "hideyoshi_hurt_0": {
+      "file": "../v11/../v10/hideyoshi_hurt_0.wav",
+      "seconds": 0.193696,
+      "text": "うわっ！",
+      "actor": "hideyoshi",
+      "event": "hurt"
+    },
+    "hideyoshi_hurt_1": {
+      "file": "../v11/../v10/hideyoshi_hurt_1.wav",
+      "seconds": 0.262132,
+      "text": "いててっ！",
+      "actor": "hideyoshi",
+      "event": "hurt"
+    },
+    "hideyoshi_guard_0": {
+      "file": "../v11/../v10/hideyoshi_guard_0.wav",
+      "seconds": 1.026168,
+      "text": "おっと、危ない！",
+      "actor": "hideyoshi",
+      "event": "guard"
+    },
+    "hideyoshi_special_0": {
+      "file": "../v11/hideyoshi_special_0.wav",
+      "seconds": 0.8670748299319728,
+      "text": "大返し！",
+      "actor": "hideyoshi",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An energetic adult Japanese male warrior, nimble bright tenor with a gravelly bite. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 3715656137,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "hideyoshi_victory_0": {
+      "file": "../v11/../v10/hideyoshi_victory_0.wav",
+      "seconds": 1.847891,
+      "text": "はっはっは！また手柄じゃ！",
+      "actor": "hideyoshi",
+      "event": "victory"
+    },
+    "hideyoshi_defeat_0": {
+      "file": "../v11/../v10/hideyoshi_defeat_0.wav",
+      "seconds": 1.369751,
+      "text": "まだ、上に行けるはずじゃ。",
+      "actor": "hideyoshi",
+      "event": "defeat"
+    },
+    "ieyasu_intro_0": {
+      "file": "../v11/../v10/ieyasu_intro_0.wav",
+      "seconds": 4.003673,
+      "text": "徳川家康だ。焦らず、一歩ずつ参ろう。",
+      "actor": "ieyasu",
+      "event": "intro"
+    },
+    "ieyasu_attack_0": {
+      "file": "../v11/ieyasu_attack_0.wav",
+      "seconds": 0.26616780045351474,
+      "text": "ふんっ！",
+      "actor": "ieyasu",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A strong mature Japanese male warrior with a full warm resonant baritone, projecting fiercely. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 1390512777,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "ieyasu_attack_1": {
+      "file": "../v11/ieyasu_attack_1.wav",
+      "seconds": 0.4851700680272109,
+      "text": "はっ！",
+      "actor": "ieyasu",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A strong mature Japanese male warrior with a full warm resonant baritone, projecting fiercely. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 852098380,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "ieyasu_heavy_0": {
+      "file": "../v11/ieyasu_heavy_0.wav",
+      "seconds": 0.48657596371882084,
+      "text": "どりゃあっ！",
+      "actor": "ieyasu",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A strong mature Japanese male warrior with a full warm resonant baritone, projecting fiercely. An explosive forceful battle cry as a powerful weapon is swung. Shout with full diaphragm support, fierce high energy and an upward burst in pitch. One short clipped cry under one second. Abrupt cutoff, do not sustain the vowel. Not a sentence, no calm narration.",
+      "seed": 3942078739,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "ieyasu_hurt_0": {
+      "file": "../v11/../v10/ieyasu_hurt_0.wav",
+      "seconds": 0.273197,
+      "text": "ぐうっ！",
+      "actor": "ieyasu",
+      "event": "hurt"
+    },
+    "ieyasu_hurt_1": {
+      "file": "../v11/../v10/ieyasu_hurt_1.wav",
+      "seconds": 0.602222,
+      "text": "まだ耐える！",
+      "actor": "ieyasu",
+      "event": "hurt"
+    },
+    "ieyasu_guard_0": {
+      "file": "../v11/../v10/ieyasu_guard_0.wav",
+      "seconds": 0.857098,
+      "text": "ここは通さぬ！",
+      "actor": "ieyasu",
+      "event": "guard"
+    },
+    "ieyasu_special_0": {
+      "file": "../v11/ieyasu_special_0.wav",
+      "seconds": 1.324172335600907,
+      "text": "三河の意地！",
+      "actor": "ieyasu",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A strong mature Japanese male warrior with a full warm resonant baritone, projecting fiercely. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 2906104279,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "ieyasu_victory_0": {
+      "file": "../v11/../v10/ieyasu_victory_0.wav",
+      "seconds": 2.657324,
+      "text": "生き残った。それが何よりだ。",
+      "actor": "ieyasu",
+      "event": "victory"
+    },
+    "ieyasu_defeat_0": {
+      "file": "../v11/../v10/ieyasu_defeat_0.wav",
+      "seconds": 1.2878,
+      "text": "皆を、頼む。",
+      "actor": "ieyasu",
+      "event": "defeat"
+    },
+    "mitsuhide_intro_0": {
+      "file": "../v11/../v10/mitsuhide_intro_0.wav",
+      "seconds": 3.383719,
+      "text": "明智光秀。迷いは、この刃で断つ。",
+      "actor": "mitsuhide",
+      "event": "intro"
+    },
+    "mitsuhide_attack_0": {
+      "file": "../v11/mitsuhide_attack_0.wav",
+      "seconds": 0.2617233560090703,
+      "text": "はっ！",
+      "actor": "mitsuhide",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male swordsman with a focused clear cutting tenor, sharp and intense. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 1340400737,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "mitsuhide_attack_1": {
+      "file": "../v11/mitsuhide_attack_1.wav",
+      "seconds": 0.6412244897959184,
+      "text": "せいっ！",
+      "actor": "mitsuhide",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male swordsman with a focused clear cutting tenor, sharp and intense. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 922459910,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "mitsuhide_heavy_0": {
+      "file": "../v11/mitsuhide_heavy_0.wav",
+      "seconds": 0.26607709750566894,
+      "text": "はあっ！",
+      "actor": "mitsuhide",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male swordsman with a focused clear cutting tenor, sharp and intense. An explosive forceful battle cry as a powerful weapon is swung. Shout with full diaphragm support, fierce high energy and an upward burst in pitch. One short clipped cry under one second. Abrupt cutoff, do not sustain the vowel. Not a sentence, no calm narration.",
+      "seed": 1837261671,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "mitsuhide_hurt_0": {
+      "file": "../v11/../v10/mitsuhide_hurt_0.wav",
+      "seconds": 0.082766,
+      "text": "くっ！",
+      "actor": "mitsuhide",
+      "event": "hurt"
+    },
+    "mitsuhide_hurt_1": {
+      "file": "../v11/../v10/mitsuhide_hurt_1.wav",
+      "seconds": 0.337732,
+      "text": "不覚！",
+      "actor": "mitsuhide",
+      "event": "hurt"
+    },
+    "mitsuhide_guard_0": {
+      "file": "../v11/../v10/mitsuhide_guard_0.wav",
+      "seconds": 0.377732,
+      "text": "そこだ。",
+      "actor": "mitsuhide",
+      "event": "guard"
+    },
+    "mitsuhide_special_0": {
+      "file": "../v11/mitsuhide_special_0.wav",
+      "seconds": 0.6734240362811791,
+      "text": "月光一閃！",
+      "actor": "mitsuhide",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male swordsman with a focused clear cutting tenor, sharp and intense. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 454669649,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "mitsuhide_victory_0": {
+      "file": "../v11/../v10/mitsuhide_victory_0.wav",
+      "seconds": 1.799184,
+      "text": "勝利の先に、何がある。",
+      "actor": "mitsuhide",
+      "event": "victory"
+    },
+    "mitsuhide_defeat_0": {
+      "file": "../v11/../v10/mitsuhide_defeat_0.wav",
+      "seconds": 1.640862,
+      "text": "我が道は、ここまでか。",
+      "actor": "mitsuhide",
+      "event": "defeat"
+    },
+    "tadakatsu_intro_0": {
+      "file": "../v11/../v10/tadakatsu_intro_0.wav",
+      "seconds": 3.705805,
+      "text": "本多忠勝、推して参る！この背は越えさせぬ！",
+      "actor": "tadakatsu",
+      "event": "intro"
+    },
+    "tadakatsu_attack_0": {
+      "file": "../v11/tadakatsu_attack_0.wav",
+      "seconds": 1.2328344671201814,
+      "text": "せいっ！",
+      "actor": "tadakatsu",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A formidable adult Japanese male warrior with a resonant rough bass-baritone and explosive breath. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 2397650602,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "tadakatsu_attack_1": {
+      "file": "../v11/tadakatsu_attack_1.wav",
+      "seconds": 0.8081632653061225,
+      "text": "ふんっ！",
+      "actor": "tadakatsu",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A formidable adult Japanese male warrior with a resonant rough bass-baritone and explosive breath. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 4272481030,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "tadakatsu_heavy_0": {
+      "file": "../v11/tadakatsu_heavy_0.wav",
+      "seconds": 0.777233560090703,
+      "text": "おりゃあっ！",
+      "actor": "tadakatsu",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A formidable adult Japanese male warrior with a resonant rough bass-baritone and explosive breath. An explosive forceful battle cry as a powerful weapon is swung. Shout with full diaphragm support, fierce high energy and an upward burst in pitch. One short clipped cry under one second. Abrupt cutoff, do not sustain the vowel. Not a sentence, no calm narration.",
+      "seed": 2300078887,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "tadakatsu_hurt_0": {
+      "file": "../v11/../v10/tadakatsu_hurt_0.wav",
+      "seconds": 0.245805,
+      "text": "ぬうっ！",
+      "actor": "tadakatsu",
+      "event": "hurt"
+    },
+    "tadakatsu_hurt_1": {
+      "file": "../v11/../v10/tadakatsu_hurt_1.wav",
+      "seconds": 0.53542,
+      "text": "この程度！",
+      "actor": "tadakatsu",
+      "event": "hurt"
+    },
+    "tadakatsu_guard_0": {
+      "file": "../v11/../v10/tadakatsu_guard_0.wav",
+      "seconds": 0.781043,
+      "text": "びくともせぬ！",
+      "actor": "tadakatsu",
+      "event": "guard"
+    },
+    "tadakatsu_special_0": {
+      "file": "../v11/tadakatsu_special_0.wav",
+      "seconds": 1.7051700680272108,
+      "text": "蜻蛉切！",
+      "actor": "tadakatsu",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A formidable adult Japanese male warrior with a resonant rough bass-baritone and explosive breath. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 3220707156,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "tadakatsu_victory_0": {
+      "file": "../v11/../v10/tadakatsu_victory_0.wav",
+      "seconds": 2.127438,
+      "text": "守るべき者は、すべて守った。",
+      "actor": "tadakatsu",
+      "event": "victory"
+    },
+    "tadakatsu_defeat_0": {
+      "file": "../v11/../v10/tadakatsu_defeat_0.wav",
+      "seconds": 1.629116,
+      "text": "殿、申し訳ござらぬ。",
+      "actor": "tadakatsu",
+      "event": "defeat"
+    },
+    "soldier_attack_0": {
+      "file": "../v11/../v10/soldier_attack_0.wav",
+      "seconds": 0.22517,
+      "text": "やあっ！",
+      "actor": "soldier",
+      "event": "attack"
+    },
+    "soldier_attack_1": {
+      "file": "../v11/../v10/soldier_attack_1.wav",
+      "seconds": 0.282222,
+      "text": "くらえ！",
+      "actor": "soldier",
+      "event": "attack"
+    },
+    "soldier_hurt_0": {
+      "file": "../v11/../v10/soldier_hurt_0.wav",
+      "seconds": 0.219864,
+      "text": "ぐあっ！",
+      "actor": "soldier",
+      "event": "hurt"
+    },
+    "soldier_hurt_1": {
+      "file": "../v11/../v10/soldier_hurt_1.wav",
+      "seconds": 0.309252,
+      "text": "うわあっ！",
+      "actor": "soldier",
+      "event": "hurt"
+    },
+    "soldier_guard_0": {
+      "file": "../v11/../v10/soldier_guard_0.wav",
+      "seconds": 0.162766,
+      "text": "ふん！",
+      "actor": "soldier",
+      "event": "guard"
+    },
+    "soldier_defeat_0": {
+      "file": "../v11/../v10/soldier_defeat_0.wav",
+      "seconds": 0.274558,
+      "text": "無念！",
+      "actor": "soldier",
+      "event": "defeat"
+    },
+    "boss_imagawa_intro_0": {
+      "file": "../v11/../v10/boss_imagawa_intro_0.wav",
+      "seconds": 4.295283,
+      "text": "今川義元である。駿河の力、思い知るがよい！",
+      "actor": "boss_imagawa",
+      "event": "intro"
+    },
+    "boss_imagawa_attack_0": {
+      "file": "../v11/boss_imagawa_attack_0.wav",
+      "seconds": 0.434421768707483,
+      "text": "はっ！",
+      "actor": "boss_imagawa",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male commander, rich cutting baritone. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 2154077124,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_imagawa_special_0": {
+      "file": "../v11/boss_imagawa_special_0.wav",
+      "seconds": 0.996281179138322,
+      "text": "駿河旋風！",
+      "actor": "boss_imagawa",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male commander, rich cutting baritone. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 2087839188,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_imagawa_hurt_0": {
+      "file": "../v11/../v10/boss_imagawa_hurt_0.wav",
+      "seconds": 0.936508,
+      "text": "くっ、まだだ！",
+      "actor": "boss_imagawa",
+      "event": "hurt"
+    },
+    "boss_imagawa_defeat_0": {
+      "file": "../v11/../v10/boss_imagawa_defeat_0.wav",
+      "seconds": 0.881678,
+      "text": "ここまで、か。",
+      "actor": "boss_imagawa",
+      "event": "defeat"
+    },
+    "boss_oda_intro_0": {
+      "file": "../v11/../v10/boss_oda_intro_0.wav",
+      "seconds": 3.957098,
+      "text": "佐々成政、ここを守る。鉄砲隊、構え！",
+      "actor": "boss_oda",
+      "event": "intro"
+    },
+    "boss_oda_attack_0": {
+      "file": "../v11/boss_oda_attack_0.wav",
+      "seconds": 0.23804988662131518,
+      "text": "せいっ！",
+      "actor": "boss_oda",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male musketeer commander, rugged projecting baritone. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 3688233235,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_oda_special_0": {
+      "file": "../v11/boss_oda_special_0.wav",
+      "seconds": 0.9037641723356009,
+      "text": "鉄火一斉！",
+      "actor": "boss_oda",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male musketeer commander, rugged projecting baritone. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 3122374609,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_oda_hurt_0": {
+      "file": "../v11/../v10/boss_oda_hurt_0.wav",
+      "seconds": 0.834558,
+      "text": "くっ、まだだ！",
+      "actor": "boss_oda",
+      "event": "hurt"
+    },
+    "boss_oda_defeat_0": {
+      "file": "../v11/../v10/boss_oda_defeat_0.wav",
+      "seconds": 0.779592,
+      "text": "ここまで、か。",
+      "actor": "boss_oda",
+      "event": "defeat"
+    },
+    "boss_saito_intro_0": {
+      "file": "../v11/../v10/boss_saito_intro_0.wav",
+      "seconds": 2.939274,
+      "text": "斎藤龍興だ。美濃の城は渡さぬ！",
+      "actor": "boss_saito",
+      "event": "intro"
+    },
+    "boss_saito_attack_0": {
+      "file": "../v11/boss_saito_attack_0.wav",
+      "seconds": 0.36444444444444446,
+      "text": "はっ！",
+      "actor": "boss_saito",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male warrior, fierce bright forward tenor. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 2766489407,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_saito_special_0": {
+      "file": "../v11/boss_saito_special_0.wav",
+      "seconds": 1.2585034013605443,
+      "text": "美濃突撃！",
+      "actor": "boss_saito",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male warrior, fierce bright forward tenor. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 1861300915,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_saito_hurt_0": {
+      "file": "../v11/../v10/boss_saito_hurt_0.wav",
+      "seconds": 0.851338,
+      "text": "くっ、まだだ！",
+      "actor": "boss_saito",
+      "event": "hurt"
+    },
+    "boss_saito_defeat_0": {
+      "file": "../v11/../v10/boss_saito_defeat_0.wav",
+      "seconds": 0.799456,
+      "text": "ここまで、か。",
+      "actor": "boss_saito",
+      "event": "defeat"
+    },
+    "boss_miyoshi_intro_0": {
+      "file": "../v11/../v10/boss_miyoshi_intro_0.wav",
+      "seconds": 3.607166,
+      "text": "三好長逸、参る。二つの刃、見切れるか！",
+      "actor": "boss_miyoshi",
+      "event": "intro"
+    },
+    "boss_miyoshi_attack_0": {
+      "file": "../v11/boss_miyoshi_attack_0.wav",
+      "seconds": 0.31133786848072564,
+      "text": "せいっ！",
+      "actor": "boss_miyoshi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male dual-sword warrior, raspy animated midrange. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 3357153396,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_miyoshi_special_0": {
+      "file": "../v11/boss_miyoshi_special_0.wav",
+      "seconds": 1.9157369614512472,
+      "text": "双刃の舞！",
+      "actor": "boss_miyoshi",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male dual-sword warrior, raspy animated midrange. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 3204211057,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_miyoshi_hurt_0": {
+      "file": "../v11/../v10/boss_miyoshi_hurt_0.wav",
+      "seconds": 0.769161,
+      "text": "くっ、まだだ！",
+      "actor": "boss_miyoshi",
+      "event": "hurt"
+    },
+    "boss_miyoshi_defeat_0": {
+      "file": "../v11/../v10/boss_miyoshi_defeat_0.wav",
+      "seconds": 0.719955,
+      "text": "ここまで、か。",
+      "actor": "boss_miyoshi",
+      "event": "defeat"
+    },
+    "boss_azai_intro_0": {
+      "file": "../v11/../v10/boss_azai_intro_0.wav",
+      "seconds": 3.546349,
+      "text": "浅井長政だ。この近江は、我らが守る！",
+      "actor": "boss_azai",
+      "event": "intro"
+    },
+    "boss_azai_attack_0": {
+      "file": "../v11/boss_azai_attack_0.wav",
+      "seconds": 0.2600907029478458,
+      "text": "やっ！",
+      "actor": "boss_azai",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male spear warrior, youthful clear strong tenor. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 1022519032,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_azai_special_0": {
+      "file": "../v11/boss_azai_special_0.wav",
+      "seconds": 1.0285260770975058,
+      "text": "十文字斬り！",
+      "actor": "boss_azai",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male spear warrior, youthful clear strong tenor. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 3214478559,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_azai_hurt_0": {
+      "file": "../v11/../v10/boss_azai_hurt_0.wav",
+      "seconds": 0.865578,
+      "text": "くっ、まだだ！",
+      "actor": "boss_azai",
+      "event": "hurt"
+    },
+    "boss_azai_defeat_0": {
+      "file": "../v11/../v10/boss_azai_defeat_0.wav",
+      "seconds": 0.820816,
+      "text": "ここまで、か。",
+      "actor": "boss_azai",
+      "event": "defeat"
+    },
+    "boss_asakura_intro_0": {
+      "file": "../v11/../v10/boss_asakura_intro_0.wav",
+      "seconds": 4.304399,
+      "text": "朝倉義景である。越前の誇りを、侮るな！",
+      "actor": "boss_asakura",
+      "event": "intro"
+    },
+    "boss_asakura_attack_0": {
+      "file": "../v11/boss_asakura_attack_0.wav",
+      "seconds": 0.29365079365079366,
+      "text": "ふんっ！",
+      "actor": "boss_asakura",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male commander, broad resonant rough baritone. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 2804133921,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_asakura_special_0": {
+      "file": "../v11/boss_asakura_special_0.wav",
+      "seconds": 1.153106575963719,
+      "text": "越前大斬撃！",
+      "actor": "boss_asakura",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male commander, broad resonant rough baritone. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 366461840,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_asakura_hurt_0": {
+      "file": "../v11/../v10/boss_asakura_hurt_0.wav",
+      "seconds": 0.954286,
+      "text": "くっ、まだだ！",
+      "actor": "boss_asakura",
+      "event": "hurt"
+    },
+    "boss_asakura_defeat_0": {
+      "file": "../v11/../v10/boss_asakura_defeat_0.wav",
+      "seconds": 0.898231,
+      "text": "ここまで、か。",
+      "actor": "boss_asakura",
+      "event": "defeat"
+    },
+    "boss_takeda_intro_0": {
+      "file": "../v11/../v10/boss_takeda_intro_0.wav",
+      "seconds": 4.278367,
+      "text": "武田信玄、ここにあり。甲斐の兵よ、進め！",
+      "actor": "boss_takeda",
+      "event": "intro"
+    },
+    "boss_takeda_attack_0": {
+      "file": "../v11/boss_takeda_attack_0.wav",
+      "seconds": 0.7707936507936508,
+      "text": "はっ！",
+      "actor": "boss_takeda",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male warlord, thunderous rough bass-baritone. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 557861122,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_takeda_special_0": {
+      "file": "../v11/boss_takeda_special_0.wav",
+      "seconds": 1.1713832199546486,
+      "text": "風林火山！",
+      "actor": "boss_takeda",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male warlord, thunderous rough bass-baritone. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 996972396,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_takeda_hurt_0": {
+      "file": "../v11/../v10/boss_takeda_hurt_0.wav",
+      "seconds": 0.959501,
+      "text": "くっ、まだだ！",
+      "actor": "boss_takeda",
+      "event": "hurt"
+    },
+    "boss_takeda_defeat_0": {
+      "file": "../v11/../v10/boss_takeda_defeat_0.wav",
+      "seconds": 0.890975,
+      "text": "ここまで、か。",
+      "actor": "boss_takeda",
+      "event": "defeat"
+    },
+    "boss_ikko_intro_0": {
+      "file": "../v11/../v10/boss_ikko_intro_0.wav",
+      "seconds": 3.891701,
+      "text": "下間頼照。この地は、我らの手で守る！",
+      "actor": "boss_ikko",
+      "event": "intro"
+    },
+    "boss_ikko_attack_0": {
+      "file": "../v11/boss_ikko_attack_0.wav",
+      "seconds": 0.29541950113378684,
+      "text": "せいっ！",
+      "actor": "boss_ikko",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male warrior monk, strong chest resonance and harsh projecting edge. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 601327227,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_ikko_special_0": {
+      "file": "../v11/boss_ikko_special_0.wav",
+      "seconds": 0.7420408163265306,
+      "text": "金剛砕き！",
+      "actor": "boss_ikko",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A mature Japanese male warrior monk, strong chest resonance and harsh projecting edge. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 3320679337,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_ikko_hurt_0": {
+      "file": "../v11/../v10/boss_ikko_hurt_0.wav",
+      "seconds": 0.998458,
+      "text": "くっ、まだだ！",
+      "actor": "boss_ikko",
+      "event": "hurt"
+    },
+    "boss_ikko_defeat_0": {
+      "file": "../v11/../v10/boss_ikko_defeat_0.wav",
+      "seconds": 0.935057,
+      "text": "ここまで、か。",
+      "actor": "boss_ikko",
+      "event": "defeat"
+    },
+    "boss_mori_intro_0": {
+      "file": "../v11/../v10/boss_mori_intro_0.wav",
+      "seconds": 4.329433,
+      "text": "清水宗治。高松の城は、命にかえても守る！",
+      "actor": "boss_mori",
+      "event": "intro"
+    },
+    "boss_mori_attack_0": {
+      "file": "../v11/boss_mori_attack_0.wav",
+      "seconds": 0.3512018140589569,
+      "text": "はっ！",
+      "actor": "boss_mori",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male chain-sword commander, strong rough urgent baritone. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 2639080791,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_mori_special_0": {
+      "file": "../v11/boss_mori_special_0.wav",
+      "seconds": 1.068843537414966,
+      "text": "鎖龍乱舞！",
+      "actor": "boss_mori",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male chain-sword commander, strong rough urgent baritone. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 1904849441,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_mori_hurt_0": {
+      "file": "../v11/../v10/boss_mori_hurt_0.wav",
+      "seconds": 0.894558,
+      "text": "くっ、まだだ！",
+      "actor": "boss_mori",
+      "event": "hurt"
+    },
+    "boss_mori_defeat_0": {
+      "file": "../v11/../v10/boss_mori_defeat_0.wav",
+      "seconds": 0.836961,
+      "text": "ここまで、か。",
+      "actor": "boss_mori",
+      "event": "defeat"
+    },
+    "boss_akechi_intro_0": {
+      "file": "../v11/../v10/boss_akechi_intro_0.wav",
+      "seconds": 3.831791,
+      "text": "明智光秀。この戦、もはや後には引けぬ。",
+      "actor": "boss_akechi",
+      "event": "intro"
+    },
+    "boss_akechi_attack_0": {
+      "file": "../v11/boss_akechi_attack_0.wav",
+      "seconds": 0.20789115646258505,
+      "text": "せいっ！",
+      "actor": "boss_akechi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male swordsman, focused clear cutting tenor, sharp and intense. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 164501241,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_akechi_special_0": {
+      "file": "../v11/boss_akechi_special_0.wav",
+      "seconds": 2.4601814058956917,
+      "text": "月光一閃！",
+      "actor": "boss_akechi",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese male swordsman, focused clear cutting tenor, sharp and intense. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 3103491833,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_akechi_hurt_0": {
+      "file": "../v11/../v10/boss_akechi_hurt_0.wav",
+      "seconds": 0.915193,
+      "text": "くっ、まだだ！",
+      "actor": "boss_akechi",
+      "event": "hurt"
+    },
+    "boss_akechi_defeat_0": {
+      "file": "../v11/../v10/boss_akechi_defeat_0.wav",
+      "seconds": 0.864989,
+      "text": "ここまで、か。",
+      "actor": "boss_akechi",
+      "event": "defeat"
+    },
+    "boss_hashiba_intro_0": {
+      "file": "../v11/../v10/boss_hashiba_intro_0.wav",
+      "seconds": 2.98839,
+      "text": "羽柴秀吉じゃ！この機、逃してなるものか！",
+      "actor": "boss_hashiba",
+      "event": "intro"
+    },
+    "boss_hashiba_attack_0": {
+      "file": "../v11/boss_hashiba_attack_0.wav",
+      "seconds": 0.23333333333333334,
+      "text": "やっ！",
+      "actor": "boss_hashiba",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An energetic adult Japanese male warrior, bright nimble tenor with a gravelly bite. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 1915765539,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_hashiba_special_0": {
+      "file": "../v11/boss_hashiba_special_0.wav",
+      "seconds": 0.46530612244897956,
+      "text": "大返し！",
+      "actor": "boss_hashiba",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An energetic adult Japanese male warrior, bright nimble tenor with a gravelly bite. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 3336126636,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_hashiba_hurt_0": {
+      "file": "../v11/../v10/boss_hashiba_hurt_0.wav",
+      "seconds": 0.73161,
+      "text": "くっ、まだだ！",
+      "actor": "boss_hashiba",
+      "event": "hurt"
+    },
+    "boss_hashiba_defeat_0": {
+      "file": "../v11/../v10/boss_hashiba_defeat_0.wav",
+      "seconds": 0.690567,
+      "text": "ここまで、か。",
+      "actor": "boss_hashiba",
+      "event": "defeat"
+    },
+    "boss_iga_intro_0": {
+      "file": "../v11/../v10/boss_iga_intro_0.wav",
+      "seconds": 3.489615,
+      "text": "霞と呼ばれている。この林道は通さない。",
+      "actor": "boss_iga",
+      "event": "intro"
+    },
+    "boss_iga_attack_0": {
+      "file": "../v11/boss_iga_attack_0.wav",
+      "seconds": 0.12566893424036282,
+      "text": "はっ！",
+      "actor": "boss_iga",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fearless adult Japanese female ninja commander, cool bright clear voice with a sharp edge. One short explosive karate kiai, shouted fiercely with muscular effort. High energy, high projected pitch, abrupt attack and cutoff, a single breath. Do not speak conversationally or narrate.",
+      "seed": 240795859,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_iga_special_0": {
+      "file": "../v11/boss_iga_special_0.wav",
+      "seconds": 0.729297052154195,
+      "text": "霞縛り！",
+      "actor": "boss_iga",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fearless adult Japanese female ninja commander, cool bright clear voice with a sharp edge. Shout this attack name in Japanese at full battle intensity! Loud passionate anime fighting-game delivery, fierce rising pitch with a forceful final syllable, urgent and compact in a single breath. No calm recitation, no narration, no extra words.",
+      "seed": 1382003928,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+    },
+    "boss_iga_hurt_0": {
+      "file": "../v11/../v10/boss_iga_hurt_0.wav",
+      "seconds": 0.814014,
+      "text": "くっ、まだだ！",
+      "actor": "boss_iga",
+      "event": "hurt"
+    },
+    "boss_iga_defeat_0": {
+      "file": "../v11/../v10/boss_iga_defeat_0.wav",
+      "seconds": 0.958594,
+      "text": "ここまで、か。",
+      "actor": "boss_iga",
+      "event": "defeat"
+    },
+    "oichi_v14_attack_0": {
+      "file": "oichi_v14_attack_0.wav",
+      "seconds": 0.5684807256235828,
+      "text": "はっ！",
+      "actor": "oichi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. Shout one sharp explosive martial-arts kiai during a forceful strike. High projected pitch, fierce effort, hard consonant onset, one breath, sudden cutoff. Never narrate or calmly pronounce the word. Keep the voiced burst compact, about half a second.",
+      "seed": 2215336496,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_attack_0-840b5a3034c0605b-0.wav",
+      "sha256": "2ff71b54f04d8ad8f035195caab288f8fc402e79b3af995823ab645278f82847",
+      "raw_sha256": "c26c1a17c36a10af38f009e34923e3457cf83f1122279b93344d86304a2de71e",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_attack_1": {
+      "file": "oichi_v14_attack_1.wav",
+      "seconds": 0.403265306122449,
+      "text": "せいっ！",
+      "actor": "oichi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. Shout one sharp explosive martial-arts kiai during a forceful strike. High projected pitch, fierce effort, hard consonant onset, one breath, sudden cutoff. Never narrate or calmly pronounce the word. Keep the voiced burst compact, about half a second.",
+      "seed": 3163069767,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_attack_1-bc889d4741b3ccae-0.wav",
+      "sha256": "9b0b2862bc26b0d76b2ec8a624fefb9224c01241a7f478cdd73ff22931f4db46",
+      "raw_sha256": "d103f054a9712b647619a4ff4ce4186e0b0664b0bca29bc0b418af77dc5a71fe",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_attack_2": {
+      "file": "oichi_v14_attack_2.wav",
+      "seconds": 0.21591836734693878,
+      "text": "やっ！",
+      "actor": "oichi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. Shout one sharp explosive martial-arts kiai during a forceful strike. High projected pitch, fierce effort, hard consonant onset, one breath, sudden cutoff. Never narrate or calmly pronounce the word. Keep the voiced burst compact, about half a second.",
+      "seed": 1819588106,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_attack_2-6c74b60a070fc9ad-0.wav",
+      "sha256": "b08e9187e7efdac7ce1ee8b1ee36ac94b4a2d4dedba0e0adbd1462fd2d00c79d",
+      "raw_sha256": "89e0bb2aea792908f87490e9ef16daa557605c81ca4dbf75e15d68439e9b803b",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_attack_3": {
+      "file": "oichi_v14_attack_3.wav",
+      "seconds": 0.5124716553287982,
+      "text": "えいっ！",
+      "actor": "oichi",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. Shout one sharp explosive martial-arts kiai during a forceful strike. High projected pitch, fierce effort, hard consonant onset, one breath, sudden cutoff. Never narrate or calmly pronounce the word. Keep the voiced burst compact, about half a second.",
+      "seed": 768396298,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_attack_3-2dcccc0a6edcde7a-0.wav",
+      "sha256": "01bf7425826f22f60503735c4354c8301ee8c873b09c1a5272922926194ce1e5",
+      "raw_sha256": "fda727f2046907b9736c9d82d0fe84cbe734921d8ff2c5a24497effbbe264324",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_heavy_0": {
+      "file": "oichi_v14_heavy_0.wav",
+      "seconds": 1.4301133786848073,
+      "text": "やあっ！",
+      "actor": "oichi",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. Shout an intense, high-pitched full-body effort cry at the instant of a powerful finishing strike. An abrupt explosive onset with diaphragm support and gritty vocal pressure, then cut off sharply. One forceful breath, well under a second; not a sustained singing note, not conversational speech.",
+      "seed": 1647882850,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_heavy_0-6238b26297b598ac-0.wav",
+      "sha256": "683c962c4d3bbe046d52c1b7d9614645d384c5ac5cf4d62d11d944e1abb1b50c",
+      "raw_sha256": "d4bf6f0c41f0d4c0240b59bd1abfc0ef90e3cab4437bd5eebc64b3b6775ab14c",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_heavy_1": {
+      "file": "oichi_v14_heavy_1.wav",
+      "seconds": 0.8996825396825396,
+      "text": "はあっ！",
+      "actor": "oichi",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. Shout an intense, high-pitched full-body effort cry at the instant of a powerful finishing strike. An abrupt explosive onset with diaphragm support and gritty vocal pressure, then cut off sharply. One forceful breath, well under a second; not a sustained singing note, not conversational speech.",
+      "seed": 4285460375,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_heavy_1-ff6eef97d0686d4e-0.wav",
+      "sha256": "ea09be82531b7cc42bad3e6bed0474fe8935f2e8fa0154ef527e8459cf796017",
+      "raw_sha256": "bdd87f1d04e7c393ea800cc5f99e00572a7703417c774a72c3370f43b26e0341",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_heavy_2": {
+      "file": "oichi_v14_heavy_2.wav",
+      "seconds": 1.2779138321995465,
+      "text": "せいやっ！",
+      "actor": "oichi",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. Shout an intense, high-pitched full-body effort cry at the instant of a powerful finishing strike. An abrupt explosive onset with diaphragm support and gritty vocal pressure, then cut off sharply. One forceful breath, well under a second; not a sustained singing note, not conversational speech.",
+      "seed": 246440020,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_heavy_2-0eb06054a0e79e80-0.wav",
+      "sha256": "6325a36e5684f3577a333dabdeedfa73fcb9f62148efe76384846778757041b0",
+      "raw_sha256": "2a66b5f1a01d0c6624391444dab20de45341d85e8261f828dba13fd2805718ab",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_heavy_3": {
+      "file": "oichi_v14_heavy_3.wav",
+      "seconds": 0.6985034013605442,
+      "text": "たあっ！",
+      "actor": "oichi",
+      "event": "heavy",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. Shout an intense, high-pitched full-body effort cry at the instant of a powerful finishing strike. An abrupt explosive onset with diaphragm support and gritty vocal pressure, then cut off sharply. One forceful breath, well under a second; not a sustained singing note, not conversational speech.",
+      "seed": 1444868317,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_heavy_3-561ef0dda490690b-0.wav",
+      "sha256": "3bacacdf6c56922843605ab4f851a39c9194a53bffa99ae9f80f3b1d0ddc4e4f",
+      "raw_sha256": "be64dfd22c17028e636b5fd84c7c1036a32712c1dfbe1b682d06dc0e82d010c9",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_hurt_0": {
+      "file": "oichi_v14_hurt_0.wav",
+      "seconds": 1.4248979591836735,
+      "text": "ぐあっ！",
+      "actor": "oichi",
+      "event": "hurt",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. A sudden painful combat impact makes this adult warrior involuntarily cry out: a sharp high-pitched pained yelp, a strained voiced burst followed by an abrupt breath cutoff. Clearly hurt and shocked, muscular tension, intense but brief. Not a sigh, whisper, gentle moan or spoken narration. Shout the short exclamation with a forceful rising onset and broken cutoff.",
+      "seed": 3633761971,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_hurt_0-d896ceb3efbbef18-0.wav",
+      "sha256": "08bcc062372b1a06fbe5245b98981d72417d94749733f9eba0a6e7a62dcae0a1",
+      "raw_sha256": "562de77b832e0c5071573d95ac6a121e8670e3dcaf2600305a83e8bdbf14f437",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_hurt_1": {
+      "file": "oichi_v14_hurt_1.wav",
+      "seconds": 0.8088888888888889,
+      "text": "ああっ！",
+      "actor": "oichi",
+      "event": "hurt",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. A sudden painful combat impact makes this adult warrior involuntarily cry out: a sharp high-pitched pained yelp, a strained voiced burst followed by an abrupt breath cutoff. Clearly hurt and shocked, muscular tension, intense but brief. Not a sigh, whisper, gentle moan or spoken narration. Shout the short exclamation with a forceful rising onset and broken cutoff.",
+      "seed": 1135621994,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_hurt_1-43b037699d29905f-1.wav",
+      "sha256": "2047d0b4d780bbfe1cd2f83fe1e02614b64fbe640a5631bf67055737237e4e2a",
+      "raw_sha256": "98cb220cfca6a4f6fed26ad107c728a63244221d82cfb124cec468f056ff8ba8",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "oichi_v14_hurt_2": {
+      "file": "oichi_v14_hurt_2.wav",
+      "seconds": 0.5538321995464852,
+      "text": "うあっ！",
+      "actor": "oichi",
+      "event": "hurt",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "An adult Japanese female warrior with a bright clear strong upper-register voice, athletic breath support and a slightly raw edge under effort. Fearless, forceful and battle-ready; never soft, coy or breathy. A sudden painful combat impact makes this adult warrior involuntarily cry out: a sharp high-pitched pained yelp, a strained voiced burst followed by an abrupt breath cutoff. Clearly hurt and shocked, muscular tension, intense but brief. Not a sigh, whisper, gentle moan or spoken narration. Shout the short exclamation with a forceful rising onset and broken cutoff.",
+      "seed": 1367552492,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/oichi_v14_hurt_2-518331ecf96782cb-0.wav",
+      "sha256": "8d56be51adeada3397d7bc43c2441ec7d06d315a6d218bcc64081011cbbeb247",
+      "raw_sha256": "057c2c3917eccfd3ca63eb405709f8d0c69ee2574a774fe09c4e5d65f06d038d",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "boss_mori_v14_attack_0": {
+      "file": "boss_mori_v14_attack_0.wav",
+      "seconds": 0.3982312925170068,
+      "text": "ふんっ！",
+      "actor": "boss_mori",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fierce adult Japanese male samurai commander, resonant rugged baritone with a strong bright cutting upper edge when shouting. Confident and imposing, explosive breath support, rough combat effort rather than a calm announcer. Shout one sharp explosive martial-arts kiai during a forceful strike. High projected pitch, fierce effort, hard consonant onset, one breath, sudden cutoff. Never narrate or calmly pronounce the word. Keep the voiced burst compact, about half a second.",
+      "seed": 2636612326,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/boss_mori_v14_attack_0-9d2782e6f616bd01-0.wav",
+      "sha256": "41ac4b57704784540708083235a0fe53b5a6a2db550f46e534257aefea60673a",
+      "raw_sha256": "313f9db925dc5a2ce3d6f74aaa5c71d7665f040ad760138770105d704e6fd2e3",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "boss_mori_v14_attack_1": {
+      "file": "boss_mori_v14_attack_1.wav",
+      "seconds": 0.48634920634920636,
+      "text": "せいやっ！",
+      "actor": "boss_mori",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fierce adult Japanese male samurai commander, resonant rugged baritone with a strong bright cutting upper edge when shouting. Confident and imposing, explosive breath support, rough combat effort rather than a calm announcer. Shout one sharp explosive martial-arts kiai during a forceful strike. High projected pitch, fierce effort, hard consonant onset, one breath, sudden cutoff. Never narrate or calmly pronounce the word. Keep the voiced burst compact, about half a second.",
+      "seed": 3809587305,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/boss_mori_v14_attack_1-e311b0692bf88e4f-0.wav",
+      "sha256": "42936ac2a1a5a4480e18d2bbd67ace476372c0a186761f5a79d7ee637e29ab53",
+      "raw_sha256": "ffdf81ada8fc8107276817f4ffb76268fbad0fbecbce62abcc46ae9769dacec1",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "boss_mori_v14_attack_2": {
+      "file": "boss_mori_v14_attack_2.wav",
+      "seconds": 1.6172335600907028,
+      "text": "喰らえっ！",
+      "actor": "boss_mori",
+      "event": "attack",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fierce adult Japanese male samurai commander, resonant rugged baritone with a strong bright cutting upper edge when shouting. Confident and imposing, explosive breath support, rough combat effort rather than a calm announcer. Shout one sharp explosive martial-arts kiai during a forceful strike. High projected pitch, fierce effort, hard consonant onset, one breath, sudden cutoff. Never narrate or calmly pronounce the word. Keep the voiced burst compact, about half a second.",
+      "seed": 3001580020,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/boss_mori_v14_attack_2-b2e879f44bb0697c-0.wav",
+      "sha256": "620836c61094645ef2502f124b3c1a6236f9fbfcf0c53f0b88e949f5f213ac6c",
+      "raw_sha256": "75e7ea4e0a9d450c0aa07182779d7ab759d5e15545b41ac3cac473fae79ea8fd",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "boss_mori_v14_special_0": {
+      "file": "boss_mori_v14_special_0.wav",
+      "seconds": 1.1783219954648525,
+      "text": "鎖牙旋風！",
+      "actor": "boss_mori",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fierce adult Japanese male samurai commander, resonant rugged baritone with a strong bright cutting upper edge when shouting. Confident and imposing, explosive breath support, rough combat effort rather than a calm announcer. Shout this Japanese battle cry with explosive heroic fighting-game intensity. High projection, fierce urgency, rising energy with a strongly accented final syllable. A single compact breath, no calm recitation, no extra words, no singing.",
+      "seed": 777367935,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/boss_mori_v14_special_0-2e55b17ffd78aaeb-0.wav",
+      "sha256": "44bc937de58a794177ca2d5a1304a92378297dd94e0bc943d198b64482a73c42",
+      "raw_sha256": "a286dc7e6bed791a91db558205098325fa5da792209e15c047f16f149ac21767",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "boss_mori_v14_special_1": {
+      "file": "boss_mori_v14_special_1.wav",
+      "seconds": 0.6259863945578231,
+      "text": "逃がさん！",
+      "actor": "boss_mori",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fierce adult Japanese male samurai commander, resonant rugged baritone with a strong bright cutting upper edge when shouting. Confident and imposing, explosive breath support, rough combat effort rather than a calm announcer. Shout this Japanese battle cry with explosive heroic fighting-game intensity. High projection, fierce urgency, rising energy with a strongly accented final syllable. A single compact breath, no calm recitation, no extra words, no singing.",
+      "seed": 1753697514,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/boss_mori_v14_special_1-68874cea64b459ec-0.wav",
+      "sha256": "f14a0c5e4b09d92bdb70a9cf98400a05a442a3070923a570a977427b95a827f1",
+      "raw_sha256": "39bb9980c8bff9304c870531dc765a2cfc662d6dd6e6db60bd225ce125cf37d8",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    },
+    "boss_mori_v14_special_2": {
+      "file": "boss_mori_v14_special_2.wav",
+      "seconds": 0.7379138321995465,
+      "text": "毛利の刃！",
+      "actor": "boss_mori",
+      "event": "special",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "A fierce adult Japanese male samurai commander, resonant rugged baritone with a strong bright cutting upper edge when shouting. Confident and imposing, explosive breath support, rough combat effort rather than a calm announcer. Shout this Japanese battle cry with explosive heroic fighting-game intensity. High projection, fierce urgency, rising energy with a strongly accented final syllable. A single compact breath, no calm recitation, no extra words, no singing.",
+      "seed": 1752690480,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v14/boss_mori_v14_special_2-6877ef30a02bf40d-0.wav",
+      "sha256": "01ad22ed6dfac45253054653c156ed8b642106b26bf4e27074a5ecdc2b375681",
+      "raw_sha256": "ab7e51e6adb24a6ff31d6d9a414d0ee0371371d56a189fe92092dadf35636b46",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false"
+    }
+  },
+  "boss_intros": {
+    "imagawa": {
+      "name": "今川義元",
+      "line_key": "boss_imagawa_intro_0",
+      "ticks": 276,
+      "text": "今川義元である。駿河の力、思い知るがよい！"
+    },
+    "oda": {
+      "name": "佐佐成政",
+      "line_key": "boss_oda_intro_0",
+      "ticks": 256,
+      "text": "佐々成政、ここを守る。鉄砲隊、構え！"
+    },
+    "saito": {
+      "name": "齋藤龍興",
+      "line_key": "boss_saito_intro_0",
+      "ticks": 195,
+      "text": "斎藤龍興だ。美濃の城は渡さぬ！"
+    },
+    "miyoshi": {
+      "name": "三好長逸",
+      "line_key": "boss_miyoshi_intro_0",
+      "ticks": 235,
+      "text": "三好長逸、参る。二つの刃、見切れるか！"
+    },
+    "azai": {
+      "name": "淺井長政",
+      "line_key": "boss_azai_intro_0",
+      "ticks": 231,
+      "text": "浅井長政だ。この近江は、我らが守る！"
+    },
+    "asakura": {
+      "name": "朝倉義景",
+      "line_key": "boss_asakura_intro_0",
+      "ticks": 277,
+      "text": "朝倉義景である。越前の誇りを、侮るな！"
+    },
+    "takeda": {
+      "name": "武田信玄",
+      "line_key": "boss_takeda_intro_0",
+      "ticks": 275,
+      "text": "武田信玄、ここにあり。甲斐の兵よ、進め！"
+    },
+    "ikko": {
+      "name": "下間賴照",
+      "line_key": "boss_ikko_intro_0",
+      "ticks": 252,
+      "text": "下間頼照。この地は、我らの手で守る！"
+    },
+    "mori": {
+      "name": "清水宗治",
+      "line_key": "boss_mori_intro_0",
+      "ticks": 278,
+      "text": "清水宗治。高松の城は、命にかえても守る！"
+    },
+    "akechi": {
+      "name": "明智光秀",
+      "line_key": "boss_akechi_intro_0",
+      "ticks": 248,
+      "text": "明智光秀。この戦、もはや後には引けぬ。"
+    },
+    "hashiba": {
+      "name": "羽柴秀吉",
+      "line_key": "boss_hashiba_intro_0",
+      "ticks": 198,
+      "text": "羽柴秀吉じゃ！この機、逃してなるものか！"
+    },
+    "iga": {
+      "name": "霞（原創）",
+      "line_key": "boss_iga_intro_0",
+      "ticks": 228,
+      "text": "霞と呼ばれている。この林道は通さない。"
+    }
+  },
+  "listening_review": "Human audition remains required: current tool runtime does not accept audio input. Delivery instructions, waveform uniqueness, duration and clipping checks passed; subjective listening acceptance is not claimed.",
+  "combat_delivery": {
+    "attack": "Shout one sharp explosive martial-arts kiai during a forceful strike. High projected pitch, fierce effort, hard consonant onset, one breath, sudden cutoff. Never narrate or calmly pronounce the word. Keep the voiced burst compact, about half a second.",
+    "heavy": "Shout an intense, high-pitched full-body effort cry at the instant of a powerful finishing strike. An abrupt explosive onset with diaphragm support and gritty vocal pressure, then cut off sharply. One forceful breath, well under a second; not a sustained singing note, not conversational speech.",
+    "hurt": "A sudden painful combat impact makes this adult warrior involuntarily cry out: a sharp high-pitched pained yelp, a strained voiced burst followed by an abrupt breath cutoff. Clearly hurt and shocked, muscular tension, intense but brief. Not a sigh, whisper, gentle moan or spoken narration. Shout the short exclamation with a forceful rising onset and broken cutoff.",
+    "special": "Shout this Japanese battle cry with explosive heroic fighting-game intensity. High projection, fierce urgency, rising energy with a strongly accented final syllable. A single compact breath, no calm recitation, no extra words, no singing."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "0.15",
+  "language": "Japanese",
+  "short_seconds": [0.30, 0.50],
+  "delivery": {
+    "attack": "One single explosive Japanese kiai, about 0.4 seconds. Hard glottal/consonant onset and immediate punchy high-register projection. End the vowel abruptly. One very short voiced burst, no extra breath, inhale, sigh, repeated syllable, moan or long tail. Never conversational or sung.",
+    "heavy": "A single 0.4-second full-force strike effort. Sharp hard onset, powerful bright high pitch and compressed muscular pressure, then an immediate clipped stop. No prolonged vowel, growl tail, gasp, second breath or extra words. One compact kiai only.",
+    "hurt": "One sudden sharp painful impact yelp lasting about 0.4 seconds. Strong hard onset, bright strained upper register and abrupt cutoff. A single involuntary voiced burst. No lingering groan, moan, sob, sigh, inhale or repeated sound.",
+    "victory_oichi": "Speak the exact Japanese victory line with a warm smiling adult voice, gentle playful confidence and light flirtation. Natural articulate phrasing, soft but clearly voiced. No childishness, sexual moaning, breathy panting, drawn-out sighs or added laughter. She has won and affectionately teases her adult companion.",
+    "victory_nobunaga": "The victorious samurai raises his sword overhead and boldly declares this exact line. Commanding charismatic Japanese battle-leader projection, proud rising intensity and a decisive forceful finish. Passionate and triumphant, not flat narration; no additional words."
+  },
+  "actors": {
+    "oichi": {
+      "voice_description": "An adult Japanese woman warrior in her late twenties, clear bright athletic upper-register voice with firm vocal support. Mature, confident and energetic; not a child voice.",
+      "clips": {"attack": ["はっ！", "せいっ！", "えいっ！"], "heavy": ["喝っ！", "はあっ！", "やあっ！"], "hurt": ["ぐあっ！", "ああっ！", "くうっ！"]}
+    },
+    "enemy_rugged": {
+      "voice_description": "An adult Japanese male warrior with a rugged resonant baritone and a bright forceful cutting upper edge. Athletic and commanding, powerful supported voice without gravelly lingering rumble.",
+      "clips": {"attack": ["はっ！", "せいっ！", "えいっ！"], "heavy": ["喝っ！", "はあっ！", "やあっ！"], "hurt": ["ぐあっ！", "があっ！", "うあっ！"]}
+    },
+    "enemy_bright": {
+      "voice_description": "An adult Japanese male fighter with a clear brighter tenor, fierce compact martial projection and youthful adult athletic energy. Sharp and full-voiced, never conversational or breathy.",
+      "clips": {"attack": ["はっ！", "せいっ！", "えいっ！"], "heavy": ["喝っ！", "はあっ！", "やあっ！"], "hurt": ["ぐあっ！", "ああっ！", "くうっ！"]}
+    },
+    "enemy_female": {
+      "voice_description": "An adult Japanese female ninja in her thirties, incisive clear alto-to-upper-register combat voice with intense athletic projection. Mature, steely and powerful, no childlike tone or breathy softness.",
+      "clips": {"attack": ["はっ！", "せいっ！", "えいっ！"], "heavy": ["喝っ！", "はあっ！", "やあっ！"], "hurt": ["ぐあっ！", "ああっ！", "くうっ！"]}
+    },
+    "nobunaga": {
+      "voice_description": "A commanding adult Japanese male samurai, clear powerful mid-low voice with a rough edge and a bright ringing upper-register battle projection. Firm diaphragm support and compact fierce energy.",
+      "clips": {"attack": ["えいっ！"], "heavy": ["喝っ！", "やあっ！"], "hurt": ["ぐあっ！", "があっ！", "くうっ！"]}
+    }
+  },
+  "victories": {
+    "oichi": {"voice_description": "A mature adult Japanese woman in her late twenties with a clear warm feminine voice and a knowing smile. Soft playful adult charm, confident and affectionate.", "delivery": "victory_oichi", "lines": ["ねえ、ご褒美、くれる？", "ふふ、私から目を離さないでね。", "勝ったわ。もっと、褒めて？"], "subtitles": ["吶，要給我一點獎勵嗎？", "呵呵，別把目光從我身上移開喔。", "贏了呢。再多誇我一點，好嗎？"]},
+    "nobunaga": {"voice_description": "A commanding adult Japanese male samurai, clear powerful mid-low voice with a rough edge and a bright ringing battle projection.", "delivery": "victory_nobunaga", "lines": ["勝鬨を上げよ！天下はこの手に！", "我が刃に、敵はなし！", "進め！天下布武の旗のもとへ！"], "subtitles": ["高唱凱歌！天下盡在我手！", "吾之刀鋒，所向無敵！", "前進！在天下布武之旗下！"]}
+  },
+  "enemy_voice_groups": {
+    "soldier": "enemy_bright", "archer": "enemy_bright", "gunner": "enemy_rugged", "flag": "enemy_bright", "commander": "enemy_rugged",
+    "boss_imagawa": "enemy_rugged", "boss_oda": "enemy_rugged", "boss_saito": "enemy_bright", "boss_miyoshi": "enemy_rugged", "boss_azai": "enemy_bright", "boss_asakura": "enemy_rugged", "boss_takeda": "enemy_rugged", "boss_ikko": "enemy_rugged", "boss_mori": "enemy_rugged", "boss_akechi": "enemy_bright", "boss_hashiba": "enemy_bright", "boss_iga": "enemy_female"
+  }
+}
