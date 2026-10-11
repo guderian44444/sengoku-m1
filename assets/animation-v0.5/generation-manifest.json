@@ -1,0 +1,66 @@
+{
+  "version": "0.5",
+  "generator": "built-in image_gen",
+  "status": "Selected formal source assets frozen; renderer registration provided; runtime QA owned by root",
+  "formal_files": [
+    {
+      "file": "nobunaga/motion.png",
+      "sha256": "cbc73679f2a98b16f35cbdbb1c7c1ba03b12969a5aa32b3239568cfa2dc9c0eb",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "oichi/motion.png",
+      "sha256": "99dbaec0376022077bd47fce8579d2524c33ae472480c3f74cd8bd43d3d622f4",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "oichi/combo.png",
+      "sha256": "f13bfb37db62e5506e38cb6f7eb6a95e99894fa4cc3558809de35dd4970debd0",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "oichi/attacks.png",
+      "sha256": "c624668047941d4931277cc18c32d726ddd14347da83180b76702e1e65895235",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "oichi/special.png",
+      "sha256": "03f8f5f846d9409324ef73d295ce3929c6604904c43b89c3cbb9963225765c56",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "scenery/villager-walk-run.png",
+      "sha256": "af3c955d5c5ef802f9c97fdc9a1c3d7d61364fc0b8573e2072d4ac6614805c00",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    }
+  ],
+  "pixel_processing": "No programmatic image drawing, scaling, background removal or PNG pixel edits. Python read pixels and wrote metadata only.",
+  "grid_notes": "Heroes nominal4x3 with row_starts0/341/682; NPC4x2. Several drawings cross nominal gutters. registration.regions retain full independent drawings using transparent gaps; strict uniform-cell export not ready.",
+  "idle_notes": "Bodies noticeably more stable than v04; root accepted prototype. Per-frame face-aligned virtual anchors plus fixed first-frame shoes reduce residual drift without freezing cloth/hair.",
+  "expressions": "Oichi closed mouth and focused refined movements, separate4frame wrist/backhand/fan-spread light stages. Hurt expressions retained in motion. NPC panic includes eyes/mouth, tiltedhat, lostsandal/parcel.",
+  "limitations": [
+    "Low-alpha RGB haze remains outside a few sprites and FX gutters; alpha0 is true transparent. Production alpha cleanup required.",
+    "NPC dropped props are baked into panic phases; continuous repeated loops will replay loss.",
+    "No claim of pixel-perfect skeleton identity or uniform grid gutters. Runtime visual acceptance remains necessary."
+  ],
+  "drafts": "Each edited sheet retains drafts/initial-*.png; v04 untouched.",
+  "prompts": "prompts.txt"
+}

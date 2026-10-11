@@ -1,0 +1,113 @@
+FILE: cast-v03.png
+MODE: built-in image_gen
+Use case: stylized-concept
+Asset type: original 2D side-scrolling Sengoku beat-em-up character design lineup, action-game concept art.
+Primary request: six ORIGINAL adult Japanese characters circa 1568, six exactly equal-width columns, full standing bodies, same floor baseline and same scale. Landscape 1536x1024. Warm neutral parchment background. Each column contains exactly one character, no overlapping silhouettes. Minimal small number above each character, left to right "01" "02" "03" "04" "05" "06", and absolutely no other text.
+Style: mature 32-bit large-pixel / pixel-painted Japanese action game artwork. Crisp hard pixel clusters, limited earthy palette, bold carefully modeled faces, practical 16th-century Japanese silhouette, stylized rather than museum reproduction. Not 3D, vector, chibi, anime prettyboys, or copies of an existing game/IP. The five males have rugged masculine adult proportions and distinct faces. The one woman is an adult in her twenties: softly feminine, dignified and modest, never sexualized.
+01 Oda Nobunaga: strong rugged angular face, short black mustache and chin beard, weathered skin, short tied black hair. Dark red modest lamellar armor over indigo clothing; katana. Powerful mature bearing.
+02 Kinoshita Tokichiro Hideyoshi: lean wiry tan adult man, clever rugged monkeylike facial character and sparse beard; ochre and earth clothes with light armor; spear.
+03 Tokugawa Ieyasu: stockier broad-faced mature man, dark green armor; tachi sword.
+04 Akechi Mitsuhide: angular mature face, gray-indigo armor; katana.
+05 Oichi: adult woman in her twenties, feminine oval face, long tied black hair and crimson hair ribbon; dusty-plum kosode, cream crossed lapel, teal waist sash, practical hakama. Holds a delicate fan of needles, a fictional dramatic weapon. NO naginata and no polearm. Gentle, composed expression and modest pose.
+06 Honda Tadakatsu: stocky muscular young adult man with weathered masculine face; black armor, subtle antler helmet, long yari spear.
+Composition constraints: all six complete from head/helmet/weapon tip to feet, all weapons fully inside their assigned columns and image; generous upper and lower margins. Approximate hero body height 500 pixels, central vertical placement on the same baseline, enough negative space for later character cropping. A clean visual identity reference sheet, not an animation atlas.
+
+FILE: castle-road-day-v03.png
+MODE: built-in image_gen
+Use case: historical-scene
+Asset type: original wide background stage for a 2D side-scrolling Sengoku beat-em-up game.
+Primary request: a wide 16:9 landscape around 1536x864 showing a Japanese castle approach and palisade gate circa 1560-1568, viewed exactly SIDE-ON with a horizontal walkable combat lane. No perspective down the road: the road runs left to right across the screen.
+Composition: open dirt street occupies the entire bottom 35 percent as an unobstructed horizontal walkable lane, with subtle ground depth and textured earth. Middle ground has a weathered wooden palisade gate, bamboo and a few fluttering unmarked narrow banners on clearly visible poles. On the right side are wooden buildings, a modest tea shelter, and a brazier placed behind the walking lane. Background has layered Japanese mountains and a distant small castle watchtower. Do not place obvious cropped foreground objects; keep the lane clear edge-to-edge.
+Style: original mature 32-bit large-pixel / pixel-painted action game scenery, rich hand-drawn hard pixel clusters, limited earthy palette, intricate but readable wooden construction and foliage. Not photorealism, 3D rendering, vector art, blur, or copies of existing IP.
+Lighting: diffuse golden morning light from left, readable strong shadows, warm natural atmosphere.
+Constraints: NO characters, animals, vehicles, UI, text, letters, signs with writing, logos or watermarks. Banners are unmarked. Stage architecture should be suitable as a fixed composition reference for weather variants.
+
+FILE: scenery-sprites-v03.png
+MODE: built-in image_gen
+Use case: stylized-concept
+Asset type: original transparent 2D side-scrolling Sengoku stage prop and NPC concept sprite sheet.
+Primary request: TRUE TRANSPARENT PNG with real alpha, precisely FOUR equal-width columns by TWO equal-height rows, eight isolated full objects, generous empty transparent gutters. No grid lines, labels, words, background, backdrop, checkerboard pattern, or ground plane. Landscape around 1536x1024. Every object entirely inside its own equal cell.
+Style: 32-bit large-pixel / pixel-painted Japanese action game art with crisp hard pixel clusters, restrained earthy palette matching a Sengoku wooden castle road. Orthographic side-on. Not 3D, vector, smooth illustration or chibi.
+Top row left to right:
+1. A red unmarked narrow Japanese war banner on a complete upright wooden pole with small simple foot, blowing to the right.
+2. The SAME red narrow war banner and pole, same scale and foot position, fabric blown to the left instead.
+3. An isolated small iron brazier on a complete compact stand, modest warm orange flame.
+4. The SAME brazier, identical stand and scale, but stronger taller flame.
+Bottom row: four WALK-CYCLE KEY POSES of the SAME adult Japanese villager carrying a basket, moving and facing RIGHT. These are concept key poses, each full body with generous padding, not a guaranteed animation-ready atlas. Straw hat, humble ochre work kosode, dark pants, simple sandals, basket carried consistently on the back. Minimal facial detail. Adult natural proportions, never chibi. All four have exactly the same body size, outfit and basket silhouette. Each figure about 75 percent of its cell height, all feet share one baseline within the row. Pose 1 left leg forward/right leg back; pose 2 passing legs under torso; pose 3 right leg forward/left leg back; pose 4 opposite passing transition with slight natural bob. Preserve crisp visible gaps between objects and genuine transparent alpha.
+
+
+FILE: cast-v03.png
+MODE: built-in image_gen; refinement or reference generation
+Use case: precise-object-edit
+Input image 1 is the edit target and identity reference for the six original Sengoku characters. Retain the established identity, colors, outfits and weapon types. Make a corrected character lineup with strictly SIX EQUAL-WIDTH columns in a landscape 1536x1024 image. Keep the same warm parchment and pixel-painted style.
+Critical correction: shrink every character enough so full heads, weapons, clothing and feet are comfortably inside a separate equal-width column, no character silhouette enters a neighbor column, the first man's cloak must not touch or be cropped by the image edge, all feet share the same horizontal baseline, and all six figures have ample top/bottom margins. Place each at the center of its equal column (centers at 8.33%, 25%, 41.67%, 58.33%, 75%, 91.67% image width). Numbers 01 through 06 above their centers, no other text. Whole figures approximately 500 pixels high, excluding taller spear tips.
+Only character correction: make character 04 Akechi Mitsuhide visibly more mature, circa forty years old, angular rugged male face, stronger brow and jaw, restrained short facial hair; gray-indigo armor and katana unchanged. Keep 01 Nobunaga rugged black moustache/chin beard, red armor over indigo and katana; 02 Hideyoshi lean wiry tan, ochre light armor and spear; 03 Ieyasu stocky broad face and green armor/tachi; 05 Oichi adult feminine modest dusty plum kosode, cream lapel, teal sash, long tied black hair/crimson ribbon and fan of needles; 06 Tadakatsu stocky muscular adult, black armor, antler helmet and yari.
+Avoid introducing scenery, chibi or prettyboy male styling, extra figures, 3D or vector smoothness. Keep crisp hard pixel clusters. This is a clean identity concept sheet, not an animation atlas.
+
+
+FILE: scenery-sprites-v03.png
+MODE: built-in image_gen; refinement or reference generation
+Use case: precise-object-edit
+Input image 1 is the edit target. Preserve the existing true transparent background with real alpha and the exact pixel-painted designs. Correct the sprite sheet's frame registration. Output landscape 1536x1024 with a STRICT equal 4-column by 2-row layout, each cell 384x512. No labels, visible grid lines, checkerboard, background or ground shadows.
+Top row four objects: banner right-blown, SAME banner left-blown, small-flame brazier, SAME brazier larger flame. Make the two flag poles identical size and vertically upright at exactly the horizontal CENTER of their own cells (192 and 576 pixels for a 1536-wide sheet), with identical foot baseline and identical pole top. Reduce the flag cloth width enough that a flag blowing either left or right fits within its cell with at least 24 pixels empty margin. Both poles must register at the same local X and Y inside their cells for a two-frame loop; do NOT move the pole when changing cloth direction. Register braziers identically at horizontal center of their cells (960 and 1344 pixels), stand feet same local baseline and same height. Fire only changes shape.
+Bottom row retain the same straw-hat adult male villager with ochre work kosode, dark pants, sandals and back basket, moving RIGHT in four walk key poses. All four identical body scale, torso and basket register at same local X, feet rest on exactly the same local Y baseline, zero cropping. Frame 1 left leg forward/right leg back; frame 2 passing; frame 3 right leg forward/left leg back; frame 4 opposite passing. Modest 16th-century work clothes and minimal facial detail, adult normal proportions.
+True alpha transparency everywhere between objects. Avoid colored atmosphere/glow filling empty cells; preserve only compact natural glow right around flames. This is a sprite concept sheet, not a guaranteed production-ready animation atlas.
+
+
+FILE: castle-road-weather-v03.png
+MODE: built-in image_gen; refinement or reference generation
+Use case: lighting-weather
+Input image 1 is the fixed architectural and composition reference. Produce one PORTRAIT atlas, approximately 1536x2592, containing exactly THREE equal-height 16:9 landscape panels STACKED VERTICALLY, with absolutely no labels, words, dividers, borders or gaps.
+The panels must be three aligned lighting/weather variants of the EXACT SAME stage in image 1. Preserve identical side-on camera, architecture, object shapes, gate, flag poles, tea shelter, braziers, bamboo, mountains, castle watchtower and road coordinates in every panel. Copy the same fixed composition into each equal panel; change only lighting, weather and small flame/flag movement. Full unobstructed side-scrolling dirt road across bottom 35 percent of EACH panel.
+TOP panel: clear neutral daytime, gentle natural sunlight, dry earth.
+MIDDLE panel: golden dusk, long shadows, visible warm lanterns lit around the right tea shelter and warm braziers. Same buildings, poles, gate and road coordinates.
+BOTTOM panel: deep blue rainy night storm, wet earth reflecting warm lantern and brazier light, readable rain and faint distant lightning, all architecture still readable in the same coordinates.
+Style: original 32-bit hand-drawn pixel-painted Sengoku action game environment with crisp hard pixel clusters and earthy palette. No characters, animals, vehicles, text, UI, logos, watermarks, new buildings or repositioned objects. Important: each of the three panels is independently 16:9, therefore whole atlas is taller than wide at approximately 16:27; do not make a square image with squashed ultrawide panels.
+
+
+FILE: nobunaga-moves-v03.png
+MODE: built-in image_gen; final request
+Use case: stylized-concept
+Asset type: 9-panel ACTION CONCEPT sheet for an original 2D Sengoku beat-em-up game, NOT an animation-ready frame atlas.
+Input image 1 is the character identity/outfit reference. Use ONLY character 01, the rugged mature man at far left: Oda Nobunaga. Preserve his angular weathered face, strong black eyebrows, black moustache and chin beard, tied black hair, dark red lamellar armor over indigo, red cloak, boots, and katana exactly in every panel.
+Landscape around 1536x1024. Exactly THREE columns by THREE rows in a clean regular equal-size grid on warm pale parchment. Full bodies with head, hands, weapons, effects and feet entirely inside each cell; readable silhouettes, generous margins, no overlaps between cells. Hero generally faces RIGHT, natural turns allowed where needed. Small minimal numerical labels only "01" through "09" at the upper left of each cell in reading order, no other text.
+Reading order poses:
+01 idle guard, grounded balanced stance and ready katana;
+02 light quick horizontal katana slash, narrow ivory arc;
+03 heavy broad overhead katana slash, larger amber arc;
+04 charged attack preparation, katana held high with restrained warm energy;
+05 airborne jump attack, feet clearly above a small separated ground shadow;
+06 grab-and-throw action against one generic gray-armored footman, clearly distinct hero gripping and throwing the opponent, both complete within cell;
+07 hurt stagger, modest impact spark, NO blood;
+08 rage special, hero centered performing one broad flaming golden slash, readable full hero inside effect;
+09 upgraded equipment showcase standing pose, same Nobunaga identity and base dark red armor with improved chestplate and gold edging, upgraded katana.
+Style: original mature 32-bit large-pixel/pixel-painted game art, crisp hard pixel clusters, limited earthy colors, strong masculine mature Japanese proportions. Not anime prettyboy, chibi, 3D, vector or existing game/IP imitation. Preserve same face and recognizable outfit throughout. No captions, UI, border decorations, extra heroes or gore.
+
+
+FILE: oichi-moves-v03.png
+MODE: built-in image_gen; final request
+Use case: stylized-concept
+Asset type: 9-panel ACTION CONCEPT sheet for an original 2D Sengoku beat-em-up game, NOT an animation-ready frame atlas.
+Input image 1 is the character identity/outfit reference. Use ONLY character 05, Oichi, the adult woman second from right. Preserve her adult feminine oval face, long tied black hair and crimson ribbon, dusty-plum kosode, cream crossed lapel, teal waist sash, practical dark hakama and sandals. She is soft-featured, elegant, dignified and modest, never sexualized. Her weapon is a delicate FAN OF NEEDLES, with poison effects as a fictional dramatic gameplay interpretation. NO naginata, polearm, sword or armor bikini.
+Landscape around 1536x1024. Exactly THREE columns by THREE rows in a clean regular equal-size grid on warm pale parchment. Full bodies with head, hands, needles, effects and feet entirely inside each cell; readable silhouettes, generous margins, no overlap between cells. Hero generally faces RIGHT, natural turns allowed. Small minimal numerical labels only "01" through "09" at the upper left of each cell in reading order, no other text.
+Reading order poses:
+01 idle, poised and holding her fan of needles;
+02 light needle throw with short narrow white trails;
+03 heavy poison needle volley with sage-green effects;
+04 charged preparation, holding open fan of needles close in a composed stance;
+05 jump needle attack, airborne backward leap, feet visibly off ground, graceful modest pose;
+06 close-range escape, sleeve sweep to disengage one generic gray-armored footman, both figures complete inside cell;
+07 hurt brace, guarded stagger and modest impact spark, no blood;
+08 special, elegant broad purple-and-green fan of needle projectiles, full dignified heroine visible at center, no sexualized pose;
+09 upgraded equipment showcase: same outfit and identity with small discreet armor under her kosode and more decorated needles.
+Style: original mature 32-bit large-pixel/pixel-painted game art, crisp hard pixel clusters, limited earthy palette. Natural adult proportions, never chibi, 3D, vector or copied existing IP. Same face and outfit colors in every cell. No captions, UI, border decorations, extra heroines or gore.
+
+
+FILE: scenery-sprites-v03.png
+MODE: built-in image_gen; final request
+Use case: background-extraction
+Input image 1 is the target. Keep the exact eight pixel-art objects, their colors, adult character, weapons-free outfit and 4x2 equal-cell arrangement. Re-render them as clean hard-edged isolated sprite cutouts on TRUE TRANSPARENT alpha.
+MANDATORY CHANGE: REMOVE ALL background glow, light halo, atmospheric bloom, brown haze, red haze, soft gradients, cast shadows and colored translucent rectangles around EVERY object. Pixels outside each object's silhouette must have alpha zero. There must be NO red background behind either banner, NO brown or gray background around any villager, and NO orange glow outside the solid flame silhouette. Flames themselves may stay orange, yellow and white but do not emit a baked halo. Do not fill transparency with white, black or a checkerboard.
+Registration correction for top row: banner 1 and banner 2 should have same pole local-X centered in each equal cell, same pole length and same foot baseline. Keep the cloth narrow enough to fit on either side within the cell; only cloth direction changes. Braziers identical stand position and scale with flame-only motion.
+Bottom row: preserve four full-body right-facing walk poses of the same strawhat villager with basket and ochre clothes, identical scale, feet on identical baseline. Preserve all feet, hands, baskets and hats completely.
+Landscape 1536x1024, strict FOUR columns by TWO rows with transparent gutters and 24-pixel padding, no labels or grid lines. Crisp pixel art edges with no soft-edge backdrop. Clean alpha objects suitable to overlay on a game road.

@@ -86,6 +86,7 @@ func _init() -> void:
 	_load_combat_atlases("res://assets/v14/", "v14")
 	_load_combat_atlases("res://assets/v15/", "v15")
 	_load_combat_atlases("res://assets/v16/", "v16")
+	_load_combat_atlases("res://assets/v17/", "v17")
 	weather_frames = _load_grid(ROOT + "castle-road-weather-v03.png", 1, 3)
 	scenery_frames = _load_grid(ROOT + "scenery-sprites-v03.png", 4, 2, true)
 	villager_frames = _load_grid(ANIMATION_ROOT + "scenery/villager-walk-run.png", 4, 2, true)
@@ -185,7 +186,7 @@ func _load_combat_atlases(asset_root: String = COMBAT_ROOT, version: String = "v
 			regions[int(key)] = Rect2i(region[0], region[1], region[2], region[3])
 		var frame_files := {}
 		for index in spec.get("frame_files",{}): frame_files[int(index)] = asset_root + str(spec.frame_files[index])
-		var frames := _load_grid(asset_root + str(spec.get("file",str(actor) + ".png")), columns, rows, true, regions, frame_files, version == "v16")
+		var frames := _load_grid(asset_root + str(spec.get("file",str(actor) + ".png")), columns, rows, true, regions, frame_files, version in ["v16", "v17"])
 		if frames.size() != count: continue
 		var hero := str(spec.get("hero", str(actor).trim_suffix("-air").trim_suffix("-advanced")))
 		var target := str(spec.get("target", "hero" if animations.has(hero) else "enemy"))
@@ -217,7 +218,7 @@ func _load_combat_atlases(asset_root: String = COMBAT_ROOT, version: String = "v
 			if spec.get("component_clip", false):
 				var texture_id: int = frames[index].texture.get_instance_id()
 				if not source_images.has(texture_id): source_images[texture_id] = frames[index].texture.get_image()
-				var polygon := _component_polygon(source_images[texture_id], Rect2i(local_bounds))
+				var polygon := _component_polygon(source_images[texture_id], Rect2i(local_bounds), float(spec.get("component_alpha_threshold", 0.30)))
 				if not polygon.is_empty():
 					frames[index]["clip_polygon"] = polygon
 					var points := []
@@ -263,9 +264,9 @@ func _load_combat_atlases(asset_root: String = COMBAT_ROOT, version: String = "v
 					if int(index) >= 0 and int(index) < count: group.append(frames[int(index)])
 				if not group.is_empty(): destination[kind] = group
 
-func _component_polygon(image: Image, region: Rect2i) -> PackedVector2Array:
+func _component_polygon(image: Image, region: Rect2i, alpha_threshold: float = 0.30) -> PackedVector2Array:
 	var mask := BitMap.new()
-	mask.create_from_image_alpha(image.get_region(region), 0.30)
+	mask.create_from_image_alpha(image.get_region(region), alpha_threshold)
 	var best := PackedVector2Array()
 	var best_area := 0.0
 	for polygon in mask.opaque_to_polygons(Rect2i(Vector2i.ZERO,region.size),1.5):

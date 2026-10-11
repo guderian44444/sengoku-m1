@@ -188,7 +188,7 @@ func step(inputs: Array) -> void:
 		var settling := false
 		for fighter in state.fighters:
 			settling = settling or fighter.z > 0 or fighter.vz > 0 or absf(fighter.knockback) > 0.1 or (fighter.hp <= 0 and fighter.action_tick < 24)
-			if state.phase == "won" and fighter.team == 0 and fighter.hp > 0 and fighter.kind in ["nobunaga", "oichi"]:
+			if state.phase == "won" and fighter.team == 0 and fighter.hp > 0 and fighter.kind in ["nobunaga", "oichi", "tadakatsu"]:
 				fighter.freeze = 0
 				settling = settling or fighter.action != "victory" or fighter.action_tick < VICTORY_TICKS
 		if settling:
@@ -197,7 +197,7 @@ func step(inputs: Array) -> void:
 		if state.phase == "won":
 			state.effects.clear()
 			for fighter in state.fighters:
-				if fighter.team == 0 and fighter.hp > 0 and fighter.kind in ["nobunaga", "oichi"]:
+				if fighter.team == 0 and fighter.hp > 0 and fighter.kind in ["nobunaga", "oichi", "tadakatsu"]:
 					_tick_victory(fighter)
 		return
 	state.tick += 1
@@ -434,20 +434,16 @@ func _tick_fighter(fighter: Dictionary) -> void:
 		return
 	match fighter.action:
 		"light":
-			if fighter.kind == "tadakatsu":
-				if fighter.action_tick == hero_tick(fighter.kind, 6):
-					if fighter.combo == 3:
-						_melee(fighter, 180.0, 145.0, 24 + fighter.weapon * 5, true, 0, true, false, 270.0, "", 359.9)
-					else:
-						_melee(fighter, 145.0 if fighter.combo == 2 else 120.0, 32.0, 18 + fighter.weapon * 5, false)
-			if fighter.action_tick >= hero_tick(fighter.kind, 19):
-				_begin(fighter, "idle")
-				return
 			if fighter.combo == 3 and fighter.action_tick <= hero_tick(fighter.kind, 6):
 				fighter.x = clampf(fighter.x + fighter.face * 42.0 / hero_tick(fighter.kind, 6), 80.0, 2300.0)
 			if fighter.action_tick == hero_tick(fighter.kind, 6):
 				var finisher: bool = fighter.combo == 3
-				if fighter.kind == "oichi":
+				if fighter.kind == "tadakatsu":
+					if finisher:
+						_melee(fighter, 180.0, 145.0, 24 + fighter.weapon * 5, true, 0, true, false, 270.0, "", 359.9)
+					else:
+						_melee(fighter, 145.0 if fighter.combo == 2 else 120.0, 32.0, 18 + fighter.weapon * 5, false)
+				elif fighter.kind == "oichi":
 					if finisher:
 						_melee(fighter, 180.0, 95.0, 22 + fighter.weapon * 4, true, 0, true, false, 55.0)
 					else:
@@ -525,6 +521,8 @@ func _tick_fighter(fighter: Dictionary) -> void:
 					for lane in [-40.0, 0.0, 40.0]: _projectile(fighter, 25 + fighter.weapon * 5, 0, true, "arrow", 440.0, lane)
 				elif powered and fighter.kind in ["nobunaga", "oichi"]:
 					_wave(fighter, 320.0, 6 if fighter.kind == "oichi" else 65 + fighter.weapon * 6, HERO_PROFILES[fighter.kind].element, 42, true, 120.0 if fighter.kind == "oichi" else 360.0, fighter.kind != "oichi")
+				elif fighter.kind == "tadakatsu":
+					_wave(fighter, 320.0 if powered else 240.0, (65 if powered else 32) + fighter.weapon * 6, "earth", 42 if powered else 24, true)
 				else:
 					_wave(fighter, 480.0 if powered else 240.0, (65 if powered else 32) + fighter.weapon * 6, HERO_PROFILES[fighter.kind].element if powered else "", 42 if powered else 24)
 			if powered and fighter.action_tick == 28 and fighter.kind == "oichi":
@@ -534,9 +532,11 @@ func _tick_fighter(fighter: Dictionary) -> void:
 		"heavy", "charged":
 			if fighter.kind == "tadakatsu":
 				if fighter.action == "charged":
+					# Spread the three lunges over their active ticks so the following camera never jumps.
+					if fighter.action_tick <= hero_tick(fighter.kind, 15):
+						fighter.x = clampf(fighter.x + fighter.face * 156.0 / hero_tick(fighter.kind, 15), 80.0, 2300.0)
 					for step in range(3):
 						if fighter.action_tick == hero_tick(fighter.kind, 5 + step * 5):
-							fighter.x = clampf(fighter.x + fighter.face * 52.0, 80.0, 2300.0)
 							_melee(fighter, 92.0, 68.0, 24 + fighter.weapon * 6, true, 0, true, false, 0.0, "fire", 55.0)
 				elif fighter.action_tick == hero_tick(fighter.kind, 14):
 					if fighter.heavy_combo == 2:
@@ -1106,7 +1106,7 @@ func _sync_grabs() -> void:
 		if target.is_empty() or target.hp <= 0 or holder.hp <= 0 or holder.action != "holding" or target.held_by != holder.id:
 			_release_grab(holder, false)
 			continue
-		target.x = clampf(holder.x + holder.face * (96.0 if holder.kind == "tadakatsu" else 56.0), 80.0, 2300.0)
+		target.x = clampf(holder.x + holder.face * (72.0 if holder.kind == "tadakatsu" else 56.0), 80.0, 2300.0)
 		target.y = holder.y + 2.0
 		target.z = 0.0
 		target.vz = 0.0

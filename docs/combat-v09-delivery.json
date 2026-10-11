@@ -1,0 +1,30 @@
+{
+  "version": "0.9",
+  "date": "2026-10-09",
+  "site": {
+    "url": "https://sengoku-design-room-1009.david-wu-6167.chatgpt.site/share#art",
+    "version_number": 10,
+    "version_id": "appgprj_6ac8479f33f08191b88d2a062f8a5e76~appgver_cbfcb714f1a08191a534b6aa5ea1d058",
+    "deployment_id": "appgdep_6ac8ffaf11b08191aaab2924ac00b9ec",
+    "status": "succeeded",
+    "commit_sha": "4e8462ea0c2d2a3e0e8677ef7e77626fed706c63"
+  },
+  "windows_package": {
+    "path": "artifacts/吞食戰國-M1-v0.9-Windows.zip",
+    "files": 129,
+    "bytes": 176200850,
+    "sha256": "788191B7FD1F18FEB66DCD49B3F42C52E9A978F7174BC4141FCD9E27A7BF2992"
+  },
+  "evidence": {
+    "native_suite": "scripts/test-native.mjs passed; actual loopback ENet processes passed",
+    "v09_suite": "scripts/test-v09.mjs --movie passed, combat 121 checks, physical-key events 34 checks",
+    "video": "artifacts/art-native-v09/M1-v09-毛利軍試戰.mp4, 60 seconds, 1280x720 H.264/AAC",
+    "render": "35 native GPU captures inspected; 12 atlases and 176 frames",
+    "website": "typecheck, self-check, combat-check, art-check, production build passed; 390px and 200% typography checked",
+    "zip": "updated README and controls JSON byte verified; unchanged game binary/assets passed clean extracted render test"
+  },
+  "limits": [
+    "Physical gamepad and two-PC internet play not verified",
+    "Melee enemy dedicated hurt/down expression frames remain future polish"
+  ]
+}

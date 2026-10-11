@@ -1,0 +1,305 @@
+{
+  "version": "0.9",
+  "created_date": "2026-10-09",
+  "generator": "built-in image_gen",
+  "mode": "reference-guided image generation and image_gen corrections",
+  "transparent_background": true,
+  "default_facing": "right",
+  "registration": "registration.json",
+  "notes": [
+    "Exact prompt text is retained including requested canvas sizes; actual output dimensions are measured separately.",
+    "Source PNG pixels were not edited with Python or other bitmap editing software.",
+    "Logical frame order is row-major; use explicit registration regions because transparent output dimensions and cell spacing vary.",
+    "Renderer uses connected alpha shape clipping to exclude adjacent-frame fragments inside long weapon bounding rectangles.",
+    "Discarded background-removal trials are omitted; initial prompts and the revision chain that leads to selected outputs are retained."
+  ],
+  "assets": [
+    {
+      "id": "soldier",
+      "file": "game/assets/v09/soldier.png",
+      "source_copy": "assets/animation-v0.9/soldier.png",
+      "actual_dimensions": [
+        1254,
+        1254
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "A29143CA22F34CB03E3CADD77EB0606A48F1AF715D3C2EF1864BAD22EC4C9794",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production 2D side-scrolling Sengoku beat-em-up sprite atlas. Transform the relevant approved character from the reference into an actual animation sheet, not concept art. Canvas exactly square 2048x2048. Exactly 4 columns and 4 rows of equally sized invisible cells, 16 distinct chronological full-body sprite poses, one figure per cell. All figures face RIGHT in side / slight three-quarter arcade game perspective. Crisp polished hand-painted Japanese arcade sprite illustration, clear dark outlines, clean cutout silhouette, consistent shading. Use the reference's muted beige cloth, black lacquer armor, subdued teal waistcord and bronze fasteners. Transparent background alpha with absolutely no ground, scenery, shadows, text, numbers, gridlines or borders. Each invisible cell is 512x512. Keep same scale across every frame: standing body is 310 pixels tall. All standing/crouching support foot sole rests at local y=460, pelvis centered approximately x=230; changing limbs and leaning are allowed but never change camera, head size, body proportions or lighting. Feet and all weapon tips fully contained within each own cell, at least 20px clear padding all sides. Long weapons can be shown diagonally or foreshortened to fit. Do not crop or let effects touch neighboring sprites. No repeated identical frames. Animation must show visibly different limb positions, weight shifts and silhouette timing. Do not redraw a different person across frames.\nSubject: the reference LEFTMOST lean adult ashigaru infantryman: dark broad conical jingasa hat, beige loose sleeves and gray trousers, black rectangular lamellar chest armor, teal sash, strapped shin guards and straw sandals, wielding a simple long wooden yari spear with narrow steel point. NO katana primary. Row 0 (top, four frames): four clearly different forward walking phases, spear carried diagonally, alternate left and right strides. Row 1: attack A straight spear thrust, from retracting spear behind hip, stepping forward, full straight forward waist-height spear extension, to recoil. Row 2: attack B low sweeping spear shaft, from lowering body and rearward shaft, to crouched rightward sweeping strike near shins, deep followthrough, recovery. Row 3: attack C overhead butt-and-blade smash: gather spear back diagonally, raise spear over helmet, drive point down forward with deep shoulder lean, recover. Exactly sixteen frames, 4x4.",
+        "reference": "assets/enemies-v0.8/mori.png"
+      },
+      "selected_revisions": []
+    },
+    {
+      "id": "flag",
+      "file": "game/assets/v09/flag.png",
+      "source_copy": "assets/animation-v0.9/flag.png",
+      "actual_dimensions": [
+        1254,
+        1254
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "AB5981768ED6066C48606DF69DD5F3C530EC99605CEFBF452A15F2B7902F8BC0",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production 2D side-scrolling Sengoku beat-em-up sprite atlas. Transform the relevant approved character from the reference into an actual animation sheet, not concept art. Canvas exactly square 2048x2048. Exactly 4 columns and 4 rows of equally sized invisible cells, 16 distinct chronological full-body sprite poses, one figure per cell. All figures face RIGHT in side / slight three-quarter arcade game perspective. Crisp polished hand-painted Japanese arcade sprite illustration, clear dark outlines, clean cutout silhouette, consistent shading. Use the reference's muted beige cloth, black lacquer armor, subdued teal waistcord and bronze fasteners. Transparent background alpha with absolutely no ground, scenery, shadows, text, numbers, gridlines or borders. Each invisible cell is 512x512. Keep same scale across every frame: standing body is 310 pixels tall. All standing/crouching support foot sole rests at local y=460, pelvis centered approximately x=230; changing limbs and leaning are allowed but never change camera, head size, body proportions or lighting. Feet and all weapon tips fully contained within each own cell, at least 20px clear padding all sides. Long weapons can be shown diagonally or foreshortened to fit. Do not crop or let effects touch neighboring sprites. No repeated identical frames. Animation must show visibly different limb positions, weight shifts and silhouette timing. Do not redraw a different person across frames.\nSubject: the reference THIRD figure flag bearer: slim adult ashigaru in simple black iron cap helmet, beige loose sleeves and gray trousers, black lamellar armor, teal sash, straw sandals. Wield a sturdy wooden flagstaff carrying a compact dark muted TEAL rectangular war banner at its top, plain fabric without lettering or symbols. Banner remains recognizable and attached to pole in every frame. Not an oversized muscular fighter. Row 0: four different forward walking phases with flag upright/diagonal, cloth mildly rippling. Row 1 attack A: pole butt jab sequence (draw pole back, two hand hip grip, forceful short horizontal staff jab right, recoil). Row 2 attack B: broad low staff sweep (coil rear left, lower stance, full low right sweep with banner behind shoulder, rise). Row 3 attack C: overhead bannerstaff slam (gather, raise diagonal over head, slam down forward, recover). Pole and cloth fully inside its cell. Four genuinely distinct poses each row. Exactly4x4.",
+        "reference": "assets/enemies-v0.8/mori.png"
+      },
+      "selected_revisions": []
+    },
+    {
+      "id": "commander",
+      "file": "game/assets/v09/commander.png",
+      "source_copy": "assets/animation-v0.9/commander.png",
+      "actual_dimensions": [
+        1254,
+        1254
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "637D247A8D2A0403243F34F098BEFB00A45BE11840BDBD7184A39F91FEF706E7",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production 2D side-scrolling Sengoku beat-em-up sprite atlas. Transform the relevant approved character from the reference into an actual animation sheet, not concept art. Canvas exactly square 2048x2048. Exactly 4 columns and 4 rows of equally sized invisible cells, 16 distinct chronological full-body sprite poses, one figure per cell. All figures face RIGHT in side / slight three-quarter arcade game perspective. Crisp polished hand-painted Japanese arcade sprite illustration, clear dark outlines, clean cutout silhouette, consistent shading. Use the reference's muted beige cloth, black lacquer armor, subdued teal waistcord and bronze fasteners. Transparent background alpha with absolutely no ground, scenery, shadows, text, numbers, gridlines or borders. Each invisible cell is 512x512. Keep same scale across every frame: standing body is 310 pixels tall. All standing/crouching support foot sole rests at local y=460, pelvis centered approximately x=230; changing limbs and leaning are allowed but never change camera, head size, body proportions or lighting. Feet and all weapon tips fully contained within each own cell, at least 20px clear padding all sides. Long weapons can be shown diagonally or foreshortened to fit. Do not crop or let effects touch neighboring sprites. No repeated identical frames. Animation must show visibly different limb positions, weight shifts and silhouette timing. Do not redraw a different person across frames.\nSubject: the reference FOURTH adult field commander, lean athletic body, mature stern face, dark mustache, black iron kabuto with layered neckguard (no enormous antlers), beige coat sleeves, black lamellar cuirass with brass trim, teal sash and gray trousers, dark shin armor. Unlike reference fan pose, he now uses ONE steel katana sword for combat; sheathed wakizashi optional stays at belt. No fan, no magic. Row0: four different measured rightward walking phases with katana at low guard. Row1 attackA horizontal cut: retract sword to left shoulder, torso windup, forceful horizontal blade extension to right, recovery. Row2 attackB diagonal uppercut: deep crouch blade behind left hip, rising step, sword sweeping up-right overhead, controlled recovery. Row3 attackC overhead chop: twohand sword lifted behind head, stretched overhead anticipation, deep forward descending chop to knees height, recovery. Distinct arm/leg silhouettes between all frames. Exactly4x4.",
+        "reference": "assets/enemies-v0.8/mori.png"
+      },
+      "selected_revisions": []
+    },
+    {
+      "id": "archer",
+      "file": "game/assets/v09/archer.png",
+      "source_copy": "assets/animation-v0.9/archer.png",
+      "actual_dimensions": [
+        1254,
+        1254
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "BF05D02E0091CE357D94060A2A8962BDAF4BA66BAE664653A8B9FA270DE930FD",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production 2D side-scrolling Sengoku beat-em-up sprite atlas. Transform the relevant approved character from the reference into an actual animation sheet, not concept art. Canvas exactly square 2048x2048. Exactly 4 columns and 4 rows of equally sized invisible cells, 16 distinct chronological full-body sprite poses, one figure per cell. All figures face RIGHT in side / slight three-quarter arcade game perspective. Crisp polished hand-painted Japanese arcade sprite illustration, clear dark outlines, clean cutout silhouette, consistent shading. Use the reference's muted beige cloth, black lacquer armor, subdued teal waistcord and bronze fasteners. Transparent background alpha with absolutely no ground, scenery, shadows, text, numbers, gridlines or borders. Each invisible cell is 512x512. Keep same scale across every frame: standing body is 310 pixels tall. All standing/crouching support foot sole rests at local y=460, pelvis centered approximately x=230; changing limbs and leaning are allowed but never change camera, head size, body proportions or lighting. Feet and all weapon tips fully contained within each own cell, at least 20px clear padding all sides. Long weapons can be shown diagonally or foreshortened to fit. Do not crop or let effects touch neighboring sprites. No repeated identical frames. Animation must show visibly different limb positions, weight shifts and silhouette timing. Do not redraw a different person across frames.\nSubject: NEW matching Mori foot archer in the approved group visual identity: slim adult man, beige headband tied behind dark short hair, beige loose sleeves and gray trousers, black light lamellar vest, teal belt, dark shin wraps, straw sandals. Quiver of arrows on back and simple asymmetrical Japanese wooden yumi bow. No gun no katana in hands. Row0: four clearly different forward walking phases holding bow tilted upright with lowered arrow hand. Row1 attack A bow shot: reach for arrow, nock with bow low, full deep draw aimed right at chest height, release with relaxed string and right hand pulled back beside cheek (arrow projectile omitted to render separately). Row2: retreat/evasion four frames: alarmed crouch, backward step to left while facingright, low sidestep, regain standing guard. Row3: hurt/react four frames: flinch shoulder back, bend forward holding ribs with bow hand lowered, stagger low, recover bow guard. No floating arrow duplicated. Exactly4x4.",
+        "reference": "assets/enemies-v0.8/mori.png"
+      },
+      "selected_revisions": [
+        {
+          "operation": "spacing correction",
+          "reference": "preceding archer atlas",
+          "prompt": "Use case: precise-object-edit. Correct SPACING ONLY of this16frameMori footarcher spriteatlas. Preserve every exact pose, face, beigeclothblackarmor, yumi bow, quiver, headband, style, and all16frames in4columns4rows sameorder. Makeeachwholefigureandbow 25 percent smaller withinitsowninvisiblecell andgiveatleast60pixels transparentgap BETWEENeveryneighboringfigureandbowtip. Especially RIGHTMOST COLUMN: the middle two bows must be entirely separate, no bow touching the next row, no shared connected pixels. All16fullbodycharactersandcompletebows mustbe independentlyisolated. Use evenlyspaced4x4grid withfixedfeetfloorperrow, transparentalphaemptybackground, no ground/shadows/text/gridlines. Do not change weapon or outfit. Do not remove frames."
+        }
+      ]
+    },
+    {
+      "id": "gunner",
+      "file": "game/assets/v09/gunner.png",
+      "source_copy": "assets/animation-v0.9/gunner.png",
+      "actual_dimensions": [
+        1254,
+        1254
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "ACB6C1CA735A76007B14515FBAE4FF52978E1F4C13F9AB4DADF208F870D6DCED",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production 2D side-scrolling Sengoku beat-em-up sprite atlas. Transform the relevant approved character from the reference into an actual animation sheet, not concept art. Canvas exactly square 2048x2048. Exactly 4 columns and 4 rows of equally sized invisible cells, 16 distinct chronological full-body sprite poses, one figure per cell. All figures face RIGHT in side / slight three-quarter arcade game perspective. Crisp polished hand-painted Japanese arcade sprite illustration, clear dark outlines, clean cutout silhouette, consistent shading. Use the reference's muted beige cloth, black lacquer armor, subdued teal waistcord and bronze fasteners. Transparent background alpha with absolutely no ground, scenery, shadows, text, numbers, gridlines or borders. Each invisible cell is 512x512. Keep same scale across every frame: standing body is 310 pixels tall. All standing/crouching support foot sole rests at local y=460, pelvis centered approximately x=230; changing limbs and leaning are allowed but never change camera, head size, body proportions or lighting. Feet and all weapon tips fully contained within each own cell, at least 20px clear padding all sides. Long weapons can be shown diagonally or foreshortened to fit. Do not crop or let effects touch neighboring sprites. No repeated identical frames. Animation must show visibly different limb positions, weight shifts and silhouette timing. Do not redraw a different person across frames.\nSubject: the reference SECOND adult matchlock gunner: dark short hair with beige headband, beige loose sleeves, black lamellar vest, teal sash, gray baggy trousers, straw sandals, long brown wooden TANEGASHIMA MATCHLOCK with narrow dark iron barrel, belt ammunition pouches. Matchlock should remain historically preindustrial without modern scope. Row0: four different forward walking phases carrying gun low acrossbody. Row1 attack A firing cycle: kneel and angle gun up to load, crouch and lift gun to shoulder, firmly aim long gun horizontally RIGHT, fire with SMALL compact pale smoke puff immediately at muzzle and shoulderrecoil, weapon staysinsidecell. Row2: retreat/evasion four frames: lower gun and duck, backward step toleft with body facingright, low sidehop, stand withgunlow. Row3: hurt/react fourframes: flinch shoulderback, bowforward holdinggun, staggerlow, recoverready. Exactly4x4.",
+        "reference": "assets/enemies-v0.8/mori.png"
+      },
+      "selected_revisions": []
+    },
+    {
+      "id": "boss",
+      "file": "game/assets/v09/boss.png",
+      "source_copy": "assets/animation-v0.9/boss.png",
+      "actual_dimensions": [
+        1254,
+        1254
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "5940F18D7520695509171D9B6AC05F5052A0B4A02DCDFF4609991FEF321A8854",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production 2D side-scrolling Sengoku beat-em-up sprite atlas. Transform the relevant approved character from the reference into an actual animation sheet, not concept art. Canvas exactly square 2048x2048. Exactly 4 columns and 4 rows of equally sized invisible cells, 16 distinct chronological full-body sprite poses, one figure per cell. All figures face RIGHT in side / slight three-quarter arcade game perspective. Crisp polished hand-painted Japanese arcade sprite illustration, clear dark outlines, clean cutout silhouette, consistent shading. Use the reference's muted beige cloth, black lacquer armor, subdued teal waistcord and bronze fasteners. Transparent background alpha with absolutely no ground, scenery, shadows, text, numbers, gridlines or borders. Each invisible cell is 512x512. Keep same scale across every frame: standing body is 310 pixels tall. All standing/crouching support foot sole rests at local y=460, pelvis centered approximately x=230; changing limbs and leaning are allowed but never change camera, head size, body proportions or lighting. Feet and all weapon tips fully contained within each own cell, at least 20px clear padding all sides. Long weapons can be shown diagonally or foreshortened to fit. Do not crop or let effects touch neighboring sprites. No repeated identical frames. Animation must show visibly different limb positions, weight shifts and silhouette timing. Do not redraw a different person across frames.\nSubject: reference RIGHTMOST wiry adult chain-and-sickle boss, lean elongated and sinewy silhouette distinct from bulky generic boss, black iron helmet with neckguard, mature severe face, beige sleeves, black lamellar chest armor, subdued teal sash, gray trousers and shin guards. Two-handed KUSARIGAMA weapon: one curved steel sickle attached to wooden handle in right hand, linked dark metal chain and small iron weight controlled in left hand. Never two swords, never macehandle. Fixed body scale approximately same head size as othertroops, taller/slimmer stance. Row0: four different stalking rightward walk phases, sickle forward, loose chain coil visibly hanging between hands. Row1 attackA chainthrow: gather weight behind left shoulder, coil torso, throw ironweight on stretchedchain toRIGHT withincell, begin retract. Row2 attackB reel-and-sickle: pulling chainhard towardschest, low step inward, distinct close sickle hook slash toRIGHT, chaincoilingrecovery. Row3 attackC sweepslam: weight raised onshort chain overhead, body coiled withchainarc, weight slamslowright withwide stance andsickleback, followthrough recovery. Chainarcs limitedwithinowncell andnot crossing neighbors. Eachrowfourdistinct completebodyposes. Exactly4x4.",
+        "reference": "assets/enemies-v0.8/mori.png"
+      },
+      "selected_revisions": [
+        {
+          "operation": "targeted correction",
+          "reference": "preceding boss atlas",
+          "prompt": "Use case: precise-object-edit. Correct this kusarigama boss animation atlas. Preserve the exact character, beige cloth, black armor, slim body, helmet, face, all16poses and 4x4 order. CRITICAL fix: shorten the extended throwing chain and weight in row2 column3 so the entire chain remains within that frame's allotted quarter width and never reaches the next figure. Make every whole sprite30percent smaller in its own cell. Exactly4columns4rows with very generous transparent gap, at least60pixels between ALL neighboring figure silhouettes including chain, sickle and cape. Absolutely no contact or overlap between any sprites. Keep authentic chain/sickle and distinct moves. Transparent alpha background. Keep16fullbodyposes no text no lines no shadows. Preserve outfits and historical look."
+        }
+      ]
+    },
+    {
+      "id": "nobunaga",
+      "file": "game/assets/v09/nobunaga.png",
+      "source_copy": "assets/animation-v0.9/nobunaga.png",
+      "actual_dimensions": [
+        1254,
+        1254
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "DA69A1D733EBEB27A40A3A74118F1EA9CC9F5D2EC31B1202915A68365C27B6D6",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for 2D Sengoku beat-em-up. Create NEW chronological action frames using the approved reference hero's exact identity, outfit and proportions. Crisp polished hand-painted arcade sprites, saturated costume, dark crisp outlines, slight three-quarter SIDE VIEW facing RIGHT throughout. Transparent alpha background, no scenery, no floor, no shadows, no gridlines, no text, no labels, no borders. Same headsize, character scale, costume and lighting throughout. Cellsize512x512, figure standingheight340px. Keep completebody,weapon, hair and effects inside itsowncell with24pxpadding. No sprite touching neighboring cell. Keep fixed stagefloor local y=460; body root/local pelvis centered around x=236. Grounded support foot is planted naturally at y460 even when body crouches. Each action row must clearly show anticipation, preparation, IMPACT, and recovery; anatomy and trajectories must change, NEVERfourcopies of thesamepose. All cells independentlyusableat identical scale. Minimizeeffectstoallowclearbodyread; magical trails not baked in becausegamecanrender separately. Reference backgrounds MUST be removed.Nobunaga referenceidentity: adult Japanese samurai warrior muscularbutnotbulky, black high ponytail withredtie, short mustache andpointedbeard, sharp eyes, elaborateREDandGOLDlamellararmor, billowingredhaori/cape withsmallgold floralemblems, blackbaggytrousers, redshinarmoranddarkboots. Wieldsonekatana inbothhands. Preserveexactredgoldcostumeandponytailsilhouette. Square2048x2048 exactly4columns4rows16poses. Row0 risingattack: lowkatanaheldback, crouchedweightshift, explosivediagonalrisingcutwithkatanaabovehead, tallfinishwithfrontkneeraised. Row1 lowsweep: lowtwohandsrearwindup, deepcrouchedsweepthroughfrontankleheight, extendedlowhorizontalcuttoRIGHT, retractwhilekneeling. Row2 ordinarygroundslam: gatherbladeabovehead, twohandsoverheadbladeheldback, forcefuldownwardcut endingpointnearfloorahead, kneelingrecovery. Row3 chargedgroundslam, visuallyVERYDIFFERENTfromrow2: groundedcompressedcrouchkatanaheldhorizontallybehindhip, twisttorsofullybackwithweightonrearfoot, hugeforwardstepwithdeepobliquedownwardcleavefromleftshoulderendingatRIGHTankleheight, lowextendedlungefollowthrough. Nojumpforrow3. CLEARposevariation16frames.",
+        "reference": "game/assets/v07/nobunaga/attacks.png"
+      },
+      "selected_revisions": [
+        {
+          "operation": "spacing correction",
+          "reference": "preceding nobunaga atlas",
+          "prompt": "Use case: precise-object-edit. This is an animation atlas correction only. Keep the exact SAME SIXTEEN Nobunaga poses, identity, red/gold armor, katana trajectories, colors and sharp arcade illustration style. Rearrange this atlas as an EXACT evenly spaced 4 column by 4 row GRID. Make EVERY figure AND sword 30 percent SMALLER inside its allotted invisible cell. Add generous TRANSPARENT empty SPACE around each whole figure. CRITICAL: there must be at least 70 pixels of completely transparent blank space between every neighboring sprite INCLUDING all swords, cape tips and feet. No parts of any two figures may touch, overlap, cross into another cell or be cropped. Keep row order and pose order unchanged. All four rows have equal height and equal width cells. True transparent alpha background, no shadows no text no grid lines. Canvas square. Preserve every frame as a complete independent isolated usable animation sprite. This edit fixes spacing ONLY."
+        }
+      ]
+    },
+    {
+      "id": "oichi",
+      "file": "game/assets/v09/oichi.png",
+      "source_copy": "assets/animation-v0.9/oichi.png",
+      "actual_dimensions": [
+        1276,
+        1233
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "1F237CC1FD7E8F3E77CB467A49198FEF89CB45496E3228D9F6081EF7493E5054",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for 2D Sengoku beat-em-up. Create NEW chronological action frames using the approved reference hero's exact identity, outfit and proportions. Crisp polished hand-painted arcade sprites, saturated costume, dark crisp outlines, slight three-quarter SIDE VIEW facing RIGHT throughout. Transparent alpha background, no scenery, no floor, no shadows, no gridlines, no text, no labels, no borders. Same headsize, character scale, costume and lighting throughout. Cellsize512x512, figure standingheight340px. Keep completebody,weapon, hair and effects inside itsowncell with24pxpadding. No sprite touching neighboring cell. Keep fixed stagefloor local y=460; body root/local pelvis centered around x=236. Grounded support foot is planted naturally at y460 even when body crouches. Each action row must clearly show anticipation, preparation, IMPACT, and recovery; anatomy and trajectories must change, NEVERfourcopies of thesamepose. All cells independentlyusableat identical scale. Minimizeeffectstoallowclearbodyread; magical trails not baked in becausegamecanrender separately. Reference backgrounds MUST be removed.Oichi referenceidentity: clearlyADULTJapanese woman archer, longflowingblackhair tiedwithscarletbraidedribbons, white sleeveless archerytop withredlapels, scarletpleatedhakama-skirtwithfullycoveredshortsunderneath, blackarmbracers, whiteanklesocksandredwhitesandals, redwaistsash,arrowquiveratback. Keepadultproportionsandcompetentmartialposes. WieldswoodenJapaneseyumibow with arrow; nosword. Preservecostumeandlonghairidentity. Square2048x2048 exactly4columns4rows16poses. Row0 risingattack: lowbowacrossknees, liftbowwithcoiledtorso, forcefulupwardbowlimbstrikeendingaboverightshoulder, tallriseonekneelifted. Row1 lowsweep: lowkneeldrawarrow, bowheldsidewaysaimingdownright, releaselowarrowfromdeepcrouch(noarrowprojectile), retreatinglowrecovery. Row2 ordinarygroundslam: kneelonefootbackandgrab3arrows, fan3arrowsacrosslowhorizontalbow, releasedownrightfanwithlowshoulders, recoverwithbownearfrontknee. Row3 chargedgroundslam distinct: standwideandbowtiltedupward, fullmassivearcherbackdrawaimingat60degreesupRIGHT, releasevolleyupwardwithbodyfullyextendedandfrontheelraised(noarrowsprojectiles), deeparchingfollowthroughbeforeloweringbow. Wholebowtipsinsidecells. Noidenticalarmsorlegsilhouetteacrossrow.",
+        "reference": "game/assets/v07/oichi/motion.png"
+      },
+      "selected_revisions": [
+        {
+          "operation": "targeted correction",
+          "reference": "preceding oichi atlas",
+          "prompt": "Use case: precise-object-edit. Correct ONLY TOP TWO ROWS (eight frames) of this16frameOichi gameatlas, keeping exact adultwomanidentity,outfit,hair,scale and4x4position. All figuresfaceRIGHT. Row1(top) must be small THROWING NEEDLE rising technique, NOT bow: fourdistinctposes lowhandgather3metalneedles nearhip, risewithhandbroughtbesidecheek, upward-rightwristflickreleasethreeneedles fromforwardRIGHTHAND, highhandfollowthrough. Row2 must be low THROWING NEEDLE fan: gatherthinneedleswithhandatbelt, deepkneelonehandpullsbackbesidechest, rightarmfullyextendedpalmoutreleasing3thinneedles towardlowRIGHT, crouchedwristfollowthrough. Noheldbowatallinrows1or2, bowmaybestoweddiagonallyonbackwithquiver. Needlesareverysmallthinsteel darts,nosword,nolargeknife,noprojectiletrail. Preserve BOTTOM TWO ROWS exactly as bow/arrow groundattack and charged arrowrain. Keepall16poses isolated withblankgaps. True transparentalpha,no scenery, no coloredbackdrop, nolabels,nogridlines."
+        }
+      ]
+    },
+    {
+      "id": "nobunaga-air",
+      "file": "game/assets/v09/nobunaga-air.png",
+      "source_copy": "assets/animation-v0.9/nobunaga-air.png",
+      "actual_dimensions": [
+        1774,
+        887
+      ],
+      "logical_grid": [
+        4,
+        2
+      ],
+      "frame_count": 8,
+      "sha256": "914EF2BEBDD99D12D407FC7B11264FF4AABCB93CDBC690563098364E25FAC7AF",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for 2D Sengoku beat-em-up. Create NEW chronological action frames using the approved reference hero's exact identity, outfit and proportions. Crisp polished hand-painted arcade sprites, saturated costume, dark crisp outlines, slight three-quarter SIDE VIEW facing RIGHT throughout. Transparent alpha background, no scenery, no floor, no shadows, no gridlines, no text, no labels, no borders. Same headsize, character scale, costume and lighting throughout. Cellsize512x512, figure standingheight340px. Keep completebody,weapon, hair and effects inside itsowncell with24pxpadding. No sprite touching neighboring cell. Keep fixed stagefloor local y=460; body root/local pelvis centered around x=236. Grounded support foot is planted naturally at y460 even when body crouches. Each action row must clearly show anticipation, preparation, IMPACT, and recovery; anatomy and trajectories must change, NEVERfourcopies of thesamepose. All cells independentlyusableat identical scale. Minimizeeffectstoallowclearbodyread; magical trails not baked in becausegamecanrender separately. Reference backgrounds MUST be removed.Nobunaga referenceidentity: adult Japanese samurai warrior muscularbutnotbulky, black high ponytail withredtie, short mustache andpointedbeard, sharp eyes, elaborateREDandGOLDlamellararmor, billowingredhaori/cape withsmallgold floralemblems, blackbaggytrousers, redshinarmoranddarkboots. Wieldsonekatana inbothhands. Preserveexactredgoldcostumeandponytailsilhouette. WIDE2048x1024 exactly4columns2rows8poses. Aerialfiguresfloatabovevirtualfloor, lowestfootaroundy400. Row0 airlight: tuckingkneeswithbladerearward, torstwistairborne, rightwardhorizontalairslashwithleadinglegstretched, tuckrecover. Row1 airheavy DISTINCT: airbornearchedbackkatanaaboveheadbothhands, stretchedlegscissorkatanafullyraised, plungingforwarddownwardcleaveat45degreeswithonelegtrailinghigh, heavycrouchedlandingwithkatanaendinglowfrontandonesupportfootatfloor460. Clearcenter-of-masschangeandairbornesilhouettes, notgroundedstandingfigures. Eighttotalframes.",
+        "reference": "game/assets/v07/nobunaga/attacks.png"
+      },
+      "selected_revisions": []
+    },
+    {
+      "id": "oichi-air",
+      "file": "game/assets/v09/oichi-air.png",
+      "source_copy": "assets/animation-v0.9/oichi-air.png",
+      "actual_dimensions": [
+        1774,
+        887
+      ],
+      "logical_grid": [
+        4,
+        2
+      ],
+      "frame_count": 8,
+      "sha256": "205C8F315E1595BEBC37657DF3B4209E09E9C23EB76C55D1DA4FE288122150E1",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for 2D Sengoku beat-em-up. Create NEW chronological action frames using the approved reference hero's exact identity, outfit and proportions. Crisp polished hand-painted arcade sprites, saturated costume, dark crisp outlines, slight three-quarter SIDE VIEW facing RIGHT throughout. Transparent alpha background, no scenery, no floor, no shadows, no gridlines, no text, no labels, no borders. Same headsize, character scale, costume and lighting throughout. Cellsize512x512, figure standingheight340px. Keep completebody,weapon, hair and effects inside itsowncell with24pxpadding. No sprite touching neighboring cell. Keep fixed stagefloor local y=460; body root/local pelvis centered around x=236. Grounded support foot is planted naturally at y460 even when body crouches. Each action row must clearly show anticipation, preparation, IMPACT, and recovery; anatomy and trajectories must change, NEVERfourcopies of thesamepose. All cells independentlyusableat identical scale. Minimizeeffectstoallowclearbodyread; magical trails not baked in becausegamecanrender separately. Reference backgrounds MUST be removed.Oichi referenceidentity: clearlyADULTJapanese woman archer, longflowingblackhair tiedwithscarletbraidedribbons, white sleeveless archerytop withredlapels, scarletpleatedhakama-skirtwithfullycoveredshortsunderneath, blackarmbracers, whiteanklesocksandredwhitesandals, redwaistsash,arrowquiveratback. Keepadultproportionsandcompetentmartialposes. WieldswoodenJapaneseyumibow with arrow; nosword. Preservecostumeandlonghairidentity. WIDE2048x1024 exactly4columns2rows8poses. Aerialfiguresfloatabovevirtualfloor, lowestfootaroundy400. Row0 airlight: leapkneestuckedwithbownearwaist, nockarrowairborne, pullbowtoRIGHTwithonelegforwardandonebent, releasehorizontalairshotwithbodytwist(noarrowprojectile). Row1 airheavy DISTINCT: airbornearchingbackwithlongbowabovehead, fullbowdrawaimingsteepdownRIGHTwithkneestuckbehind, releasetwin-arrowdescendingvolleywhiletorsofoldsforward(noarrowsprojectiles), landingcrouchonesupportfootatfloor460andbowtiltedforward. Stronglyspecificairborneposesanddistinctlimbangles. Eighttotalframes.",
+        "reference": "game/assets/v07/oichi/motion.png"
+      },
+      "selected_revisions": [
+        {
+          "operation": "targeted correction",
+          "reference": "preceding oichi-air atlas",
+          "prompt": "Use case: precise-object-edit. Correct ONLY TOP ROW fourposes of this8frameOichi AIRATTACKatlas. Preserve exact adultcharacter,outfit,hair,scale and4x2layout. Replace heldbow inTOPROWwith throwingneedles, bowstowed onback. Fourchronological aeriallightattackposes: leapwithkneestuckedgathering3tinysteelneedlesbywaist, airybodytwistbringrighthandbesidehead, extendrightforearmflickthreeneedleshorizontallyRIGHTwithfrontlegstretched, relaxedhandopenfollowthroughstillairborne. Verysmallthinneedles,noknives, nosword, noarrow,noprojectiletrails. BOTTOMROW heavyattack remains bow-and-arrowexactlyassource, preserveits4poses. True transparentalphaemptybackground. Keepall8fullspritescomplete,separatedwithgenerousblankgaps,nooverlap,no labels."
+        }
+      ]
+    },
+    {
+      "id": "nobunaga-advanced",
+      "file": "game/assets/v09/nobunaga-advanced.png",
+      "source_copy": "assets/animation-v0.9/nobunaga-advanced.png",
+      "actual_dimensions": [
+        1254,
+        1254
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "5E4A13B0E04AAD46F82BD2F1C2CB2340EF1B61446076083A645D778A018E4629",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for 2D Sengoku beat-em-up. Create NEW chronological action frames using the approved reference hero's exact identity, outfit and proportions. Crisp polished hand-painted arcade sprites, saturated costume, dark crisp outlines, slight three-quarter SIDE VIEW facing RIGHT throughout. Transparent alpha background, no scenery, no floor, no shadows, no gridlines, no text, no labels, no borders. Same headsize, character scale, costume and lighting throughout. Cellsize512x512, figure standingheight340px. Keep completebody,weapon, hair and effects inside itsowncell with24pxpadding. No sprite touching neighboring cell. Keep fixed stagefloor local y=460; body root/local pelvis centered around x=236. Grounded support foot is planted naturally at y460 even when body crouches. Each action row must clearly show anticipation, preparation, IMPACT, and recovery; anatomy and trajectories must change, NEVERfourcopies of thesamepose. All cells independentlyusableat identical scale. Minimizeeffectstoallowclearbodyread; magical trails not baked in becausegamecanrender separately. Reference backgrounds MUST be removed.Nobunaga referenceidentity: adult Japanese samurai warrior muscularbutnotbulky, black high ponytail withredtie, short mustache andpointedbeard, sharp eyes, elaborateREDandGOLDlamellararmor, billowingredhaori/cape withsmallgold floralemblems, blackbaggytrousers, redshinarmoranddarkboots. Wieldsonekatana inbothhands. Preserveexactredgoldcostumeandponytailsilhouette. Square2048x2048 exactly4columns4rows16poses. ThesearefouradditionalDIFFERENTattacks. Row0 upperheavy: katanaacrosschestwithrightkneeup, turnhipsanddrawbladetolowerleft, powerfulverticalrisinguppercutwithtwohandsandsworddirectlyoverhead, tallfollowthroughwithbladetopright. Row1 chargedupper: verylowkneelbladetipalmostfloorbehindleft, crouchwithtorsofullywoundback, entirebodyarchingupwithbladeinlongdiagonalup-rightstrokeandfrontlegextended, poisedhighguardrecovery. Row2 dashstrike: forwardleanwithbladetuckedatleftwaist, longdrivingsteptoRIGHTwithbacklegstraight, lowwaistlevelhorizontalIAIslashwithbladextendedRIGHT, slidingstopkneebentbodyverylow. Row3 mixedfinisher: katanaheldbackpointingupwithonefootraised, halfspinturnwithcapefannedoutbutfacevisibleRIGHT, dramaticforwardlungingdiagonalcrosscutatshoulderheight, extremelylowkneelingfollowthroughwithbladeextendedupRIGHT. 16differentposes, distinguishrowsbyweaponsilhouetteandlegstance, noresamplingexistingrow.",
+        "reference": "game/assets/v07/nobunaga/attacks.png"
+      },
+      "selected_revisions": [
+        {
+          "operation": "replacement generation with existing transparent hero identity reference",
+          "reference": "selected nobunaga main atlas",
+          "prompt": "Use case: stylized-concept. Make a NEW PRODUCTION SPRITE ATLAS from this character reference. The reference supplies ONLY character identity, outfit and illustrated style. IMPORTANT: flat TRANSPARENT alpha background everywhere, do not inherit any originalbackground, no color backdrop, no gradients, no glow, no shadows, no pattern. Exactly16fullbody independent poses in4columns4rows square image. All faceRIGHT, preservedbodyproportions, samebodyscale in everycell, everywholefigureandweapon30percentsmallerthancellwithgenerousblankpadding. Absolutely no touching or overlapping sprites or weapons; a wide transparent gap between all16silhouettes. No text/gridlines. Eachrow4chronologicalposes anticipation/preparation/impact/recovery; visibly differentlimbs andweapontrajectory. Nobunaga exactadultidentity REDandGOLDarmorblackponytailbeardkatana. Row0 upperheavy: swordacrosschestwithkneeraised, deepwinduptobackleft, verticaltwohandrisinguppercutbladeovertop, tallfinish. Row1 chargedupper: verylowkneelbladetipbehindhip, fulltorsocoilback, largearchingdiagonalup-rightcleavewithfrontlegextended, highguardrecovery. Row2 dashstrike: lowleanbladeatleftwaist, longforwarddrivingstep, lowhorizontalIAIslashRIGHT, slidingstopkneebentbodylow. Row3 mixedfinisher: bladebackwithonefootraised, halfspinturncapefannedfaceRIGHT, dramaticforwardlungingdiagonalcrosscutatshoulderheight, verylowkneelingfollowthroughbladeupRIGHT. Preserveallhistoricalcostume. 16trulyseparatefullposes."
+        }
+      ]
+    },
+    {
+      "id": "oichi-advanced",
+      "file": "game/assets/v09/oichi-advanced.png",
+      "source_copy": "assets/animation-v0.9/oichi-advanced.png",
+      "actual_dimensions": [
+        1254,
+        1254
+      ],
+      "logical_grid": [
+        4,
+        4
+      ],
+      "frame_count": 16,
+      "sha256": "01D299209922453D8967DC228237FA149EC8AE2BBBAA07CA4D86302753F5AF07",
+      "initial_generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production animation sprite atlas for 2D Sengoku beat-em-up. Create NEW chronological action frames using the approved reference hero's exact identity, outfit and proportions. Crisp polished hand-painted arcade sprites, saturated costume, dark crisp outlines, slight three-quarter SIDE VIEW facing RIGHT throughout. Transparent alpha background, no scenery, no floor, no shadows, no gridlines, no text, no labels, no borders. Same headsize, character scale, costume and lighting throughout. Cellsize512x512, figure standingheight340px. Keep completebody,weapon, hair and effects inside itsowncell with24pxpadding. No sprite touching neighboring cell. Keep fixed stagefloor local y=460; body root/local pelvis centered around x=236. Grounded support foot is planted naturally at y460 even when body crouches. Each action row must clearly show anticipation, preparation, IMPACT, and recovery; anatomy and trajectories must change, NEVERfourcopies of thesamepose. All cells independentlyusableat identical scale. Minimizeeffectstoallowclearbodyread; magical trails not baked in becausegamecanrender separately. Reference backgrounds MUST be removed.Oichi referenceidentity: clearlyADULTJapanese woman archer, longflowingblackhair tiedwithscarletbraidedribbons, white sleeveless archerytop withredlapels, scarletpleatedhakama-skirtwithfullycoveredshortsunderneath, blackarmbracers, whiteanklesocksandredwhitesandals, redwaistsash,arrowquiveratback. Keepadultproportionsandcompetentmartialposes. WieldswoodenJapaneseyumibow with arrow; nosword. Preservecostumeandlonghairidentity. Square2048x2048 exactly4columns4rows16poses. Fouradditionaldistinctattacks. Row0 upperheavy: bowheldlowinbothhands, stepandwindbodytotheleft, upwardrotatingbowstaffstrikeendingbowaboverighthead, balancedhighguardonefrontheelup. Row1 chargedupper: kneellowbowhorizontal, fullbowdrawaimalmostverticalupRIGHTfromone-kneepose, burstupwardreleasewithlongbowaboveheadandtorsoarched(noarrowprojectile), kneelrecoveryhandsloweringbow. Row2 dashstrike: forwardlowleanwithbowheldacrosswaist, twoquicklonglungingsteps compressedinto2visiblydifferentposes, finishdeepforwardlungeusingfrontbowlimbasthrusttoRIGHT. Row3 mixedfinisher: sidestepwithbowdrawnrearandtorstwist, backwardleaningfullbowdrawaimRIGHT, releasewithfrontlegextendedhighinmartialbalanceandbowforward(noarrowprojectile), lowspinkneelrecoverywithlonghairfanningbehind. Adultcompetentfighter, nosexualizedframing, 16distinctposes.",
+        "reference": "game/assets/v07/oichi/motion.png"
+      },
+      "selected_revisions": [
+        {
+          "operation": "replacement generation with existing transparent hero identity reference",
+          "reference": "oichi initial transparent main atlas before needle correction",
+          "prompt": "Use case: stylized-concept. Make a NEW PRODUCTION SPRITE ATLAS from this character reference. The reference supplies ONLY character identity, outfit and illustrated style. IMPORTANT: flat TRANSPARENT alpha background everywhere, do not inherit any originalbackground, no color backdrop, no gradients, no glow, no shadows, no pattern. Exactly16fullbody independent poses in4columns4rows square image. All faceRIGHT, preservedbodyproportions, samebodyscale in everycell, everywholefigureandweapon30percentsmallerthancellwithgenerousblankpadding. Absolutely no touching or overlapping sprites or weapons; a wide transparent gap between all16silhouettes. No text/gridlines. Eachrow4chronologicalposes anticipation/preparation/impact/recovery; visibly differentlimbs andweapontrajectory. OichiexactADULTwomanidentity,whiteandredarcheryoutfitblackhairredribbons,nooutfitchanges. Row0 upperheavybow: lowbowtwohands, stepandwindbodytotheleft, powerfulupwardrotatingbowstaffstrikeendingoverheadRIGHT, highguardfinish. Row1 chargedupperbow: kneellowwithbowhorizontal, aimandfullbowdrawnearlyverticalupRIGHTfromone-knee, releaseupwardwithlongbowoverhead(noarrowprojectile), kneelinglowerbowrecovery. Row2 dashstrike LIGHT THROWING NEEDLES withbowstowedatback, noheldbow: forwardrunningleanwith3tinymetalneedlesheldatbeltrighthand, longforwardstepbringrighthandbycheek, lowlungingrightarmextendedwristflickreleasing3tinyneedlesRIGHT, slidingstepopenpalmandrelaxedwristfollowthrough. Row3 mixedfinisher: firstframe bowstowedandhandthrows3tinyneedlesRIGHTwhile sidestepping; secondframe takelongbowandpullbowstringfullyaimRIGHT; thirdframe releasebowshotwithfrontextendedlegraisedinmartialbalance; finalframe lowspinkneelbowloweredandhairfanningback. Tinyneedlesaremicrosteeldarts,nobigknives,nosword. Preserveadultcompetentfighter silhouetteandexactoutfit. No projectiletrails."
+        },
+        {
+          "operation": "spacing correction",
+          "reference": "preceding oichi advanced atlas",
+          "prompt": "Use case: precise-object-edit. SPACING CORRECTION ONLY. Preserve all SIXTEEN exact Oichi poses and attacks of this atlas: 4 rows by4 columns. Preserve adult character outfit, allneedle/bowmovements, exact hair and limbs, pose order unchanged. Reduce ALL 16 complete figures and their entire weapons to 65 percent of their current size. Place each inside its own evenly spaced square cell. CRITICAL there must be a generous continuous transparent corridor at least80pixels wide BETWEEN every pair of neighboring sprites, vertically AND horizontally. No bowtip from bottomrow may ever reach the feetofrowabove. No hair,ribbon,needle,bow,string or shoe of separate frames may touch. Do not add anything. Transparent alpha emptybackground, no text no lines no shadows. All16completefigures fullycontained withlargepadding andconsistent scale. Keepfourrowsandfourcolumns."
+        }
+      ]
+    }
+  ]
+}

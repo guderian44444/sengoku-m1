@@ -1,0 +1,24 @@
+{
+  "id": "tadakatsu-special-a",
+  "tool": "image_gen__imagegen",
+  "mode": "built-in",
+  "source_path": "C:\\Users\\guder\\.codex\\generated_images\\01a1294a-2437-7c52-89b8-c837fd4557fd\\exec-60c315aa-cade-4547-a4d8-f05db19d79ed.png",
+  "output": "D:/AI/吞食戰國/game/assets/v17/tadakatsu-special-a.png",
+  "prompt": "Use case: precise-object-edit. Edit this transparent six-frame Honda Tadakatsu sprite atlas. Preserve the exact canvas, six existing poses, black/red/gold costume, body scale, antlers, beads, transparent alpha and every other pixel's composition. ONLY correct the weapon in the TOP MIDDLE sprite (frame1). It currently has golden blunt caps at BOTH ends, which is wrong. The upper-left end must remain the blunt GOLD butt cap. Replace ONLY the lower-right end of this diagonal spear (the end beside his right ribs/elbow, roughly x850 y285 on1536x1024) with ONE recognizable SILVER LEAF SPEAR BLADE with a small GOLD collar, matching the other sprites' blade. Keep the shaft as one continuous line through both hands. Do not add another shaft, spear, hand, effects, background, text or shadows. Every other sprite already has the correct one silver blade and one gold butt; leave them unchanged. Preserve all transparency.",
+  "referenced_image_paths": [
+    "C:\\Users\\guder\\.codex\\generated_images\\01a1294a-2437-7c52-89b8-c837fd4557fd\\exec-15606919-fcda-4290-ad25-7e5dffed5b8c.png"
+  ],
+  "transparent_background": true,
+  "prior_attempt": {
+    "args": {
+      "prompt": "Use case: stylized-concept. Production PNG sprite animation atlas with true transparent alpha, SIX separate full-body illustrations, exactly THREE columns by TWO rows, 1536x1024 landscape. Reference images are identity/style only. Match the exact adult Honda Tadakatsu game hero: black lacquer samurai armor, restrained gold trim, red cords, large brown deer-antler kabuto, gold face guard, large ivory prayer beads, black feather/fur cape with red inner strips and gold motifs, black/gold armored boots. Strong adult anatomy and painted high-definition 2D arcade sprite style, consistent bodily dimensions with the supplied v17 sprite atlas. Single long Tonbokiri yari with ONE silver leaf blade at its front and ONE blunt golden butt cap at its other end; one continuous brown shaft, never two spears.\nOrthographic side/three-quarter game camera, ordinarily facing right. Every pose genuinely redrawn with progressive skeletal motion. Put each whole person AND all antlers/cape/weapon inside its own 512x512 cell, at a consistent scale; at least 40px completely transparent separation around every entire silhouette, including tips and toes. Center every cell's complete full silhouette; do not crop, join neighbors, or include any neighboring fragment. Approximately 250-290px standing human body height, including antlers no higher than about 350px; full spear length fits comfortably. No background, shadows, ground, gradients, fire, magic, aura, particles, motion streaks, text, numbers, grid or borders. Alpha=0 around isolated figures; maintain crisp natural anti-aliased cutout edges.\nClip special part A: frames0-5 of twelve-frame full-body 360-degree power spear sweep. One continuous rotating move with clear torso angles, no trails or effects. Frame0 ready spear horizontal right, both feet apart. Frame1 draw spear back, shift weight to rear leg, front toe pivots. Frame2 coil hips and shoulders toward the viewer, spear diagonally across chest. Frame3 body begins turning away showing the far shoulder, feet rotate and knees bend, spear crosses low in front. Frame4 show three-quarter BACK with cape fur and gold crest visible, head still turned to watch right, spear roughly horizontal LEFT behind body. Frame5 full back-to-camera torque, heels pivot, arms beginning to drive spear around toward right. Frame5 is windup just before frame6 maximum extended sweep to right. Exactly ONE spear with one silver front blade and one blunt gold butt. Very wide clear gutters for the fully extended weapon; full cape/boots/antlers never crop.",
+      "referenced_image_paths": [
+        "D:/AI/吞食戰國/game/assets/v17/tadakatsu-slam_charge-a.png",
+        "D:/AI/吞食戰國/game/assets/v16/tadakatsu-heavy1.png"
+      ],
+      "transparent_background": true
+    },
+    "source_path": "C:\\Users\\guder\\.codex\\generated_images\\01a1294a-2437-7c52-89b8-c837fd4557fd\\exec-15606919-fcda-4290-ad25-7e5dffed5b8c.png",
+    "rejected_reason": "Top-middle spear had two golden butt caps instead of one silver blade. Built-in imagegen precisely corrected it."
+  }
+}

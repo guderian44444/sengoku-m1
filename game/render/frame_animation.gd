@@ -320,6 +320,65 @@ static func hero_v10_sample(fighter: Dictionary, distance: float = 0.0, height: 
 			frame = posmod(floori(maxf(distance,0) / stride * 6.0),6)
 	return {"clip":action,"sheet":sheet,"frame":frame,"cell":row * 6 + frame,"count":6,"tick":tick,"duration":duration,"released":released}
 
+static func tadakatsu_v17_sample(fighter: Dictionary, action: String, tick: float, sheets: Dictionary) -> Dictionary:
+	var clip: String = {
+		"charged":"dash", "dash_heavy":"dash", "dash_strike":"dash", "rising":"upper", "upper_heavy":"upper", "charged_upper":"upper",
+		"ground_slam":"charged_slam", "dead":"death", "defeated":"death", "down":"death", "recovering":"recover",
+		"stunned":"hurt", "grabbed":"hurt", "pulled":"hurt", "frozen":"hurt", "thrown":"launched"
+	}.get(action,action)
+	if action == "charge": clip = "slam_charge" if int(fighter.get("charge_direction",0)) > 0 else ("upper" if int(fighter.get("charge_direction",0)) < 0 else "charge_forward")
+	if action in ["mixed_finisher","mixed_rising"]:
+		if tick < 22: return {}
+		clip = "upper" if action == "mixed_rising" else "charged_slam"
+	var sheet := "v17_" + clip
+	if not sheets.has(sheet): return {}
+	var count: int = sheets[sheet].size()
+	var frame := 0
+	var duration := 0.0
+	var released := false
+	if action == "charge":
+		frame = mini(count / 2 - 1 if clip == "upper" else count - 1,floori(float(fighter.get("charge",0)) / 35.0 * (count / 2 if clip == "upper" else count)))
+	elif action == "guard":
+		frame = mini(5,floori(tick / 3.0)) if tick < 18 else 6 + posmod(floori((tick - 18) / 5.0),6)
+		if int(fighter.get("guard_hit_tick",0)) > 0: frame = 10 if int(fighter.guard_hit_tick) > 5 else 11
+	elif action == "holding":
+		frame = mini(5,floori(tick / 3.0)) if tick < 18 else 6 + posmod(floori((tick - 18) / 5.0),6)
+	elif action == "throw":
+		duration = 24
+		frame = mini(count - 1,floori(tick * count / duration))
+		released = true
+	elif clip == "hurt":
+		frame = mini(count - 1,floori(tick * count / 18.0))
+		if action == "frozen": frame = count / 2
+		elif action == "stunned": frame = 6 + posmod(floori(tick / 5.0),6)
+	elif clip == "death":
+		frame = mini(count - 1,floori(tick * count / 24.0))
+		if fighter.get("airborne_lock",false): return {}
+		if fighter.get("down_from_air",false): frame = count / 2 + mini(count / 2 - 1,floori(tick * count / 24.0))
+	elif clip == "recover":
+		frame = mini(count - 1,floori(tick * count / float(Battle.RECOVER_TICKS)))
+	elif clip == "launched":
+		frame = clampi(floori((9.0 - float(fighter.get("vz",0))) / 18.0 * count),0,count - 1)
+	elif action == "special":
+		var pulses: Array = Battle.SPECIAL_HIT_TICKS.tadakatsu
+		var pulse := 0
+		for index in range(1,pulses.size()):
+			if tick >= (float(pulses[index - 1]) + float(pulses[index])) * .5: pulse = index
+		var hit := float(pulses[pulse])
+		var start := 0.0 if pulse == 0 else (float(pulses[pulse - 1]) + hit) * .5
+		var finish := float(Battle.SPECIAL_TICKS) if pulse == pulses.size() - 1 else (hit + float(pulses[pulse + 1])) * .5
+		frame = _attack_frame(tick - start,hit - start,finish - start,count)
+		duration = Battle.SPECIAL_TICKS
+		released = tick >= hit
+	else:
+		var timing: Array = {"charged":[5,36],"dash_heavy":[12,34],"dash_strike":[10,30],"rising":[6,24],"low_sweep":[9,28],"upper_heavy":[12,36],"charged_upper":[22,56],"ground_slam":[14,42],"charged_slam":[28,72],"air_light":[6,20],"air_heavy":[12,38],"mixed_finisher":[5,26],"mixed_rising":[5,26]}.get(action,[])
+		if timing.is_empty(): return {}
+		var local_tick := tick - 22.0 if action in ["mixed_finisher","mixed_rising"] else tick
+		frame = _attack_frame(local_tick,timing[0],timing[1],count)
+		duration = 48 if action in ["mixed_finisher","mixed_rising"] else timing[1]
+		released = local_tick >= timing[0]
+	return {"clip":action,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released,"source":"v17","hero":"tadakatsu"}
+
 static func hero_v12_sample(fighter: Dictionary, distance: float, height: float, sheets: Dictionary) -> Dictionary:
 	if fighter.get("action","") in ["dead","defeated"] and fighter.get("airborne_lock",false):
 		fighter = fighter.duplicate()

@@ -1,0 +1,64 @@
+{
+  "edits": [
+    {
+      "id": "boss-saito",
+      "prompt": "Edit ONLY BOTTOM FOURTH ROW of this 6columns x4rows/24pose transparent sprite atlas. Keep everycharacter, sameuniform, face andbody size. Bottomrow currently neighboring hooked spears touch. Redraw SIX bottomrow low sweep poses with each spear held diagonally DOWN-RIGHT at 35degrees and foreshortened enough that TOTAL silhouette width is under210pixels per256px cell. Sixchronological phases: ready diagonal, coil behindhip, swing starts downward, lowdownsweep impact, followthrough, recovery. Make full spear andhookedtip inside EACHcell with35px emptygap. Recenter these sixwhole figures and weapons only. No truncating tips, no contactwithneighbor. Other18poses unchanged. Truealpha noBG noVFX. Exactly24separatefullbodyfigures."
+    },
+    {
+      "id": "boss-takeda",
+      "prompt": "Minimal exact edit to this6x4 transparent atlas: in SECOND ROW FOURTH COLUMN (cell9), spear thrust has a bare wooden flat tip on farRIGHT. Add the missing pointed silver-steel spearhead at shaft farRIGHT end, connected naturally, ordinary small yari blade12-20px long. Preserve ALL24 fullbodyposes, placement, scale, gaps, allotherpixels and truealpha; no glow/nootherchanges."
+    },
+    {
+      "id": "faction-imagawa-troops-b",
+      "prompt": "Repair wrong rowcount/mixedcharacters in this transparent sprite atlas. The required final layout is EXACTLY4columns x8rows=32completefigures; current version has7rows and a corrupt mixed fourthrow. Re-layout whole sheet to8 EVEN horizontal rows with30px emptygaps. Preserve existingbluecoatCOMMANDER identity andapprovedsimplearmor. TOP FOUR ROWS are ONLY that commander16poses: row0walk4; row1downwardkatana cut4; row2risingkatana cut4; row3DASHINGkatana lunge4 (all4commander, noarchers). FIFTHrow is ONLY headbandARCHER walking4poses (nocknoarrow); SIXTHrow SAMEarcher nock/draw/release/lower4poses. SEVENTHrow plaininfantryMATCHLOCKGUNNER walk4, EIGHTHrowgunner raise/aim/recoil/lower4. TinyplainsteelnoVFX. 16commander+8archer+8gunner exactly. Use samecanvasportrait, uniformly scalecharacters enough tofit8rows. Eachfullybody/fullweaponindependent andtransparentmargin; no neighboringcontact. Do notomitdashrow ormixroles. Truealpha noBG."
+    },
+    {
+      "id": "faction-saito-troops-b",
+      "prompt": "Repair missing row in this transparent sprite atlas. Final required EXACT4columns x8rows=32completefigures. Current sheet has ONLY7rows because COMMANDER DASH ROW missing. Insert that missing chronological4pose row immediatelyAFTER existing thirdrow ofrisingcuts. All firstFOURrows mustbe SAME brown-coated armored COMMANDER=16poses: walk4,downcut4,risingcut4,DASHINGLUNGE4. Following FOUR rows existingarcherwalk4,archershot4,gunnerwalk4,gunnershot4. Respaceall32figuresuniformly into8rows and4columnswith25px transparentgutters. Preserveindividualidentities,plainarmors,weaponandchronology; minimumfullbodyanatomy andfullweaponnooverlap. Graysteelnoeffects. Truealpha noBG/grid/text."
+    },
+    {
+      "id": "faction-miyoshi-troops-a",
+      "prompt": "Repair missing FLAG SWEEP row in this transparent animation atlas. Final EXACT4columns x8rows=32fullbodyfigures. Current7rows lacksone flag attack. Preserve first16spearmanfigures (top4rows walk/thrust/lowsweep/buttstrike). BOTTOM FOURROWS are SAMEpurpleflagbearer andpurplestandard: row4walk4, row5polepoke4, INSERTrow6lowPOLESWEEP4, row7raiseanddownPOLESLAM4. For inserted6thzeroindexrow drawreadycoil,windup,lowwide sweep, recoverfourchronologicalposes, fullflagcloth. Re-layoutall32figures into8evenrows4colswithatleast25px transparentgap andFULLweaponandflaginsidecell; allscaleduniformly ifneeded. Preserveallidentitiesandcostume. Truealpha noBG/VFX/grid/text."
+    },
+    {
+      "id": "faction-saito-troops-a",
+      "prompt": "SPACING REPAIR ONLY: keep all32existingposes, same4columns x8rows, samecharacters,outfitsweaponsandchronologicalorder. Uniformly scaleALL32fullfigures includingtheirweaponsandflag to70% currentprintedsize,recenterintheirowncells, ensure30pxfullytransparentgutter inbothdirections. In particular last2rows flagcloth/weapon mustnot touch neighboringfigures above orside. PreserveFULLflagsandspear tips insideeachcell,nocropping,noblanks orduplicatedposes. Fixedfloor baselineperrow. Truealpha noBG/effects/grid/text."
+    },
+    {
+      "id": "faction-azai-troops-b",
+      "prompt": "Repair missing COMMANDER DASH ROW. This transparent atlas currently only7rows/28figures. Required exact4columns x8rows/32figures. Preserve first3commanderrows (walk,downcut,risingcut). INSERT fourthrow of SAME COMMANDER fourchronological DASHING KATANA LUNGE poses: forwardleanwindup, rearlegpushwithkatana, deepforwardlungecutRIGHT, recovertoguard. Commander remainshisoriginalhelmet/cuirass/coat andNO bow. Thereafter keep archerwalk4,archershot4,gunnerwalk4,gunnershot4 asrows4,5,6,7. Re-layout all32fullbodyfigures uniformly into8evenrowswithlarge25px transparentgutters. Fullweaponsindependent no touching. Do notomitanyexistingrow, duplicatepose, ormixroles. Truealpha noBG/VFX/text/grid."
+    },
+    {
+      "id": "faction-akechi-troops-b",
+      "prompt": "Repair missing COMMANDER DASH ROW. This transparent atlas currently only7rows/28figures. Required exact4columns x8rows/32figures. Preserve first3commanderrows (walk,downcut,risingcut). INSERT fourthrow of SAME COMMANDER fourchronological DASHING KATANA LUNGE poses: forwardleanwindup, rearlegpushwithkatana, deepforwardlungecutRIGHT, recovertoguard. Commander remainshisoriginalhelmet/cuirass/coat andNO bow. Thereafter keep archerwalk4,archershot4,gunnerwalk4,gunnershot4 asrows4,5,6,7. Re-layout all32fullbodyfigures uniformly into8evenrowswithlarge25px transparentgutters. Fullweaponsindependent no touching. Do notomitanyexistingrow, duplicatepose, ormixroles. Truealpha noBG/VFX/text/grid."
+    },
+    {
+      "id": "faction-iga-troops-b",
+      "prompt": "Repair missing COMMANDER DASH ROW. This transparent atlas currently only7rows/28figures. Required exact4columns x8rows/32figures. Preserve first3commanderrows (walk,downcut,risingcut). INSERT fourthrow of SAME COMMANDER fourchronological DASHING KATANA LUNGE poses: forwardleanwindup, rearlegpushwithkatana, deepforwardlungecutRIGHT, recovertoguard. Commander remainshisoriginalhelmet/cuirass/coat andNO bow. Thereafter keep archerwalk4,archershot4,gunnerwalk4,gunnershot4 asrows4,5,6,7. Re-layout all32fullbodyfigures uniformly into8evenrowswithlarge25px transparentgutters. Fullweaponsindependent no touching. Do notomitanyexistingrow, duplicatepose, ormixroles. Truealpha noBG/VFX/text/grid."
+    },
+    {
+      "id": "faction-iga-troops-a",
+      "prompt": "Repair missing SPEARMAN BUTT STRIKE ROW. Currenttransparentatlas has7rows/28figures. Required exact4columns x8rows=32figures. Preserve firstthree spearmanrowswalk/thrust/lowsweep. INSERT fourthrow SAME plainarmored spearman4chronological SPEAR BUTTSTRIKE poses: reversegripready, raisebluntend, drivewoodenbuttRIGHT, recover. FULL spearwithsteeltipvisible oppositeend. Keepbottom4flagbearerrowswalk/poke/sweep/slam. Re-layout32fullbodyposes into8evenrows4columns preservinguniforms/identities andsourcecolors. Atleast25pxtransparentgutters betweenallfullbodyandweapons/flag. Noexposure nocropping nofakeposes. Truealpha noBG/effects/text/grid."
+    },
+    {
+      "id": "faction-akechi-troops-a",
+      "prompt": "SPACING REPAIR ONLY. Preserve all32poses in4columns x8rows, exactcharacters/costume/weapons. Currentneighboringweapons TOUCH. Uniformly scaleall32fullbodyfiguresANDweapons to70%currentsize, recenter each completefullsilhouetteinsideowncell with30px transparentgaps horizontallyandvertically. Maintain chronologicalposes no repeats,no missingrows, no rolemix. Entireblade/flag/spear mustremaininsidecell andconnectedonlytoownhand, no contactwithneighbor. Don'tshortenweaponbycropping. Truealpha noBG/noVFX/grid/text."
+    },
+    {
+      "id": "faction-asakura-troops-b",
+      "prompt": "SPACING REPAIR ONLY. Preserve all32poses in4columns x8rows, exactcharacters/costume/weapons. Currentneighboringweapons TOUCH. Uniformly scaleall32fullbodyfiguresANDweapons to70%currentsize, recenter each completefullsilhouetteinsideowncell with30px transparentgaps horizontallyandvertically. Maintain chronologicalposes no repeats,no missingrows, no rolemix. Entireblade/flag/spear mustremaininsidecell andconnectedonlytoownhand, no contactwithneighbor. Don'tshortenweaponbycropping. Truealpha noBG/noVFX/grid/text."
+    },
+    {
+      "id": "faction-ikko-troops-b",
+      "prompt": "SPACING REPAIR ONLY. Preserve all32poses in4columns x8rows, exactcharacters/costume/weapons. Currentneighboringweapons TOUCH. Uniformly scaleall32fullbodyfiguresANDweapons to70%currentsize, recenter each completefullsilhouetteinsideowncell with30px transparentgaps horizontallyandvertically. Maintain chronologicalposes no repeats,no missingrows, no rolemix. Entireblade/flag/spear mustremaininsidecell andconnectedonlytoownhand, no contactwithneighbor. Don'tshortenweaponbycropping. Truealpha noBG/noVFX/grid/text."
+    },
+    {
+      "id": "faction-takeda-troops-b",
+      "prompt": "Minimalcorrectedit ONLY fourthrow secondcolumn (cell13) inthis4columns x8rows transparentatlas. Thatcell erroneously shows commander holdinganARCHERYBOW. Removebowandquiver fromthisONEcommanderpose anddraw SAME commander in browncoat blackarmorblackhelmet in katana dashanticipation: leanforward kneesbent katana heldbackbehindhip toLEFT forforthcomingforwardcut. No bow in ANY top16commanderposes. Preserve allother31existingposes andallspacingsizecolorsidentities. Exactly32figures truealpha noBG/noFX."
+    },
+    {
+      "id": "faction-ikko-troops-a",
+      "prompt": "Correct ONLY seventhrow (row6 cells24-27) ofthis4columns x8rows/32pose transparentatlas. Those4flagbearerSWEEPposes incorrectly turnedintohelmetedarmoredsoldier. They must use SAME HEADBAND FLAGBEARER identity/outfit asrows4/5/7: longwhiteheadband, loose lighttan robe, ochresash, nohelmet/nocuirass, sameheadandhairstyle. Eachholdingthe SAME ochreclothstandard andlowpoleSWEEP4chronologicalposes. Preserve thosefour sweepbodymotions andflagangles butchangeclotheshead toproperflagbearer. Allother28framesunchanged. Noomissionduplicate orcontact. Truealpha noBG/noglow."
+    }
+  ]
+}

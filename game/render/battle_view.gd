@@ -100,7 +100,7 @@ func _update_motion() -> void:
 			_facing_back[id] = movement.y < -0.1 and absf(movement.y) > absf(movement.x)
 			if movement.length() < 60.0 and str(fighter.get("action", "idle")) in ["idle", "walk", "run", "move", "retreat"] and float(fighter.get("z", 0)) <= 0:
 				_walk_distance[id] = float(_walk_distance.get(id, 0.0)) + movement.length()
-		if (int(fighter.get("team",0)) == 0 and str(fighter.get("kind","")) in ["nobunaga","oichi"]) or (int(fighter.get("team",0)) != 0 and fighter.get("faction","mori") == "mori"):
+		if (int(fighter.get("team",0)) == 0 and str(fighter.get("kind","")) in ["nobunaga","oichi","tadakatsu"]) or (int(fighter.get("team",0)) != 0 and fighter.get("faction","mori") == "mori"):
 			var walking: bool = fighter.get("moving",_moving[id]) and str(fighter.get("action","idle")) in ["idle","walk","run","move","retreat"] and float(fighter.get("z",0)) <= 0 and int(fighter.get("freeze",0)) == 0
 			if walking:
 				_walk_ticks[id] = int(_walk_ticks[id]) + elapsed if _walk_ticks.has(id) else 0
@@ -123,6 +123,7 @@ static func _hero_animation_tick(hero: String, action: String, tick: float) -> f
 		"charged_upper":[22,56], "charged_slam":[28,72],
 		"mixed_finisher":[9,27,48], "mixed_rising":[9,27,48], "counter_cut":[5,24]
 	}[action]
+	if hero == "tadakatsu" and action == "charged": milestones = [5,10,15,36]
 	var previous_live := 0.0
 	var previous_drawing := 0.0
 	for milestone in milestones:
@@ -157,9 +158,9 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 			action = str(showcase.clip)
 			tick = float(showcase.tick)
 			walking = action == "walk"
-			if action == "victory": clock_tick = tick
-		if state.get("phase","") == "won": action = "victory"
-		elif action == "idle" and float(fighter.get("z",0)) > 0: action = "jump"
+			if action == "victory": tick = minf(120.0,demo_progress * FrameAnimation.DEMO_SECONDS * 60.0)
+		if action == "idle" and float(fighter.get("z",0)) > 0: action = "jump"
+		if action in ["dead","defeated"] and fighter.get("airborne_lock",false): action = "launched"
 		return _tadakatsu_sample(fighter,action,tick,walking,clock_tick)
 	if int(fighter.get("team", 0)) != 0 and _art.enemies.has(hero):
 		var id := int(fighter.get("id", 0))
@@ -355,27 +356,30 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 	return result
 
 func _tadakatsu_sample(fighter: Dictionary, action: String, tick: float, walking: bool, clock_tick: float) -> Dictionary:
+	var upgraded := FrameAnimation.tadakatsu_v17_sample(fighter,action,tick,_art.animations.get("tadakatsu",{}))
+	if not upgraded.is_empty(): return upgraded
 	var sheet := "v16_idle"
 	var frame := 0
 	var count := 12
 	var duration := 0.0
 	var released := false
 	var clip := action
+	var locomotion_tick := clock_tick if art_demo else float(_walk_ticks.get(int(fighter.get("id",-1)),0))
 	match action:
 		"idle":
 			if walking:
 				clip = "walk"
 				sheet = "v16_run" if fighter.get("sprinting",false) else "v16_walk"
-				frame = posmod(floori(clock_tick * (16.0 if fighter.get("sprinting",false) else 12.0) / 60.0),12)
+				frame = posmod(floori(locomotion_tick * (16.0 if fighter.get("sprinting",false) else 12.0) / 60.0),12)
 			else:
 				count = 6
 				frame = posmod(floori(clock_tick / 10.0),6)
 		"walk", "run", "move", "retreat":
 			sheet = "v16_run" if action == "run" else "v16_walk"
-			frame = posmod(floori(clock_tick * (16.0 if action == "run" else 12.0) / 60.0),12) if walking else 0
+			frame = posmod(floori(locomotion_tick * (16.0 if action == "run" else 12.0) / 60.0),12) if walking else 0
 		"jump", "air_light", "air_heavy":
 			sheet = "v16_jump" if action == "jump" else ("v16_light3" if action == "air_light" else "v16_heavy1")
-			if action == "jump": frame = clampi(floori(float(fighter.get("z",0)) / 90.0 * 12.0),0,11)
+			if action == "jump": frame = clampi(floori((9.0 - float(fighter.get("vz",9.0))) / 18.0 * 12.0),0,11)
 			else:
 				frame = FrameAnimation._attack_frame(tick,12.0 if action == "air_heavy" else 6.0,38.0 if action == "air_heavy" else 20.0,12)
 				duration = 38.0 if action == "air_heavy" else 20.0
@@ -407,13 +411,14 @@ func _tadakatsu_sample(fighter: Dictionary, action: String, tick: float, walking
 			var timings: Dictionary = {"rising":[6.0,24.0],"low_sweep":[9.0,28.0],"dash_strike":[10.0,30.0],"upper_heavy":[12.0,36.0],"charged_upper":[22.0,56.0],"ground_slam":[14.0,42.0],"charged_slam":[28.0,72.0],"mixed_finisher":[9.0,48.0],"mixed_rising":[9.0,48.0],"counter_cut":[5.0,24.0]}
 			var timing: Array = timings[action]
 			var local_tick := tick - (22.0 if action in ["mixed_finisher","mixed_rising"] and tick >= 22.0 else 0.0)
+			if action in ["mixed_finisher","mixed_rising"]: timing = [9.0,22.0] if tick < 22 else [5.0,26.0]
 			sheet = "v16_light2" if action == "dash_strike" else ("v16_light3" if action == "mixed_finisher" and tick < 22.0 else ("v16_heavy2" if action == "mixed_rising" else ("v16_charge" if action in ["charged_upper","charged_slam"] else "v16_heavy1")))
 			if sheet == "v16_charge":
 				frame = 6 + FrameAnimation._attack_frame(local_tick,float(timing[0]),float(timing[1]),6)
 			else:
 				frame = FrameAnimation._attack_frame(local_tick,float(timing[0]),float(timing[1]),12)
-			duration = timing[1]
-			released = tick >= timing[0]
+			duration = 48 if action in ["mixed_finisher","mixed_rising"] else timing[1]
+			released = local_tick >= timing[0]
 		"special":
 			sheet = "v16_special"
 			duration = FrameAnimation.Battle.SPECIAL_TICKS
@@ -434,7 +439,7 @@ func _tadakatsu_sample(fighter: Dictionary, action: String, tick: float, walking
 			frame = clampi(floori(tick * 3.0 / 18.0),0,2)
 		"launched", "thrown":
 			sheet = "v16_reactions"
-			frame = 3 + clampi(floori(tick * 3.0 / 18.0),0,2)
+			frame = 3 + clampi(floori((9.0 - float(fighter.get("vz",0))) / 18.0 * 3.0),0,2)
 		"down":
 			sheet = "v16_reactions"
 			frame = 6
@@ -446,7 +451,7 @@ func _tadakatsu_sample(fighter: Dictionary, action: String, tick: float, walking
 			frame = 8 + clampi(floori(tick * 4.0 / float(FrameAnimation.Battle.RECOVER_TICKS)),0,3)
 		"victory":
 			sheet = "v16_victory"
-			frame = clampi(floori(clock_tick * 12.0 / float(FrameAnimation.Battle.VICTORY_TICKS)),0,11)
+			frame = clampi(floori(tick * 12.0 / float(FrameAnimation.Battle.VICTORY_TICKS)),0,11)
 			duration = FrameAnimation.Battle.VICTORY_TICKS
 		_:
 			sheet = "v16_idle"
@@ -665,7 +670,7 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 	var action := str(fighter.get("action", "idle"))
 	var z := float(fighter.get("z", 0))
 	var sample := _fighter_animation(fighter)
-	var animated: bool = sample.source in ["v04", "v05", "v06", "v07", "v09", "v10", "v11", "v12", "v13", "v14", "v15", "v16"]
+	var animated: bool = sample.source in ["v04", "v05", "v06", "v07", "v09", "v10", "v11", "v12", "v13", "v14", "v15", "v16", "v17"]
 	var pose := ArtAssets.pose_for(action, z, state.get("phase", "") == "won")
 	var progress := clampf(demo_progress, 0.0, 1.0)
 	if art_demo and demo_pose >= 0:
@@ -689,9 +694,9 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 	var clock := _art_clock()
 	var rotation := 0.0
 	var down := action in ["down", "defeated", "dead"]
-	if down and not art_demo and not _art.has_v06(hero) and sample.source not in ["v10","v11","v12","v13","v14","v15","v16"]:
+	if down and not art_demo and not _art.has_v06(hero) and sample.source not in ["v10","v11","v12","v13","v14","v15","v16","v17"]:
 		rotation = -1.3 * face
-	elif action == "thrown" and sample.source not in ["v10","v11","v12","v13","v14","v15","v16"]:
+	elif action == "thrown" and sample.source not in ["v10","v11","v12","v13","v14","v15","v16","v17"]:
 		rotation = sin((30.0 - float(fighter.get("throw_ticks", 30))) * 0.13) * 0.55 * face
 	var player_color := Color("82bbcf") if int(fighter.get("player_index", 0)) == 0 else Color("e7bd72")
 	var contacts: Array[float] = []
@@ -750,6 +755,12 @@ func _draw_charge(fighter: Dictionary, ground: Vector2, height: float, sample: D
 
 func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
 	var clip := str(sample.clip)
+	if fighter.get("kind","") == "tadakatsu" and sample.get("source","") == "v17":
+		if clip == "charge" or (clip in ["ground_slam","charged_slam"] and not sample.released):
+			_draw_spear_charge_aura(fighter,ground,height,sample,front)
+		elif clip == "special": _draw_special_aura(fighter,ground,height,front)
+		elif clip not in ["ground_slam","charged_slam"]: _draw_strike_accent(fighter,ground,height,sample,front)
+		return
 	if str(fighter.get("kind","")) in ["nobunaga","oichi"] or (clip == "dash_heavy" and sample.get("source","") != "v16"):
 		_draw_strike_accent(fighter,ground,height,sample,front)
 	if clip == "charge" or (fighter.get("kind","") == "oichi" and fighter.get("action","") == "charged" and float(sample.tick) < 14):
@@ -765,6 +776,26 @@ func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sampl
 	if clip in ["heavy","charged","rising","upper_heavy","charged_upper","ground_slam","charged_slam","low_sweep","dash_strike","air_light","air_heavy","mixed_finisher","mixed_rising","counter_cut"]:
 		_draw_technique_trail(fighter,ground - Vector2(0,float(fighter.get("z",0))),height,sample)
 
+func _draw_spear_charge_aura(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
+	var power := charge_visual(float(sample.tick) if art_demo else float(fighter.get("charge",0)),height)
+	var amount: float = power.amount
+	var color := Color("dab774")
+	color.a = .10 + amount * .48
+	var radius: float = height * (.24 + amount * .56)
+	draw_set_transform(ground,0,Vector2(1,.32))
+	draw_arc(Vector2.ZERO,radius,0.0 if front else PI,PI if front else TAU,48,color,1.0 + amount * 3.0,true)
+	if amount > .5:
+		color.a *= .45
+		draw_arc(Vector2.ZERO,radius * 1.14,0.0 if front else PI,PI if front else TAU,48,color,1.0 + amount,true)
+	draw_set_transform(Vector2.ZERO)
+	if not front:
+		_draw_dust(ground,radius,.25 + amount * .45,.08 + amount * .32)
+		for side in [-1,1]:
+			for index in range(4):
+				var age := fposmod(_art_clock() * (.65 + amount * .75) + index * .25,1.0)
+				var point := ground + Vector2(side * radius * (.75 + index * .06),-age * height * (.25 + amount * .95))
+				_paint_streak(point,Vector2.UP,6.0 + amount * 28.0,1.0 + amount * 2.0,Color("c7adcf"),(1.0 - age) * amount * .6)
+
 static func strike_accent(fighter: Dictionary, sample: Dictionary) -> Dictionary:
 	var hero := str(fighter.get("kind",""))
 	if hero == "tadakatsu" and sample.get("source","") == "v16": return {}
@@ -774,6 +805,10 @@ static func strike_accent(fighter: Dictionary, sample: Dictionary) -> Dictionary
 	if action == "light": key += str(fighter.get("combo",1))
 	elif action == "heavy": key += str(fighter.get("heavy_combo",1))
 	var hit: float = {"light":6,"heavy":14,"charged":14,"rising":6,"low_sweep":9,"upper_heavy":12,"charged_upper":22,"ground_slam":14,"charged_slam":28,"air_light":6,"air_heavy":12,"dash_strike":10,"dash_heavy":12,"counter_cut":5,"mixed_finisher":9,"mixed_rising":9}.get(action,-1)
+	if hero == "tadakatsu" and action == "charged":
+		hit = 5
+		for pulse in [10,15]:
+			if tick >= pulse: hit = pulse
 	if action in ["mixed_finisher","mixed_rising"]:
 		key = "light3" if tick < 22 else ("charged_upper" if action == "mixed_rising" else "charged_slam")
 		if hero == "oichi" and tick < 22: key = "light2"
@@ -800,7 +835,7 @@ static func strike_accent(fighter: Dictionary, sample: Dictionary) -> Dictionary
 		profiles[key][1] *= 1.5
 	var age := (tick - hit) / (8.0 + power * 3.0)
 	if age >= 1: return {}
-	return {"path":profiles[key],"age":age,"power":power,"key":key,"bow":hero == "oichi" and key not in ["light3","dash_heavy"],"thrust":key == "dash_heavy" and hero in ["hideyoshi","tadakatsu"],"low":key in ["low_sweep","ground_slam","charged_slam"],"shock":key in ["heavy2","charged","ground_slam","charged_slam","special","dash_heavy"]}
+	return {"path":profiles[key],"age":age,"power":power,"key":key,"bow":hero == "oichi" and key not in ["light3","dash_heavy"],"thrust":(key == "dash_heavy" and hero in ["hideyoshi","tadakatsu"]) or (hero == "tadakatsu" and key in ["charged","dash_strike"]),"low":key in ["low_sweep","ground_slam","charged_slam"],"shock":key in ["heavy2","charged","ground_slam","charged_slam","special","dash_heavy"]}
 
 func _draw_strike_accent(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
 	if fighter.get("kind","") == "nobunaga" and sample.get("source","") == "v13" and fighter.get("action","") == "light":

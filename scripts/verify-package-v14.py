@@ -49,6 +49,7 @@ def main():
         if test == "local_coop_startup": args += ["--", "--local-coop"]
         if test == "render_v14": args += ["--", "--require-v14"]
         if test == "audio_v15": args += ["--", "--require-v15"]
+        if test == "tadakatsu_render_v17": args += ["--", "--require-v17"]
         run = subprocess.run(args, capture_output=True, encoding="utf-8", errors="replace", timeout=120,
                              creationflags=subprocess.CREATE_NO_WINDOW)
         log = run.stdout + run.stderr

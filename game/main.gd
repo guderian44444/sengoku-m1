@@ -5,7 +5,7 @@ const BattleView = preload("res://render/battle_view.gd")
 const CombatAudio = preload("res://render/combat_audio.gd")
 const Wire = preload("res://core/wire.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
-const BUILD := "sengoku-m1-0.15.0"
+const BUILD := "sengoku-m1-0.17.0"
 const DEFAULT_PORT := 27860
 const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "光秀", "tadakatsu": "忠勝"}
@@ -256,7 +256,7 @@ func _build_ui() -> void:
 	title.add_theme_color_override("font_color", Color("#ead69b"))
 	menu_panel.add_child(title)
 	var subtitle := Label.new()
-	subtitle.text = "v0.15 戰鬥短喊 · 隨機武器音效 · 信長／阿市過關演出"
+	subtitle.text = "v0.17 本多忠勝完整招式 · 槍底震地 · 平順突進"
 	subtitle.add_theme_font_size_override("font_size", 17)
 	menu_panel.add_child(subtitle)
 	var row := HBoxContainer.new()
@@ -347,7 +347,7 @@ func _build_ui() -> void:
 
 func _build_controls(ui: Control) -> void:
 	controls_dialog = AcceptDialog.new()
-	controls_dialog.title = "吞食戰國 v0.15 · 操作與 COMBO"
+	controls_dialog.title = "吞食戰國 v0.17 · 操作與 COMBO"
 	controls_dialog.ok_button_text = "回到遊戲"
 	controls_dialog.exclusive = true
 	ui.add_child(controls_dialog)
@@ -843,7 +843,7 @@ func _physics_process(_delta: float) -> void:
 			audio.stop_music()
 			if sim.state.phase == "won":
 				for fighter in sim.state.fighters:
-					if fighter.team == 0 and fighter.hp > 0 and fighter.kind not in ["nobunaga", "oichi"]:
+					if fighter.team == 0 and fighter.hp > 0 and fighter.kind not in ["nobunaga", "oichi", "tadakatsu"]:
 						audio.play_character(fighter.kind, "victory", fighter.player_index, true)
 		if sim.state.phase == "won":
 			for fighter in sim.state.fighters:
@@ -958,12 +958,15 @@ func _update_view() -> void:
 		elif player.action == "down": move_name = "倒地"
 		elif player.get("sprinting", false): move_name = "衝刺・撞開"
 		if player.action == "charged" and player.kind not in ["nobunaga", "oichi"]: move_name = "滿蓄重擊"
+		if player.kind == "tadakatsu":
+			if player.action == "charged": move_name = "長槍突進"
+			elif player.action == "charged_slam": move_name = "槍底震地・全周衝擊波"
 		var drill_name: String = {"dummy": "木樁練習", "shield": "肉盾演練", "enemies": FACTION_NAMES.get(selected_faction, selected_faction) + "軍試戰", "ranged": "弓箭／鐵砲撤退", "boss": "陣營小王"}.get(training_drill, training_drill)
 		var living := 0
 		for enemy in sim.state.fighters:
 			if enemy.team == 1 and enemy.hp > 0: living += 1
 		var rage_hint := "木樁怒氣無限" if training_drill == "dummy" else ("怒氣滿！按 U" if player.rage >= 100 else "挨打／格擋集怒")
-		hud.text = "%s v0.15  ·  %s  ·  %s\n體力 %d/%d   怒氣 %d/100   第 %d 波・敵人 %d   命中 %d 次   %s" % [drill_name, HERO_NAMES.get(player.kind, player.kind), move_name, player.hp, player.max_hp, player.rage, sim.state.wave, living, stats.hit_count, rage_hint]
+		hud.text = "%s v0.17  ·  %s  ·  %s\n體力 %d/%d   怒氣 %d/100   第 %d 波・敵人 %d   命中 %d 次   %s" % [drill_name, HERO_NAMES.get(player.kind, player.kind), move_name, player.hp, player.max_hp, player.rage, sim.state.wave, living, stats.hit_count, rage_hint]
 	var introduction: Dictionary = sim.state.get("intro", {})
 	if int(introduction.get("remaining_ticks", 0)) > 0 or audio.intro_playing():
 		var key := str(introduction.get("line_key", ""))
