@@ -24,6 +24,15 @@ func _init() -> void:
 	assert(art.scenery_frames.size() == 8, "Both flags, both fires and all four walking frames must be included")
 	assert(art.villager_frames.size() == 8, "Separate walk and run cycles must be included")
 	assert(art.animations.size() == 6, "All six playable heroes need registered action sheets")
+	var tadakatsu_idle: Array = art.animations.tadakatsu.v16_idle
+	assert(tadakatsu_idle.size() == 6 and tadakatsu_idle[0].texture != tadakatsu_idle[1].texture, "Tadakatsu atlas cells must use isolated textures to prevent edge bleed")
+	assert(tadakatsu_idle[0].region.position == Vector2(2, 2) and tadakatsu_idle[0].source_region.position != tadakatsu_idle[0].region.position, "Padded frames must retain their source atlas coordinates for registration")
+	for sheet in art.animations.tadakatsu:
+		if not str(sheet).begins_with("v16_"): continue
+		var frames: Array = art.animations.tadakatsu[sheet]
+		for index in range(frames.size()):
+			assert(frames[index].region.position == Vector2(2, 2) and Vector2i(frames[index].texture.get_size()) == Vector2i(frames[index].region.size) + Vector2i(4, 4))
+			assert(frames[index].texture != frames[(index + 1) % frames.size()].texture, "Every Tadakatsu frame needs its own padded texture")
 	for hero in ["nobunaga", "oichi"]:
 		assert(art.has_combo(hero), "Both heroes need the three distinct v0.5 light stages")
 		assert(art.animations[hero].motion[0].get("source", "") in ["v05", "v06", "v07", "v10"], "Calmer registered idle must be loaded")
@@ -55,7 +64,7 @@ func _init() -> void:
 	for hero in art.animations:
 		assert(art.animations[hero].size() >= (4 if hero in ["nobunaga","oichi"] else 3))
 		for sheet in art.animations[hero]:
-			var expected_count := 6 if sheet == "idle" else (8 if sheet == "air" else (16 if sheet in ["techniques","advanced"] else 12))
+			var expected_count := 6 if sheet in ["idle", "v16_idle"] else (8 if sheet == "air" else (16 if sheet in ["techniques","advanced"] else 12))
 			if sheet in ["combat","reactions","skills"]: expected_count = 30 if sheet == "combat" and hero in ["nobunaga","oichi"] else 36
 			if str(sheet).begins_with("v11_"): expected_count = 48
 			if sheet == "v11_needles": expected_count = 24

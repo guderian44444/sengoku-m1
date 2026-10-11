@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 [IO.Directory]::CreateDirectory((Join-Path $root 'artifacts')) | Out-Null
-$archivePath = Join-Path $root 'artifacts/吞食戰國-M1-v0.16-Windows.zip'
+$archivePath = Join-Path $root 'artifacts/吞食戰國-M1-v0.16.1-Windows.zip'
 $selectedArt = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
 foreach ($version in @('v11', 'v12', 'v13', 'v14', 'v15', 'v16')) {
     $registration = Get-Content -LiteralPath (Join-Path $root "game/assets/$version/registration.json") -Raw | ConvertFrom-Json
@@ -42,6 +42,6 @@ try {
 }
 finally { $archive.Dispose(); $stream.Dispose() }
 $hash = (Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash
-[IO.File]::WriteAllText("$archivePath.sha256", "$hash  吞食戰國-M1-v0.16-Windows.zip`n", [Text.UTF8Encoding]::new($false))
+[IO.File]::WriteAllText("$archivePath.sha256", "$hash  吞食戰國-M1-v0.16.1-Windows.zip`n", [Text.UTF8Encoding]::new($false))
 [pscustomobject]@{ archive = $archivePath; files = $files.Count; bytes = (Get-Item -LiteralPath $archivePath).Length; sha256 = $hash } | ConvertTo-Json
 

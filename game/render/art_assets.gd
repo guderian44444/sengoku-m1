@@ -185,7 +185,7 @@ func _load_combat_atlases(asset_root: String = COMBAT_ROOT, version: String = "v
 			regions[int(key)] = Rect2i(region[0], region[1], region[2], region[3])
 		var frame_files := {}
 		for index in spec.get("frame_files",{}): frame_files[int(index)] = asset_root + str(spec.frame_files[index])
-		var frames := _load_grid(asset_root + str(spec.get("file",str(actor) + ".png")), columns, rows, true, regions, frame_files)
+		var frames := _load_grid(asset_root + str(spec.get("file",str(actor) + ".png")), columns, rows, true, regions, frame_files, version == "v16")
 		if frames.size() != count: continue
 		var hero := str(spec.get("hero", str(actor).trim_suffix("-air").trim_suffix("-advanced")))
 		var target := str(spec.get("target", "hero" if animations.has(hero) else "enemy"))
@@ -198,23 +198,26 @@ func _load_combat_atlases(asset_root: String = COMBAT_ROOT, version: String = "v
 		runtime_registration.actors[actor]["clip_polygons"] = {}
 		runtime_registration.actors[actor]["anchors_global"] = []
 		for index in range(count):
-			var cell := cell_rect(Vector2i(frames[index].texture.get_size()), columns, rows, index)
+			var cell := cell_rect(frames[index].get("source_size", Vector2i(frames[index].texture.get_size())), columns, rows, index)
 			var foot: Array = spec.feet[index]
 			if foot.size() != 2: continue
-			var support: Vector2 = (Vector2.ZERO if spec.get("feet_global", false) else Vector2(cell.position)) + Vector2(foot[0], foot[1]) - frames[index].region.position
+			var source_region: Rect2 = frames[index].get("source_region", frames[index].region)
+			var frame_padding: Vector2 = frames[index].get("frame_padding", Vector2.ZERO)
+			var support: Vector2 = (Vector2.ZERO if spec.get("feet_global", false) else Vector2(cell.position)) + Vector2(foot[0], foot[1]) - source_region.position + frame_padding
 			var body_height := float(spec.body_heights[index] if spec.has("body_heights") else spec.body_height)
 			var planted: bool = index not in unplanted and not str(actor).ends_with("-air") and (target == "hero" or (target == "enemy" and index >= columns))
 			var offset := float(SUPPORT_OFFSET.get(hero, spec.get("support_offset", 0.32 if target == "hero" else 0))) * body_height if planted else 0.0
 			frames[index].merge({"anchor": support + Vector2(offset, 0), "support_point": support, "planted": planted, "body_height": body_height, "source": version})
 			if spec.get("frame_ticks",[]).size() == count: frames[index]["frame_tick"] = int(spec.frame_ticks[index])
-			var bounds: Rect2 = frames[index].region
-			var global_anchor: Vector2 = frames[index].anchor + bounds.position
+			var bounds: Rect2 = source_region
+			var local_bounds: Rect2 = frames[index].region
+			var global_anchor: Vector2 = frames[index].anchor + bounds.position - frame_padding
 			runtime_registration.actors[actor].anchors_global.append([global_anchor.x,global_anchor.y])
 			runtime_registration.actors[actor].regions[str(index)] = [bounds.position.x,bounds.position.y,bounds.size.x,bounds.size.y]
 			if spec.get("component_clip", false):
 				var texture_id: int = frames[index].texture.get_instance_id()
 				if not source_images.has(texture_id): source_images[texture_id] = frames[index].texture.get_image()
-				var polygon := _component_polygon(source_images[texture_id], Rect2i(bounds))
+				var polygon := _component_polygon(source_images[texture_id], Rect2i(local_bounds))
 				if not polygon.is_empty():
 					frames[index]["clip_polygon"] = polygon
 					var points := []
@@ -223,10 +226,10 @@ func _load_combat_atlases(asset_root: String = COMBAT_ROOT, version: String = "v
 			var hands: Variant = spec.get("hands", {})
 			var hand: Array = hands[index] if hands is Array and index < hands.size() else (hands.get(str(index), []) if hands is Dictionary else [])
 			if hand.size() == 2:
-				frames[index]["hand_offset"] = (Vector2.ZERO if spec.get("hands_global", false) else Vector2(cell.position)) + Vector2(hand[0], hand[1]) - frames[index].region.position - frames[index].anchor
+				frames[index]["hand_offset"] = (Vector2.ZERO if spec.get("hands_global", false) else Vector2(cell.position)) + Vector2(hand[0], hand[1]) - source_region.position + frame_padding - frames[index].anchor
 			var blade: Array = spec.get("blades", {}).get(str(index), [])
 			if blade.size() == 2:
-				var blade_origin: Vector2 = (Vector2.ZERO if spec.get("blades_global", false) else Vector2(cell.position)) - frames[index].region.position - frames[index].anchor
+				var blade_origin: Vector2 = (Vector2.ZERO if spec.get("blades_global", false) else Vector2(cell.position)) - source_region.position + frame_padding - frames[index].anchor
 				frames[index]["blade_offsets"] = [blade_origin + Vector2(blade[0][0],blade[0][1]), blade_origin + Vector2(blade[1][0],blade[1][1])]
 		if target == "hero":
 			if sheet == "motion" and frames.size() >= 4:
@@ -449,7 +452,7 @@ static func cell_rect(size: Vector2i, columns: int, rows: int, index: int) -> Re
 	var bottom := roundi(float((row + 1) * size.y) / rows)
 	return Rect2i(left, top, right - left, bottom - top)
 
-func _load_grid(path: String, columns: int, rows: int, transparent: bool = false, regions: Dictionary = {}, frame_files: Dictionary = {}) -> Array:
+func _load_grid(path: String, columns: int, rows: int, transparent: bool = false, regions: Dictionary = {}, frame_files: Dictionary = {}, isolate_frames: bool = false) -> Array:
 	if not FileAccess.file_exists(path):
 		return []
 	var image := Image.load_from_file(path)
@@ -480,5 +483,17 @@ func _load_grid(path: String, columns: int, rows: int, transparent: bool = false
 				push_warning("Art sheet contains an empty cell: " + path)
 				return []
 			region = Rect2i(region.position + used.position, used.size)
-		frames.append({"texture": texture, "region": Rect2(region)})
+		var frame_texture := texture
+		var frame_region := Rect2(region)
+		var frame_padding := Vector2.ZERO
+		if isolate_frames:
+			const padding := 2
+			var frame_image := image.get_region(region)
+			var padded_image := Image.create(region.size.x + padding * 2, region.size.y + padding * 2, false, Image.FORMAT_RGBA8)
+			padded_image.fill(Color.TRANSPARENT)
+			padded_image.blit_rect(frame_image, Rect2i(Vector2i.ZERO, frame_image.get_size()), Vector2i.ONE * padding)
+			frame_texture = ImageTexture.create_from_image(padded_image)
+			frame_padding = Vector2.ONE * padding
+			frame_region = Rect2(frame_padding, region.size)
+		frames.append({"texture": frame_texture, "region": frame_region, "source_region": Rect2(region), "source_size": image.get_size(), "frame_padding": frame_padding})
 	return frames
