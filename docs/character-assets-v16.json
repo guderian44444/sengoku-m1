@@ -1,0 +1,141 @@
+{
+  "version": "v16",
+  "hero": "tadakatsu",
+  "design": "Full redesign: black lacquered armor with red lacing, gold details, deer-antler kabuto, pale prayer beads, and Tonbokiri with one leaf-shaped blade and a blunt rear cap. One weapon, two hands, no extra limbs.",
+  "routes": {
+    "idle": "v16_idle (6)",
+    "walk": "v16_walk (12)",
+    "run": "v16_run (12)",
+    "jump": "v16_jump (12)",
+    "light1": "v16_light1 (12)",
+    "light2": "v16_light2 (12)",
+    "light3": "v16_light3 (12)",
+    "heavy1": "v16_heavy1 (12)",
+    "heavy2": "v16_heavy2 (12)",
+    "charge/charged": "v16_charge (6+6)",
+    "holding/throw": "v16_grab (12)",
+    "reactions": "v16_reactions (12)",
+    "special": "v16_special (12)",
+    "victory": "v16_victory (12)"
+  },
+  "voice_pitch_scale": 0.88,
+  "historical_references": [
+    "https://online.bunka.go.jp/heritages/detail/210439",
+    "https://www.pref.shizuoka.jp/kankosports/bunkageijutsu/bunkazai/1002825/1041003/1041888/1004969/1020948.html"
+  ],
+  "assets": [
+    {
+      "sheet": "v16_idle",
+      "file": "tadakatsu-idle.png",
+      "columns": 3,
+      "rows": 2,
+      "frames": 6,
+      "sha256": "8c4bed843417b483cf8e3f93666e3f55e276521319b587901e1031725c1b62d7"
+    },
+    {
+      "sheet": "v16_light1",
+      "file": "tadakatsu-light1.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "e6f710a4b9e47c145aa6d4297458211bd4b31f1e27e9dc9e7c671ebd87dbf662"
+    },
+    {
+      "sheet": "v16_light2",
+      "file": "tadakatsu-light2.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "5697c2377fffc602fc10500e440f7a1156e9ea9d5277ac601e355983d110c13e"
+    },
+    {
+      "sheet": "v16_light3",
+      "file": "tadakatsu-light3.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "af4fa609e3a411b4012b621970fb2f14b0afaa46410d22bbdc81e8155ae24ae0"
+    },
+    {
+      "sheet": "v16_heavy1",
+      "file": "tadakatsu-heavy1.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "33715750f2be822385aa674cf1c27123a546a6c612616f9eadcf5b5f708181a4"
+    },
+    {
+      "sheet": "v16_heavy2",
+      "file": "tadakatsu-heavy2.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "928bb726594176e9b058de7433710ac6ad3fd87177abd6c1501c4356e60fb286"
+    },
+    {
+      "sheet": "v16_charge",
+      "file": "tadakatsu-charge.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "452af4836b27331c7720af65952faaa8714384f8c8e5c2526e44ea5004052dd8"
+    },
+    {
+      "sheet": "v16_grab",
+      "file": "tadakatsu-grab.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "1bfde45f5128845ee9d45d5af2c938471be1b48e6bdbeb3e50d4dd300fe33ec2"
+    },
+    {
+      "sheet": "v16_walk",
+      "file": "tadakatsu-walk.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "22b06f1cc9c8b670403f64e59adf505f18bcce64a04e2beb25fd599c81a7170d"
+    },
+    {
+      "sheet": "v16_run",
+      "file": "tadakatsu-run.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "4b71450dcd895705fa37b4f79fa07e3edc53c69f38a20ba8dfb9fbdaa43a9596"
+    },
+    {
+      "sheet": "v16_jump",
+      "file": "tadakatsu-jump.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "15c9bcb0ca9ead29038d096418aebe6add1ca359dd11be47abe6b9d2ed424599"
+    },
+    {
+      "sheet": "v16_reactions",
+      "file": "tadakatsu-reactions.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "99a3816ad0eb6854deab2014b810dc781e1972c3f34c31f498d9d12f7a19b72f"
+    },
+    {
+      "sheet": "v16_special",
+      "file": "tadakatsu-special.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "44b44286ee283df9c2b3c7fec28f824ae377d113d5fd2995adb3f3df80ab7d73"
+    },
+    {
+      "sheet": "v16_victory",
+      "file": "tadakatsu-victory.png",
+      "columns": 4,
+      "rows": 3,
+      "frames": 12,
+      "sha256": "2b0d031571b4de6220cefaf6af069db3cf1681e00c3ce493447fcc45d65d8393"
+    }
+  ],
+  "acceptance": "Atlas registration, hashes, and source routes recorded. Live gameplay, visual timing, and human audio acceptance were not performed."
+}

@@ -17,7 +17,7 @@ const HERO_PROFILES := {
 	"hideyoshi": {"attack_speed": 1.25, "move_speed": 1.12, "reach": 0.88, "depth": 0.85, "damage": 0.85, "throw_damage": 47, "element": "wind"},
 	"ieyasu": {"attack_speed": 0.88, "move_speed": 0.92, "reach": 1.08, "depth": 1.25, "damage": 1.08, "throw_damage": 38, "element": "earth"},
 	"mitsuhide": {"attack_speed": 1.12, "move_speed": 1.04, "reach": 1.10, "depth": 0.82, "damage": 0.98, "throw_damage": 28, "element": "blade"},
-	"tadakatsu": {"attack_speed": 0.80, "move_speed": 0.86, "reach": 1.48, "depth": 0.78, "damage": 1.25, "throw_damage": 55, "element": "wind"},
+	"tadakatsu": {"attack_speed": 0.80, "move_speed": 0.86, "reach": 1.48, "depth": 0.78, "damage": 1.25, "throw_damage": 55, "element": "fire"},
 }
 const FACTIONS := {
 	"imagawa": {"ranged": "archer", "boss": "naginata"}, "oda": {"ranged": "gunner", "boss": "matchlock"},
@@ -434,6 +434,15 @@ func _tick_fighter(fighter: Dictionary) -> void:
 		return
 	match fighter.action:
 		"light":
+			if fighter.kind == "tadakatsu":
+				if fighter.action_tick == hero_tick(fighter.kind, 6):
+					if fighter.combo == 3:
+						_melee(fighter, 180.0, 145.0, 24 + fighter.weapon * 5, true, 0, true, false, 270.0, "", 359.9)
+					else:
+						_melee(fighter, 145.0 if fighter.combo == 2 else 120.0, 32.0, 18 + fighter.weapon * 5, false)
+			if fighter.action_tick >= hero_tick(fighter.kind, 19):
+				_begin(fighter, "idle")
+				return
 			if fighter.combo == 3 and fighter.action_tick <= hero_tick(fighter.kind, 6):
 				fighter.x = clampf(fighter.x + fighter.face * 42.0 / hero_tick(fighter.kind, 6), 80.0, 2300.0)
 			if fighter.action_tick == hero_tick(fighter.kind, 6):
@@ -523,6 +532,20 @@ func _tick_fighter(fighter: Dictionary) -> void:
 			if fighter.action_tick >= hero_tick(fighter.kind, 72 if powered else 42):
 				_begin(fighter, "idle")
 		"heavy", "charged":
+			if fighter.kind == "tadakatsu":
+				if fighter.action == "charged":
+					for step in range(3):
+						if fighter.action_tick == hero_tick(fighter.kind, 5 + step * 5):
+							fighter.x = clampf(fighter.x + fighter.face * 52.0, 80.0, 2300.0)
+							_melee(fighter, 92.0, 68.0, 24 + fighter.weapon * 6, true, 0, true, false, 0.0, "fire", 55.0)
+				elif fighter.action_tick == hero_tick(fighter.kind, 14):
+					if fighter.heavy_combo == 2:
+						_melee(fighter, 210.0, 126.0, 38 + fighter.weapon * 8, true, 0, true, false, 18.0, "fire", 132.0)
+					else:
+						_melee(fighter, 165.0, 88.0, 30 + fighter.weapon * 8, true)
+				if fighter.action_tick >= hero_tick(fighter.kind, 36):
+					_begin(fighter, "idle")
+				return
 			if fighter.action_tick == hero_tick(fighter.kind, 14):
 				var charged: bool = fighter.action == "charged"
 				var second: bool = fighter.heavy_combo == 2
@@ -737,8 +760,8 @@ func _tick_hero_special(fighter: Dictionary) -> void:
 		for lane in [-40.0, 0.0, 40.0]: _projectile(fighter, 52 if tick == 192 else 24, 0, tick == 192, "blade", 1500.0, lane, "blade")
 		_effect("blade_wave", fighter.x, fighter.y, 28, {"face": fighter.face, "radius": 620.0, "kind": fighter.kind})
 	elif fighter.kind == "tadakatsu" and tick in SPECIAL_HIT_TICKS.tadakatsu:
-		_melee(fighter, 690.0, 70.0, 64 if tick == 180 else 36, tick == 180, 0, tick == 180, false, 18.0, "wind")
-		_effect("wind_wave", fighter.x, fighter.y, 34, {"face": fighter.face, "radius": 1020.0, "kind": fighter.kind})
+		_melee(fighter, 690.0, 70.0, 64 if tick == 180 else 36, tick == 180, 0, tick == 180, false, 18.0, "fire")
+		_effect("fire_wave", fighter.x, fighter.y, 34, {"face": fighter.face, "radius": 1020.0, "kind": fighter.kind})
 	if tick >= SPECIAL_TICKS: _begin(fighter, "idle")
 
 
@@ -1083,7 +1106,7 @@ func _sync_grabs() -> void:
 		if target.is_empty() or target.hp <= 0 or holder.hp <= 0 or holder.action != "holding" or target.held_by != holder.id:
 			_release_grab(holder, false)
 			continue
-		target.x = clampf(holder.x + holder.face * 56.0, 80.0, 2300.0)
+		target.x = clampf(holder.x + holder.face * (96.0 if holder.kind == "tadakatsu" else 56.0), 80.0, 2300.0)
 		target.y = holder.y + 2.0
 		target.z = 0.0
 		target.vz = 0.0

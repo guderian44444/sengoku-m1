@@ -157,6 +157,7 @@ func play_character(actor: String, event: String, slot: int = 0, force: bool = f
 	if not _speech_streams.has(key): return
 	last_spoken = key
 	player.stream = _speech_streams[key]
+	player.pitch_scale = 0.88 if actor == "tadakatsu" else 1.0
 	player.play()
 
 func _play_character_event(event: Dictionary) -> void:

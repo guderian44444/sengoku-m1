@@ -1,9 +1,9 @@
 ﻿$ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 [IO.Directory]::CreateDirectory((Join-Path $root 'artifacts')) | Out-Null
-$archivePath = Join-Path $root 'artifacts/吞食戰國-M1-v0.15-Windows.zip'
+$archivePath = Join-Path $root 'artifacts/吞食戰國-M1-v0.16-Windows.zip'
 $selectedArt = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
-foreach ($version in @('v11', 'v12', 'v13', 'v14', 'v15')) {
+foreach ($version in @('v11', 'v12', 'v13', 'v14', 'v15', 'v16')) {
     $registration = Get-Content -LiteralPath (Join-Path $root "game/assets/$version/registration.json") -Raw | ConvertFrom-Json
     foreach ($actor in $registration.actors.PSObject.Properties.Value) {
         [void]$selectedArt.Add("$version/$($actor.file)")
@@ -11,7 +11,7 @@ foreach ($version in @('v11', 'v12', 'v13', 'v14', 'v15')) {
     }
 }
 $files = @()
-$files += Get-ChildItem -LiteralPath (Join-Path $root 'game') -File -Recurse | Where-Object { $_.FullName -notmatch '[\\/]\.godot[\\/]' -and ($_.FullName -notmatch '[\\/]assets[\\/](v11|v12|v13|v14|v15)[\\/].*\.png$' -or $selectedArt.Contains(($_.Directory.Name + '/' + $_.Name))) }
+$files += Get-ChildItem -LiteralPath (Join-Path $root 'game') -File -Recurse | Where-Object { $_.FullName -notmatch '[\\/]\.godot[\\/]' -and ($_.FullName -notmatch '[\\/]assets[\\/](v11|v12|v13|v14|v15|v16)[\\/].*\.png$' -or $selectedArt.Contains(($_.Directory.Name + '/' + $_.Name))) }
 $files += Get-ChildItem -LiteralPath (Join-Path $root 'tools/godot-4.7.2') -File
 foreach ($relative in @('啟動雙人合作.cmd', '啟動六武將試戰.cmd', '啟動毛利軍試戰.cmd', '啟動鍵盤練習場.cmd', '啟動戰鬥原型.cmd', '啟動素材循環展示.cmd', 'README-試玩.md', 'scripts/test-native.mjs', 'scripts/test-art-native.mjs', 'scripts/test-v09.mjs', 'scripts/test-v10.mjs', 'scripts/test-v11.mjs', 'scripts/test-v12.mjs', 'scripts/verify-package-v12.py', 'docs/角色連續圖片規格-v0.12.md', 'scripts/package-native.ps1', 'docs/回饋審查-v0.2.md')) {
     $files += Get-Item -LiteralPath (Join-Path $root $relative)
@@ -26,6 +26,8 @@ foreach ($relative in @('scripts/test-v14.mjs', 'scripts/verify-package-v14.py',
 foreach ($relative in @('scripts/test-v15.mjs', 'scripts/verify-package-v15.py', 'scripts/generate-voices-v15.py', 'scripts/register-v15.py', 'scripts/preview-sfx-v15.py', 'scripts/build-asset-standard-v15.mjs', 'docs/character-assets-v15.json', 'docs/角色動作與素材標準-v0.15.html', 'artifacts/art-native-v15/victory-full-provenance.json')) {
     $files += Get-Item -LiteralPath (Join-Path $root $relative)
 }
+$files += Get-Item -LiteralPath (Join-Path $root 'scripts/register-v16.py')
+$files += Get-Item -LiteralPath (Join-Path $root 'docs/character-assets-v16.json')
 $stream = [IO.File]::Open($archivePath, [IO.FileMode]::Create)
 $archive = [IO.Compression.ZipArchive]::new($stream, [IO.Compression.ZipArchiveMode]::Create, $false)
 try {
@@ -40,6 +42,6 @@ try {
 }
 finally { $archive.Dispose(); $stream.Dispose() }
 $hash = (Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash
-[IO.File]::WriteAllText("$archivePath.sha256", "$hash  吞食戰國-M1-v0.15-Windows.zip`n", [Text.UTF8Encoding]::new($false))
+[IO.File]::WriteAllText("$archivePath.sha256", "$hash  吞食戰國-M1-v0.16-Windows.zip`n", [Text.UTF8Encoding]::new($false))
 [pscustomobject]@{ archive = $archivePath; files = $files.Count; bytes = (Get-Item -LiteralPath $archivePath).Length; sha256 = $hash } | ConvertTo-Json
 

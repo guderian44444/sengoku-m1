@@ -151,6 +151,16 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 		fighter.action_tick = tick
 	var clock_tick := _art_clock() * 60.0
 	var walking: bool = fighter.get("moving", _moving.get(int(fighter.get("id", -1)), false))
+	if int(fighter.get("team",0)) == 0 and hero == "tadakatsu":
+		if art_demo and demo_pose >= 0:
+			var showcase := FrameAnimation.demo_sample(demo_pose,demo_progress,_art_clock())
+			action = str(showcase.clip)
+			tick = float(showcase.tick)
+			walking = action == "walk"
+			if action == "victory": clock_tick = tick
+		if state.get("phase","") == "won": action = "victory"
+		elif action == "idle" and float(fighter.get("z",0)) > 0: action = "jump"
+		return _tadakatsu_sample(fighter,action,tick,walking,clock_tick)
 	if int(fighter.get("team", 0)) != 0 and _art.enemies.has(hero):
 		var id := int(fighter.get("id", 0))
 		if int(fighter.get("freeze", 0)) > 0 and _frozen_samples.has(id) and _frozen_samples[id].hero == hero:
@@ -343,6 +353,107 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 		result.count = 1
 		result.cell = ArtAssets.pose_for(action, float(fighter.get("z", 0)))
 	return result
+
+func _tadakatsu_sample(fighter: Dictionary, action: String, tick: float, walking: bool, clock_tick: float) -> Dictionary:
+	var sheet := "v16_idle"
+	var frame := 0
+	var count := 12
+	var duration := 0.0
+	var released := false
+	var clip := action
+	match action:
+		"idle":
+			if walking:
+				clip = "walk"
+				sheet = "v16_run" if fighter.get("sprinting",false) else "v16_walk"
+				frame = posmod(floori(clock_tick * (16.0 if fighter.get("sprinting",false) else 12.0) / 60.0),12)
+			else:
+				count = 6
+				frame = posmod(floori(clock_tick / 10.0),6)
+		"walk", "run", "move", "retreat":
+			sheet = "v16_run" if action == "run" else "v16_walk"
+			frame = posmod(floori(clock_tick * (16.0 if action == "run" else 12.0) / 60.0),12) if walking else 0
+		"jump", "air_light", "air_heavy":
+			sheet = "v16_jump" if action == "jump" else ("v16_light3" if action == "air_light" else "v16_heavy1")
+			if action == "jump": frame = clampi(floori(float(fighter.get("z",0)) / 90.0 * 12.0),0,11)
+			else:
+				frame = FrameAnimation._attack_frame(tick,12.0 if action == "air_heavy" else 6.0,38.0 if action == "air_heavy" else 20.0,12)
+				duration = 38.0 if action == "air_heavy" else 20.0
+				released = tick >= (12.0 if action == "air_heavy" else 6.0)
+		"light":
+			sheet = "v16_light%d" % clampi(int(fighter.get("combo",1)),1,3)
+			duration = 19.0
+			frame = FrameAnimation._attack_frame(tick,6.0,duration,12)
+			released = tick >= 6.0
+		"heavy", "charged":
+			sheet = "v16_charge" if action == "charged" else ("v16_heavy2" if int(fighter.get("heavy_combo",1)) == 2 else "v16_heavy1")
+			if action == "charged":
+				frame = 6 + clampi(floori(tick * 6.0 / 36.0),0,5)
+				duration = 36.0
+				released = tick >= 14.0
+			else:
+				duration = 36.0
+				frame = FrameAnimation._attack_frame(tick,14.0,duration,12)
+				released = tick >= 14.0
+		"charge":
+			sheet = "v16_charge"
+			frame = clampi(floori(float(fighter.get("charge",0)) * 6.0 / 35.0),0,5)
+		"dash_heavy", "heavy_attack":
+			sheet = "v16_heavy2"
+			frame = FrameAnimation._attack_frame(tick,12.0,34.0,12)
+			duration = 34.0
+			released = tick >= 12.0
+		"rising", "low_sweep", "dash_strike", "upper_heavy", "charged_upper", "ground_slam", "charged_slam", "mixed_finisher", "mixed_rising", "counter_cut":
+			var timings: Dictionary = {"rising":[6.0,24.0],"low_sweep":[9.0,28.0],"dash_strike":[10.0,30.0],"upper_heavy":[12.0,36.0],"charged_upper":[22.0,56.0],"ground_slam":[14.0,42.0],"charged_slam":[28.0,72.0],"mixed_finisher":[9.0,48.0],"mixed_rising":[9.0,48.0],"counter_cut":[5.0,24.0]}
+			var timing: Array = timings[action]
+			var local_tick := tick - (22.0 if action in ["mixed_finisher","mixed_rising"] and tick >= 22.0 else 0.0)
+			sheet = "v16_light2" if action == "dash_strike" else ("v16_light3" if action == "mixed_finisher" and tick < 22.0 else ("v16_heavy2" if action == "mixed_rising" else ("v16_charge" if action in ["charged_upper","charged_slam"] else "v16_heavy1")))
+			if sheet == "v16_charge":
+				frame = 6 + FrameAnimation._attack_frame(local_tick,float(timing[0]),float(timing[1]),6)
+			else:
+				frame = FrameAnimation._attack_frame(local_tick,float(timing[0]),float(timing[1]),12)
+			duration = timing[1]
+			released = tick >= timing[0]
+		"special":
+			sheet = "v16_special"
+			duration = FrameAnimation.Battle.SPECIAL_TICKS
+			var pulses: Array = FrameAnimation.Battle.SPECIAL_HIT_TICKS.tadakatsu
+			for index in range(pulses.size()):
+				var start := float(pulses[index - 1]) if index > 0 else 0.0
+				var finish := float(pulses[index])
+				if tick < finish or index == pulses.size() - 1:
+					frame = index * 3 + mini(2,floori(maxf(0.0,tick - start) * 3.0 / maxf(1.0,finish - start)))
+					break
+			released = tick >= float(pulses[0])
+		"holding", "throw":
+			sheet = "v16_grab"
+			frame = clampi(floori(tick * 12.0 / (30.0 if action == "holding" else 24.0)),0,11)
+			if action == "throw": released = tick >= 12.0
+		"hurt", "guard", "stunned", "grabbed", "pulled", "frozen":
+			sheet = "v16_reactions"
+			frame = clampi(floori(tick * 3.0 / 18.0),0,2)
+		"launched", "thrown":
+			sheet = "v16_reactions"
+			frame = 3 + clampi(floori(tick * 3.0 / 18.0),0,2)
+		"down":
+			sheet = "v16_reactions"
+			frame = 6
+		"dead", "defeated":
+			sheet = "v16_reactions"
+			frame = 7
+		"recovering":
+			sheet = "v16_reactions"
+			frame = 8 + clampi(floori(tick * 4.0 / float(FrameAnimation.Battle.RECOVER_TICKS)),0,3)
+		"victory":
+			sheet = "v16_victory"
+			frame = clampi(floori(clock_tick * 12.0 / float(FrameAnimation.Battle.VICTORY_TICKS)),0,11)
+			duration = FrameAnimation.Battle.VICTORY_TICKS
+		_:
+			sheet = "v16_idle"
+			count = 6
+			frame = posmod(floori(clock_tick / 10.0),6)
+	assert(_art.animations.get("tadakatsu",{}).has(sheet) and frame >= 0 and frame < count)
+	return {"clip":clip,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released,"source":"v16","hero":"tadakatsu"}
 
 func _draw_landscape() -> void:
 	var backdrop: Dictionary = _art.background(weather)
@@ -554,7 +665,7 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 	var action := str(fighter.get("action", "idle"))
 	var z := float(fighter.get("z", 0))
 	var sample := _fighter_animation(fighter)
-	var animated: bool = sample.source in ["v04", "v05", "v06", "v07", "v09", "v10", "v11", "v12", "v13", "v14", "v15"]
+	var animated: bool = sample.source in ["v04", "v05", "v06", "v07", "v09", "v10", "v11", "v12", "v13", "v14", "v15", "v16"]
 	var pose := ArtAssets.pose_for(action, z, state.get("phase", "") == "won")
 	var progress := clampf(demo_progress, 0.0, 1.0)
 	if art_demo and demo_pose >= 0:
@@ -578,9 +689,9 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 	var clock := _art_clock()
 	var rotation := 0.0
 	var down := action in ["down", "defeated", "dead"]
-	if down and not art_demo and not _art.has_v06(hero) and sample.source not in ["v10","v11","v12","v13","v14","v15"]:
+	if down and not art_demo and not _art.has_v06(hero) and sample.source not in ["v10","v11","v12","v13","v14","v15","v16"]:
 		rotation = -1.3 * face
-	elif action == "thrown" and sample.source not in ["v10","v11","v12","v13","v14","v15"]:
+	elif action == "thrown" and sample.source not in ["v10","v11","v12","v13","v14","v15","v16"]:
 		rotation = sin((30.0 - float(fighter.get("throw_ticks", 30))) * 0.13) * 0.55 * face
 	var player_color := Color("82bbcf") if int(fighter.get("player_index", 0)) == 0 else Color("e7bd72")
 	var contacts: Array[float] = []
@@ -639,21 +750,24 @@ func _draw_charge(fighter: Dictionary, ground: Vector2, height: float, sample: D
 
 func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
 	var clip := str(sample.clip)
-	if str(fighter.get("kind","")) in ["nobunaga","oichi"] or clip == "dash_heavy":
+	if str(fighter.get("kind","")) in ["nobunaga","oichi"] or (clip == "dash_heavy" and sample.get("source","") != "v16"):
 		_draw_strike_accent(fighter,ground,height,sample,front)
 	if clip == "charge" or (fighter.get("kind","") == "oichi" and fighter.get("action","") == "charged" and float(sample.tick) < 14):
-		_draw_charge(fighter,ground,height,sample,front)
+		if not (fighter.get("kind","") == "tadakatsu" and sample.get("source","") == "v16"):
+			_draw_charge(fighter,ground,height,sample,front)
 		return
 	if clip == "special":
 		_draw_special_aura(fighter,ground,height,front)
 		return
 	if not front or not sample.released: return
 	if str(fighter.get("kind","")) in ["nobunaga","oichi"]: return
+	if str(fighter.get("kind", "")) == "tadakatsu" and sample.get("source","") == "v16": return
 	if clip in ["heavy","charged","rising","upper_heavy","charged_upper","ground_slam","charged_slam","low_sweep","dash_strike","air_light","air_heavy","mixed_finisher","mixed_rising","counter_cut"]:
 		_draw_technique_trail(fighter,ground - Vector2(0,float(fighter.get("z",0))),height,sample)
 
 static func strike_accent(fighter: Dictionary, sample: Dictionary) -> Dictionary:
 	var hero := str(fighter.get("kind",""))
+	if hero == "tadakatsu" and sample.get("source","") == "v16": return {}
 	var action := str(fighter.get("action",sample.get("clip","idle")))
 	var tick := float(sample.get("tick",0))
 	var key := action
@@ -798,7 +912,7 @@ func _draw_technique_trail(fighter: Dictionary, origin: Vector2, height: float, 
 		else: _paint_streak(point,direction.orthogonal(),24 + (32 if charged else 0),4 + (5 if charged else 0),_element_color(element),alpha)
 
 static func _hero_element(hero: String) -> String:
-	return {"nobunaga":"fire","oichi":"ice","hideyoshi":"wind","ieyasu":"earth","mitsuhide":"blade","tadakatsu":"wind"}.get(hero,"blade")
+	return {"nobunaga":"fire","oichi":"ice","hideyoshi":"wind","ieyasu":"earth","mitsuhide":"blade","tadakatsu":"fire"}.get(hero,"blade")
 
 static func _element_color(element: String) -> Color:
 	return {"fire":Color("d97032"),"ice":Color("a2cbd0"),"earth":Color("b49969"),"wind":Color("c3c9ac"),"blade":Color("e0dfcb")}.get(element,PAPER)

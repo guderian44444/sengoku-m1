@@ -85,6 +85,7 @@ func _init() -> void:
 	_load_combat_atlases("res://assets/v13/", "v13")
 	_load_combat_atlases("res://assets/v14/", "v14")
 	_load_combat_atlases("res://assets/v15/", "v15")
+	_load_combat_atlases("res://assets/v16/", "v16")
 	weather_frames = _load_grid(ROOT + "castle-road-weather-v03.png", 1, 3)
 	scenery_frames = _load_grid(ROOT + "scenery-sprites-v03.png", 4, 2, true)
 	villager_frames = _load_grid(ANIMATION_ROOT + "scenery/villager-walk-run.png", 4, 2, true)
