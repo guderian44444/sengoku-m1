@@ -130,8 +130,8 @@ func reset(difficulty: String = "normal", player_count: int = 1, hero_ids: Array
 	_spawn_wave()
 
 
-func reset_campaign(difficulty: String = "normal", player_count: int = 1, hero_ids: Array = ["nobunaga", "oichi"]) -> void:
-	var campaign := StageData.first()
+func reset_campaign(difficulty: String = "normal", player_count: int = 1, hero_ids: Array = ["nobunaga", "oichi"], chapter_id: int = 1) -> void:
+	var campaign := StageData.chapter(chapter_id)
 	reset(difficulty, player_count, hero_ids, campaign.faction)
 	_campaign = campaign
 	_enter_segment(0)

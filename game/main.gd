@@ -8,9 +8,12 @@ const Typography = preload("res://render/game_typography.gd")
 const Wire = preload("res://core/wire.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
 const WeaponEncyclopedia = preload("res://ui/weapon_encyclopedia_panel.gd")
+const CollectionPanel = preload("res://ui/collection_panel.gd")
+const WeaponArchive = preload("res://core/weapon_encyclopedia.gd")
+const Stages = preload("res://core/stage_data.gd")
 const SaveProfile = preload("res://core/save_profile.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
-const BUILD := "sengoku-m1-0.22.0"
+const BUILD := "sengoku-m1-0.26.0"
 const DEFAULT_PORT := 27860
 const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "光秀", "tadakatsu": "忠勝"}
@@ -40,6 +43,7 @@ var received_intro_actor := 0
 var connecting_since := 0
 var waiting_peer_since := 0
 var selected_hero := "nobunaga"
+var selected_chapter := 1
 var selected_faction := "mori"
 var difficulty := "normal"
 var net_events: Array = []
@@ -50,6 +54,11 @@ var menu_screen := "title"
 var options_return := "main"
 var encyclopedia: Control
 var encyclopedia_slot := 0
+var encyclopedia_return := "select"
+var collection: Control
+var collection_return := "select"
+var equipment_in_battle := false
+var chapter_choice: OptionButton
 var selection_coop := false
 var partner_row: HBoxContainer
 var menu_backdrop: TextureRect
@@ -335,7 +344,7 @@ func _build_menu(ui: Control) -> void:
 	_button("二 人 共 鬥", func(): _open_selection(true), "LocalCoop", main_page)
 	_button("遊 戲 設 定", _open_options, "Options", main_page)
 	_button("離 開 遊 戲", func(): get_tree().quit(), "Quit", main_page)
-	var select_page := _menu_page("select", Vector2(320,  65), 640, "選 擇 武 將")
+	var select_page := _menu_page("select", Vector2(320, 35), 640, "選 擇 武 將")
 	select_page.add_theme_constant_override("separation",8)
 	var first_row := HBoxContainer.new()
 	select_page.add_child(first_row)
@@ -361,6 +370,7 @@ func _build_menu(ui: Control) -> void:
 		choice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(choice)
 		_button("圖鑑", func(): _open_weapon_encyclopedia(slot), "Encyclopedia%d" % slot, row)
+		_button("裝備", func(): _open_collection(slot), "Collection%d" % slot, row)
 		weapon_rows.append(row)
 		weapon_choices.append(choice)
 		choice.item_selected.connect(func(index: int):
@@ -382,7 +392,14 @@ func _build_menu(ui: Control) -> void:
 	difficulties.selected = 1
 	difficulties.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	difficulty_row.add_child(difficulties)
-	_menu_label(select_page, "第一關　桶狹間竹林", 23)
+	var chapter_row := HBoxContainer.new()
+	select_page.add_child(chapter_row)
+	_menu_label(chapter_row,"大　關　",25)
+	chapter_choice = OptionButton.new()
+	chapter_choice.name = "Chapter"
+	chapter_choice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	chapter_row.add_child(chapter_choice)
+	_refresh_chapters()
 	_button("出　陣", func():
 		if selection_coop: _start_local_coop()
 		else: _start_solo(), "Begin", select_page)
@@ -413,13 +430,19 @@ func _build_menu(ui: Control) -> void:
 	fullscreen_button = _button("全螢幕 (F11)", _toggle_fullscreen, "Fullscreen", options)
 	_button("操 作 與 招 式", _show_controls, "Controls", options)
 	_button("返　回", _menu_back, "Back", options)
-	var pause_page := _menu_page("pause", Vector2(430, 150), 420, "暫 停")
+	var pause_page := _menu_page("pause", Vector2(430, 50), 420, "暫 停")
+	pause_page.add_theme_constant_override("separation",8)
 	_button("繼 續 戰 鬥", _resume, "Resume", pause_page)
 	_button("重 新 出 陣", func():
 		if training_active: _reset_training()
 		elif session == "local": _start_local_coop()
 		else: _start_solo(), "Restart", pause_page)
 	_button("遊 戲 設 定", _open_options, "Options", pause_page)
+	var collections := HBoxContainer.new()
+	collections.name = "Collections"
+	pause_page.add_child(collections)
+	for slot in range(2):
+		_button("%dP 裝備與收藏" % (slot + 1),func(): _open_collection(slot),"Collection%d" % slot,collections).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_button("保 存 人 物", func(): _save_characters(true), "SaveCharacters", pause_page)
 	_button("返 回 主 畫 面", _leave_to_menu, "Leave", pause_page)
 	menu_panel = _menu_page("engineering", Vector2(260, 30), 760, "工 程 入 口")
@@ -474,6 +497,16 @@ func _build_menu(ui: Control) -> void:
 	menu_pages["encyclopedia"] = encyclopedia
 	encyclopedia.closed.connect(_menu_back)
 	encyclopedia.equip_requested.connect(_equip_from_encyclopedia)
+	collection = CollectionPanel.new()
+	collection.name = "Collection"
+	menu.add_child(collection)
+	menu_pages["collection"] = collection
+	collection.closed.connect(_menu_back)
+	collection.equip_requested.connect(_equip_from_encyclopedia)
+	collection.details_requested.connect(func(id: String):
+		_open_weapon_encyclopedia(encyclopedia_slot,"collection")
+		encyclopedia.select_weapon(id)
+	)
 	_show_menu_page("title")
 
 func _show_menu_page(page: String) -> void:
@@ -484,8 +517,8 @@ func _show_menu_page(page: String) -> void:
 	menu_shade.color.a = 0.72 if active or page not in ["main", "title"] else 0.18
 	menu_logo.visible = page in ["title", "main"]
 	menu_caption.visible = menu_logo.visible
-	engineer_entry.visible = page not in ["engineering", "encyclopedia"]
-	status.visible = page != "encyclopedia"
+	engineer_entry.visible = page not in ["engineering", "encyclopedia", "collection"]
+	status.visible = page not in ["encyclopedia", "collection"]
 	combat_hud.visible = active
 	hud.visible = active
 	end_label.visible = active
@@ -493,6 +526,8 @@ func _show_menu_page(page: String) -> void:
 		menu_pages.pause.get_node("Resume").visible = sim.state.get("phase", "") in ["playing", "won"]
 		menu_pages.pause.get_node("Restart").visible = session in ["solo", "local"]
 		menu_pages.pause.get_node("SaveCharacters").visible = session in ["solo","local"] and not training_active
+		menu_pages.pause.get_node("Collections").visible = session in ["solo","local"] and not training_active and not demo_active
+		menu_pages.pause.get_node("Collections/Collection1").visible = session == "local"
 	for control in menu_pages[page].find_children("*", "Control", true, false):
 		if control.is_visible_in_tree() and control.focus_mode == Control.FOCUS_ALL:
 			control.grab_focus()
@@ -502,8 +537,21 @@ func _open_selection(coop: bool) -> void:
 	selection_coop = coop
 	partner_row.visible = coop
 	_refresh_loadouts()
-	status.text = profiles.warning if profiles.warning != "" else ("雙人合作請連接兩支搖桿。人物與武器自動保存。" if coop else "自動讀取人物與武器；每次出陣重新開始三條命。")
+	_refresh_chapters()
+	status.text = profiles.warning if profiles.warning != "" else ("雙人合作請連接兩支搖桿。人物、裝備與大關自動保存。" if coop else "讀取人物、收藏與大關；出陣從大關起點開始，滿血三條命。")
+	if profiles.warning == "" and int(chapter_choice.get_item_metadata(chapter_choice.selected)) != int(profiles.data.get("chapter",1)):
+		status.text = "記錄中的第%d大關尚未開放；目前可重玩已開放大關，人物與收藏保留。" % int(profiles.data.chapter)
 	_show_menu_page("select")
+
+func _refresh_chapters() -> void:
+	chapter_choice.clear()
+	var saved := int(profiles.data.get("chapter",1))
+	var unlocked := maxi(saved,int(profiles.data.get("completed_chapter",0)) + 1)
+	for chapter in Stages.available():
+		if int(chapter.id) > unlocked: continue
+		chapter_choice.add_item("第%d大關　%s" % [int(chapter.id),str(chapter.title)])
+		chapter_choice.set_item_metadata(chapter_choice.item_count - 1,int(chapter.id))
+		if int(chapter.id) == saved: chapter_choice.selected = chapter_choice.item_count - 1
 
 func _refresh_loadouts() -> void:
 	for slot in range(weapon_choices.size()):
@@ -518,22 +566,56 @@ func _refresh_loadouts() -> void:
 			choice.set_item_metadata(choice.item_count - 1,id)
 			if id == row.weapon_id: choice.selected = choice.item_count - 1
 
-func _open_weapon_encyclopedia(slot: int) -> void:
+func _equipment_hero(slot: int) -> String:
+	if equipment_in_battle:
+		for fighter in sim.state.fighters:
+			if fighter.team == 0 and int(fighter.player_index) == slot: return str(fighter.kind)
+	return HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
+
+func _open_collection(slot: int) -> void:
+	collection_return = menu_screen
+	equipment_in_battle = menu_screen == "pause"
+	if equipment_in_battle: _save_characters()
 	encyclopedia_slot = slot
-	var hero: String = HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
+	_refresh_collection()
+	_show_menu_page("collection")
+	collection.item_list.grab_focus()
+
+func _refresh_collection() -> void:
+	var hero := _equipment_hero(encyclopedia_slot)
+	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
+	var items := []
+	for id in row.owned_weapons:
+		var weapon: Dictionary = Weapons.item(id)
+		items.append({"id":id,"name":"%s　階%d" % [str(weapon.name),int(weapon.tier)],"category":"武器／" + {"sword":"刀","spear":"槍","bow":"弓"}[weapon.family],
+			"description":WeaponArchive.stats(id),"image":"res://assets/v22/weapons/%s.png" % id,"can_equip":Weapons.compatible(hero,id),"has_details":true,"slot":"武器"})
+	collection.configure("%dP %s　｜　總積分 %d　生命追加 +%d" % [encyclopedia_slot + 1,HERO_NAMES[hero],int(row.score),int(row.max_hp_bonus)],items,[row.weapon_id])
+
+func _open_weapon_encyclopedia(slot: int, return_page: String = "select") -> void:
+	encyclopedia_return = return_page
+	if return_page != "collection": equipment_in_battle = false
+	encyclopedia_slot = slot
+	var hero := _equipment_hero(slot)
 	var row: Dictionary = profiles.character(slot,hero)
 	encyclopedia.configure(hero,row.owned_weapons,row.weapon_id)
 	_show_menu_page("encyclopedia")
 
 func _equip_from_encyclopedia(id: String) -> void:
-	var hero: String = HEROES[heroes.selected if encyclopedia_slot == 0 else partner_heroes.selected]
+	var hero := _equipment_hero(encyclopedia_slot)
 	if not profiles.equip(encyclopedia_slot,hero,id): return
+	if equipment_in_battle:
+		for fighter in sim.state.fighters:
+			if fighter.team == 0 and int(fighter.player_index) == encyclopedia_slot: fighter.weapon_id = id
+		sim.cancel_input(encyclopedia_slot)
 	status.text = "武器裝備已保存。" if profiles.save() == OK else "裝備已套用，但存檔失敗。" + profiles.warning
 	_refresh_loadouts()
 	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
 	encyclopedia.equipped = str(row.weapon_id)
 	encyclopedia.owned = row.owned_weapons.duplicate()
 	encyclopedia.refresh_list()
+	encyclopedia.game_text.text += "\n\n" + status.text
+	_refresh_collection()
+	collection.notice.text = status.text
 
 func _load_characters() -> void:
 	if testing or session not in ["solo","local"]: return
@@ -545,12 +627,13 @@ func _load_characters() -> void:
 func _save_characters(manual: bool = false) -> void:
 	if not active or testing or training_active or demo_active or session not in ["solo","local"]: return
 	for fighter in sim.state.fighters: profiles.capture(fighter)
+	if sim.state.has("stage"): profiles.capture_chapter(int(sim.state.stage.id),sim.state.phase == "won")
 	var signature := JSON.stringify(profiles.data)
 	if not manual and signature == _saved_profile_signature: return
 	var err: Error = profiles.save()
 	if err == OK:
 		_saved_profile_signature = signature
-		if manual: status.text = "人物屬性與武器已保存。關卡、剩餘命數及戰鬥狀態不存檔。"
+		if manual: status.text = "人物、收藏裝備與大關已保存；再次出陣從大關起點開始。"
 	else:
 		if profiles.warning == "": profiles.warning = "角色存檔失敗 (%d)，原存檔與備份保留。" % err
 		if is_instance_valid(status): status.text = profiles.warning
@@ -571,8 +654,13 @@ func _menu_back() -> void:
 			return
 		encyclopedia.cancel_preview()
 		encyclopedia.preview.hide()
-		_show_menu_page("select")
-		weapon_rows[encyclopedia_slot].get_node("Encyclopedia%d" % encyclopedia_slot).grab_focus()
+		_show_menu_page(encyclopedia_return)
+		if encyclopedia_return == "collection": collection.item_list.grab_focus()
+		else: weapon_rows[encyclopedia_slot].get_node("Encyclopedia%d" % encyclopedia_slot).grab_focus()
+	elif menu_screen == "collection":
+		_show_menu_page(collection_return)
+		if collection_return == "pause": menu_pages.pause.get_node("Collections/Collection%d" % encyclopedia_slot).grab_focus()
+		else: weapon_rows[encyclopedia_slot].get_node("Collection%d" % encyclopedia_slot).grab_focus()
 	elif menu_screen == "options": _show_menu_page(options_return)
 	elif menu_screen == "pause": _resume()
 	elif menu_screen == "main": _show_menu_page("title")
@@ -634,6 +722,7 @@ func _button(text: String, callback: Callable, node_name: String, parent: Node =
 
 func _choices() -> void:
 	selected_hero = HEROES[heroes.selected]
+	selected_chapter = int(chapter_choice.get_item_metadata(chapter_choice.selected))
 	difficulty = DIFFICULTIES[difficulties.selected]
 	selected_faction = FACTION_NAMES.keys()[factions.selected]
 
@@ -667,7 +756,7 @@ func _start_solo() -> void:
 	_close_network()
 	_choices()
 	local_slot = 0
-	sim.reset_campaign(difficulty, 1, [selected_hero])
+	sim.reset_campaign(difficulty, 1, [selected_hero],selected_chapter)
 	_load_characters()
 	_activate()
 
@@ -679,7 +768,7 @@ func _start_local_coop() -> void:
 	_choices()
 	session = "local"
 	local_slot = 0
-	sim.reset_campaign(difficulty, 2, [selected_hero, HEROES[partner_heroes.selected]])
+	sim.reset_campaign(difficulty, 2, [selected_hero, HEROES[partner_heroes.selected]],selected_chapter)
 	_load_characters()
 	_activate()
 	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · △／Y 按住抓人、放開摔 · R1／RB 必殺 · L2／LT 防禦 · Options 暫停"

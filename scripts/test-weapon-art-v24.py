@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Source provenance, 48-item registration and immutable-approved-art checks."""
 from pathlib import Path
-import json,hashlib,re,os
-from oichi_skirt_v26 import approved_expected_hash
+import json,hashlib,re,os,sys
+from oichi_skirt_v26 import approved_expected_hash,asset_path
 import numpy as np
 from PIL import Image
 
@@ -29,7 +29,11 @@ if overlay.exists():
  for p,change in json.loads(overlay.read_text())['approved_overlay'].items():
   assert p in protected and protected[p]==change['before_sha256'],('Invalid v25 base',p)
   protected[p]=change['after_sha256']
-for p,digest in protected.items():assert sha(ROOT/p)==approved_expected_hash(p,digest),p+' approved bytes changed'
+verified_protected=0
+for p,digest in protected.items():
+ if '--assets-only' in sys.argv and not asset_path(p):continue
+ assert sha(ROOT/p)==approved_expected_hash(p,digest),p+' approved bytes changed'
+ verified_protected+=1
 # v26 source/mask reconstruction is separately verified by oichi_skirt_v26.py --check.
 # Historical v24/v25 baselines remain immutable; only an exact recorded hash transition is accepted.
 counts={family:sum(x['family']==family for x in research) for family in ['sword','spear','bow']};assert set(counts.values())=={10}
@@ -60,6 +64,6 @@ clips=frames=0
 for h in ['nobunaga','tadakatsu','oichi']:
  r=json.loads((ROOT/f'game/assets/v22/{h}/registration.json').read_text());clips+=len(r['clips']);frames+=sum(len(c['frames']) for c in r['clips'].values())
 assert clips==77 and frames==462
-result={'status':'PASS','catalog_count':48,'new_by_family':counts,'approved_original_weapons':18,'protected_file_count':len(protected),'protected_hero_clips':clips,'protected_hero_frames':frames,'raw_originals_preserved':True,'alpha_processing_explicit':True,'identical_normalized_silhouettes':0,'visual_review_required':'Distinct silhouette hashes supplement, but never replace, the item-by-item visual review and all-action composites.','items':report}
+result={'status':'PASS','catalog_count':48,'new_by_family':counts,'approved_original_weapons':18,'protected_file_count':verified_protected,'code_snapshot_checked':'--assets-only' not in sys.argv,'protected_hero_clips':clips,'protected_hero_frames':frames,'raw_originals_preserved':True,'alpha_processing_explicit':True,'identical_normalized_silhouettes':0,'visual_review_required':'Distinct silhouette hashes supplement, but never replace, the item-by-item visual review and all-action composites.','items':report}
 dest=Path(os.environ.get('TEST_ARTIFACT_DIR',str(ROOT/'artifacts/weapon-expansion-v24')));dest.mkdir(exist_ok=True,parents=True);(dest/'art-validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
-print(f'WEAPON ART V24 PASS: 48 catalog items, 30 original sources, {len(protected)} immutable files, 77 clips / 462 hero frames, 18 approved weapons unchanged')
+print(f'WEAPON ART V24 PASS: 48 catalog items, 30 original sources, {verified_protected} immutable files, 77 clips / 462 hero frames, 18 approved weapons unchanged')

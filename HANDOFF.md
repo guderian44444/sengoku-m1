@@ -1,6 +1,8 @@
 # 吞食戰國交接：48 武器＋信長 v25＋阿市 v26
 
-本文件是本次 Git 交接入口。基底為 `2ac0688a8100b27b3a4fa958554aee8dcd3a1188`，包含先前 3 件武器／18 件圖鑑、v23 三人色盤、v24 新增 30 件武器，以及其後完成的信長暗紅甲 v25、阿市局部裙裝 v26。專用分支：`handoff/weapons-48-palette-v25-20261012`。提交時間以 Git 記錄為準，未合併 `main`。
+> 本文件保留 DOT 原交付快照與已知限制。main 的 v0.26 整合另加入戰鬥中收藏裝備頁和大關存檔，現行操作見 `README-試玩.md`。原始快照預設 SHA 檢查仍保留；整合後用 `python scripts/verify-handoff.py --assets-only` 查美術，再以 `collection_progress_v26` 與相關 Godot 群組查遊戲邏輯。
+
+本文件是 DOT 原交付入口。基底為 `2ac0688a8100b27b3a4fa958554aee8dcd3a1188`，包含先前 3 件武器／18 件圖鑑、v23 三人色盤、v24 新增 30 件武器，以及其後完成的信長暗紅甲 v25、阿市局部裙裝 v26。原交付分支為 `handoff/weapons-48-palette-v25-20261012`；提交當時未合併 `main`，後續整合與本機驗收見 [DOT-INTEGRATION-20261012.md](docs/DOT-INTEGRATION-20261012.md)。
 
 ## 0. 回到電腦後，讓 Codex 從這裡接手
 

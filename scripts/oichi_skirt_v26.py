@@ -12,6 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 MANIFEST=ROOT/'game/assets/v26/oichi-skirt.json'
 NOTE=' v26: reviewed local skirt and lining patches; alpha, body geometry and all weapon anchors remain unchanged. See ../../v26/oichi-skirt.json.'
 def sha(b):return hashlib.sha256(b).hexdigest()
+def asset_path(relative):return relative.startswith(('assets/','game/assets/','artifacts/'))
 def geometry(r):return {'clips':{k:v['frames'] for k,v in r['clips'].items()},'aliases':r['aliases'],'portrait':r['portrait']}
 def annotate_registration(r):
     if not MANIFEST.exists():return r
@@ -28,7 +29,7 @@ def approved_expected_hash(relative,expected):
     assert expected in [change['before_sha256'],change['after_sha256']],('v26 base is not the protected historical bytes',relative)
     return change['after_sha256']
 
-def verify():
+def verify(assets_only=False):
     m=json.loads(MANIFEST.read_text());assert m['blocked_clips']==[] and m['conservative_redesign_clips']==['jump','low_sweep']
     before=json.loads((ROOT/m['registration_before']).read_text());after=json.loads((ROOT/m['registration_after']).read_text());actual=json.loads((ROOT/'game/assets/v22/oichi/registration.json').read_text())
     assert actual==after;assert geometry(before)==geometry(after)
@@ -61,15 +62,19 @@ def verify():
         if clip in m['sources']:continue
         fn=c['frames'][0]['file'];assert sha((ROOT/'game/assets/v22/oichi'/fn).read_bytes())==before['clips'][clip]['source_sha256'],('Retained source changed',clip)
     for rel,pair in m['approved_overlay'].items():assert sha((ROOT/rel).read_bytes())==pair['after_sha256']
-    for rel,h in m['protected_assets_sha256'].items():assert sha((ROOT/rel).read_bytes())==h,('Unrelated asset changed',rel)
+    verified_protected=0
+    for rel,h in m['protected_assets_sha256'].items():
+        if assets_only and not asset_path(rel):continue
+        assert sha((ROOT/rel).read_bytes())==h,('Unrelated asset changed',rel)
+        verified_protected+=1
     from collections import Counter
     counts=Counter(f['status'] for f in m['frame_audit']);assert sum(counts.values())==156
     assert all(counts[k]==v for k,v in m['audit_summary'].items() if k not in ['inspected_frames','clips'])
     for f in m['frame_audit']:
         if f['clip'] in m['blocked_clips']:assert f['status']=='retained_generation_blocked' and f['changed_pixels']==0
     assert counts['modified']==sum(len(c['modified_frames']) for c in m['sources'].values())
-    out={'status':'PASS','scope':'26 clips / 156 inspected frames','counts':dict(counts),'modified_sheets':len(m['sources']),'protected_other_assets':len(m['protected_assets_sha256']),'checks':report,'limitations':m['limitations']}
+    out={'status':'PASS','scope':'26 clips / 156 inspected frames','counts':dict(counts),'modified_sheets':len(m['sources']),'protected_other_assets':verified_protected,'code_snapshot_checked':not assets_only,'checks':report,'limitations':m['limitations']}
     dest=ROOT/'artifacts/oichi-skirt-v26';dest.mkdir(parents=True,exist_ok=True);(dest/'pixel-validation.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n');print(json.dumps(out,ensure_ascii=False,indent=2))
     return out
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--check',action='store_true');args=ap.parse_args();assert args.check,'Use --check';verify()
+    ap=argparse.ArgumentParser();ap.add_argument('--check',action='store_true');ap.add_argument('--assets-only',action='store_true');args=ap.parse_args();assert args.check,'Use --check';verify(args.assets_only)

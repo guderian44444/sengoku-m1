@@ -20,6 +20,7 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
+  'collection_progress_v26',
   'weapon_expansion_v24', 'weapons_save_v22', 'loadout_menu_v22', 'weapon_render_v22', 'hero_layers_v22', 'weapon_encyclopedia_v23', 'projectile_v22',
   'progression_v21', 'music_v21', 'engineering_menu_v21', 'render_items_v21',
   'combat_v20', 'audio_v20', 'typography_v20', 'menu_v20',
@@ -101,6 +102,9 @@ if (process.argv.includes('--render-v21')) {
 if (process.argv.includes('--render-v22')) {
   await run('weapon_render_v22_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_weapon_render_v22.gd']);
   await run('loadout_menu_v22_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_loadout_menu_v22.gd']);
+}
+if (process.argv.includes('--render-collection-v26')) {
+  await run('collection_v26_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_collection_progress_v26.gd', '--', '--capture']);
 }
 if (process.argv.includes('--render-heroes-v22')) {
   await run('hero_layers_v22_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_hero_layers_v22.gd'], 360000);

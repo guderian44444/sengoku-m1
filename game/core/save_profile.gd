@@ -4,7 +4,7 @@ const Weapons = preload("res://core/weapon_catalog.gd")
 const HEROES := ["nobunaga","oichi","hideyoshi","ieyasu","mitsuhide","tadakatsu"]
 const DEFAULT_PATH := "user://characters-v1.json"
 var path: String
-var data := {"version":1,"characters":{}}
+var data := {"version":1,"characters":{},"chapter":1,"completed_chapter":0}
 var warning := ""
 var blocked := false
 
@@ -17,6 +17,7 @@ static func _int_range(value: Variant, low: int, high: int) -> bool:
 
 static func valid(payload: Variant) -> bool:
 	if not payload is Dictionary or payload.get("version") != 1 or not payload.get("characters") is Dictionary or payload.characters.size() > 12: return false
+	if not _int_range(payload.get("chapter",1),1,24) or not _int_range(payload.get("completed_chapter",0),0,24): return false
 	for key in payload.characters:
 		var row: Variant = payload.characters[key]
 		if not key is String or not row is Dictionary or row.get("hero") not in HEROES or not _int_range(row.get("slot"),0,1): return false
@@ -78,6 +79,12 @@ func equip(slot: int, hero: String, id: String) -> bool:
 	row.weapon_id = id
 	data.characters["%d:%s" % [slot,hero]] = row
 	return true
+
+func capture_chapter(chapter: int, completed: bool) -> void:
+	data.chapter = chapter
+	if completed:
+		data.completed_chapter = maxi(int(data.get("completed_chapter",0)),chapter)
+		data.chapter = mini(chapter + 1,24)
 
 func save() -> Error:
 	if blocked or not valid(data): return ERR_INVALID_DATA

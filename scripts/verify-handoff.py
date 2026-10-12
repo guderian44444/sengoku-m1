@@ -6,6 +6,11 @@ No engine, third-party Python packages, Git history, or user save access needed.
 from pathlib import Path
 import hashlib
 import json
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--assets-only',action='store_true',help='Check immutable art after separately tested gameplay integration; default checks the original full snapshot.')
+ASSETS_ONLY = parser.parse_args().assets_only
 
 ROOT = Path(__file__).resolve().parents[1]
 def read(rel):
@@ -21,6 +26,8 @@ def approved_hash(rel, expected):
     assert expected in (pair['before_sha256'], pair['after_sha256']), f'Unexpected v26 base: {rel}'
     return pair['after_sha256']
 def verify(rel, expected):
+    if ASSETS_ONLY and not rel.startswith(('assets/','game/assets/','artifacts/')):
+        return
     expected = approved_hash(rel, expected)
     path = ROOT / rel
     assert path.is_file(), f'Missing required source: {rel}'
@@ -87,4 +94,4 @@ assert V26['audit_summary']['modified'] == 81
 assert V26['audit_summary'].get('retained_generation_blocked', 0) == 0
 assert V26['blocked_clips'] == []
 assert V26['conservative_redesign_clips'] == ['jump', 'low_sweep']
-print('PASS final handoff: 48 weapons; 77 clips / 462 frames; Nobunaga v25 exact; Oichi v26 81 modified + 75 retained; 12 conservative redesign frames; 3 CC0 photos across 2 entries; approved SHA chain intact')
+print('PASS ' + ('asset handoff' if ASSETS_ONLY else 'final handoff') + ': 48 weapons; 77 clips / 462 frames; Nobunaga v25 exact; Oichi v26 81 modified + 75 retained; 12 conservative redesign frames; 3 CC0 photos across 2 entries; approved SHA chain intact')
