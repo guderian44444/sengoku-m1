@@ -1,5 +1,6 @@
 """Register original generated six-frame sprites; crop metadata only, no paint/alpha edits."""
 import json, hashlib
+from hero_palette_v23 import annotate_registration
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -92,6 +93,9 @@ def build():
                         frame['clip_polygon']=np.round(hull,2).tolist()
                 frames.append(frame)
         data['clips'][name]={'frames':frames,'source_sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+    annotate_registration(data,'nobunaga')
+    from nobunaga_dark_red_v25 import add_registration_note
+    add_registration_note(data)
     (BASE/'registration.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(f"Registered {len(data['clips'])} clips, {sum(len(c['frames']) for c in data['clips'].values())} frames")
 if __name__=='__main__':build()

@@ -9,18 +9,19 @@ var failures := 0
 
 class SampleCanvas extends Node2D:
 	var renderer: RefCounted
+	var ids: Array = []
 	func _draw() -> void:
 		draw_rect(Rect2(0,0,1280,1080),Color("273237"))
 		var index := 0
-		for id in Weapons.ITEMS:
-			var row: int = index / 5
-			var column: int = index % 5
+		for id in ids:
+			var row: int = index / 4
+			var column: int = index % 4
 			var hero: String = {"sword":"nobunaga","spear":"tadakatsu","bow":"oichi"}[Weapons.ITEMS[id].family]
 			var frame := {"layered_weapon":true,"weapon_hand":Vector2.ZERO,"weapon_angle":0.0,"body_height":155.0}
-			var origin := Vector2(130 + column * 250,[155,540,900][row])
-			renderer.draw_weapon(self,{"kind":hero,"weapon_id":id},frame,origin,155,1,0,Color.WHITE,false)
-			renderer.draw_weapon(self,{"kind":hero,"weapon_id":id},frame,origin + Vector2(65,0),155,-1,0,Color(.7,.9,1),false)
-			renderer.draw_drop(self,{"weapon_id":id},Vector2(origin.x + 20,[245,675,1020][row]),0)
+			var origin := Vector2(100 + column * 320,300 + row * 530)
+			renderer.draw_weapon(self,{"kind":hero,"weapon_id":id},frame,origin,130,1,0,Color.WHITE,false)
+			renderer.draw_weapon(self,{"kind":hero,"weapon_id":id},frame,origin + Vector2(100,0),130,-1,0,Color.WHITE,false)
+			renderer.draw_drop(self,{"weapon_id":id},Vector2(origin.x + 50,455 + row * 530),0)
 			index += 1
 
 func check(ok: bool, label: String) -> void:
@@ -33,7 +34,7 @@ func _initialize() -> void: run.call_deferred()
 
 func run() -> void:
 	var renderer := Renderer.new()
-	check(renderer.textures.size() == 15 and renderer.items.size() == 15,"All fifteen real transparent sprites load at runtime")
+	check(renderer.textures.size() == Weapons.ITEMS.size() and renderer.items.size() == Weapons.ITEMS.size(),"Every catalog entry loads its actual transparent sprite")
 	for id in Weapons.ITEMS:
 		var spec: Dictionary = renderer.items[id]
 		check(spec.length >= 600,"Weapon native length >=600: " + id)
@@ -71,6 +72,12 @@ func run() -> void:
 	check(is_equal_approx(float(tonbo_spec.world_length),223.7) and tonbo_spec.proportions_design_cm.shaft == 180,"Tonbokiri follows the requested 180 cm shaft plus 43.7 cm blade design")
 	var tonbo_pose := renderer.geometry({"kind":"tadakatsu","weapon_id":"spear_tonbokiri"},{"layered_weapon":true,"body_height":155},155)
 	check(is_equal_approx(tonbo_pose.scale * float(tonbo_spec.length),223.7),"Per-weapon length overrides the long-spear family default")
+	var awase_spec: Dictionary = renderer.items.bow_awase_yumi
+	var awase_pose := renderer.geometry({"kind":"oichi","weapon_id":"bow_awase_yumi"},{"layered_weapon":true,"body_height":148},148)
+	check(is_equal_approx(float(awase_spec.world_length),172.0) and is_equal_approx(float(awase_spec.proportions_cm.total),231.2),"Awase museum length stays separate from normalized game display size")
+	check(is_equal_approx(awase_pose.scale * float(awase_spec.length),172.0) and 172.0 / 148.0 >= 1.1 and 172.0 / 148.0 <= 1.2,"Awase display is 1.16 times Oichi reference standing height")
+	for old_bow in ["bow_azusa","bow_bamboo","bow_black_lacquer","bow_red_lacquer","bow_shigeto"]:
+		check(not renderer.items[old_bow].has("world_length"),"Existing bow keeps its original family scale: " + old_bow)
 	check(Renderer.equipped_id({"kind":"oichi","weapon_id":"sword_heshikiri"}) == "bow_azusa","Malformed visual-only fighter safely falls back to own-family weapon")
 	var fighter := {"kind":"nobunaga","action":"heavy","heavy_combo":1,"weapon_id":"sword_heshikiri"}
 	var style := View.strike_accent(fighter,{"source":"v22","tick":14})
@@ -81,11 +88,16 @@ func run() -> void:
 		var canvas := SampleCanvas.new()
 		canvas.renderer = renderer
 		root.add_child(canvas)
-		await process_frame
-		await RenderingServer.frame_post_draw
 		var output := ProjectSettings.globalize_path("res://../artifacts/native-v22")
 		DirAccess.make_dir_recursive_absolute(output)
-		check(root.get_texture().get_image().save_png(output.path_join("weapons-runtime.png")) == OK,"Save native draw of all weapon families, mirrors, bowstrings and item labels")
+		for hero in ["nobunaga","tadakatsu","oichi"]:
+			var ids := Weapons.ids_for(hero)
+			for page in range(ceili(float(ids.size()) / 8.0)):
+				canvas.ids = ids.slice(page * 8,(page + 1) * 8)
+				canvas.queue_redraw()
+				await process_frame
+				await RenderingServer.frame_post_draw
+				check(root.get_texture().get_image().save_png(output.path_join("weapons-runtime-"+hero+"-"+str(page+1)+".png")) == OK,"Save paginated native weapons, mirrors, bowstrings and item labels without clipping")
 		canvas.queue_free()
 		await process_frame
 	print("WEAPON RENDER V22 %s: %d checks, %d failures" % ["PASS" if failures == 0 else "FAILED",checks,failures])

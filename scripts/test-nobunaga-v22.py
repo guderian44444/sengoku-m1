@@ -46,4 +46,4 @@ for name,clip in reg['clips'].items():
                 assert np.count_nonzero(foreign)<=8,(name,index,'unclipped neighbor');checks+=1
     assert len(set(hashes))==6,(name,'duplicate frame pixels');checks+=1
 assert reg['clips']['down']['frames'][5]['rect'][2]>reg['clips']['down']['frames'][5]['rect'][3]*2;checks+=1
-print(f'PASS Nobunaga v22: {checks} checks; 25 clips, 150 distinct frames, preserved original RGBA, grip anchors, no adjacent-body leaks')
+print(f'PASS Nobunaga v22: {checks} checks; 25 clips, 150 distinct frames, preserved alpha/geometry, grip anchors, no adjacent-body leaks')

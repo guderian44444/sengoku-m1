@@ -1,3 +1,5 @@
+from hero_palette_v23 import annotate_registration
+from oichi_skirt_v26 import annotate_registration as annotate_garment_registration
 """Register native generated sprites without recoloring, resizing or changing alpha."""
 from pathlib import Path
 import json, hashlib, argparse
@@ -32,7 +34,7 @@ POSES = {
  'light1':dict(height=480,back=True,hands=[(284,288),(767,283),(1270,279),(300,787),(801,786),(1279,785)],roots=[310,801,1290,330,835,1300]),
  'light2':dict(height=480,back=True,hands=[(280,283),(768,283),(1270,283),(300,783),(784,783),(1290,783)],roots=[305,795,1300,325,809,1315]),
  'light3':dict(height=480,back=True,hands=[(241,272),(773,270),(1272,265),(251,760),(789,760),(1294,772)],roots=[272,798,1297,261,785,1317],angles=[-25,25,25,-65,55,-25]),
- 'heavy1':dict(height=480,hands=[(421,181),(972,134),(1474,132),(504,637),(988,645),(1407,776)],seconds=[(179,192),(735,107),(1238,111),None,None,None],angles=[15,0,0,0,0,-20],roots=[298,802,1298,297,803,1306]),
+ 'heavy1':dict(height=480,hands=[(421,181),(972,134),(1474,132),(504,637),(988,645),(1407,776)],seconds=[None,(755,108),(1260,111),None,None,None],second_mask_offsets=[None,(-32,-13,43,28),(-34,-15,46,31),None,None,None],angles=[15,0,0,0,0,-20],roots=[298,802,1298,297,803,1306]),
  'heavy2':dict(height=480,hands=[(484,218),(973,134),(1480,90),(490,598),(1000,659),(1428,780)],seconds=[(216,207),(709,136),(1240,103),None,None,None],angles=[5,-5,-15,-15,0,-20],roots=[317,804,1304,319,814,1314]),
  'charged_upper':dict(height=480,hands=[(480,26),(990,74),(1503,33),(478,554),(1001,565),(1474,548)],seconds=[None,(736,117),(1245,111),None,None,None],angles=[-40,-15,-30,-35,-30,-42],roots=[301,805,1305,299,805,1308]),
  'charged_slam':dict(height=480,hands=[(367,211),(956,133),(1475,137),(604,669),(1043,922),(1438,738)],seconds=[(329,205),(716,125),(1192,126),None,None,None],angles=[0,0,0,0,65,0],roots=[261,800,1304,350,878,1309]),
@@ -97,10 +99,14 @@ def register(check=False):
                 second=pose.get('seconds',[None]*6)[idx]
                 if second:
                     frame['second_hand']=[second[0]-x,second[1]-y]
-                    frame['hand_occluders'].append([max(0,second[0]-x-12),max(0,second[1]-y-12),24,24])
+                    offsets=pose.get('second_mask_offsets',[(-12,-12,24,24)]*6)[idx]
+                    ox,oy,ow,oh=offsets
+                    frame['hand_occluders'].append([max(0,second[0]-x+ox),max(0,second[1]-y+oy),ow,oh])
             frames.append(frame)
         registration['clips'][clip]={'frames':frames,'source_sha256':hashlib.sha256((ASSETS/filename).read_bytes()).hexdigest()}
     registration['aliases']={alias:target for alias,target in ALIASES.items() if target in registration['clips']}
+    annotate_registration(registration,'oichi')
+    annotate_garment_registration(registration)
     data=json.dumps(registration,ensure_ascii=False,indent=2)+'\n'
     if check:
         assert data==(ASSETS/'registration.json').read_text(encoding='utf-8'),'Registration/source drift; rebuild and review'
@@ -124,7 +130,7 @@ def register(check=False):
                 assert a[y+hy,x+hx]>100,(clip,index,'grip not on figure')
             assert len(set(hashes))==6,(clip,'duplicate frame pixels')
     else: (ASSETS/'registration.json').write_text(data,encoding='utf-8')
-    print(f"Oichi v22: {len(registration['clips'])} clips / {len(registration['clips'])*6} genuine frames, source RGBA untouched")
+    print(f"Oichi v22: {len(registration['clips'])} clips / {len(registration['clips'])*6} genuine frames, source geometry/alpha preserved; RGB provenance recorded")
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--measure',action='store_true');parser.add_argument('--check',action='store_true');args=parser.parse_args()

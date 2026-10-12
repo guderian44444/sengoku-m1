@@ -7,6 +7,7 @@ const CombatHUD = preload("res://render/combat_hud.gd")
 const Typography = preload("res://render/game_typography.gd")
 const Wire = preload("res://core/wire.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
+const WeaponEncyclopedia = preload("res://ui/weapon_encyclopedia_panel.gd")
 const SaveProfile = preload("res://core/save_profile.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
 const BUILD := "sengoku-m1-0.22.0"
@@ -47,6 +48,8 @@ var menu_panel: VBoxContainer
 var menu_pages: Dictionary = {}
 var menu_screen := "title"
 var options_return := "main"
+var encyclopedia: Control
+var encyclopedia_slot := 0
 var selection_coop := false
 var partner_row: HBoxContainer
 var menu_backdrop: TextureRect
@@ -357,6 +360,7 @@ func _build_menu(ui: Control) -> void:
 		choice.name = "Weapon%d" % slot
 		choice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(choice)
+		_button("圖鑑", func(): _open_weapon_encyclopedia(slot), "Encyclopedia%d" % slot, row)
 		weapon_rows.append(row)
 		weapon_choices.append(choice)
 		choice.item_selected.connect(func(index: int):
@@ -464,6 +468,12 @@ func _build_menu(ui: Control) -> void:
 	engineer_entry.position = Vector2(535, 666)
 	engineer_entry.size = Vector2(210, 36)
 	engineer_entry.add_theme_font_size_override("font_size", 17)
+	encyclopedia = WeaponEncyclopedia.new()
+	encyclopedia.name = "WeaponEncyclopedia"
+	menu.add_child(encyclopedia)
+	menu_pages["encyclopedia"] = encyclopedia
+	encyclopedia.closed.connect(_menu_back)
+	encyclopedia.equip_requested.connect(_equip_from_encyclopedia)
 	_show_menu_page("title")
 
 func _show_menu_page(page: String) -> void:
@@ -474,7 +484,8 @@ func _show_menu_page(page: String) -> void:
 	menu_shade.color.a = 0.72 if active or page not in ["main", "title"] else 0.18
 	menu_logo.visible = page in ["title", "main"]
 	menu_caption.visible = menu_logo.visible
-	engineer_entry.visible = page != "engineering"
+	engineer_entry.visible = page not in ["engineering", "encyclopedia"]
+	status.visible = page != "encyclopedia"
 	combat_hud.visible = active
 	hud.visible = active
 	end_label.visible = active
@@ -507,6 +518,23 @@ func _refresh_loadouts() -> void:
 			choice.set_item_metadata(choice.item_count - 1,id)
 			if id == row.weapon_id: choice.selected = choice.item_count - 1
 
+func _open_weapon_encyclopedia(slot: int) -> void:
+	encyclopedia_slot = slot
+	var hero: String = HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
+	var row: Dictionary = profiles.character(slot,hero)
+	encyclopedia.configure(hero,row.owned_weapons,row.weapon_id)
+	_show_menu_page("encyclopedia")
+
+func _equip_from_encyclopedia(id: String) -> void:
+	var hero: String = HEROES[heroes.selected if encyclopedia_slot == 0 else partner_heroes.selected]
+	if not profiles.equip(encyclopedia_slot,hero,id): return
+	status.text = "武器裝備已保存。" if profiles.save() == OK else "裝備已套用，但存檔失敗。" + profiles.warning
+	_refresh_loadouts()
+	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
+	encyclopedia.equipped = str(row.weapon_id)
+	encyclopedia.owned = row.owned_weapons.duplicate()
+	encyclopedia.refresh_list()
+
 func _load_characters() -> void:
 	if testing or session not in ["solo","local"]: return
 	for fighter in sim.state.fighters:
@@ -537,7 +565,15 @@ func _menu_back() -> void:
 	if not active and session in ["host", "client"]:
 		_leave_to_menu()
 		return
-	if menu_screen == "options": _show_menu_page(options_return)
+	if menu_screen == "encyclopedia":
+		if encyclopedia.preview.visible:
+			encyclopedia.cancel_preview()
+			return
+		encyclopedia.cancel_preview()
+		encyclopedia.preview.hide()
+		_show_menu_page("select")
+		weapon_rows[encyclopedia_slot].get_node("Encyclopedia%d" % encyclopedia_slot).grab_focus()
+	elif menu_screen == "options": _show_menu_page(options_return)
 	elif menu_screen == "pause": _resume()
 	elif menu_screen == "main": _show_menu_page("title")
 	elif menu_screen != "title": _show_menu_page("pause" if active else "main")

@@ -1,0 +1,72 @@
+{
+  "status": "PASS with explicit cape-priority semantics",
+  "clips": 6,
+  "frames": 36,
+  "exact_polygon_reproduction": true,
+  "cape_protection_changed_pixels_in_applied_sources": 0,
+  "geometric_overlap_note": "Jump chest and cape masks overlap at the left lapel boundary (1441 geometric pixels). Cape protection has precedence; all overlapping RGB pixels remain unchanged in final applied runtime sources. Other five chest masks have zero cape overlap. No mask was modified to force geometric disjointness.",
+  "inspection": "All 36 chest overlays inspected. Special frame 3 intentionally empty because chest is hidden.",
+  "source_hash_semantics": "Annotation source_sha256 values refer to the v23 before backup, not v25 edited runtime PNGs.",
+  "artifacts": [
+    {
+      "clip": "dash_strike",
+      "mask_file": "chest-a/dash_strike.png",
+      "sha256": "f6f7a2f4f6416a7945d2913266cf7ec217415763924176c59e64eaa4da538726",
+      "frames": 6,
+      "cape_geometric_overlap_pixels": 0,
+      "overlap_pixels_actually_modified": 0,
+      "polygon_reproduction_exact": true,
+      "priority": "Cape protection takes precedence over chest eligibility."
+    },
+    {
+      "clip": "rising",
+      "mask_file": "chest-c/rising.png",
+      "sha256": "4ee7cc8e49937fe11cdcfd3be8608ea4c2709055a35033065805a0092aef7237",
+      "frames": 6,
+      "cape_geometric_overlap_pixels": 0,
+      "overlap_pixels_actually_modified": 0,
+      "polygon_reproduction_exact": true,
+      "priority": "Cape protection takes precedence over chest eligibility."
+    },
+    {
+      "clip": "air_heavy",
+      "mask_file": "chest-b/air_heavy-chest-mask.png",
+      "sha256": "0868bf32f23b42092d5eb5730e1e11fab4cd089e37c3e2fa61d361e2f783106e",
+      "frames": 6,
+      "cape_geometric_overlap_pixels": 0,
+      "overlap_pixels_actually_modified": 0,
+      "polygon_reproduction_exact": true,
+      "priority": "Cape protection takes precedence over chest eligibility."
+    },
+    {
+      "clip": "special",
+      "mask_file": "chest-b/special-chest-mask.png",
+      "sha256": "556bce90b7e552c126208b6c786bd1b14f94743fd6be60711fb6fafc420f2121",
+      "frames": 6,
+      "cape_geometric_overlap_pixels": 0,
+      "overlap_pixels_actually_modified": 0,
+      "polygon_reproduction_exact": true,
+      "priority": "Cape protection takes precedence over chest eligibility."
+    },
+    {
+      "clip": "jump",
+      "mask_file": "chest-a/jump.png",
+      "sha256": "00f4be667aa4fe47ce049b0e22abd4260f589601b56a8b84183cae97ecc80130",
+      "frames": 6,
+      "cape_geometric_overlap_pixels": 1441,
+      "overlap_pixels_actually_modified": 0,
+      "polygon_reproduction_exact": true,
+      "priority": "Cape protection takes precedence over chest eligibility."
+    },
+    {
+      "clip": "throw",
+      "mask_file": "chest-c/throw.png",
+      "sha256": "438a934bd5ba9b0d30092dede789ee32667161be0c2e77a70825a21bce97626b",
+      "frames": 6,
+      "cape_geometric_overlap_pixels": 0,
+      "overlap_pixels_actually_modified": 0,
+      "polygon_reproduction_exact": true,
+      "priority": "Cape protection takes precedence over chest eligibility."
+    }
+  ]
+}

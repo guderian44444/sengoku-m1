@@ -1,0 +1,21 @@
+吞食戰國30武器增量QA（2026-10-12）
+
+結果：新增30件（刀／槍／弓各10），總數48；14個不同相關Godot headless測試群組通過。測試引擎Godot 4.6.3 stable，Linux cloud；選定群組並非整個專案全測試。
+
+原18件：PNG、來源圖、能力定義、圖鑑條目及登錄記錄全部保持不變。
+三人：113個受保護檔案SHA一致，77組／462格角色PNG、registration與來源色盤資料未改。
+新30件：逐件imagegen生成、原始RGBA及SHA保留；去暈只動alpha，所有RGB不變。30個不同剪影hash加逐件視覺審查。
+握點：每件所有對應角色已登錄動作皆驗證實體像素命中主握點，含槍砸地滑握。二手接觸與弓弦另外在攻擊視圖目視；不誇稱全動作每格均做兩手視覺驗收。
+圖鑑：48條全部有來源連結；只有原有2條目共3張授權實物照片嵌入，其餘46條明示照片缺口。本輪30件嵌入0张，照片來源與權利限制保留。
+能力：只使用現有傷害、距離、擊退；新件元素均無。不宣稱武器個別攻速、耐久、蓄力窗口或穿透已實裝。
+
+逐格交付：30張attack PNG，每張2招×6格×2朝向，共720視圖。獨立審查逐張看完；長槍／短柄／無鐔刀／吹寄弓握點另放大檢查。
+影片：刀槍弓各30秒，1600×1000／24fps／720編碼格，各完整解碼無錯誤；標示素材合成、非實機錄影。
+字型：補齊20個日文史料缺字，明確打包16KB的OFL fallback；完整圖鑑1,080個非空白字碼沒有缺字。修正release build不執行assert內load副作用的風險。
+
+限制：原生視窗、人手控制器、實機手感和跨機連線未驗；本環境沒有DISPLAY/Xvfb。原projectile_v12重跑142checks仍62fail，與前輪基線一致；新projectile_v22通過。沒有提交、push、改使用者電腦或真實存檔。
+
+相關群組：projectile_v22, progression_v21, knockdown_v18, battle, wire, training, tadakatsu_combat_v17, weapon_expansion_v24, weapons_save_v22, loadout_menu_v22, weapon_render_v22, hero_layers_v22, weapon_encyclopedia_v23, typography_v20
+逐項結果及已知失敗詳見附帶test-summary.json；重跑方式在docs/weapon-expansion-v24.md。
+
+乾淨套用驗證：以12個已核實前版共用檔案及原受保護素材建立獨立fixture，套用3個runtime包後209檔exact SHA通過，48武器register檢查通過；再套入3個raw原圖包後完整來源／alpha／113保護檔檢查通過。詳細紀錄隨review包。

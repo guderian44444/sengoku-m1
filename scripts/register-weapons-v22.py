@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib
 import json
 import sys
+import re
 import numpy as np
 from PIL import Image
 
@@ -21,7 +22,14 @@ def anchors(alpha, grip_y):
     solid = np.array(alpha) > 128
     ys, xs = np.where(solid)
     top_y, bottom_y = int(ys.min()), int(ys.max())
-    tip = lambda y: [int(round(np.median(np.where(solid[y])[0]))), y]
+    def tip(y):
+        row = np.where(solid[y])[0]
+        x = int(round(np.median(row)))
+        # A notched nock can have two separated opaque pixels on the last row.
+        # Preserve the old median wherever it touches material, otherwise use
+        # the closest actual pixel rather than anchoring the string in the gap.
+        if not solid[y, x]: x = int(row[np.argmin(np.abs(row - x))])
+        return [x, y]
     assert solid[grip_y].any(), 'The selected grip row must cross opaque weapon pixels'
     return tip(grip_y), tip(top_y), tip(bottom_y)
 
@@ -50,18 +58,44 @@ def build():
             rect = [max(cut_left, cut_left + left - 4), max(0, top - 4), min(cut_right, cut_left + right + 4), min(item_image.height, bottom + 4)]
             crop = item_image.crop(rect)
             target = OUT / (id + '.png')
-            crop.save(target)
+            if not target.exists() or Image.open(target).tobytes() != crop.tobytes():
+                crop.save(target)
             grip, tip_top, tip_bottom = anchors(crop.getchannel('A'), item_grip_y - rect[1])
             length = tip_bottom[1] - tip_top[1]
             assert length >= 600, (id, length)
             result['items'][id] = {'file': target.name, 'grip': grip, 'tip_top': tip_top, 'tip_bottom': tip_bottom, 'length': length, 'source': source_key, 'rect': rect, 'size': list(crop.size), 'sha256': sha(target)}
             if id == 'spear_tonbokiri':
                 result['items'][id].update({'world_length': 223.7, 'proportions_design_cm': {'shaft': 180, 'blade': 43.7, 'width': 3.7}, 'proportions_source': 'https://zh.wikipedia.org/zh-tw/蜻蛉切'})
+    # Optional data-driven single-image additions; legacy atlas cuts stay stable.
+    additions_path = OUT / 'expansion-registration-spec.json'
+    additions = json.loads(additions_path.read_text(encoding='utf-8')) if additions_path.exists() else {}
+    for id, spec in additions.items():
+        source = OUT / spec['source']
+        image = Image.open(source)
+        assert image.mode == 'RGBA'
+        result['sources'][id] = {'file': spec['source'], 'sha256': sha(source), 'size': list(image.size)}
+        bounds = image.getchannel('A').getbbox()
+        assert bounds
+        left, top, right, bottom = bounds
+        rect = [max(0,left-4), max(0,top-4), min(image.width,right+4), min(image.height,bottom+4)]
+        crop = image.crop(rect)
+        target = OUT / (id + '.png')
+        if not target.exists() or Image.open(target).tobytes() != crop.tobytes():
+            crop.save(target)
+        grip, tip_top, tip_bottom = anchors(crop.getchannel('A'),spec['grip_y']-rect[1])
+        result['items'][id] = {'file': target.name, 'grip': grip, 'tip_top': tip_top, 'tip_bottom': tip_bottom,
+            'length': tip_bottom[1]-tip_top[1], 'source': id, 'rect': rect, 'size': list(crop.size),
+            'sha256': sha(target), 'world_length':spec['world_length'], 'proportions_cm':spec['proportions_cm'],
+            'scale_note':spec['scale_note']}
+        for key in ['raw_source','alpha_processing','visual_differences']:
+            if key in spec: result['items'][id][key] = spec[key]
     (OUT / 'registration.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 def verify():
     data = json.loads((OUT / 'registration.json').read_text(encoding='utf-8'))
-    assert len(data['items']) == 15
+    catalog = (ROOT / 'game/core/weapon_catalog.gd').read_text(encoding='utf-8')
+    catalog_ids = set(re.findall(r'^\s*"([^"]+)":\{"name":', catalog, re.M))
+    assert set(data['items']) == catalog_ids, 'Registration must cover the catalog exactly'
     for source in data['sources'].values():
         assert sha(OUT / source['file']) == source['sha256']
     for id, item in data['items'].items():
@@ -77,7 +111,7 @@ def verify():
             x, y = item[field]
             assert 0 <= x < image.width and 0 <= y < image.height, (id, field)
             assert image.getpixel((x, y))[3] > 128, (id, field, 'anchor misses weapon')
-    print('WEAPONS V22 PASS: 15 native RGBA crops, source hashes, alpha identity, >=600px and on-weapon anchors')
+    print(f'WEAPONS V22 PASS: {len(data["items"])} native RGBA crops, exact catalog coverage, source hashes, alpha identity, >=600px and on-weapon anchors')
 
 if '--check' not in sys.argv:
     build()

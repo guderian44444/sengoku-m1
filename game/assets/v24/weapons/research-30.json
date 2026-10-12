@@ -1,0 +1,2834 @@
+{
+  "schema_version": "1.0",
+  "title": "吞食戰國：新增刀、槍、弓各10件製作研究清單",
+  "researched_at": "2026-10-12",
+  "language": "zh-Hant",
+  "scope": {
+    "operation": "add",
+    "count": 30,
+    "by_family": {
+      "sword": 10,
+      "spear": 10,
+      "bow": 10
+    },
+    "existing_count_from_brief": 18,
+    "projected_total_after_implementation": 48,
+    "projected_total_is_not_verified_repo_count": true,
+    "excludes_existing_approved_three": [
+      "sword_kanesada_mino",
+      "spear_fukuro_yari",
+      "bow_awase_yumi"
+    ]
+  },
+  "selection_contract": [
+    "主列表採新增30件；沒有改寫現有18件。刀中短刀/脇指僅列備選，不計數。",
+    "不保證每件是完全互斥武器種類；具名實物、特定槍穗子型及弓的工藝配置均為不同可製作項目。",
+    "弓10件明示復原；其中4件是結構方案、6件依中世館藏卷束工藝。不可宣稱十把傳世名弓或十種互斥結構。",
+    "資料來源分級：國公立館藏／文化財登錄；持有館的自藏品目錄；有條件傳稱。未鑑定收藏不可改寫為國寶或已鑑定。",
+    "圖像引用欄是照片參考入口，不等於取得素材授權；目前照片不可直接成為遊戲材質。",
+    "歷史描述與遊戲能力完全分開。所有速度、傷害、射程、硬直、穿透、連射或蓄力效果均為遊戲創作。",
+    "尺寸區分刀刃、茎、型錄長度、原裝總長；未知留null，不能把槍頭長當總長，不能把殘弓長當原弓全長。",
+    "原裝未核實的柄、鐔、鞘、石突、卷束位置或弓形曲線，須稱復原設計；不得用後世照片倒推戰國裝具。"
+  ],
+  "production_gates": [
+    {
+      "gate": "read_existing_art",
+      "requirement": "與既有18件及已校色的三人素材比對；此研究階段未能讀取舊repo或舊研究JSON。"
+    },
+    {
+      "gate": "bow_deduplication",
+      "requirement": "外竹/三枚打/四方竹/弓胎均屬合弓，與bow_awase_yumi有包含關係；須以材質接合、卷束節奏、握把與輪廓建立辨識，不只改色。"
+    },
+    {
+      "gate": "conditional_reference",
+      "requirement": "笹穗兼貞未取得可靠同件照片，可做明示文字導向復原，不能標精確實物複製。弓匂糸／二引重糸等單件近照與卷束位置亦未完全核定。"
+    },
+    {
+      "gate": "animations",
+      "requirement": "維持刀雙手握點、槍前後手與弓弦/箭/手一致；大包平、大兼光及御手杵特別檢查刃尖裁切與碰撞範圍。"
+    },
+    {
+      "gate": "source_qualifiers",
+      "requirement": "御手杵原物燒失；相良/印地定名帶推定；手違槍年代記載有差異。遊戲圖鑑必須保留這些限定。"
+    },
+    {
+      "gate": "no_palette_regression",
+      "requirement": "新增武器不可改動三人已批准的統一色盤。"
+    }
+  ],
+  "weapons": [
+    {
+      "id": "sword_mikazuki_munechika",
+      "family": "sword",
+      "name": "三日月宗近",
+      "native_name": "三日月宗近",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "平安時代，10–12世紀",
+        "sengoku_fit": "前代名刀延用；館方記高台院所持，非新製戰國刀。"
+      },
+      "history": [
+        "平安時代三條宗近的太刀，以刃文中的月牙形紋理得名，現藏東京國立博物館。",
+        "館方記錄曾為高台院所持；此處不引用未確證的足利義輝臨終持刀傳說。"
+      ],
+      "maker": "三條宗近",
+      "collection": "東京國立博物館 F-20103",
+      "source_urls": [
+        "https://emuseum.nich.go.jp/detail?content_base_id=100192&content_part_id=0&content_pict_id=0&langId=ja&webView=0"
+      ],
+      "reference_image": {
+        "landing_page": "https://emuseum.nich.go.jp/detail?content_base_id=100192&content_part_id=0&content_pict_id=0&langId=ja&webView=0",
+        "direct_url": "https://emuseum.nich.go.jp/iiif/?IIIF=/100192001001.tif/full/full/0/default.jpg",
+        "subject": "原刀身的館藏／文化財照片；刀裝年代須另核對",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質",
+        "iiif_manifest": "https://emuseum.nich.go.jp/iiifapi/100192000/manifest.json"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "東京國立博物館 F-20103",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": "https://emuseum.nich.go.jp/about?langId=ja"
+      },
+      "morphology": [
+        "纖長太刀輪廓，反曲集中在刀身下部，前段較直。",
+        "小鋒、明顯收尖，月牙狀刃文適合圖鑑近看；不要畫成沿刃貼滿發光新月圖案。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 80.0,
+        "curvature": 2.7,
+        "assembled_length": null,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸",
+        "scabbard_length": 85.3
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 1.143,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "長距離均衡斬擊",
+        "multipliers_vs_family_baseline": {
+          "damage": 1.02,
+          "reach": 1.12,
+          "recovery_time": 1.06,
+          "stagger": 0.97
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "平安時代三條宗近的太刀，以刃文中的月牙形紋理得名，現藏東京國立博物館。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "not_established_unless_noted",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "與既有18件沒有同一器物重複；同流派／同類型不代表相同武器。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "sword_okanehira",
+      "family": "sword",
+      "name": "大包平",
+      "native_name": "大包平",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "平安時代，12世紀",
+        "sengoku_fit": "前代名刀延用；不將後世名物排序當戰國戰力史料。"
+      },
+      "history": [
+        "古備前包平製作的長大太刀，寬闊刀身、較短的豬首鋒與深腰反形成厚實輪廓。",
+        "池田家傳來；現存寬棒樋是重要辨識點。"
+      ],
+      "maker": "古備前包平",
+      "collection": "東京國立博物館 F-19932",
+      "source_urls": [
+        "https://emuseum.nich.go.jp/detail?content_base_id=100187&content_part_id=0&content_pict_id=0&langId=ja&webView=0",
+        "https://kunishitei.bunka.go.jp/heritage/detail/201/297"
+      ],
+      "reference_image": {
+        "landing_page": "https://emuseum.nich.go.jp/detail?content_base_id=100187&content_part_id=0&content_pict_id=0&langId=ja&webView=0",
+        "direct_url": "https://emuseum.nich.go.jp/iiif/?IIIF=/100187001001.tif/full/full/0/default.jpg",
+        "subject": "原刀身的館藏／文化財照片；刀裝年代須另核對",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質",
+        "iiif_manifest": "https://emuseum.nich.go.jp/iiifapi/100187000/manifest.json"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "東京國立博物館 F-19932",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": "https://emuseum.nich.go.jp/about?langId=ja"
+      },
+      "morphology": [
+        "比本批其他長刀更長、基部更寬。",
+        "高腰反與豬首鋒；兩面寬棒樋。",
+        "大包平不是3米祭祀大太刀，不應任意誇張成巨型門板。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 89.2,
+        "curvature": 3.5,
+        "assembled_length": null,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸",
+        "base_width": 3.7,
+        "tip_width": 2.5,
+        "kissaki_length": 3.7,
+        "measurement_note": "e國寶反3.5cm，文化廳登錄反3.4cm；保留差值，不假稱單一精度。"
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 1.274,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "frame_warning": "刀尖最長，斜劈與轉身幀尤其要检查畫格邊界，不能截刃。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "高延伸重斬，收招較慢",
+        "multipliers_vs_family_baseline": {
+          "damage": 1.15,
+          "reach": 1.22,
+          "recovery_time": 1.18,
+          "stagger": 1.12
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "古備前包平製作的長大太刀，寬闊刀身、較短的豬首鋒與深腰反形成厚實輪廓。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "not_established_unless_noted",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "與既有18件沒有同一器物重複；同流派／同類型不代表相同武器。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "sword_shishio",
+      "family": "sword",
+      "name": "獅子王",
+      "native_name": "獅子王",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "平安時代，12世紀",
+        "mount": "鎌倉時代，13–14世紀",
+        "sengoku_fit": "古式實戰黑漆太刀方案；神怪故事標為傳說。"
+      },
+      "history": [
+        "獅子王的細身古式太刀配黑漆刀裝，鞘上青絲渡卷具有清楚的視覺辨識度。",
+        "源賴政退鵺的說法屬傳說；刀身與刀裝各有不同製作年代。"
+      ],
+      "maker": "無銘，館方推定大和作",
+      "collection": "東京國立博物館",
+      "source_urls": [
+        "https://emuseum.nich.go.jp/detail?content_base_id=100467&content_part_id=0&content_pict_id=0&langId=ja&webView=0"
+      ],
+      "reference_image": {
+        "landing_page": "https://emuseum.nich.go.jp/detail?content_base_id=100467&content_part_id=1&content_pict_id=0&langId=ja&webView=0",
+        "direct_url": "https://emuseum.nich.go.jp/iiif/?IIIF=/100467002001.tif/full/full/0/default.jpg",
+        "subject": "原刀身的館藏／文化財照片；刀裝年代須另核對",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質",
+        "iiif_manifest": "https://emuseum.nich.go.jp/iiifapi/100467001/manifest.json"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "東京國立博物館",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": "https://emuseum.nich.go.jp/about?langId=ja"
+      },
+      "morphology": [
+        "細身、高腰反，前段略向下伏。",
+        "鎬高，直刃。",
+        "柄、鞘與金具以黑漆為主，青絲渡卷；不要憑名稱加入獅頭刀鍔。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 77.3,
+        "curvature": 2.7,
+        "assembled_length": 102.0,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸"
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 1.104,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "中長距離靈活連斬",
+        "multipliers_vs_family_baseline": {
+          "damage": 0.97,
+          "reach": 1.1,
+          "recovery_time": 0.96,
+          "stagger": 0.91
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "獅子王的細身古式太刀配黑漆刀裝，鞘上青絲渡卷具有清楚的視覺辨識度。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "現存刀裝有13–14世紀館方定年，可依古式延用；未證明每一裝配細節一直未變。",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "與既有18件沒有同一器物重複；同流派／同類型不代表相同武器。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [
+        {
+          "field": "reference_image.direct_url",
+          "old": "https://emuseum.nich.go.jp/iiif/?IIIF=/100467001001.tif/full/full/0/default.jpg",
+          "correct": "https://emuseum.nich.go.jp/iiif/?IIIF=/100467002001.tif/full/full/0/default.jpg",
+          "reason": "已實看：001001是刀鐔與切羽，002001才是刀身；003002是完整鞘裝。柄實見黑漆鮫肌與一枚圓形目貫，青絲渡卷主要在鞘，不應誤移至柄。"
+        }
+      ],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "sword_kanze_masamune",
+      "family": "sword",
+      "name": "觀世正宗",
+      "native_name": "観世正宗",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "鎌倉時代，14世紀",
+        "sengoku_fit": "前代刀身延用；家康相關傳來為館方轉述江戶刀書，不等於當時持用證據。"
+      },
+      "history": [
+        "觀世正宗是鎌倉末期相州刀的名品，刀身偏窄，地鐵與沸的細緻光澤是重點。",
+        "現狀經磨上而縮短；茎上殘留的梵字不應全部搬到露在柄外的刀刃上。"
+      ],
+      "maker": "相州正宗",
+      "collection": "東京國立博物館 F-19916",
+      "source_urls": [
+        "https://emuseum.nich.go.jp/detail?content_base_id=100185&content_part_id=0&content_pict_id=0&langId=ja&webView=0"
+      ],
+      "reference_image": {
+        "landing_page": "https://emuseum.nich.go.jp/detail?content_base_id=100185&content_part_id=0&content_pict_id=0&langId=ja&webView=0",
+        "direct_url": "https://emuseum.nich.go.jp/iiif/?IIIF=/100185001001.tif/full/full/0/default.jpg",
+        "subject": "原刀身的館藏／文化財照片；刀裝年代須另核對",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "東京國立博物館 F-19916",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": "https://emuseum.nich.go.jp/about?langId=ja"
+      },
+      "morphology": [
+        "本批較短、身幅較窄的長刀，仍不是短刀。",
+        "素淨輪廓配微細鋼紋；圖鑑可呈現沸點，戰鬥小圖不要加入大型魔法粒子。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 64.4,
+        "curvature": null,
+        "assembled_length": null,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸"
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 0.92,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "frame_warning": "保留較短刀刃，不可為統一畫格把刃長拉成89cm；兩手握柄可復原調整，但不得聲稱是現存原柄。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "近中距離快速反擊",
+        "multipliers_vs_family_baseline": {
+          "damage": 1.02,
+          "reach": 0.92,
+          "recovery_time": 0.89,
+          "stagger": 0.88
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "觀世正宗是鎌倉末期相州刀的名品，刀身偏窄，地鐵與沸的細緻光澤是重點。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "not_established_unless_noted",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "與既有18件沒有同一器物重複；同流派／同類型不代表相同武器。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [
+        {
+          "field": "reference_image.direct_url",
+          "correct": "https://emuseum.nich.go.jp/iiif/?IIIF=/100185001001.tif/full/full/0/default.jpg",
+          "reason": "由館方IIIF manifest核出，已實看刀身有雙線樋區；茎上梵字不外移。"
+        }
+      ],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "sword_yamanbagiri_kunihiro",
+      "family": "sword",
+      "name": "山姥切國廣",
+      "native_name": "山姥切国広",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "安土桃山時代，天正18年（1590）2月",
+        "sengoku_fit": "直接戰國末期有紀年作品。"
+      },
+      "history": [
+        "1590年為長尾顯長作的國廣刀，傳以本作長義為範本，豪壯刀姿及複雜刃文最具特色。",
+        "名稱附帶山姥傳說；圖鑑不得把斬妖或角色化設定當史實。"
+      ],
+      "maker": "國廣",
+      "collection": "公益財團法人足利市民文化財團",
+      "source_urls": [
+        "https://www.city.ashikaga.tochigi.jp/category/000000/p006371.html",
+        "https://www.city.ashikaga.tochigi.jp/category/000000/p005050.html",
+        "https://jpsearch.go.jp/item/SHUGYOKU2-KKmYsjqQ_001204"
+      ],
+      "reference_image": {
+        "landing_page": "https://www.city.ashikaga.tochigi.jp/category/000000/p006371.html",
+        "direct_url": "https://www.city.ashikaga.tochigi.jp/manage/contents/upload/675aafac472dc.png",
+        "subject": "原刀身的館藏／文化財照片；刀裝年代須另核對",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "公益財團法人足利市民文化財團",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": null
+      },
+      "morphology": [
+        "身幅較寬、鋒部有分量，明顯有反曲。",
+        "多種燒刃交錯，尖返帽子；與孫六的三本杉節奏不同。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 70.6,
+        "curvature": 2.75,
+        "assembled_length": null,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸"
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 1.009,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "均衡破防主力",
+        "multipliers_vs_family_baseline": {
+          "damage": 1.08,
+          "reach": 1.01,
+          "recovery_time": 1.03,
+          "stagger": 1.1
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "1590年為長尾顯長作的國廣刀，傳以本作長義為範本，豪壯刀姿及複雜刃文最具特色。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "not_established_unless_noted",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "與既有18件沒有同一器物重複；同流派／同類型不代表相同武器。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [
+        {
+          "field": "morphology",
+          "correct": "官方SAMPLE刀身照片可見刀身近棟有長樋；生成有單樋，未複製照片或水印。"
+        }
+      ],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "sword_himetsuru_ichimonji",
+      "family": "sword",
+      "name": "姬鶴一文字",
+      "native_name": "姫鶴一文字",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "鎌倉時代中期；館方說明",
+        "mount": "黑漆合口打刀拵；館方與上杉家相關描述，獨立製作年份未確認",
+        "sengoku_fit": "上杉家三十五腰名刀之一；現存刀裝作古式參考，未核定年代部分明示復原。"
+      },
+      "history": [
+        "姬鶴一文字是上杉家傳來的太刀，華麗丁子刃與無刀鐔的合口式黑漆刀裝可與普通打刀區分。",
+        "館方將其列入景勝挑選的三十五腰；夢中女子求勿磨刀的故事不作史實敘述。"
+      ],
+      "maker": "福岡一文字派，銘「一」",
+      "collection": "米澤市上杉博物館 A1997-008",
+      "source_urls": [
+        "https://www.denkoku-no-mori.yonezawa.yamagata.jp/togodb/capt.php?ID=17039",
+        "https://www.denkoku-no-mori.yonezawa.yamagata.jp/pdf/nenpo/nenpo24.pdf",
+        "https://www.denkoku-no-mori.yonezawa.yamagata.jp/108kousitu.htm"
+      ],
+      "reference_image": {
+        "landing_page": "https://www.denkoku-no-mori.yonezawa.yamagata.jp/togodb/capt.php?ID=17039",
+        "direct_url": "https://www.denkoku-no-mori.yonezawa.yamagata.jp/image/108kousitu/hime.jpg",
+        "subject": "原刀身的館藏／文化財照片；刀裝年代須另核對",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質",
+        "mount_image_url": "https://www.denkoku-no-mori.yonezawa.yamagata.jp/image/108kousitu/hime-kosi.jpg"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "米澤市上杉博物館 A1997-008",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": null
+      },
+      "morphology": [
+        "中等刃長，丁子亂中高低錯落。",
+        "黑漆合口拵沒有突出刀鐔，柄以藍革平卷；這是核心輪廓差異，不只是顏色。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 71.5,
+        "curvature": 2.0,
+        "assembled_length": null,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸",
+        "measurement_note": "本欄依博物館年報24的71.5cm/2.0cm。館藏資料庫另顯示長71.8且時代欄室町，但正文說鎌倉中期；此欄位衝突須保留，不能默默混合。"
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 1.021,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "frame_warning": "無鐔外形仍须在相同柄部握點上定位，不得讓手掌滑到刃口。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "精準連段與較小視覺負擔",
+        "multipliers_vs_family_baseline": {
+          "damage": 1.05,
+          "reach": 1.02,
+          "recovery_time": 1.0,
+          "stagger": 0.96
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "姬鶴一文字是上杉家傳來的太刀，華麗丁子刃與無刀鐔的合口式黑漆刀裝可與普通打刀區分。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "not_established_unless_noted",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "與既有18件沒有同一器物重複；同流派／同類型不代表相同武器。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "sword_magoroku_kanemoto",
+      "family": "sword",
+      "name": "孫六兼元",
+      "native_name": "刀 銘 兼元（孫六兼元）",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "室町時代，館方歸孫六兼元；16世紀",
+        "sengoku_fit": "戰國期美濃刀；不與既有美濃兼定混為同匠。"
+      },
+      "history": [
+        "孫六兼元的美濃刀，以成群尖互之目構成的三本杉刃文辨認，與兼定為不同刀工。",
+        "本件曾磨上，略延伸的中鋒與淺反適合呈現緊湊刀姿。"
+      ],
+      "maker": "孫六兼元",
+      "collection": "岐阜縣博物館 資料ID1686",
+      "source_urls": [
+        "https://jmapps.ne.jp/gifuhaku/det.html?data_id=1686"
+      ],
+      "reference_image": {
+        "landing_page": "https://jmapps.ne.jp/gifuhaku/det.html?data_id=1686",
+        "direct_url": null,
+        "subject": "原刀身的館藏／文化財照片；刀裝年代須另核對",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質",
+        "access_note": "製作時館方同件照片端點回傳error 3，未宣稱已實看該件官照；以館方文字形制為依據。"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "岐阜縣博物館 資料ID1686",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": null
+      },
+      "morphology": [
+        "鎬造、庵棟，淺反；中鋒略長且鋒腹較收斂。",
+        "三本杉須有大小與圓尖變化，不能畫成完全等距的鋸齒。",
+        "館方亦提及兼房丁子交雜，刃文不是純粹機械三角形。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 69.7,
+        "curvature": 1.36,
+        "assembled_length": null,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸"
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 0.996,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "緊湊攻勢連斬",
+        "multipliers_vs_family_baseline": {
+          "damage": 0.99,
+          "reach": 1.0,
+          "recovery_time": 0.91,
+          "stagger": 0.95
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "孫六兼元的美濃刀，以成群尖互之目構成的三本杉刃文辨認，與兼定為不同刀工。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "not_established_unless_noted",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "既有sword_kanesada_mino是兼定；本件兼元的刃文與淺反需另做，不可替舊刀換名。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [
+        {
+          "field": "reference_image.access_note",
+          "result": "2026-10-12以館方頁列出pict data_id=5685及Referer讀取仍回error 3；不將其他刀照片代作此件。"
+        }
+      ],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "sword_odenta_mitsuyo",
+      "family": "sword",
+      "name": "大典太光世",
+      "native_name": "大典太光世（名物大典太）",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "平安時代；館方提作者約11世紀後期活動",
+        "sengoku_fit": "前代傳世名刀；豐臣到前田相關細節有不同傳承。"
+      },
+      "history": [
+        "大典太以偏短卻寬闊的太刀身、豬首鋒與寬淺棒樋形成厚實輪廓，為前田家傳世名刀。",
+        "治病與退邪是刀書傳說，不能作為真實醫療效果或史實能力。"
+      ],
+      "maker": "光世",
+      "collection": "公益財團法人前田育德會",
+      "source_urls": [
+        "https://www.ishibi.pref.ishikawa.jp/exhibition/exhibition-16305/",
+        "https://kunishitei.bunka.go.jp/heritage/detail/201/501",
+        "https://www.ishibi.pref.ishikawa.jp/wp-content/upload/2024/02/485.pdf"
+      ],
+      "reference_image": {
+        "landing_page": "https://www.ishibi.pref.ishikawa.jp/wp-content/upload/2024/02/485.pdf",
+        "direct_url": null,
+        "subject": "石川縣立美術館館刊485號封面原刀照片",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "公益財團法人前田育德會",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": null
+      },
+      "morphology": [
+        "寬身薄重，短豬首鋒，高腰反且踏張明顯。",
+        "兩面寬而淺的棒樋，表側加添樋；不要把它畫成細長的三日月同模。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 66.0,
+        "curvature": 2.7,
+        "assembled_length": null,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸",
+        "measurement_note": "採文化廳登錄身長66.0cm。常見二手資料66.1cm不混用。"
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 0.943,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "短距離壓制與高硬直",
+        "multipliers_vs_family_baseline": {
+          "damage": 1.1,
+          "reach": 0.94,
+          "recovery_time": 1.11,
+          "stagger": 1.2
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "大典太以偏短卻寬闊的太刀身、豬首鋒與寬淺棒樋形成厚實輪廓，為前田家傳世名刀。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "not_established_unless_noted",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "與既有18件沒有同一器物重複；同流派／同類型不代表相同武器。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "sword_kosetsu_samonji",
+      "family": "sword",
+      "name": "江雪左文字",
+      "native_name": "江雪左文字",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "南北朝時代，14世紀",
+        "mount": "附黑漆研出鮫鞘打刀拵；未獨立確認現存刀裝年份",
+        "sengoku_fit": "板部岡江雪齋、德川家康等傳來名刀；不是既有宗三左文字。"
+      },
+      "history": [
+        "江雪左文字是南北朝時代左文字的太刀，長刀身與起伏刃文可作大弧斬擊造型。",
+        "館藏傳來連結板部岡江雪齋與德川家；同門名稱不表示與宗三是同一把。"
+      ],
+      "maker": "左，銘「筑州住左」",
+      "collection": "福山市，福山美術館小松安弘收藏",
+      "source_urls": [
+        "https://fukubun.net/collection/479",
+        "https://www.city.fukuyama.hiroshima.jp/uploaded/attachment/149761.pdf",
+        "https://www.city.fukuyama.hiroshima.jp/uploaded/attachment/267744.pdf"
+      ],
+      "reference_image": {
+        "landing_page": "https://fukubun.net/collection/479",
+        "direct_url": null,
+        "subject": "原刀身的館藏／文化財照片；刀裝年代須另核對",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質",
+        "source_page_image_urls": [],
+        "access_note": "已更正：原S3列表混有短刀與建築，全部移除；實看官方館藏目錄No.149第1頁具江雪左文字圖說的刀身。",
+        "verified_visual_reference": "https://www.city.fukuyama.hiroshima.jp/uploaded/attachment/149761.pdf"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "福山市，福山美術館小松安弘收藏",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": null
+      },
+      "morphology": [
+        "鎬造、丸棟，板目地肌。",
+        "灣刃帶小互之目，細足、砂流與金筋只在圖鑑放大呈現。",
+        "黑漆研出鮫鞘的質感可用於圖鑑刀裝參考，實戰柄裝另標復原。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 78.2,
+        "curvature": 2.7,
+        "assembled_length": null,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸",
+        "tang_length": 21.7
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 1.117,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "中長距離穩定橫掃",
+        "multipliers_vs_family_baseline": {
+          "damage": 1.06,
+          "reach": 1.12,
+          "recovery_time": 1.06,
+          "stagger": 1.05
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "江雪左文字是南北朝時代左文字的太刀，長刀身與起伏刃文可作大弧斬擊造型。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "not_established_unless_noted",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "既有宗三左文字為不同作品；刃長、反曲、刃文、刀裝須單獨做。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [
+        {
+          "field": "reference_image.source_page_image_urls",
+          "correct": "https://www.city.fukuyama.hiroshima.jp/uploaded/attachment/149761.pdf",
+          "reason": "原manifest列出的S3圖片實看混有短刀和建築，不能認定為江雪。改以官方館藏目錄No.149第1頁具江雪左文字圖說的長刀照片觀察。舊S3 URL均未作刀身依據。"
+        }
+      ],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "sword_okanemitsu",
+      "family": "sword",
+      "name": "大兼光",
+      "native_name": "大兼光",
+      "subtype": "太刀或刀；非短刀",
+      "era": {
+        "blade": "南北朝時代，14世紀",
+        "sengoku_fit": "曾為秀吉遺物；現存刀身有後世磨上與金象嵌，不能把現形全部說成14世紀初始狀態。"
+      },
+      "history": [
+        "大兼光原是更長大的南北朝太刀，現存83.5公分刃長仍顯豪壯，長鋒與平緩灣刃是辨識重點。",
+        "館方推測原刃長超過一公尺；現存金象嵌為後世鑑定銘，不放在戰國刀的露刃上。"
+      ],
+      "maker": "備前長船兼光",
+      "collection": "佐野美術館",
+      "source_urls": [
+        "https://sanobi.or.jp/about/japanese_sword/",
+        "https://www.city.mishima.shizuoka.jp/page/29711.html",
+        "https://sanobi.or.jp/exhibition/sword_2022/"
+      ],
+      "reference_image": {
+        "landing_page": "https://sanobi.or.jp/about/japanese_sword/",
+        "direct_url": "https://sanobi.or.jp/snwp/wp-content/uploads/2025/03/cl-03.jpg",
+        "subject": "原刀身的館藏／文化財照片；刀裝年代須另核對",
+        "use": "形制觀察參考，不把原照片打包成遊戲材質"
+      },
+      "rights": {
+        "status": "reference_only_not_licensed_for_redistribution",
+        "copyright_holder": "佐野美術館",
+        "permitted_workflow": "依公開史實與器物形制獨立繪製原創像素美術；不要描摹或裁切貼用館方照片。未取得照片重製授權。",
+        "terms_url": "https://sanobi.or.jp/policy/"
+      },
+      "morphology": [
+        "長大鎬造，鋒部延長，較平緩的反曲。",
+        "平靜流動的灣刃，與大包平的深腰反、短豬首鋒區別。"
+      ],
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length": 83.5,
+        "curvature": 2.3,
+        "assembled_length": null,
+        "handle_length": null,
+        "mass_kg": null,
+        "basis": "館方／文化財登錄的現存尺寸；不是戰國時期未磨上前尺寸"
+      },
+      "game_adaptation": {
+        "hand_pose_compatibility": "可採既有雙手刀握點；實際兩手距離仍須用原角色動畫逐幀比對",
+        "handle_design": "未有同時代刀裝證據時，使用素鐵鐔、木柄包革／纏絲的戰國式創作刀裝，標明為遊戲復原設計。保持既有雙手握點，不把現存白鞘當戰鬥刀裝。",
+        "silhouette_rule": "先呈現刃長、身幅、反曲位置、鋒長及樋差異，不能只改柄色。",
+        "blade_scale_against_70cm": 1.193,
+        "collision_rule": "判定依遊戲內實際刃段及既有動作路徑校正；下列reach僅平衡提案，不是實測殺傷距離。",
+        "palette_rule": "只改武器本體。不得為此改角色、臉、服飾或動作的已核准色盤。",
+        "frame_warning": "以現存形狀作遊戲原型，不擅自補畫未見原始一公尺版本；長鋒在斬击幀不可被裁掉。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "game_balance": {
+        "is_historical_fact": false,
+        "role": "蓄力長斬與範圍優勢",
+        "multipliers_vs_family_baseline": {
+          "damage": 1.18,
+          "reach": 1.18,
+          "recovery_time": 1.2,
+          "stagger": 1.15
+        },
+        "disclaimer": "全部能力及倍率均為遊戲平衡提案；古董年代、價格、名氣及傳說不證明實際攻防強度。"
+      },
+      "catalog_intro": "大兼光原是更長大的南北朝太刀，現存83.5公分刃長仍顯豪壯，長鋒與平緩灣刃是辨識重點。",
+      "status": "original_game_art_integrated",
+      "confidence": {
+        "identity_and_period": "high",
+        "exact_sengoku_mount": "not_established_unless_noted",
+        "combat_performance": "fictional"
+      },
+      "overlap_note": "與既有18件沒有同一器物重複；同流派／同類型不代表相同武器。",
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "spear_otegine",
+      "family": "spear",
+      "name": "御手杵（復原）",
+      "era": {
+        "label": "室町末期／戰國時代，原物已燒失",
+        "exact_year": null,
+        "confidence": "high_for_period; reconstructed_visual"
+      },
+      "history": {
+        "documented": "結城市資料記錄結城晴朝命島田刀工五條義助製作；後傳結城秀康及松平大和守家。原物於東京大空襲燒失，結城蔵美館現展示現代復元品。",
+        "traditional": null,
+        "uncertainties": [
+          "現代復元品不能直接等同戰國原裝。",
+          "來源對含拵總長有約4.2m與約3.8m兩種說法，故總長不硬填。"
+        ]
+      },
+      "source_urls": [
+        "https://www.city.yuki.lg.jp/data/doc/1713334887_doc_181_0.pdf",
+        "https://www.meihaku.jp/replica-tenga-sanmeisou/otegine/",
+        "https://www.meihaku.jp/history-recommend/toukenranbu-museum-ibaraki/"
+      ],
+      "source_notes": [
+        {
+          "url": "https://www.city.yuki.lg.jp/data/doc/1713334887_doc_181_0.pdf",
+          "supports": "結城市2024市勢要覽頁30–31：原物／復元區別、約138cm原物刃長、約139.4cm復元刃長。"
+        },
+        {
+          "url": "https://www.meihaku.jp/replica-tenga-sanmeisou/otegine/",
+          "supports": "博物館復元工程說明三角斷面與三面樋；只作結構參照，不採製作步驟。"
+        }
+      ],
+      "reference_image": {
+        "url": "https://www.city.yuki.lg.jp/data/doc/1713334887_doc_181_0.pdf",
+        "type": "official_pdf_with_replica_photographs",
+        "subject": "結城蔵美館御手杵復元品及復元槍鞘",
+        "is_original_historical_object": false,
+        "original_object_date": "戰國",
+        "depicted_object_date": "2002年復元；槍鞘亦為復元",
+        "use_limit": "僅參考三角穗、長樋及體量；不可用現代鞘或復元件尺寸倒推原裝。",
+        "visually_checked": true
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "極長大身直槍；斷面正三角，三面有長樋。",
+        "recognition_features": [
+          "針狀而長的三稜槍刃",
+          "三面深長溝槽",
+          "無側鎌"
+        ],
+        "distinct_from_existing": "不同於蜻蛉切的葉形寬穗，也不同於日本號的寬大雕刻刃；以三稜細長穗辨識，不能只更換柄色。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": 138.0,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "reported_overall_lengths_cm": [
+          420.0,
+          380.0
+        ],
+        "measurement_note": "138為結城市記載燒失前原物的約數；同頁復元槍先139.4，不以之取代原物。兩來源總長不一致，overall_length_cm=null。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "極細長的三稜刺尖＋清晰中脊，縮圖仍保留長刃比例。",
+        "shaft": "原裝柄長未確定；採既有槍動畫尺寸時標作遊戲縮尺。",
+        "do_not": [
+          "不要把巨大杵形槍鞘畫成戰鬥中的槍刃",
+          "不要沿用日本號雕龍或蜻蛉切梵字裝飾"
+        ],
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。",
+          "extra_check": "原件刃長約138cm僅作比例依據；為共用動畫縮尺時清楚列為遊戲適配，不能把影像中的巨大鞘裝上戰鬥槍尖。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "長距離蓄力刺擊；出手與收招較慢",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "結城市資料記錄結城晴朝命島田刀工五條義助製作；後傳結城秀康及松平大和守家。原物於東京大空襲燒失，結城蔵美館現展示現代復元品。",
+      "game_balance": {
+        "fictional": true,
+        "role": "長距離蓄力刺擊；出手與收招較慢",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "spear_omi_sukesada_1504",
+      "family": "spear",
+      "name": "大身槍・長船祐定",
+      "era": {
+        "label": "室町，永正元年（1504）",
+        "exact_year": 1504,
+        "confidence": "high"
+      },
+      "history": {
+        "documented": "東京國立博物館藏F-15922，銘備州長船祐定／永正元年三月日；館方描述其刃身超過70cm，丁子亂刃文。",
+        "traditional": "傳加藤清正所用，瑤林院嫁入紀州德川家時攜入。",
+        "uncertainties": [
+          "本次公開館藏頁未列精確刃長及原裝柄長。",
+          "清正所用依館方傳來說，並非銘文本身直接證明。"
+        ]
+      },
+      "source_urls": [
+        "https://online.bunka.go.jp/heritages/detail/553506",
+        "https://colbase.nich.go.jp/collection_items/tnm/F-15922?locale=ja",
+        "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=5684&lang=ja"
+      ],
+      "source_notes": [],
+      "reference_image": {
+        "url": "https://online.bunka.go.jp/heritage/131010/_478276/131010_478276914748374506240_900.jpg",
+        "page_url": "https://online.bunka.go.jp/heritages/detail/553506",
+        "type": "museum_object_photograph",
+        "is_original_historical_object": true,
+        "depicted_object_date": "1504",
+        "use_limit": "照片依館藏页抽取，仅參考重新繪製；本次未把照片直接做遊戲素材。"
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "超70cm長大的直槍刃，無側枝，丁子亂刃文。",
+        "recognition_features": [
+          "拉長的剣形金屬槍穗",
+          "刃部佔全件視覺比重明显增加",
+          "丁子狀淬火紋可作近看細節"
+        ],
+        "distinct_from_existing": "屬直槍的大身名品變體，不是全新槍種；相對既有普通直槍增加刃長比例，相對日本號不加入其特定雕刻。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": null,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "blade_length_lower_bound_cm": 70.0,
+        "lower_bound_operator": ">",
+        "measurement_note": "來源僅說70cm以上；blade_length_cm保留null，不把網路其他大身槍尺寸混入。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "無鎌的長剣形穗；細節以祐定館藏照片確認後繪製，不能把任一大身槍換名。",
+        "shaft": "本次未確認戰國原裝拵，柄採低裝飾的遊戲適配並標作創作。",
+        "review_gate": "產圖前核對館藏四張照片；不要求等待精確柄長才能做非等比例遊戲版本。",
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "中長距離連段與重刺兼用",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "東京國立博物館藏F-15922，銘備州長船祐定／永正元年三月日；館方描述其刃身超過70cm，丁子亂刃文。",
+      "game_balance": {
+        "fictional": true,
+        "role": "中長距離連段與重刺兼用",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "spear_sasaho_kanesada",
+      "family": "spear",
+      "name": "笹穗槍・兼貞型（復原）",
+      "era": {
+        "label": "室町至安土桃山，16世紀",
+        "exact_year": null,
+        "confidence": "high"
+      },
+      "history": {
+        "documented": "東京國立博物館F-20253，關兼貞作。國立文化財機構年報記錄平三角造、穗身較長而先部展寬，平面有太樋，茎有兩目釘孔；刃長32.5cm。",
+        "traditional": null,
+        "uncertainties": [
+          "文化遺產頁目前沒有可用的同件主圖，本次未取得已核對的原物照片。",
+          "原装柄、鞘的年代與尺寸不明。"
+        ]
+      },
+      "source_urls": [
+        "https://online.bunka.go.jp/db/heritages/detail/552570",
+        "https://www.nich.go.jp/wp-content/uploads/2017/01/nenpo2015_8-1.pdf",
+        "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=4942&lang=ja",
+        "https://colbase.nich.go.jp/collection_items/tnm/F-20253?locale=ja"
+      ],
+      "source_notes": [],
+      "reference_image": {
+        "url": null,
+        "page_url": "https://colbase.nich.go.jp/collection_items/tnm/F-20253?locale=ja",
+        "type": "exact_object_photo_not_verified",
+        "is_original_historical_object": null,
+        "use_limit": "先以官方形制文字建草案；精確復刻或宣稱館藏外觀一致之前補齊同件照片。勿拿蜻蛉切照片當本件。"
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "笹葉形、平三角斷面的槍穗；先部展寬，平面一條太樋。",
+        "recognition_features": [
+          "短於蜻蛉切的32.5cm穗",
+          "先段略展寬的葉狀輪廓",
+          "單面寬溝槽與平三角明暗分面"
+        ],
+        "distinct_from_existing": "與蜻蛉切同屬笹穗系，但有獨立館藏身分、較短刃長、平三角與太樋細節；不複製蜻蛉切梵字、三鈷劍。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": 32.5,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "measurement_note": "國立文化財機構2015年報附屬統計表印刷頁12、項42。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "中短葉形穗，平面一條寬樋；先段略寬但避免誇成斧刃。",
+        "shaft": "原裝不詳，柄與石突均屬遊戲適配。",
+        "review_gate": "可做文字導向概念草圖；同件照片仍須補核，故不列為精確復刻ready。",
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "均衡型近中距離槍，低負擔連刺",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "東京國立博物館F-20253，關兼貞作。國立文化財機構年報記錄平三角造、穗身較長而先部展寬，平面有太樋，茎有兩目釘孔；刃長32.5cm。",
+      "game_balance": {
+        "fictional": true,
+        "role": "均衡型近中距離槍，低負擔連刺",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "conditional_reference_photo_missing"
+    },
+    {
+      "id": "spear_kikuchi_kunikiyo",
+      "family": "spear",
+      "name": "菊池千本槍・國清",
+      "era": {
+        "label": "南北朝系統的菊池千本槍；可作戰國沿用型",
+        "exact_year": null,
+        "confidence": "medium_high; origin_story_is_tradition"
+      },
+      "history": {
+        "documented": "菊池神社藏菊池市指定文化財，國清銘一口記刃長18.5cm、茎27cm。另有一口延壽國吉刃24cm，曾改裝短刀，本件不混用那口的尺寸。",
+        "traditional": "菊池武重於1335年箱根竹之下之戰以竹竿裝短刀的起源故事，地方文化財解說以傳說敘述。",
+        "uncertainties": [
+          "地方頁未獨立精確斷定國清這一口的製作年。",
+          "將該早期形制延用到戰國是遊戲情境，不是宣稱此件在特定戰國戰役出場。"
+        ]
+      },
+      "source_urls": [
+        "https://www.city.kikuchi.lg.jp/d?q=ee85710e9ea7f647aab7e8950018e9c5.pdf",
+        "https://adeac.jp/kikuchi-city/viewer/a00005/dc-a00005-3d-3/",
+        "https://kumamoto-city-museum.jp/download_file/view/2406/1744"
+      ],
+      "source_notes": [],
+      "reference_image": {
+        "url": "https://www.city.kikuchi.lg.jp/d?q=ee85710e9ea7f647aab7e8950018e9c5.pdf",
+        "type": "municipal_cultural_property_pdf",
+        "page_url": "https://adeac.jp/kikuchi-city/viewer/a00005/dc-a00005-3d-3/",
+        "is_original_historical_object": true,
+        "use_limit": "已核PDF整頁；使用下段長茎槍頭的輪廓，不能把上段國吉改短刀與後裝外裝拼進國清槍。",
+        "visually_checked": true,
+        "image_location": "PDF中央照片下段的長茎槍頭；上段有短茎短刀與外裝。下段長茎與國清27cm的記錄相符，圖說未逐件貼標，因此仍保留比對說明。"
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "短刀狀的片刃菊池槍系統，與雙刃對稱直槍不同。",
+        "recognition_features": [
+          "小型單刃短刀式穗",
+          "刃口與棟線不對稱",
+          "長茎藏於柄內，不作外露裝飾"
+        ],
+        "distinct_from_existing": "不是直槍換色；核心差異是片刃短刀狀槍穗。亦不與袋槍混同，國清口以長茎固定。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": 18.5,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "tang_length_cm": 27.0,
+        "measurement_note": "只記國清一口。未把18.5+27相加充作可靠總長，也未把另一件國吉改短刀24cm尺寸混入。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "以短而單刃的內收尖頭強調早期槍形；內反精度须依同件照片確認。",
+        "shaft": "木／竹柄形式屬依傳說與同型概念的遊戲重建；不宣稱現存原柄。",
+        "review_gate": "歷史文案使用「傳承／早期形制沿用」，不得寫成發明日本所有槍的確證。",
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "短刃快刺、機動入門槍",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "菊池神社藏菊池市指定文化財，國清銘一口記刃長18.5cm、茎27cm。另有一口延壽國吉刃24cm，曾改裝短刀，本件不混用那口的尺寸。",
+      "game_balance": {
+        "fictional": true,
+        "role": "短刃快刺、機動入門槍",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [
+        {
+          "kind": "built_in_imagegen_shape_edit",
+          "original_path": "/workspace/scratch/98b7ec868bfb/generated_images/exec-d6d6c77a-5070-40bf-a3cc-4b74b4cd9944.png",
+          "prompt": "Precise-object-edit of image1, the full vertically mounted GAME SPEAR. Image2 is historical research reference ONLY: look at the LOWER bare blade in its central photo, not the upper short knife and not the scabbard. Do NOT copy pixels or add the museum page; render original matching game art. Keep canvas1024x1536, x512 center, bottom y1510, style and all wood/iron materials. Correct ONLY the small head and adjoining top of the shaft. Current exposed blade is about170px high and is too large and convex. Replace with a SMALL 120px long blade from y30 to150, width22px. It is a single-edged narrow Kikuchi blade with nearly straight LEFT back and a very gently INWARD-curved RIGHT cutting edge, asymmetrical short tip at upper left. Not a double-edged leaf. Tang fully buried: no exposed tang length. The historic Kunikiyo blade is18.5cm,27cm tang INSIDE the pole. A short iron ferrule y150..190, then extend the existing straight wood shaft UP to190, retaining all shaft below y257 and complete butt. The bare wood shaft should be88percent of whole weapon. Blade must be shorter than previous version by one third. No text, scabbard, new decorations or background. Actual RGBA transparency, alpha0 outside hard contour, no haze or shadow.",
+          "reason": "Initial blade too long; shortened exposed blade. No alpha postprocessing."
+        }
+      ],
+      "original_research_status": "conditional_early_form_reuse"
+    },
+    {
+      "id": "spear_hirasankaku_hidesada",
+      "family": "spear",
+      "name": "平三角槍・英定",
+      "era": {
+        "label": "室町後期，永祿8年（1565）銘",
+        "exact_year": 1565,
+        "confidence": "medium_high; owner_catalogue_unappraised"
+      },
+      "history": {
+        "documented": "刀劍ワールド財團藏，銘常州高田住英定作／永祿八天乙丑九月日。館方記平三角槍、長さ28.0cm，太樋中有富士大權現銘。",
+        "traditional": "館方稱由佐竹家臣根本里行訂製。",
+        "uncertainties": [
+          "館藏標示未鑑定；未獨立核查訂製傳承。"
+        ]
+      },
+      "source_urls": [
+        "https://www.touken-world.jp/search/36882/",
+        "https://www.meihaku.jp/exhibit/possession/"
+      ],
+      "source_notes": [
+        {
+          "url": "https://www.touken-world.jp/search/36882/",
+          "supports": "持有者刀劍ワールド財團的物件照片、年代歸屬、尺寸；頁面鑑定區分為未鑑定，不能寫成國寶、重要文化財或NBTHK已鑑定。"
+        },
+        {
+          "url": "https://www.meihaku.jp/exhibit/possession/",
+          "supports": "名古屋刀劍博物館官方收蔵品入口；個別物件詳情由連結的刀劍ワールド頁提供。"
+        }
+      ],
+      "reference_image": {
+        "url": "https://www.touken-world.jp/wp/wp-content/uploads/2018/10/bb8291ba9749caabca85ee29e737369b.jpg?date=20181002",
+        "page_url": "https://www.touken-world.jp/search/36882/",
+        "type": "collection_owner_object_photograph",
+        "is_original_historical_object": true,
+        "depicted_object_date": "室町後期，永祿8年（1565）銘",
+        "visually_checked": true,
+        "use_limit": "本人藏品攝影僅供形制研究與重新繪製；不可直接成為遊戲材質。"
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "平三角截面的直槍，太樋與富士大權現銘。",
+        "recognition_features": [
+          "窄長、近直邊槍身",
+          "平面寬樋與神號小字",
+          "刃根有明顯收頸後向上展開的肩部"
+        ],
+        "distinct_from_existing": "有年銘的特定平三角名品，與普通直槍以斷面、樋、肩頸輪廓區分；不把祈願文字畫成發光魔法。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": null,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "catalogue_length_cm": 28.0,
+        "catalogue_curvature_cm": 0.0,
+        "measurement_note": "館藏詳情欄標示「長さ」而非整柄總長；此值保留為catalogue_length_cm，沒有原裝柄長、刃寬、重量數據。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "保持狹長直邊與收頸，側面用平三角切面區別笹葉型。",
+        "shaft": "柄的長度、漆色均為遊戲適配；現存刀身照片不證明原柄。",
+        "detail": "富士大權現僅作近景小字，縮圖不依賴文字來辨識。",
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "精準直刺，窄判定、高弱點回報",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "刀劍ワールド財團藏，銘常州高田住英定作／永祿八天乙丑九月日。館方記平三角槍、長さ28.0cm，太樋中有富士大權現銘。",
+      "game_balance": {
+        "fictional": true,
+        "role": "精準直刺，窄判定、高弱點回報",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "spear_gyukaku_jumonji",
+      "family": "spear",
+      "name": "牛角十文字槍",
+      "era": {
+        "label": "室町末期／末古刀",
+        "exact_year": null,
+        "confidence": "medium; owner_catalogue_unappraised"
+      },
+      "history": {
+        "documented": "刀劍ワールド財團藏無銘牛角十文字槍，館方歸於室町末期美濃關作，長さ20.6cm。兩側刃略彎成牛角形。",
+        "traditional": null,
+        "uncertainties": [
+          "無銘且頁面未鑑定，不能指定刀工或使用武將。",
+          "左右全寬未提供，不以圖片像素換算。"
+        ]
+      },
+      "source_urls": [
+        "https://www.touken-world.jp/search/45820/",
+        "https://www.meihaku.jp/exhibit/possession/"
+      ],
+      "source_notes": [
+        {
+          "url": "https://www.touken-world.jp/search/45820/",
+          "supports": "持有者刀劍ワールド財團的物件照片、年代歸屬、尺寸；頁面鑑定區分為未鑑定，不能寫成國寶、重要文化財或NBTHK已鑑定。"
+        },
+        {
+          "url": "https://www.meihaku.jp/exhibit/possession/",
+          "supports": "名古屋刀劍博物館官方收蔵品入口；個別物件詳情由連結的刀劍ワールド頁提供。"
+        }
+      ],
+      "reference_image": {
+        "url": "https://www.touken-world.jp/wp/wp-content/uploads/2020/05/15fb3d7b27f6ee6e638d3868b709ca0a.jpg?date=20181002",
+        "page_url": "https://www.touken-world.jp/search/45820/",
+        "type": "collection_owner_object_photograph",
+        "is_original_historical_object": true,
+        "depicted_object_date": "室町末期／末古刀",
+        "visually_checked": true,
+        "use_limit": "本人藏品攝影僅供形制研究與重新繪製；不可直接成為遊戲材質。"
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "中央短直穗＋左右外展、尖端微向前的牛角形側刃。",
+        "recognition_features": [
+          "兩條寬展彎角側刃",
+          "中央穗相對短",
+          "三處刃端皆有清晰尖點"
+        ],
+        "distinct_from_existing": "同屬十文字槍子型；必須重做曲面側枝、全寬與中心穗比例，不能把現有十文字槍換色。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": null,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "catalogue_length_cm": 20.6,
+        "catalogue_curvature_cm": 0.0,
+        "measurement_note": "館藏詳情欄標示「長さ」而非整柄總長；此值保留為catalogue_length_cm，沒有原裝柄長、刃寬、重量數據。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "形成橫寬的淺弧角輪廓；兩侧彎角必須同色剪影可讀。",
+        "shaft": "原裝柄不詳，沿用共用槍rig時保留側刃的有效辨識宽度。",
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。",
+          "extra_check": "為十文字側刃保留外展空間，但保持相同握點；如輪廓縮小後與既有十文字槍相同，退回重繪，不准以改色代替。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "橫向防守與小範圍牽制",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "刀劍ワールド財團藏無銘牛角十文字槍，館方歸於室町末期美濃關作，長さ20.6cm。兩側刃略彎成牛角形。",
+      "game_balance": {
+        "fictional": true,
+        "role": "橫向防守與小範圍牽制",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "spear_techigai_jumonji",
+      "family": "spear",
+      "name": "手違十文字槍",
+      "era": {
+        "label": "館藏欄列室町，正文列安土桃山；暫用16世紀末葉附近的寬期標籤",
+        "exact_year": null,
+        "confidence": "medium; period_conflict_in_source"
+      },
+      "history": {
+        "documented": "刀劍ワールド財團無銘手違十文字槍，長さ24.7cm。實物照片顯示中央直穗及左右直條式、末端斜切的側刃。",
+        "traditional": null,
+        "uncertainties": [
+          "同頁年代欄與正文互有室町／桃山落差，不自訂某年。",
+          "不得與San Antonio館藏45.7cm的同名多叉短兵器混為同一件；本件以45844照片為準。"
+        ]
+      },
+      "source_urls": [
+        "https://www.touken-world.jp/search/45844/",
+        "https://www.meihaku.jp/exhibit/possession/"
+      ],
+      "source_notes": [
+        {
+          "url": "https://www.touken-world.jp/search/45844/",
+          "supports": "持有者刀劍ワールド財團的物件照片、年代歸屬、尺寸；頁面鑑定區分為未鑑定，不能寫成國寶、重要文化財或NBTHK已鑑定。"
+        },
+        {
+          "url": "https://www.meihaku.jp/exhibit/possession/",
+          "supports": "名古屋刀劍博物館官方收蔵品入口；個別物件詳情由連結的刀劍ワールド頁提供。"
+        }
+      ],
+      "reference_image": {
+        "url": "https://www.touken-world.jp/wp/wp-content/uploads/2020/05/d5cb46799df1bd0ead75554ce2282020.jpg?date=20181002",
+        "page_url": "https://www.touken-world.jp/search/45844/",
+        "type": "collection_owner_object_photograph",
+        "is_original_historical_object": true,
+        "depicted_object_date": "館藏欄列室町，正文列安土桃山；暫用16世紀末葉附近的寬期標籤",
+        "visually_checked": true,
+        "use_limit": "本人藏品攝影僅供形制研究與重新繪製；不可直接成為遊戲材質。"
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "十文字槍的一種手違型；側枝端部取向／斜切不同，整體有錯向的銳角。",
+        "recognition_features": [
+          "直線近矩形側枝",
+          "側枝末端斜切",
+          "中央穗與兩側平直宽刃形成硬角剪影"
+        ],
+        "distinct_from_existing": "以側枝的直條輪廓、斜切末端與錯向细節區分既有一般彎鎌十文字；不得虛構成可伸縮機關。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": null,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "catalogue_length_cm": 24.7,
+        "catalogue_curvature_cm": 0.0,
+        "measurement_note": "館藏詳情欄標示「長さ」而非整柄總長；此值保留為catalogue_length_cm，沒有原裝柄長、刃寬、重量數據。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "按已核對物件正面照片保留不對稱末端；不要照網路其他手違槍補成另一形制。",
+        "shaft": "無原柄資料；共用槍桿設計屬遊戲適配。",
+        "review_gate": "圖鑑年代註記「室町末至桃山，館方記載有異」，精確年代待核。",
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。",
+          "extra_check": "為十文字側刃保留外展空間，但保持相同握點；如輪廓縮小後與既有十文字槍相同，退回重繪，不准以改色代替。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "拉扯反擊與橫向控制",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "刀劍ワールド財團無銘手違十文字槍，長さ24.7cm。實物照片顯示中央直穗及左右直條式、末端斜切的側刃。",
+      "game_balance": {
+        "fictional": true,
+        "role": "拉扯反擊與橫向控制",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "conditional_period_label"
+    },
+    {
+      "id": "spear_sagara_yari",
+      "family": "spear",
+      "name": "傳相良槍",
+      "era": {
+        "label": "館方歸為室町末期／戰國",
+        "exact_year": null,
+        "confidence": "medium_low_for_name_tradition; photographed_object_exists"
+      },
+      "history": {
+        "documented": "刀劍ワールド財團藏無銘槍，長さ17.0cm、反0。館方以相良槍名稱收錄，實物是小型非對稱刃。",
+        "traditional": "歸屬肥後相良氏、模仿菊池槍的起源均是館方傳承說。",
+        "uncertainties": [
+          "定名相良槍帶傳稱性质，不能指定相良家某位武將親用。",
+          "來源將菊池武重故事寫成鎌倉時代，不採其起源年代敘事，另以菊池市文獻分開核對。"
+        ]
+      },
+      "source_urls": [
+        "https://www.touken-world.jp/search/42979/",
+        "https://www.meihaku.jp/exhibit/possession/"
+      ],
+      "source_notes": [
+        {
+          "url": "https://www.touken-world.jp/search/42979/",
+          "supports": "持有者刀劍ワールド財團的物件照片、年代歸屬、尺寸；頁面鑑定區分為未鑑定，不能寫成國寶、重要文化財或NBTHK已鑑定。"
+        },
+        {
+          "url": "https://www.meihaku.jp/exhibit/possession/",
+          "supports": "名古屋刀劍博物館官方收蔵品入口；個別物件詳情由連結的刀劍ワールド頁提供。"
+        }
+      ],
+      "reference_image": {
+        "url": "https://www.touken-world.jp/wp/wp-content/uploads/2018/10/296d78e025a36b3e07c9ef0aae762798.jpg?date=20181002",
+        "page_url": "https://www.touken-world.jp/search/42979/",
+        "type": "collection_owner_object_photograph",
+        "is_original_historical_object": true,
+        "depicted_object_date": "館方歸為室町末期／戰國",
+        "visually_checked": true,
+        "use_limit": "本人藏品攝影僅供形制研究與重新繪製；不可直接成為遊戲材質。"
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "與菊池槍近似的短刀狀直穗，館方強調沒有內反。",
+        "recognition_features": [
+          "直的刃／棟基線與非對稱短刀尖",
+          "刃根收頸與寬肩",
+          "小刃與槍柄的明顯比例差"
+        ],
+        "distinct_from_existing": "單刃樣不對稱輪廓有別普通雙刃直槍；與新菊池槍配對時須保留無內反和肩形差異，若縮圖辨不出則不應只換色上線。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": null,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "catalogue_length_cm": 17.0,
+        "catalogue_curvature_cm": 0.0,
+        "measurement_note": "館藏詳情欄標示「長さ」而非整柄總長；此值保留為catalogue_length_cm，沒有原裝柄長、刃寬、重量數據。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "突出單刃式小尖頭，輪廓筆直，與菊池候選做同尺寸黑剪影比較。",
+        "shaft": "無原裝柄資料，柄屬遊戲創作。",
+        "review_gate": "圖鑑寫「傳相良槍」；通過與菊池槍剪影差異檢查才投產。",
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "最短穗的快速擾敵槍",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "刀劍ワールド財團藏無銘槍，長さ17.0cm、反0。館方以相良槍名稱收錄，實物是小型非對稱刃。",
+      "game_balance": {
+        "fictional": true,
+        "role": "最短穗的快速擾敵槍",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [
+        {
+          "kind": "built_in_imagegen_shape_edit",
+          "original_path": "/workspace/scratch/98b7ec868bfb/generated_images/exec-4040346a-4799-424e-b724-6a92b32a5c74.png",
+          "prompt": "Edit image1 only, the complete vertical game spear. Image2 is a historical spearhead SHAPE reference only, not pixels to copy, not a background or page. Preserve the whole1024x1536 sprite canvas, centered straight shaft, original game rendering style, entire long wood shaft below y330 and complete butt. Correct the head to the reference's SHORT broad straight Sagara single-edge shape. The existing abrupt long diagonal tanto/chisel tip is wrong: replace with a smooth gently curved asymmetric short tip like image2, not a straight diagonal cut. Tip at y30, blade base at y160, ONLY130px steel cutting blade, widest34px. LEFT edge remains straight over lower two thirds, RIGHT back curves to off-center top point only in top third. No inward curvature. Retain clear slightly broad shoulders at y160, a narrow waist down to190, small dark iron collar190..218 and low plain twine binding218..250. Extend wood shaft UP to250. Do NOT show the rusty tang from reference; it is hidden inside the pole. No new guards or decorations. Keep exposed blade less than10percent of full weapon, distinguish from narrow gently curved Kikuchi. True transparent RGBA, alpha0 outside weapon. No soft haze, background, ground shadow, text, scabbard or second object. Newly illustrated game interpretation, not a photographic copy.",
+          "reason": "Initial diagonal-cut point too angular; replaced with curved asymmetric point using museum-form reference. Readable game exaggeration retained; no measured-replica claim."
+        }
+      ],
+      "original_research_status": "conditional_attribution_and_silhouette"
+    },
+    {
+      "id": "spear_takebera_yari",
+      "family": "spear",
+      "name": "竹篦槍",
+      "era": {
+        "label": "館方歸為室町／末古刀",
+        "exact_year": null,
+        "confidence": "medium; owner_catalogue_unappraised"
+      },
+      "history": {
+        "documented": "刀劍ワールド財團藏無銘竹べら槍，長さ20.9cm。館方描述其穗如竹篦，且螻蛄首較長。",
+        "traditional": null,
+        "uncertainties": [
+          "竹篦是形狀名稱，槍穗材質不是竹。",
+          "沒有特定武將傳來資料，也未量得寬度。"
+        ]
+      },
+      "source_urls": [
+        "https://www.touken-world.jp/search/30387/",
+        "https://www.meihaku.jp/exhibit/possession/"
+      ],
+      "source_notes": [
+        {
+          "url": "https://www.touken-world.jp/search/30387/",
+          "supports": "持有者刀劍ワールド財團的物件照片、年代歸屬、尺寸；頁面鑑定區分為未鑑定，不能寫成國寶、重要文化財或NBTHK已鑑定。"
+        },
+        {
+          "url": "https://www.meihaku.jp/exhibit/possession/",
+          "supports": "名古屋刀劍博物館官方收蔵品入口；個別物件詳情由連結的刀劍ワールド頁提供。"
+        }
+      ],
+      "reference_image": {
+        "url": "https://www.touken-world.jp/wp/wp-content/uploads/2018/10/b8067d0f5c567223724716910a895e11.jpg?date=20181002",
+        "page_url": "https://www.touken-world.jp/search/30387/",
+        "type": "collection_owner_object_photograph",
+        "is_original_historical_object": true,
+        "depicted_object_date": "館方歸為室町／末古刀",
+        "visually_checked": true,
+        "use_limit": "本人藏品攝影僅供形制研究與重新繪製；不可直接成為遊戲材質。"
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "直槍子型，長條扁平竹篦狀穗；基部到尖端大部分近乎平行。",
+        "recognition_features": [
+          "窄長近乎平行的雙側邊",
+          "前端短圓收尖",
+          "細長螻蛄首"
+        ],
+        "distinct_from_existing": "靠近矩形的竹篦刃與細頸区別既有常規漸尖直槍；必須畫出輪廓，不能只靠名稱。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": null,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "catalogue_length_cm": 20.9,
+        "catalogue_curvature_cm": 0.0,
+        "measurement_note": "館藏詳情欄標示「長さ」而非整柄總長；此值保留為catalogue_length_cm，沒有原裝柄長、刃寬、重量數據。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "長條槍穗配鈍圓的外輪廓收尖，仍有刺尖；不畫成平口鑿或竹製槍。",
+        "shaft": "柄、纏繞、石突為遊戲適配，不宣稱復原。",
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "穩定中速、多次短刺",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "刀劍ワールド財團藏無銘竹べら槍，長さ20.9cm。館方描述其穗如竹篦，且螻蛄首較長。",
+      "game_balance": {
+        "fictional": true,
+        "role": "穩定中速、多次短刺",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_ready_art_pending"
+    },
+    {
+      "id": "spear_inji_yari",
+      "family": "spear",
+      "name": "印地槍型（復原）",
+      "era": {
+        "label": "館方歸為室町／末古刀",
+        "exact_year": null,
+        "confidence": "medium_low_for_function; collection_attribution"
+      },
+      "history": {
+        "documented": "刀劍ワールド財團藏無銘槍，長さ15.8cm。形制為鐵棒末端形成簡單尖刃，館方認為是印地槍一種。",
+        "traditional": null,
+        "uncertainties": [
+          "物件的印地槍定名與投擲用途為館方推定，不是原物銘文。",
+          "同站另有45969江戶投槍，已明確排除，不混用其環孔、繫繩或年代。"
+        ]
+      },
+      "source_urls": [
+        "https://www.touken-world.jp/search/42883/",
+        "https://www.meihaku.jp/exhibit/possession/"
+      ],
+      "source_notes": [
+        {
+          "url": "https://www.touken-world.jp/search/42883/",
+          "supports": "持有者刀劍ワールド財團的物件照片、年代歸屬、尺寸；頁面鑑定區分為未鑑定，不能寫成國寶、重要文化財或NBTHK已鑑定。"
+        },
+        {
+          "url": "https://www.meihaku.jp/exhibit/possession/",
+          "supports": "名古屋刀劍博物館官方收蔵品入口；個別物件詳情由連結的刀劍ワールド頁提供。"
+        }
+      ],
+      "reference_image": {
+        "url": "https://www.touken-world.jp/wp/wp-content/uploads/2018/10/a9da7861da0caacaa1294ad3b5612360.jpg?date=20181002",
+        "page_url": "https://www.touken-world.jp/search/42883/",
+        "type": "collection_owner_object_photograph",
+        "is_original_historical_object": true,
+        "depicted_object_date": "館方歸為室町／末古刀",
+        "visually_checked": true,
+        "use_limit": "本人藏品攝影僅供形制研究與重新繪製；不可直接成為遊戲材質。"
+      },
+      "rights": {
+        "license": "unknown_or_all_rights_reserved",
+        "direct_asset_reuse": false,
+        "instruction": "照片僅作研究與形制參考；自行重新繪製遊戲素材。未取得明示授權前不得裁切、去背、描摹像素或直接打包原照片。",
+        "historical_object_vs_photo": "古代器物與現代攝影的權利分開處理；古物年代不代表照片可自由使用。"
+      },
+      "morphology": {
+        "historical_form": "簡單棒狀金屬身與短尖刃銜接，缺乏一般槍穗明顯的裝飾性肩頸。",
+        "recognition_features": [
+          "粗樸短尖頭",
+          "棒到刃的連續過渡",
+          "少裝飾、無側枝、無大樋"
+        ],
+        "distinct_from_existing": "結構簡化的短穗，不是袋槍的中空套筒；也不以改色當差異。"
+      },
+      "physical_dimensions": {
+        "unit": "cm",
+        "blade_length_cm": null,
+        "overall_length_cm": null,
+        "shaft_length_cm": null,
+        "width_cm": null,
+        "thickness_cm": null,
+        "weight_g": null,
+        "catalogue_length_cm": 15.8,
+        "catalogue_curvature_cm": 0.0,
+        "measurement_note": "館藏詳情欄標示「長さ」而非整柄總長；此值保留為catalogue_length_cm，沒有原裝柄長、刃寬、重量數據。",
+        "reconstructed_shaft_length_cm": null
+      },
+      "game_adaptation": {
+        "silhouette": "保留鐵棒延伸為短尖的整體感，避免畫成考古石鏃。",
+        "shaft": "若加木柄以符合現有槍rig，須在美術說明標示遊戲適配；原物全體裝柄不明。",
+        "review_gate": "可作粗樸型槍；若增加可投擲技能，明示玩法創作，勿在史料欄寫成確證。",
+        "fixed_grip": {
+          "rule": "沿用專案既有槍類握點、手部位置與動畫；透過武器圖層內部平移和縮尺對齊，不能移角色手、改身體姿勢或把槍當刀握。",
+          "anchor_id": "existing_spear_grip_anchor",
+          "anchor_coordinates_px": null,
+          "coordinates_note": "本研究不讀／修改repo；握點座標與畫布大小交由執行時讀取既有資產後填寫。",
+          "historical_shaft_not_reconstructed": true,
+          "rig_validation": "以持槍待機、出刺、收槍各帧檢查握點穩定；側枝、槍尖和石突不得穿越固定手掌或裁出畫布。"
+        },
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "stat_role": {
+        "fictional": true,
+        "role": "低資源粗製槍，可選擇投擲技能作遊戲創作",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "status": "original_game_art_integrated",
+      "research_date": "2026-10-12",
+      "catalog_intro": "刀劍ワールド財團藏無銘槍，長さ15.8cm。形制為鐵棒末端形成簡單尖刃，館方認為是印地槍一種。",
+      "game_balance": {
+        "fictional": true,
+        "role": "低資源粗製槍，可選擇投擲技能作遊戲創作",
+        "disclaimer": "此定位僅為遊戲平衡提案，不表示原物實際性能；未量測任何傷害、攻速、重量或耐久。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "conditional_typology_and_function"
+    },
+    {
+      "id": "bow_todake_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "外竹伏竹弓（復原）",
+      "era": "平安末至中世；成立時間有不同說法",
+      "history": "近藤好和把外竹弓列為最早的伏竹弓，約12世紀初成立；弓道具協會的通史則上溯平安中期。本案採較保守的中世型制，不指定發明年份。",
+      "real_object_or_reconstruction": "documented_structure_reconstruction",
+      "source_urls": [
+        "https://www.city.kobe.lg.jp/documents/60534/tokusyu-genpei-2.pdf",
+        "https://kyudogu.jp/yumi/3500.html",
+        "https://webarchives.tnm.jp/assets/img/research/extra/Japanese_to_English_Translation_at_the_Tokyo_National_Museum.pdf"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "平安末至中世；成立時間有不同說法"
+      },
+      "reference_image": {
+        "page_url": "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "image_url": "https://www.pref.ehime.jp/uploaded/image/194_55261.jpg",
+        "alternate_page_url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+        "alternate_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/The_bow_of_the_Kamakura_period.JPG",
+        "reference_scope": "中世弓群像僅供外輪廓比例；其內部結構不能由照片判定為外竹。結構依近藤好和文字復原。",
+        "exact_object_or_structure_verified": false
+      },
+      "rights": {
+        "official_photo": "reference-only, not copy；官方頁未提供可直接用於遊戲美術的授權，不能把文物無著作權等同攝影無著作權。",
+        "commons_alternative": {
+          "url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+          "declared_license": "CC BY-SA 3.0",
+          "declared_author": "Shocking the earth（震天動地）",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "caution": "頁面宣告自作並提供此授權，但EXIF顯示掃描器；本次未確認攝影原始權源，建議仍只作造形參考，不直接複製或描摹圖像。"
+        },
+        "production_rule": "依史料自繪新資產；目前未下載、生成或授權使用任何圖像。"
+      },
+      "morphology": {
+        "verified": [
+          "木幹的背面（背向弦的一面）貼竹；腹面仍為木。",
+          "屬竹木合弓的子類，不是與「合弓」平行的新大類。"
+        ],
+        "reconstruction_design": [
+          "長上肢、短下肢；腹面保留連續木紋，背面形成單一竹面。",
+          "少量局部卷束，避免整體重藤式密繞；弓尖簡潔。"
+        ],
+        "unknown": [
+          "指定實物的曲率、尺寸、纏束數量尚未核定。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。",
+      "game_adaptation": {
+        "visual_key": "單竹背與裸木腹的材質對照；較少卷束。",
+        "implementation": "用原創造形復原；遊戲小圖可略放大側面接合線。不可為區分而增加西式滑輪、箭台或金屬肢。",
+        "overlap": "與bow_awase_yumi高度包含重疊，尤其若既有圖即為單面伏竹，需改做不同的明示復原輪廓或換候補，不能直接視為新增史實種類。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "輕便入門弓；較快起手、較低傷害，是平衡設定。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "manifest_index": 1,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "近藤好和把外竹弓列為最早的伏竹弓，約12世紀初成立；弓道具協會的通史則上溯平安中期。本案採較保守的中世型制，不指定發明年份。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "輕便入門弓；較快起手、較低傷害，是平衡設定。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_complete_requires_art_comparison"
+    },
+    {
+      "id": "bow_sanmaiuchi_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "三枚打弓（復原）",
+      "era": "中世已有；具體成立時間未定",
+      "history": "近藤好和指出木芯腹背貼竹的三枚打弓是中世常見形式，但不能確定其是否已在源平合戰期成立。本案不把「平安末發明」當成已定論。",
+      "real_object_or_reconstruction": "documented_structure_reconstruction",
+      "source_urls": [
+        "https://www.city.kobe.lg.jp/documents/60534/tokusyu-genpei-2.pdf",
+        "https://kyudogu.jp/yumi/3500.html",
+        "https://webarchives.tnm.jp/assets/img/research/extra/Japanese_to_English_Translation_at_the_Tokyo_National_Museum.pdf"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "中世已有；具體成立時間未定"
+      },
+      "reference_image": {
+        "page_url": "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "image_url": "https://www.pref.ehime.jp/uploaded/image/194_55261.jpg",
+        "alternate_page_url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+        "alternate_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/The_bow_of_the_Kamakura_period.JPG",
+        "reference_scope": "中世弓群像可參考比例；不能憑群像逐件認定三枚打剖面。結構以學術文字為準。",
+        "exact_object_or_structure_verified": false
+      },
+      "rights": {
+        "official_photo": "reference-only, not copy；官方頁未提供可直接用於遊戲美術的授權，不能把文物無著作權等同攝影無著作權。",
+        "commons_alternative": {
+          "url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+          "declared_license": "CC BY-SA 3.0",
+          "declared_author": "Shocking the earth（震天動地）",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "caution": "頁面宣告自作並提供此授權，但EXIF顯示掃描器；本次未確認攝影原始權源，建議仍只作造形參考，不直接複製或描摹圖像。"
+        },
+        "production_rule": "依史料自繪新資產；目前未下載、生成或授權使用任何圖像。"
+      },
+      "morphology": {
+        "verified": [
+          "木芯位於內竹與外竹之間，侧邊仍可見木。",
+          "與外竹弓不同，腹背兩面都有竹。"
+        ],
+        "reconstruction_design": [
+          "側視保留竹—木—竹三層接縫，細長弓幹。",
+          "局部細線束與上下簡單端部補強；疏卷樣式為美術復原配置。"
+        ],
+        "unknown": [
+          "本方案沒有對應單件的原始尺寸或射力。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。",
+      "game_adaptation": {
+        "visual_key": "腹背雙竹面＋深色木質側邊，不以漆色作唯一識別。",
+        "implementation": "檢視圖可用剖面小示意表現三層；實戰精靈必須是完整弓，不能把剖開的弓當可射武器。",
+        "overlap": "是竹木合弓的子類；外形仍可能與既有竹藤弓接近，需美術比對。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "泛用均衡弓；適中蓄力、射速與消耗，皆屬遊戲設計。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "manifest_index": 2,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "近藤好和指出木芯腹背貼竹的三枚打弓是中世常見形式，但不能確定其是否已在源平合戰期成立。本案不把「平安末發明」當成已定論。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "泛用均衡弓；適中蓄力、射速與消耗，皆屬遊戲設計。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_complete_requires_art_comparison"
+    },
+    {
+      "id": "bow_shihochiku_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "四方竹弓（復原）",
+      "era": "中世後期；室町至戰國的型制",
+      "history": "近藤好和將其視為中世後期成立的特殊形式；弓道具協會亦列入戰國的發展。不能據此聲稱它在所有戰國軍隊中普遍取代三枚打。",
+      "real_object_or_reconstruction": "documented_structure_reconstruction",
+      "source_urls": [
+        "https://www.city.kobe.lg.jp/documents/60534/tokusyu-genpei-2.pdf",
+        "https://kyudogu.jp/yumi/3500.html",
+        "https://webarchives.tnm.jp/assets/img/research/extra/Japanese_to_English_Translation_at_the_Tokyo_National_Museum.pdf"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "中世後期；室町至戰國的型制"
+      },
+      "reference_image": {
+        "page_url": "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "image_url": "https://www.pref.ehime.jp/uploaded/image/194_55261.jpg",
+        "alternate_page_url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+        "alternate_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/The_bow_of_the_Kamakura_period.JPG",
+        "reference_scope": "中世弓群像只用於和弓比例，不是已辨識的四方竹實物照片。可另參考學習院大學博物館目錄B-22的「四方竹の弓の弓幹の一部」，但其目錄年代未列明，不能倒推戰國。",
+        "exact_object_or_structure_verified": false,
+        "supplemental_document": "https://www.museum.univ.gakushuin.ac.jp/wp/wp-content/uploads/2026/03/index_pdf_catalog_23.pdf"
+      },
+      "rights": {
+        "official_photo": "reference-only, not copy；官方頁未提供可直接用於遊戲美術的授權，不能把文物無著作權等同攝影無著作權。",
+        "commons_alternative": {
+          "url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+          "declared_license": "CC BY-SA 3.0",
+          "declared_author": "Shocking the earth（震天動地）",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "caution": "頁面宣告自作並提供此授權，但EXIF顯示掃描器；本次未確認攝影原始權源，建議仍只作造形參考，不直接複製或描摹圖像。"
+        },
+        "production_rule": "依史料自繪新資產；目前未下載、生成或授權使用任何圖像。"
+      },
+      "morphology": {
+        "verified": [
+          "木幹四面貼竹，包含腹、背與左右側。",
+          "「四方竹」指包覆結構，不是必須採用方形竹種。"
+        ],
+        "reconstruction_design": [
+          "四面皆有竹的分節與纖維，側材接線明確。",
+          "選擇稍寬而扁的視覺截面與較短握革，與雙面貼竹案拉開差異；具體比例屬復原設計。"
+        ],
+        "unknown": [
+          "未取得戰國四方竹單件的可核實尺寸與個別實物照。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。",
+      "game_adaptation": {
+        "visual_key": "竹質側面、四角接縫和較扁的弓幹；不只是把三枚打染黃。",
+        "implementation": "完整精靈保留四面竹外觀；剖面構成在圖鑑另畫原創解說。",
+        "overlap": "和弓胎同屬合弓，不能單凭外表或深淺色確定歷史結構；須與bow_awase_yumi比對。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "重蓄力穩定弓；高單發、較慢轉向與起手，是平衡設定，非史實性能順位。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "manifest_index": 3,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "近藤好和將其視為中世後期成立的特殊形式；弓道具協會亦列入戰國的發展。不能據此聲稱它在所有戰國軍隊中普遍取代三枚打。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "重蓄力穩定弓；高單發、較慢轉向與起手，是平衡設定，非史實性能順位。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [
+        {
+          "method": "built-in image_gen edit",
+          "reason": "Move initial handgrip upward to place runtime hand attachment within the requested60–65percent range.",
+          "initial_generated_path": "/workspace/scratch/98b7ec868bfb/generated_images/exec-06a6f286-2887-4819-9dad-a240be02be01.png",
+          "accepted_edit_prompt": "Make a very small local edit to this bow sprite. Its handgrip is currently a little too low. Slide the complete dark leather grip and its two adjacent collars UP by HALF OF THE GRIP'S OWN HEIGHT ONLY, approximately 45 pixels on the full1536pixel-tall image. Keep the grip in the LOWER THIRD of the bow, centered roughly two thirds down (about65percent down), NEVER move it to the middle. Original grip center is near1020; target near970. Repaint the tiny vacated section as continuous bamboo. Preserve the entire rest of the bow, same silhouette, same width, curve, bamboo nodes and nocks, colours, material, transparent background, canvas1536pixels tall. No string, no arrow. This is just a subtle grip adjustment, not a redesign.",
+          "rejected_edit_path": "/workspace/scratch/98b7ec868bfb/generated_images/exec-e74013fc-17da-44cb-90aa-f44918893ba3.png"
+        }
+      ],
+      "original_research_status": "research_complete_requires_art_comparison"
+    },
+    {
+      "id": "bow_odawara_higo_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "小田原弓胎弓（復原）",
+      "era": "16世紀後半的出土遺構；戰國後期",
+      "history": "小田原城三之丸幸田口跡出土的漆塗弓，由市方公告及2023年郷土文化館展示確認來自戰國堀跡；足以支持戰國後期已有弓胎形式，不能冠為織田信長所用。",
+      "real_object_or_reconstruction": "reconstruction_based_on_excavated_object",
+      "source_urls": [
+        "https://www.city.odawara.kanagawa.jp/public-i/facilities/kyodo/topics/exhibition2023-1.html",
+        "https://www.city.odawara.kanagawa.jp/public/detail.php?id=11033",
+        "https://www.jstage.jst.go.jp/article/budo/57/1/57_2406/_pdf/-char/ja"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "16世紀後半的出土遺構；戰國後期"
+      },
+      "reference_image": {
+        "page_url": "https://www.city.odawara.kanagawa.jp/public-i/facilities/kyodo/topics/exhibition2023-1.html",
+        "image_url": null,
+        "alternate_page_url": "https://www.city.odawara.kanagawa.jp/global-image/odawaraArch/11033/pdf/20110401073917.pdf#page=17",
+        "reference_scope": "小田原市2011年4月1日広報第17頁的弓胎弓發現專欄作照片／出土資料入口；2023館方頁提供物件身分與結構。製作前需檢視原圖及No.59專報，本次未取得高解析逐件照片。",
+        "exact_object_or_structure_verified": false
+      },
+      "rights": {
+        "status": "reference-only, not copy",
+        "note": "小田原市公告與期刊內容未在本次核實可商用圖片授權；只用作造形與資料參考，自繪。"
+      },
+      "morphology": {
+        "verified": [
+          "漆塗、糸卷、複合竹材；2023館方介紹竹條芯及內外竹。",
+          "現存考古物不是一把可直接拿來射的完整新弓。"
+        ],
+        "reconstruction_design": [
+          "恢復完整上長下短輪廓；保留密細糸卷與黑漆下可讀的細微環紋。",
+          "不加金飾、名人家紋或近代透明合成材；檢視圖另附結構示意。"
+        ],
+        "unknown": [
+          "2011市文案說三本木芯，2023說竹條及竹側材，材料細節須以2023專報No.59核實。",
+          "未核得完整原長、殘長與精確剖面數值；不得把殘件約長當整弓尺寸。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。",
+      "game_adaptation": {
+        "visual_key": "细密纏線形成低起伏環紋、窄截面的複合弓；不是既有黑漆弓單純改名。",
+        "implementation": "作為依考古殘件復原的戰國後期工藝弓；修復缺失形狀屬設計，不宣稱實物原貌完全確定。",
+        "overlap": "和bow_awase_yumi同屬合弓。勿用彦根桃山合弓231.2cm尺寸套在本案。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "晚期精製弓；較高蓄力收益、較窄最佳放箭時機，皆為遊戲平衡。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "manifest_index": 4,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "小田原城三之丸幸田口跡出土的漆塗弓，由市方公告及2023年郷土文化館展示確認來自戰國堀跡；足以支持戰國後期已有弓胎形式，不能冠為織田信長所用。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "晚期精製弓；較高蓄力收益、較窄最佳放箭時機，皆為遊戲平衡。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_complete_requires_art_comparison"
+    },
+    {
+      "id": "bow_fukiyose_tou_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "吹寄籐弓（復原）",
+      "era": "鎌倉至室町；館藏組合定年，非每件都有精確年份",
+      "history": "大山祇神社「三島明神奉納武器類」中的實存吹寄藤弓／吹寄籐弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "real_object_or_reconstruction": "reconstruction_based_on_catalogued_object",
+      "source_urls": [
+        "https://kunishitei.bunka.go.jp/heritage/detail/201/6935",
+        "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "https://www.jstage.jst.go.jp/article/budo1968/36/3/36_9/_article/-char/ja",
+        "https://kotobank.jp/word/%E5%90%B9%E5%AF%84%E7%B1%90-2079400"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "鎌倉至室町；館藏組合定年，非每件都有精確年份"
+      },
+      "reference_image": {
+        "page_url": "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "image_url": "https://www.pref.ehime.jp/uploaded/image/194_55261.jpg",
+        "alternate_page_url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+        "alternate_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/The_bow_of_the_Kamakura_period.JPG",
+        "reference_scope": "大山祇神社中世弓群像；可比對長短肢、輪廓和纏卷。官方頁有群像連結，單件對位需在美術階段確認。",
+        "exact_object_or_structure_verified": false
+      },
+      "rights": {
+        "official_photo": "reference-only, not copy；官方頁未提供可直接用於遊戲美術的授權，不能把文物無著作權等同攝影無著作權。",
+        "commons_alternative": {
+          "url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+          "declared_license": "CC BY-SA 3.0",
+          "declared_author": "Shocking the earth（震天動地）",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "caution": "頁面宣告自作並提供此授權，但EXIF顯示掃描器；本次未確認攝影原始權源，建議仍只作造形參考，不直接複製或描摹圖像。"
+        },
+        "production_rule": "依史料自繪新資產；目前未下載、生成或授權使用任何圖像。"
+      },
+      "morphology": {
+        "verified": [
+          "以籐帶作分組纏卷；詞典釋義為兩處靠近成組的卷法。",
+          "可與密集均勻的重籐表面區分，並非另一種弓芯材料。"
+        ],
+        "reconstruction_design": [
+          "成對靠近的卷帶與較長空檔形成節奏；位置、帶寬由原圖核對。",
+          "沿用深淺自然材質對比，避免用新顏色代替構造差異。"
+        ],
+        "unknown": [
+          "公開編目未列此件木種、內部層數、完整尺寸及射力；不可據飾法推斷核心構造。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。",
+      "game_adaptation": {
+        "visual_key": "成對籐卷＋組間長空檔。",
+        "implementation": "依中世實物類型自繪完整可用弓；損傷、褪色和缺失不直接照搬為服役狀態。具體纏卷位置與握革比例需原圖核對；沒有資料的細節要保留復原標示。",
+        "overlap": "和既有合弓可有結構重疊；本案依纏卷材料／配置辨識，不能只換色。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "快速連射型；較短蓄力、較低單發傷害，並非吹寄卷法的真實物理定律。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "museum_object_name": "吹寄藤弓／吹寄籐弓",
+      "date_evidence_note": "文化廳主記錄時代為鎌倉～室町；本次不將群體定年縮成單件的特定世紀。",
+      "manifest_index": 5,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "大山祇神社「三島明神奉納武器類」中的實存吹寄藤弓／吹寄籐弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "快速連射型；較短蓄力、較低單發傷害，並非吹寄卷法的真實物理定律。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [
+        {
+          "method": "built-in image_gen edit",
+          "reason": "Moved low initial handgrip upward with image_gen. Runtime hand attachment is placed on upper section of the actual leather wrap to keep 0.65 limb split.",
+          "initial_generated_path": "/workspace/scratch/98b7ec868bfb/generated_images/exec-5eb7834a-a29b-4053-b0c3-ec1abcd9969b.png",
+          "accepted_edit_prompt": "Make a small local edit to this single bow sprite. Slide the complete dark brown leather handgrip UP by THREE QUARTERS OF THE GRIP'S OWN HEIGHT ONLY, about75pixels on this1536pixel canvas, so it sits a little higher but remains distinctly low on the bow. Current handgrip center about1040, target about965. Keep the lower edge of grip above the low paired-rattan group. Keep the grip at64percent of full length from the top, never near the midpoint. Repaint the small vacated section as matching continuous wood and bamboo. Preserve full bow silhouette, every existing paired binding group's position, original texture and colours, long upper and short lower limbs, tips and1536pixel canvas. No bowstring, no arrow. Genuine transparent RGBA, no new objects. Just move the existing grip slightly upward, do not redesign it.",
+          "rejected_edit_path": null
+        }
+      ],
+      "original_research_status": "research_complete_requires_art_comparison"
+    },
+    {
+      "id": "bow_tokoroito_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "所糸卷弓（復原）",
+      "era": "1363年（貞治二年）銘；南北朝時期",
+      "history": "大山祇神社「三島明神奉納武器類」中的實存塗籠所糸巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "real_object_or_reconstruction": "reconstruction_based_on_catalogued_object",
+      "source_urls": [
+        "https://kunishitei.bunka.go.jp/heritage/detail/201/6935",
+        "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "https://www.jstage.jst.go.jp/article/budo1968/36/3/36_9/_article/-char/ja"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "1363年（貞治二年）銘；南北朝時期"
+      },
+      "reference_image": {
+        "page_url": "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "image_url": "https://www.pref.ehime.jp/uploaded/image/194_55261.jpg",
+        "alternate_page_url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+        "alternate_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/The_bow_of_the_Kamakura_period.JPG",
+        "reference_scope": "大山祇神社中世弓群像；可比對長短肢、輪廓和纏卷。官方頁有群像連結，單件對位需在美術階段確認。",
+        "exact_object_or_structure_verified": false
+      },
+      "rights": {
+        "official_photo": "reference-only, not copy；官方頁未提供可直接用於遊戲美術的授權，不能把文物無著作權等同攝影無著作權。",
+        "commons_alternative": {
+          "url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+          "declared_license": "CC BY-SA 3.0",
+          "declared_author": "Shocking the earth（震天動地）",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "caution": "頁面宣告自作並提供此授權，但EXIF顯示掃描器；本次未確認攝影原始權源，建議仍只作造形參考，不直接複製或描摹圖像。"
+        },
+        "production_rule": "依史料自繪新資產；目前未下載、生成或授權使用任何圖像。"
+      },
+      "morphology": {
+        "verified": [
+          "編目確認漆塗包覆的糸卷形式。",
+          "有貞治二年十一月二十二日墨書銘。"
+        ],
+        "reconstruction_design": [
+          "局部成段細糸卷，留較長連續漆面；此圖像化配置須對照原圖，不把字面解讀當完整工藝規格。",
+          "握部以短窄皮卷區分，線束呈細密環紋，避免畫成厚籐帶。"
+        ],
+        "unknown": [
+          "公開編目未列此件木種、內部層數、完整尺寸及射力；不可據飾法推斷核心構造。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。 法政大學論文的搜尋摘錄出現226.5cm，但原PDF此次未能讀取核對，故不寫入量測欄。",
+      "game_adaptation": {
+        "visual_key": "分段細糸束與長平滑漆面。",
+        "implementation": "依中世實物類型自繪完整可用弓；損傷、褪色和缺失不直接照搬為服役狀態。具體纏卷位置與握革比例需原圖核對；沒有資料的細節要保留復原標示。",
+        "overlap": "和既有合弓可有結構重疊；本案依纏卷材料／配置辨識，不能只換色。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "續航型；較低體力消耗、較平衡輸出，是遊戲設定。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "museum_object_name": "塗籠所糸巻弓",
+      "date_evidence_note": "編目記貞治二年十一月二十二日銘；1363是年號換算，並未推算公曆月日；銘文日期不必然等於製造日。",
+      "manifest_index": 6,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "大山祇神社「三島明神奉納武器類」中的實存塗籠所糸巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "續航型；較低體力消耗、較平衡輸出，是遊戲設定。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_complete_requires_art_comparison"
+    },
+    {
+      "id": "bow_shigeito_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "重糸卷弓（復原）",
+      "era": "鎌倉至室町；館藏組合定年，非每件都有精確年份",
+      "history": "大山祇神社「三島明神奉納武器類」中的實存塗籠重糸巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "real_object_or_reconstruction": "reconstruction_based_on_catalogued_object",
+      "source_urls": [
+        "https://kunishitei.bunka.go.jp/heritage/detail/201/6935",
+        "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "https://www.jstage.jst.go.jp/article/budo1968/36/3/36_9/_article/-char/ja"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "鎌倉至室町；館藏組合定年，非每件都有精確年份"
+      },
+      "reference_image": {
+        "page_url": "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "image_url": "https://www.pref.ehime.jp/uploaded/image/194_55261.jpg",
+        "alternate_page_url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+        "alternate_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/The_bow_of_the_Kamakura_period.JPG",
+        "reference_scope": "大山祇神社中世弓群像；可比對長短肢、輪廓和纏卷。官方頁有群像連結，單件對位需在美術階段確認。",
+        "exact_object_or_structure_verified": false
+      },
+      "rights": {
+        "official_photo": "reference-only, not copy；官方頁未提供可直接用於遊戲美術的授權，不能把文物無著作權等同攝影無著作權。",
+        "commons_alternative": {
+          "url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+          "declared_license": "CC BY-SA 3.0",
+          "declared_author": "Shocking the earth（震天動地）",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "caution": "頁面宣告自作並提供此授權，但EXIF顯示掃描器；本次未確認攝影原始權源，建議仍只作造形參考，不直接複製或描摹圖像。"
+        },
+        "production_rule": "依史料自繪新資產；目前未下載、生成或授權使用任何圖像。"
+      },
+      "morphology": {
+        "verified": [
+          "官方以重糸卷名目編列一張；屬糸卷加漆的弓身表面工藝。"
+        ],
+        "reconstruction_design": [
+          "將細線密纏形成的表面起伏放大到圖鑑可辨，與既有粗寬重藤分開。",
+          "採連續細密環紋的完整弓幹，握革只占小區；具體密度屬復原，不宣稱固定古制圈數。"
+        ],
+        "unknown": [
+          "公開編目未列此件木種、內部層數、完整尺寸及射力；不可據飾法推斷核心構造。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。",
+      "game_adaptation": {
+        "visual_key": "連續細線環紋，視覺上比籐帶更密、更細。",
+        "implementation": "依中世實物類型自繪完整可用弓；損傷、褪色和缺失不直接照搬為服役狀態。具體纏卷位置與握革比例需原圖核對；沒有資料的細節要保留復原標示。",
+        "overlap": "和既有合弓可有結構重疊；本案依纏卷材料／配置辨識，不能只換色。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "耐久泛用型；較少失衡但換箭節奏普通，屬遊戲平衡。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "museum_object_name": "塗籠重糸巻弓",
+      "date_evidence_note": "文化廳主記錄時代為鎌倉～室町；本次不將群體定年縮成單件的特定世紀。",
+      "manifest_index": 7,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "大山祇神社「三島明神奉納武器類」中的實存塗籠重糸巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "耐久泛用型；較少失衡但換箭節奏普通，屬遊戲平衡。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_complete_requires_art_comparison"
+    },
+    {
+      "id": "bow_nioiito_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "匂糸卷弓（復原）",
+      "era": "鎌倉至室町；館藏組合定年，非每件都有精確年份",
+      "history": "大山祇神社「三島明神奉納武器類」中的實存塗籠匂糸巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "real_object_or_reconstruction": "reconstruction_based_on_catalogued_object",
+      "source_urls": [
+        "https://kunishitei.bunka.go.jp/heritage/detail/201/6935",
+        "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "https://www.jstage.jst.go.jp/article/budo1968/36/3/36_9/_article/-char/ja"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "鎌倉至室町；館藏組合定年，非每件都有精確年份"
+      },
+      "reference_image": {
+        "page_url": "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "image_url": "https://www.pref.ehime.jp/uploaded/image/194_55261.jpg",
+        "alternate_page_url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+        "alternate_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/The_bow_of_the_Kamakura_period.JPG",
+        "reference_scope": "大山祇神社中世弓群像；可比對長短肢、輪廓和纏卷。官方頁有群像連結，單件對位需在美術階段確認。",
+        "exact_object_or_structure_verified": false
+      },
+      "rights": {
+        "official_photo": "reference-only, not copy；官方頁未提供可直接用於遊戲美術的授權，不能把文物無著作權等同攝影無著作權。",
+        "commons_alternative": {
+          "url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+          "declared_license": "CC BY-SA 3.0",
+          "declared_author": "Shocking the earth（震天動地）",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "caution": "頁面宣告自作並提供此授權，但EXIF顯示掃描器；本次未確認攝影原始權源，建議仍只作造形參考，不直接複製或描摹圖像。"
+        },
+        "production_rule": "依史料自繪新資產；目前未下載、生成或授權使用任何圖像。"
+      },
+      "morphology": {
+        "verified": [
+          "官方同名編目有兩張；本案只算一種，不把兩張列成兩個新弓湊數。",
+          "有糸卷與塗籠工藝名目；本次沒有原物分段近照可核對。"
+        ],
+        "reconstruction_design": [
+          "先做疏密漸變的細線卷束概念稿，與所糸卷的單純長空檔、重糸卷的均密環紋區別。",
+          "疏密漸變是明示的美術復原方案，未證實是「匂糸」歷史工法含義；不得寫入史實說明。"
+        ],
+        "unknown": [
+          "公開編目未列此件木種、內部層數、完整尺寸及射力；不可據飾法推斷核心構造。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。",
+      "game_adaptation": {
+        "visual_key": "擬採疏密漸變卷束的原創復原；需先取得單件對位照片確認，不能僅換色。",
+        "implementation": "依中世實物類型自繪完整可用弓；損傷、褪色和缺失不直接照搬為服役狀態。具體纏卷位置與握革比例需原圖核對；沒有資料的細節要保留復原標示。",
+        "overlap": "和既有合弓可有結構重疊；本案依纏卷材料／配置辨識，不能只換色。",
+        "production_gate": "名稱與實存已核實，具體卷法尚未核定。可先出有標示的復原概念稿；不得包裝成精確實物複製。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "蓄力窗口型；最佳時機傷害較高、失準懲罰較大，完全是遊戲機制。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "museum_object_name": "塗籠匂糸巻弓",
+      "date_evidence_note": "文化廳主記錄時代為鎌倉～室町；本次不將群體定年縮成單件的特定世紀。",
+      "manifest_index": 8,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "大山祇神社「三島明神奉納武器類」中的實存塗籠匂糸巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "蓄力窗口型；最佳時機傷害較高、失準懲罰較大，完全是遊戲機制。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_complete_provisional_visual_reconstruction"
+    },
+    {
+      "id": "bow_nibiki_shigeito_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "二引重糸卷弓（復原）",
+      "era": "鎌倉至室町；館藏組合定年，非每件都有精確年份",
+      "history": "大山祇神社「三島明神奉納武器類」中的實存黒漆塗二引重糸巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "real_object_or_reconstruction": "reconstruction_based_on_catalogued_object",
+      "source_urls": [
+        "https://kunishitei.bunka.go.jp/heritage/detail/201/6935",
+        "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "https://www.jstage.jst.go.jp/article/budo1968/36/3/36_9/_article/-char/ja"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "鎌倉至室町；館藏組合定年，非每件都有精確年份"
+      },
+      "reference_image": {
+        "page_url": "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "image_url": "https://www.pref.ehime.jp/uploaded/image/194_55261.jpg",
+        "alternate_page_url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+        "alternate_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/The_bow_of_the_Kamakura_period.JPG",
+        "reference_scope": "大山祇神社中世弓群像；可比對長短肢、輪廓和纏卷。官方頁有群像連結，單件對位需在美術階段確認。",
+        "exact_object_or_structure_verified": false
+      },
+      "rights": {
+        "official_photo": "reference-only, not copy；官方頁未提供可直接用於遊戲美術的授權，不能把文物無著作權等同攝影無著作權。",
+        "commons_alternative": {
+          "url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+          "declared_license": "CC BY-SA 3.0",
+          "declared_author": "Shocking the earth（震天動地）",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "caution": "頁面宣告自作並提供此授權，但EXIF顯示掃描器；本次未確認攝影原始權源，建議仍只作造形參考，不直接複製或描摹圖像。"
+        },
+        "production_rule": "依史料自繪新資產；目前未下載、生成或授權使用任何圖像。"
+      },
+      "morphology": {
+        "verified": [
+          "官方獨立編列黑漆、二引、重糸卷名目的弓，與無二引的重糸卷別列。"
+        ],
+        "reconstruction_design": [
+          "細密線卷弓身加兩道明確環向寬帶；寬帶位置、內容與相互距離需核原圖。",
+          "二引只作編目形制辨識，未核實不得解讀成特定武家所用或擅加家紋。"
+        ],
+        "unknown": [
+          "公開編目未列此件木種、內部層數、完整尺寸及射力；不可據飾法推斷核心構造。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。",
+      "game_adaptation": {
+        "visual_key": "兩道寬帶打斷密細線環紋，不能只把重糸卷變黑。",
+        "implementation": "依中世實物類型自繪完整可用弓；損傷、褪色和缺失不直接照搬為服役狀態。具體纏卷位置與握革比例需原圖核對；沒有資料的細節要保留復原標示。",
+        "overlap": "和既有合弓可有結構重疊；本案依纏卷材料／配置辨識，不能只換色。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "重箭型；较高單發、較慢放箭恢復，是遊戲設計，不是二引裝飾的真實性能。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "museum_object_name": "黒漆塗二引重糸巻弓",
+      "date_evidence_note": "文化廳主記錄時代為鎌倉～室町；本次不將群體定年縮成單件的特定世紀。",
+      "manifest_index": 9,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "大山祇神社「三島明神奉納武器類」中的實存黒漆塗二引重糸巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "重箭型；较高單發、較慢放箭恢復，是遊戲設計，不是二引裝飾的真實性能。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_complete_provisional_visual_reconstruction"
+    },
+    {
+      "id": "bow_nibiki_kaba_reconstruction",
+      "family": "bow",
+      "category": "bow",
+      "name": "二引樺卷弓（復原）",
+      "era": "鎌倉至室町；館藏組合定年，非每件都有精確年份",
+      "history": "大山祇神社「三島明神奉納武器類」中的實存塗籠二引樺巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "real_object_or_reconstruction": "reconstruction_based_on_catalogued_object",
+      "source_urls": [
+        "https://kunishitei.bunka.go.jp/heritage/detail/201/6935",
+        "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "https://www.jstage.jst.go.jp/article/budo1968/36/3/36_9/_article/-char/ja"
+      ],
+      "verified_date": {
+        "checked_at": "2026-10-12",
+        "historical_date": "鎌倉至室町；館藏組合定年，非每件都有精確年份"
+      },
+      "reference_image": {
+        "page_url": "https://www.pref.ehime.jp/ehimenotakara/242.html",
+        "image_url": "https://www.pref.ehime.jp/uploaded/image/194_55261.jpg",
+        "alternate_page_url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+        "alternate_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/The_bow_of_the_Kamakura_period.JPG",
+        "reference_scope": "大山祇神社中世弓群像；可比對長短肢、輪廓和纏卷。官方頁有群像連結，單件對位需在美術階段確認。",
+        "exact_object_or_structure_verified": false
+      },
+      "rights": {
+        "official_photo": "reference-only, not copy；官方頁未提供可直接用於遊戲美術的授權，不能把文物無著作權等同攝影無著作權。",
+        "commons_alternative": {
+          "url": "https://commons.wikimedia.org/wiki/File:The_bow_of_the_Kamakura_period.JPG",
+          "declared_license": "CC BY-SA 3.0",
+          "declared_author": "Shocking the earth（震天動地）",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "caution": "頁面宣告自作並提供此授權，但EXIF顯示掃描器；本次未確認攝影原始權源，建議仍只作造形參考，不直接複製或描摹圖像。"
+        },
+        "production_rule": "依史料自繪新資產；目前未下載、生成或授權使用任何圖像。"
+      },
+      "morphology": {
+        "verified": [
+          "官方以塗籠、二引、樺卷的組合編目，與糸卷弓分開。",
+          "樺卷表面工藝與细線卷不同；本次未核得該件樹皮種屬。"
+        ],
+        "reconstruction_design": [
+          "以寬樹皮片卷束、可見片緣搭接表現材質；不要畫成編織藤或細線。",
+          "兩道寬帶、樹皮搭接和局部漆面組合形成識別；實際帶位待原圖確認。"
+        ],
+        "unknown": [
+          "公開編目未列此件木種、內部層數、完整尺寸及射力；不可據飾法推斷核心構造。"
+        ]
+      },
+      "physical_dimensions": null,
+      "physical_dimensions_note": "本次未取得可核對至該件的原始量測；不把近代標準弓長、照片估算或其他弓長當作此件尺寸。",
+      "game_adaptation": {
+        "visual_key": "較寬片狀樹皮卷束與搭接邊，搭配二引寬帶。",
+        "implementation": "依中世實物類型自繪完整可用弓；損傷、褪色和缺失不直接照搬為服役狀態。具體纏卷位置與握革比例需原圖核對；沒有資料的細節要保留復原標示。",
+        "overlap": "和既有合弓可有結構重疊；本案依纏卷材料／配置辨識，不能只換色。",
+        "palette_rule": "只製作武器本體；不改人物膚色、衣服及已核准動畫色盤。",
+        "shared_animation_rule": "與原角色握點逐幀對齊；弓須保留握把、拉弦手與箭位置，槍須保留前後手桿部接觸。",
+        "asset_validation": "同色剪影、1倍遊戲大小、所有方向與攻擊幀逐一比對，確認不裁切且沒有純換色重複。"
+      },
+      "proposed_stats_fiction": {
+        "fiction_only": true,
+        "role": "穩定瞄準型；長蓄力換較低散布，完全是遊戲設定。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "status": "original_game_art_integrated",
+      "existing_asset_check": "既有梓丸木、竹藤、黑漆、朱漆、重藤及竹木合弓素材未提供；須與六者做並排美術去重。不是僅換色的新武器。",
+      "museum_object_name": "塗籠二引樺巻弓",
+      "date_evidence_note": "文化廳主記錄時代為鎌倉～室町；本次不將群體定年縮成單件的特定世紀。",
+      "manifest_index": 10,
+      "scope_note": "本次僅研究；未修改Godot專案、未生成圖片、未導入遊戲。",
+      "catalog_intro": "大山祇神社「三島明神奉納武器類」中的實存塗籠二引樺巻弓；文化廳與愛媛縣皆有編目。名稱是形制／表面工藝描述，並非虛構名弓。",
+      "game_balance": {
+        "fiction_only": true,
+        "role": "穩定瞄準型；長蓄力換較低散布，完全是遊戲設定。",
+        "numerical_values": null,
+        "note": "角色定位是遊戲平衡提案，不能當作史實射程、穿甲能力、磅數或材料優劣；尚未讀取Godot數值結構。"
+      },
+      "research_stage": "research_complete_art_integrated",
+      "asset_generated": true,
+      "game_imported": true,
+      "art_source_review": [],
+      "original_research_status": "research_complete_requires_art_comparison"
+    }
+  ],
+  "alternatives_not_counted": [
+    {
+      "id": "sword_nakigitsune",
+      "name": "鳴狐",
+      "family": "sword",
+      "status": "alternate_requires_short_blade_animation_review",
+      "blade_length_cm": 54.0,
+      "curvature_cm": 1.5,
+      "era": "鎌倉時代13世紀",
+      "source_urls": [
+        "https://emuseum.nich.go.jp/detail?content_base_id=100503&content_part_id=0&content_pict_id=0&langId=ja&webView=0"
+      ],
+      "reason_not_main": "平造大短刀式輪廓具辨識度，但54cm刃長不宜硬套長刃判定；需檢查握點。",
+      "proposed_replaces": "sword_kanze_masamune"
+    },
+    {
+      "id": "sword_atsushi_toshiro",
+      "name": "厚藤四郎",
+      "family": "sword",
+      "status": "alternate_requires_one_handed_tanto_animation",
+      "blade_length_cm": 27.6,
+      "curvature_cm": 0,
+      "era": "鎌倉時代13世紀",
+      "source_urls": [
+        "https://emuseum.nich.go.jp/detail?content_base_id=100183&content_part_id=0&content_pict_id=0&langId=ja&webView=0"
+      ],
+      "reason_not_main": "真正短刀，需新增單手近身動作；禁止把刀身同比放大湊成兩手太刀。",
+      "proposed_replaces": null
+    },
+    {
+      "id": "sword_namazuo_toshiro",
+      "name": "鯰尾藤四郎",
+      "family": "sword",
+      "status": "alternate_requires_wakizashi_animation_and_sengoku_reconstruction",
+      "blade_length_cm": 38.5,
+      "curvature_cm": 0.6,
+      "era": "原作鎌倉13世紀，1615年後再刃；現附刀裝為江戶19世紀",
+      "source_urls": [
+        "https://www.tokugawa-art-museum.jp/collections/%E8%84%87%E6%8C%87%E3%80%80%E9%8A%98-%E5%90%89%E5%85%89%E3%80%80%E5%90%8D%E7%89%A9-%E9%AF%B0%E5%B0%BE%E8%97%A4%E5%9B%9B%E9%83%8E/",
+        "https://www.tokugawa-art-museum.jp/touken2025/src/pdf/sword_list_20250520_latest.pdf"
+      ],
+      "reason_not_main": "长卷改脇指有獨特無横手尖端，但雙手現有動作與年代層次成本高。",
+      "proposed_replaces": null
+    }
+  ],
+  "artifact_status": {
+    "research_manifest": "complete_with_documented_uncertainties",
+    "museum_replica_accuracy": "not_claimed",
+    "art_generation": "not_started_here",
+    "repository_changes": "none",
+    "runtime_verification": "not_performed_here"
+  }
+}

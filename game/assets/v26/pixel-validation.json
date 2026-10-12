@@ -1,0 +1,250 @@
+{
+  "status": "PASS",
+  "scope": "26 clips / 156 inspected frames",
+  "counts": {
+    "retained_already_suitable": 75,
+    "modified": 81
+  },
+  "modified_sheets": 17,
+  "protected_other_assets": 891,
+  "checks": [
+    {
+      "clip": "run",
+      "frames": [
+        3,
+        6
+      ],
+      "changed_pixels": 12075,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "light2",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "changed_pixels": 52291,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "light3",
+      "frames": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "changed_pixels": 22213,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "heavy2",
+      "frames": [
+        1
+      ],
+      "changed_pixels": 9197,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "charged_upper",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "changed_pixels": 41741,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "charged_slam",
+      "frames": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "changed_pixels": 35397,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "air_heavy",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "changed_pixels": 50720,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "air_light",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "changed_pixels": 39988,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "rising",
+      "frames": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "changed_pixels": 26168,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "low_sweep",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "changed_pixels": 52174,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "dash_strike",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "changed_pixels": 50883,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "jump",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "changed_pixels": 39939,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "down",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "changed_pixels": 37759,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "recovering",
+      "frames": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "changed_pixels": 25664,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "launched",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "changed_pixels": 46418,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "throw",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "changed_pixels": 29304,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    },
+    {
+      "clip": "special",
+      "frames": [
+        2,
+        3
+      ],
+      "changed_pixels": 23216,
+      "alpha_exact": true,
+      "outside_mask_exact": true,
+      "baseline_rgba_reconstructed": true
+    }
+  ],
+  "limitations": [
+    "Asset-composite review is not an in-engine gameplay capture",
+    "Minor retained seam lines in throw frames 1,3,4,5 and recovering frame 4; fainter old-edge traces in down frames 1,3. Existing leg pixels are intentionally not redrawn."
+  ]
+}

@@ -24,6 +24,7 @@ func _initialize() -> void:
 	_loot()
 	_persistence()
 	_wire()
+	_expansion()
 	print("WEAPONS / SAVE V22 %s: %d checks, %d failures" % ["PASS" if failures == 0 else "FAILED",checks,failures])
 	quit(1 if failures else 0)
 
@@ -50,10 +51,10 @@ func drop(battle: Battle, id: String, player: Dictionary) -> void:
 	battle.state.drops[-1].weapon_id = id
 
 func _catalog() -> void:
-	check(Weapons.ITEMS.size() == 15,"Exactly fifteen distinct historical weapon designs")
+	check(Weapons.ITEMS.size() == 48,"Forty-eight historical and reconstructed weapon designs")
 	for hero in ["nobunaga","oichi","tadakatsu"]:
 		var family: Array = Weapons.ITEMS.keys().filter(func(id): return Weapons.compatible(hero,id))
-		check(family.size() == 5,hero + " has five compatible designs")
+		check(family.size() == Weapons.ids_for(hero).size() and family.size() == 16,hero + " has sixteen compatible designs, with catalog-derived inventory capacity")
 		check(Weapons.item(Weapons.default_for(hero)).tier == 1,hero + " begins equipped with its first weapon")
 		for id in family:
 			check(Weapons.item(id).source.begins_with("https://") and Weapons.item(id).history.length() > 10,id + " records historical source and adaptation note")
@@ -130,10 +131,10 @@ func _loot() -> void:
 			var before: int = battle.state.drops.size()
 			battle._drop_boss_weapon(boss,player.id)
 			var added: int = battle.state.drops.size() - before
-			if boss.stage_boss: check(added == 1,"Major boss always rewards an upgrade while one exists")
+			if boss.stage_boss: check(added == 1,"Major boss always rewards a missing compatible item while one exists")
 			if added:
 				var id: String = battle.state.drops[-1].weapon_id
-				check(Weapons.compatible(player.kind,id) and Weapons.item(id).tier > 1,"Boss loot is an upgrade in the killer's family")
+				check(Weapons.compatible(player.kind,id) and id not in player.owned_weapons and int(Weapons.item(id).tier) <= int(Weapons.item(player.weapon_id).tier) + (3 if boss.stage_boss else 2),"Boss loot is an unowned same-family item within the tier-step cap; sidegrades remain collectible")
 				results.append(id)
 			else: results.append("")
 		check("" in results and results.any(func(id): return id != ""),"Minor boss drop chance includes rewards and misses")
@@ -230,3 +231,75 @@ func _wire() -> void:
 	snapshot = battle.get_state()
 	snapshot.loot_rng = INF
 	check(not Wire.valid_snapshot(snapshot),"Wire rejects non-finite PRNG state")
+
+func _expansion() -> void:
+	var new_ids := {"nobunaga":"sword_kanesada_mino","tadakatsu":"spear_fukuro_yari","oichi":"bow_awase_yumi"}
+	for hero in new_ids:
+		var added: String = new_ids[hero]
+		var family := Weapons.ids_for(hero)
+		var old_owned := family.filter(func(id): return id != added)
+		var strongest: String = old_owned[0]
+		for id in old_owned:
+			if Weapons.item(id).tier > Weapons.item(strongest).tier: strongest = id
+		var old_profile := {"version":1,"characters":{}}
+		old_profile.characters["0:" + hero] = {"slot":0,"hero":hero,"score":1234,"max_hp_bonus":0,"weapon_id":strongest,"owned_weapons":old_owned}
+		check(Profiles.valid(old_profile),hero + " existing v1 inventory remains valid without migration")
+		var path := output.path_join(hero + "-expansion.json")
+		write(path,JSON.stringify(old_profile))
+		var profiles := Profiles.new(path)
+		var battle := arena(hero)
+		var player: Dictionary = battle.state.fighters[0]
+		profiles.apply_to(player)
+		var boss := enemy(battle,player.x,"boss")
+		boss.stage_boss = true
+		battle._drop_boss_weapon(boss,player.id)
+		check(battle.state.drops.size() == 1 and battle.state.drops[0].weapon_id == added,hero + " last missing weapon drops even with tier-five equipped")
+		battle.state.drops[0].x = player.x
+		battle.state.drops[0].y = player.y
+		battle._pickup(player)
+		check(player.weapon_id == added and player.owned_weapons.size() == family.size(),hero + " last missing design can actually be acquired and equipped")
+		check(Weapons.valid_inventory(hero,added,player.owned_weapons),hero + " full catalog-sized inventory validates")
+		profiles.capture(player)
+		check(profiles.save() == OK,hero + " catalog-sized inventory saves atomically")
+		var restored := Profiles.new(path)
+		check(restored.character(0,hero).owned_weapons.size() == family.size() and restored.character(0,hero).weapon_id == added,hero + " catalog-sized save reload keeps equipped added weapon")
+		var synchronized := Battle.new()
+		synchronized.reset("normal",1,[hero])
+		synchronized.state.fighters[0].weapon_id = added
+		synchronized.state.fighters[0].owned_weapons = player.owned_weapons.duplicate()
+		check(Wire.valid_snapshot(synchronized.get_state()),hero + " catalog-sized snapshot passes sync validator")
+		var replay := Battle.new()
+		replay.state = bytes_to_var(var_to_bytes(synchronized.get_state()))
+		check(replay.state.fighters[0].weapon_id == added and replay.state.fighters[0].owned_weapons.size() == family.size(),hero + " authoritative snapshot round-trip retains expansion")
+		check(Weapons.loot_candidates(hero,added,player.owned_weapons,3).is_empty(),hero + " complete collection avoids redundant boss rewards")
+		var duplicate: Array = player.owned_weapons.duplicate()
+		duplicate.append(added)
+		check(not Weapons.valid_inventory(hero,added,duplicate),hero + " oversized duplicate inventory still rejected")
+		check(not Weapons.valid_inventory(hero,"unknown_weapon",player.owned_weapons),hero + " unknown equipped ID rejected")
+		var before: int = battle.state.drops.size()
+		battle._drop_boss_weapon(boss,player.id)
+		check(battle.state.drops.size() == before,hero + " no drop after collection complete")
+
+	# Explicit collision-boundary checks, separate from the art's physical scale.
+	for hero in ["nobunaga","tadakatsu"]:
+		for face in [1,-1]:
+			var combat := arena(hero)
+			var attacker: Dictionary = combat.state.fighters[0]
+			attacker.x = 500.0
+			attacker.face = face
+			attacker.action = "heavy"
+			equip(attacker,new_ids[hero])
+			var item := Weapons.item(new_ids[hero])
+			var reach: float = (200.0 + float(item.reach_bonus)) * float(Battle.HERO_PROFILES[hero].reach)
+			var within := enemy(combat,attacker.x + face * (reach - 1.0))
+			var beyond := enemy(combat,attacker.x + face * (reach + 1.0))
+			combat._melee(attacker,200,80,26,false)
+			check(within.hp == 1000 - roundi((26 + int(item.damage_bonus)) * float(Battle.HERO_PROFILES[hero].damage)),hero + " added weapon applies damage immediately inside left/right gameplay reach")
+			check(beyond.hp == 1000,hero + " added weapon cannot hit outside left/right gameplay reach")
+	var archery := arena("oichi")
+	var archer: Dictionary = archery.state.fighters[0]
+	equip(archer,"bow_awase_yumi")
+	archery._projectile(archer,24,0,false,"arrow",760)
+	var arrow: Dictionary = archery.state.effects[-1]
+	check(arrow.damage == 30 and arrow.equipment_id == "bow_awase_yumi" and arrow.element == "", "Composite bow releases its catalog damage without invented elemental effect")
+	check(arrow.range_left == 705 and arrow.equipment_knockback == 1, "Composite bow snapshots its own range and knockback")

@@ -1367,8 +1367,7 @@ func _drop_boss_weapon(boss: Dictionary, owner: int) -> void:
 	if player.is_empty() or player.team != 0: return
 	var major: bool = boss.get("stage_boss",false)
 	if not major and _loot_roll(100) >= 65: return
-	var current: Dictionary = Weapons.item(player.weapon_id)
-	var options := Weapons.upgrades(player.kind,player.weapon_id).filter(func(id): return Weapons.ITEMS[id].tier <= current.tier + (3 if major else 2))
+	var options := Weapons.loot_candidates(player.kind,player.weapon_id,player.owned_weapons,3 if major else 2)
 	if options.is_empty(): return
 	_add_drop("weapon",boss.x,boss.y)
 	state.drops[-1].weapon_id = options[_loot_roll(options.size())]

@@ -1,0 +1,718 @@
+{
+  "version": 1,
+  "base_commit": "2ac0688a8100b27b3a4fa958554aee8dcd3a1188",
+  "scope": "77 runtime clips / 462 authored frames; materials only. No regenerated poses, changed alpha, altered grip/occluder/anchor data or weapon pixels.",
+  "references": {
+    "nobunaga": "idle.png antique red lacquer / crimson cloak and antique gold trim; hue and saturation calibrated separately from black cloth/skin",
+    "oichi": "idle-walk-source.png and walk.png; walk matched-value red saturation upper reference. Ten outliers use a mild saturation-only grade, keeping hue/value unchanged",
+    "tadakatsu": "idle.png / walk.png black armor, purple-black mantle, gold trim and red ties; all 26 clips retained unchanged because variation is consistent with pose shading"
+  },
+  "reference_statistics": {
+    "nobunaga": {
+      "red": [
+        0.0071556554900275016,
+        0.7974680662155151,
+        0.5686274766921997
+      ],
+      "gold": [
+        0.1071427239312066,
+        0.5656563639640808,
+        0.8156862854957581
+      ]
+    }
+  },
+  "original_runtime_sources": {
+    "nobunaga/idle.png": "5b36199a09e48ff3c5aba1af10d2d7ca479d1c640358c7d6e39ce082bbe25958",
+    "nobunaga/walk.png": "2f862c4d75190653582b1e490c4058a325bebd8121cd7ce3dd9165cc8c8623f4",
+    "nobunaga/run.png": "bf43e85b942c1f3ea2663259086f865d0c4785e200b3c78b380e0afaf74518aa",
+    "nobunaga/light1.png": "fa19e2d503fc5752f8bce577dbd0e180c7dff03bf9bbda54a7df139c158bae11",
+    "nobunaga/light2.png": "e0b1e404f5e2b728c2e1cc4fa36dc6cbc46a2d2fe1610fbca1ee251f70788c72",
+    "nobunaga/light3.png": "03b5ff0ae2e68167536bcf49a8d2d4a542db653f21bdbcb97cb7d7e759b36b21",
+    "nobunaga/heavy1.png": "112de9c94b783a2c7317d13234e30d3d50e6d5017cd7c2175d70166d8a0ca82b",
+    "nobunaga/heavy2.png": "9fab7d0223b188703d4c857254c04671ff4c6add3094174e308eb00189619b3c",
+    "nobunaga/dash_strike.png": "c76ac89fac542c2283ed561a936326b7afa7b06bfc4f3b9ece46ae6e8e5d4d22",
+    "nobunaga/rising.png": "ec0130eb061ae696285e7b995b2d56e25b8f87e1b434fb2ffc59b1abf95e6f91",
+    "nobunaga/low_sweep.png": "0b0bc0907a532c388ad5a22d3e6ccf1b35b6cfc8c0adfdf65c47c594c64ba37f",
+    "nobunaga/charged_upper.png": "3e2cda1c7cec6a982deb8f8e30ad09f1c983befe3dd28aa365f0ba1d8771d5d5",
+    "nobunaga/charged_slam.png": "be06f9940c8f2837d1bff324b2658e34f8fbb5a9c2b738a2e28cc603f4f3714e",
+    "nobunaga/air_light.png": "b1a3620c2e4556ad62fbc6d287ce0e1f839d3917eaba42e1991ea81d5e00338f",
+    "nobunaga/air_heavy.png": "ceddc3815947b33cd941bc68603deaec5708abd10d8c72314180e016329e215c",
+    "nobunaga/special.png": "080918ef298aa6ed6bbae94f26a3698de04ab615ca3bd9bb8e5246f60fbcfbe3",
+    "nobunaga/jump.png": "00ec0cfd9d96ba0c52561802abbc0ad682b1fd5a1543c76b5bc71d6d9fa04488",
+    "nobunaga/guard.png": "213da634c46415529de7a2c9b598445884bfc88419d89a64e4275842b58a3a19",
+    "nobunaga/throw.png": "b0af26a50d8de6017471816362ec85867198e231b9682dea8a11521193db3c15",
+    "nobunaga/victory.png": "e60a9308391128f5eb461994344ac15da1448d99c4372b823a4432afdfa53a09",
+    "nobunaga/hurt.png": "b5326bbb6369731be9c01f12a760dba0f0bacac08a81eecc8b77d5d70ef52186",
+    "nobunaga/stunned.png": "b3329b5fc42b4dbc5470f67e90cd6f33f353800d41ff8b4cdc2a2ac3db8c56ac",
+    "nobunaga/down.png": "647c7967c6bd009eb6996f0311c11b02a7f7b36a62464447f614715f13891b43",
+    "nobunaga/recovering.png": "8e5db63fc82662af5e22f082dc57bb2bd34478ef20751934402977495f27f7ef",
+    "nobunaga/launched.png": "5a09c5f48c9f8b2ea8e8cf1575eb1726c25472deb312ed5865a53c7030ea3c08",
+    "tadakatsu/idle.png": "8131eb3d1729a0abce858215b30bfbf318bd6a85886b746de491c1c144372908",
+    "tadakatsu/walk.png": "0d59a93389df5bad8b68d44ca61fbc10ecf1f6b4530dd1d154a8b807a0103688",
+    "tadakatsu/run.png": "adb93b4a5bea5fd2ae69cafcb36f7117f3355f9eef978a14afb6b15a280af89b",
+    "tadakatsu/jump.png": "27d9252dc8e10b728051955db34d556204cdbbc8ee4694b83056689958221fbd",
+    "tadakatsu/light1.png": "2c24ae81465e532e11aa46f357e1f7f11d3ed7090c22bcf677cf9d1a14b409fe",
+    "tadakatsu/light2.png": "8db1d61420b2504313a4fb45e9e849f831234212c94de091671376af8b252239",
+    "tadakatsu/light3.png": "3033178a5b3fed3e90712fc90a513c8b16e52923bfd922e3038267f76d605371",
+    "tadakatsu/heavy1.png": "a4bdecbe6ce1d69ae9e4c2673cd59afbb72508f8e5a25121a9693b0b66fef827",
+    "tadakatsu/heavy2.png": "75e27b7db957296de66204fe4e35e21cc4522c2d08bf05dfe16ef228ac9b281d",
+    "tadakatsu/slam_charge.png": "03478d8cf5562051740d33c1f60c481a33d37902c4b4aa7b238b123fed672179",
+    "tadakatsu/charged_slam.png": "d387d92b24f93bf6fd34912b23500c6b6eb51b4de75ab903b99d2a8b22fa2a48",
+    "tadakatsu/charge_forward.png": "9fc5279f6e95eca1d5af49641c508157253db66aef61c3c498c55cbe3f15aedc",
+    "tadakatsu/dash.png": "5fbe40fe13ceea6ff215c3510cc73e5536b3ddb50e0f922e325af7bd760c1c58",
+    "tadakatsu/upper.png": "dd9e5a96e20b902289c14c556bf9a127bd3251256978718b82bcf3978c1f5f8b",
+    "tadakatsu/low_sweep.png": "0668326c8e15e724e660ae89cd7e67ebcbb3faf0bbe7696cebc4d0521cd14fa7",
+    "tadakatsu/air_light.png": "7fe79553678ecbce3642a41f9c7fc5e59b4d86531ca7cc08743bc571e9ec0bef",
+    "tadakatsu/air_heavy.png": "0fe9e5ed2a627787ec08893ae9503ee5d6f54e999621332848d06189b3f31d2d",
+    "tadakatsu/hurt.png": "b00c90938f0f2a2a0020bc08b73b33ec3c65dd1195d6361956d9c941a48def23",
+    "tadakatsu/guard.png": "054b40e1183bca1a3857abdb267c634363036dda3016ef18875fef0f1b081bcf",
+    "tadakatsu/death.png": "4997f35af74ac9d308e141a3091143b5686436cbc1e701b8b50b4d9dbc57d134",
+    "tadakatsu/recover.png": "c994552f21f048fec9fc71f911319107c48221c1e452e72aefc1734fa6560b65",
+    "tadakatsu/holding.png": "a60f2f32717a2bfdeff5628f7bce72ed28b0ffe9237f24ec967b1b3de429d785",
+    "tadakatsu/throw.png": "ffd64b76d49b8ad666f59ee3a65a77234036809e601661e28addafb5bd5e4965",
+    "tadakatsu/launched.png": "82f9bd76a211fe432d7c4c09c2d50b4c56a2335cfd03d65a43c54f682955b7db",
+    "tadakatsu/special.png": "af066e78ea088476919a5fb3279a54d7c1f7d344cbab78173d6dc189e41f0dab",
+    "tadakatsu/victory.png": "831ec63325a521b6f02f841bd1df6de8f673fb444d80b78242f8081cbc54d08a",
+    "oichi/idle-walk-source.png": "283fd43971b37780773d34f4db48f7d05cee19084f12ab058439a7e4824cda35",
+    "oichi/walk.png": "e47ed847b42eb8448fb085b30a8b32fe7506f630923f7e6a46c72d9f9c5c7d9b",
+    "oichi/run.png": "d7b7c1eabcde812a87c8ea2f2a47af1b2f60380a004322c71785ff30ca1063dc",
+    "oichi/light1.png": "5edc5cfd3af6fa918fd82a8a34481944fb04660d32c70a17eab1253ca74949f8",
+    "oichi/light2.png": "0aad57edb915c07c0fd7ebfc55b83623404dcd6d6dc3cc60a385bb2cbeb94d87",
+    "oichi/light3.png": "557bdda3123c111399ff77e3a50ab52fbdde62b2ae9334cc216e1d7c6b35ad61",
+    "oichi/heavy1.png": "82487072fa68db5b46e3400af8cc31d637fd44cc26748af9f004163671aaf4a8",
+    "oichi/heavy2.png": "f0efa63ea7cdb417d080561ea9c5679dc6853e6c40e6751bd780da1e70b53f8b",
+    "oichi/charged_upper.png": "82eab586350a0b2100b4dd7a3148d6c24008bbe971728ea998e09f62d2846670",
+    "oichi/charged_slam.png": "fbd1a0bfbc379f170a27dbbc66d4aa2d39c91f36588806c96963f15f7b13c84d",
+    "oichi/air_heavy.png": "02ef3b1d7b40603cc5f227f5c3bdb883b49e84bc5cebcf13d5bdee895d58052d",
+    "oichi/air_light.png": "61e62823be5522e8b68aaf4ba98ff5c70af6f92df4cd3fea2de9b5fd996d853d",
+    "oichi/rising.png": "cbcc5bad2cf31342a76d6736a9403d5abd1afa9a1dd2fe12be38d643f2ad43a6",
+    "oichi/low_sweep.png": "239a299384ad208b34618da2d0b16c6701cc4cb61909f20bbc1c8ea618f3b27f",
+    "oichi/dash_heavy.png": "69b9d2470a7b101faf6c3a78c3b34a347c9a82558621fca839437ad187142af4",
+    "oichi/dash_strike.png": "6818a3f3e87897aba36c0ff14fb94913b2b691c0920e3aa97fb642f093918bbe",
+    "oichi/jump-spaced.png": "d93d133cc09e4a399863d896a9300a56af2d3060fb2a568d85566be9509ac61b",
+    "oichi/hurt.png": "b41105b97187b09b47775e026320d5043fc282673385ad2720da4e80fc64d3f6",
+    "oichi/down.png": "61c3dce17a27c581a10a163484e4f4de2bac9e92b55bfe8e91a4d36250b14cc7",
+    "oichi/recovering.png": "5058740a61eb63f2803ea1c721a634743eb93764f96d32d09e26ac1c8f49ada4",
+    "oichi/launched.png": "26948d791731f6af6fc321008f78fa3fa06ba6f116bc8584bf453b71a5ab5ec9",
+    "oichi/stunned.png": "e7106ab7bf51270911b819970a8f60175b05e6fd5715653589e23d89ef8e21aa",
+    "oichi/guard.png": "d9e78a25e419c79cee5c27bc05f9139b69be47dc0786b8d629eafb1a4ff86ccc",
+    "oichi/throw.png": "f53b56844a36aaf0e8ccc48d64639291858102b1cd66b2622c4f8316773d0125",
+    "oichi/special.png": "c0fbed258a0c3257c4367aefb49be0b575e3e69a7afa54abe70dd04d0bffaef6",
+    "oichi/victory-boxed.png": "fe14b5e99ce5d463c79cf6c7a47929b61fbcdb7ffe10752241b91d813cca320e"
+  },
+  "corrections": {
+    "nobunaga/walk.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.0027696907520293745,
+          "saturation_gain": 0.9132299117553567,
+          "value_gain": 0.7552083527116334
+        },
+        "gold_trim": {
+          "hue_shift": -0.005870956844753694,
+          "saturation_gain": 0.9219465630500693,
+          "value_gain": 0.866666675110658
+        }
+      },
+      "original_sha256": "2f862c4d75190653582b1e490c4058a325bebd8121cd7ce3dd9165cc8c8623f4",
+      "corrected_sha256": "757a598228b8d86cc772329562e0fccbfa2ffa17ce8e9b59fff9ffafbcd2f4b4",
+      "alpha_sha256": "290e2ffadf7a65b6719c7a3518401bb4419df76117877cc21b803025845d6389",
+      "changed_rgb_pixels": 265212
+    },
+    "nobunaga/run.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.010360764132605671,
+          "saturation_gain": 0.8521517106255996,
+          "value_gain": 0.6775701163582784
+        },
+        "gold_trim": {
+          "hue_shift": -0.007623343997531465,
+          "saturation_gain": 0.7763146991358328,
+          "value_gain": 0.8421052728739725
+        }
+      },
+      "original_sha256": "bf43e85b942c1f3ea2663259086f865d0c4785e200b3c78b380e0afaf74518aa",
+      "corrected_sha256": "395de2a2cbe7b2e8d1e2d000154adb6782ded3171e5c11c526416f9b893b543d",
+      "alpha_sha256": "f62d95131ec0bf0a787b0069e501988c9ea6d549019e009a1153b22a4ac30331",
+      "changed_rgb_pixels": 247817
+    },
+    "nobunaga/light1.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.010204446315765447,
+          "saturation_gain": 0.8284379232578325,
+          "value_gain": 0.6331877972718194
+        },
+        "gold_trim": {
+          "hue_shift": -0.010257667965359166,
+          "saturation_gain": 0.7293235012640782,
+          "value_gain": 0.832000010213852
+        }
+      },
+      "original_sha256": "fa19e2d503fc5752f8bce577dbd0e180c7dff03bf9bbda54a7df139c158bae11",
+      "corrected_sha256": "541a2bd9c7562b3447c3c5353613df5be8f7da384bad3bf3be41bdc18bcf5936",
+      "alpha_sha256": "7b8f10609e6bb146bf40599dd161bc204c7da09230e68a3e2f404a239fa96057",
+      "changed_rgb_pixels": 305665
+    },
+    "nobunaga/light2.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.010079663329654376,
+          "saturation_gain": 0.8219304331255197,
+          "value_gain": 0.5967078441551943
+        },
+        "gold_trim": {
+          "hue_shift": -0.008184634314643016,
+          "saturation_gain": 0.701524896155138,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "e0b1e404f5e2b728c2e1cc4fa36dc6cbc46a2d2fe1610fbca1ee251f70788c72",
+      "corrected_sha256": "98ff2510203cc9ae5ce66c2a29cd7792804bd59173bd216aaf4510aca628036b",
+      "alpha_sha256": "a72259fa2a6d3107e3b89d38c2ec2d729af759b175808a089f99a6c28eab239d",
+      "changed_rgb_pixels": 311171
+    },
+    "nobunaga/light3.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.010892617702484064,
+          "saturation_gain": 0.820252979857987,
+          "value_gain": 0.6170213013658051
+        },
+        "gold_trim": {
+          "hue_shift": -0.007440598805745449,
+          "saturation_gain": 0.687922134443967,
+          "value_gain": 0.8353413755127588
+        }
+      },
+      "original_sha256": "03b5ff0ae2e68167536bcf49a8d2d4a542db653f21bdbcb97cb7d7e759b36b21",
+      "corrected_sha256": "82036276cbec5992b727bc8bd8e6387847103470c949d47e26ec80e9d8b839e1",
+      "alpha_sha256": "2ed68333dfdb8e11d0e5d6434ee4e4666775055f8da3e4ed37d70aacb5b07a4a",
+      "changed_rgb_pixels": 309257
+    },
+    "nobunaga/heavy1.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.008720613850487502,
+          "saturation_gain": 0.8125860799088787,
+          "value_gain": 0.5967078441551943
+        },
+        "gold_trim": {
+          "hue_shift": -0.008033402760823566,
+          "saturation_gain": 0.6919680456899298,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "112de9c94b783a2c7317d13234e30d3d50e6d5017cd7c2175d70166d8a0ca82b",
+      "corrected_sha256": "f8bd1ea8c31e8c3f5f379ddbf01aed97334d608aa64baf80b1eba582ad0df754",
+      "alpha_sha256": "d1da64166adefd809076a7366ed5e145b3eb1943115c8d0c7cbc81e95563da95",
+      "changed_rgb_pixels": 290637
+    },
+    "nobunaga/heavy2.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.010842941866980538,
+          "saturation_gain": 0.815800959427675,
+          "value_gain": 0.5942623203560745
+        },
+        "gold_trim": {
+          "hue_shift": -0.006656551361083993,
+          "saturation_gain": 0.6694967363041245,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "9fab7d0223b188703d4c857254c04671ff4c6add3094174e308eb00189619b3c",
+      "corrected_sha256": "8d8837a1e765acdaa5abf80fa6b662921c030723153dc1337286aa8072e43fe0",
+      "alpha_sha256": "d5dc079a38cd54e2101ac4d2145f82160dfaf031c30f5fb333a902c4b5bba231",
+      "changed_rgb_pixels": 329015
+    },
+    "nobunaga/dash_strike.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.01027090681923759,
+          "saturation_gain": 0.8281400497095941,
+          "value_gain": 0.6170213013658051
+        },
+        "gold_trim": {
+          "hue_shift": -0.007916482289632168,
+          "saturation_gain": 0.7694144169124054,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "c76ac89fac542c2283ed561a936326b7afa7b06bfc4f3b9ece46ae6e8e5d4d22",
+      "corrected_sha256": "83eb29b184f5b04f69c58ce3c99b9ca8e264bf31eeabe391a9b2247f75d68059",
+      "alpha_sha256": "05d8df09e2b6b258020cba6e73b3eda9546be55d9db20e5d6f4d2c4b256ddecf",
+      "changed_rgb_pixels": 306590
+    },
+    "nobunaga/rising.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.01024208466211951,
+          "saturation_gain": 0.8257807032887433,
+          "value_gain": 0.6092437224335171
+        },
+        "gold_trim": {
+          "hue_shift": -0.007901509602864593,
+          "saturation_gain": 0.7049806786866216,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "ec0130eb061ae696285e7b995b2d56e25b8f87e1b434fb2ffc59b1abf95e6f91",
+      "corrected_sha256": "e26ab7422ccb9a5bfae583d4cc261c739cb5a3ebe6c93677073deddf93bf3da2",
+      "alpha_sha256": "419b28cbbb5350af33ad3d153fe157c223879434b8da227eac00902c516537c5",
+      "changed_rgb_pixels": 264511
+    },
+    "nobunaga/low_sweep.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.008657120333777413,
+          "saturation_gain": 0.8187340394277347,
+          "value_gain": 0.6016597761595306
+        },
+        "gold_trim": {
+          "hue_shift": -0.008766343858506942,
+          "saturation_gain": 0.7042977041344342,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "0b0bc0907a532c388ad5a22d3e6ccf1b35b6cfc8c0adfdf65c47c594c64ba37f",
+      "corrected_sha256": "56a53f065d0b48e3b7cfdd39d6c9faa9cc5429b4c9b07962baac78e672aced1c",
+      "alpha_sha256": "3b21632cf3566ce647f5bd9da835c6693730e682f6aa4067779a7eca80a4b12e",
+      "changed_rgb_pixels": 281132
+    },
+    "nobunaga/charged_upper.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.006373182932535748,
+          "saturation_gain": 0.8196201442141995,
+          "value_gain": 0.6196581443627622
+        },
+        "gold_trim": {
+          "hue_shift": -0.006332439846462673,
+          "saturation_gain": 0.6968231497560421,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "3e2cda1c7cec6a982deb8f8e30ad09f1c983befe3dd28aa365f0ba1d8771d5d5",
+      "corrected_sha256": "3080c4d19f4ae1cbbd487551290311977860370be5fac1ec5152fbccb6f172ce",
+      "alpha_sha256": "d7caac2275e4637c3af5d81f39966d63f8de119c5eca87cf03736597373ece05",
+      "changed_rgb_pixels": 306861
+    },
+    "nobunaga/charged_slam.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.0071556554900275016,
+          "saturation_gain": 0.8119675771156528,
+          "value_gain": 0.5870445598242359
+        },
+        "gold_trim": {
+          "hue_shift": -0.006394386291503906,
+          "saturation_gain": 0.6814813075431264,
+          "value_gain": 0.8253968359278804
+        }
+      },
+      "original_sha256": "be06f9940c8f2837d1bff324b2658e34f8fbb5a9c2b738a2e28cc603f4f3714e",
+      "corrected_sha256": "acd920fcb99c6f3fdf4e3b88186d576d92e1bb8a9867b07b6694a6181d3aae46",
+      "alpha_sha256": "802487684aa9748c3ebdf3a11b1e6f6e943ea11bf66f04ad51c5c48585757a09",
+      "changed_rgb_pixels": 306765
+    },
+    "nobunaga/air_light.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.00971972544988009,
+          "saturation_gain": 0.816455833892388,
+          "value_gain": 0.5967078441551943
+        },
+        "gold_trim": {
+          "hue_shift": -0.007271671295166024,
+          "saturation_gain": 0.7042422516306049,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "b1a3620c2e4556ad62fbc6d287ce0e1f839d3917eaba42e1991ea81d5e00338f",
+      "corrected_sha256": "a8f9064691465f90d06db775823c53e32a42c2c41e2757a007c9b33a1ff7debd",
+      "alpha_sha256": "ac63b1260336c855d8ff2a94b126d0b786db850c3faa1c4e94ed4f68eb6cc5c4",
+      "changed_rgb_pixels": 285911
+    },
+    "nobunaga/air_heavy.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.008987134032779287,
+          "saturation_gain": 0.8094602460538092,
+          "value_gain": 0.5991735788935333
+        },
+        "gold_trim": {
+          "hue_shift": -0.004823070102267804,
+          "saturation_gain": 0.6909891025551879,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "ceddc3815947b33cd941bc68603deaec5708abd10d8c72314180e016329e215c",
+      "corrected_sha256": "e652dde1aeb1c09f91b1873745f5d248d6aed771ee6c636b6051cf99949ea090",
+      "alpha_sha256": "1314096f026e4165647ab36f7972958291156ea7434f138082581e9e0e3dd08e",
+      "changed_rgb_pixels": 269960
+    },
+    "nobunaga/special.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.009481264485253216,
+          "saturation_gain": 0.8191385097945483,
+          "value_gain": 0.6066945856816816
+        },
+        "gold_trim": {
+          "hue_shift": -0.009388425615098742,
+          "saturation_gain": 0.6907535224456305,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "080918ef298aa6ed6bbae94f26a3698de04ab615ca3bd9bb8e5246f60fbcfbe3",
+      "corrected_sha256": "4ce7c01d3ee1d77712b06e8db9037c9318082a59b2125490c2255eea3a47441b",
+      "alpha_sha256": "48c8395cea2861d604cbd1d4150c94b6bf71da376e3f49bc367a3d0a3186641b",
+      "changed_rgb_pixels": 324505
+    },
+    "nobunaga/jump.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.010261242919498037,
+          "saturation_gain": 0.8420818166564012,
+          "value_gain": 0.6387665440108117
+        },
+        "gold_trim": {
+          "hue_shift": -0.00727168189154731,
+          "saturation_gain": 0.7683247422283958,
+          "value_gain": 0.8353413755127588
+        }
+      },
+      "original_sha256": "00ec0cfd9d96ba0c52561802abbc0ad682b1fd5a1543c76b5bc71d6d9fa04488",
+      "corrected_sha256": "c857069bfd2fd315d27cfe525dfed62bb7fab9939fa15caa83eb36d3606928c0",
+      "alpha_sha256": "dbf499b7d4860293f0e9c007937a4adfad4ee30abf30cf26933007549684e54e",
+      "changed_rgb_pixels": 265321
+    },
+    "nobunaga/guard.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.009470498561859109,
+          "saturation_gain": 0.8213240479121154,
+          "value_gain": 0.6066945856816816
+        },
+        "gold_trim": {
+          "hue_shift": -0.009613058302137586,
+          "saturation_gain": 0.6940323743443172,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "213da634c46415529de7a2c9b598445884bfc88419d89a64e4275842b58a3a19",
+      "corrected_sha256": "8cfbffab0f7c832ede8f7dbfcbf5d9bb6162595504f5ad76a5011baf14515069",
+      "alpha_sha256": "3f7e0956ad6ce2885363c6e4f08ad3df5429a744af84202e2bb398c674ed0d7e",
+      "changed_rgb_pixels": 302399
+    },
+    "nobunaga/throw.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.007956911457909555,
+          "saturation_gain": 0.8102788753995437,
+          "value_gain": 0.5894309196760794
+        },
+        "gold_trim": {
+          "hue_shift": -0.011160829332139757,
+          "saturation_gain": 0.6779241623276703,
+          "value_gain": 0.8286852693380252
+        }
+      },
+      "original_sha256": "b0af26a50d8de6017471816362ec85867198e231b9682dea8a11521193db3c15",
+      "corrected_sha256": "cfe886d0e19d5859e1bc8355fe7a09df33669bb9a8ca5523d10bbf1a8d5fa5c6",
+      "alpha_sha256": "eba9a5745cadb7218e21245b08e320481065291d18223d6f165bfcc0eb2e2910",
+      "changed_rgb_pixels": 332914
+    },
+    "nobunaga/victory.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 0.003659152984619163,
+          "saturation_gain": 0.9779172012725581,
+          "value_gain": 0.8529411896186713
+        },
+        "gold_trim": {
+          "hue_shift": -0.0009380605485704158,
+          "saturation_gain": 0.9079800132511475,
+          "value_gain": 0.8888888961059754
+        }
+      },
+      "original_sha256": "e60a9308391128f5eb461994344ac15da1448d99c4372b823a4432afdfa53a09",
+      "corrected_sha256": "adbf5b5abc478ea495b3f7f0fa6939c1602b732e73f6d1ab9e5c3c8df5436a5f",
+      "alpha_sha256": "9a05749726e29d1c25380ff0492553f085cc189ac557cb88aee596e1f4bc041c",
+      "changed_rgb_pixels": 286734
+    },
+    "nobunaga/hurt.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": -0.0033928645981683436,
+          "saturation_gain": 1.0025316383610126,
+          "value_gain": 0.8734939874866767
+        },
+        "gold_trim": {
+          "hue_shift": 9.172757466634207e-05,
+          "saturation_gain": 0.9708159010154647,
+          "value_gain": 0.9082969493179549
+        }
+      },
+      "original_sha256": "b5326bbb6369731be9c01f12a760dba0f0bacac08a81eecc8b77d5d70ef52186",
+      "corrected_sha256": "99cf347e0957796863fc5c1dcc7661c46c01858f2e71830bbc9f7a05f88d5712",
+      "alpha_sha256": "1a16c899ca14e9f61a3c914f4b58fe94da4d7e6ad12e9a1f7c79f35c1bee04ce",
+      "changed_rgb_pixels": 303679
+    },
+    "nobunaga/stunned.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": -0.00042009949684140846,
+          "saturation_gain": 1.0002143322727362,
+          "value_gain": 0.8430232696855722
+        },
+        "gold_trim": {
+          "hue_shift": -0.0012417263454861105,
+          "saturation_gain": 0.8970958247843434,
+          "value_gain": 0.9327354305935724
+        }
+      },
+      "original_sha256": "b3329b5fc42b4dbc5470f67e90cd6f33f353800d41ff8b4cdc2a2ac3db8c56ac",
+      "corrected_sha256": "b958febf3cddf12aa4ee072d81144698675ff4df3f7bc98570a7b43a9a620ff0",
+      "alpha_sha256": "ae7e8b6925d16b6d9bbd09d918286ce7df2bf70dff976b4857ad55aa289a2d9d",
+      "changed_rgb_pixels": 284756
+    },
+    "nobunaga/down.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": -2.8252601623535156e-05,
+          "saturation_gain": 0.960216862570573,
+          "value_gain": 0.8146067574035183
+        },
+        "gold_trim": {
+          "hue_shift": -0.0023099740346272796,
+          "saturation_gain": 0.8788648825229999,
+          "value_gain": 0.9285714334181072
+        }
+      },
+      "original_sha256": "647c7967c6bd009eb6996f0311c11b02a7f7b36a62464447f614715f13891b43",
+      "corrected_sha256": "f07c85c4d98e74c78cbb8174ca1bec83030b3d0f0260011b05c9628b8188ce33",
+      "alpha_sha256": "ff7f5a6c2ea60d5c931c41707c52c0143cf2e7d296bd62cdccabff21623a61b2",
+      "changed_rgb_pixels": 234583
+    },
+    "nobunaga/recovering.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": -0.0010603063636356325,
+          "saturation_gain": 0.9389544912885971,
+          "value_gain": 0.8100558820502561
+        },
+        "gold_trim": {
+          "hue_shift": -0.002786318461100265,
+          "saturation_gain": 0.9080274478611865,
+          "value_gain": 0.896551730915213
+        }
+      },
+      "original_sha256": "8e5db63fc82662af5e22f082dc57bb2bd34478ef20751934402977495f27f7ef",
+      "corrected_sha256": "9156fe52129b081ab81c4b0beb00c11988fe54400ef3022aa4c44c570cd58af0",
+      "alpha_sha256": "3b1e020d21c997095d00784d4739abf3e4bba4edd3410e4d8df827c0e82f0853",
+      "changed_rgb_pixels": 256286
+    },
+    "nobunaga/launched.png": {
+      "materials": {
+        "red_lacquer_and_cloth": {
+          "hue_shift": 6.345841619703751e-05,
+          "saturation_gain": 0.973380282130756,
+          "value_gain": 0.8787878899534868
+        },
+        "gold_trim": {
+          "hue_shift": -0.0005495601230197517,
+          "saturation_gain": 0.9099692139582438,
+          "value_gain": 0.9411764746337994
+        }
+      },
+      "original_sha256": "5a09c5f48c9f8b2ea8e8cf1575eb1726c25472deb312ed5865a53c7030ea3c08",
+      "corrected_sha256": "544b36247e0e8f7b468ea4038c11e1f3db449a9d13a530931b5a686821cf7b45",
+      "alpha_sha256": "adee205724a03963560c163c11d8dd6c4cb74f8528febaa5b8d12ee011ce2f75",
+      "changed_rgb_pixels": 242697
+    },
+    "oichi/jump-spaced.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.9312,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "d93d133cc09e4a399863d896a9300a56af2d3060fb2a568d85566be9509ac61b",
+      "corrected_sha256": "30405e2714220077dd5486dc79f53614ccc7d0de11e0b6c2cc1f49966052dd19",
+      "alpha_sha256": "b07a254be50ac1973eaba256e91064a4bf0808daa337ab48eedbc62c7aea3bdd",
+      "changed_rgb_pixels": 192268
+    },
+    "oichi/low_sweep.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.9453,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "239a299384ad208b34618da2d0b16c6701cc4cb61909f20bbc1c8ea618f3b27f",
+      "corrected_sha256": "98ff781889e11a0669e6602266060ff44335af97eaf876041ca9dd3a25e3dfb9",
+      "alpha_sha256": "85317d80f0990a2101a6b2805fb7ac35913118cb6fe94104f698a6a1dec9089a",
+      "changed_rgb_pixels": 204354
+    },
+    "oichi/light1.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.9542,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "5edc5cfd3af6fa918fd82a8a34481944fb04660d32c70a17eab1253ca74949f8",
+      "corrected_sha256": "c8abd90ca3e3b6d50b31b6a33fc8c55526b645071ab90723f40e066160ce8136",
+      "alpha_sha256": "fdf2083114805b499f510305de589a708c88954404a67ad15cea61db4a5476e7",
+      "changed_rgb_pixels": 166949
+    },
+    "oichi/charged_upper.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.955,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "82eab586350a0b2100b4dd7a3148d6c24008bbe971728ea998e09f62d2846670",
+      "corrected_sha256": "3a2ce359adb3b517b9645583f03250dcdd0ff03eeb10012725a5cb8455daa3f5",
+      "alpha_sha256": "a4b28fb88224e0652584a5cf69373f68d5cf4e74a8e5ae171946158838693735",
+      "changed_rgb_pixels": 190178
+    },
+    "oichi/launched.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.9595,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "26948d791731f6af6fc321008f78fa3fa06ba6f116bc8584bf453b71a5ab5ec9",
+      "corrected_sha256": "749d08e0e15da739e165e7834baf8a340bd6e5b81272d3c9133a5db66aa050bd",
+      "alpha_sha256": "e398da38a9e57ec15401302842c269cd77322c59086e9caff5179c6c12c9e153",
+      "changed_rgb_pixels": 158430
+    },
+    "oichi/dash_strike.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.96,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "6818a3f3e87897aba36c0ff14fb94913b2b691c0920e3aa97fb642f093918bbe",
+      "corrected_sha256": "cfc47ecfb3621d400ce8f7bb6120a136d6f0df9b2b46fe1ffb9c8d4cd3d9eb74",
+      "alpha_sha256": "bb5aeb5860358321d77b7de6f69e2242a7c63478d11caec89f86868a46cc700a",
+      "changed_rgb_pixels": 144709
+    },
+    "oichi/charged_slam.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.9646,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "fbd1a0bfbc379f170a27dbbc66d4aa2d39c91f36588806c96963f15f7b13c84d",
+      "corrected_sha256": "8a9a90ffa151977088dab6a9d265b5efa14f0dcd437326bcea2e8b347ddc351f",
+      "alpha_sha256": "21f7f103f2ffc63ff03379e2433b7ee877e0277920941891e2ad7bcc536008c2",
+      "changed_rgb_pixels": 173332
+    },
+    "oichi/throw.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.9646,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "f53b56844a36aaf0e8ccc48d64639291858102b1cd66b2622c4f8316773d0125",
+      "corrected_sha256": "06249924049f5f6ff8198d7fb95d4cef2c227c7cb92f3f1561fbf52b77adc80c",
+      "alpha_sha256": "146bd607aa06ade3ac1ef1f22217911e5d72408aaf0d9d72b5eb2ef2d7af4b86",
+      "changed_rgb_pixels": 170320
+    },
+    "oichi/heavy2.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.9672,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "f0efa63ea7cdb417d080561ea9c5679dc6853e6c40e6751bd780da1e70b53f8b",
+      "corrected_sha256": "f60958f87589c69b2b01c3704a64ad58d3554c5edc974f86f519e246febc2b1b",
+      "alpha_sha256": "887594824ddc718f96d0052dd9939a48c43378495cc199f196f56ca727c8fdea",
+      "changed_rgb_pixels": 164561
+    },
+    "oichi/special.png": {
+      "materials": {
+        "red_cloth": {
+          "hue_shift": 0.0,
+          "saturation_gain": 0.9684,
+          "value_gain": 1.0
+        }
+      },
+      "original_sha256": "c0fbed258a0c3257c4367aefb49be0b575e3e69a7afa54abe70dd04d0bffaef6",
+      "corrected_sha256": "c2a69eec85aea67a837114a16a3d4adcb9c7fc0ca64d772435e83c0a0cf5aa55",
+      "alpha_sha256": "2351009d9a0096d5b0eb1453e9011094b32abaa82f28428072196c9994c919e9",
+      "changed_rgb_pixels": 151952
+    }
+  },
+  "protected_weapon_sha256": {
+    "game/assets/v22/weapons/bow_bamboo.png": "f9c1bd3b73001c95cb2b7f0669e43efbfbfd5625f9928bd5a75cef4bf4c25ba0",
+    "game/assets/v22/weapons/expansion-registration-spec.json": "29a3eef0f8b5d3a0fdac4792209eb1ddb9bd85860a076e33cc702aacf0779609",
+    "game/assets/v22/weapons/spear_fukuro_yari.png": "ee9157fc97b6df99e120605bf7121643ac727e9750edad19117cde86de512044",
+    "game/assets/v22/weapons/spear_tonbokiri.png": "6b1210350f139e3a7fbdd1a8af9b9efd0776b47774a20ad95bd6d3fd29a526a7",
+    "game/assets/v22/weapons/sword_nagamitsu.png": "2340878d6cc738d269e29a3b635f666b55cf91cc1737797e321bf29a3d11f18f",
+    "game/assets/v22/weapons/bow_shigeto.png": "e28bf7673f480f5b9953ddba57996a9831c4a405b79921578f0606080d4c3a5a",
+    "game/assets/v22/weapons/spear_kamayari.png": "9833436b6a9d3a459c207027b3d7aa131583a893a0234b929ea52ed63230a412",
+    "game/assets/v22/weapons/sword_dojigiri.png": "610b58a63a8bb446724ee48353fac1854b18aa52774fbeb736b2b4a8b056853d",
+    "game/assets/v22/weapons/sword_uchigatana.png": "8c33bad17b0e937b45e1c61ce2330a8b492bdc3ca99c0872d6de30d0f2fd30ae",
+    "game/assets/v22/weapons/sword_kanesada_mino.png": "2b3fa6beebfa17e0f76e1f76bb637c92e92926d504b6db1e527b575aed8b92df",
+    "game/assets/v22/weapons/expansion-generation.json": "1fbfaaf712b6ea54ddce3fd26e328ddd7f01c703cf1be29dcc1b6a31142256de",
+    "game/assets/v22/weapons/bow_black_lacquer.png": "4bcc6b1937e9108e680f6f107fa0063650d1f89537e271b32c4e3ad7324e5ca3",
+    "game/assets/v22/weapons/encyclopedia.json": "8f2ab9447b753db4f4884d83fdce716f7c1359c2684d313d7e35698504451906",
+    "game/assets/v22/weapons/generation.json": "37c79bcc90b6f8e0214ad5ee79717ad21b6620f5430ac4098aa9325997aea80f",
+    "game/assets/v22/weapons/spear_nihongo.png": "d0c1d596fb6e07f8dacadf399f244fca286a9e37ab5d8dca3111088607103635",
+    "game/assets/v22/weapons/README.md": "b9d42920120135073d7806d217630b64dc0974c79a8eeef0bf91a69a3f6bd648",
+    "game/assets/v22/weapons/spear_jumonji.png": "d39c99af467d3823677c5dac038c52d2576286c48158f3fb23c52e1c5703b121",
+    "game/assets/v22/weapons/sword_heshikiri.png": "1481ccf168eb8a9e8c78d9a015b1bb4cbd2f2557b0968492203c9527074f9b88",
+    "game/assets/v22/weapons/spear-proportions.json": "d4cb7f0dd8e9fb54c8b286a7b8fc6634a48b7a8b06cae3ee9c153b82f1afbee5",
+    "game/assets/v22/weapons/registration.json": "b11388513569202a2fdfca7679b8c50b2799540020caf6607a83ff1f42237026",
+    "game/assets/v22/weapons/bow_awase_yumi.png": "bba7b11c00cf4f0ac92407458b0c28fe4bee0b2826852ad500e60c3cb3650827",
+    "game/assets/v22/weapons/bow_red_lacquer.png": "58983a658c72212a722ce08e9f7d90ca7bf50602342b95e53aa7c3c2b4435a37",
+    "game/assets/v22/weapons/spear_suyari.png": "8b690ca9095b5a6a337ee338d57ea917a8dd2da5c0790989424b8408c24bfaf5",
+    "game/assets/v22/weapons/bow_azusa.png": "fc91a03c6b763f2e675cc20046423ff3926a4556b777b40b0e5fbf1908bf3b79",
+    "game/assets/v22/weapons/tonbokiri-proportions.json": "ecf950ecdc8a8a436ff37ff53504fdb69664115107bfd7b5700cab4014021358",
+    "game/assets/v22/weapons/sword_samonnji.png": "77793299e4ea87f7c5aecb5361de755bc84ae9a96ad9f491998eec965f88a267",
+    "game/assets/v22/weapons/references/sword_uchigatana.jpg": "165ce6146302587992bff0466d09bcb488f17fc213501bedac2572fa11f155e1",
+    "game/assets/v22/weapons/references/spear_jumonji.jpg": "33633dcdd4660f2efba75bf826ab565727173667a8f63900cebf1a4a31c59cd6",
+    "game/assets/v22/weapons/references/sword_uchigatana_mountings.jpg": "6b9379dbfe2e3f7945023455b5dc40a3edb0eac9f7a2540b0d8cc7fd5c9a7383",
+    "game/assets/v22/weapons/references/README.md": "a70e45b0e0b66a596cbb4e9320b4a6adb23e97251d0e7c30a7d7ed4a7c558dab",
+    "game/assets/v22/weapons/sources/tonbokiri-long.png": "2e7c0d53d7c42a85249ac02dfe4e54e35f1b9692a5d938d3f7dabe5fdc51be3e",
+    "game/assets/v22/weapons/sources/sword_kanesada_mino-generated.png": "37f216088294bcaaee4710d34da79372ac75c50b4713ff688300e6b69f30067b",
+    "game/assets/v22/weapons/sources/swords.png": "0b72f26bc69537c68ffb1ec7ba4908123718a29c7cab8551fd885e5079277df7",
+    "game/assets/v22/weapons/sources/spear_fukuro_yari-generated.png": "7907b2642db84635b06be3637e2772f31eb9f1a67313cd097719d5ce4bd9f128",
+    "game/assets/v22/weapons/sources/bows.png": "6ad71249b127884265971ae26b5bfb391ecd05abb3808bac9630a8d8ac92164c",
+    "game/assets/v22/weapons/sources/spears.png": "6952fe732cab38c431d032949a13df8abb5e0a983999824b1e69c8190c124afe",
+    "game/assets/v22/weapons/sources/spears-long.png": "0a546bcac25023c6ea147e246fb5885a449fea41ed28ef39a541ac8441a9832c",
+    "game/assets/v22/weapons/sources/bow_awase_yumi-generated.png": "54b29ed3d5304c0bdd5dfd2df6b30a5e7ef0467df50f7c67bb03226d54c4e46e"
+  },
+  "registration_geometry_sha256": {
+    "nobunaga": "5520fadc597ba2eaf7f8f0807c5741f68bb55e7e8b1b5abe24b5fc5f94d5b253",
+    "tadakatsu": "6902fcbbf42aaa3642e37f2e9cd99e999595c7c883dbd0088f250469c91a1cfa",
+    "oichi": "074812ff78339e173076fde2f81d0c9b9080d004338165fa6d5fad7ca66e80be"
+  },
+  "reproduction_environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pillow": "12.3.0",
+    "opencv_python_headless": "5.0.0"
+  }
+}

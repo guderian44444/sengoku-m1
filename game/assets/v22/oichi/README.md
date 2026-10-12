@@ -30,3 +30,11 @@
 3. 跑 `python scripts/register-oichi-v22.py --check`，檢查來源 SHA、登錄漂移、完整 26 組、每組六張不同像素、原圖邊界及握點。runtime 裁切會加透明邊距，以輪廓遮罩排除鄰格，來源圖片本身不改。
 4. 跑 `node scripts/test-v19.mjs --only=hero_layers_v22,weapon_render_v22 --render-heroes-v22`，檢查 40 個遊戲狀態的 v22 覆蓋、不同武器、左右朝向及實際引擎合成。
 5. 目視六格接續、腳底穩定、弓弦與握點、踢擊幅度、躺平死亡、慶祝及雙人遊戲；自動測試不取代真人連續操作驗收。
+
+## 武器擴充預覽校正（2026-10-12）
+
+逐格檢查新合弓時，保留六格主手握點不變；以原生手部像素與合成十字線確認弓柄穿過掌心。`heavy1` 第一格是後手在腰後的準備姿勢，已移除該格錯誤的 `second_hand`，避免弓弦拉到護腕；第二、第三格拉弦點由腕根移到扣弦指節，並擴大原生手部覆繪範圍。只修改登錄元資料與重建腳本，不改任何人物PNG像素。
+
+## v23 色彩一致性修正
+
+全 26 組檢查後，僅 jump、low_sweep、light1、charged_upper、launched、dash_strike、charged_slam、throw、heavy2、special 的紅布色域微降飽和度（約 3.2–6.9%）；不改色相或亮度。白衣、膚色、透明度、姿勢、握點與已核准合弓均保留。來源及重現参数見 `../color-consistency.json`。歷史文字中的原生 RGBA 指生成來源；這 10 張實際執行素材另經可逆 RGB 校正，原始圖片保留於 Git 基線與備份。

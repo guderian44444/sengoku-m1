@@ -1,0 +1,320 @@
+{
+  "status": "PASS",
+  "scope": "25 clips /150 frames;17 corrected sheets,8 exact unchanged",
+  "protected_files": 348,
+  "weapons": 48,
+  "polygon_masks_reproduced": 23,
+  "chest_cape_geometric_intersections": {
+    "dash_strike": 0,
+    "rising": 0,
+    "air_heavy": 0,
+    "special": 0,
+    "jump": 1441,
+    "throw": 0
+  },
+  "cape_intersection_actual_changed_pixels": 0,
+  "note": "Cape exclusion takes priority even when annotation polygons intersect. Color-class checks and polygons supplement independent whole-frame visual review, not semantic ground truth. Poses, hands, alpha, other heroes and48 weapons stay unchanged.",
+  "clips": [
+    {
+      "clip": "idle",
+      "unchanged_bytes": true,
+      "frames": 6
+    },
+    {
+      "clip": "walk",
+      "unchanged_bytes": true,
+      "frames": 6
+    },
+    {
+      "clip": "run",
+      "frames": 6,
+      "changed_rgb_pixels": 120435,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.9,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "light1",
+      "frames": 6,
+      "changed_rgb_pixels": 153386,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.84,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "light2",
+      "frames": 6,
+      "changed_rgb_pixels": 157464,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.84,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "light3",
+      "frames": 6,
+      "changed_rgb_pixels": 156666,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.82,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "heavy1",
+      "frames": 6,
+      "changed_rgb_pixels": 141780,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.84,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "heavy2",
+      "frames": 6,
+      "changed_rgb_pixels": 149895,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.84,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "dash_strike",
+      "frames": 6,
+      "changed_rgb_pixels": 146319,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.82,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92,
+        "chest_extra": 0.9
+      }
+    },
+    {
+      "clip": "rising",
+      "frames": 6,
+      "changed_rgb_pixels": 119743,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.83,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92,
+        "chest_extra": 0.9
+      }
+    },
+    {
+      "clip": "low_sweep",
+      "frames": 6,
+      "changed_rgb_pixels": 124984,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.83,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "charged_upper",
+      "frames": 6,
+      "changed_rgb_pixels": 144102,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.84,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "charged_slam",
+      "frames": 6,
+      "changed_rgb_pixels": 134579,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.82,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "air_light",
+      "frames": 6,
+      "changed_rgb_pixels": 130957,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.84,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "air_heavy",
+      "frames": 6,
+      "changed_rgb_pixels": 105004,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.86,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92,
+        "chest_extra": 0.9
+      }
+    },
+    {
+      "clip": "special",
+      "frames": 6,
+      "changed_rgb_pixels": 138240,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.83,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92,
+        "chest_extra": 0.9
+      }
+    },
+    {
+      "clip": "jump",
+      "frames": 6,
+      "changed_rgb_pixels": 115013,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.89,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92,
+        "chest_extra": 0.9
+      }
+    },
+    {
+      "clip": "guard",
+      "frames": 6,
+      "changed_rgb_pixels": 145159,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.84,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92
+      }
+    },
+    {
+      "clip": "throw",
+      "frames": 6,
+      "changed_rgb_pixels": 175854,
+      "alpha_equal": true,
+      "cape_mask_pixels_equal": true,
+      "gold_class_pixels_equal": true,
+      "skin_class_pixels_equal": true,
+      "outside_red_material_equal": true,
+      "parameters": {
+        "armor_gain": 0.83,
+        "shin_extra": 1.0,
+        "wrist_min_gain": 0.92,
+        "chest_extra": 0.9
+      }
+    },
+    {
+      "clip": "victory",
+      "unchanged_bytes": true,
+      "frames": 6
+    },
+    {
+      "clip": "hurt",
+      "unchanged_bytes": true,
+      "frames": 6
+    },
+    {
+      "clip": "stunned",
+      "unchanged_bytes": true,
+      "frames": 6
+    },
+    {
+      "clip": "down",
+      "unchanged_bytes": true,
+      "frames": 6
+    },
+    {
+      "clip": "recovering",
+      "unchanged_bytes": true,
+      "frames": 6
+    },
+    {
+      "clip": "launched",
+      "unchanged_bytes": true,
+      "frames": 6
+    }
+  ]
+}

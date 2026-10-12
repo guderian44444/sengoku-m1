@@ -23,7 +23,7 @@ class CaptureView extends View:
 	func live_sample(fighter: Dictionary) -> Dictionary:
 		return super._fighter_animation(fighter)
 	func _draw() -> void:
-		draw_rect(Rect2(0,0,1920,1024),Color("323c39"))
+		draw_rect(Rect2(Vector2.ZERO,get_viewport_rect().size),Color("323c39"))
 		Typography.draw_label(self,Vector2(28,44),heading,26,Typography.GOLD)
 		for index in range(cards.size()):
 			var at := Vector2(320 + (index % 3) * 640,430 + (index / 3) * 460)
@@ -111,6 +111,8 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(output)
 	var battle := Battle.new()
 	for hero in selected:
+		root.content_scale_size = Vector2i(1920,1024)
+		root.size = Vector2i(1920,1024)
 		coverage[hero] = {}
 		var sheets: Dictionary = view._art.animations.get(hero,{})
 		check(sheets.has("v22_idle"),hero + " v22 registration loads into runtime art")
@@ -157,18 +159,21 @@ func run() -> void:
 		view.cards.clear()
 		view.samples.clear()
 		view.sample_clock = 0
-		view.heading = "%s / five equipped weapons / identical body artwork" % hero
+		view.heading = "%s / all equipped weapons / identical body artwork" % hero
 		var family_ids: Array = []
 		for id in Weapons.ITEMS:
 			if Weapons.compatible(hero,id): family_ids.append(id)
-		check(family_ids.size() == 5,hero + " has five visible compatible weapons")
+		check(family_ids.size() == Weapons.ids_for(hero).size(),hero + " covers every catalog-compatible weapon")
 		family_ids.append(Weapons.default_for(hero))
+		var equipment_height := 104 + ceili(float(family_ids.size()) / 3.0) * 460
+		root.content_scale_size = Vector2i(1920,equipment_height)
+		root.size = Vector2i(1920,equipment_height)
 		var original_texture: Texture2D
 		for index in range(family_ids.size()):
 			var actor := actor_case(battle,hero,"idle",index)
 			actor.weapon_id = family_ids[index]
-			actor.face = -1 if index == 5 else 1
-			actor.qa_caption = Weapons.name_for(actor) + (" / mirror" if index == 5 else "")
+			actor.face = -1 if index == family_ids.size() - 1 else 1
+			actor.qa_caption = Weapons.name_for(actor) + (" / mirror" if index == family_ids.size() - 1 else "")
 			var sample := view.live_sample(actor)
 			var frame: Dictionary = view._art.animation_frame(hero,sample)
 			if index == 0: original_texture = frame.texture
@@ -181,7 +186,7 @@ func run() -> void:
 			view.queue_redraw()
 			await process_frame
 			await RenderingServer.frame_post_draw
-			check(root.get_texture().get_image().save_png(output.path_join(hero + "-equipment.png")) == OK,hero + " five weapons and mirror native capture")
+			check(root.get_texture().get_image().save_png(output.path_join(hero + "-equipment.png")) == OK,hero + " all weapons and mirror native capture")
 	view.queue_free()
 	await process_frame
 	var report_name := "coverage.json"

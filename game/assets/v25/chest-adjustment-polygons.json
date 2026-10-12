@@ -1,0 +1,2479 @@
+{
+  "version": 1,
+  "status": "Final reviewed annotations; cape exclusion takes priority over chest eligibility",
+  "semantics": "255 selects exposed chest armor for extra red-only darkening; 0 unselected. Conservative interior boundaries require modest feathering.",
+  "coordinates": "absolute source-sheet xy pixels",
+  "sheet_size": [
+    1536,
+    1024
+  ],
+  "clips": {
+    "dash_strike": {
+      "mask_file": "game/assets/v25/chest-adjustment/dash_strike.png",
+      "mask_sha256": "f6f7a2f4f6416a7945d2913266cf7ec217415763924176c59e64eaa4da538726",
+      "source_sha256": "83eb29b184f5b04f69c58ce3c99b9ca8e264bf31eeabe391a9b2247f75d68059",
+      "subtract_cape_mask": null,
+      "frames": [
+        {
+          "frame": 1,
+          "source_sheet_polygons": [
+            [
+              [
+                301,
+                264
+              ],
+              [
+                313,
+                269
+              ],
+              [
+                327,
+                272
+              ],
+              [
+                343,
+                265
+              ],
+              [
+                338,
+                276
+              ],
+              [
+                329,
+                286
+              ],
+              [
+                320,
+                294
+              ],
+              [
+                311,
+                296
+              ],
+              [
+                305,
+                285
+              ],
+              [
+                300,
+                276
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            34,
+            124,
+            424,
+            368
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 2,
+          "source_sheet_polygons": [
+            [
+              [
+                842,
+                249
+              ],
+              [
+                853,
+                255
+              ],
+              [
+                865,
+                258
+              ],
+              [
+                858,
+                265
+              ],
+              [
+                849,
+                271
+              ],
+              [
+                841,
+                277
+              ],
+              [
+                836,
+                280
+              ],
+              [
+                832,
+                267
+              ],
+              [
+                835,
+                257
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            559,
+            111,
+            392,
+            373
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 3,
+          "source_sheet_polygons": [
+            [
+              [
+                1295,
+                240
+              ],
+              [
+                1306,
+                243
+              ],
+              [
+                1321,
+                251
+              ],
+              [
+                1336,
+                257
+              ],
+              [
+                1349,
+                262
+              ],
+              [
+                1344,
+                269
+              ],
+              [
+                1327,
+                267
+              ],
+              [
+                1306,
+                262
+              ],
+              [
+                1287,
+                255
+              ],
+              [
+                1284,
+                251
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1057,
+            90,
+            465,
+            386
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 4,
+          "source_sheet_polygons": [
+            [
+              [
+                328,
+                725
+              ],
+              [
+                341,
+                719
+              ],
+              [
+                353,
+                723
+              ],
+              [
+                368,
+                723
+              ],
+              [
+                390,
+                723
+              ],
+              [
+                383,
+                736
+              ],
+              [
+                373,
+                747
+              ],
+              [
+                365,
+                751
+              ],
+              [
+                344,
+                745
+              ],
+              [
+                324,
+                738
+              ],
+              [
+                317,
+                735
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            24,
+            558,
+            532,
+            404
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 5,
+          "source_sheet_polygons": [
+            [
+              [
+                802,
+                758
+              ],
+              [
+                811,
+                751
+              ],
+              [
+                819,
+                755
+              ],
+              [
+                828,
+                763
+              ],
+              [
+                841,
+                771
+              ],
+              [
+                842,
+                775
+              ],
+              [
+                826,
+                770
+              ],
+              [
+                810,
+                764
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            573,
+            602,
+            455,
+            365
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 6,
+          "source_sheet_polygons": [
+            [
+              [
+                1304,
+                694
+              ],
+              [
+                1312,
+                698
+              ],
+              [
+                1322,
+                708
+              ],
+              [
+                1336,
+                717
+              ],
+              [
+                1350,
+                723
+              ],
+              [
+                1347,
+                736
+              ],
+              [
+                1337,
+                742
+              ],
+              [
+                1315,
+                737
+              ],
+              [
+                1294,
+                731
+              ],
+              [
+                1284,
+                727
+              ],
+              [
+                1290,
+                717
+              ],
+              [
+                1301,
+                705
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1065,
+            557,
+            455,
+            415
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        }
+      ]
+    },
+    "rising": {
+      "mask_file": "game/assets/v25/chest-adjustment/rising.png",
+      "mask_sha256": "4ee7cc8e49937fe11cdcfd3be8608ea4c2709055a35033065805a0092aef7237",
+      "source_sha256": "e26ab7422ccb9a5bfae583d4cc261c739cb5a3ebe6c93677073deddf93bf3da2",
+      "subtract_cape_mask": null,
+      "frames": [
+        {
+          "frame": 1,
+          "source_sheet_polygons": [
+            [
+              [
+                310,
+                283
+              ],
+              [
+                321,
+                286
+              ],
+              [
+                332,
+                292
+              ],
+              [
+                343,
+                290
+              ],
+              [
+                333,
+                304
+              ],
+              [
+                325,
+                315
+              ],
+              [
+                319,
+                320
+              ],
+              [
+                311,
+                320
+              ],
+              [
+                309,
+                303
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            60,
+            139,
+            417,
+            355
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 2,
+          "source_sheet_polygons": [
+            [
+              [
+                802,
+                259
+              ],
+              [
+                813,
+                267
+              ],
+              [
+                826,
+                272
+              ],
+              [
+                834,
+                270
+              ],
+              [
+                827,
+                280
+              ],
+              [
+                821,
+                291
+              ],
+              [
+                815,
+                295
+              ],
+              [
+                806,
+                291
+              ],
+              [
+                801,
+                279
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            559,
+            126,
+            376,
+            371
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 3,
+          "source_sheet_polygons": [
+            [
+              [
+                1256,
+                202
+              ],
+              [
+                1268,
+                209
+              ],
+              [
+                1285,
+                214
+              ],
+              [
+                1302,
+                214
+              ],
+              [
+                1314,
+                209
+              ],
+              [
+                1321,
+                204
+              ],
+              [
+                1323,
+                215
+              ],
+              [
+                1314,
+                217
+              ],
+              [
+                1279,
+                217
+              ],
+              [
+                1257,
+                215
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1049,
+            48,
+            362,
+            451
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 4,
+          "source_sheet_polygons": [
+            [
+              [
+                354,
+                649
+              ],
+              [
+                369,
+                651
+              ],
+              [
+                383,
+                648
+              ],
+              [
+                387,
+                655
+              ],
+              [
+                387,
+                683
+              ],
+              [
+                385,
+                692
+              ],
+              [
+                319,
+                691
+              ],
+              [
+                316,
+                681
+              ],
+              [
+                319,
+                677
+              ],
+              [
+                333,
+                670
+              ],
+              [
+                344,
+                660
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            77,
+            496,
+            426,
+            471
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 5,
+          "source_sheet_polygons": [
+            [
+              [
+                854,
+                660
+              ],
+              [
+                861,
+                660
+              ],
+              [
+                875,
+                659
+              ],
+              [
+                882,
+                658
+              ],
+              [
+                892,
+                663
+              ],
+              [
+                894,
+                676
+              ],
+              [
+                893,
+                698
+              ],
+              [
+                825,
+                697
+              ],
+              [
+                827,
+                689
+              ],
+              [
+                840,
+                677
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            608,
+            515,
+            361,
+            349
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 6,
+          "source_sheet_polygons": [
+            [
+              [
+                1380,
+                689
+              ],
+              [
+                1392,
+                693
+              ],
+              [
+                1405,
+                692
+              ],
+              [
+                1410,
+                703
+              ],
+              [
+                1405,
+                715
+              ],
+              [
+                1398,
+                729
+              ],
+              [
+                1393,
+                734
+              ],
+              [
+                1351,
+                725
+              ],
+              [
+                1337,
+                717
+              ],
+              [
+                1336,
+                708
+              ],
+              [
+                1354,
+                700
+              ],
+              [
+                1366,
+                692
+              ],
+              [
+                1374,
+                685
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1102,
+            531,
+            361,
+            468
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        }
+      ]
+    },
+    "air_heavy": {
+      "mask_file": "game/assets/v25/chest-adjustment/air_heavy.png",
+      "mask_sha256": "0868bf32f23b42092d5eb5730e1e11fab4cd089e37c3e2fa61d361e2f783106e",
+      "source_sha256": "e652dde1aeb1c09f91b1873745f5d248d6aed771ee6c636b6051cf99949ea090",
+      "subtract_cape_mask": "game/assets/v25/cape-exclusion/air_heavy.png",
+      "frames": [
+        {
+          "frame": 1,
+          "source_sheet_polygons": [
+            [
+              [
+                310,
+                230
+              ],
+              [
+                323,
+                222
+              ],
+              [
+                343,
+                215
+              ],
+              [
+                350,
+                220
+              ],
+              [
+                373,
+                220
+              ],
+              [
+                389,
+                214
+              ],
+              [
+                386,
+                234
+              ],
+              [
+                375,
+                250
+              ],
+              [
+                350,
+                248
+              ],
+              [
+                328,
+                243
+              ],
+              [
+                309,
+                236
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            74,
+            37,
+            396,
+            389
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 2,
+          "source_sheet_polygons": [
+            [
+              [
+                842,
+                195
+              ],
+              [
+                862,
+                196
+              ],
+              [
+                880,
+                195
+              ],
+              [
+                887,
+                191
+              ],
+              [
+                895,
+                208
+              ],
+              [
+                898,
+                228
+              ],
+              [
+                896,
+                241
+              ],
+              [
+                876,
+                238
+              ],
+              [
+                849,
+                237
+              ],
+              [
+                831,
+                239
+              ],
+              [
+                827,
+                227
+              ],
+              [
+                826,
+                214
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            591,
+            13,
+            351,
+            470
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 3,
+          "source_sheet_polygons": [
+            [
+              [
+                1317,
+                229
+              ],
+              [
+                1331,
+                222
+              ],
+              [
+                1340,
+                228
+              ],
+              [
+                1356,
+                230
+              ],
+              [
+                1364,
+                226
+              ],
+              [
+                1364,
+                242
+              ],
+              [
+                1357,
+                257
+              ],
+              [
+                1351,
+                264
+              ],
+              [
+                1337,
+                259
+              ],
+              [
+                1318,
+                255
+              ],
+              [
+                1303,
+                249
+              ],
+              [
+                1306,
+                237
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1072,
+            42,
+            337,
+            497
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 4,
+          "source_sheet_polygons": [
+            [
+              [
+                299,
+                725
+              ],
+              [
+                305,
+                730
+              ],
+              [
+                312,
+                742
+              ],
+              [
+                306,
+                739
+              ],
+              [
+                301,
+                735
+              ],
+              [
+                297,
+                731
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            70,
+            497,
+            377,
+            432
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 5,
+          "source_sheet_polygons": [
+            [
+              [
+                812,
+                715
+              ],
+              [
+                832,
+                716
+              ],
+              [
+                841,
+                710
+              ],
+              [
+                836,
+                717
+              ],
+              [
+                827,
+                725
+              ],
+              [
+                822,
+                734
+              ],
+              [
+                815,
+                737
+              ],
+              [
+                811,
+                726
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            609,
+            491,
+            286,
+            499
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 6,
+          "source_sheet_polygons": [
+            [
+              [
+                1363,
+                800
+              ],
+              [
+                1373,
+                800
+              ],
+              [
+                1383,
+                796
+              ],
+              [
+                1397,
+                788
+              ],
+              [
+                1389,
+                797
+              ],
+              [
+                1379,
+                806
+              ],
+              [
+                1371,
+                815
+              ],
+              [
+                1364,
+                814
+              ]
+            ],
+            [
+              [
+                1294,
+                790
+              ],
+              [
+                1297,
+                782
+              ],
+              [
+                1301,
+                789
+              ],
+              [
+                1304,
+                800
+              ],
+              [
+                1297,
+                798
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1055,
+            564,
+            425,
+            404
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        }
+      ]
+    },
+    "special": {
+      "mask_file": "game/assets/v25/chest-adjustment/special.png",
+      "mask_sha256": "556bce90b7e552c126208b6c786bd1b14f94743fd6be60711fb6fafc420f2121",
+      "source_sha256": "4ce7c01d3ee1d77712b06e8db9037c9318082a59b2125490c2255eea3a47441b",
+      "subtract_cape_mask": "game/assets/v25/cape-exclusion/special.png",
+      "frames": [
+        {
+          "frame": 1,
+          "source_sheet_polygons": [
+            [
+              [
+                278,
+                212
+              ],
+              [
+                289,
+                218
+              ],
+              [
+                295,
+                231
+              ],
+              [
+                309,
+                239
+              ],
+              [
+                330,
+                241
+              ],
+              [
+                336,
+                251
+              ],
+              [
+                330,
+                255
+              ],
+              [
+                310,
+                255
+              ],
+              [
+                292,
+                250
+              ],
+              [
+                275,
+                244
+              ],
+              [
+                260,
+                236
+              ],
+              [
+                262,
+                229
+              ],
+              [
+                274,
+                218
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            18,
+            73,
+            484,
+            420
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 2,
+          "source_sheet_polygons": [
+            [
+              [
+                796,
+                175
+              ],
+              [
+                805,
+                175
+              ],
+              [
+                819,
+                177
+              ],
+              [
+                832,
+                175
+              ],
+              [
+                839,
+                177
+              ],
+              [
+                847,
+                191
+              ],
+              [
+                854,
+                212
+              ],
+              [
+                853,
+                227
+              ],
+              [
+                832,
+                228
+              ],
+              [
+                808,
+                227
+              ],
+              [
+                790,
+                227
+              ],
+              [
+                781,
+                220
+              ],
+              [
+                784,
+                202
+              ],
+              [
+                792,
+                187
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            517,
+            17,
+            504,
+            479
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 3,
+          "source_sheet_polygons": [],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1067,
+            57,
+            453,
+            438
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 4,
+          "source_sheet_polygons": [
+            [
+              [
+                304,
+                708
+              ],
+              [
+                324,
+                710
+              ],
+              [
+                348,
+                714
+              ],
+              [
+                370,
+                715
+              ],
+              [
+                379,
+                713
+              ],
+              [
+                378,
+                723
+              ],
+              [
+                368,
+                731
+              ],
+              [
+                354,
+                735
+              ],
+              [
+                330,
+                730
+              ],
+              [
+                310,
+                725
+              ],
+              [
+                293,
+                721
+              ],
+              [
+                295,
+                713
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            23,
+            541,
+            507,
+            431
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 5,
+          "source_sheet_polygons": [
+            [
+              [
+                846,
+                734
+              ],
+              [
+                858,
+                737
+              ],
+              [
+                872,
+                743
+              ],
+              [
+                884,
+                735
+              ],
+              [
+                882,
+                740
+              ],
+              [
+                867,
+                751
+              ],
+              [
+                853,
+                761
+              ],
+              [
+                842,
+                757
+              ],
+              [
+                838,
+                750
+              ],
+              [
+                842,
+                741
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            561,
+            585,
+            478,
+            388
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        },
+        {
+          "frame": 6,
+          "source_sheet_polygons": [
+            [
+              [
+                1305,
+                673
+              ],
+              [
+                1315,
+                675
+              ],
+              [
+                1321,
+                686
+              ],
+              [
+                1335,
+                694
+              ],
+              [
+                1353,
+                698
+              ],
+              [
+                1358,
+                697
+              ],
+              [
+                1358,
+                711
+              ],
+              [
+                1353,
+                716
+              ],
+              [
+                1331,
+                713
+              ],
+              [
+                1307,
+                708
+              ],
+              [
+                1292,
+                701
+              ],
+              [
+                1293,
+                690
+              ],
+              [
+                1299,
+                685
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1042,
+            538,
+            477,
+            435
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": true
+        }
+      ]
+    },
+    "jump": {
+      "mask_file": "game/assets/v25/chest-adjustment/jump.png",
+      "mask_sha256": "00f4be667aa4fe47ce049b0e22abd4260f589601b56a8b84183cae97ecc80130",
+      "source_sha256": "c857069bfd2fd315d27cfe525dfed62bb7fab9939fa15caa83eb36d3606928c0",
+      "subtract_cape_mask": null,
+      "frames": [
+        {
+          "frame": 1,
+          "source_sheet_polygons": [
+            [
+              [
+                330,
+                266
+              ],
+              [
+                340,
+                272
+              ],
+              [
+                350,
+                281
+              ],
+              [
+                363,
+                289
+              ],
+              [
+                368,
+                294
+              ],
+              [
+                365,
+                308
+              ],
+              [
+                339,
+                305
+              ],
+              [
+                315,
+                300
+              ],
+              [
+                295,
+                295
+              ],
+              [
+                302,
+                285
+              ],
+              [
+                314,
+                276
+              ],
+              [
+                323,
+                267
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            79,
+            135,
+            376,
+            347
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 2,
+          "source_sheet_polygons": [
+            [
+              [
+                818,
+                183
+              ],
+              [
+                827,
+                180
+              ],
+              [
+                833,
+                188
+              ],
+              [
+                845,
+                199
+              ],
+              [
+                861,
+                208
+              ],
+              [
+                859,
+                224
+              ],
+              [
+                854,
+                231
+              ],
+              [
+                825,
+                225
+              ],
+              [
+                802,
+                221
+              ],
+              [
+                786,
+                216
+              ],
+              [
+                795,
+                205
+              ],
+              [
+                807,
+                195
+              ],
+              [
+                814,
+                187
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            578,
+            46,
+            350,
+            437
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 3,
+          "source_sheet_polygons": [
+            [
+              [
+                1316,
+                146
+              ],
+              [
+                1326,
+                152
+              ],
+              [
+                1332,
+                161
+              ],
+              [
+                1342,
+                168
+              ],
+              [
+                1352,
+                173
+              ],
+              [
+                1347,
+                192
+              ],
+              [
+                1343,
+                198
+              ],
+              [
+                1320,
+                194
+              ],
+              [
+                1298,
+                189
+              ],
+              [
+                1282,
+                185
+              ],
+              [
+                1284,
+                176
+              ],
+              [
+                1298,
+                167
+              ],
+              [
+                1309,
+                158
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1047,
+            12,
+            379,
+            471
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 4,
+          "source_sheet_polygons": [
+            [
+              [
+                311,
+                653
+              ],
+              [
+                321,
+                659
+              ],
+              [
+                328,
+                669
+              ],
+              [
+                341,
+                678
+              ],
+              [
+                353,
+                683
+              ],
+              [
+                347,
+                698
+              ],
+              [
+                335,
+                701
+              ],
+              [
+                310,
+                696
+              ],
+              [
+                289,
+                691
+              ],
+              [
+                278,
+                686
+              ],
+              [
+                284,
+                677
+              ],
+              [
+                296,
+                667
+              ],
+              [
+                304,
+                657
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            73,
+            519,
+            357,
+            326
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 5,
+          "source_sheet_polygons": [
+            [
+              [
+                827,
+                657
+              ],
+              [
+                836,
+                662
+              ],
+              [
+                844,
+                671
+              ],
+              [
+                857,
+                681
+              ],
+              [
+                872,
+                689
+              ],
+              [
+                868,
+                702
+              ],
+              [
+                862,
+                710
+              ],
+              [
+                840,
+                705
+              ],
+              [
+                815,
+                697
+              ],
+              [
+                801,
+                692
+              ],
+              [
+                808,
+                683
+              ],
+              [
+                819,
+                672
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            561,
+            522,
+            381,
+            450
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 6,
+          "source_sheet_polygons": [
+            [
+              [
+                1356,
+                767
+              ],
+              [
+                1367,
+                778
+              ],
+              [
+                1376,
+                788
+              ],
+              [
+                1387,
+                795
+              ],
+              [
+                1391,
+                801
+              ],
+              [
+                1383,
+                813
+              ],
+              [
+                1366,
+                812
+              ],
+              [
+                1341,
+                805
+              ],
+              [
+                1319,
+                796
+              ],
+              [
+                1330,
+                791
+              ],
+              [
+                1342,
+                781
+              ],
+              [
+                1352,
+                770
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1065,
+            614,
+            404,
+            381
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        }
+      ]
+    },
+    "throw": {
+      "mask_file": "game/assets/v25/chest-adjustment/throw.png",
+      "mask_sha256": "438a934bd5ba9b0d30092dede789ee32667161be0c2e77a70825a21bce97626b",
+      "source_sha256": "cfe886d0e19d5859e1bc8355fe7a09df33669bb9a8ca5523d10bbf1a8d5fa5c6",
+      "subtract_cape_mask": null,
+      "frames": [
+        {
+          "frame": 1,
+          "source_sheet_polygons": [
+            [
+              [
+                301,
+                195
+              ],
+              [
+                322,
+                201
+              ],
+              [
+                336,
+                201
+              ],
+              [
+                346,
+                194
+              ],
+              [
+                350,
+                207
+              ],
+              [
+                349,
+                222
+              ],
+              [
+                343,
+                241
+              ],
+              [
+                328,
+                241
+              ],
+              [
+                297,
+                235
+              ],
+              [
+                273,
+                230
+              ],
+              [
+                272,
+                220
+              ],
+              [
+                285,
+                208
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            30,
+            57,
+            512,
+            441
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 2,
+          "source_sheet_polygons": [
+            [
+              [
+                781,
+                187
+              ],
+              [
+                796,
+                191
+              ],
+              [
+                811,
+                194
+              ],
+              [
+                819,
+                189
+              ],
+              [
+                823,
+                202
+              ],
+              [
+                823,
+                219
+              ],
+              [
+                816,
+                233
+              ],
+              [
+                794,
+                231
+              ],
+              [
+                768,
+                225
+              ],
+              [
+                752,
+                223
+              ],
+              [
+                751,
+                215
+              ],
+              [
+                766,
+                203
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            546,
+            55,
+            459,
+            440
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 3,
+          "source_sheet_polygons": [
+            [
+              [
+                1259,
+                240
+              ],
+              [
+                1272,
+                238
+              ],
+              [
+                1290,
+                241
+              ],
+              [
+                1310,
+                242
+              ],
+              [
+                1325,
+                242
+              ],
+              [
+                1327,
+                250
+              ],
+              [
+                1317,
+                254
+              ],
+              [
+                1292,
+                254
+              ],
+              [
+                1269,
+                260
+              ],
+              [
+                1263,
+                261
+              ],
+              [
+                1257,
+                251
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1040,
+            70,
+            477,
+            427
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 4,
+          "source_sheet_polygons": [
+            [
+              [
+                322,
+                674
+              ],
+              [
+                333,
+                678
+              ],
+              [
+                348,
+                683
+              ],
+              [
+                365,
+                677
+              ],
+              [
+                370,
+                677
+              ],
+              [
+                370,
+                692
+              ],
+              [
+                360,
+                705
+              ],
+              [
+                346,
+                711
+              ],
+              [
+                324,
+                706
+              ],
+              [
+                304,
+                699
+              ],
+              [
+                289,
+                693
+              ],
+              [
+                288,
+                688
+              ],
+              [
+                303,
+                682
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            25,
+            528,
+            550,
+            440
+          ],
+          "runtime_clip_polygon": [
+            [
+              439.96,
+              439.27
+            ],
+            [
+              61.06,
+              438.29
+            ],
+            [
+              53.01,
+              437.24
+            ],
+            [
+              44.95,
+              435.19
+            ],
+            [
+              40.92,
+              433.16
+            ],
+            [
+              35.87,
+              428.11
+            ],
+            [
+              34.85,
+              425.09
+            ],
+            [
+              -0.92,
+              157.3
+            ],
+            [
+              -0.89,
+              148.2
+            ],
+            [
+              2.13,
+              142.13
+            ],
+            [
+              5.15,
+              137.06
+            ],
+            [
+              8.17,
+              133.01
+            ],
+            [
+              22.25,
+              118.8
+            ],
+            [
+              26.27,
+              115.75
+            ],
+            [
+              32.3,
+              111.68
+            ],
+            [
+              213.5,
+              11.04
+            ],
+            [
+              217.56,
+              9.03
+            ],
+            [
+              220.61,
+              8.03
+            ],
+            [
+              275.37,
+              1.02
+            ],
+            [
+              299.69,
+              -0.92
+            ],
+            [
+              312.85,
+              -0.88
+            ],
+            [
+              316.9,
+              0.14
+            ],
+            [
+              528.65,
+              68.6
+            ],
+            [
+              530.66,
+              69.61
+            ],
+            [
+              544.74,
+              83.77
+            ],
+            [
+              547.78,
+              96.88
+            ],
+            [
+              547.79,
+              98.9
+            ],
+            [
+              484.24,
+              428.0
+            ],
+            [
+              480.2,
+              432.04
+            ],
+            [
+              472.14,
+              436.1
+            ],
+            [
+              469.12,
+              437.12
+            ],
+            [
+              464.1,
+              438.15
+            ],
+            [
+              458.06,
+              439.18
+            ]
+          ],
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 5,
+          "source_sheet_polygons": [
+            [
+              [
+                803,
+                696
+              ],
+              [
+                825,
+                705
+              ],
+              [
+                845,
+                702
+              ],
+              [
+                853,
+                697
+              ],
+              [
+                856,
+                712
+              ],
+              [
+                852,
+                727
+              ],
+              [
+                838,
+                737
+              ],
+              [
+                821,
+                734
+              ],
+              [
+                802,
+                728
+              ],
+              [
+                782,
+                721
+              ],
+              [
+                777,
+                716
+              ],
+              [
+                781,
+                709
+              ],
+              [
+                790,
+                701
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            542,
+            555,
+            529,
+            413
+          ],
+          "runtime_clip_polygon": [
+            [
+              1.65,
+              395.86
+            ],
+            [
+              13.09,
+              172.27
+            ],
+            [
+              14.1,
+              169.23
+            ],
+            [
+              17.13,
+              163.14
+            ],
+            [
+              21.16,
+              157.04
+            ],
+            [
+              24.18,
+              152.98
+            ],
+            [
+              29.22,
+              146.87
+            ],
+            [
+              39.3,
+              136.69
+            ],
+            [
+              43.33,
+              133.63
+            ],
+            [
+              50.39,
+              128.52
+            ],
+            [
+              200.71,
+              30.01
+            ],
+            [
+              242.32,
+              8.02
+            ],
+            [
+              270.67,
+              -0.92
+            ],
+            [
+              283.83,
+              -0.88
+            ],
+            [
+              289.9,
+              0.14
+            ],
+            [
+              497.54,
+              49.41
+            ],
+            [
+              516.61,
+              54.52
+            ],
+            [
+              518.62,
+              56.54
+            ],
+            [
+              528.72,
+              78.73
+            ],
+            [
+              528.72,
+              79.73
+            ],
+            [
+              507.57,
+              396.54
+            ],
+            [
+              504.55,
+              399.57
+            ],
+            [
+              501.54,
+              401.6
+            ],
+            [
+              495.51,
+              404.64
+            ],
+            [
+              492.5,
+              405.66
+            ],
+            [
+              483.46,
+              407.71
+            ],
+            [
+              42.95,
+              412.19
+            ],
+            [
+              21.83,
+              412.07
+            ],
+            [
+              16.8,
+              411.04
+            ],
+            [
+              10.76,
+              408.99
+            ],
+            [
+              7.73,
+              406.96
+            ],
+            [
+              3.69,
+              402.92
+            ],
+            [
+              2.68,
+              400.9
+            ]
+          ],
+          "constrain_to_runtime_frame": false
+        },
+        {
+          "frame": 6,
+          "source_sheet_polygons": [
+            [
+              [
+                1329,
+                676
+              ],
+              [
+                1344,
+                679
+              ],
+              [
+                1359,
+                676
+              ],
+              [
+                1367,
+                682
+              ],
+              [
+                1375,
+                693
+              ],
+              [
+                1377,
+                708
+              ],
+              [
+                1372,
+                715
+              ],
+              [
+                1345,
+                713
+              ],
+              [
+                1323,
+                709
+              ],
+              [
+                1304,
+                705
+              ],
+              [
+                1305,
+                696
+              ],
+              [
+                1318,
+                689
+              ]
+            ]
+          ],
+          "source_sheet_exclude_polygons": [],
+          "runtime_rect": [
+            1073,
+            507,
+            452,
+            465
+          ],
+          "runtime_clip_polygon": null,
+          "constrain_to_runtime_frame": false
+        }
+      ]
+    }
+  },
+  "clip_count": 6,
+  "frame_count": 36
+}

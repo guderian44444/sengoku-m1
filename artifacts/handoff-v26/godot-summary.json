@@ -1,0 +1,20 @@
+{
+  "engine": "Godot 4.6.3 Linux headless",
+  "source": "artifacts/oichi-skirt-v26/godot-final-tests.log",
+  "results": [
+    "=== test_hero_layers_v22 ===",
+    "HERO LAYERS V22 PASS: 3102 checks, 0 failures; heroes=[\"nobunaga\", \"oichi\", \"tadakatsu\"]; partial=false",
+    "=== test_weapon_render_v22 ===",
+    "WEAPON RENDER V22 PASS: 397 checks, 0 failures",
+    "=== test_projectile_v22 ===",
+    "V22 PROJECTILE: 174 checks, 0 failures; production release-hand and delayed snapshot regression",
+    "=== test_battle ===",
+    "BATTLE TESTS PASSED: 59 checks",
+    "=== test_art_demo ===",
+    "PASS: 10 poses / 2 heroes / 3 weather states / pause / seek / facing / slow speed / fixed feet"
+  ],
+  "scope": "5 selected groups, not the full repository test suite",
+  "warnings": [
+    "Image.load_from_file export-resource warnings remain; export builds unverified"
+  ]
+}

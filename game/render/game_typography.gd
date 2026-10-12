@@ -1,6 +1,7 @@
 extends RefCounted
 
 const FONT_PATH := "res://assets/v20/fonts/NotoSerifTC-VF.ttf"
+const REFERENCE_FALLBACK_PATH := "res://assets/v24/fonts/SengokuReferenceFallback.otf"
 const PAPER := Color("fff0c8")
 const GOLD := Color("f7cf73")
 const INK := Color("1a090b")
@@ -12,6 +13,10 @@ static func font() -> Font:
 		var source := FontFile.new()
 		var error := source.load_dynamic_font(FONT_PATH)
 		assert(error == OK, "The bundled Traditional Chinese font must be available.")
+		var reference_fallback := FontFile.new()
+		var fallback_error := reference_fallback.load_dynamic_font(REFERENCE_FALLBACK_PATH)
+		assert(fallback_error == OK,"Bundled Japanese reference glyphs must be available.")
+		source.fallbacks = [reference_fallback]
 		_font = FontVariation.new()
 		_font.base_font = source
 		_font.variation_opentype = {TextServerManager.get_primary_interface().name_to_tag("wght"): 850.0}
