@@ -36,6 +36,7 @@ for actor, name, text, subtitle, tone in (
     assert 1 <= ticks <= 1800
     manifest['stage_boss_intros'][name] = {'name': name, 'line_key': key, 'ticks': ticks, 'text': text}
 manifest['actors']['boss_fallen'] = {'defeat': []}
+manifest['actors']['boss_minor_fallen'] = {'defeat': []}
 for index, text in enumerate(('うわっ、うわっ、うわあああああーっ！', 'ぐわっ、うわっ、うわあああああーっ！')):
     tone = 'Japanese male samurai general, deep rough resonant voice. An exaggerated old arcade boss death wail, shouted with theatrical despair: two short uwa cries followed by one very long falling uwaaaaa. Sustain the last open vowel for at least three seconds with wavering breath and a descending pitch. Total duration four to six seconds. Powerful voiced projection, no narration, no music, no other words.'
     key, clip = voice.make_clip(ffmpeg, ('boss_fallen', 'defeat', index, text, tone, False, ''))
@@ -43,6 +44,21 @@ for index, text in enumerate(('うわっ、うわっ、うわあああああー�
     clip['category'] = 'boss_death_wail'
     manifest['clips'][key] = clip
     manifest['actors']['boss_fallen']['defeat'].append(key)
+    short_key = f'boss_minor_fallen_defeat_{index}'
+    short_path = voice.OUT / f'{short_key}.wav'
+    filters = 'atrim=end=1.45,asetpts=PTS-STARTPTS,afade=t=out:st=1.30:d=0.15'
+    voice.convert(ffmpeg, voice.OUT / clip['file'], short_path, filters)
+    metrics = voice.metrics(short_path)
+    assert 1.0 <= metrics['seconds'] <= 1.5 and metrics['clipped_fraction'] == 0
+    manifest['clips'][short_key] = dict(clip, file=short_path.name, seconds=metrics['seconds'],
+        actor='boss_minor_fallen', category='miniboss_death_wail', sha256=voice.sha(short_path),
+        text='Opening excerpt of: ' + text, source_clip=key, edit_filter=filters, metrics=metrics)
+    manifest['actors']['boss_minor_fallen']['defeat'].append(short_key)
 manifest.update(version='0.27', listening_review='pending human audition', recipe='scripts/generate-voices-v27.py')
+voice.write_json(voice.OUT / 'deaths.json', {
+    actor: [{'line_key': key, 'ticks': math.ceil(manifest['clips'][key]['seconds'] * 60)}
+            for key in manifest['actors'][actor]['defeat']]
+    for actor in ('boss_fallen', 'boss_minor_fallen')
+})
 voice.write_json(voice.OUT / 'manifest.json', manifest)
-print('Generated 6 enemy-general cries, 4 non-blocking boss entrances and 2 sustained boss death wails.', flush=True)
+print('Generated 6 hero cries, 4 boss entrances, 2 long final-boss wails and 2 miniboss wails capped at 1.5 seconds.', flush=True)

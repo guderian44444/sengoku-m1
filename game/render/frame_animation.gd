@@ -202,6 +202,13 @@ static func enemy_v14_sample(fighter: Dictionary, locomotion_tick: float, idle_t
 		elif action == "recovering":
 			duration = float(Battle.RECOVER_TICKS)
 			frame = count - 1 - mini(count - 1,floori(tick * count / duration))
+		elif action == "defeated" and fighter.has("death_ticks"):
+			duration = float(fighter.death_ticks)
+			if count == 6:
+				var poses := [0.0,0.12,0.30,0.64,0.83,1.0]
+				for index in range(count):
+					if tick >= duration * poses[index]: frame = index
+			else: frame = mini(count - 1,floori(tick * (count - 1) / duration))
 		elif action in ["down","dead"] or fighter.get("down_from_air",false): frame = count - 1
 		else: frame = mini(count - 1,floori(tick * count / duration))
 	elif Battle.ENEMY_TIMING.has(action):

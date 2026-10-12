@@ -194,6 +194,7 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 			_frozen_samples[id] = discrete
 			return discrete
 		var enemy_key: String = _art._enemy_key(hero,str(fighter.get("faction","mori")))
+		if action == "defeated" and fighter.has("death_ticks"): tick = tick * 24.0 / float(fighter.death_ticks)
 		if _art.enemy_reactions.has(enemy_key) and action in ["hurt","stunned","grabbed","pulled","launched","thrown","down","recovering","dead","defeated"]:
 			var role := ["soldier","flag","commander","archer","gunner","boss"].find(hero)
 			var counts: Array = _art.v11_counts.get("reactions-" + str(fighter.get("faction","mori")),[8,8,8,8,8,8])
@@ -1214,6 +1215,7 @@ static func enemy_display_height(fighter: Dictionary) -> float:
 	return height * float(fighter.get("render_scale",1.0))
 
 static func shattered_defeat(fighter: Dictionary) -> bool:
+	if fighter.get("kind","") == "boss" and fighter.has("death_ticks"): return false
 	return float(fighter.get("hp", 0)) <= 0 and int(fighter.get("shattered_tick", -1)) >= 0 and int(fighter.shattered_tick) == int(fighter.get("damage_tick", -2))
 
 func _demo_projectile_sample(fighter: Dictionary, clip: String, release: float) -> Dictionary:

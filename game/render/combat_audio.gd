@@ -305,7 +305,13 @@ func _play_character_event(event: Dictionary) -> void:
 	if type == "defeat" and event.get("target_kind","") == "boss":
 		_intro_player.stop()
 		_intro_token = ""
-		play_character("boss_fallen","defeat",0,true)
+		var actor := "boss_fallen" if event.get("target_stage_boss",false) else "boss_minor_fallen"
+		var key := str(event.get("line_key",""))
+		if key in speech_manifest.get("actors",{}).get(actor,{}).get("defeat",[]) and _speech_streams.has(key):
+			_speech_players.boss.stream = _speech_streams[key]
+			_speech_players.boss.pitch_scale = 1.0
+			_speech_players.boss.play()
+		else: play_character(actor,"defeat",0,true)
 		play_character(str(event.get("actor_kind","nobunaga")),"boss_defeat",int(event.get("actor_slot",0)),true)
 		return
 	if type == "boss_intro":

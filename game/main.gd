@@ -648,12 +648,12 @@ func _load_characters() -> void:
 	sim.state.loot_rng = int(Time.get_unix_time_from_system()) & 0x7fffffff
 	_saved_profile_signature = ""
 
-func _save_characters(manual: bool = false) -> void:
-	if not active or testing or training_active or demo_active or session not in ["solo","local"]: return
+func _save_characters(manual: bool = false) -> Error:
+	if not active or testing or training_active or demo_active or session not in ["solo","local"]: return OK
 	for fighter in sim.state.fighters: profiles.capture(fighter)
 	if sim.state.has("stage"): profiles.capture_chapter(int(sim.state.stage.id),sim.state.phase == "won")
 	var signature := JSON.stringify(profiles.data)
-	if not manual and signature == _saved_profile_signature: return
+	if not manual and signature == _saved_profile_signature: return OK
 	var err: Error = profiles.save()
 	if err == OK:
 		_saved_profile_signature = signature
@@ -661,6 +661,14 @@ func _save_characters(manual: bool = false) -> void:
 	else:
 		if profiles.warning == "": profiles.warning = "角色存檔失敗 (%d)，原存檔與備份保留。" % err
 		if is_instance_valid(status): status.text = profiles.warning
+	return err
+
+func _save_before_leaving() -> bool:
+	if _save_characters(true) == OK: return true
+	paused = true
+	_show_menu_page("pause")
+	status.text = "人物進度保存失敗，已取消離開。\n" + profiles.warning
+	return false
 
 func _open_options() -> void:
 	options_return = menu_screen
@@ -748,8 +756,8 @@ func _choices() -> void:
 	difficulty = DIFFICULTIES[difficulties.selected]
 	selected_faction = FACTION_NAMES.keys()[factions.selected]
 
-func _close_network() -> void:
-	_save_characters()
+func _close_network() -> bool:
+	if not _save_before_leaving(): return false
 	_stop_rumble()
 	player_devices = [-1, -1]
 	audio.stop_speech()
@@ -774,10 +782,11 @@ func _close_network() -> void:
 	if multiplayer.multiplayer_peer != null:
 		multiplayer.multiplayer_peer.close()
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	return true
 
 func _start_solo() -> void:
 	if _confirm_end(_start_solo,"重新開始這一戰？"): return
-	_close_network()
+	if not _close_network(): return
 	_choices()
 	local_slot = 0
 	sim.reset_campaign(difficulty, 1, [selected_hero],selected_chapter)
@@ -789,7 +798,7 @@ func _start_local_coop() -> void:
 	if _connected_pads().size() < 2:
 		status.text = "雙搖桿合作需要兩支搖桿。請接上兩支，再按雙搖桿合作。"
 		return
-	_close_network()
+	if not _close_network(): return
 	_choices()
 	session = "local"
 	local_slot = 0
@@ -801,7 +810,7 @@ func _start_local_coop() -> void:
 func _start_training(drill: String = "") -> void:
 	if _confirm_end(_start_training.bind(drill),"結束目前階段，進入練習場？"): return
 	if drill != "": training_drill = drill
-	_close_network()
+	if not _close_network(): return
 	_choices()
 	training_active = true
 	local_slot = 0
@@ -830,7 +839,7 @@ func _choose_training_drill(drill: String) -> void:
 
 func _start_art_demo() -> void:
 	if _confirm_end(_start_art_demo,"結束目前階段，進入素材展示？"): return
-	_close_network()
+	if not _close_network(): return
 	art_demo = ArtDemo.new()
 	demo_active = true
 	paused = false
@@ -916,7 +925,7 @@ func _activate() -> void:
 
 func _host() -> void:
 	if _confirm_end(_host,"結束目前階段，建立連線戰鬥？"): return
-	_close_network()
+	if not _close_network(): return
 	_choices()
 	var peer := ENetMultiplayerPeer.new()
 	if not smoke.is_empty(): peer.set_bind_ip("127.0.0.1")
@@ -933,7 +942,7 @@ func _host() -> void:
 
 func _join() -> void:
 	if _confirm_end(_join,"結束目前階段，加入連線戰鬥？"): return
-	_close_network()
+	if not _close_network(): return
 	_choices()
 	if not address.text.strip_edges().is_valid_ip_address():
 		_fail("IP 格式不正確，請輸入主機的 IPv4／IPv6 位址。")
@@ -1038,7 +1047,7 @@ func _peer_disconnected(id: int) -> void:
 		_fail("連線中斷，請回主選單重新連線。")
 
 func _fail(message: String) -> void:
-	_close_network()
+	if not _close_network(): return
 	paused = false
 	_show_menu_page("main")
 	audio.play_music()
@@ -1049,7 +1058,7 @@ func _fail(message: String) -> void:
 
 func _leave_to_menu() -> void:
 	if _confirm_end(_leave_to_menu,"結束目前階段，返回主選單？"): return
-	_close_network()
+	if not _close_network(): return
 	paused = false
 	_show_menu_page("main")
 	audio.play_music()
@@ -1091,8 +1100,7 @@ func _request_quit() -> void:
 	if not ending_confirmed:
 		_request_confirmation(_request_quit,"離開遊戲？")
 		return
-	_save_characters()
-	get_tree().quit()
+	if _save_before_leaving(): get_tree().quit()
 
 func _resume() -> void:
 	if session == "local" and (player_devices[0] < 0 or player_devices[1] < 0):

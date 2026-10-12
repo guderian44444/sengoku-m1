@@ -91,6 +91,7 @@ var _queued_slam: Array = []
 var _difficulty: Dictionary = {}
 var _next_id := 1
 var boss_intros: Dictionary = {}
+var boss_deaths: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://audio/v27/deaths.json"))
 var _campaign: Dictionary = {}
 
 
@@ -292,7 +293,7 @@ func _place_enemy(fighter: Dictionary) -> void:
 
 
 func _tick_segment() -> void:
-	state.fighters = state.fighters.filter(func(f):return f.team == 0 or f.hp > 0 or state.tick - f.damage_tick < 240)
+	state.fighters = state.fighters.filter(func(f):return f.team == 0 or f.hp > 0 or state.tick - f.damage_tick < maxi(240,int(f.get("death_ticks",0)) + 120))
 	if not state.intro.is_empty() and _fighter(state.intro.actor).is_empty(): state.intro = {}
 	var living_party: Array = state.fighters.filter(func(f): return f.team == 0 and f.hp > 0)
 	if state.fighters.any(func(f): return f.team == 0 and f.hp <= 0 and f.respawn_ticks > 0): return
@@ -318,6 +319,7 @@ func _tick_segment() -> void:
 		state.stage.next_reinforce_tick = -1
 	var alive: bool = state.fighters.any(func(f): return f.team == 1 and f.hp > 0)
 	if alive: return
+	if state.fighters.any(func(f):return f.hp <= 0 and f.action_tick < int(f.get("death_ticks",0))): return
 	if state.wave < state.stage.wave_total:
 		if state.stage.next_wave_tick < 0: state.stage.next_wave_tick = state.tick + 75
 		if state.tick >= state.stage.next_wave_tick:
@@ -417,7 +419,7 @@ func step(inputs: Array) -> void:
 		# Land existing launches and finish the celebration without accepting combat input.
 		var settling: bool = state.phase == "lost" and not state.effects.is_empty()
 		for fighter in state.fighters:
-			settling = settling or fighter.z > 0 or fighter.vz > 0 or absf(fighter.knockback) > 0.1 or (fighter.hp <= 0 and fighter.action_tick < 24)
+			settling = settling or fighter.z > 0 or fighter.vz > 0 or absf(fighter.knockback) > 0.1 or (fighter.hp <= 0 and fighter.action_tick < int(fighter.get("death_ticks",24)))
 			if state.phase == "won" and fighter.team == 0 and fighter.hp > 0:
 				fighter.freeze = 0
 				settling = settling or fighter.action != "victory" or fighter.action_tick < VICTORY_TICKS
@@ -508,7 +510,7 @@ func _tick_training() -> void:
 	if state.tick - state.training.last_hit_tick > 60:
 		state.training.chain_hits = 0
 	for fighter in state.fighters:
-		if state.tick - fighter.damage_tick < 120 or fighter.held_by != 0 or fighter.grab_target != 0:
+		if state.tick - fighter.damage_tick < maxi(120,int(fighter.get("death_ticks",0)) + 60) or fighter.held_by != 0 or fighter.grab_target != 0:
 			continue
 		if fighter.team == 0:
 			fighter.hp = fighter.max_hp
@@ -681,7 +683,8 @@ static func enemy_timing(fighter: Dictionary) -> Array:
 func _tick_motion(fighter: Dictionary) -> void:
 	if fighter.get("entering",false): return
 	if fighter.hp <= 0:
-		fighter.action_tick = mini(24, fighter.action_tick + 1)
+		fighter.action_tick = mini(int(fighter.get("death_ticks",24)), fighter.action_tick + 1)
+		if fighter.kind == "boss" and not fighter.airborne_lock and fighter.z == 0: fighter.knockback = 0.0
 	if fighter.held_by != 0 or fighter.freeze > 0 or fighter.action == "pulled":
 		return
 	if absf(fighter.knockback) > 0.1:
@@ -706,7 +709,7 @@ func _tick_motion(fighter: Dictionary) -> void:
 				elif fighter.airborne_lock:
 					fighter.airborne_lock = false
 					fighter.knockback = 0.0
-					_begin(fighter, "defeated" if fighter.hp <= 0 else "down")
+					if fighter.hp > 0 or fighter.kind != "boss": _begin(fighter, "defeated" if fighter.hp <= 0 else "down")
 					fighter.down_from_air = true
 	if fighter.throw_ticks > 0:
 		fighter.throw_ticks -= 1
@@ -1624,6 +1627,11 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 			var holder := _fighter(target.held_by)
 			if not holder.is_empty(): _release_grab(holder, false)
 		_begin(target, "defeated")
+		if target.kind == "boss":
+			var death_pool: Array = boss_deaths["boss_fallen" if target.get("stage_boss",false) else "boss_minor_fallen"]
+			var death: Dictionary = death_pool[target.id % death_pool.size()]
+			target.death_ticks = int(death.ticks)
+			target.death_voice = str(death.line_key)
 		_event("defeat", target.x, target.y, actor, target.id)
 		if target.team == 1 and target.kind != "boss" and target.id % 2 == 0 and not state.has("stage") and not state.has("training"):
 			_add_drop("food", target.x, target.y)
@@ -1707,6 +1715,7 @@ func _poison(target: Dictionary, duration: int, owner: int) -> void:
 
 
 func _launch(target: Dictionary, direction: int, horizontal: float = 8.0, vertical: float = 6.0) -> void:
+	if target.kind == "boss" and target.hp <= 0: return
 	if target.held_by != 0 or target.freeze > 0: return
 	target.knockback = direction * (9.0 if target.team == 0 and horizontal >= 8.0 else horizontal)
 	target.z = maxf(target.z, 1.0)
@@ -2050,5 +2059,8 @@ func _event(type: String, x: float, y: float, actor: int, target: int, extra: Di
 	if not victim.is_empty():
 		event.target_kind = victim.kind
 		event.target_faction = victim.faction
+		if type == "defeat" and victim.kind == "boss":
+			event.target_stage_boss = bool(victim.get("stage_boss",false))
+			event.line_key = str(victim.get("death_voice",""))
 	event.merge(extra)
 	state.events.append(event)

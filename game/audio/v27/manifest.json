@@ -789,6 +789,12 @@
         "boss_fallen_v15_defeat_0",
         "boss_fallen_v15_defeat_1"
       ]
+    },
+    "boss_minor_fallen": {
+      "defeat": [
+        "boss_minor_fallen_defeat_0",
+        "boss_minor_fallen_defeat_1"
+      ]
     }
   },
   "clips": {
@@ -3980,6 +3986,38 @@
       },
       "listening_review": "pending human audition; not inferred from waveform metrics"
     },
+    "boss_minor_fallen_defeat_0": {
+      "file": "boss_minor_fallen_defeat_0.wav",
+      "seconds": 1.4500226757369614,
+      "text": "Opening excerpt of: うわっ、うわっ、うわあああああーっ！",
+      "actor": "boss_minor_fallen",
+      "event": "defeat",
+      "category": "miniboss_death_wail",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "Japanese male samurai general, deep rough resonant voice. An exaggerated old arcade boss death wail, shouted with theatrical despair: two short uwa cries followed by one very long falling uwaaaaa. Sustain the last open vowel for at least three seconds with wavering breath and a descending pitch. Total duration four to six seconds. Powerful voiced projection, no narration, no music, no other words.",
+      "seed": 695797337,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v27/boss_fallen_v15_defeat_0-297906597cd400f6-0.wav",
+      "raw_sha256": "c6de545ee2795668436707e62479b3b2d5f3a3112ed57174cbd985fcdc251c28",
+      "sha256": "4286aa91ae5a8e366c7e76ca8c303f5f0b51656b3b7582e2b318bf03c0e7d7d2",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false; then atempo=1.000000,volume=1.555751,alimiter=limit=0.85:level=false",
+      "tempo_factor": 1.0,
+      "trimmed_seconds": 6.240680272108843,
+      "metrics": {
+        "seconds": 1.4500226757369614,
+        "sample_rate": 22050,
+        "channels": 1,
+        "sample_width": 2,
+        "peak": 0.798828125,
+        "rms_dbfs": -11.112284682860874,
+        "clipped_fraction": 0.0,
+        "active_span_seconds": 1.43,
+        "bursts_separated_by_100ms": 1
+      },
+      "listening_review": "pending human audition; not inferred from waveform metrics",
+      "source_clip": "boss_fallen_v15_defeat_0",
+      "edit_filter": "atrim=end=1.45,asetpts=PTS-STARTPTS,afade=t=out:st=1.30:d=0.15"
+    },
     "boss_fallen_v15_defeat_1": {
       "file": "boss_fallen_v15_defeat_1.wav",
       "seconds": 6.579591836734694,
@@ -4009,6 +4047,38 @@
         "bursts_separated_by_100ms": 3
       },
       "listening_review": "pending human audition; not inferred from waveform metrics"
+    },
+    "boss_minor_fallen_defeat_1": {
+      "file": "boss_minor_fallen_defeat_1.wav",
+      "seconds": 1.4500226757369614,
+      "text": "Opening excerpt of: ぐわっ、うわっ、うわあああああーっ！",
+      "actor": "boss_minor_fallen",
+      "event": "defeat",
+      "category": "miniboss_death_wail",
+      "backend": "Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+      "instruction": "Japanese male samurai general, deep rough resonant voice. An exaggerated old arcade boss death wail, shouted with theatrical despair: two short uwa cries followed by one very long falling uwaaaaa. Sustain the last open vowel for at least three seconds with wavering breath and a descending pitch. Total duration four to six seconds. Powerful voiced projection, no narration, no music, no other words.",
+      "seed": 3416946954,
+      "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+      "raw_source": "artifacts/voice-v27/boss_fallen_v15_defeat_1-cbaa7908b51d24c3-2.wav",
+      "raw_sha256": "8bb074fdd34f176d283517afb83709f96a32f7b968d6851adab5abb19a042df6",
+      "sha256": "06598407ec697970a43e3f1779414561d9ad62f645ecb39a818cc0b9afcd1857",
+      "post_filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=100,lowpass=f=8200,equalizer=f=1800:t=q:w=1:g=2,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false; then atempo=1.000000,volume=1.689834,alimiter=limit=0.85:level=false",
+      "tempo_factor": 1.0,
+      "trimmed_seconds": 6.581995464852608,
+      "metrics": {
+        "seconds": 1.4500226757369614,
+        "sample_rate": 22050,
+        "channels": 1,
+        "sample_width": 2,
+        "peak": 0.7930908203125,
+        "rms_dbfs": -12.993229397716295,
+        "clipped_fraction": 0.0,
+        "active_span_seconds": 1.42,
+        "bursts_separated_by_100ms": 1
+      },
+      "listening_review": "pending human audition; not inferred from waveform metrics",
+      "source_clip": "boss_fallen_v15_defeat_1",
+      "edit_filter": "atrim=end=1.45,asetpts=PTS-STARTPTS,afade=t=out:st=1.30:d=0.15"
     }
   },
   "boss_intros": {

@@ -100,6 +100,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if event.type == "damage" and not event.has("amount"): return false
 		if event.type == "food_pickup" and (not _choice(event.get("food_id"),FOODS) or not _integer(event.get("heal"),1,120)): return false
 		if event.has("wet") and not event.wet is bool: return false
+		if event.has("target_stage_boss") and not event.target_stage_boss is bool: return false
 		if event.has("material") and not _choice(event.material,["ceramic","stone","box","wood","wicker"]): return false
 		if event.has("action") and not _action(event.action): return false
 		if event.has("combo") and not _integer(event.combo, 0, 3): return false
@@ -176,6 +177,8 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 	if fighter.has("faction") and not _choice(fighter.faction, ["heroes"] + Battle.FACTIONS.keys()): return false
 	if fighter.has("boss_variant") and not _choice(fighter.boss_variant, [""] + Battle.BOSS_PROFILES.keys()): return false
 	if fighter.has("stage_boss") and not fighter.stage_boss is bool: return false
+	if fighter.has("death_ticks") and not _integer(fighter.death_ticks,1,600): return false
+	if fighter.has("death_voice") and (not fighter.death_voice is String or fighter.death_voice.length() > 100): return false
 	if fighter.has("render_scale") and not _number(fighter.render_scale,0.8,1.5): return false
 	for field in ["display_name","intro_line"]:
 		if fighter.has(field) and (not fighter[field] is String or fighter[field].length() > 200): return false
