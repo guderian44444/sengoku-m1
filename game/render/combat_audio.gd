@@ -14,7 +14,7 @@ const STAGE_MUSIC := {
 	"town": "res://audio/v21/town-loop.wav",
 	"castle": "res://audio/v18/castle-loop.wav",
 	"miniboss": "res://audio/v21/miniboss-loop.wav",
-	"boss": "res://audio/v21/boss-loop.wav"
+	"boss": "res://audio/v27/boss-loop.wav"
 }
 const EVENT_SOUNDS := {
 	"hit": "hit", "heavy_hit": "heavy_hit", "special": "special",
@@ -22,7 +22,9 @@ const EVENT_SOUNDS := {
 	"gunshot": "gunshot", "shatter": "shatter", "sword_whoosh":"sword_whoosh", "spear_wind":"spear_wind",
 	"landing":"landing", "splash":"splash", "guard":"guard", "guard_break":"guard_break", "prop_break":"prop_break",
 	"arrow_hit":"arrow_hit", "bullet_hit":"bullet_hit", "needle_hit":"needle_hit", "blunt_hit":"blunt_hit",
-	"kick_whoosh":"kick_whoosh", "needle_whoosh":"needle_whoosh", "chain_swing":"chain_swing"
+	"kick_whoosh":"kick_whoosh", "needle_whoosh":"needle_whoosh", "chain_swing":"chain_swing",
+	"ceramic_hit":"ceramic_hit", "ceramic_break":"ceramic_break", "box_hit":"box_hit", "box_break":"box_break",
+	"wood_hit":"wood_hit", "wood_break":"wood_break", "stone_hit":"stone_hit", "stone_break":"stone_break", "wicker_hit":"wicker_hit", "wicker_break":"wicker_break"
 }
 
 var _sounds: Dictionary = {}
@@ -74,7 +76,7 @@ func _ready() -> void:
 	_food_player.bus = CATEGORY_BUSES.sfx
 	_food_player.volume_db = -10.0
 	add_child(_food_player)
-	var voice_root := "res://audio/v15/" if FileAccess.file_exists("res://audio/v15/manifest.json") else ("res://audio/v14/" if FileAccess.file_exists("res://audio/v14/manifest.json") else ("res://audio/v11/" if FileAccess.file_exists("res://audio/v11/manifest.json") else "res://audio/v10/"))
+	var voice_root := "res://audio/v27/" if FileAccess.file_exists("res://audio/v27/manifest.json") else ("res://audio/v15/" if FileAccess.file_exists("res://audio/v15/manifest.json") else ("res://audio/v14/" if FileAccess.file_exists("res://audio/v14/manifest.json") else ("res://audio/v11/" if FileAccess.file_exists("res://audio/v11/manifest.json") else "res://audio/v10/")))
 	var manifest_path := voice_root + "manifest.json"
 	if FileAccess.file_exists(manifest_path):
 		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
@@ -166,6 +168,7 @@ func sync_stage_music(world: Dictionary) -> void:
 	_music_key = key
 	if not _music_active:
 		_music_player.stream = stream
+		_music_player.volume_db = -14.0 if key == "boss" else (-17.0 if key == "miniboss" else MUSIC_VOLUME_DB)
 		return
 	# Keep the outgoing score on its own player; speech and impacts never share it.
 	_music_tail.stop()
@@ -184,8 +187,8 @@ func _process(delta: float) -> void:
 	# Recover an interrupted stream without restarting healthy loops or same-score areas.
 	if not _music_player.playing and _music_player.stream != null: _music_player.play()
 	if _music_fade >= 1.0: return
-	_music_fade = minf(1.0, _music_fade + delta / MUSIC_FADE_SECONDS)
-	_music_player.volume_linear = db_to_linear(MUSIC_VOLUME_DB) * sin(_music_fade * PI * 0.5)
+	_music_fade = minf(1.0, _music_fade + delta / (0.55 if _music_key == "boss" else MUSIC_FADE_SECONDS))
+	_music_player.volume_linear = db_to_linear(-14.0 if _music_key == "boss" else (-17.0 if _music_key == "miniboss" else MUSIC_VOLUME_DB)) * sin(_music_fade * PI * 0.5)
 	_music_tail.volume_linear = _music_tail_gain * cos(_music_fade * PI * 0.5)
 	if _music_fade >= 1.0:
 		_music_tail.stop()
@@ -228,12 +231,14 @@ func play_event(event: Dictionary) -> void:
 	player.stream = _sound_variants[kind][last_sound_variant]
 	if _impact_sounds.has(kind): last_impact_variant = last_sound_variant
 	player.volume_db = -13.0 if kind in ["heavy_hit", "bullet_hit", "gunshot"] else -17.0
+	if event.get("type","") in ["prop_hit","prop_break"]: player.volume_db = -12.0 if event.type == "prop_break" else -15.0
 	if kind == "food_pickup": player.volume_db = -10.0
 	player.play()
 
 static func sound_for_event(event: Dictionary) -> String:
 	var kind := str(event.get("type", event.get("kind", "")))
 	var weapon := str(event.get("weapon", ""))
+	if kind in ["prop_hit","prop_break"]: return str(event.get("material","wood")) + ("_break" if kind == "prop_break" else "_hit")
 	if kind == "swing": return "" # Voice onset; wind belongs to the actual weapon release.
 	if kind == "weapon_swing":
 		return {"needle":"needle_whoosh", "spear":"spear_wind", "blunt":"spear_wind", "kick":"kick_whoosh", "chain":"chain_swing"}.get(weapon,"sword_whoosh")
@@ -297,6 +302,12 @@ func play_character(actor: String, event: String, slot: int = 0, force: bool = f
 
 func _play_character_event(event: Dictionary) -> void:
 	var type := str(event.get("type", ""))
+	if type == "defeat" and event.get("target_kind","") == "boss":
+		_intro_player.stop()
+		_intro_token = ""
+		play_character("boss_fallen","defeat",0,true)
+		play_character(str(event.get("actor_kind","nobunaga")),"boss_defeat",int(event.get("actor_slot",0)),true)
+		return
 	if type == "boss_intro":
 		var key := str(event.get("line_key", ""))
 		var token := "%s:%d" % [key, int(event.get("actor", 0))]
@@ -358,6 +369,8 @@ func _synthesize(kind: String, variant: int = 0) -> AudioStreamWAV:
 	elif kind == "needle_hit": duration = 0.12
 	elif kind in ["kick_whoosh","needle_whoosh"]: duration = 0.16
 	elif kind == "chain_swing": duration = 0.36
+	if kind.get_slice("_",0) in ["ceramic","wood","box","stone","wicker"]:
+		duration = 0.55 if kind.ends_with("_break") else 0.16
 	if kind == "bow_release": duration = 0.34
 	if kind not in ["hit", "heavy_hit"]: duration *= [1.0,0.89,1.13][variant]
 	var samples := int(duration * SAMPLE_RATE)
@@ -396,6 +409,17 @@ func _synthesize(kind: String, variant: int = 0) -> AudioStreamWAV:
 			value = metal*.57*attack*exp(-t*(19.0+variant*4.0)) + high_noise*bite*.55 + low_noise*(1.0 if kind=="guard_break" else .3)*envelope
 		elif kind == "prop_break":
 			value = (low_noise*1.3+sin(TAU*(164+variant*41)*t)*.27+raw*.4*maxf(0,sin(TAU*(37+variant*11)*t)))*envelope+high_noise*bite*.28
+		elif kind.get_slice("_",0) in ["ceramic","wood","box","stone","wicker"]:
+			var material := kind.get_slice("_",0)
+			var broken := kind.ends_with("_break")
+			var tail := attack * exp(-t * (9.0 if broken else 32.0))
+			var chips := pow(maxf(0.0,sin(TAU * (33 + variant * 7) * t)),8.0) * tail if broken else bite
+			match material:
+				"ceramic": value = (sin(TAU*(1810+variant*137)*t)*.27 + sin(TAU*(3147+variant*193)*t)*.17)*tail + high_noise*(chips*.85+bite*.4)
+				"box": value = (sin(TAU*(143+variant*19)*t)*.56 + sin(TAU*(319+variant*23)*t)*.28)*tail + raw*(chips*.32+bite*.38)
+				"wood": value = sin(TAU*(530+variant*53)*t)*tail*.16 + high_noise*(chips*.65+bite*.7) + low_noise*tail*.45
+				"stone": value = sin(TAU*(97+variant*17)*t)*tail*.5 + low_noise*tail*1.2 + raw*chips*.25
+				"wicker": value = high_noise*(chips*.6+bite*.2) + sin(TAU*(2140+variant*149)*t)*tail*.07
 		elif kind == "hit":
 			var edge := float([1250, 1680, 2120, 1460, 2460][variant])
 			var body := float([205, 255, 175, 290, 225][variant])

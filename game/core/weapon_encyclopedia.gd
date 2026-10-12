@@ -48,5 +48,15 @@ static func stats(id: String) -> String:
 	var element := str(item.get("element",""))
 	return "階位　%d\n傷害加成　%s\n攻擊距離加成　%s\n擊退加成　%s\n元素　%s" % [int(item.tier),signed_value(item.damage_bonus),signed_value(item.reach_bonus),signed_value(item.knockback),{"":"無","fire":"火","ice":"冰","earth":"地","blade":"刃"}.get(element,element)]
 
+func history(id: String) -> String:
+	var info := entry(id)
+	var lines: Array[String] = [str(info.historical_type) + "　｜　" + str(info.period)]
+	var labels := {"blade_cm":"刃長","total_cm":"全長","curvature_cm":"反","catalogue_length_cm":"館載長度","tang_cm":"茎長","base_width_cm":"元幅","blade_lower_bound_cm":"刃長大於"}
+	for key in labels:
+		if info.dimensions.get(key) != null: lines.append("%s %s cm" % [labels[key],str(info.dimensions[key])])
+	for fact in info.facts: lines.append(str(fact))
+	if not str(info.attribution_note).is_empty(): lines.append(str(info.attribution_note))
+	return "\n".join(lines)
+
 static func signed_value(value: Variant) -> String:
 	return ("+" if float(value) >= 0 else "") + str(value)

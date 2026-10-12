@@ -13,7 +13,7 @@ const WeaponArchive = preload("res://core/weapon_encyclopedia.gd")
 const Stages = preload("res://core/stage_data.gd")
 const SaveProfile = preload("res://core/save_profile.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
-const BUILD := "sengoku-m1-0.26.0"
+const BUILD := "sengoku-m1-0.27.0"
 const DEFAULT_PORT := 27860
 const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "光秀", "tadakatsu": "忠勝"}
@@ -118,6 +118,12 @@ var profiles = SaveProfile.new()
 var weapon_choices: Array[OptionButton] = []
 var weapon_rows: Array[HBoxContainer] = []
 var _saved_profile_signature := ""
+var exit_button: Button
+var confirmation_text: Label
+var confirmation_action: Callable
+var confirmation_return := ""
+var confirmation_paused := false
+var ending_confirmed := false
 
 func _ready() -> void:
 	_actions()
@@ -127,6 +133,7 @@ func _ready() -> void:
 	add_child(audio)
 	audio._intro_player.finished.connect(_local_boss_voice_finished)
 	sim.boss_intros = audio.speech_manifest.get("boss_intros", {}).duplicate(true)
+	sim.boss_intros.merge(audio.speech_manifest.get("stage_boss_intros",{}),true)
 	_build_ui()
 	multiplayer.peer_connected.connect(_peer_connected)
 	multiplayer.peer_disconnected.connect(_peer_disconnected)
@@ -136,6 +143,8 @@ func _ready() -> void:
 	Input.joy_connection_changed.connect(_joy_changed)
 	get_window().focus_exited.connect(func(): _set_game_focus(false))
 	get_window().focus_entered.connect(func(): _set_game_focus(true))
+	get_tree().auto_accept_quit = false
+	get_window().close_requested.connect(_request_quit)
 	for arg in OS.get_cmdline_user_args():
 		if arg == "--smoke-host": smoke = "host"
 		elif arg == "--smoke-client": smoke = "client"
@@ -201,6 +210,11 @@ func _actions() -> void:
 		var button := InputEventJoypadButton.new()
 		button.button_index = buttons[action]
 		InputMap.action_add_event(action, button)
+	for action in ["ui_accept","ui_cancel"]:
+		var button := InputEventJoypadButton.new()
+		button.device = -1
+		button.button_index = JOY_BUTTON_A if action == "ui_accept" else JOY_BUTTON_B
+		InputMap.action_add_event(action,button)
 	for action in ["move_left", "move_right", "move_up", "move_down"]:
 		var axis := InputEventJoypadMotion.new()
 		axis.axis = JOY_AXIS_LEFT_X if action in ["move_left", "move_right"] else JOY_AXIS_LEFT_Y
@@ -263,7 +277,12 @@ func _build_ui() -> void:
 	end_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	end_label.add_theme_font_size_override("font_size", 32)
 	end_label.add_theme_color_override("font_color", Typography.GOLD)
+	end_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(end_label)
+	exit_button = _button("退出",_leave_to_menu,"VictoryExit",ui)
+	exit_button.position = Vector2(1140,120)
+	exit_button.size = Vector2(116,42)
+	exit_button.hide()
 	_build_menu(ui)
 	_build_controls(ui)
 	demo_controls = HBoxContainer.new()
@@ -343,7 +362,7 @@ func _build_menu(ui: Control) -> void:
 	_button("一 人 出 陣", func(): _open_selection(false), "Solo", main_page)
 	_button("二 人 共 鬥", func(): _open_selection(true), "LocalCoop", main_page)
 	_button("遊 戲 設 定", _open_options, "Options", main_page)
-	_button("離 開 遊 戲", func(): get_tree().quit(), "Quit", main_page)
+	_button("離 開 遊 戲", _request_quit, "Quit", main_page)
 	var select_page := _menu_page("select", Vector2(320, 35), 640, "選 擇 武 將")
 	select_page.add_theme_constant_override("separation",8)
 	var first_row := HBoxContainer.new()
@@ -445,6 +464,10 @@ func _build_menu(ui: Control) -> void:
 		_button("%dP 裝備與收藏" % (slot + 1),func(): _open_collection(slot),"Collection%d" % slot,collections).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_button("保 存 人 物", func(): _save_characters(true), "SaveCharacters", pause_page)
 	_button("返 回 主 畫 面", _leave_to_menu, "Leave", pause_page)
+	var confirm_page := _menu_page("confirm",Vector2(390,225),500,"確認操作")
+	confirmation_text = _menu_label(confirm_page,"",24)
+	_button("取消",_cancel_confirmation,"Cancel",confirm_page)
+	_button("確認",_accept_confirmation,"Confirm",confirm_page)
 	menu_panel = _menu_page("engineering", Vector2(260, 30), 760, "工 程 入 口")
 	menu_panel.add_theme_font_size_override("font_size", 18)
 	menu_panel.add_theme_constant_override("separation", 7)
@@ -458,7 +481,7 @@ func _build_menu(ui: Control) -> void:
 	var trials_row := HBoxContainer.new()
 	menu_panel.add_child(trials_row)
 	_button("練習場", _start_training, "Training", trials_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_button("陣營試戰", func(): training_drill = "enemies"; _start_training(), "EnemyTraining", trials_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_button("陣營試戰", func(): _start_training("enemies"), "EnemyTraining", trials_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var network_row := HBoxContainer.new()
 	menu_panel.add_child(network_row)
 	address = LineEdit.new()
@@ -511,14 +534,15 @@ func _build_menu(ui: Control) -> void:
 
 func _show_menu_page(page: String) -> void:
 	menu_screen = page
+	exit_button.hide()
 	menu.show()
 	for key in menu_pages: menu_pages[key].visible = key == page
 	menu_backdrop.visible = not active
 	menu_shade.color.a = 0.72 if active or page not in ["main", "title"] else 0.18
 	menu_logo.visible = page in ["title", "main"]
 	menu_caption.visible = menu_logo.visible
-	engineer_entry.visible = page not in ["engineering", "encyclopedia", "collection"]
-	status.visible = page not in ["encyclopedia", "collection"]
+	engineer_entry.visible = page not in ["engineering", "encyclopedia", "collection", "confirm"]
+	status.visible = page not in ["encyclopedia", "collection", "confirm"]
 	combat_hud.visible = active
 	hud.visible = active
 	end_label.visible = active
@@ -588,7 +612,7 @@ func _refresh_collection() -> void:
 	for id in row.owned_weapons:
 		var weapon: Dictionary = Weapons.item(id)
 		items.append({"id":id,"name":"%s　階%d" % [str(weapon.name),int(weapon.tier)],"category":"武器／" + {"sword":"刀","spear":"槍","bow":"弓"}[weapon.family],
-			"description":WeaponArchive.stats(id),"image":"res://assets/v22/weapons/%s.png" % id,"can_equip":Weapons.compatible(hero,id),"has_details":true,"slot":"武器"})
+			"description":WeaponArchive.stats(id) + "\n\n" + encyclopedia.archive.history(id),"image":"res://assets/v22/weapons/%s.png" % id,"can_equip":Weapons.compatible(hero,id),"has_details":true,"slot":"武器"})
 	collection.configure("%dP %s　｜　總積分 %d　生命追加 +%d" % [encyclopedia_slot + 1,HERO_NAMES[hero],int(row.score),int(row.max_hp_bonus)],items,[row.weapon_id])
 
 func _open_weapon_encyclopedia(slot: int, return_page: String = "select") -> void:
@@ -607,13 +631,13 @@ func _equip_from_encyclopedia(id: String) -> void:
 		for fighter in sim.state.fighters:
 			if fighter.team == 0 and int(fighter.player_index) == encyclopedia_slot: fighter.weapon_id = id
 		sim.cancel_input(encyclopedia_slot)
-	status.text = "武器裝備已保存。" if profiles.save() == OK else "裝備已套用，但存檔失敗。" + profiles.warning
+	status.text = "" if profiles.save() == OK else "存檔失敗。" + profiles.warning
 	_refresh_loadouts()
 	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
 	encyclopedia.equipped = str(row.weapon_id)
 	encyclopedia.owned = row.owned_weapons.duplicate()
 	encyclopedia.refresh_list()
-	encyclopedia.game_text.text += "\n\n" + status.text
+	if status.text != "": encyclopedia.game_text.text += "\n\n" + status.text
 	_refresh_collection()
 	collection.notice.text = status.text
 
@@ -644,16 +668,14 @@ func _open_options() -> void:
 	_show_menu_page("options")
 
 func _menu_back() -> void:
+	if menu_screen == "confirm":
+		_cancel_confirmation()
+		return
 	status.text = ""
 	if not active and session in ["host", "client"]:
 		_leave_to_menu()
 		return
 	if menu_screen == "encyclopedia":
-		if encyclopedia.preview.visible:
-			encyclopedia.cancel_preview()
-			return
-		encyclopedia.cancel_preview()
-		encyclopedia.preview.hide()
 		_show_menu_page(encyclopedia_return)
 		if encyclopedia_return == "collection": collection.item_list.grab_focus()
 		else: weapon_rows[encyclopedia_slot].get_node("Encyclopedia%d" % encyclopedia_slot).grab_focus()
@@ -680,7 +702,7 @@ func _build_controls(ui: Control) -> void:
 	text.add_theme_constant_override("line_separation", 5)
 	controls_dialog.add_child(text)
 	var guide: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://controls-v11.json"))
-	text.text = "[b]畫面與進軍[/b]\nF11 全螢幕／視窗 · Esc / Options 開啟選單 · F1 關閉本表\n畫面上方：肖像、體力、氣力、命數與積分。每人三條命（含目前），每 10000 分加一命。滿氣 U / R1 必殺。\n每區兩個據點；擊破敵人與路障後，看到 GO → 就一起向右前進。\n食物回復體力，護符提供 40／75／110 點抵傷；走近按 E / L1 拾取。護符光芒消失表示用盡。\n倒地死亡後約 2 秒再起、3 秒保護；三命用盡即出局。雙人需各接一支搖桿。\n\n[b]六主角操作表[/b]\n" + BATTLE_HINT + "\nU 滿怒必殺 · E 拾取 · 同方向雙點按住衝刺\n按住左右連打：出招時停止前進，停打恢復；新按左右＋J：突進技\n先衝刺再按 K：立即衝刺重手，朝面前攻擊；不進入蓄力\n\n[b]練習場[/b]\n" + TRAINING_HINT + "\n\n"
+	text.text = "[b]畫面與進軍[/b]\nF11 全螢幕／視窗 · Esc / Options 開啟選單 · F1 關閉本表\n畫面上方：肖像、體力、氣力、命數與積分。每人三條命（含目前），每 10000 分加一命。滿氣 U / R1 必殺。\n每區兩個據點；擊破敵人與路障後，看到 GO → 就一起向右前進。\n食物回復體力，護符提供 40／75／110 點抵傷；走近按 E / L1 拾取。護符光芒消失表示用盡。\n倒地死亡後約 2 秒再起、3 秒保護；三命用盡即出局。雙人需各接一支搖桿。\n\n[b]六主角操作表[/b]\n" + BATTLE_HINT + "\nU 滿怒必殺 · E 拾取 · 同方向雙點按住衝刺（上下走位保持快跑）\n一般受擊 +1% 氣力；紅血（低於25%體力）受擊 +5%\n按住左右連打：出招時停止前進，停打恢復；新按左右＋J：突進技\n先衝刺再按 K：立即衝刺重手，朝面前攻擊；不進入蓄力\n\n[b]練習場[/b]\n" + TRAINING_HINT + "\n\n"
 	for row in guide.rows:
 		text.text += "[color=#ffd581][b]%s[/b][/color]\n" % row.input
 		for hero in HEROES:
@@ -742,6 +764,7 @@ func _close_network() -> void:
 	hint.hide()
 	combat_hud.sync({})
 	hud.text = ""
+	exit_button.hide()
 	hint.text = BATTLE_HINT
 	active = false
 	session = "solo"
@@ -753,6 +776,7 @@ func _close_network() -> void:
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 
 func _start_solo() -> void:
+	if _confirm_end(_start_solo,"重新開始這一戰？"): return
 	_close_network()
 	_choices()
 	local_slot = 0
@@ -761,6 +785,7 @@ func _start_solo() -> void:
 	_activate()
 
 func _start_local_coop() -> void:
+	if _confirm_end(_start_local_coop,"重新開始雙人戰鬥？"): return
 	if _connected_pads().size() < 2:
 		status.text = "雙搖桿合作需要兩支搖桿。請接上兩支，再按雙搖桿合作。"
 		return
@@ -773,7 +798,9 @@ func _start_local_coop() -> void:
 	_activate()
 	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · △／Y 按住抓人、放開摔 · R1／RB 必殺 · L2／LT 防禦 · Options 暫停"
 
-func _start_training() -> void:
+func _start_training(drill: String = "") -> void:
+	if _confirm_end(_start_training.bind(drill),"結束目前階段，進入練習場？"): return
+	if drill != "": training_drill = drill
 	_close_network()
 	_choices()
 	training_active = true
@@ -782,6 +809,7 @@ func _start_training() -> void:
 
 func _reset_training() -> void:
 	if not training_active: return
+	if _confirm_end(_reset_training,"重置目前練習？"): return
 	audio.stop_speech()
 	sim.reset_training(selected_hero, training_drill, selected_faction)
 	_activate()
@@ -790,11 +818,18 @@ func _reset_training() -> void:
 
 func _switch_training_hero() -> void:
 	if not training_active: return
+	if _confirm_end(_switch_training_hero,"切換人物並重置練習？"): return
 	selected_hero = HEROES[(HEROES.find(selected_hero) + 1) % HEROES.size()]
 	heroes.selected = HEROES.find(selected_hero)
 	_reset_training()
 
+func _choose_training_drill(drill: String) -> void:
+	if _confirm_end(_choose_training_drill.bind(drill),"切換項目並重置練習？"): return
+	training_drill = drill
+	_reset_training()
+
 func _start_art_demo() -> void:
+	if _confirm_end(_start_art_demo,"結束目前階段，進入素材展示？"): return
 	_close_network()
 	art_demo = ArtDemo.new()
 	demo_active = true
@@ -880,6 +915,7 @@ func _activate() -> void:
 			if fighter.team == 0: audio.play_character(fighter.kind, "intro", fighter.player_index, true)
 
 func _host() -> void:
+	if _confirm_end(_host,"結束目前階段，建立連線戰鬥？"): return
 	_close_network()
 	_choices()
 	var peer := ENetMultiplayerPeer.new()
@@ -896,6 +932,7 @@ func _host() -> void:
 	_show_menu_page("engineering")
 
 func _join() -> void:
+	if _confirm_end(_join,"結束目前階段，加入連線戰鬥？"): return
 	_close_network()
 	_choices()
 	if not address.text.strip_edges().is_valid_ip_address():
@@ -1011,12 +1048,51 @@ func _fail(message: String) -> void:
 		get_tree().quit(1)
 
 func _leave_to_menu() -> void:
+	if _confirm_end(_leave_to_menu,"結束目前階段，返回主選單？"): return
 	_close_network()
 	paused = false
 	_show_menu_page("main")
 	audio.play_music()
 	end_label.text = ""
 	status.text = ""
+
+func _confirm_end(action: Callable, message: String) -> bool:
+	if ending_confirmed or (not active and not demo_active and session not in ["host","client"]): return false
+	_request_confirmation(action,message)
+	return true
+
+func _request_confirmation(action: Callable, message: String) -> void:
+	if menu.visible and menu_screen == "confirm": return
+	confirmation_action = action
+	confirmation_return = menu_screen if menu.visible else ""
+	confirmation_paused = paused
+	paused = true
+	_cancel_local_controls()
+	confirmation_text.text = message
+	_show_menu_page("confirm")
+	menu_pages.confirm.get_node("Cancel").grab_focus()
+
+func _cancel_confirmation() -> void:
+	confirmation_action = Callable()
+	paused = confirmation_paused or not _has_focus
+	if confirmation_return == "": menu.hide()
+	else: _show_menu_page(confirmation_return)
+	_input_armed = false
+	_partner_input_armed = false
+
+func _accept_confirmation() -> void:
+	var action := confirmation_action
+	_cancel_confirmation()
+	ending_confirmed = true
+	if action.is_valid(): action.call()
+	ending_confirmed = false
+
+func _request_quit() -> void:
+	if not ending_confirmed:
+		_request_confirmation(_request_quit,"離開遊戲？")
+		return
+	_save_characters()
+	get_tree().quit()
 
 func _resume() -> void:
 	if session == "local" and (player_devices[0] < 0 or player_devices[1] < 0):
@@ -1113,6 +1189,9 @@ func _set_game_focus(focused: bool) -> void:
 	if testing or not smoke.is_empty(): return
 	# The F1 child window owns focus and pause until it closes.
 	if controls_dialog.visible: return
+	if menu.visible and menu_screen == "confirm":
+		_has_focus = focused
+		return
 	_has_focus = focused
 	_input_armed = false
 	_partner_input_armed = false
@@ -1129,7 +1208,7 @@ func _set_game_focus(focused: bool) -> void:
 func _physics_process(_delta: float) -> void:
 	app_ticks += 1
 	if demo_active:
-		art_demo.step(_delta)
+		if not menu.visible: art_demo.step(_delta)
 		_update_art_demo()
 		if not demo_capture_dir.is_empty() and not demo_capture_busy and app_ticks > 4:
 			_capture_art_pose()
@@ -1188,10 +1267,6 @@ func _physics_process(_delta: float) -> void:
 	if sim.state.get("phase", "") != "playing":
 		if not terminal_voice_played:
 			terminal_voice_played = true
-			if sim.state.phase == "won":
-				for fighter in sim.state.fighters:
-					if fighter.team == 0 and fighter.hp > 0 and fighter.kind not in ["nobunaga", "oichi", "tadakatsu"]:
-						audio.play_character(fighter.kind, "victory", fighter.player_index, true)
 		if sim.state.phase == "won":
 			for fighter in sim.state.fighters:
 				if fighter.team != 0 or fighter.hp <= 0 or fighter.action != "victory" or fighter.action_tick < Battle.VICTORY_VOICE_TICK or _victory_spoken.has(fighter.id): continue
@@ -1200,11 +1275,17 @@ func _physics_process(_delta: float) -> void:
 				_victory_spoken[fighter.id] = true
 				var line: Dictionary = audio.speech_manifest.get("clips", {}).get(audio.last_spoken, {})
 				_victory_subtitle = HERO_NAMES.get(fighter.kind, fighter.kind) + "：「" + str(line.get("subtitle", line.get("text", ""))) + "」"
+			if session != "client" and not sim.state.get("victory_looting",false) and not audio.speech_playing() and sim.state.fighters.all(func(f): return f.team != 0 or f.hp <= 0 or (_victory_spoken.has(f.id) and f.action == "victory" and f.action_tick >= Battle.VICTORY_TICKS)):
+				sim.state.victory_looting = true
+				for fighter in sim.state.fighters:
+					if fighter.team == 0 and fighter.hp > 0:
+						sim._begin(fighter,"idle")
+						sim.cancel_input(fighter.player_index)
 		end_label.position = Vector2(200, 138)
 		end_label.add_theme_font_size_override("font_size", 26)
 		end_label.text = ("第一關突破！" if sim.state.has("stage") else "前哨突破！") if sim.state.phase == "won" else "此戰未竟"
 		if not _victory_subtitle.is_empty(): end_label.text += "\n" + _victory_subtitle
-		end_label.text += "\n按 Esc 返回選單／重新開始"
+		if sim.state.phase == "lost": end_label.text += "\n按 Esc 返回選單／重新開始"
 
 func _events(events: Array) -> void:
 	var pulses := {}
@@ -1279,6 +1360,7 @@ func _update_view() -> void:
 	hud.size = Vector2(448, 75)
 	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	if active and sim.state.get("phase","") == "playing": audio.sync_stage_music(sim.state)
+	exit_button.visible = active and sim.state.get("phase","") == "won" and sim.state.get("victory_looting",false) and not menu.visible
 	var x := 480.0
 	var living_x: Array[float] = []
 	for fighter in sim.state.get("fighters", []):
@@ -1309,7 +1391,7 @@ func _update_view() -> void:
 	if training_active:
 		var player: Dictionary = sim.state.fighters[0]
 		var stats: Dictionary = sim.state.training
-		var move_name: String = {"idle": "待機", "light": "輕擊 %d/3" % player.combo, "charge": "蓄力完成・放開出招" if player.charge >= 35 else "蓄力 %d%%" % int(player.charge * 100.0 / 35.0), "heavy": "重擊 %d/2" % player.heavy_combo, "charged": "爆裂冰箭" if player.kind == "oichi" else "炎刃斷陣", "rising": "上揚飛針" if player.kind == "oichi" else "上挑", "low_sweep": "低位攻擊", "dash_strike": "踏步突進", "dash_heavy": "衝刺重擊", "air_light": "空中輕擊", "air_heavy": "空中重擊", "upper_heavy": "挑空重擊", "charged_upper": "蓄力升空技", "mixed_finisher": "混合連段終結", "ground_slam": "震地／落矢", "charged_slam": "霜華冰陣・前方120°" if player.kind == "oichi" else ("炎獄裂地・全周360°" if player.kind == "nobunaga" else "大範圍蓄力地陣"), "holding": "肉盾 %.1f秒・放開摔" % maxf(0.0, (180.0 - player.action_tick) / 60.0), "throw": "飛摔", "special": "必殺・全程無敵", "stunned": "暈眩", "pulled": "被鎖鏈拉近"}.get(player.action, player.action)
+		var move_name: String = {"idle": "待機", "light": "輕擊 %d/3" % player.combo, "charge": "蓄力完成・放開出招" if player.charge >= 35 else "蓄力 %d%%" % int(player.charge * 100.0 / 35.0), "heavy": "重擊 %d/2" % player.heavy_combo, "charged": "爆裂冰箭" if player.kind == "oichi" else "炎刃斷陣", "rising": "上揚飛針" if player.kind == "oichi" else "上挑", "low_sweep": "低位攻擊", "dash_strike": "踏步突進", "dash_heavy": "衝刺重擊", "air_light": "空中輕擊", "air_heavy": "空中重擊", "upper_heavy": "三段落矢" if player.kind == "oichi" else "挑空重擊", "charged_upper": "蓄力三段落矢" if player.kind == "oichi" else "蓄力升空技", "mixed_finisher": "混合連段終結", "ground_slam": "震地／落矢", "charged_slam": "霜華冰陣・前方120°" if player.kind == "oichi" else ("炎獄裂地・全周360°" if player.kind == "nobunaga" else "大範圍蓄力地陣"), "holding": "肉盾 %.1f秒・放開摔" % maxf(0.0, (180.0 - player.action_tick) / 60.0), "throw": "飛摔", "special": "必殺・全程無敵", "stunned": "暈眩", "pulled": "被鎖鏈拉近"}.get(player.action, player.action)
 		if player.action == "mixed_rising": move_name = "重轉輕追擊"
 		elif player.action == "guard": move_name = "防禦・受擊集怒"
 		elif player.action == "recovering": move_name = "起身中"
@@ -1365,8 +1447,7 @@ func _input(event: InputEvent) -> void:
 			_switch_training_hero()
 			get_viewport().set_input_as_handled()
 		elif event.physical_keycode in [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5]:
-			training_drill = ["dummy", "shield", "enemies", "ranged", "boss"][event.physical_keycode - KEY_1]
-			_reset_training()
+			_choose_training_drill(["dummy", "shield", "enemies", "ranged", "boss"][event.physical_keycode - KEY_1])
 			get_viewport().set_input_as_handled()
 	if demo_active:
 		var handled := true

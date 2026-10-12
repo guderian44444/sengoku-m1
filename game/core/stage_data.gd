@@ -19,6 +19,6 @@ static func chapter(id: int) -> Dictionary:
 	assert(int(data.id) == id)
 	assert(data.segments.size() >= 6 and data.segments.size() <= 8)
 	for region in data.segments:
-		assert(region.width >= 3200 and region.encounters.size() >= 2)
+		assert(region.width >= 2000 and region.encounters.size() >= 2)
 		for encounter in region.encounters: assert(encounter.waves.size() >= 2 and encounter.waves.size() <= 3)
 	return data

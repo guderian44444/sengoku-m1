@@ -51,7 +51,6 @@ func _ready() -> void:
 	item_list.add_theme_constant_override("v_separation",12)
 	sidebar.add_child(item_list)
 	item_list.item_selected.connect(func(index): select_item(str(listed[index].id)))
-	_label(sidebar,"◆ 已裝備　收藏不會因換裝消失",17)
 	var detail := VBoxContainer.new()
 	detail.size_flags_horizontal = SIZE_EXPAND_FILL
 	body.add_child(detail)
@@ -61,8 +60,12 @@ func _ready() -> void:
 	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	detail.add_child(picture)
-	description = _label(detail,"",21)
-	description.size_flags_vertical = SIZE_EXPAND_FILL
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.size_flags_vertical = SIZE_EXPAND_FILL
+	detail.add_child(scroll)
+	description = _label(scroll,"",20)
+	description.size_flags_horizontal = SIZE_EXPAND_FILL
 	var actions := HBoxContainer.new()
 	detail.add_child(actions)
 	equip_button = _button(actions,"裝備",func(): equip_requested.emit(selected_id))
@@ -124,7 +127,7 @@ func select_item(id: String) -> void:
 		var image := str(item.get("image",""))
 		picture.texture = load(image) if image != "" and ResourceLoader.exists(image) else null
 		equip_button.disabled = id in equipped or not item.get("can_equip",false)
-		equip_button.text = "目前已裝備" if id in equipped else "裝備"
+		equip_button.text = "裝備"
 		details_button.visible = item.get("has_details",false)
 		return
 

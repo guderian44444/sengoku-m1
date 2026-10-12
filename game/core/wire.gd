@@ -6,7 +6,7 @@ const Weapons = preload("res://core/weapon_catalog.gd")
 const ACTIONS := ["victory", "idle", "light", "charge", "heavy", "charged", "throw", "special", "windup", "hurt", "down", "defeated", "holding", "grabbed", "thrown", "stunned", "rising", "ground_slam", "low_sweep", "dash_strike", "dash_heavy", "air_light", "air_heavy", "upper_heavy", "charged_upper", "charged_slam", "mixed_finisher", "mixed_rising", "retreat", "pulled", "frozen", "spear_thrust", "spear_sweep", "spear_butt", "flag_poke", "flag_sweep", "flag_slam", "commander_cut", "commander_rise", "commander_dash", "boss_sweep", "boss_smash", "boss_chain", "bow_shot", "gun_shot", "guard", "recovering", "launched"]
 const KINDS := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu", "soldier", "flag", "commander", "archer", "gunner", "boss", "dummy"]
 const EFFECTS := ["projectile", "slash", "warning", "slam", "hit", "poison", "shield_hit", "shockwave", "chain", "fire_hit", "ice_hit", "shatter", "fire_wave", "ice_wave", "guard", "guard_break", "damage", "landing", "debris", "arrow_target", "arrow_impact", "wind_hit", "earth_hit", "blade_hit", "wind_wave", "earth_wave", "blade_wave"]
-const EVENTS := ["hit", "heavy_hit", "special", "pickup", "food_pickup", "armor_pickup", "armor_break", "extra_life", "revive", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_break", "swing", "weapon_swing", "boss_intro"]
+const EVENTS := ["hit", "heavy_hit", "special", "pickup", "food_pickup", "armor_pickup", "armor_break", "extra_life", "revive", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_hit", "prop_break", "swing", "weapon_swing", "boss_intro"]
 const ARRAY_LIMITS := {"fighters": 64, "drops": 64, "effects": 256, "events": 128, "props": 32, "wet_zones": 16}
 const PROP_KINDS := ["stall","cart","jar","basket","crate","large_crate","barricade","fence","planter","stone_lantern","lantern","rice_bales","screen","cabinet"]
 const FOODS := ["","rice","fish","dango","peach"]
@@ -26,6 +26,7 @@ static func valid_input(frame: Dictionary) -> bool:
 
 static func valid_snapshot(world: Dictionary) -> bool:
 	if not _integer(world.get("loot_rng"),0,2147483647): return false
+	if world.has("victory_looting") and not world.victory_looting is bool: return false
 	if not _choice(world.get("phase"), ["playing", "won", "lost"]) or not _choice(world.get("difficulty"), ["easy", "normal", "hard"]):
 		return false
 	if not _integer(world.get("tick"), 0) or not _integer(world.get("wave"), 1, 3) or not _integer(world.get("event_seq"), 0):
@@ -77,6 +78,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if prop.drop == "talisman" and not _choice(prop.get("talisman_id"),Battle.TALISMANS.keys()): return false
 		if prop.has("food_id") and not _choice(prop.food_id,FOODS): return false
 		if prop.has("mandatory") and not prop.mandatory is bool: return false
+		if prop.has("hit_tick") and not _integer(prop.hit_tick,0): return false
 	for zone in world.wet_zones:
 		if not _position(zone) or not _number(zone.get("width"), 1.0, 10000.0) or not _number(zone.get("depth"), 1.0, 10000.0): return false
 	for effect in world.effects:
@@ -98,6 +100,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if event.type == "damage" and not event.has("amount"): return false
 		if event.type == "food_pickup" and (not _choice(event.get("food_id"),FOODS) or not _integer(event.get("heal"),1,120)): return false
 		if event.has("wet") and not event.wet is bool: return false
+		if event.has("material") and not _choice(event.material,["ceramic","stone","box","wood","wicker"]): return false
 		if event.has("action") and not _action(event.action): return false
 		if event.has("combo") and not _integer(event.combo, 0, 3): return false
 		if event.has("heavy_combo") and not _integer(event.heavy_combo, 0, 2): return false
@@ -113,14 +116,15 @@ static func _valid_stage(stage: Variant) -> bool:
 	if not _choice(stage.get("theme"),["bamboo","ridge","village","road","outpost","gate","camp","courtyard","command","chamber"]): return false
 	if not _choice(stage.get("weather"),["clear","rain","storm","mist","indoor"]) or not _choice(stage.get("music"),["bamboo","siege","town","castle","boss"]): return false
 	if not _choice(stage.get("civilians"),["none","villagers","vendors","porters"]): return false
-	if not _number(stage.get("width"),3200,4800) or not _integer(stage.get("wave_total"),2,3): return false
+	if not _number(stage.get("width"),2000,4800) or not _integer(stage.get("wave_total"),2,3): return false
 	if not _integer(stage.get("checkpoint_total"),2,4) or not _integer(stage.get("checkpoint"),0,stage.checkpoint_total-1): return false
-	if not _number(stage.get("encounter_start"),0,stage.width) or not _number(stage.get("encounter_end"),stage.encounter_start+1280,stage.width): return false
+	if not _number(stage.get("encounter_start"),0,stage.width) or not _number(stage.get("encounter_end"),stage.encounter_start+1000,stage.width): return false
 	if not _choice(stage.get("phase"),["combat","exit"]) or not stage.get("go") is bool or stage.go != (stage.phase == "exit"): return false
 	for field in ["next_wave_tick","entered_tick","clear_tick","next_reinforce_tick"]:
 		if not _integer(stage.get(field),-1): return false
 	for field in ["reinforcement_queue","reinforcement_calls"]:
 		if not _integer(stage.get(field),0): return false
+	if stage.has("food_drops") and not _integer(stage.food_drops,0,2): return false
 	for field in ["title","name"]:
 		if not stage.get(field) is String or stage[field].length() > 100: return false
 	return true
@@ -225,7 +229,7 @@ static func _valid_effect(effect: Dictionary) -> bool:
 	if effect.has("arc_degrees") and not _number(effect.arc_degrees, 0.0, 360.0): return false
 	for field in ["burst", "knockdown", "follow_freeze"]:
 		if effect.has(field) and not effect[field] is bool: return false
-	for field in ["arcing", "wet"]:
+	for field in ["arcing", "wet", "descending"]:
 		if effect.has(field) and not effect[field] is bool: return false
 	for field in ["flight_tick", "flight_ticks", "bounce", "amount"]:
 		if effect.has(field) and not _integer(effect[field], 0, 1000000): return false

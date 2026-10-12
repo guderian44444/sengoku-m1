@@ -347,7 +347,7 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 		result = FrameAnimation.sample(clip, tick)
 	elif float(fighter.get("z", 0)) > 0 or float(fighter.get("vz", 0)) > 0:
 		result = FrameAnimation.jump_sample(float(fighter.get("z", 0)), float(fighter.get("vz", 0)))
-	elif state.get("phase", "") == "won":
+	elif state.get("phase", "") == "won" and not state.get("victory_looting",false):
 		result = FrameAnimation.sample("victory", clock_tick)
 	else:
 		if clip in ["idle", "walk", "run", "move"]: clip = "walk" if walking else "idle"
@@ -689,6 +689,9 @@ func _draw_npc(person: Dictionary) -> void:
 func _draw_prop(prop: Dictionary) -> void:
 	var origin := Vector2(float(prop.x) - camera_x,float(prop.y))
 	if origin.x < -240 or origin.x > 1520: return
+	var hit_age := int(state.get("tick",0)) - int(prop.get("hit_tick",-100))
+	var hit_gain := maxf(0.0,1.0 - hit_age / 12.0) if hit_age >= 0 else 0.0
+	origin.x += sin(hit_age * 1.8) * hit_gain * 5.0
 	var hd := _stage_art.prop(str(prop.kind),bool(prop.get("broken",false)))
 	if not hd.is_empty():
 		var height: float = hd.display_height
@@ -696,6 +699,7 @@ func _draw_prop(prop: Dictionary) -> void:
 		_draw_actor_shadow(origin,height,0,float(prop.get("width",60)) * .45)
 		var damaged: bool = not prop.get("broken",false) and float(prop.get("hp",100)) < float(prop.get("max_hp",100)) * .6
 		var tint := Color(.78,.71,.63) if damaged else Color.WHITE
+		tint = tint.lerp(Color(1.7,1.45,1.1),hit_gain if hit_age % 4 < 2 else 0.0)
 		tint.a = prop_opacity(prop,state.get("fighters",[]),height,float(hd.region.size.x) * height / float(hd.body_height))
 		_draw_art_frame(hd,origin,height,1,0,tint,float(hd.body_height))
 		return
@@ -705,7 +709,7 @@ func _draw_prop(prop: Dictionary) -> void:
 	var heights := {"stall":150.0,"cart":107.0,"jar":55.0,"basket":39.0,"crate":58.0}
 	var height := float(heights.get(prop.kind,60))
 	_draw_actor_shadow(origin,height,0,float(prop.get("width",60)) * 0.45)
-	_draw_art_frame(frame,origin,height,1,0,Color.WHITE,float(frame.body_height))
+	_draw_art_frame(frame,origin,height,1,0,Color.WHITE.lerp(Color(1.7,1.45,1.1),hit_gain),float(frame.body_height))
 
 static func prop_opacity(prop: Dictionary, fighters: Array, height: float, width: float) -> float:
 	if prop.get("broken",false) or height < 105.0: return 1.0
@@ -781,7 +785,7 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 	var z := float(fighter.get("z", 0))
 	var sample := _fighter_animation(fighter)
 	var animated: bool = sample.source in ["v04", "v05", "v06", "v07", "v09", "v10", "v11", "v12", "v13", "v14", "v15", "v16", "v17", "v22"]
-	var pose := ArtAssets.pose_for(action, z, state.get("phase", "") == "won")
+	var pose := ArtAssets.pose_for(action, z, state.get("phase", "") == "won" and not state.get("victory_looting",false))
 	var progress := clampf(demo_progress, 0.0, 1.0)
 	if art_demo and demo_pose >= 0:
 		pose = 0 if demo_pose == 9 else clampi(demo_pose, 0, 8)
@@ -1346,6 +1350,7 @@ static func arc_projectile_position(effect: Dictionary, camera: float, release_o
 static func projectile_direction(effect: Dictionary, release_offset: Vector2 = Vector2.ZERO) -> Vector2:
 	var velocity := Vector2(float(effect.get("vx",effect.get("face",1))),float(effect.get("vy",0)) - float(effect.get("vz",0)))
 	if effect.get("arcing",false): velocity -= release_offset / maxf(1,float(effect.get("flight_ticks",1)))
+	if effect.get("descending",false): velocity += Vector2(release_offset.x,release_offset.y - 96.0) * float(effect.get("vz",0)) / maxf(1.0,float(effect.get("start_z",1)))
 	return velocity.normalized() if velocity.length_squared() > 0.01 else Vector2(float(effect.get("face",1)),0)
 
 func _draw_gate(x: float) -> void:
@@ -1654,6 +1659,9 @@ func _draw_effect(effect: Dictionary) -> void:
 		var release_offset := _projectile_release_offset(effect)
 		if effect.get("arcing",false):
 			needle_pos = arc_projectile_position(effect,camera_x,release_offset)
+		elif effect.get("descending",false):
+			var height_ratio := clampf(float(effect.get("z",0)) / maxf(1.0,float(effect.get("start_z",1))),0.0,1.0)
+			needle_pos = ground - Vector2(0,float(effect.get("z",0))) + Vector2(release_offset.x,release_offset.y - 96.0) * height_ratio
 		else: needle_pos += release_offset
 		var face := float(effect.get("face", 1))
 		var style := projectile_style(str(effect.get("weapon", "needle")))

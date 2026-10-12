@@ -125,6 +125,11 @@ def compose(key, cfg):
                 for beat, interval in [(0, 24), (.75, 25), (2, 31), (3, 29 if response else 24)]:
                     add("bamboo_flute", bar, beat, .5 if final else .85, root + interval, .24 if final else .26, .12)
     # The last phrase carries into the first downbeat instead of fading to silence.
+    if cfg.get("urgent", False):
+        for bar in range(synth.BARS):
+            for beat in [0.25, 0.75, 1.25, 1.75, 2.25, 2.75, 3.25, 3.75]:
+                add("shime", bar, beat, .25, velocity=.40 if bar % 4 == 3 else .23, pan=-.32 if beat < 2 else .32)
+            add("odaiko", bar, 0, 1, velocity=1.1, pan=0)
     add("xiao" if key == "bamboo" else "bamboo_flute", synth.BARS - 1, 3.5,
         2.5 if key == "bamboo" else 1.5, cfg["roots"][0] + 12, .32 if key == "bamboo" else .16, -.12)
     wet = synth.MIX.copy()
@@ -132,6 +137,13 @@ def compose(key, cfg):
     for seconds, gain in delays:
         wet += np.roll(synth.MIX, round(seconds * synth.RATE), axis=0)[:, ::-1] * gain
     wet -= wet.mean(axis=0)
+    if cfg.get("urgent", False):
+        # Blend the wrap over 10 ms without fading the battle score to silence.
+        count = round(synth.RATE * .01)
+        taper = ((1 + np.cos(np.linspace(0, np.pi, count))) * .5)[:, None]
+        seam = (wet[0] - wet[-1]) * .5
+        wet[:count] -= seam * taper
+        wet[-count:] += seam * taper[::-1]
     wet = np.tanh(wet * .9)
     wet *= min(cfg["peak"] / np.max(np.abs(wet)), cfg["max_rms"] / np.sqrt(np.mean(wet ** 2)))
     pcm = np.round(wet * 32767).astype("<i2")
