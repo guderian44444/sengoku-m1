@@ -47,16 +47,18 @@ func run() -> void:
 	app.audio.stop_speech()
 	app._physics_process(1.0 / 60)
 	check(app._victory_spoken.size() == 2 and app._victory_subtitle.begins_with("阿市：「"), "Second partner speaks after the first channel finishes even when animation has held")
-	app.audio.stop_speech()
-	for tick in range(30): app._physics_process(1.0 / 60)
-	check(not app.audio.speech_playing(), "Held terminal state never repeats either victory line")
 	for fighter in app.sim.state.fighters:
 		var sample: Dictionary = app.view._fighter_animation(fighter)
 		var source := "v22" if app.view._art.animations[fighter.kind].has("v22_victory") else "v15"
 		var count := 6 if source == "v22" else 12
 		check(sample.source == source and sample.frame == count - 1 and sample.count == count, "Actual registered victory stays on its last authored drawing")
 		check(app.view._art.animation_frame(fighter.kind, sample).source == source, "Renderer retrieves the same PNG selected by animation")
+	app.audio.stop_speech()
+	for tick in range(30): app._physics_process(1.0 / 60)
+	check(not app.audio.speech_playing(), "Held terminal state never repeats either victory line")
+	check(app.sim.state.victory_looting and app.sim.state.fighters.all(func(f): return f.action == "idle"), "After both voices finish, winners can move to collect remaining loot")
 	app._leave_to_menu()
+	app._accept_confirmation()
 	app._start_local_coop()
 	check(app._victory_spoken.is_empty() and app._victory_subtitle.is_empty(), "New encounter clears both speech queue and old subtitle")
 	app.audio.stop_speech()
@@ -67,6 +69,7 @@ func run() -> void:
 	for tick in range(65): app._physics_process(1.0 / 60)
 	check(app._victory_spoken.size() == 1 and app._victory_subtitle.begins_with("阿市：「"), "Defeated partner does not speak or block the living winner")
 	app._leave_to_menu()
+	app._accept_confirmation()
 	check(not app.audio.speech_playing(), "Leaving the result stops queued speech")
 	app.queue_free()
 	await process_frame

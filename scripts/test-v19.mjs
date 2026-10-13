@@ -20,6 +20,10 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
+  'talismans_v30', 'heroes_v30', 'voice_v30',
+  'oichi_pipeline_v27', 'oichi_layers_v27',
+  'stage2_route_v29', 'stage2_combat_v29', 'shadows_v29',
+  'inventory_v28', 'menu_inventory_v28', 'balance_v28', 'menu_pad_v27', 'exit_save_v27',
   'collection_progress_v26',
   'weapon_expansion_v24', 'weapons_save_v22', 'loadout_menu_v22', 'weapon_render_v22', 'hero_layers_v22', 'weapon_encyclopedia_v23', 'projectile_v22',
   'progression_v21', 'music_v21', 'engineering_menu_v21', 'render_items_v21',
@@ -28,7 +32,7 @@ const tests = [
   'combat_v06', 'combat_v07', 'combat_v09', 'combat_v10', 'combat_v11', 'combat_v13', 'combat_v14',
   'combo_movement_v12', 'tadakatsu_combat_v17', 'projectile_v12',
   'hud_v19', 'main_ui_v19', 'stage_integration_v19', 'input_v09', 'input_v10', 'input_v11', 'training_integration', 'local_coop_startup',
-  'audio_v14', 'audio_v15', 'stage_music_v18', 'music_integration_v14',
+  'audio_v11', 'audio_v14', 'audio_v15', 'stage_music_v18', 'music_integration_v14',
   'stage_art_v18', 'stage_art_v19', 'enemy_art_v19', 'enemy_walk_v19', 'frame_animation', 'animation_timing_v11', 'special_animation_v11',
   'render_v11', 'render_v12', 'render_v13', 'render_v14', 'tadakatsu_atlas_v17', 'tadakatsu_render_v17',
   'walk_v13', 'strike_v12', 'landing_animation_v12', 'parallax_v11', 'victory_v15', 'victory_integration_v15',
@@ -105,6 +109,15 @@ if (process.argv.includes('--render-v22')) {
 }
 if (process.argv.includes('--render-collection-v26')) {
   await run('collection_v26_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_collection_progress_v26.gd', '--', '--capture']);
+}
+if (process.argv.includes('--render-v28')) {
+  await run('menu_inventory_v28_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_menu_inventory_v28.gd', '--', '--capture-v28']);
+}
+if (process.argv.includes('--render-v29')) {
+  await run('capture_stage2_v29', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/capture_stage2_v29.gd']);
+}
+if (process.argv.includes('--playthrough-v29')) {
+  await run('stage2_playthrough_v29', ['--headless', '--script', 'res://tests/test_stage_playthrough_v18.gd', '--', '--stage2'], 360000);
 }
 if (process.argv.includes('--render-heroes-v22')) {
   await run('hero_layers_v22_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_hero_layers_v22.gd'], 360000);

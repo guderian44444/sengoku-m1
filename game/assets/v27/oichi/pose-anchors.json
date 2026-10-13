@@ -1,0 +1,4533 @@
+{
+  "schema_version": 1,
+  "version": "v27",
+  "hero": "oichi",
+  "production_id": "oichi-original-approved-20261013",
+  "grid": [
+    3,
+    2
+  ],
+  "coordinate_space": "full_sheet_pixels",
+  "portrait": {
+    "file": "idle.png",
+    "rect": [
+      259,
+      29,
+      88,
+      91
+    ]
+  },
+  "provenance": {
+    "raw_source_directory": "raw native imagegen sources retained in reproducibility package",
+    "grading_profiles": "profiles/<source>.json",
+    "grading_implementation": "grade_materials.py",
+    "grading_implementation_sha256": "296be843b806e296cd70da6b8be0795844edbe6828054ead3483734ea73c5b8f",
+    "approved_identity_master_sha256": "d3212457a90e466e44997ada051801684701c9d7a18c4c4b6cd762d372c5fc3d",
+    "master_material_labels_sha256": "25c384e0773ff296654f1822e8321ab571cb376b8fc8dc0b25450e7f1b35e273",
+    "source_alpha": "Every final source alpha equals corresponding immutable native source alpha byte-for-byte; native geometry and texture coordinates unchanged. RGB intentionally graded before registration."
+  },
+  "clips": {
+    "walk": {
+      "file": "walk.png",
+      "source_sha256": "8d8f0a5ea5cbd44cf78e7d63a4ee8b86ca492669d3ee545b7c11bb73542539ec",
+      "body_height": 491,
+      "anatomical_measurement": "Approved walking anatomical ruler: skull crown to sole about491px; same shared ruler for six alternating phases, not each silhouette bounding box.",
+      "action_semantics": "Rightward heel-toe walk, wide/narrow/pass alternating legs.",
+      "frames": [
+        {
+          "source_region": [
+            141,
+            7,
+            372,
+            497
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 491,
+          "foot": [
+            359,
+            503
+          ],
+          "hand": [
+            237,
+            275
+          ],
+          "weapon_angle": -25,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            627,
+            8,
+            298,
+            500
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 491,
+          "foot": [
+            817,
+            507
+          ],
+          "hand": [
+            715,
+            285
+          ],
+          "weapon_angle": -25,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1092,
+            7,
+            275,
+            501
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 491,
+          "foot": [
+            1257,
+            507
+          ],
+          "hand": [
+            1160,
+            260
+          ],
+          "weapon_angle": -25,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            173,
+            518,
+            374,
+            482
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 491,
+          "foot": [
+            361,
+            999
+          ],
+          "hand": [
+            259,
+            764
+          ],
+          "weapon_angle": -25,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            650,
+            515,
+            281,
+            489
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 491,
+          "foot": [
+            820,
+            1003
+          ],
+          "hand": [
+            719,
+            767
+          ],
+          "weapon_angle": -25,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1120,
+            516,
+            277,
+            485
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 491,
+          "foot": [
+            1286,
+            1000
+          ],
+          "hand": [
+            1191,
+            782
+          ],
+          "weapon_angle": -25,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "low_sweep": {
+      "file": "low_sweep.png",
+      "source_sha256": "369df8ed26fcae68c97e6744970a225314e386d3b86b0e1c9b607bbe2b096fc5",
+      "body_height": 510,
+      "anatomical_measurement": "Approved original low-sweep ruler: ready crown/neck/pelvis/knee/ankle chain equivalent510px. Shared across crouches so the low pose is not inflated.",
+      "action_semantics": "Low grounded needle sweep toward screen right.",
+      "frames": [
+        {
+          "source_region": [
+            121,
+            5,
+            390,
+            516
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 510,
+          "foot": [
+            317,
+            519
+          ],
+          "hand": [
+            294,
+            181
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            610,
+            80,
+            385,
+            442
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 510,
+          "foot": [
+            805,
+            520
+          ],
+          "hand": [
+            769,
+            278
+          ],
+          "weapon_angle": -55,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1059,
+            154,
+            458,
+            367
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 510,
+          "foot": [
+            1259,
+            520
+          ],
+          "hand": [
+            1260,
+            313
+          ],
+          "weapon_angle": -60,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            86,
+            565,
+            456,
+            440
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 510,
+          "foot": [
+            314,
+            1004
+          ],
+          "hand": [
+            366,
+            757
+          ],
+          "weapon_angle": -50,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            614,
+            506,
+            331,
+            500
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 510,
+          "foot": [
+            802,
+            1005
+          ],
+          "hand": [
+            802,
+            710
+          ],
+          "weapon_angle": -35,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1096,
+            492,
+            389,
+            516
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 510,
+          "foot": [
+            1313,
+            1006
+          ],
+          "hand": [
+            1280,
+            670
+          ],
+          "weapon_angle": -25,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "victory": {
+      "file": "victory.png",
+      "source_sha256": "2f372ee6e420d90f4e612fb0d57e0e34e196b80137b563829041c5ca1e532dca",
+      "body_height": 505,
+      "anatomical_measurement": "Victory standing anatomy measured skull crown near30, neck near110, pelvis245, knee370, soles510; shared505px standing-equivalent ruler.",
+      "action_semantics": "Relaxed turn, ponytail sweep, hand on hip, confident greeting.",
+      "frames": [
+        {
+          "source_region": [
+            146,
+            3,
+            352,
+            515
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 505,
+          "foot": [
+            327,
+            517
+          ],
+          "hand": [
+            221,
+            283
+          ],
+          "weapon_angle": -25,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            622,
+            4,
+            309,
+            513
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 505,
+          "foot": [
+            799,
+            516
+          ],
+          "hand": [
+            697,
+            284
+          ],
+          "weapon_angle": -20,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1094,
+            2,
+            251,
+            513
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 505,
+          "foot": [
+            1260,
+            514
+          ],
+          "hand": [
+            1179,
+            284
+          ],
+          "weapon_angle": -20,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            185,
+            508,
+            279,
+            509
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 505,
+          "foot": [
+            337,
+            1016
+          ],
+          "hand": [
+            432,
+            779
+          ],
+          "weapon_angle": 15,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            639,
+            509,
+            292,
+            509
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 505,
+          "foot": [
+            799,
+            1017
+          ],
+          "hand": [
+            835,
+            707
+          ],
+          "weapon_angle": 15,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1112,
+            511,
+            285,
+            507
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 505,
+          "foot": [
+            1265,
+            1017
+          ],
+          "hand": [
+            1169,
+            786
+          ],
+          "weapon_angle": -20,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "run": {
+      "file": "run.png",
+      "source_sha256": "afba3d87c0f7dd0afcabe10539d6b5581a7d379611cc18277f1c82687fea75c2",
+      "body_height": 535,
+      "anatomical_measurement": "Run upper-row first half: skull/neck about85px, torso145px, unfolded thigh/shin/shoe305px =535px. Opposite-pair source has900px ruler, opposite pass source750px, measured by the same anatomical landmark ratios; no silhouette-height normalization.",
+      "action_semantics": "Rightward run, alternating planted and airborne phases.",
+      "frames": [
+        {
+          "source_region": [
+            47,
+            5,
+            436,
+            509
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 535,
+          "foot": [
+            293,
+            513
+          ],
+          "hand": [
+            164,
+            252
+          ],
+          "weapon_angle": -35,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            547,
+            6,
+            476,
+            508
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 535,
+          "foot": [
+            794,
+            513
+          ],
+          "hand": [
+            671,
+            253
+          ],
+          "weapon_angle": -35,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1092,
+            7,
+            371,
+            507
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 535,
+          "foot": [
+            1320,
+            513
+          ],
+          "hand": [
+            1197,
+            271
+          ],
+          "weapon_angle": -35,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "file": "run-opposite.png",
+          "source_sha256": "14ccb724b3dff68e0fb5753716311f1f1115fccbf6137d7eff06f04fef50ede9",
+          "source_region": [
+            82,
+            11,
+            756,
+            866
+          ],
+          "clip_component": 0,
+          "component_count": 2,
+          "body_height": 900,
+          "foot": [
+            496,
+            876
+          ],
+          "hand": [
+            292,
+            417
+          ],
+          "weapon_angle": -35,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "file": "run-opposite.png",
+          "source_sha256": "14ccb724b3dff68e0fb5753716311f1f1115fccbf6137d7eff06f04fef50ede9",
+          "source_region": [
+            952,
+            15,
+            818,
+            862
+          ],
+          "clip_component": 1,
+          "component_count": 2,
+          "body_height": 900,
+          "foot": [
+            1390,
+            876
+          ],
+          "hand": [
+            1144,
+            416
+          ],
+          "weapon_angle": -35,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "file": "run-opposite-mixed.png",
+          "source_sha256": "d86e7efc87a6ea2b253d3b205ba5056f7714cba898550b62b5b71b56c54693bd",
+          "source_region": [
+            1555,
+            14,
+            484,
+            698
+          ],
+          "clip_component": 2,
+          "component_count": 3,
+          "body_height": 750,
+          "foot": [
+            1835,
+            711
+          ],
+          "hand": [
+            1690,
+            331
+          ],
+          "weapon_angle": -35,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "idle": {
+      "file": "idle.png",
+      "source_sha256": "a35f015c45c13d8454d2a5b938fec7fe896214dc816564795b39f310cc1f5d68",
+      "body_height": 490,
+      "anatomical_measurement": "Standing frame 1 anatomical crown (not ponytail) through neck and pelvis; continue down the less-foreshortened bent supporting leg through knee, ankle and plantar sole. Other frames are visually same-scale.",
+      "action_semantics": "Six distinct breathing/ready poses, feet planted.",
+      "frames": [
+        {
+          "source_region": [
+            120,
+            12,
+            305,
+            503
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            300,
+            506
+          ],
+          "hand": [
+            212,
+            288
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            606,
+            9,
+            306,
+            506
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            789,
+            506
+          ],
+          "hand": [
+            689,
+            288
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1098,
+            8,
+            320,
+            507
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            1293,
+            507
+          ],
+          "hand": [
+            1192,
+            288
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            123,
+            521,
+            309,
+            496
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            303,
+            1009
+          ],
+          "hand": [
+            203,
+            800
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            615,
+            520,
+            307,
+            498
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            795,
+            1009
+          ],
+          "hand": [
+            692,
+            798
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1109,
+            522,
+            307,
+            496
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            1294,
+            1010
+          ],
+          "hand": [
+            1197,
+            799
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "jump": {
+      "file": "jump.png",
+      "source_sha256": "0de43007d540ca835713cc33719ac78e689c8e8d98b0aa7f8f7adef1d1d9c88c",
+      "body_height": 465,
+      "anatomical_measurement": "Use extended takeoff frame 2 as principal ruler and cross-check the pelvis-to-knee-to-ankle chain in crouch/apex frames after unfolding. Raised arms and lifted feet do not enter ruler.",
+      "action_semantics": "Squat, takeoff, rising, apex, descent, landing.",
+      "frames": [
+        {
+          "source_region": [
+            66,
+            159,
+            352,
+            350
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            300,
+            501
+          ],
+          "hand": [
+            144,
+            302
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            565,
+            1,
+            408,
+            509
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            758,
+            505
+          ],
+          "hand": [
+            899,
+            34
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1114,
+            39,
+            362,
+            467
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            1321,
+            505
+          ],
+          "hand": [
+            1305,
+            203
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            52,
+            519,
+            418,
+            482
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            306,
+            1000
+          ],
+          "hand": [
+            131,
+            715
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            587,
+            524,
+            402,
+            478
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            808,
+            1000
+          ],
+          "hand": [
+            613,
+            698
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1114,
+            595,
+            388,
+            410
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            1330,
+            1000
+          ],
+          "hand": [
+            1175,
+            767
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "hurt": {
+      "file": "hurt.png",
+      "source_sha256": "33dae8165ca576ea080995ce395ce2a4df1cede012c0ea39fec14bde8c95799c",
+      "body_height": 515,
+      "anatomical_measurement": "Crown-to-neck plus the unbent torso/spine from flinch frame 1 and guarded frame 2; unfolded thigh/shin/sole, cross-checked against recovery frame 6. Do not shrink the hunched frames to their shorter screen-height.",
+      "action_semantics": "Impact flinch, abdominal bend, pain, partial recovery.",
+      "frames": [
+        {
+          "source_region": [
+            33,
+            9,
+            458,
+            517
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 515,
+          "foot": [
+            318,
+            519
+          ],
+          "hand": [
+            158,
+            297
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            578,
+            9,
+            403,
+            517
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 515,
+          "foot": [
+            809,
+            519
+          ],
+          "hand": [
+            827,
+            207
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1183,
+            50,
+            339,
+            476
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 515,
+          "foot": [
+            1324,
+            519
+          ],
+          "hand": [
+            1338,
+            255
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            119,
+            564,
+            345,
+            447
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 515,
+          "foot": [
+            265,
+            1006
+          ],
+          "hand": [
+            268,
+            749
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            604,
+            534,
+            365,
+            481
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 515,
+          "foot": [
+            804,
+            1009
+          ],
+          "hand": [
+            810,
+            734
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1123,
+            529,
+            365,
+            487
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 515,
+          "foot": [
+            1327,
+            1008
+          ],
+          "hand": [
+            1330,
+            734
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "down": {
+      "file": "down.png",
+      "source_sha256": "2733a7ec26d905a66743ff509d9151ee842831927d8a09de779632d7b9853ec3",
+      "body_height": 460,
+      "anatomical_measurement": "Frame 1 uses upright head/neck, neck/pelvis and longer extended leg. Later frames follow rotated neck-to-pelvis and unfold the longer visible leg; count ankle-to-plantar-sole thickness rather than the forward toe projection. Frame 6 about 65 + 150 + 235 = 450px.",
+      "action_semantics": "Fall from standing; final two poses horizontal prone, final eyes closed.",
+      "frames": [
+        {
+          "source_region": [
+            24,
+            62,
+            381,
+            497
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 475,
+          "foot": [
+            253,
+            550
+          ],
+          "hand": [
+            80,
+            317
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            490,
+            200,
+            480,
+            345
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 480,
+          "foot": [
+            721,
+            544
+          ],
+          "hand": [
+            638,
+            456
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1003,
+            306,
+            525,
+            259
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            1270,
+            560
+          ],
+          "hand": [
+            1141,
+            549
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            14,
+            724,
+            485,
+            206
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 450,
+          "foot": [
+            261,
+            924
+          ],
+          "hand": [
+            134,
+            914
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            494,
+            797,
+            499,
+            142
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 450,
+          "foot": [
+            742,
+            931
+          ],
+          "hand": [
+            628,
+            923
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1001,
+            813,
+            517,
+            136
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 450,
+          "foot": [
+            1254,
+            941
+          ],
+          "hand": [
+            1196,
+            932
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "recovering": {
+      "file": "recovering.png",
+      "source_sha256": "d908d5bbfd66eb70c55e32d759b5d77ba1d034a4868ad276240b7bd0b205a949",
+      "body_height": 500,
+      "anatomical_measurement": "Frame 1 MUST reuse actual down6 crop and its 450px ruler/root. Elbow/palm/kneel/crouch frames use crown-neck, rotated torso and unfolded visible thigh/shin chain. Standing frame 6 is about 85 + 180 + 285 = 550px, distinctly larger than the early prone poses.",
+      "action_semantics": "Start prone, elbow/seat, palm/knee, crouch, finish ready.",
+      "frames": [
+        {
+          "file": "down.png",
+          "source_sha256": "2733a7ec26d905a66743ff509d9151ee842831927d8a09de779632d7b9853ec3",
+          "source_region": [
+            1001,
+            813,
+            517,
+            136
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 450,
+          "foot": [
+            1254,
+            941
+          ],
+          "hand": [
+            1196,
+            932
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            547,
+            196,
+            479,
+            201
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 470,
+          "foot": [
+            780,
+            390
+          ],
+          "hand": [
+            624,
+            384
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1031,
+            105,
+            490,
+            293
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 485,
+          "foot": [
+            1271,
+            390
+          ],
+          "hand": [
+            1155,
+            380
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            103,
+            573,
+            365,
+            388
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            296,
+            951
+          ],
+          "hand": [
+            266,
+            929
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            616,
+            542,
+            345,
+            418
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 495,
+          "foot": [
+            779,
+            951
+          ],
+          "hand": [
+            860,
+            851
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1121,
+            422,
+            324,
+            568
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 550,
+          "foot": [
+            1310,
+            979
+          ],
+          "hand": [
+            1221,
+            722
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "launched": {
+      "file": "launched.png",
+      "source_sha256": "71b69d20437f8a5abb2bc5f7208cdc7a48a82f95b527bee8de3b1eb41dc9e435",
+      "body_height": 500,
+      "anatomical_measurement": "On native 1774×887 source, measure crown-to-neck along tilted head, torso to pelvis and one unfolded thigh/knee/shin/ankle/sole chain; airborne translation, hair, open arms and extended toes are excluded.",
+      "action_semantics": "Backward airborne knockback, rotate horizontal, brace to land.",
+      "frames": [
+        {
+          "source_region": [
+            23,
+            62,
+            565,
+            429
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            325,
+            490
+          ],
+          "hand": [
+            166,
+            301
+          ],
+          "weapon_angle": -65,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            578,
+            79,
+            595,
+            412
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            886,
+            490
+          ],
+          "hand": [
+            738,
+            309
+          ],
+          "weapon_angle": -65,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1184,
+            70,
+            562,
+            421
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            1446,
+            490
+          ],
+          "hand": [
+            1449,
+            412
+          ],
+          "weapon_angle": -65,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            13,
+            545,
+            617,
+            300
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            373,
+            844
+          ],
+          "hand": [
+            161,
+            805
+          ],
+          "weapon_angle": -65,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            608,
+            574,
+            609,
+            271
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            891,
+            844
+          ],
+          "hand": [
+            649,
+            772
+          ],
+          "weapon_angle": -65,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1223,
+            539,
+            543,
+            306
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            1525,
+            844
+          ],
+          "hand": [
+            1488,
+            783
+          ],
+          "weapon_angle": -65,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "stunned": {
+      "file": "stunned.png",
+      "source_sha256": "176f5dcf9507bfb4a9d05fc584e275f273c414db0bc44c7fc0091fb25cb31ea8",
+      "body_height": 490,
+      "anatomical_measurement": "Use frame 1 neck/pelvis and the less-foreshortened supporting leg, cross-check frame 6 upright torso. For forehead-clutch frames unfold knees/torso; do not count high ponytail or hand on crown as body height.",
+      "action_semantics": "Dizzy stagger and forehead clutch, feet on ground.",
+      "frames": [
+        {
+          "source_region": [
+            116,
+            11,
+            315,
+            509
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            289,
+            513
+          ],
+          "hand": [
+            199,
+            283
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            584,
+            15,
+            388,
+            498
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            804,
+            507
+          ],
+          "hand": [
+            611,
+            259
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1121,
+            11,
+            292,
+            505
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            1280,
+            510
+          ],
+          "hand": [
+            1147,
+            259
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            116,
+            536,
+            296,
+            469
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            272,
+            998
+          ],
+          "hand": [
+            149,
+            746
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            583,
+            535,
+            382,
+            469
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            820,
+            998
+          ],
+          "hand": [
+            628,
+            763
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1117,
+            537,
+            349,
+            472
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 490,
+          "foot": [
+            1310,
+            1001
+          ],
+          "hand": [
+            1177,
+            793
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "light1": {
+      "file": "light1.png",
+      "source_sha256": "361d0da892411be0e58f57168417479ef7139de548978380e3f46e6177c66f2f",
+      "body_height": 385,
+      "anatomical_measurement": "Crown excludes high ponytail. Follow neck to covered pelvis, then screen-left rear thigh and shin to ankle and sole. Unfolded chain is about 385px; corrected source has genuinely smaller anatomy than all other combat sheets.",
+      "action_semantics": "Chest-height right-hand needle throw; projectiles are separate.",
+      "frames": [
+        {
+          "source_region": [
+            127,
+            102,
+            312,
+            367
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 385,
+          "foot": [
+            284,
+            467
+          ],
+          "hand": [
+            278,
+            228
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            633,
+            107,
+            294,
+            366
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 385,
+          "foot": [
+            796,
+            470
+          ],
+          "hand": [
+            762,
+            170
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1102,
+            111,
+            359,
+            362
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 385,
+          "foot": [
+            1262,
+            470
+          ],
+          "hand": [
+            1433,
+            216
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            118,
+            613,
+            372,
+            334
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 385,
+          "foot": [
+            289,
+            944
+          ],
+          "hand": [
+            459,
+            730
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            643,
+            603,
+            289,
+            343
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 385,
+          "foot": [
+            799,
+            943
+          ],
+          "hand": [
+            773,
+            739
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1128,
+            583,
+            324,
+            366
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 385,
+          "foot": [
+            1292,
+            946
+          ],
+          "hand": [
+            1281,
+            712
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "light2": {
+      "file": "light2.png",
+      "source_sha256": "e9dd1a33428fa8aecdbadbdea9b4d8e598d737388a221727f9c89e9b3bf98b2d",
+      "body_height": 500,
+      "anatomical_measurement": "Use crown, collar/neck and pelvis under skirt, then long visible rear-leg thigh/shin with sandal sole. Raw visual chain approximately 510px; cross-check frame 6 near 500px. Adopt 500px rounded standing equivalent.",
+      "action_semantics": "Underhand-to-overhand backhand needle throw.",
+      "frames": [
+        {
+          "source_region": [
+            64,
+            32,
+            403,
+            478
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            269,
+            507
+          ],
+          "hand": [
+            249,
+            187
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            573,
+            58,
+            411,
+            447
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            790,
+            502
+          ],
+          "hand": [
+            603,
+            265
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1064,
+            50,
+            452,
+            460
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            1320,
+            507
+          ],
+          "hand": [
+            1218,
+            145
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            59,
+            520,
+            488,
+            476
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            278,
+            993
+          ],
+          "hand": [
+            511,
+            558
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            575,
+            557,
+            474,
+            440
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            796,
+            994
+          ],
+          "hand": [
+            1018,
+            728
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1093,
+            538,
+            400,
+            461
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            1271,
+            996
+          ],
+          "hand": [
+            1272,
+            690
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "light3": {
+      "file": "light3.png",
+      "source_sha256": "d3c6383df71396bb95ac8745fa09acc7650080bc6561cdaab5413a51cdab2217",
+      "body_height": 485,
+      "anatomical_measurement": "Standing support-leg chain in knee-raised frame 2 is approximately 461px before small depth/occlusion allowance, giving ~470px. Frames 1 and 6 require unfolding their wide stance and measure nearer 495–505px. Arms, kick toe extent and ponytail are excluded.",
+      "action_semantics": "Turning roundhouse kick: pivot, knee raise, high kick, follow-through, plant.",
+      "frames": [
+        {
+          "source_region": [
+            70,
+            20,
+            417,
+            484
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 495,
+          "foot": [
+            275,
+            501
+          ],
+          "hand": [
+            258,
+            181
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            559,
+            13,
+            321,
+            489
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 470,
+          "foot": [
+            740,
+            499
+          ],
+          "hand": [
+            729,
+            141
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            958,
+            21,
+            540,
+            478
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 470,
+          "foot": [
+            1190,
+            496
+          ],
+          "hand": [
+            1167,
+            171
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            49,
+            521,
+            473,
+            477
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 470,
+          "foot": [
+            327,
+            995
+          ],
+          "hand": [
+            345,
+            657
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            587,
+            522,
+            344,
+            474
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 475,
+          "foot": [
+            774,
+            993
+          ],
+          "hand": [
+            790,
+            660
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1083,
+            522,
+            411,
+            482
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 505,
+          "foot": [
+            1309,
+            1001
+          ],
+          "hand": [
+            1280,
+            678
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "air_light": {
+      "file": "air_light.png",
+      "source_sha256": "97f0919ed8768f93107074cd3c65eb233aac0134cdf8b854ffb8c07e41a655a5",
+      "body_height": 525,
+      "anatomical_measurement": "Frame 3 extended screen-right leg provides the least-occluded ruler: crown/neck/pelvis and unfolded thigh-shin-foot is ~514px, with modest depth allowance about 520–525px. For tucked frames 1–2, use full femur/shin lengths cross-checked against frames 3–5 rather than apparent tucked height.",
+      "action_semantics": "Airborne needle throw aimed right/down.",
+      "frames": [
+        {
+          "source_region": [
+            49,
+            13,
+            407,
+            416
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 525,
+          "foot": [
+            270,
+            426
+          ],
+          "hand": [
+            260,
+            114
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            548,
+            38,
+            473,
+            421
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 525,
+          "foot": [
+            747,
+            456
+          ],
+          "hand": [
+            729,
+            198
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1052,
+            48,
+            484,
+            485
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 525,
+          "foot": [
+            1232,
+            530
+          ],
+          "hand": [
+            1234,
+            189
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            24,
+            507,
+            530,
+            490
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 525,
+          "foot": [
+            252,
+            994
+          ],
+          "hand": [
+            95,
+            676
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            546,
+            501,
+            472,
+            498
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 525,
+          "foot": [
+            757,
+            996
+          ],
+          "hand": [
+            730,
+            655
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1066,
+            566,
+            453,
+            417
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 525,
+          "foot": [
+            1268,
+            980
+          ],
+          "hand": [
+            1308,
+            725
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "rising": {
+      "file": "rising.png",
+      "source_sha256": "daa3d44dcf7b7370d00cd914a1f36df9ab0a365f29036eeffc507ea04c84e5c9",
+      "body_height": 465,
+      "anatomical_measurement": "Rising frame 3 crown-to-neck, neck-to-pelvis and visible bent leg chain is ~477px; the upright support leg of frame 4 gives a lower ~450px check. Adopt ~465px. Raised fist, ponytail and jump displacement are excluded.",
+      "action_semantics": "Low coil into a rising needle throw/uppercut.",
+      "frames": [
+        {
+          "source_region": [
+            80,
+            162,
+            394,
+            336
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            282,
+            495
+          ],
+          "hand": [
+            179,
+            374
+          ],
+          "weapon_angle": -70,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            611,
+            94,
+            317,
+            408
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            791,
+            499
+          ],
+          "hand": [
+            744,
+            272
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1082,
+            25,
+            403,
+            475
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            1297,
+            497
+          ],
+          "hand": [
+            1281,
+            183
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            50,
+            498,
+            382,
+            509
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            271,
+            1004
+          ],
+          "hand": [
+            242,
+            660
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            622,
+            569,
+            373,
+            424
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            847,
+            990
+          ],
+          "hand": [
+            789,
+            678
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1116,
+            598,
+            369,
+            407
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 465,
+          "foot": [
+            1316,
+            1002
+          ],
+          "hand": [
+            1258,
+            786
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "dash_strike": {
+      "file": "dash_strike.png",
+      "source_sha256": "1073193ab4cb5b57bb9e7cc726a163f8b8240698a0342bb8567034eff61cf377",
+      "body_height": 500,
+      "anatomical_measurement": "Extreme frame 4 follows skull/neck, inclined torso and extended rear thigh/shin to sandal. Raw polyline ~546px; hip/foot-axis allowance gives ~535px. Frames1,2,6 cross-check near490–505px, so 500px is a sensible sheet baseline.",
+      "action_semantics": "Forward lunging empty-hand needle thrust.",
+      "frames": [
+        {
+          "source_region": [
+            52,
+            53,
+            351,
+            424
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            277,
+            474
+          ],
+          "hand": [
+            261,
+            224
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            525,
+            61,
+            422,
+            415
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            751,
+            473
+          ],
+          "hand": [
+            777,
+            210
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1037,
+            119,
+            489,
+            353
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            1272,
+            469
+          ],
+          "hand": [
+            1261,
+            265
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            31,
+            596,
+            634,
+            370
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 535,
+          "foot": [
+            341,
+            963
+          ],
+          "hand": [
+            364,
+            744
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            658,
+            551,
+            382,
+            421
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            840,
+            969
+          ],
+          "hand": [
+            875,
+            685
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1094,
+            495,
+            403,
+            480
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            1309,
+            972
+          ],
+          "hand": [
+            1295,
+            655
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "throw": {
+      "file": "throw.png",
+      "source_sha256": "eea6a7c642b33fa86042a876a4ed36ec3f361cb2be21e772ddf951c11f260691",
+      "body_height": 500,
+      "anatomical_measurement": "Hip-turn frame3 yields ~501px from crown/neck/pelvis through front thigh, shin and sole. Forward-folded frame4 is measured by torso-plus-leg chains rather than its crouched silhouette height.",
+      "action_semantics": "Reach/grab imaginary opponent, hip turn, shoulder throw, recovery.",
+      "frames": [
+        {
+          "source_region": [
+            68,
+            17,
+            477,
+            478
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            280,
+            492
+          ],
+          "hand": [
+            416,
+            168
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            623,
+            40,
+            384,
+            455
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            827,
+            492
+          ],
+          "hand": [
+            817,
+            209
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1117,
+            23,
+            375,
+            475
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            1326,
+            495
+          ],
+          "hand": [
+            1329,
+            152
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            91,
+            554,
+            490,
+            430
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            288,
+            981
+          ],
+          "hand": [
+            528,
+            829
+          ],
+          "weapon_angle": -62,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            646,
+            539,
+            353,
+            445
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            838,
+            981
+          ],
+          "hand": [
+            836,
+            785
+          ],
+          "weapon_angle": -39,
+          "weapon_behind": true,
+          "weapon_visible": true
+        },
+        {
+          "source_region": [
+            1127,
+            520,
+            377,
+            473
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "body_height": 500,
+          "foot": [
+            1311,
+            990
+          ],
+          "hand": [
+            1323,
+            674
+          ],
+          "weapon_angle": -30,
+          "weapon_behind": true,
+          "weapon_visible": true
+        }
+      ]
+    },
+    "heavy1": {
+      "file": "heavy1.png",
+      "source_sha256": "d8102b768508547298e0b8c40caaf5c562682d0959c967c71baec881d90fb8b5",
+      "body_height": 510,
+      "anatomical_measurement": "Shared 510px standing-equivalent ruler: inspected skull-to-neck about75px, neck-to-pelvis150px, unfolded thigh/shin/foot chain285px, keeping the six wide-stance phases at one body scale.",
+      "action_semantics": "Normal longbow shot: left grip, right-hand draw to cheek, release, recover.",
+      "source_figure_count": 6,
+      "frames": [
+        {
+          "foot": [
+            280,
+            499
+          ],
+          "hand": [
+            473,
+            207
+          ],
+          "weapon_angle": 12,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              454,
+              187,
+              39,
+              43
+            ],
+            [
+              270,
+              160,
+              47,
+              47
+            ]
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "source_region": [
+            58,
+            0,
+            443,
+            509
+          ]
+        },
+        {
+          "foot": [
+            774,
+            501
+          ],
+          "hand": [
+            999,
+            131
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              980,
+              108,
+              38,
+              44
+            ],
+            [
+              717,
+              93,
+              49,
+              40
+            ]
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "second_hand": [
+            742,
+            112
+          ],
+          "source_region": [
+            541,
+            1,
+            484,
+            510
+          ]
+        },
+        {
+          "foot": [
+            1280,
+            502
+          ],
+          "hand": [
+            1498,
+            126
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1480,
+              104,
+              36,
+              44
+            ],
+            [
+              1218,
+              89,
+              45,
+              39
+            ]
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "second_hand": [
+            1239,
+            107
+          ],
+          "source_region": [
+            1038,
+            1,
+            484,
+            511
+          ]
+        },
+        {
+          "foot": [
+            282,
+            1001
+          ],
+          "hand": [
+            520,
+            636
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              500,
+              613,
+              38,
+              43
+            ],
+            [
+              172,
+              557,
+              59,
+              55
+            ]
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "source_region": [
+            32,
+            509,
+            513,
+            502
+          ]
+        },
+        {
+          "foot": [
+            797,
+            997
+          ],
+          "hand": [
+            1029,
+            654
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1010,
+              631,
+              37,
+              44
+            ],
+            [
+              679,
+              596,
+              53,
+              48
+            ]
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "source_region": [
+            563,
+            516,
+            490,
+            491
+          ]
+        },
+        {
+          "foot": [
+            1310,
+            999
+          ],
+          "hand": [
+            1444,
+            781
+          ],
+          "weapon_angle": 20,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1421,
+              756,
+              44,
+              51
+            ],
+            [
+              1278,
+              717,
+              58,
+              35
+            ]
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "source_region": [
+            1068,
+            508,
+            452,
+            501
+          ]
+        }
+      ]
+    },
+    "heavy2": {
+      "file": "heavy2.png",
+      "source_sha256": "674f701ab6f10c61cf052bea9774f38f09001aa7f6bfee2683535b4c4d227d02",
+      "body_height": 500,
+      "anatomical_measurement": "Shared 500px standing-equivalent ruler: inspected skull-to-neck75px, torso140px, unfolded thigh/shin/foot chain285px; low coil is not scaled by its short silhouette.",
+      "action_semantics": "Forceful longbow volley, rising into a wide full-draw stance.",
+      "source_figure_count": 6,
+      "frames": [
+        {
+          "foot": [
+            310,
+            491
+          ],
+          "hand": [
+            495,
+            304
+          ],
+          "weapon_angle": 10,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              476,
+              284,
+              38,
+              39
+            ],
+            [
+              371,
+              272,
+              41,
+              35
+            ]
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "source_region": [
+            84,
+            66,
+            436,
+            435
+          ]
+        },
+        {
+          "foot": [
+            780,
+            491
+          ],
+          "hand": [
+            1003,
+            146
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              984,
+              125,
+              36,
+              43
+            ],
+            [
+              760,
+              124,
+              44,
+              38
+            ]
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "second_hand": [
+            780,
+            143
+          ],
+          "source_region": [
+            562,
+            28,
+            465,
+            473
+          ]
+        },
+        {
+          "foot": [
+            1280,
+            491
+          ],
+          "hand": [
+            1496,
+            151
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1478,
+              129,
+              35,
+              45
+            ],
+            [
+              1244,
+              111,
+              44,
+              37
+            ]
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "second_hand": [
+            1265,
+            130
+          ],
+          "source_region": [
+            1053,
+            24,
+            467,
+            477
+          ]
+        },
+        {
+          "foot": [
+            285,
+            976
+          ],
+          "hand": [
+            498,
+            642
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              479,
+              621,
+              36,
+              43
+            ],
+            [
+              186,
+              563,
+              54,
+              57
+            ]
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "source_region": [
+            18,
+            517,
+            503,
+            469
+          ]
+        },
+        {
+          "foot": [
+            783,
+            976
+          ],
+          "hand": [
+            1001,
+            648
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              983,
+              627,
+              36,
+              43
+            ],
+            [
+              742,
+              611,
+              45,
+              38
+            ]
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "second_hand": [
+            764,
+            628
+          ],
+          "source_region": [
+            549,
+            517,
+            477,
+            469
+          ]
+        },
+        {
+          "foot": [
+            1305,
+            976
+          ],
+          "hand": [
+            1501,
+            646
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1482,
+              624,
+              37,
+              44
+            ],
+            [
+              1202,
+              572,
+              53,
+              54
+            ]
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "source_region": [
+            1053,
+            514,
+            473,
+            472
+          ]
+        }
+      ]
+    },
+    "charged_upper": {
+      "file": "charged_upper.png",
+      "source_sha256": "79ed12597252f9a2447a3783851e4c1b3d93cc51d526fd492501c5a4328056d4",
+      "body_height": 500,
+      "anatomical_measurement": "Shared 500px standing-equivalent ruler: inspected skull-to-neck80px, torso135px, unfolded thigh/shin/foot chain285px across raised-arm poses.",
+      "action_semantics": "High-angle archery shot toward screen right.",
+      "source_figure_count": 6,
+      "frames": [
+        {
+          "foot": [
+            279,
+            494
+          ],
+          "hand": [
+            419,
+            248
+          ],
+          "weapon_angle": 12,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              400,
+              231,
+              37,
+              39
+            ],
+            [
+              302,
+              205,
+              43,
+              35
+            ]
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "source_region": [
+            84,
+            29,
+            386,
+            475
+          ]
+        },
+        {
+          "foot": [
+            770,
+            494
+          ],
+          "hand": [
+            962,
+            67
+          ],
+          "weapon_angle": -20,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              944,
+              45,
+              36,
+              40
+            ],
+            [
+              703,
+              127,
+              46,
+              35
+            ]
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "second_hand": [
+            726,
+            145
+          ],
+          "source_region": [
+            542,
+            40,
+            444,
+            464
+          ]
+        },
+        {
+          "foot": [
+            1283,
+            494
+          ],
+          "hand": [
+            1479,
+            65
+          ],
+          "weapon_angle": -20,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1461,
+              44,
+              36,
+              41
+            ],
+            [
+              1241,
+              109,
+              44,
+              36
+            ]
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "second_hand": [
+            1263,
+            127
+          ],
+          "source_region": [
+            1072,
+            39,
+            431,
+            465
+          ]
+        },
+        {
+          "foot": [
+            275,
+            987
+          ],
+          "hand": [
+            479,
+            558
+          ],
+          "weapon_angle": -20,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              458,
+              536,
+              39,
+              42
+            ],
+            [
+              165,
+              599,
+              54,
+              54
+            ]
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "source_region": [
+            48,
+            530,
+            454,
+            467
+          ]
+        },
+        {
+          "foot": [
+            785,
+            984
+          ],
+          "hand": [
+            986,
+            555
+          ],
+          "weapon_angle": -20,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              967,
+              535,
+              33,
+              42
+            ],
+            [
+              661,
+              604,
+              52,
+              55
+            ]
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "source_region": [
+            545,
+            529,
+            461,
+            465
+          ]
+        },
+        {
+          "foot": [
+            1310,
+            987
+          ],
+          "hand": [
+            1435,
+            756
+          ],
+          "weapon_angle": 15,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1418,
+              737,
+              36,
+              38
+            ],
+            [
+              1301,
+              715,
+              43,
+              36
+            ]
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "source_region": [
+            1097,
+            533,
+            402,
+            464
+          ]
+        }
+      ]
+    },
+    "charged_slam": {
+      "file": "charged_slam.png",
+      "source_sha256": "6efc68453268da4c708124d0a05c1fc447335034f6a558fc750316c290f72778",
+      "body_height": 520,
+      "anatomical_measurement": "Shared 520px standing-equivalent ruler: inspected skull-to-neck80px, torso150px, unfolded thigh/shin/foot chain290px; deep lunges retain the same scale.",
+      "action_semantics": "Forward ice-wave/arrow shot, downward follow-through; effects separate.",
+      "source_figure_count": 6,
+      "frames": [
+        {
+          "foot": [
+            272,
+            508
+          ],
+          "hand": [
+            435,
+            313
+          ],
+          "weapon_angle": 15,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              417,
+              294,
+              37,
+              37
+            ],
+            [
+              221,
+              168,
+              36,
+              35
+            ]
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "source_region": [
+            40,
+            39,
+            446,
+            479
+          ]
+        },
+        {
+          "foot": [
+            782,
+            506
+          ],
+          "hand": [
+            987,
+            170
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              969,
+              151,
+              37,
+              37
+            ],
+            [
+              720,
+              128,
+              49,
+              38
+            ]
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "second_hand": [
+            746,
+            146
+          ],
+          "source_region": [
+            536,
+            38,
+            476,
+            478
+          ]
+        },
+        {
+          "foot": [
+            1294,
+            511
+          ],
+          "hand": [
+            1508,
+            221
+          ],
+          "weapon_angle": 10,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1490,
+              204,
+              36,
+              34
+            ],
+            [
+              1215,
+              120,
+              46,
+              48
+            ]
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "source_region": [
+            1062,
+            43,
+            471,
+            478
+          ]
+        },
+        {
+          "foot": [
+            315,
+            972
+          ],
+          "hand": [
+            530,
+            849
+          ],
+          "weapon_angle": 45,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              511,
+              831,
+              37,
+              36
+            ],
+            [
+              338,
+              686,
+              52,
+              43
+            ]
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "source_region": [
+            23,
+            562,
+            531,
+            420
+          ]
+        },
+        {
+          "foot": [
+            792,
+            971
+          ],
+          "hand": [
+            980,
+            874
+          ],
+          "weapon_angle": 52,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              962,
+              854,
+              36,
+              39
+            ],
+            [
+              783,
+              709,
+              52,
+              42
+            ]
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "source_region": [
+            552,
+            566,
+            472,
+            415
+          ]
+        },
+        {
+          "foot": [
+            1304,
+            976
+          ],
+          "hand": [
+            1444,
+            796
+          ],
+          "weapon_angle": 20,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1426,
+              777,
+              36,
+              35
+            ],
+            [
+              1273,
+              719,
+              48,
+              40
+            ]
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "source_region": [
+            1096,
+            505,
+            428,
+            481
+          ]
+        }
+      ]
+    },
+    "air_heavy": {
+      "file": "air_heavy.png",
+      "source_sha256": "7d282df54305a61552f30d2a0f7def10e78406c6a5c486b63032609e9233dac0",
+      "body_height": 510,
+      "anatomical_measurement": "Shared 510px standing-equivalent ruler: inspected skull-to-neck80px, torso135px, unfolded thigh/shin/foot chain295px, using bent limb segment anatomy instead of airborne bounds.",
+      "action_semantics": "Airborne archery shot aimed right/down, then landing preparation.",
+      "source_figure_count": 6,
+      "frames": [
+        {
+          "foot": [
+            257,
+            510
+          ],
+          "hand": [
+            471,
+            187
+          ],
+          "weapon_angle": 4,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              451,
+              168,
+              36,
+              39
+            ],
+            [
+              227,
+              150,
+              47,
+              46
+            ]
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "source_region": [
+            23,
+            13,
+            470,
+            501
+          ]
+        },
+        {
+          "foot": [
+            770,
+            510
+          ],
+          "hand": [
+            975,
+            181
+          ],
+          "weapon_angle": 16,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              957,
+              159,
+              37,
+              42
+            ],
+            [
+              744,
+              105,
+              46,
+              37
+            ]
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "second_hand": [
+            766,
+            122
+          ],
+          "source_region": [
+            514,
+            14,
+            486,
+            500
+          ]
+        },
+        {
+          "foot": [
+            1285,
+            510
+          ],
+          "hand": [
+            1497,
+            158
+          ],
+          "weapon_angle": 8,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1479,
+              139,
+              36,
+              39
+            ],
+            [
+              1246,
+              107,
+              46,
+              37
+            ]
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "second_hand": [
+            1268,
+            125
+          ],
+          "source_region": [
+            1033,
+            16,
+            489,
+            498
+          ]
+        },
+        {
+          "foot": [
+            260,
+            1017
+          ],
+          "hand": [
+            477,
+            660
+          ],
+          "weapon_angle": 8,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              457,
+              640,
+              37,
+              42
+            ],
+            [
+              166,
+              570,
+              61,
+              49
+            ]
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "source_region": [
+            10,
+            521,
+            494,
+            500
+          ]
+        },
+        {
+          "foot": [
+            783,
+            1014
+          ],
+          "hand": [
+            987,
+            735
+          ],
+          "weapon_angle": 25,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              969,
+              716,
+              38,
+              39
+            ],
+            [
+              766,
+              698,
+              51,
+              42
+            ]
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "source_region": [
+            537,
+            509,
+            477,
+            509
+          ]
+        },
+        {
+          "foot": [
+            1280,
+            985
+          ],
+          "hand": [
+            1496,
+            723
+          ],
+          "weapon_angle": 25,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1474,
+              702,
+              46,
+              42
+            ],
+            [
+              1297,
+              717,
+              59,
+              38
+            ]
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "source_region": [
+            1048,
+            552,
+            478,
+            443
+          ]
+        }
+      ]
+    },
+    "dash_heavy": {
+      "file": "dash_heavy.png",
+      "source_sha256": "0f80940e567c69d10eddd5a3d1359f59c141e3dd50825fed5894a6cff1418ad9",
+      "body_height": 525,
+      "anatomical_measurement": "Shared 525px standing-equivalent ruler: inspected skull-to-neck85px, torso140px, unfolded thigh/shin/foot chain300px across lunge and recovery.",
+      "action_semantics": "Two-handed horizontal longbow bash, NOT an archery draw.",
+      "source_figure_count": 6,
+      "frames": [
+        {
+          "foot": [
+            329,
+            493
+          ],
+          "hand": [
+            563,
+            222
+          ],
+          "weapon_angle": -92.9,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              544,
+              203,
+              38,
+              39
+            ],
+            [
+              353,
+              213,
+              37,
+              35
+            ]
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              373,
+              230
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              566.0,
+              520.0
+            ],
+            "radial_mismatch_source_px": 0.15
+          },
+          "source_region": [
+            37,
+            51,
+            552,
+            452
+          ]
+        },
+        {
+          "foot": [
+            815,
+            486
+          ],
+          "hand": [
+            1034,
+            211
+          ],
+          "weapon_angle": -92.89,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1014,
+              191,
+              38,
+              39
+            ],
+            [
+              817,
+              204,
+              40,
+              35
+            ]
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              836,
+              221
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              562.0,
+              501.0
+            ],
+            "radial_mismatch_source_px": 0.18
+          },
+          "source_region": [
+            513,
+            45,
+            546,
+            451
+          ]
+        },
+        {
+          "foot": [
+            1286,
+            491
+          ],
+          "hand": [
+            1501,
+            188
+          ],
+          "weapon_angle": -96.23,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1482,
+              168,
+              36,
+              40
+            ],
+            [
+              1293,
+              189,
+              38,
+              35
+            ]
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              1312,
+              207
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              566.0,
+              521.0
+            ],
+            "radial_mismatch_source_px": 0.04
+          },
+          "source_region": [
+            1009,
+            39,
+            516,
+            462
+          ]
+        },
+        {
+          "foot": [
+            312,
+            976
+          ],
+          "hand": [
+            545,
+            681
+          ],
+          "weapon_angle": -95.06,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              526,
+              661,
+              38,
+              40
+            ],
+            [
+              322,
+              684,
+              36,
+              37
+            ]
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              340,
+              701
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              557.5,
+              482.0
+            ],
+            "radial_mismatch_source_px": 0.14
+          },
+          "source_region": [
+            23,
+            535,
+            547,
+            451
+          ]
+        },
+        {
+          "foot": [
+            810,
+            979
+          ],
+          "hand": [
+            1033,
+            701
+          ],
+          "weapon_angle": -91.38,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1015,
+              680,
+              38,
+              41
+            ],
+            [
+              815,
+              688,
+              40,
+              36
+            ]
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              834,
+              706
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              561.5,
+              499.0
+            ],
+            "radial_mismatch_source_px": 0.18
+          },
+          "source_region": [
+            562,
+            529,
+            498,
+            460
+          ]
+        },
+        {
+          "foot": [
+            1293,
+            986
+          ],
+          "hand": [
+            1486,
+            674
+          ],
+          "weapon_angle": -90.48,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1467,
+              653,
+              38,
+              41
+            ],
+            [
+              1245,
+              664,
+              36,
+              37
+            ]
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              1263,
+              682
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              547.0,
+              440.0
+            ],
+            "radial_mismatch_source_px": 0.08
+          },
+          "source_region": [
+            1068,
+            504,
+            444,
+            492
+          ]
+        }
+      ]
+    },
+    "guard": {
+      "file": "guard.png",
+      "source_sha256": "c7024baf3ed67c6f256756d377d4950a27d32ba519483d06329238b6027930e2",
+      "body_height": 500,
+      "anatomical_measurement": "Shared 500px standing-equivalent ruler: inspected skull-to-neck80px, torso140px, unfolded thigh/shin/foot chain280px. Defensive recoil uses this same ruler.",
+      "action_semantics": "Two-handed diagonal longbow guard and impact recoil.",
+      "source_figure_count": 6,
+      "frames": [
+        {
+          "foot": [
+            250,
+            495
+          ],
+          "hand": [
+            428,
+            96
+          ],
+          "weapon_angle": -121.39,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              410,
+              77,
+              33,
+              36
+            ],
+            [
+              236,
+              192,
+              33,
+              33
+            ]
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              253,
+              208
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              550.5,
+              452.0
+            ],
+            "radial_mismatch_source_px": 0.03
+          },
+          "source_region": [
+            54,
+            18,
+            412,
+            487
+          ]
+        },
+        {
+          "foot": [
+            775,
+            495
+          ],
+          "hand": [
+            962,
+            73
+          ],
+          "weapon_angle": -124.26,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              944,
+              54,
+              35,
+              39
+            ],
+            [
+              760,
+              195,
+              36,
+              33
+            ]
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              778,
+              212
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              533.0,
+              394.0
+            ],
+            "radial_mismatch_source_px": 0.07
+          },
+          "source_region": [
+            562,
+            20,
+            431,
+            485
+          ]
+        },
+        {
+          "foot": [
+            1339,
+            495
+          ],
+          "hand": [
+            1460,
+            76
+          ],
+          "weapon_angle": -131.15,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1442,
+              57,
+              35,
+              39
+            ],
+            [
+              1298,
+              188,
+              34,
+              36
+            ]
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              1315,
+              204
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              559.5,
+              489.0
+            ],
+            "radial_mismatch_source_px": 0.11
+          },
+          "source_region": [
+            1067,
+            48,
+            424,
+            457
+          ]
+        },
+        {
+          "foot": [
+            298,
+            995
+          ],
+          "hand": [
+            417,
+            582
+          ],
+          "weapon_angle": -135.76,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              397,
+              562,
+              37,
+              39
+            ],
+            [
+              264,
+              704,
+              35,
+              34
+            ]
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              283,
+              721
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              559.5,
+              490.0
+            ],
+            "radial_mismatch_source_px": 0.15
+          },
+          "source_region": [
+            36,
+            554,
+            439,
+            451
+          ]
+        },
+        {
+          "foot": [
+            778,
+            995
+          ],
+          "hand": [
+            946,
+            578
+          ],
+          "weapon_angle": -124.68,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              927,
+              558,
+              37,
+              41
+            ],
+            [
+              758,
+              686,
+              35,
+              33
+            ]
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              776,
+              702
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              548.5,
+              445.0
+            ],
+            "radial_mismatch_source_px": 0.07
+          },
+          "source_region": [
+            552,
+            529,
+            439,
+            476
+          ]
+        },
+        {
+          "foot": [
+            1280,
+            995
+          ],
+          "hand": [
+            1462,
+            584
+          ],
+          "weapon_angle": -124.41,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1443,
+              564,
+              35,
+              39
+            ],
+            [
+              1258,
+              711,
+              33,
+              34
+            ]
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "rigid_grip_review": {
+            "right_hand": [
+              1276,
+              726
+            ],
+            "reference_weapon": "bow_awase_yumi",
+            "reference_centerline_point": [
+              531.0,
+              385.0
+            ],
+            "radial_mismatch_source_px": 0.06
+          },
+          "source_region": [
+            1060,
+            523,
+            430,
+            482
+          ]
+        }
+      ]
+    },
+    "special": {
+      "file": "special.png",
+      "source_sha256": "86a82a330463e8de05d3bb07bc4415477dcbb08af0b450e0c790f3e5e21f1732",
+      "body_height": 510,
+      "anatomical_measurement": "Shared 510px standing-equivalent ruler: inspected skull-to-neck80px, torso145px, unfolded thigh/shin/foot chain285px, shared across three draws/releases.",
+      "action_semantics": "Powerful repeated archery draws/releases, no baked effects.",
+      "source_figure_count": 6,
+      "frames": [
+        {
+          "foot": [
+            255,
+            500
+          ],
+          "hand": [
+            484,
+            132
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              466,
+              111,
+              36,
+              40
+            ],
+            [
+              228,
+              100,
+              34,
+              34
+            ]
+          ],
+          "clip_component": 0,
+          "component_count": 6,
+          "second_hand": [
+            246,
+            116
+          ],
+          "source_region": [
+            37,
+            17,
+            471,
+            493
+          ]
+        },
+        {
+          "foot": [
+            779,
+            502
+          ],
+          "hand": [
+            988,
+            144
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              969,
+              123,
+              36,
+              41
+            ],
+            [
+              673,
+              81,
+              55,
+              50
+            ]
+          ],
+          "clip_component": 1,
+          "component_count": 6,
+          "source_region": [
+            533,
+            20,
+            479,
+            492
+          ]
+        },
+        {
+          "foot": [
+            1265,
+            499
+          ],
+          "hand": [
+            1472,
+            170
+          ],
+          "weapon_angle": 6,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1454,
+              150,
+              34,
+              38
+            ],
+            [
+              1244,
+              128,
+              36,
+              34
+            ]
+          ],
+          "clip_component": 2,
+          "component_count": 6,
+          "second_hand": [
+            1263,
+            145
+          ],
+          "source_region": [
+            1041,
+            48,
+            463,
+            461
+          ]
+        },
+        {
+          "foot": [
+            284,
+            988
+          ],
+          "hand": [
+            514,
+            647
+          ],
+          "weapon_angle": 6,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              495,
+              628,
+              35,
+              40
+            ],
+            [
+              190,
+              590,
+              54,
+              52
+            ]
+          ],
+          "clip_component": 3,
+          "component_count": 6,
+          "source_region": [
+            34,
+            531,
+            503,
+            467
+          ]
+        },
+        {
+          "foot": [
+            785,
+            988
+          ],
+          "hand": [
+            981,
+            586
+          ],
+          "weapon_angle": -10,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              962,
+              565,
+              36,
+              41
+            ],
+            [
+              727,
+              604,
+              35,
+              35
+            ]
+          ],
+          "clip_component": 4,
+          "component_count": 6,
+          "second_hand": [
+            746,
+            621
+          ],
+          "source_region": [
+            549,
+            523,
+            472,
+            475
+          ]
+        },
+        {
+          "foot": [
+            1281,
+            987
+          ],
+          "hand": [
+            1473,
+            589
+          ],
+          "weapon_angle": -10,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluders": [
+            [
+              1453,
+              569,
+              35,
+              40
+            ],
+            [
+              1180,
+              583,
+              56,
+              57
+            ]
+          ],
+          "clip_component": 5,
+          "component_count": 6,
+          "source_region": [
+            1027,
+            533,
+            484,
+            464
+          ]
+        }
+      ]
+    }
+  }
+}

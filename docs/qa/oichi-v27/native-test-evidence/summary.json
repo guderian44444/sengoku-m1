@@ -1,0 +1,216 @@
+{
+  "started_at_utc": "2026-10-13T00:36:28.122483+00:00",
+  "production_id": "oichi-original-approved-20261013",
+  "technical_version": "v27",
+  "registered_frame_count": 156,
+  "unique_drawn_pose_count": 155,
+  "source_count": 28,
+  "shared_drawn_poses": [
+    {
+      "rgba_sha256": "f2a91f40e26d72d14187a98e11d67188a63cb8f2d1ae421a172364f972863aee",
+      "source_file": "down.png",
+      "frames": [
+        "down/6",
+        "recovering/1"
+      ]
+    }
+  ],
+  "expected_registration_sha256": "319f1e544911742e0d49a721815a16206c0bd315d73f23ed8d232da45060b821",
+  "registration_sha256": "319f1e544911742e0d49a721815a16206c0bd315d73f23ed8d232da45060b821",
+  "supplemental_test_sha256": "7db9254853d9220d9f2a2fa33e25cb0173ccfb3325321eb40b4861eebc6639e5",
+  "pose_anchors_sha256": "8b591995a99d0f7e08121fc66b992e8e0682ad0cac13d5c28e0a9c5fc8d94bc5",
+  "engine": "Linux Godot 4.6.3.stable.official.7d41c59c4",
+  "required_platform_not_tested": "Windows Godot 4.7.2",
+  "steps": [
+    {
+      "name": "registration-check",
+      "command": [
+        "python3",
+        "scripts/register-oichi-v27.py",
+        "--check"
+      ],
+      "ok": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 9.447,
+      "log": "registration-check.log"
+    },
+    {
+      "name": "builder-tests",
+      "command": [
+        "python3",
+        "scripts/test-oichi-v27.py"
+      ],
+      "ok": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 24.709,
+      "log": "builder-tests.log"
+    },
+    {
+      "name": "color-tests",
+      "command": [
+        "python3",
+        "scripts/test-oichi-colors-v27.py"
+      ],
+      "ok": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.473,
+      "log": "color-tests.log"
+    },
+    {
+      "name": "native-eight-suite",
+      "command": [
+        "node",
+        "scripts/test-v19.mjs",
+        "--only=oichi_pipeline_v27,oichi_layers_v27,hero_layers_v22,weapon_render_v22,projectile_v22,frame_animation,animation_timing_v11,weapon_expansion_v24"
+      ],
+      "ok": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 123.528,
+      "log": "native-eight-suite.log"
+    },
+    {
+      "name": "all-oichi-bows",
+      "command": [
+        "/usr/local/bin/godot",
+        "--path",
+        "/workspace/scratch/98b7ec868bfb/sengoku_weapon_expansion_20261012/game",
+        "--headless",
+        "--log-file",
+        "/workspace/scratch/98b7ec868bfb/oichi_original_full_20261013/qa/final-test/all-oichi-bows-engine.log",
+        "--script",
+        "/workspace/scratch/98b7ec868bfb/oichi_original_full_20261013/qa/test_all_oichi_bows.gd"
+      ],
+      "ok": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 29.561,
+      "log": "all-oichi-bows.log"
+    },
+    {
+      "name": "protected-assets",
+      "command": [
+        "python3",
+        "/workspace/scratch/98b7ec868bfb/oichi_original_full_20261013/qa/verify_protected_assets.py",
+        "--out",
+        "/workspace/scratch/98b7ec868bfb/oichi_original_full_20261013/qa/final-test/protected-assets-verified.json"
+      ],
+      "ok": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.265,
+      "log": "protected-assets.log"
+    }
+  ],
+  "limits": [
+    "Eight selected native suites only; 58 other suites excluded.",
+    "Native headless engine tests, not display-enabled gameplay capture.",
+    "No actual gameplay feel, physical controller, Windows 4.7.2 or GUI visual acceptance in this run.",
+    "Color unit tests exercise audit logic; art material audit and visual dispositions are separate.",
+    "Grading provenance is retained but raw-to-final deterministic grading reproduction belongs to the separate grading verification."
+  ],
+  "code_changes_performed": false,
+  "commit_or_push_performed": false,
+  "native_results": [
+    {
+      "name": "oichi_pipeline_v27",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 0.577
+    },
+    {
+      "name": "oichi_layers_v27",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 31.182
+    },
+    {
+      "name": "weapon_expansion_v24",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 1.089
+    },
+    {
+      "name": "weapon_render_v22",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 0.726
+    },
+    {
+      "name": "hero_layers_v22",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 29.44
+    },
+    {
+      "name": "projectile_v22",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 30.356
+    },
+    {
+      "name": "frame_animation",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 0.348
+    },
+    {
+      "name": "animation_timing_v11",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 29.704
+    }
+  ],
+  "native_selected": [
+    "oichi_pipeline_v27",
+    "oichi_layers_v27",
+    "weapon_expansion_v24",
+    "weapon_render_v22",
+    "hero_layers_v22",
+    "projectile_v22",
+    "frame_animation",
+    "animation_timing_v11"
+  ],
+  "native_excluded_count": 58,
+  "protected_assets": {
+    "ok": true,
+    "protected_file_count": 229,
+    "registered_weapon_count": 48,
+    "missing": [],
+    "changed": [],
+    "added_under_protected_folders": []
+  },
+  "tested_content_unchanged": true,
+  "changed_tested_files": [],
+  "ok": true,
+  "finished_at_utc": "2026-10-13T00:39:36.153709+00:00",
+  "builder_unit_tests": 20,
+  "color_unit_tests": 7,
+  "supplemental_bow_geometry": {
+    "checks": 31674,
+    "frames": 156,
+    "bow_facing_cases": 4992,
+    "bow_count": 16,
+    "facings": 2
+  },
+  "oichi_layers_checks": 1404
+}

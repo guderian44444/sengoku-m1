@@ -1,0 +1,598 @@
+{
+  "scope": "Independent read-only art/metadata review. Production files and shared repository were not modified.",
+  "contract_clips": 39,
+  "contract_pose_count": 234,
+  "body_clips_seen": 39,
+  "body_pose_slots_seen": 234,
+  "all_complete": false,
+  "review_notes": [
+    "A metadata label such as right_hand_grip is not accepted as anatomical evidence; shoulder-arm-hand chains were inspected in actual images.",
+    "Authored metadata uses full-source coordinates; runtime registration requires crop-local conversion, including polygons and hand occlusion.",
+    "source_region_polygon is an authoring field and must be compiled to runtime clip_polygon or equivalent isolated source selection.",
+    "Passed body/structure stage is not permission to claim sword composite, loop, native runtime, input or swap pass.",
+    "Discarded early heavy1 pilot has not been used as a current finding."
+  ],
+  "fixed_findings": [
+    {
+      "clip": "air_light",
+      "issue": "frame1/frame6 virtual root below crop",
+      "resolution": "Padding expanded, roots unchanged; reread bounds pass."
+    },
+    {
+      "clip": "light3",
+      "issue": "frame3/frame4/frame5 crops included neighboring body fragments",
+      "resolution": "Source selection polygons exclude all neighboring main components; own opaque components retained. Two isolated native single pixels kept as provenance, not repainted."
+    },
+    {
+      "clip": "jump",
+      "issue": "Scabbard wrong hip",
+      "resolution": "New six-pose source now screen-right anatomical left hip; anchors and contained components independently rereviewed."
+    },
+    {
+      "clip": "guard/charge/charge_upper",
+      "issue": "Four crop rects included neighboring pose fragments",
+      "resolution": "Rect bounds narrowed; all body components retained, neighboring major components absent."
+    },
+    {
+      "clip": "walk/run",
+      "issue": "Wide passing, upright running posture, incorrect same-leg phase order and run polygon foot clipping",
+      "resolution": "New sources plus authored frame3/6 swaps establish opposite leg order; independent source check now own loss0, foreign major components0. Offline body phase pass only."
+    },
+    {
+      "clip": "launched/down",
+      "issue": "Opposite falling orientation and down03→04 flip",
+      "resolution": "Final sources and equipped composites consistently head-left/feet-right at transition."
+    },
+    {
+      "clip": "charged_slam/ground_slam/special_3",
+      "issue": "Touching neighbor feet or cut source-canvas toes",
+      "resolution": "Separate raw poses and full-margin frame06 overrides independently passed native and authored polygon checks."
+    },
+    {
+      "clip": "air_heavy/mixed_finisher/special_3",
+      "issue": "Baked main-weapon fragments and missing empty scabbard",
+      "resolution": "Final repaired native sources independently viewed and source→export verified."
+    },
+    {
+      "clip": "composites",
+      "issue": "Blade floor/head intersection, cut preview blades, wrong front/back depth and protruding sheathed blade",
+      "resolution": "Authored angle/depth corrections, 1024 canvas, forearm foreground and sheath-plane/hilt-only helper checked in current composites."
+    }
+  ],
+  "open_gates": {
+    "delivery": "Awaiting final archive integrity and manifest inventory.",
+    "native_runtime": "Separate Codex integration required; no engine or gameplay claim.",
+    "inferred_hands": "Occluded secondary grips remain explicitly reference-inferred, mathematical fit is not direct visual observation."
+  },
+  "clips": [
+    {
+      "clip": "idle",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "5658867eb6329c9e4ac415b31d7830ce757d4f2d92b880bbec67ec3fe4c4120a",
+      "reviewed_sources": {
+        "raw/idle.png": "d69f2e1e5d71eb05ef3eca6baeaede5b16c6b0ff8bc05e2dc6a3d1503b47767d"
+      }
+    },
+    {
+      "clip": "light1",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "1c2527a6d52dabfef4073eed00b404f8015576ad4227bc1c0756d32bd4539e1f",
+      "reviewed_sources": {
+        "raw/light1.png": "e5dcf0f7b1dc4bf636ba026735b925c42b0bbe093375e62f7d0be8ef29186cee"
+      }
+    },
+    {
+      "clip": "light2",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "acb012e66dfee56b027089e1b253bd4604b557e45635a742ed827a65e6e949e7",
+      "reviewed_sources": {
+        "raw/light2.png": "505d002791b86d9c00fa01d5c6d38722f6415f86b45322e93ed6cd2803c7da3d"
+      }
+    },
+    {
+      "clip": "light3",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "f493cc627fc32f4f9b037d1d7262daf8b2800055f30ac6d0d8444d14b824ad53",
+      "reviewed_sources": {
+        "raw/light3.png": "400e87968fb399088d7c1433138c2d7079636a8225a6cfe0188b0c730abcc90c"
+      }
+    },
+    {
+      "clip": "rising",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "db84c5919983da25b3d8bb6c3857c1e9004b04f6669b22421364ce56091f1ce7",
+      "reviewed_sources": {
+        "raw/rising.png": "5df60096bb097a72a08f9c6b0ccb32bf439553b7baf66b7d1d28f185c506254f"
+      }
+    },
+    {
+      "clip": "low_sweep",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "57568e7aefd2a07fe406af4b7e67d152aef9465e211def1423e2b2e50cb1bb43",
+      "reviewed_sources": {
+        "raw/low_sweep.png": "0f8902a8da773faba9e5f81b0a31d3d7233588f32090815726ca2f2caa459acc"
+      }
+    },
+    {
+      "clip": "dash_strike",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "8472210989ccaf1f52afe60c39cc742cb130e17e2537f0af351a895792348fa3",
+      "reviewed_sources": {
+        "raw/dash_strike.png": "0fab185abf5fff93b7f47868f25123ba62c470c5a8a2ff59157ff36995e12ca6"
+      }
+    },
+    {
+      "clip": "dash_heavy",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "c4cfb68d712712f281867d88dddb4a7ae3007268eb6d1f59b5221442183bc2ee",
+      "reviewed_sources": {
+        "raw/dash_heavy.png": "cbcd451ecf98ef1c15ebcba50b32fbfd3322f2ed77124bdb65a8ac0ad77f87fc"
+      }
+    },
+    {
+      "clip": "air_light",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "1b98b3387d0aa9cb1f0c62504949db353732406e6f154f5de3ab59c17e5d501c",
+      "reviewed_sources": {
+        "raw/air_light.png": "2d34e5b92135c4f91971d55815008086600b53f917ca4fa42102dd7166955218"
+      }
+    },
+    {
+      "clip": "mixed_rising",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "594219017d6ce5ad50e05dfc8aa1ae7cc4258a9a743b3baafda06c0f4645478e",
+      "reviewed_sources": {
+        "raw/mixed_rising.png": "7c0d2bdb22a918498c39ecddd75dcdb4c2868d010b8f9aa1a610552b59ded881"
+      }
+    },
+    {
+      "clip": "grabbed",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "4ea2b56ba1faf9af1b7fe09598fcde8d6ec1b276fa7c466c1e3b2eb45bdd0ae3",
+      "reviewed_sources": {
+        "raw/grabbed.png": "ff8b182958fc97f08d3431f3304e1015d5ceaf861b91d7cacd75b31f973b79de"
+      }
+    },
+    {
+      "clip": "pulled",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "b55c3f4e5fe82f3c497e4bdac96843f73c98f735400e53f21926e52075e87b99",
+      "reviewed_sources": {
+        "raw/pulled.png": "b29ee0334874a0349b3601c5bb7ed14dbc5cb0c42f071c883cabc556c2171c43"
+      }
+    },
+    {
+      "clip": "down",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "b94fe67082581b5900e5238dea679c0323388846b24bb6b3ed396ed31c7c0c5b",
+      "reviewed_sources": {
+        "raw/down.png": "44eafd0bc38ab3cedd79cb255d12963224e25659ec5d8c5481bb465085ce929a"
+      }
+    },
+    {
+      "clip": "recovering",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "80dba6210c7a9b49c9c6fed6c733dac2dda7a0e193333d6c60dbb9059b828421",
+      "reviewed_sources": {
+        "raw/recovering.png": "9fc7671a99340e3f46ba5f16e14780d9e8086dc55cdbd01186552b8a69f3af1f"
+      }
+    },
+    {
+      "clip": "stunned",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "62ecdd3c3bc0001f500e838c8042e1161811dbe88e4602fc9f87c782e306055c",
+      "reviewed_sources": {
+        "raw/stunned.png": "6b001a6a88e72eeea9fb791141bd4824b3acb0026690b60ab86438c3a2daff3e"
+      }
+    },
+    {
+      "clip": "launched",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "f3dd252fa2792fc25b13356649e28e38535f5a91f568c2d9fb58f5963c6d7480",
+      "reviewed_sources": {
+        "raw/launched.png": "f61683110042fc7b20aa51131423dc3d5e698b2a5840676aa7d4845aef59e914"
+      }
+    },
+    {
+      "clip": "hurt",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "689b8443012ba56d3cd8ec3e43675898a0ebb3a0dd219b6e22feaea410f71b4c",
+      "reviewed_sources": {
+        "raw/hurt.png": "bf766a467afcca8cdeb7a846476b1623fba128164fd37313de49097f43b002ca"
+      }
+    },
+    {
+      "clip": "holding",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "f0db634aeb1cdfbb73fc7dd570f30a3beaff7b3e9c8942d44a67666af4764cc8",
+      "reviewed_sources": {
+        "raw/holding.png": "97c37efb741281f6262855706593e45ad30d14eac4e46af2b514827416309fc6"
+      }
+    },
+    {
+      "clip": "victory",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "e062b382e129f2c8828f2a0827b73580a712fd7e371195489958bb8daed24b9d",
+      "reviewed_sources": {
+        "raw/victory.png": "e26d875b773ca1b65e5bf120717dcadc7355430d982fbb5831d6c377dbfaf7e1"
+      }
+    },
+    {
+      "clip": "jump",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "944fdffedd005f24effa17469034674db01d492e15666f16d5322ea4c83e5f65",
+      "reviewed_sources": {
+        "raw/jump.png": "767ae52a733048fa4866459d3d7aa775e0c82c5879566fd01968c349139a4e5f"
+      }
+    },
+    {
+      "clip": "heavy1",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "bc732c06a4f9272ccaed1395d4ccff77a0fa719626e2eee733a1997d99e484fe",
+      "reviewed_sources": {
+        "raw/heavy1.png": "b3df455e15ec654f8d15e6680281be9dda251dad4f77a32039b087d4c946ca3b"
+      }
+    },
+    {
+      "clip": "special_1",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "d2203bbca9ea63dff53c4ed366724f611199686566477e9f34a08df0cfe2aa65",
+      "reviewed_sources": {
+        "raw/special_1.png": "43ded4e165758e371924540b407b7308b3b8a85a900b82fbf9d51094dacab20d"
+      }
+    },
+    {
+      "clip": "special_2",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "f06b67a2244d0aa6403fca8735f07d40b44934adaec39bf02338c070fa3e57bd",
+      "reviewed_sources": {
+        "raw/special_2.png": "0fff6b671afadd52d45d67fd527424b9e3ede699ba9fae187c2a5e63249da79b"
+      }
+    },
+    {
+      "clip": "throw",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "57c7289bd4db1dd35920c004da9d4c66d3f3411804a320b7799bb65bc7337e02",
+      "reviewed_sources": {
+        "raw/throw.png": "04794d5da947e1c3fc190982af1f3c5ebfc2d2e8884af56f2e226dd32bf68fb1"
+      }
+    },
+    {
+      "clip": "walk",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "909eb668663f2f649c41dd9d00ccbe4dcd90a0c2a0fe5322c9021162609513c9",
+      "reviewed_sources": {
+        "raw/walk.png": "be91dface6784cb2ee882141386519f38b200413ed5eb6e0105a9b0b4212c94d",
+        "raw/walk_passing.png": "8ccbc7b0b2ba256dc5babaa00b32a23aff8b72552e00a29aa2dbee9fc2c74a3f",
+        "raw/walk_opposite.png": "6368e0105ad962d4d73003c41aaad36d2211cc93ba32542406050b3df8693215"
+      }
+    },
+    {
+      "clip": "run",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "36c49943f67063b38c5856a00a942ad106c5ea03620179cc7d4bc26a5fa0de74",
+      "reviewed_sources": {
+        "raw/run.png": "aabdb1eb5b94fe9ee334dcff498dd39fb7ce76fcb210710b9b5e3532408e4fa6",
+        "raw/run_opposite_lean.png": "97afebc99f631b964ff77b90ddda4e6019f9ebbc7bcf3469be269b9ee4721b12"
+      }
+    },
+    {
+      "clip": "guard",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "37679d9750eba0cc50f7880758623bdac49b0a4a2a5368a9cffb4c6a2b98df38",
+      "reviewed_sources": {
+        "raw/guard.png": "e5b1728f07be03606ca0438c762708348d2ec4a47e945e326d11bc45b42776e7"
+      }
+    },
+    {
+      "clip": "charge",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "0d7fc9c43405d4427fd5f9feef8e52cd532aec6af93e92888c6df3ddab323b50",
+      "reviewed_sources": {
+        "raw/charge.png": "552e4d153f43df8e8e5963abaee46f5931eb5d67e4987e761f221570c0a849d7"
+      }
+    },
+    {
+      "clip": "charge_upper",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "2758deffd10e4fbc5466328f9737cbdf2fcfad97f1688a77eea5d6540f1decb7",
+      "reviewed_sources": {
+        "raw/charge_upper.png": "d8f39b54fe0f607cb68433ffe51605087602b840eb39c28f36b9e72965060c43"
+      }
+    },
+    {
+      "clip": "heavy2",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "9d637674995da10b2edc7b18eef8b5f3152aadcb1a994d93391410a03b5edb13",
+      "reviewed_sources": {
+        "raw/heavy2.png": "e35462d44b7d836165514a6a78f9269ce704794aafa0c67a4f1c702441752f08"
+      }
+    },
+    {
+      "clip": "upper_heavy",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "a4c3d6a4758f3f85842f566d2b40f41f3b20f91b73192f57ab6f09c0d31dc3b0",
+      "reviewed_sources": {
+        "raw/upper_heavy.png": "11802e4fbd7a9a6d85418446b0b61fd9f004681f496e0679dc28eb5d0281bc90"
+      },
+      "artwork_cleanup_status": "close-up confirmed dark bar is continuous wrist armor, not detached hilt; issue withdrawn"
+    },
+    {
+      "clip": "ground_slam",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "c9ceea35fa0625f98dd16e9cbc2de383fef58ffa6fb1fe99abea0a802b0e901d",
+      "reviewed_sources": {
+        "raw/ground_slam.png": "8ecdf5e3aa40ab095ad86202034852cdd077ae4d32736f4dab1e9d614d3df8a2",
+        "raw/ground_slam-frame06-complete.png": "91d0efc91dc08f5813a7fdfa7744617fe5dda1289058906b9109d994406f1734"
+      }
+    },
+    {
+      "clip": "charge_slam",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "59bccdf4c3c66568212d9d25fcc1fe770ad16545e19edddeef50b67744e3d679",
+      "reviewed_sources": {
+        "raw/charge_slam.png": "d95eed9103cd6e4dbb304118d8e6f7bfccec5e5444ccc65c50b2b687f4fb27b0"
+      }
+    },
+    {
+      "clip": "charged",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "d3d322ed50b6542f863b6627502ecfb8fdc7e532d8278e861047cbef18800795",
+      "reviewed_sources": {
+        "raw/charged.png": "3a4b1b600fef1f11ee17a246d772d536df79dcd8730ab852756dea8b0d8c285f",
+        "raw/charged-frame04-fixed.png": "ad045c71d15a2f945e1b4fdb70598534c7495ea3121b03042e79dc1000c0bdb3"
+      }
+    },
+    {
+      "clip": "charged_upper",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "e56f2ce744e53ce2aa7d52d2721c119565da96855a7f12f4564f841e500ae227",
+      "reviewed_sources": {
+        "raw/charged_upper.png": "bdc208c75b11009688244468df4076e16ec5b7ea6d4a5fd23322cd13ff519e24"
+      }
+    },
+    {
+      "clip": "special_3",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "2d4739f710900ea5a0ee665b31ead8eb9489ca047e23054760025619043f26e9",
+      "reviewed_sources": {
+        "raw/special_3.png": "9a6c0440ff36ce791256f75e11315c314ea943797f6387d39c3b1022513275fb",
+        "raw/special_3-frame06-complete.png": "951b01cc8f309dc6de6030df2b7d47445b5dcca5dad528abeb6e57e42a2a48be"
+      }
+    },
+    {
+      "clip": "charged_slam",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "19b4778c04fb54624b6c2a5f2eed949a4b9e4414910f6ba47448f3d31882d71c",
+      "reviewed_sources": {
+        "raw/charged_slam.png": "0325d31c92832d148fa96cb65d7bebc287c5f8c08249f33ecf78de54a149dd32",
+        "raw/charged_slam-frame06-scabbard.png": "db6bf8514aa176ea13c7ba604d1867792c3867014880504868df0a5618f76404"
+      },
+      "blocker": "Feet04/05 separation repaired and rereviewed; source06 complete-toe override is still pending."
+    },
+    {
+      "clip": "mixed_finisher",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "68b0c694c31b68ab7a5cf93e4b4ba4d2386705da70edf99fafcdc350e0f985b9",
+      "reviewed_sources": {
+        "raw/mixed_finisher.png": "31ef707d378719d49189183faf8bb1c15dc9a399e4d22a824ffc59752fab7d5b"
+      }
+    },
+    {
+      "clip": "air_heavy",
+      "expected_frames": 6,
+      "body_sheets_visually_reviewed": true,
+      "structural_status": "passed_current_native_sources",
+      "composite_weapon_status": "all6_uchigatana_contact_visually_reviewed;three_equipment_math_fit_and_canvas_pass;additional_equipment_visual_samples_checked",
+      "animation_and_transition_status": "offline_body_phase_review_pass;native_timing_and_game_transitions_require_integration",
+      "runtime_native_status": "not_run_not_integrated",
+      "reviewed_metadata_sha256": "f30424e3f428eff82c7cae4d0d4dcc1e9b38b6f135d0616b97e85bc8d11a7652",
+      "reviewed_sources": {
+        "raw/air_heavy.png": "ac7124edf883d1ce2ed6c24e58752c4db0fa975b423743df745a68c1613e2be7",
+        "raw/air_heavy-frame04-scabbard.png": "163b6e2d15361bc8c5a58c99a9fd13ac1c4bc391edf58a1a77706503a69474fc"
+      }
+    }
+  ],
+  "updated_utc": "2026-10-13T04:29:00Z",
+  "portrait_visually_reviewed": true,
+  "asset_checks_passed": true,
+  "delivery_archive_integrity": "awaiting_final_archive",
+  "native_game_integration": "out_of_scope_not_installed_or_tested",
+  "native_pixel_audit": "compiled-native-pixel-audit.json",
+  "graded_pixel_audit": "graded-pixel-audit.json",
+  "atlas_and_portrait_audit": "graded-delivery-audit.json",
+  "raw_source_audit": "final-authored-source-audit.json",
+  "clean_rebuild_pixels": "508 PNG pixels exactly match final delivery (234 bodies,234 foreground,39 atlases,1 portrait)",
+  "final_reaction_replay": "All18 metadata match final after latest5 angle adjustment",
+  "final_registry_sha256": "77a0a369a97b375df5b6f4a0e9d143967e02ab9b7efd6a12d61c8dbc04b78813"
+}

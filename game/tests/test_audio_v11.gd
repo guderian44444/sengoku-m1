@@ -29,7 +29,7 @@ func run() -> void:
 	var audio := Audio.new()
 	root.add_child(audio)
 	await process_frame
-	check(audio.speech_manifest.version in ["0.11","0.14","0.15"], "Expressive combat voices are installed")
+	check(audio.speech_manifest.version in ["0.11","0.14","0.15","0.27","0.30"], "Expressive combat voices are installed")
 	var legacy: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://audio/v11/manifest.json"))
 	var previous: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://audio/v10/manifest.json"))
 	var updated := 0

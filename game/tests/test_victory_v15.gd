@@ -56,6 +56,7 @@ func _initialize() -> void:
 	check(airborne.stun == 0, "Victory cannot retain a permanent stun indicator")
 
 	var dead_partner = arena()
+	dead_partner.state.fighters[1].lives = 1
 	dead_partner._damage(dead_partner.state.fighters[1], 10000, dead_partner.state.fighters[2].id, false)
 	dead_partner.step([])
 	advance(dead_partner, 130)
@@ -67,7 +68,7 @@ func _initialize() -> void:
 	var deferred = arena(["hideyoshi", "ieyasu"])
 	deferred.step([])
 	advance(deferred, 30)
-	check(deferred.state.fighters[0].action == "idle" and deferred.state.fighters[1].action == "idle", "Other heroes keep their existing presentation until commissioned")
+	check(deferred.state.fighters[0].action == "victory" and deferred.state.fighters[1].action == "victory", "The remaining living heroes enter victory for their own dialogue")
 
 	for hero in ["nobunaga", "oichi"]:
 		for tick in range(141):

@@ -2,6 +2,7 @@ extends SceneTree
 
 const Battle = preload("res://core/battle.gd")
 const Wire = preload("res://core/wire.gd")
+const Equipment = preload("res://core/equipment.gd")
 var checks := 0
 var failures := 0
 
@@ -54,6 +55,7 @@ func _test_real_states() -> void:
 		if type == "damage": effect.merge({"target": 2, "amount": 20})
 		if type == "landing": effect.merge({"target": 2, "wet": true, "bounce": 1})
 		if type == "debris": effect.kind = "crate"
+		if type == "fire_patch": effect.merge({"warmup":30,"interval":45})
 		valid.effects = [effect]
 		_check(Wire.valid_snapshot(valid), "effect " + type)
 	valid.effects = []
@@ -75,7 +77,9 @@ func _test_real_states() -> void:
 	for type in Wire.EVENTS:
 		valid.events = [{"type": type, "x": 500.0, "y": 450.0, "id": 1, "actor": 1, "target": 2}]
 		if type == "damage": valid.events[0].amount = 20
+		if type == "challenge_complete": valid.events[0].amount = 300
 		if type == "food_pickup": valid.events[0].merge({"food_id":"rice", "heal":40})
+		if type == "achievement": valid.events[0].merge({"achievement_id":"cleave3","loot":false,"description":"單次攻擊命中 3 人","name":"一刀三斬"})
 		_check(Wire.valid_snapshot(valid), "event " + type)
 	for metadata in [{}, {"combo": 0, "heavy_combo": 0, "finisher": false}, {"combo": 3, "heavy_combo": 2, "finisher": true}]:
 		valid.events = [{"type": "swing", "x": 500.0, "y": 450.0, "id": 1, "actor": 1, "target": 0, "action": "light"}]
@@ -120,8 +124,7 @@ func _test_invalid_snapshots() -> void:
 		_check(not Wire.valid_snapshot(malformed), "invalid progression stat " + str(pair))
 	for key in Battle.TALISMANS:
 		var shielded := original.duplicate(true)
-		shielded.fighters[0].shield_kind = key
-		shielded.fighters[0].shield_points = Battle.TALISMANS[key].shield
+		Equipment.equip(shielded.fighters[0],Equipment.add(shielded.fighters[0],key))
 		shielded.drops = [{"id":999,"kind":"talisman","x":300.0,"y":450.0,"talisman_id":key}]
 		_check(Wire.valid_snapshot(shielded), "Valid talisman and shield " + key)
 		shielded.fighters[0].shield_points += 1

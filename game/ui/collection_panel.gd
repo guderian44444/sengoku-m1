@@ -3,6 +3,7 @@ extends Control
 signal closed
 signal equip_requested(id: String)
 signal details_requested(id: String)
+signal sell_requested(id: String)
 var entries: Array = []
 var equipped: Array = []
 var selected_id := ""
@@ -17,6 +18,7 @@ var picture: TextureRect
 var equip_button: Button
 var details_button: Button
 var notice: Label
+var sell_button: Button
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -70,13 +72,16 @@ func _ready() -> void:
 	detail.add_child(actions)
 	equip_button = _button(actions,"裝備",func(): equip_requested.emit(selected_id))
 	details_button = _button(actions,"查看圖鑑",func(): details_requested.emit(selected_id))
+	sell_button = _button(actions,"出售",func(): sell_requested.emit(selected_id))
+	var buy_button := _button(actions,"購買（尚未開放）",func(): pass)
+	buy_button.disabled = true
 	notice = _label(page,"",18)
 
 # Rows supply id, name, category, description and optional image/actions; the page is independent of weapon data.
 func configure(owner: String, items: Array, equipped_ids: Array) -> void:
 	entries = items.duplicate(true)
 	equipped = equipped_ids.duplicate()
-	title.text = owner + "　收藏與裝備（%d 件）" % entries.size()
+	title.text = owner + "　行囊（%d 件）" % entries.size()
 	var slots: Array[String] = []
 	for item in entries:
 		if item.id in equipped: slots.append(str(item.get("slot","裝備")) + "：" + str(item.name))
@@ -111,6 +116,7 @@ func refresh_list() -> void:
 		picture.texture = null
 		equip_button.disabled = true
 		details_button.hide()
+		sell_button.disabled = true
 		return
 	if not listed.any(func(item): return str(item.id) == selected_id): selected_id = str(listed[0].id)
 	select_item(selected_id)
@@ -129,6 +135,8 @@ func select_item(id: String) -> void:
 		equip_button.disabled = id in equipped or not item.get("can_equip",false)
 		equip_button.text = "裝備"
 		details_button.visible = item.get("has_details",false)
+		sell_button.disabled = id in equipped
+		sell_button.text = "出售　%d 文" % int(item.get("price",0))
 		return
 
 func _label(parent: Node, value: String, size: int) -> Label:

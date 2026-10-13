@@ -76,7 +76,7 @@ func _ready() -> void:
 	_food_player.bus = CATEGORY_BUSES.sfx
 	_food_player.volume_db = -10.0
 	add_child(_food_player)
-	var voice_root := "res://audio/v27/" if FileAccess.file_exists("res://audio/v27/manifest.json") else ("res://audio/v15/" if FileAccess.file_exists("res://audio/v15/manifest.json") else ("res://audio/v14/" if FileAccess.file_exists("res://audio/v14/manifest.json") else ("res://audio/v11/" if FileAccess.file_exists("res://audio/v11/manifest.json") else "res://audio/v10/")))
+	var voice_root := "res://audio/v30/" if FileAccess.file_exists("res://audio/v30/manifest.json") else ("res://audio/v27/" if FileAccess.file_exists("res://audio/v27/manifest.json") else ("res://audio/v15/" if FileAccess.file_exists("res://audio/v15/manifest.json") else ("res://audio/v14/" if FileAccess.file_exists("res://audio/v14/manifest.json") else ("res://audio/v11/" if FileAccess.file_exists("res://audio/v11/manifest.json") else "res://audio/v10/"))))
 	var manifest_path := voice_root + "manifest.json"
 	if FileAccess.file_exists(manifest_path):
 		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
@@ -297,7 +297,7 @@ func play_character(actor: String, event: String, slot: int = 0, force: bool = f
 	if not _speech_streams.has(key): return
 	last_spoken = key
 	player.stream = _speech_streams[key]
-	player.pitch_scale = 0.88 if actor == "tadakatsu" else 1.0
+	player.pitch_scale = 0.88 if actor == "tadakatsu" and not speech_manifest.has("hero_voice_profiles") else 1.0
 	player.play()
 
 func _play_character_event(event: Dictionary) -> void:

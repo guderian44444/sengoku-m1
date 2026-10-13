@@ -1,0 +1,320 @@
+{
+  "schema": "oichi-combat-standing-equivalent-scales-v1",
+  "method": "Visually authored crown (excluding ponytail), neck base, pelvis and unfolded thigh/shin/foot chain. Source bounds, overall alpha height, arm height, hair length and screen ground projection were not used as scale rulers. Covered/depth-foreshortened limb lengths are checked against another phase of the same sheet.",
+  "units": "native source pixels",
+  "all_sources": "1536x1024 RGBA; no image pixels changed",
+  "clips": {
+    "light1": {
+      "body_height": 385,
+      "per_frame_body_height": [
+        385,
+        390,
+        385,
+        385,
+        380,
+        385
+      ],
+      "uncertainty_px": 15,
+      "reference_frame": 1,
+      "ruler_points": {
+        "skull_crown": [
+          309,
+          126
+        ],
+        "neck_base": [
+          290,
+          181
+        ],
+        "pelvis": [
+          284,
+          303
+        ],
+        "knee": [
+          213,
+          362
+        ],
+        "ankle": [
+          169,
+          430
+        ],
+        "sole_support": [
+          156,
+          459
+        ]
+      },
+      "ruler_description": "Crown excludes high ponytail. Follow neck to covered pelvis, then screen-left rear thigh and shin to ankle and sole. Unfolded chain is about 385px; corrected source has genuinely smaller anatomy than all other combat sheets.",
+      "variation": "No clear within-sheet scale outlier. About 380–390px; do not assign 500px.",
+      "ruler_raw_polyline_px": 385.4,
+      "measurement_status": "Approximate visual anatomical ruler, rounded for registration; not exact morphometrics."
+    },
+    "light2": {
+      "body_height": 500,
+      "per_frame_body_height": [
+        505,
+        505,
+        495,
+        505,
+        500,
+        500
+      ],
+      "uncertainty_px": 20,
+      "reference_frame": 1,
+      "ruler_points": {
+        "skull_crown": [
+          297,
+          58
+        ],
+        "neck_base": [
+          277,
+          130
+        ],
+        "pelvis": [
+          270,
+          292
+        ],
+        "knee": [
+          177,
+          373
+        ],
+        "ankle": [
+          108,
+          463
+        ],
+        "sole_support": [
+          95,
+          497
+        ]
+      },
+      "ruler_description": "Use crown, collar/neck and pelvis under skirt, then long visible rear-leg thigh/shin with sandal sole. Raw visual chain approximately 510px; cross-check frame 6 near 500px. Adopt 500px rounded standing equivalent.",
+      "variation": "No clear outlier; roughly ±2% among ready and release poses.",
+      "ruler_raw_polyline_px": 510.0,
+      "measurement_status": "Approximate visual anatomical ruler, rounded for registration; not exact morphometrics."
+    },
+    "light3": {
+      "body_height": 485,
+      "per_frame_body_height": [
+        495,
+        470,
+        470,
+        470,
+        475,
+        505
+      ],
+      "uncertainty_px": 20,
+      "reference_frame": 2,
+      "ruler_points": {
+        "skull_crown": [
+          754,
+          38
+        ],
+        "neck_base": [
+          736,
+          103
+        ],
+        "pelvis": [
+          745,
+          269
+        ],
+        "knee": [
+          750,
+          351
+        ],
+        "ankle": [
+          740,
+          458
+        ],
+        "sole_support": [
+          741,
+          496
+        ]
+      },
+      "ruler_description": "Standing support-leg chain in knee-raised frame 2 is approximately 461px before small depth/occlusion allowance, giving ~470px. Frames 1 and 6 require unfolding their wide stance and measure nearer 495–505px. Arms, kick toe extent and ponytail are excluded.",
+      "variation": "Use per-frame scales here: frames 2–5 have visibly shorter standing-equivalent body chains than broad ready frames 1 and 6, around 6–7% difference. This includes pose/proportion variation, not solely uniform resizing.",
+      "recommended_overrides": {
+        "1": 495,
+        "2": 470,
+        "3": 470,
+        "4": 470,
+        "5": 475,
+        "6": 505
+      },
+      "ruler_raw_polyline_px": 461.3,
+      "measurement_status": "Approximate visual anatomical ruler, rounded for registration; not exact morphometrics."
+    },
+    "air_light": {
+      "body_height": 525,
+      "per_frame_body_height": [
+        535,
+        525,
+        520,
+        525,
+        525,
+        520
+      ],
+      "uncertainty_px": 30,
+      "reference_frame": 3,
+      "ruler_points": {
+        "skull_crown": [
+          1358,
+          94
+        ],
+        "neck_base": [
+          1319,
+          188
+        ],
+        "pelvis": [
+          1268,
+          325
+        ],
+        "knee": [
+          1348,
+          406
+        ],
+        "ankle": [
+          1431,
+          478
+        ],
+        "sole_support": [
+          1458,
+          510
+        ]
+      },
+      "ruler_description": "Frame 3 extended screen-right leg provides the least-occluded ruler: crown/neck/pelvis and unfolded thigh-shin-foot is ~514px, with modest depth allowance about 520–525px. For tucked frames 1–2, use full femur/shin lengths cross-checked against frames 3–5 rather than apparent tucked height.",
+      "variation": "No clear scale outlier beyond measurement uncertainty. Frame 1 is plausibly ~2% larger. Airborne root is not a ground-height ruler.",
+      "ruler_raw_polyline_px": 513.5,
+      "measurement_status": "Approximate visual anatomical ruler, rounded for registration; not exact morphometrics."
+    },
+    "rising": {
+      "body_height": 465,
+      "per_frame_body_height": [
+        455,
+        465,
+        475,
+        450,
+        470,
+        465
+      ],
+      "uncertainty_px": 25,
+      "reference_frame": 3,
+      "ruler_points": {
+        "skull_crown": [
+          1349,
+          61
+        ],
+        "neck_base": [
+          1320,
+          131
+        ],
+        "pelvis": [
+          1297,
+          280
+        ],
+        "knee": [
+          1269,
+          340
+        ],
+        "ankle": [
+          1175,
+          435
+        ],
+        "sole_support": [
+          1167,
+          485
+        ]
+      },
+      "ruler_description": "Rising frame 3 crown-to-neck, neck-to-pelvis and visible bent leg chain is ~477px; the upright support leg of frame 4 gives a lower ~450px check. Adopt ~465px. Raised fist, ponytail and jump displacement are excluded.",
+      "variation": "Frame 4 is somewhat smaller (~450px), frame 3 nearer475px, but variation is within ~5% and uncertainty of hidden hip/leg depth; overrides optional.",
+      "ruler_raw_polyline_px": 477.0,
+      "measurement_status": "Approximate visual anatomical ruler, rounded for registration; not exact morphometrics."
+    },
+    "dash_strike": {
+      "body_height": 500,
+      "per_frame_body_height": [
+        490,
+        505,
+        485,
+        535,
+        490,
+        500
+      ],
+      "uncertainty_px": 25,
+      "reference_frame": 4,
+      "ruler_points": {
+        "skull_crown": [
+          475,
+          639
+        ],
+        "neck_base": [
+          436,
+          710
+        ],
+        "pelvis": [
+          342,
+          818
+        ],
+        "knee": [
+          196,
+          861
+        ],
+        "ankle": [
+          81,
+          916
+        ],
+        "sole_support": [
+          61,
+          952
+        ]
+      },
+      "ruler_description": "Extreme frame 4 follows skull/neck, inclined torso and extended rear thigh/shin to sandal. Raw polyline ~546px; hip/foot-axis allowance gives ~535px. Frames1,2,6 cross-check near490–505px, so 500px is a sensible sheet baseline.",
+      "variation": "Frame 4 is a clear long-body/leg outlier, ~7% above sheet baseline. Use body_height535 for frame4; others can use500 or listed fine estimates. Head size changes less than leg-chain length, so this is partly exaggerated lunge anatomy rather than uniform scaling.",
+      "recommended_overrides": {
+        "4": 535
+      },
+      "ruler_raw_polyline_px": 545.0,
+      "measurement_status": "Approximate visual anatomical ruler, rounded for registration; not exact morphometrics."
+    },
+    "throw": {
+      "body_height": 500,
+      "per_frame_body_height": [
+        510,
+        500,
+        500,
+        510,
+        495,
+        505
+      ],
+      "uncertainty_px": 20,
+      "reference_frame": 3,
+      "ruler_points": {
+        "skull_crown": [
+          1379,
+          49
+        ],
+        "neck_base": [
+          1352,
+          124
+        ],
+        "pelvis": [
+          1335,
+          290
+        ],
+        "knee": [
+          1416,
+          336
+        ],
+        "ankle": [
+          1416,
+          456
+        ],
+        "sole_support": [
+          1441,
+          489
+        ]
+      },
+      "ruler_description": "Hip-turn frame3 yields ~501px from crown/neck/pelvis through front thigh, shin and sole. Forward-folded frame4 is measured by torso-plus-leg chains rather than its crouched silhouette height.",
+      "variation": "No clear scale outlier; approximately495–510px.",
+      "ruler_raw_polyline_px": 501.1,
+      "measurement_status": "Approximate visual anatomical ruler, rounded for registration; not exact morphometrics."
+    }
+  }
+}

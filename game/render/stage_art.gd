@@ -2,6 +2,8 @@ extends RefCounted
 
 const ROOT := "res://assets/v18/"
 const SCENERY_ROOT := "res://assets/v19/scenery/"
+const STAGE2_ROOT := "res://assets/v29/stage2/"
+const STAGE2_HORIZONS := {"supply_road":0.515,"riverbank":0.565,"granary":0.515,"switchback":0.56,"marune_gate":0.55,"supply_court":0.515}
 const THEMES := {"bamboo":"bamboo","ridge":"ridge","village":"village","road":"village","outpost":"fort","gate":"fort","camp":"camp","courtyard":"courtyard","command":"camp","chamber":"chamber"}
 const DEBRIS := {"jar":"ceramic","basket":"wicker","barricade":"bamboo","fence":"bamboo","planter":"ceramic","stone_lantern":"ceramic","rice_bales":"wicker"}
 var props: Dictionary = {}
@@ -32,6 +34,10 @@ func _init() -> void:
 			var entry: Dictionary = scenery_registration.backgrounds[key]
 			var image := _image(str(entry.source),SCENERY_ROOT)
 			backgrounds[key] = {"texture":ImageTexture.create_from_image(image),"region":Rect2(Vector2.ZERO,image.get_size()),"horizon":float(entry.horizon),"source":SCENERY_ROOT+str(entry.source)}
+	for key in STAGE2_HORIZONS:
+		var image := _image(str(key) + ".png",STAGE2_ROOT)
+		if image != null:
+			backgrounds[key] = {"texture":ImageTexture.create_from_image(image),"region":Rect2(Vector2.ZERO,image.get_size()),"horizon":float(STAGE2_HORIZONS[key]),"source":STAGE2_ROOT+str(key)+".png"}
 	_images.clear()
 
 func _image(source: String, root: String = ROOT) -> Image:
@@ -49,13 +55,13 @@ func _frame(entry: Dictionary, root: String = ROOT) -> Dictionary:
 	return {"texture":ImageTexture.create_from_image(padded),"region":Rect2(Vector2.ZERO,padded.get_size()),"anchor":Vector2(float(entry.anchor[0])+2,float(entry.anchor[1])+2),"body_height":float(entry.body_height),"display_height":float(entry.get("display_height",40)),"source":(root if root != ROOT else "")+str(entry.source),"source_region":region,"footprint_depth":float(entry.get("footprint_depth",0))}
 
 func background(theme: String) -> Dictionary:
-	var key: String = THEMES.get(theme,"bamboo")
+	var key: String = theme if STAGE2_HORIZONS.has(theme) else THEMES.get(theme,"bamboo")
 	if key == "courtyard" and not backgrounds.has(key): key = "camp"
 	return backgrounds.get(key,{})
 
 func borders(theme: String) -> Array:
 	var result := []
-	var key: String = {"road":"village","outpost":"gate","command":"camp"}.get(theme,theme)
+	var key: String = {"road":"village","outpost":"gate","command":"camp","supply_road":"bamboo","riverbank":"ridge","granary":"village","switchback":"ridge","marune_gate":"gate","supply_court":"courtyard"}.get(theme,theme)
 	for id in scenery_registration.get("border_themes",{}).get(key,[]):
 		if border_frames.has(id): result.append(border_frames[id])
 	return result

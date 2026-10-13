@@ -11,7 +11,7 @@
      "encounters":[
        {"end":1200,"waves":[["soldier","archer","flag","soldier","soldier","archer","flag","soldier"],["soldier","archer","soldier","soldier","archer","soldier"]]},
        {"end":2400,"waves":[["archer","soldier","flag","soldier","archer","soldier","flag","soldier"],["soldier","archer","boss","soldier","archer","soldier"]],"boss":{"name":"瀨名氏俊","line":"山道兩側，合圍！一個都別放過！","final":false}}],
-     "props":[["crate",433,560,"rice"],["cart",813,405,""],["basket",1340,565,""],["barricade",1900,420,"",true],["barricade",1900,550,"",true],["jar",2180,560,""]]},
+     "props":[["crate",433,560,"rice"],["cart",813,405,"",false,"wind"],["basket",1340,565,""],["barricade",1900,420,"",true],["barricade",1900,550,"",true],["jar",2180,560,""]]},
     {"name":"山腳市集","theme":"village","weather":"rain","music":"town","width":2533,"civilians":"vendors",
      "encounters":[
        {"end":1267,"waves":[["soldier","flag","archer","soldier","flag","archer"],["commander","soldier","soldier","gunner","commander","soldier","soldier","gunner"],["soldier","archer","soldier","soldier","archer","soldier"]]},
@@ -21,7 +21,7 @@
      "encounters":[
        {"end":1200,"waves":[["soldier","flag","archer","soldier","soldier","flag","archer","soldier"],["commander","soldier","gunner","soldier","commander","soldier","gunner","soldier"]]},
        {"end":2400,"waves":[["soldier","archer","flag","soldier","soldier","archer","flag","soldier"],["commander","gunner","soldier","commander","gunner","soldier"],["soldier","archer","boss","soldier","archer","soldier"]],"boss":{"name":"鵜殿長照","line":"守住寨門！今川軍，隨我迎敵！","final":false}}],
-     "props":[["jar",380,565,"peach"],["barricade",913,420,"",true],["barricade",913,550,"",true],["large_crate",1353,395,""],["jar",1593,565,""],["fence",1940,420,"",true],["fence",1940,550,"",true]]},
+     "props":[["jar",380,565,"peach"],["barricade",913,420,"",true],["barricade",913,550,"",true],["large_crate",1353,395,"",false,"war"],["jar",1593,565,""],["fence",1940,420,"",true],["fence",1940,550,"",true]]},
     {"name":"夕照兵糧營","theme":"camp","weather":"clear","music":"castle","width":2400,"civilians":"porters",
      "encounters":[
        {"end":1200,"waves":[["soldier","flag","archer","soldier","soldier","flag","archer","soldier"],["commander","soldier","gunner","soldier","commander","soldier","gunner","soldier"]]},
@@ -36,6 +36,6 @@
      "encounters":[
        {"end":1067,"waves":[["commander","soldier","flag","gunner","commander","soldier","flag","gunner"],["soldier","archer","commander","soldier","archer","commander"]]},
        {"end":2133,"waves":[["commander","soldier","gunner","commander","soldier","gunner"],["boss","soldier"]],"boss":{"name":"松井宗信","line":"松井宗信在此！援軍接應，隨我殺退敵軍！","final":true}}],
-     "props":[["screen",393,410,""],["cabinet",627,565,"fish"],["screen",840,420,"",true],["screen",840,550,"",true],["jar",967,565,""],["cabinet",1467,395,""],["screen",1660,565,""],["jar",1913,575,""]]}
+     "props":[["screen",393,410,""],["cabinet",627,565,"fish"],["screen",840,420,"",true],["screen",840,550,"",true],["jar",967,565,""],["cabinet",1467,395,"",false,"moon"],["screen",1660,565,""],["jar",1913,575,""]]}
   ]
 }

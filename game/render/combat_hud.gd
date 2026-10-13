@@ -3,6 +3,8 @@ extends Control
 const Typography = preload("res://render/game_typography.gd")
 const Battle = preload("res://core/battle.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
+const Equipment = preload("res://core/equipment.gd")
+const LayeredHeroSource = preload("res://render/layered_hero_source.gd")
 const HERO_NAMES := {"nobunaga":"信長", "oichi":"阿市", "hideyoshi":"秀吉", "ieyasu":"家康", "mitsuhide":"光秀", "tadakatsu":"忠勝"}
 # Native source regions retain the accepted character art; no separately generated faces.
 const PORTRAITS := {
@@ -24,7 +26,7 @@ var _font: Font
 var _tick := 0
 
 static func portrait_spec(hero: String) -> Dictionary:
-	var path := "res://assets/v22/" + hero + "/registration.json"
+	var path := LayeredHeroSource.folder(hero) + "registration.json"
 	if FileAccess.file_exists(path):
 		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
 		if data is Dictionary and data.get("portrait") is Dictionary:
@@ -61,7 +63,7 @@ static func player_status(fighter: Dictionary, tick: int) -> Dictionary:
 	var lives := maxi(0,int(fighter.get("lives",Battle.STARTING_LIVES)))
 	var extra_age := tick - int(fighter.get("extra_life_tick",-1000))
 	var extra := extra_age >= 0 and extra_age < 120
-	var shield := "盾 %d" % maxi(0,int(fighter.get("shield_points",0)))
+	var shield := "符 %d" % maxi(0,int(fighter.get("shield_points",0)))
 	if int(fighter.get("respawn_ticks",0)) > 0: shield = "再起 %.1f" % (float(fighter.respawn_ticks) / 60.0)
 	return {"lives":"命×%d" % lives if lives > 0 else "命盡", "score":"分 %07d" % maxi(0,int(fighter.get("score",0))), "shield":shield, "extra":extra and extra_age % 20 < 14}
 
@@ -99,7 +101,8 @@ func _draw() -> void:
 		_bar(Rect2(text_x + 24, origin.y + 65, 150, 12), rage / 100.0, Color("ffd066") if rage >= 100 else Color("eea449"))
 		_label(Vector2(text_x + 181, origin.y + 77), "MAX" if rage >= 100 else str(int(rage)), 13, GOLD)
 		_label(Vector2(text_x + 237, origin.y + 77), "甲%d" % fighter.get("armor", 0), 13, MUTED)
-		_label(Vector2(text_x, origin.y + 97), "武器　" + Weapons.name_for(fighter), 16, GOLD)
+		var item := Equipment.instance(fighter,int(fighter.get("weapon_uid",0)))
+		_label(Vector2(text_x, origin.y + 97), Weapons.name_for(fighter) + ("　耐 %d" % int(item.durability) if not item.is_empty() else ""), 15, GOLD)
 	if not boss.is_empty():
 		draw_rect(BOSS_RECT, PANEL)
 		var name_text := str(boss.get("display_name", "陣營小王"))

@@ -11,9 +11,9 @@ func check(value: bool, label: String) -> void:
 		failures += 1
 		push_error(label)
 
-func arena(kind: String = "soldier"):
+func arena(kind: String = "soldier", hero: String = "nobunaga"):
 	var battle := Battle.new()
-	battle.reset_training("nobunaga")
+	battle.reset_training(hero)
 	battle.state.props = []
 	battle.state.effects = []
 	battle.state.fighters.resize(1)
@@ -51,11 +51,8 @@ func _initialize() -> void:
 	quit(0 if failures == 0 else 1)
 
 func _test_arrow_passes() -> void:
-	var battle = arena()
+	var battle = arena("soldier","oichi")
 	var player: Dictionary = battle.state.fighters[0]
-	player.kind = "oichi"
-	player.weapon_id = Battle.Weapons.default_for("oichi")
-	player.owned_weapons = [player.weapon_id]
 	player.action = "charged"
 	var down: Dictionary = battle.state.fighters[1]
 	down.x = 580.0

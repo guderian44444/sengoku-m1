@@ -1,0 +1,453 @@
+{
+  "animation": "victory",
+  "source": "raw/victory.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "Full-sheet source pixels, origin top-left. Rectangles x,y,width,height; all anchors and hand rectangles global. Convert to crop-local only at export.",
+  "authorship": "Individually visually measured final gray QA image; hand-skin rectangles deliberately small, not generated from frame template.",
+  "angle_convention": "Blade tip up=0, clockwise positive. Scabbard angle mouth-to-tip.",
+  "hand_identity": "Anatomical right is the near armored shoulder/arm, usually screen-left, tracked across chest in holding. Anatomical left is far arm, usually screen-right.",
+  "measurement_notes": "Upright anatomical ruler estimated from head, trunk and leg segments, fixed across poses in each clip; never pose bbox height. Scabbard mouth can be concealed by hip/coat; hidden positions are estimates. Approximate hand accuracy3px, hidden mouth8px. Air roots virtual, grounded roots between contacts unless single-foot bearing.",
+  "frames": [
+    {
+      "frame": 1,
+      "source": "raw/victory.png",
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "cell_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "right_hand_grip": [
+        202,
+        244
+      ],
+      "left_hand_position": [
+        301,
+        206
+      ],
+      "right_foot_contact": [
+        192,
+        498
+      ],
+      "left_foot_contact": [
+        403,
+        501
+      ],
+      "root": [
+        298,
+        500
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        290,
+        35
+      ],
+      "anatomical_height_px": 469,
+      "body_height": 469,
+      "height_method": "upright-equivalent anatomy ruler, not pose bbox",
+      "scabbard_mouth": [
+        329,
+        225
+      ],
+      "scabbard_tip": [
+        405,
+        306
+      ],
+      "scabbard_mouth_visibility": "partly concealed by coat/hip; estimated mouth center",
+      "scabbard_direction_deg": 137,
+      "sword_angle_deg": -30,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            186,
+            227,
+            33,
+            33
+          ]
+        }
+      ],
+      "phase": "reach_fan",
+      "fan_state": "stowed_reaching",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "sheathed_layer_note": "Future separate hilt-only sheath overlay required.",
+      "source_index": 1
+    },
+    {
+      "frame": 2,
+      "source": "raw/victory.png",
+      "source_rect": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "cell_rect": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "right_hand_grip": [
+        690,
+        251
+      ],
+      "left_hand_position": [
+        847,
+        169
+      ],
+      "right_foot_contact": [
+        675,
+        499
+      ],
+      "left_foot_contact": [
+        890,
+        502
+      ],
+      "root": [
+        783,
+        501
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        777,
+        35
+      ],
+      "anatomical_height_px": 469,
+      "body_height": 469,
+      "height_method": "upright-equivalent anatomy ruler, not pose bbox",
+      "scabbard_mouth": [
+        822,
+        224
+      ],
+      "scabbard_tip": [
+        891,
+        306
+      ],
+      "scabbard_mouth_visibility": "partly concealed by coat/hip; estimated mouth center",
+      "scabbard_direction_deg": 140,
+      "sword_angle_deg": 0,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            674,
+            235,
+            32,
+            32
+          ]
+        }
+      ],
+      "phase": "draw_fan",
+      "fan_state": "held_left",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "sheathed_layer_note": "Future separate hilt-only sheath overlay required.",
+      "source_index": 2
+    },
+    {
+      "frame": 3,
+      "source": "raw/victory.png",
+      "source_rect": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "cell_rect": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "right_hand_grip": [
+        1199,
+        251
+      ],
+      "left_hand_position": [
+        1291,
+        184
+      ],
+      "right_foot_contact": [
+        1187,
+        499
+      ],
+      "left_foot_contact": [
+        1396,
+        503
+      ],
+      "root": [
+        1292,
+        501
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        1283,
+        35
+      ],
+      "anatomical_height_px": 469,
+      "body_height": 469,
+      "height_method": "upright-equivalent anatomy ruler, not pose bbox",
+      "scabbard_mouth": [
+        1328,
+        225
+      ],
+      "scabbard_tip": [
+        1398,
+        307
+      ],
+      "scabbard_mouth_visibility": "partly concealed by coat/hip; estimated mouth center",
+      "scabbard_direction_deg": 140,
+      "sword_angle_deg": 0,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            1182,
+            235,
+            34,
+            33
+          ]
+        }
+      ],
+      "phase": "fan_chest",
+      "fan_state": "held_left",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "sheathed_layer_note": "Future separate hilt-only sheath overlay required.",
+      "source_index": 3
+    },
+    {
+      "frame": 4,
+      "source": "raw/victory.png",
+      "source_rect": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "cell_rect": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "right_hand_grip": [
+        180,
+        754
+      ],
+      "left_hand_position": [
+        419,
+        593
+      ],
+      "right_foot_contact": [
+        172,
+        1004
+      ],
+      "left_foot_contact": [
+        402,
+        1008
+      ],
+      "root": [
+        287,
+        1006
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        275,
+        546
+      ],
+      "anatomical_height_px": 469,
+      "body_height": 469,
+      "height_method": "upright-equivalent anatomy ruler, not pose bbox",
+      "scabbard_mouth": [
+        323,
+        735
+      ],
+      "scabbard_tip": [
+        402,
+        810
+      ],
+      "scabbard_mouth_visibility": "partly concealed by coat/hip; estimated mouth center",
+      "scabbard_direction_deg": 134,
+      "sword_angle_deg": 0,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            163,
+            736,
+            34,
+            33
+          ]
+        }
+      ],
+      "phase": "command_salute",
+      "fan_state": "held_left",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "sheathed_layer_note": "Future separate hilt-only sheath overlay required.",
+      "source_index": 4
+    },
+    {
+      "frame": 5,
+      "source": "raw/victory.png",
+      "source_rect": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "cell_rect": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "right_hand_grip": [
+        688,
+        755
+      ],
+      "left_hand_position": [
+        789,
+        694
+      ],
+      "right_foot_contact": [
+        674,
+        1005
+      ],
+      "left_foot_contact": [
+        894,
+        1007
+      ],
+      "root": [
+        784,
+        1006
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        772,
+        546
+      ],
+      "anatomical_height_px": 469,
+      "body_height": 469,
+      "height_method": "upright-equivalent anatomy ruler, not pose bbox",
+      "scabbard_mouth": [
+        823,
+        735
+      ],
+      "scabbard_tip": [
+        892,
+        810
+      ],
+      "scabbard_mouth_visibility": "partly concealed by coat/hip; estimated mouth center",
+      "scabbard_direction_deg": 137,
+      "sword_angle_deg": 0,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            671,
+            738,
+            33,
+            33
+          ]
+        }
+      ],
+      "phase": "lower_fan",
+      "fan_state": "held_left",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "sheathed_layer_note": "Future separate hilt-only sheath overlay required.",
+      "source_index": 5
+    },
+    {
+      "frame": 6,
+      "source": "raw/victory.png",
+      "source_rect": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "cell_rect": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "right_hand_grip": [
+        1195,
+        757
+      ],
+      "left_hand_position": [
+        1292,
+        697
+      ],
+      "right_foot_contact": [
+        1180,
+        1004
+      ],
+      "left_foot_contact": [
+        1397,
+        1007
+      ],
+      "root": [
+        1289,
+        1006
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        1288,
+        546
+      ],
+      "anatomical_height_px": 469,
+      "body_height": 469,
+      "height_method": "upright-equivalent anatomy ruler, not pose bbox",
+      "scabbard_mouth": [
+        1325,
+        735
+      ],
+      "scabbard_tip": [
+        1399,
+        810
+      ],
+      "scabbard_mouth_visibility": "partly concealed by coat/hip; estimated mouth center",
+      "scabbard_direction_deg": 135,
+      "sword_angle_deg": 0,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            1178,
+            740,
+            33,
+            33
+          ]
+        }
+      ],
+      "phase": "final_command_stance",
+      "fan_state": "held_left",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "sheathed_layer_note": "Future separate hilt-only sheath overlay required.",
+      "source_index": 6
+    }
+  ]
+}

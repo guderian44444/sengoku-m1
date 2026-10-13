@@ -17,6 +17,7 @@ func _initialize() -> void:
 	for hero in Battle.HEROES:
 		for action in impacts:
 			var hit := 5 if hero == "tadakatsu" and action == "charged" else int(impacts[action])
+			if hero == "hideyoshi" and action in ["mixed_finisher","mixed_rising"]: hit = 14
 			var actual_hit := Battle.hero_tick(hero,hit)
 			var fighter := {"kind":hero,"team":0,"action":action,"action_tick":actual_hit,"combo":1,"heavy_combo":1}
 			var sample := view._fighter_animation(fighter)
@@ -25,7 +26,8 @@ func _initialize() -> void:
 			fighter.action_tick = actual_hit - 1
 			check(not view._fighter_animation(fighter).released,hero + " " + action + " must not strike before simulation hit")
 		for action in ["mixed_finisher","mixed_rising"]:
-			check(is_equal_approx(View._hero_animation_tick(hero,action,Battle.hero_tick(hero,27)),27),"Second mixed hit matches the rounded simulation tick")
+			var boundary := 48 if hero == "hideyoshi" else 27
+			check(is_equal_approx(View._hero_animation_tick(hero,action,Battle.hero_tick(hero,boundary)),boundary),"Independent mixed action keeps its rounded hit/recovery boundary")
 		check(is_equal_approx(View._hero_animation_tick(hero,"air_heavy",Battle.hero_tick(hero,19)),19),"Air heavy landing pulse matches rounded simulation tick")
 	var sim := Battle.new()
 	sim.reset_training("nobunaga","enemies","imagawa")

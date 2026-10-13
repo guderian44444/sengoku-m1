@@ -1,0 +1,1073 @@
+{
+  "fps_base": 60,
+  "special_sequence": [
+    "special_1",
+    "special_2",
+    "special_3"
+  ],
+  "special_input": "one U command, not3 buttons",
+  "clips": [
+    {
+      "clip": "light1",
+      "kind": "attack",
+      "input": "J",
+      "approved_contact": 1,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "light2",
+      "kind": "attack",
+      "input": "J→J",
+      "approved_contact": 2,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "light3",
+      "kind": "attack",
+      "input": "J→J→J",
+      "approved_contact": 3,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "heavy1",
+      "kind": "attack",
+      "input": "短K放開",
+      "approved_contact": 4,
+      "frame_count": 6,
+      "phases": [
+        "ready",
+        "windup",
+        "acceleration",
+        "approved_contact",
+        "follow_through",
+        "recovery"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "heavy2",
+      "kind": "attack",
+      "input": "短K放開→短K放開",
+      "approved_contact": 5,
+      "frame_count": 6,
+      "phases": [
+        "ready_low",
+        "coil_low",
+        "drive_up",
+        "rising_contact",
+        "high_follow_through",
+        "recover_guard"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "rising",
+      "kind": "attack",
+      "input": "W＋J",
+      "approved_contact": 6,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "low_sweep",
+      "kind": "attack",
+      "input": "S＋J",
+      "approved_contact": 7,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "dash_strike",
+      "kind": "attack",
+      "input": "同時新按A/D＋J",
+      "approved_contact": 8,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "dash_heavy",
+      "kind": "attack",
+      "input": "同方向雙點按住衝刺後K",
+      "approved_contact": 9,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "upper_heavy",
+      "kind": "attack",
+      "input": "W＋短K放開",
+      "approved_contact": 10,
+      "frame_count": 6,
+      "phases": [
+        "ready",
+        "deep_crouch",
+        "rise_acceleration",
+        "upward_contact",
+        "apex",
+        "return_guard"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "ground_slam",
+      "kind": "attack",
+      "input": "S＋短K放開",
+      "approved_contact": 11,
+      "frame_count": 6,
+      "phases": [
+        "ready",
+        "raise_windup",
+        "front_down_acceleration",
+        "low_sweep_contact",
+        "low_follow_through",
+        "recover_guard"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "charged",
+      "kind": "attack",
+      "input": "無上下方向按K≥35tick後放開",
+      "approved_contact": 12,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "charged_upper",
+      "kind": "attack",
+      "input": "W＋按K≥35tick後放開",
+      "approved_contact": 13,
+      "frame_count": 6,
+      "phases": [
+        "low_coil",
+        "drive_from_hip",
+        "coil_high",
+        "upward_contact",
+        "rising_followthrough",
+        "recover_guard"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "charged_slam",
+      "kind": "attack",
+      "input": "S＋按K≥35tick後放開",
+      "approved_contact": 14,
+      "frame_count": 6,
+      "phases": [
+        "high_windup",
+        "compression",
+        "accelerate_down",
+        "low_diagonal_contact",
+        "low_follow_through",
+        "recover_guard"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "air_light",
+      "kind": "attack",
+      "input": "空白起跳→J",
+      "approved_contact": 15,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        5,
+        4,
+        6
+      ]
+    },
+    {
+      "clip": "air_heavy",
+      "kind": "attack",
+      "input": "空白起跳→K",
+      "approved_contact": 16,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "mixed_finisher",
+      "kind": "attack",
+      "input": "J→短K放開，或J→J→短K放開",
+      "approved_contact": 17,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "mixed_rising",
+      "kind": "attack",
+      "input": "短K放開→J",
+      "approved_contact": 18,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "throw",
+      "kind": "attack",
+      "input": "近身按住L抓住→放開",
+      "approved_contact": 19,
+      "frame_count": 6,
+      "phases": [
+        "ready",
+        "windup",
+        "acceleration",
+        "approved_contact",
+        "follow_through",
+        "recovery"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "special_1",
+      "kind": "attack",
+      "input": "站地、怒氣100、可出招狀態新按U",
+      "approved_contact": 20,
+      "frame_count": 6,
+      "phases": [
+        "ready",
+        "windup",
+        "acceleration",
+        "approved_contact",
+        "follow_through",
+        "recovery"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "special_2",
+      "kind": "attack",
+      "input": "接續20",
+      "approved_contact": 21,
+      "frame_count": 6,
+      "phases": [
+        "ready",
+        "windup",
+        "acceleration",
+        "approved_contact",
+        "follow_through",
+        "recovery"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "special_3",
+      "kind": "attack",
+      "input": "接續21",
+      "approved_contact": 22,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 30,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": 4,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "idle",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "preview_duration_ticks": 72,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": true,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "walk",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "right_forward_contact",
+        "right_support",
+        "left_narrow_passing",
+        "left_forward_contact",
+        "left_support",
+        "right_knee_passing"
+      ],
+      "preview_duration_ticks": 60,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": true,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "run",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "right_forward_flight",
+        "right_support",
+        "left_knee_forward_passing",
+        "left_forward_flight",
+        "left_support",
+        "right_knee_forward_passing"
+      ],
+      "preview_duration_ticks": 45,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": true,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "jump",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "compression",
+        "rising_push_off",
+        "tucked_apex",
+        "descending",
+        "prelanding",
+        "landing_absorption"
+      ],
+      "preview_duration_ticks": 36,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "charge",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "begin_sheathing",
+        "partial_sheath",
+        "ready_hilt_hand",
+        "focus_settle",
+        "charged_hold",
+        "full_hold"
+      ],
+      "preview_duration_ticks": 35,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "charge_upper",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "high_to_low_ready",
+        "lower_coil",
+        "hip_turn_coil",
+        "low_hold",
+        "hold_breath_rise",
+        "steady_low_preparation"
+      ],
+      "preview_duration_ticks": 35,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "charge_slam",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "begin_charge",
+        "raise_hold",
+        "deepen_stance",
+        "low_coiled_hold",
+        "hold_weight_shift",
+        "steady_full_charge"
+      ],
+      "preview_duration_ticks": 35,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "holding",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "reach_control",
+        "wrist_forearm_control",
+        "draw_control_to_chest",
+        "hips_turn",
+        "resist_adjust",
+        "stable_hold"
+      ],
+      "preview_duration_ticks": 60,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": true,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "guard",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "enter_low",
+        "raise_guard",
+        "maintain",
+        "pressure_transition",
+        "low_pressure_block",
+        "restore_guard"
+      ],
+      "preview_duration_ticks": 36,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "hurt",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "shoulder_jolt",
+        "abdomen_folds",
+        "maximum_recoil",
+        "rear_toe_balance",
+        "regain_balance",
+        "guarded_settle"
+      ],
+      "preview_duration_ticks": 18,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "grabbed",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "brace against restraint",
+        "twist and protect collar",
+        "pull restrained forearm inward",
+        "reverse shoulder twist with trailing grip",
+        "deep braced resistance",
+        "return toward restrained stance"
+      ],
+      "preview_duration_ticks": 42,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "pulled",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "initial shoulder tug",
+        "forward pitch with trailing heel",
+        "stumbling lead step",
+        "strong tug and airborne rear foot",
+        "catch weight and brake",
+        "brace at end of pull"
+      ],
+      "preview_duration_ticks": 42,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "launched",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "upward knockback",
+        "rise and backward tumble",
+        "apex defensive curl with both sandals visible",
+        "rotate into head-left feet-right descending roll",
+        "descending semi-supine curl head-left",
+        "head-left feet-right immediately before landing"
+      ],
+      "preview_duration_ticks": 42,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "down",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "collapse with bent knees",
+        "head-left side support as hip descends",
+        "head-left hip and elbow landing",
+        "roll toward supine head-left rest",
+        "settle onto back",
+        "stable final defeated lying hold"
+      ],
+      "preview_duration_ticks": 36,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "recovering",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "lying preparation",
+        "brace on right knuckles and raise chest",
+        "side push into knee gathering",
+        "one-knee support",
+        "half-standing squat",
+        "stable standing finish"
+      ],
+      "preview_duration_ticks": 36,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "stunned",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "head dips right",
+        "sway left with brow support",
+        "shoulders and chin slump",
+        "sway right and lift chin",
+        "catch weight with uneven feet",
+        "unsteady return toward opening"
+      ],
+      "preview_duration_ticks": 60,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": true,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "clip": "victory",
+      "kind": "support",
+      "input": null,
+      "approved_contact": null,
+      "frame_count": 6,
+      "phases": [
+        "reach_fan",
+        "draw_fan",
+        "fan_chest",
+        "command_salute",
+        "lower_fan",
+        "final_command_stance"
+      ],
+      "preview_duration_ticks": 90,
+      "duration_status": "Preview proposal, native hit/trajectory timing must be integrated by Codex",
+      "loop": false,
+      "impact_frame_1based": null,
+      "source_frame_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "aliases": {
+    "thrown": "Use launched artwork with appropriate airborne trajectory.",
+    "dead/defeated": "Use down final lying state; death never plays recovering.",
+    "frozen": "Hold hurt contact/mid frame plus engine ice effect, no six extra freeze poses.",
+    "pickup": "Existing interaction has no unique attack clip; may retainidle/move, no invented attack.",
+    "sprint_bump": "Existing contact-damage fromrun; no independent command clip required.",
+    "getup_burst": "Existing2damage effect on recoverycompletion; use recovering last frame, separate VFX.",
+    "counter_cut": "Not applicable: Mitsuhide-exclusive. Do not add Hideyoshi counter to fill test list."
+  }
+}

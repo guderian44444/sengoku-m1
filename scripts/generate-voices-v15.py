@@ -25,6 +25,7 @@ SPEC = importlib.util.spec_from_file_location("voices_v11", ROOT / "scripts/gene
 pipeline = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(pipeline)
 RATE = 22050
+KEY_TAG = 'v15'
 SHORT_EVENTS = ("attack", "heavy", "hurt")
 MAX_ATTEMPTS = 12
 
@@ -81,7 +82,7 @@ def jobs(source):
 
 def make_clip(ffmpeg, job):
     actor, event, index, text, description, short, subtitle = job
-    key = f"{actor}_v15_{event}_{index}"
+    key = f"{actor}_{KEY_TAG}_{event}_{index}"
     fingerprint = hashlib.sha256((text + description + pipeline.REVISION + pipeline.FILTER).encode()).hexdigest()[:16]
     target = OUT / f"{key}.wav"
     accepted_path = CACHE / f"{key}-accepted.json"

@@ -1,0 +1,60 @@
+{
+  "id": 2,
+  "title": "大高兵糧道・丸根砦突破",
+  "faction": "oda",
+  "year": 1560,
+  "target_minutes": [16, 22],
+  "historical_note": "沿用二十四關演義規劃：以大高運糧與丸根砦為靈感，六武將共鬥、護送路線及遭遇編成皆為遊戲改編，並非史實重演。",
+  "segments": [
+    {
+      "name": "朝霧大高街道", "theme": "supply_road", "weather": "mist", "music": "town", "width": 2400, "civilians": "villagers",
+      "challenge": {"kind": "escort", "start_x": 280, "y": 510, "target_x": 2140, "hp": 180, "reward": 300},
+      "encounters": [
+        {"end": 1200, "waves": [["soldier", "soldier", "raider", "soldier"], ["raider", "soldier", "archer", "soldier", "raider"]]},
+        {"end": 2400, "waves": [["shield_spear", "soldier", "archer", "raider", "soldier"], ["commander", "raider", "soldier", "archer", "soldier"]]}
+      ],
+      "props": [["basket", 390, 395, "rice"], ["jar", 740, 585, ""], ["crate", 1020, 400, "", false, "vajra"], ["stall", 1410, 395, ""], ["basket", 1650, 590, "dango"], ["cart", 1940, 390, ""], ["jar", 2220, 585, ""]]
+    },
+    {
+      "name": "扁舟川岸渡口", "theme": "riverbank", "weather": "clear", "music": "bamboo", "width": 2400, "civilians": "villagers",
+      "encounters": [
+        {"end": 1200, "waves": [["archer", "soldier", "shield_spear", "soldier", "archer"], ["fire_archer", "soldier", "raider", "soldier", "archer"]]},
+        {"end": 2400, "waves": [["shield_spear", "archer", "soldier", "fire_archer", "soldier"], ["boss", "shield_spear", "archer", "soldier"]], "boss": {"name": "渡口槍隊長", "line": "守住渡口！槍陣封路，弓手壓住後方！", "final": false, "variant": "cross_spear", "actions": ["boss_thrust", "boss_sweep", "boss_counter"]}}
+      ],
+      "props": [["basket", 390, 575, "fish"], ["crate", 720, 395, ""], ["cart", 970, 590, ""], ["barricade", 1610, 405, "", true], ["barricade", 1610, 560, "", true], ["jar", 1830, 395, "", false, "wind"], ["basket", 2170, 585, "fish"]]
+    },
+    {
+      "name": "荷駄集落與米倉", "theme": "granary", "weather": "clear", "music": "town", "width": 2600, "civilians": "porters",
+      "challenge": {"kind": "escort", "start_x": 300, "y": 485, "target_x": 2330, "hp": 210, "reward": 450},
+      "encounters": [
+        {"end": 1300, "waves": [["raider", "raider", "soldier", "flag", "soldier"], ["fire_archer", "raider", "shield_spear", "soldier", "soldier"]]},
+        {"end": 2600, "waves": [["raider", "soldier", "fire_archer", "raider", "soldier"], ["shield_spear", "commander", "archer", "soldier", "raider"], ["raider", "fire_archer", "soldier", "raider"]]}
+      ],
+      "props": [["large_crate", 430, 395, ""], ["basket", 770, 585, "rice"], ["stall", 1110, 395, ""], ["cart", 1460, 585, ""], ["large_crate", 1720, 395, "", false, "iron"], ["crate", 1910, 585, ""], ["basket", 2150, 395, "fish"], ["jar", 2480, 585, ""]]
+    },
+    {
+      "name": "夕照鳴海坂道", "theme": "switchback", "weather": "clear", "music": "siege", "width": 2400, "civilians": "villagers",
+      "encounters": [
+        {"end": 1200, "waves": [["shield_spear", "soldier", "fire_archer", "archer", "soldier"], ["raider", "fire_archer", "soldier", "shield_spear", "soldier"]]},
+        {"end": 2400, "waves": [["gunner", "shield_spear", "soldier", "fire_archer", "raider"], ["boss", "raider", "gunner", "soldier"]], "boss": {"name": "糧道截擊隊長", "line": "把糧車留下！前後夾攻，截斷退路！", "final": false, "variant": "short_yari", "actions": ["boss_dash", "boss_thrust", "boss_double"]}}
+      ],
+      "props": [["jar", 370, 585, "peach"], ["crate", 730, 395, ""], ["barricade", 1020, 430, "", true], ["cart", 1460, 585, "", false, "war"], ["fence", 1710, 410, "", true], ["basket", 1970, 585, ""], ["crate", 2250, 395, "rice"]]
+    },
+    {
+      "name": "丸根砦外柵攻防", "theme": "marune_gate", "weather": "rain", "music": "siege", "width": 2600, "civilians": "none",
+      "encounters": [
+        {"end": 1300, "waves": [["shield_spear", "shield_spear", "gunner", "soldier", "soldier"], ["fire_archer", "raider", "shield_spear", "gunner", "soldier"], ["commander", "shield_spear", "archer", "soldier"]]},
+        {"end": 2600, "waves": [["shield_spear", "fire_archer", "gunner", "soldier", "raider"], ["commander", "shield_spear", "fire_archer", "soldier", "gunner"]]}
+      ],
+      "props": [["basket", 340, 590, "fish"], ["barricade", 990, 420, "", true], ["barricade", 990, 560, "", true], ["large_crate", 1460, 395, "", false, "mirror"], ["jar", 1720, 585, "peach"], ["fence", 2150, 425, "", true], ["fence", 2150, 565, "", true], ["crate", 2440, 395, ""]]
+    },
+    {
+      "name": "砦內兵糧庭決戰", "theme": "supply_court", "weather": "clear", "music": "castle", "width": 2400, "civilians": "porters",
+      "encounters": [
+        {"end": 1200, "waves": [["raider", "shield_spear", "gunner", "soldier", "flag"], ["commander", "fire_archer", "shield_spear", "soldier", "raider"]]},
+        {"end": 2400, "waves": [["shield_spear", "fire_archer", "gunner", "commander", "soldier"], ["boss", "shield_spear", "raider"]], "boss": {"name": "佐久間盛重", "line": "佐久間盛重在此！丸根之門，豈容你們輕易踏過！", "final": true, "variant": "long_yari", "actions": ["boss_thrust", "boss_sweep", "boss_dash", "boss_double"], "reinforcements": ["shield_spear", "soldier", "raider", "archer"]}}
+      ],
+      "props": [["large_crate", 390, 395, ""], ["basket", 690, 585, "fish"], ["cart", 990, 395, ""], ["crate", 1400, 585, "", false, "moon"], ["jar", 1690, 395, "peach"], ["large_crate", 2030, 585, ""], ["basket", 2250, 395, ""]]
+    }
+  ]
+}
