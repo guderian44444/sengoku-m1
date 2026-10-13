@@ -1,0 +1,1287 @@
+{
+  "animation": "light3",
+  "source": "raw/light3.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "Full-sheet native pixels, origin top-left, x right y down. Rectangles x,y,width,height. Individual source rectangles follow actual full silhouettes, not rigid512 cells.",
+  "authorship": "Six native generated poses, independently visually measured from gray composites. Grip and free-hand points approximately3-5px precision.",
+  "angle_convention": "Blade tip straight up=0 degrees; clockwise positive. Angles are authored choreography, not observed baked sword pixels.",
+  "hand_identity": "right_hand_grip is the anatomical right empty fist, traced from its shoulder. left_hand_position is the free anatomical left balance/guard hand. Frontal right shoulder appears on screen-left; back-facing dash poses follow actual torso orientation.",
+  "measurement_notes": "anatomical_height_px/body_height_px are standing-equivalent per-sheet scale calibration, measured from the least compressed pose. They intentionally remain fixed under crouch/airborne changes to avoid size pumping. measured_crown_to_root_px records actual per-frame pose extent. No hidden scabbard point guessed.",
+  "impact_frame_1based": 4,
+  "review_notes": "Frames3/4 right shoulder-to-fist anatomy corrected. Frame4 left hand now guards chest to retain credible anatomy.",
+  "frames": [
+    {
+      "frame": 1,
+      "cell_rect": [
+        43,
+        22,
+        433,
+        486
+      ],
+      "alpha_bounds": [
+        46,
+        25,
+        427,
+        480
+      ],
+      "right_hand_grip": [
+        200,
+        230
+      ],
+      "left_hand_position": [
+        276,
+        193
+      ],
+      "root": [
+        258,
+        492
+      ],
+      "anatomical_crown": [
+        279,
+        56
+      ],
+      "anatomical_height_px": 436,
+      "body_height_px": 436,
+      "measured_crown_to_root_px": 436,
+      "sword_angle_deg": -25,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              186,
+              213
+            ],
+            [
+              214,
+              213
+            ],
+            [
+              218,
+              218
+            ],
+            [
+              218,
+              242
+            ],
+            [
+              214,
+              247
+            ],
+            [
+              186,
+              247
+            ],
+            [
+              182,
+              242
+            ],
+            [
+              182,
+              218
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "source_region_polygon": [
+        [
+          44.0,
+          488.0
+        ],
+        [
+          60.0,
+          316.0
+        ],
+        [
+          112.0,
+          182.0
+        ],
+        [
+          113.0,
+          180.0
+        ],
+        [
+          126.0,
+          162.0
+        ],
+        [
+          224.0,
+          33.0
+        ],
+        [
+          226.0,
+          31.0
+        ],
+        [
+          233.0,
+          26.0
+        ],
+        [
+          239.0,
+          24.0
+        ],
+        [
+          245.0,
+          23.0
+        ],
+        [
+          249.0,
+          23.0
+        ],
+        [
+          257.0,
+          24.0
+        ],
+        [
+          262.0,
+          27.0
+        ],
+        [
+          303.0,
+          56.0
+        ],
+        [
+          312.0,
+          65.0
+        ],
+        [
+          356.0,
+          130.0
+        ],
+        [
+          366.0,
+          149.0
+        ],
+        [
+          370.0,
+          158.0
+        ],
+        [
+          436.0,
+          311.0
+        ],
+        [
+          474.0,
+          481.0
+        ],
+        [
+          474.0,
+          488.0
+        ],
+        [
+          473.0,
+          491.0
+        ],
+        [
+          470.0,
+          494.0
+        ],
+        [
+          468.0,
+          495.0
+        ],
+        [
+          462.0,
+          497.0
+        ],
+        [
+          454.0,
+          498.0
+        ],
+        [
+          85.0,
+          506.0
+        ],
+        [
+          63.0,
+          506.0
+        ],
+        [
+          58.0,
+          505.0
+        ],
+        [
+          54.0,
+          504.0
+        ],
+        [
+          51.0,
+          503.0
+        ],
+        [
+          47.0,
+          501.0
+        ],
+        [
+          45.0,
+          499.0
+        ],
+        [
+          44.0,
+          496.0
+        ]
+      ],
+      "source_region_note": "Convex silhouette envelope plus2px margin selects this full pose from tight neighboring layout. Apply BEFORE cropping cell_rect. No character pixels alpha>10 removed, no neighboring alpha>32 included; raw remains untouched. Frame5 tight boundary may omit very faint antialias pixels alpha1-10 at the adjacent-foot edge."
+    },
+    {
+      "frame": 2,
+      "cell_rect": [
+        504,
+        30,
+        500,
+        468
+      ],
+      "alpha_bounds": [
+        507,
+        33,
+        494,
+        462
+      ],
+      "right_hand_grip": [
+        654,
+        197
+      ],
+      "left_hand_position": [
+        959,
+        199
+      ],
+      "root": [
+        752,
+        484
+      ],
+      "anatomical_crown": [
+        879,
+        64
+      ],
+      "anatomical_height_px": 436,
+      "body_height_px": 436,
+      "measured_crown_to_root_px": 420,
+      "sword_angle_deg": -75,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              642,
+              180
+            ],
+            [
+              665,
+              180
+            ],
+            [
+              669,
+              185
+            ],
+            [
+              669,
+              208
+            ],
+            [
+              665,
+              213
+            ],
+            [
+              642,
+              213
+            ],
+            [
+              638,
+              208
+            ],
+            [
+              638,
+              185
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "source_region_polygon": [
+        [
+          983.0,
+          183.0
+        ],
+        [
+          1002.0,
+          462.0
+        ],
+        [
+          1002.0,
+          475.0
+        ],
+        [
+          1001.0,
+          476.0
+        ],
+        [
+          998.0,
+          478.0
+        ],
+        [
+          996.0,
+          479.0
+        ],
+        [
+          990.0,
+          481.0
+        ],
+        [
+          977.0,
+          482.0
+        ],
+        [
+          554.0,
+          496.0
+        ],
+        [
+          523.0,
+          496.0
+        ],
+        [
+          515.0,
+          494.0
+        ],
+        [
+          512.0,
+          493.0
+        ],
+        [
+          510.0,
+          492.0
+        ],
+        [
+          506.0,
+          488.0
+        ],
+        [
+          505.0,
+          486.0
+        ],
+        [
+          505.0,
+          477.0
+        ],
+        [
+          590.0,
+          278.0
+        ],
+        [
+          637.0,
+          176.0
+        ],
+        [
+          643.0,
+          164.0
+        ],
+        [
+          658.0,
+          136.0
+        ],
+        [
+          667.0,
+          127.0
+        ],
+        [
+          687.0,
+          114.0
+        ],
+        [
+          831.0,
+          34.0
+        ],
+        [
+          833.0,
+          33.0
+        ],
+        [
+          839.0,
+          31.0
+        ],
+        [
+          851.0,
+          31.0
+        ],
+        [
+          855.0,
+          32.0
+        ],
+        [
+          861.0,
+          35.0
+        ],
+        [
+          903.0,
+          65.0
+        ],
+        [
+          909.0,
+          70.0
+        ],
+        [
+          912.0,
+          74.0
+        ],
+        [
+          981.0,
+          174.0
+        ]
+      ],
+      "source_region_note": "Convex silhouette envelope plus2px margin selects this full pose from tight neighboring layout. Apply BEFORE cropping cell_rect. No character pixels alpha>10 removed, no neighboring alpha>32 included; raw remains untouched. Frame5 tight boundary may omit very faint antialias pixels alpha1-10 at the adjacent-foot edge."
+    },
+    {
+      "frame": 3,
+      "cell_rect": [
+        1002,
+        25,
+        534,
+        483
+      ],
+      "alpha_bounds": [
+        1005,
+        28,
+        528,
+        477
+      ],
+      "right_hand_grip": [
+        1504,
+        161
+      ],
+      "left_hand_position": [
+        1435,
+        276
+      ],
+      "root": [
+        1269,
+        492
+      ],
+      "anatomical_crown": [
+        1349,
+        57
+      ],
+      "anatomical_height_px": 436,
+      "body_height_px": 436,
+      "measured_crown_to_root_px": 435,
+      "sword_angle_deg": 75,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              1490,
+              146
+            ],
+            [
+              1518,
+              146
+            ],
+            [
+              1522,
+              151
+            ],
+            [
+              1522,
+              172
+            ],
+            [
+              1518,
+              177
+            ],
+            [
+              1490,
+              177
+            ],
+            [
+              1486,
+              172
+            ],
+            [
+              1486,
+              151
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "source_region_polygon": [
+        [
+          1532.0,
+          159.0
+        ],
+        [
+          1534.0,
+          470.0
+        ],
+        [
+          1534.0,
+          478.0
+        ],
+        [
+          1533.0,
+          481.0
+        ],
+        [
+          1530.0,
+          483.0
+        ],
+        [
+          1528.0,
+          484.0
+        ],
+        [
+          1522.0,
+          486.0
+        ],
+        [
+          1517.0,
+          487.0
+        ],
+        [
+          1511.0,
+          488.0
+        ],
+        [
+          1039.0,
+          506.0
+        ],
+        [
+          1030.0,
+          506.0
+        ],
+        [
+          1017.0,
+          504.0
+        ],
+        [
+          1013.0,
+          503.0
+        ],
+        [
+          1010.0,
+          502.0
+        ],
+        [
+          1006.0,
+          500.0
+        ],
+        [
+          1004.0,
+          498.0
+        ],
+        [
+          1003.0,
+          496.0
+        ],
+        [
+          1003.0,
+          486.0
+        ],
+        [
+          1070.0,
+          302.0
+        ],
+        [
+          1071.0,
+          300.0
+        ],
+        [
+          1073.0,
+          297.0
+        ],
+        [
+          1202.0,
+          118.0
+        ],
+        [
+          1212.0,
+          106.0
+        ],
+        [
+          1279.0,
+          37.0
+        ],
+        [
+          1287.0,
+          29.0
+        ],
+        [
+          1290.0,
+          28.0
+        ],
+        [
+          1298.0,
+          26.0
+        ],
+        [
+          1311.0,
+          26.0
+        ],
+        [
+          1317.0,
+          28.0
+        ],
+        [
+          1526.0,
+          140.0
+        ],
+        [
+          1527.0,
+          141.0
+        ],
+        [
+          1528.0,
+          143.0
+        ],
+        [
+          1530.0,
+          150.0
+        ],
+        [
+          1531.0,
+          154.0
+        ]
+      ],
+      "source_region_note": "Convex silhouette envelope plus2px margin selects this full pose from tight neighboring layout. Apply BEFORE cropping cell_rect. No character pixels alpha>10 removed, no neighboring alpha>32 included; raw remains untouched. Frame5 tight boundary may omit very faint antialias pixels alpha1-10 at the adjacent-foot edge."
+    },
+    {
+      "frame": 4,
+      "cell_rect": [
+        2,
+        504,
+        570,
+        478
+      ],
+      "alpha_bounds": [
+        5,
+        507,
+        564,
+        472
+      ],
+      "right_hand_grip": [
+        497,
+        622
+      ],
+      "left_hand_position": [
+        366,
+        695
+      ],
+      "root": [
+        287,
+        969
+      ],
+      "anatomical_crown": [
+        335,
+        534
+      ],
+      "anatomical_height_px": 436,
+      "body_height_px": 436,
+      "measured_crown_to_root_px": 435,
+      "sword_angle_deg": 105,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              481,
+              606
+            ],
+            [
+              513,
+              606
+            ],
+            [
+              517,
+              611
+            ],
+            [
+              517,
+              633
+            ],
+            [
+              513,
+              638
+            ],
+            [
+              481,
+              638
+            ],
+            [
+              477,
+              633
+            ],
+            [
+              477,
+              611
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "source_region_polygon": [
+        [
+          527.0,
+          620.0
+        ],
+        [
+          570.0,
+          942.0
+        ],
+        [
+          570.0,
+          949.0
+        ],
+        [
+          569.0,
+          952.0
+        ],
+        [
+          565.0,
+          956.0
+        ],
+        [
+          563.0,
+          957.0
+        ],
+        [
+          559.0,
+          958.0
+        ],
+        [
+          554.0,
+          959.0
+        ],
+        [
+          541.0,
+          960.0
+        ],
+        [
+          51.0,
+          980.0
+        ],
+        [
+          23.0,
+          980.0
+        ],
+        [
+          16.0,
+          979.0
+        ],
+        [
+          12.0,
+          978.0
+        ],
+        [
+          9.0,
+          977.0
+        ],
+        [
+          7.0,
+          976.0
+        ],
+        [
+          4.0,
+          973.0
+        ],
+        [
+          3.0,
+          968.0
+        ],
+        [
+          3.0,
+          963.0
+        ],
+        [
+          4.0,
+          959.0
+        ],
+        [
+          56.0,
+          779.0
+        ],
+        [
+          58.0,
+          776.0
+        ],
+        [
+          188.0,
+          597.0
+        ],
+        [
+          191.0,
+          593.0
+        ],
+        [
+          266.0,
+          517.0
+        ],
+        [
+          273.0,
+          510.0
+        ],
+        [
+          278.0,
+          507.0
+        ],
+        [
+          280.0,
+          506.0
+        ],
+        [
+          285.0,
+          505.0
+        ],
+        [
+          298.0,
+          505.0
+        ],
+        [
+          302.0,
+          506.0
+        ],
+        [
+          518.0,
+          598.0
+        ],
+        [
+          520.0,
+          599.0
+        ],
+        [
+          521.0,
+          600.0
+        ],
+        [
+          522.0,
+          602.0
+        ],
+        [
+          524.0,
+          608.0
+        ]
+      ],
+      "source_region_note": "Convex silhouette envelope plus2px margin selects this full pose from tight neighboring layout. Apply BEFORE cropping cell_rect. No character pixels alpha>10 removed, no neighboring alpha>32 included; raw remains untouched. Frame5 tight boundary may omit very faint antialias pixels alpha1-10 at the adjacent-foot edge."
+    },
+    {
+      "frame": 5,
+      "cell_rect": [
+        562,
+        509,
+        525,
+        475
+      ],
+      "alpha_bounds": [
+        565,
+        512,
+        519,
+        469
+      ],
+      "right_hand_grip": [
+        887,
+        767
+      ],
+      "left_hand_position": [
+        881,
+        670
+      ],
+      "root": [
+        824,
+        970
+      ],
+      "anatomical_crown": [
+        866,
+        541
+      ],
+      "anatomical_height_px": 436,
+      "body_height_px": 436,
+      "measured_crown_to_root_px": 429,
+      "sword_angle_deg": 150,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              873,
+              748
+            ],
+            [
+              901,
+              748
+            ],
+            [
+              905,
+              753
+            ],
+            [
+              905,
+              781
+            ],
+            [
+              901,
+              786
+            ],
+            [
+              873,
+              786
+            ],
+            [
+              869,
+              781
+            ],
+            [
+              869,
+              753
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "source_region_polygon": [
+        [
+          565.0,
+          963.0
+        ],
+        [
+          609.0,
+          742.0
+        ],
+        [
+          613.0,
+          736.0
+        ],
+        [
+          722.0,
+          599.0
+        ],
+        [
+          727.0,
+          594.0
+        ],
+        [
+          806.0,
+          517.0
+        ],
+        [
+          812.0,
+          513.0
+        ],
+        [
+          815.0,
+          512.0
+        ],
+        [
+          830.0,
+          512.0
+        ],
+        [
+          833.0,
+          513.0
+        ],
+        [
+          835.0,
+          514.0
+        ],
+        [
+          885.0,
+          544.0
+        ],
+        [
+          893.0,
+          552.0
+        ],
+        [
+          896.0,
+          558.0
+        ],
+        [
+          1083.0,
+          939.0
+        ],
+        [
+          1083.0,
+          946.0
+        ],
+        [
+          1082.0,
+          948.0
+        ],
+        [
+          1080.0,
+          950.0
+        ],
+        [
+          1078.0,
+          951.0
+        ],
+        [
+          1072.0,
+          953.0
+        ],
+        [
+          1068.0,
+          954.0
+        ],
+        [
+          1061.0,
+          955.0
+        ],
+        [
+          605.0,
+          980.0
+        ],
+        [
+          587.0,
+          980.0
+        ],
+        [
+          581.0,
+          979.0
+        ],
+        [
+          573.0,
+          977.0
+        ],
+        [
+          570.0,
+          976.0
+        ],
+        [
+          568.0,
+          975.0
+        ],
+        [
+          565.0,
+          972.0
+        ]
+      ],
+      "source_region_note": "Convex silhouette envelope plus0px margin selects this full pose from tight neighboring layout. Apply BEFORE cropping cell_rect. No character pixels alpha>10 removed, no neighboring alpha>32 included; raw remains untouched. Frame5 tight boundary may omit very faint antialias pixels alpha1-10 at the adjacent-foot edge."
+    },
+    {
+      "frame": 6,
+      "cell_rect": [
+        1090,
+        502,
+        442,
+        489
+      ],
+      "alpha_bounds": [
+        1093,
+        505,
+        436,
+        483
+      ],
+      "right_hand_grip": [
+        1227,
+        638
+      ],
+      "left_hand_position": [
+        1407,
+        646
+      ],
+      "root": [
+        1305,
+        976
+      ],
+      "anatomical_crown": [
+        1316,
+        535
+      ],
+      "anatomical_height_px": 436,
+      "body_height_px": 436,
+      "measured_crown_to_root_px": 441,
+      "sword_angle_deg": -20,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              1215,
+              622
+            ],
+            [
+              1239,
+              622
+            ],
+            [
+              1243,
+              627
+            ],
+            [
+              1243,
+              650
+            ],
+            [
+              1239,
+              655
+            ],
+            [
+              1215,
+              655
+            ],
+            [
+              1211,
+              650
+            ],
+            [
+              1211,
+              627
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "source_region_polygon": [
+        [
+          1486.0,
+          780.0
+        ],
+        [
+          1530.0,
+          963.0
+        ],
+        [
+          1530.0,
+          969.0
+        ],
+        [
+          1529.0,
+          972.0
+        ],
+        [
+          1527.0,
+          974.0
+        ],
+        [
+          1521.0,
+          977.0
+        ],
+        [
+          1517.0,
+          978.0
+        ],
+        [
+          1511.0,
+          979.0
+        ],
+        [
+          1131.0,
+          989.0
+        ],
+        [
+          1113.0,
+          989.0
+        ],
+        [
+          1107.0,
+          988.0
+        ],
+        [
+          1099.0,
+          986.0
+        ],
+        [
+          1096.0,
+          985.0
+        ],
+        [
+          1094.0,
+          984.0
+        ],
+        [
+          1092.0,
+          982.0
+        ],
+        [
+          1091.0,
+          980.0
+        ],
+        [
+          1091.0,
+          969.0
+        ],
+        [
+          1093.0,
+          798.0
+        ],
+        [
+          1136.0,
+          645.0
+        ],
+        [
+          1138.0,
+          641.0
+        ],
+        [
+          1152.0,
+          625.0
+        ],
+        [
+          1253.0,
+          514.0
+        ],
+        [
+          1258.0,
+          509.0
+        ],
+        [
+          1261.0,
+          507.0
+        ],
+        [
+          1265.0,
+          505.0
+        ],
+        [
+          1272.0,
+          503.0
+        ],
+        [
+          1281.0,
+          503.0
+        ],
+        [
+          1291.0,
+          506.0
+        ],
+        [
+          1336.0,
+          537.0
+        ],
+        [
+          1343.0,
+          543.0
+        ],
+        [
+          1422.0,
+          613.0
+        ],
+        [
+          1431.0,
+          622.0
+        ],
+        [
+          1432.0,
+          624.0
+        ]
+      ],
+      "source_region_note": "Convex silhouette envelope plus2px margin selects this full pose from tight neighboring layout. Apply BEFORE cropping cell_rect. No character pixels alpha>10 removed, no neighboring alpha>32 included; raw remains untouched. Frame5 tight boundary may omit very faint antialias pixels alpha1-10 at the adjacent-foot edge."
+    }
+  ],
+  "source_sha256": "400e87968fb399088d7c1433138c2d7079636a8225a6cfe0188b0c730abcc90c",
+  "source_selection": "Use source_region_polygon before cell_rect to exclude neighbor corner fragments. Reproducible in qa/singlehand_source_polygons.py."
+}

@@ -1,0 +1,1350 @@
+{
+  "animation": "special_2",
+  "source": "raw/special_2.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "Full-sheet native pixels; origin top-left. Rectangles x,y,width,height.",
+  "authorship": "Individually measured from native gray-composited raw. No source pixels modified. Unseen coordinates remain null except explicitly authorized heavy1 reference-inferred hidden left grips, separately labeled low-confidence.",
+  "angle_convention": "Tip up=0; clockwise positive. Two-hand axis runs from left rear grip to right forward grip.",
+  "measurement_notes": "Fixed standing-equivalent height uses visible head/trunk/thigh/shin proportions and least compressed pose, not changing crouch bounding box. Approximate hand precision3px; hidden heavy1 left grip is explicitly reference-inferred, not pixel-measured. Apply source_region_polygon then cell_rect.",
+  "impact_frame_1based": 4,
+  "frames": [
+    {
+      "frame": 1,
+      "phase": "ready",
+      "cell_rect": [
+        69,
+        21,
+        444,
+        476
+      ],
+      "alpha_bounds": [
+        71,
+        23,
+        440,
+        472
+      ],
+      "right_hand_grip": [
+        243,
+        227
+      ],
+      "left_hand_position": [
+        352,
+        205
+      ],
+      "root": [
+        291,
+        487
+      ],
+      "anatomical_crown": [
+        336,
+        41
+      ],
+      "anatomical_height_px": 449,
+      "body_height_px": 449,
+      "measured_crown_to_root_px": 446,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              230,
+              213
+            ],
+            [
+              256,
+              213
+            ],
+            [
+              259,
+              217
+            ],
+            [
+              259,
+              237
+            ],
+            [
+              256,
+              241
+            ],
+            [
+              230,
+              241
+            ],
+            [
+              227,
+              237
+            ],
+            [
+              227,
+              217
+            ]
+          ],
+          "visible_portion": "visible skin only; approximate3px boundary precision"
+        }
+      ],
+      "sword_angle_deg": -25,
+      "two_handed": false,
+      "weapon_visible": true,
+      "main_weapon_state": "drawn",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "left_held",
+      "fan_hand": [
+        352,
+        205
+      ],
+      "fan_is_baked_body_art": true,
+      "sword_angle_confidence": "authored path; no baked sword pixels",
+      "source_region_polygon": [
+        [
+          430,
+          175
+        ],
+        [
+          512,
+          479
+        ],
+        [
+          512,
+          488
+        ],
+        [
+          511,
+          490
+        ],
+        [
+          510,
+          491
+        ],
+        [
+          506,
+          493
+        ],
+        [
+          503,
+          494
+        ],
+        [
+          495,
+          496
+        ],
+        [
+          94,
+          496
+        ],
+        [
+          86,
+          495
+        ],
+        [
+          81,
+          494
+        ],
+        [
+          75,
+          492
+        ],
+        [
+          73,
+          491
+        ],
+        [
+          70,
+          488
+        ],
+        [
+          69,
+          486
+        ],
+        [
+          69,
+          480
+        ],
+        [
+          163,
+          178
+        ],
+        [
+          180,
+          137
+        ],
+        [
+          284,
+          31
+        ],
+        [
+          292,
+          23
+        ],
+        [
+          298,
+          21
+        ],
+        [
+          311,
+          21
+        ],
+        [
+          316,
+          23
+        ],
+        [
+          318,
+          24
+        ],
+        [
+          351,
+          41
+        ],
+        [
+          354,
+          43
+        ],
+        [
+          358,
+          46
+        ],
+        [
+          362,
+          50
+        ],
+        [
+          364,
+          53
+        ],
+        [
+          424,
+          161
+        ],
+        [
+          429,
+          172
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    },
+    {
+      "frame": 2,
+      "phase": "windup",
+      "cell_rect": [
+        606,
+        36,
+        314,
+        474
+      ],
+      "alpha_bounds": [
+        608,
+        38,
+        310,
+        470
+      ],
+      "right_hand_grip": [
+        823,
+        222
+      ],
+      "left_hand_position": [
+        836,
+        171
+      ],
+      "root": [
+        767,
+        500
+      ],
+      "anatomical_crown": [
+        789,
+        54
+      ],
+      "anatomical_height_px": 449,
+      "body_height_px": 449,
+      "measured_crown_to_root_px": 446,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              811,
+              208
+            ],
+            [
+              836,
+              208
+            ],
+            [
+              839,
+              212
+            ],
+            [
+              839,
+              232
+            ],
+            [
+              836,
+              236
+            ],
+            [
+              811,
+              236
+            ],
+            [
+              808,
+              232
+            ],
+            [
+              808,
+              212
+            ]
+          ],
+          "visible_portion": "visible skin only; approximate3px boundary precision"
+        }
+      ],
+      "sword_angle_deg": 20,
+      "two_handed": false,
+      "weapon_visible": true,
+      "main_weapon_state": "drawn",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "left_held",
+      "fan_hand": [
+        836,
+        171
+      ],
+      "fan_is_baked_body_art": true,
+      "sword_angle_confidence": "authored path; no baked sword pixels",
+      "source_region_polygon": [
+        [
+          606,
+          274
+        ],
+        [
+          606,
+          270
+        ],
+        [
+          607,
+          268
+        ],
+        [
+          728,
+          45
+        ],
+        [
+          737,
+          37
+        ],
+        [
+          740,
+          36
+        ],
+        [
+          749,
+          36
+        ],
+        [
+          755,
+          37
+        ],
+        [
+          789,
+          49
+        ],
+        [
+          794,
+          51
+        ],
+        [
+          800,
+          54
+        ],
+        [
+          807,
+          60
+        ],
+        [
+          902,
+          146
+        ],
+        [
+          905,
+          149
+        ],
+        [
+          918,
+          171
+        ],
+        [
+          919,
+          173
+        ],
+        [
+          919,
+          183
+        ],
+        [
+          918,
+          337
+        ],
+        [
+          902,
+          433
+        ],
+        [
+          901,
+          436
+        ],
+        [
+          895,
+          446
+        ],
+        [
+          875,
+          474
+        ],
+        [
+          869,
+          480
+        ],
+        [
+          865,
+          482
+        ],
+        [
+          861,
+          483
+        ],
+        [
+          657,
+          509
+        ],
+        [
+          637,
+          509
+        ],
+        [
+          629,
+          508
+        ],
+        [
+          624,
+          507
+        ],
+        [
+          618,
+          504
+        ],
+        [
+          617,
+          503
+        ],
+        [
+          616,
+          501
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    },
+    {
+      "frame": 3,
+      "phase": "acceleration",
+      "cell_rect": [
+        1080,
+        30,
+        436,
+        474
+      ],
+      "alpha_bounds": [
+        1082,
+        32,
+        432,
+        470
+      ],
+      "right_hand_grip": [
+        1255,
+        176
+      ],
+      "left_hand_position": [
+        1322,
+        227
+      ],
+      "root": [
+        1298,
+        494
+      ],
+      "anatomical_crown": [
+        1250,
+        54
+      ],
+      "anatomical_height_px": 449,
+      "body_height_px": 449,
+      "measured_crown_to_root_px": 440,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              1243,
+              162
+            ],
+            [
+              1268,
+              162
+            ],
+            [
+              1271,
+              166
+            ],
+            [
+              1271,
+              186
+            ],
+            [
+              1268,
+              190
+            ],
+            [
+              1243,
+              190
+            ],
+            [
+              1240,
+              186
+            ],
+            [
+              1240,
+              166
+            ]
+          ],
+          "visible_portion": "visible skin only; approximate3px boundary precision"
+        }
+      ],
+      "sword_angle_deg": -70,
+      "two_handed": false,
+      "weapon_visible": true,
+      "main_weapon_state": "drawn",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "left_held",
+      "fan_hand": [
+        1322,
+        227
+      ],
+      "fan_is_baked_body_art": true,
+      "sword_angle_confidence": "authored path; no baked sword pixels",
+      "source_region_polygon": [
+        [
+          1080,
+          488
+        ],
+        [
+          1153,
+          143
+        ],
+        [
+          1155,
+          135
+        ],
+        [
+          1156,
+          133
+        ],
+        [
+          1168,
+          114
+        ],
+        [
+          1169,
+          113
+        ],
+        [
+          1238,
+          56
+        ],
+        [
+          1241,
+          54
+        ],
+        [
+          1282,
+          32
+        ],
+        [
+          1286,
+          30
+        ],
+        [
+          1292,
+          30
+        ],
+        [
+          1300,
+          31
+        ],
+        [
+          1305,
+          34
+        ],
+        [
+          1309,
+          37
+        ],
+        [
+          1311,
+          39
+        ],
+        [
+          1314,
+          43
+        ],
+        [
+          1366,
+          115
+        ],
+        [
+          1404,
+          177
+        ],
+        [
+          1407,
+          183
+        ],
+        [
+          1515,
+          473
+        ],
+        [
+          1515,
+          479
+        ],
+        [
+          1514,
+          482
+        ],
+        [
+          1511,
+          485
+        ],
+        [
+          1509,
+          486
+        ],
+        [
+          1506,
+          487
+        ],
+        [
+          1502,
+          488
+        ],
+        [
+          1117,
+          503
+        ],
+        [
+          1106,
+          503
+        ],
+        [
+          1099,
+          502
+        ],
+        [
+          1093,
+          501
+        ],
+        [
+          1087,
+          499
+        ],
+        [
+          1083,
+          497
+        ],
+        [
+          1081,
+          495
+        ],
+        [
+          1080,
+          492
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    },
+    {
+      "frame": 4,
+      "phase": "approved_contact",
+      "cell_rect": [
+        74,
+        529,
+        462,
+        468
+      ],
+      "alpha_bounds": [
+        76,
+        531,
+        458,
+        464
+      ],
+      "right_hand_grip": [
+        96,
+        624
+      ],
+      "left_hand_position": [
+        364,
+        711
+      ],
+      "root": [
+        340,
+        987
+      ],
+      "anatomical_crown": [
+        284,
+        557
+      ],
+      "anatomical_height_px": 449,
+      "body_height_px": 449,
+      "measured_crown_to_root_px": 430,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              84,
+              611
+            ],
+            [
+              108,
+              611
+            ],
+            [
+              111,
+              615
+            ],
+            [
+              111,
+              634
+            ],
+            [
+              108,
+              638
+            ],
+            [
+              84,
+              638
+            ],
+            [
+              81,
+              634
+            ],
+            [
+              81,
+              615
+            ]
+          ],
+          "visible_portion": "visible skin only; approximate3px boundary precision"
+        }
+      ],
+      "sword_angle_deg": -90,
+      "two_handed": false,
+      "weapon_visible": true,
+      "main_weapon_state": "drawn",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "left_held",
+      "fan_hand": [
+        364,
+        711
+      ],
+      "fan_is_baked_body_art": true,
+      "sword_angle_confidence": "authored path; no baked sword pixels",
+      "source_region_polygon": [
+        [
+          142,
+          989
+        ],
+        [
+          74,
+          631
+        ],
+        [
+          74,
+          623
+        ],
+        [
+          75,
+          617
+        ],
+        [
+          79,
+          609
+        ],
+        [
+          82,
+          606
+        ],
+        [
+          84,
+          605
+        ],
+        [
+          87,
+          604
+        ],
+        [
+          314,
+          529
+        ],
+        [
+          319,
+          529
+        ],
+        [
+          325,
+          530
+        ],
+        [
+          337,
+          534
+        ],
+        [
+          341,
+          536
+        ],
+        [
+          403,
+          603
+        ],
+        [
+          432,
+          642
+        ],
+        [
+          441,
+          657
+        ],
+        [
+          443,
+          661
+        ],
+        [
+          534,
+          940
+        ],
+        [
+          535,
+          945
+        ],
+        [
+          535,
+          955
+        ],
+        [
+          534,
+          958
+        ],
+        [
+          532,
+          962
+        ],
+        [
+          530,
+          964
+        ],
+        [
+          527,
+          966
+        ],
+        [
+          524,
+          967
+        ],
+        [
+          518,
+          968
+        ],
+        [
+          189,
+          996
+        ],
+        [
+          161,
+          996
+        ],
+        [
+          150,
+          994
+        ],
+        [
+          144,
+          992
+        ],
+        [
+          143,
+          991
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    },
+    {
+      "frame": 5,
+      "phase": "follow_through",
+      "cell_rect": [
+        597,
+        531,
+        428,
+        462
+      ],
+      "alpha_bounds": [
+        599,
+        533,
+        424,
+        458
+      ],
+      "right_hand_grip": [
+        762,
+        725
+      ],
+      "left_hand_position": [
+        864,
+        718
+      ],
+      "root": [
+        812,
+        983
+      ],
+      "anatomical_crown": [
+        795,
+        556
+      ],
+      "anatomical_height_px": 449,
+      "body_height_px": 449,
+      "measured_crown_to_root_px": 427,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              749,
+              710
+            ],
+            [
+              775,
+              710
+            ],
+            [
+              778,
+              714
+            ],
+            [
+              778,
+              736
+            ],
+            [
+              775,
+              740
+            ],
+            [
+              749,
+              740
+            ],
+            [
+              746,
+              736
+            ],
+            [
+              746,
+              714
+            ]
+          ],
+          "visible_portion": "visible skin only; approximate3px boundary precision"
+        }
+      ],
+      "sword_angle_deg": -135,
+      "two_handed": false,
+      "weapon_visible": true,
+      "main_weapon_state": "drawn",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "left_held",
+      "fan_hand": [
+        864,
+        718
+      ],
+      "fan_is_baked_body_art": true,
+      "sword_angle_confidence": "authored path; no baked sword pixels",
+      "source_region_polygon": [
+        [
+          597,
+          973
+        ],
+        [
+          601,
+          738
+        ],
+        [
+          775,
+          562
+        ],
+        [
+          780,
+          557
+        ],
+        [
+          784,
+          554
+        ],
+        [
+          787,
+          552
+        ],
+        [
+          793,
+          549
+        ],
+        [
+          830,
+          531
+        ],
+        [
+          843,
+          531
+        ],
+        [
+          847,
+          533
+        ],
+        [
+          850,
+          535
+        ],
+        [
+          859,
+          544
+        ],
+        [
+          926,
+          659
+        ],
+        [
+          933,
+          672
+        ],
+        [
+          935,
+          676
+        ],
+        [
+          1024,
+          957
+        ],
+        [
+          1024,
+          969
+        ],
+        [
+          1023,
+          970
+        ],
+        [
+          1017,
+          973
+        ],
+        [
+          1008,
+          976
+        ],
+        [
+          641,
+          992
+        ],
+        [
+          621,
+          992
+        ],
+        [
+          614,
+          991
+        ],
+        [
+          604,
+          989
+        ],
+        [
+          600,
+          987
+        ],
+        [
+          598,
+          985
+        ],
+        [
+          597,
+          983
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    },
+    {
+      "frame": 6,
+      "phase": "recovery",
+      "cell_rect": [
+        1055,
+        522,
+        459,
+        466
+      ],
+      "alpha_bounds": [
+        1057,
+        524,
+        455,
+        462
+      ],
+      "right_hand_grip": [
+        1249,
+        663
+      ],
+      "left_hand_position": [
+        1324,
+        744
+      ],
+      "root": [
+        1285,
+        978
+      ],
+      "anatomical_crown": [
+        1301,
+        544
+      ],
+      "anatomical_height_px": 449,
+      "body_height_px": 449,
+      "measured_crown_to_root_px": 434,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              1237,
+              649
+            ],
+            [
+              1262,
+              649
+            ],
+            [
+              1265,
+              653
+            ],
+            [
+              1265,
+              674
+            ],
+            [
+              1262,
+              678
+            ],
+            [
+              1237,
+              678
+            ],
+            [
+              1234,
+              674
+            ],
+            [
+              1234,
+              653
+            ]
+          ],
+          "visible_portion": "visible skin only; approximate3px boundary precision"
+        }
+      ],
+      "sword_angle_deg": -25,
+      "two_handed": false,
+      "weapon_visible": true,
+      "main_weapon_state": "drawn",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "left_held",
+      "fan_hand": [
+        1324,
+        744
+      ],
+      "fan_is_baked_body_art": true,
+      "sword_angle_confidence": "authored path; no baked sword pixels",
+      "source_region_polygon": [
+        [
+          1055,
+          969
+        ],
+        [
+          1146,
+          649
+        ],
+        [
+          1147,
+          647
+        ],
+        [
+          1151,
+          642
+        ],
+        [
+          1249,
+          527
+        ],
+        [
+          1256,
+          523
+        ],
+        [
+          1259,
+          522
+        ],
+        [
+          1271,
+          522
+        ],
+        [
+          1312,
+          537
+        ],
+        [
+          1314,
+          538
+        ],
+        [
+          1321,
+          542
+        ],
+        [
+          1324,
+          544
+        ],
+        [
+          1326,
+          546
+        ],
+        [
+          1369,
+          610
+        ],
+        [
+          1385,
+          639
+        ],
+        [
+          1394,
+          656
+        ],
+        [
+          1395,
+          658
+        ],
+        [
+          1401,
+          671
+        ],
+        [
+          1513,
+          969
+        ],
+        [
+          1513,
+          978
+        ],
+        [
+          1509,
+          982
+        ],
+        [
+          1505,
+          984
+        ],
+        [
+          1502,
+          985
+        ],
+        [
+          1497,
+          986
+        ],
+        [
+          1491,
+          987
+        ],
+        [
+          1081,
+          987
+        ],
+        [
+          1074,
+          986
+        ],
+        [
+          1069,
+          985
+        ],
+        [
+          1065,
+          984
+        ],
+        [
+          1062,
+          983
+        ],
+        [
+          1058,
+          981
+        ],
+        [
+          1056,
+          979
+        ],
+        [
+          1055,
+          977
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    }
+  ],
+  "source_sha256": "0fff6b671afadd52d45d67fd527424b9e3ede699ba9fae187c2a5e63249da79b"
+}

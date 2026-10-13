@@ -1,0 +1,949 @@
+{
+  "contract_id": "hideyoshi-katana-gourd-fan-asset-contract-20261013",
+  "approved_source": "production/reference/approved-catalog.json",
+  "approved_reference": "production/reference/identity.png",
+  "verified_commit": "966cf8c3d48a4579554bc046a5961870faaaafa8",
+  "scope": "Produce standalone full artwork package and measured metadata; do not edit shared repository, push, alter gameplay or pretend package is integrated.",
+  "status": "Production contract. Counts derive from approved22 contacts plus17 explicitly named support clips, not from a generic26x6 template.",
+  "counts": {
+    "attack_clips": 22,
+    "support_clips": 17,
+    "unique_clips": 39,
+    "distinct_pose_target": 234,
+    "portrait_assets": 1,
+    "special_segments": 3
+  },
+  "format": {
+    "body_png": "RGBA, truly transparent, no baked gray/white/checkerboard, text, guide lines, dummy opponent, main sword or VFX.",
+    "engine_fixed_cell_size": null,
+    "recommended_export_cell": [
+      512,
+      512
+    ],
+    "wide_or_air_export_cell_allowed": [
+      640,
+      640
+    ],
+    "rule": "Cell size is a packaging preference, never an engine assertion. Use actual source dimensions/rect; never shrink high-resolution bodies or stretch frames merely to fit a box. Retain full body, hair, fan, scabbard and fingers.",
+    "min_upright_anatomical_height_px": 300,
+    "preferred_upright_anatomical_height_px": [
+      380,
+      460
+    ],
+    "native_test_threshold_px": 280,
+    "source_pixel_policy": "Preserve original generation and alpha. Safe rectangular crop/metadata only; regenerate broken hands, merged poses or baked sword rather than erasing parts to hide defects.",
+    "body_height_definition": "Same upright anatomical scale ruler across crouch, air and down. Never use the current pose bounding-box height.",
+    "world_height_current": 155,
+    "world_height_note": "Current runtime uses155 for Hideyoshi and other non-Oichi heroes. Approved compact build is proportion; reducing world height requires integration decision."
+  },
+  "naming": {
+    "source": "sources/<clip>-generation-original.png",
+    "frame": "body/<clip>/01.png ... 06.png",
+    "optional_sheet": "sheets/body/<clip>.png (3columns x2rows, numbered only on review copy)",
+    "registration": "registration.proposed.json",
+    "clip_plan": "animation_plan.json",
+    "approved_contact_map": "approved_contact_map.json",
+    "preview": "qa/contact-sheets/<clip>.png",
+    "portrait": "ui/portrait.png",
+    "metadata": "qa/source_sha256.json, qa/coverage.json, qa/anchor_overlay.png",
+    "handoff": "README-素材包.txt and CODEX-INTEGRATION.md"
+  },
+  "frame_contract": {
+    "required": [
+      "file",
+      "rect",
+      "foot",
+      "body_height",
+      "hand",
+      "weapon_angle",
+      "weapon_behind",
+      "weapon_visible"
+    ],
+    "optional_existing": [
+      "second_hand",
+      "hand_occluders",
+      "clip_polygon",
+      "weapon_grounded"
+    ],
+    "extended_handoff_only": [
+      "fan_state",
+      "main_weapon_state",
+      "left_hand",
+      "right_hand",
+      "root_delta",
+      "attack_direction",
+      "sheath_mask",
+      "sheath_anchor",
+      "frame_phase",
+      "duration_ticks",
+      "approved_contact_number",
+      "weapon_grip_offset_normalized",
+      "weapon_grip_override_by_id"
+    ],
+    "coordinate_system": "rect is source PNG coordinates; foot, hand, second_hand, hand_occluders and clip_polygon are crop-local pixels. Do not add loader padding. Loader adds2px on all sides itself.",
+    "angle": "Main sword source tip up=0 degrees; clockwise positive; tip right=90; baseline actor faces right. 09 and21 are deliberate leftward return cuts relative to the baseline.",
+    "foot_anchor": "Grounded: planted sole or stable support point. Air/lying: anatomical virtual root preserving physical scale and world motion, not a changing tight-bbox bottom. Keep anchor inside isolated texture; export padded cell if necessary.",
+    "hand_anchor": "Primary/anatomical right-hand grip at the sword asset grip. Record actual left hand too for two-handed validation. second_hand does not currently solve sword IK.",
+    "occlusion": "Main weapon may draw behind or in front of body; fingers/palm from body are then redrawn with hand_occluders. Rectangles must be measured per frame, just enough to cover fingers, not repainting large torso patches.",
+    "weapon_grounded": "Leave false for this approved katana kit: 07/11/14 do not scrape or smash the ground; existing grounded adjustment is spear-only.",
+    "never_fabricate": "Do not fill measured hand/foot/occluder fields before viewing actual generated pixels. A template with unknown values is not a valid completed registration.",
+    "weapon_grip_extension": {
+      "status": "Proposed helper/Codex extension, not consumed by current remote renderer.",
+      "offset_definition": "weapon_grip_offset_normalized is a 2D offset in canonical weapon-source axes, normalized by that weapon spec.length. Effective grip = spec.grip + offset * spec.length. Positive y points from blade tip toward pommel in canonical tip-up source.",
+      "override_definition": "weapon_grip_override_by_id, if needed, maps actual weapon_id to absolute [x,y] coordinates in that weapon source image; a single pixel override cannot be shared across different source textures.",
+      "pilot_candidate": "Two-handed pilot suggested [0,-0.06] but this is a candidate for visually verified frames, NOT a blanket rule for all swords or all frames.",
+      "order": "Resolve weapon-specific base grip/override, apply explicit normalized offset, then compose scale/angle and body primary hand. Preserve body hand anchor and original world_length.",
+      "secondary_hand": "Validate right hand nearer guard and left hand nearer pommel along the actual arm chains. Record both contact points and per-frame hand_occluders; spacing labels alone do not establish anatomy.",
+      "qa": "Compare all supported sword hilts, at minimum uchigatana, kanesada_mino85 and okanehira115; both hands must land inside the handle without guard/pommel overlap or unintended blade grip."
+    }
+  },
+  "layers": {
+    "existing_order": [
+      "back weapon",
+      "body",
+      "front weapon",
+      "hand occlusion",
+      "front VFX/status"
+    ],
+    "body": "Human, costume, generic empty scabbard and fixed fan may be authored here. No fixed primary sword blade, guard or handle; otherwise switching swords doubles or leaves the old weapon.",
+    "fixed_fan": "Not inventory equipment. Exactly one per frame: stowed for ordinary/double-hand sword actions; left hand in special1 andspecial2; stowed again in special3. Guard may use fan if clearly registered.",
+    "fan_transition": "Make stow/draw fan visibly plausible in transitions, no instant duplicate on sash and hand. Transition itself does not add attack damage.",
+    "throw_target": "The gray opponent on approved19 is a reference only. Actual target must be independently rendered; body layer contains only Hideyoshi. A separate neutral reference target layer is allowed for previews.",
+    "sheathed_weapon": "Approved19 andcharge/charged transition require equipped hilt visible while blade is concealed. Current renderer only has weapon_visible, no complete scabbard masking/sheathed-hilt mode. Deliver separate proposed mask/anchor data or clearly labeled handoff need; do not bake a particular hilt into the body.",
+    "effects": "No slashes/wind/glow in body atlas. Optional transparent effect references separately; no phantom sword extending hitbox."
+  },
+  "swap_contract": {
+    "target_family": "sword (approved choice, NOT existing code state)",
+    "current_hideyoshi_family": "spear",
+    "current_default": "spear_tonbokiri",
+    "sword_world_length_existing_range": [
+      85,
+      115
+    ],
+    "recommended_preview_ids": [
+      "sword_uchigatana",
+      "sword_kanesada_mino",
+      "sword_okanehira"
+    ],
+    "checks": [
+      "Same body pixels for each equipped sword.",
+      "Preserve each item world_length and grip; no forced same blade length.",
+      "Both hands grip handle rather than blade; account for varying hilt proportions.",
+      "Test right and left facing and09/21return cuts.",
+      "Test12sheathed-to-drawn,19sheathed,20/21fan-left and22two-hands-fan-stowed.",
+      "No blade/hilt duplicate left in body or scabbard."
+    ],
+    "technical_limit": "Weapon artwork does not automatically determine collision: current melee uses action reach+weapon reach_bonus. Weapon-image geometry and new katana hit zones must be aligned later."
+  },
+  "clips": [
+    {
+      "number": 1,
+      "name": "探步橫切",
+      "existing_slot": "light1",
+      "category": "輕擊第一段",
+      "contact": "右手短橫切",
+      "hands_and_fan": "左手護身；扇收妥",
+      "clip_id": "light1",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "J",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        6
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 2,
+      "name": "回腕挑斬",
+      "existing_slot": "light2",
+      "category": "輕擊第二段",
+      "contact": "反腕斜上挑",
+      "hands_and_fan": "左手護身；扇收妥",
+      "clip_id": "light2",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "J→J",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        6
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 3,
+      "name": "側進拔身斬",
+      "existing_slot": "light3",
+      "category": "輕擊第三段",
+      "contact": "側跨切入",
+      "hands_and_fan": "左臂平衡；扇收妥",
+      "clip_id": "light3",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "J→J→J",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        6
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 4,
+      "name": "貼身袈裟斬",
+      "existing_slot": "heavy1",
+      "category": "重擊第一段",
+      "contact": "雙手斜下切",
+      "hands_and_fan": "兩手握柄；扇收妥",
+      "clip_id": "heavy1",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "短K放開",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        14
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 5,
+      "name": "轉腰逆袈裟",
+      "existing_slot": "heavy2",
+      "category": "重擊第二段",
+      "contact": "轉腰斜上切",
+      "hands_and_fan": "兩手握柄；扇收妥",
+      "clip_id": "heavy2",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "短K放開→短K放開",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        14
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 6,
+      "name": "燕返上挑",
+      "existing_slot": "rising",
+      "category": "上＋輕擊",
+      "contact": "低身單手上挑",
+      "hands_and_fan": "左手護身；扇收妥",
+      "clip_id": "rising",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "W＋J",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        6
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 7,
+      "name": "伏身刈足",
+      "existing_slot": "low_sweep",
+      "category": "下＋輕擊",
+      "contact": "伏身低橫切",
+      "hands_and_fan": "刀尖離地；扇收妥",
+      "clip_id": "low_sweep",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "S＋J",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        9
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 8,
+      "name": "滑步穿隙刺",
+      "existing_slot": "dash_strike",
+      "category": "新左右＋輕擊",
+      "contact": "滑進短直刺",
+      "hands_and_fan": "左手輔臂；扇收妥",
+      "clip_id": "dash_strike",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "同時新按A/D＋J",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        10
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 9,
+      "name": "擦身返斬",
+      "existing_slot": "dash_heavy",
+      "category": "衝刺＋重擊",
+      "contact": "越過後向左返切",
+      "hands_and_fan": "視線朝左；扇收妥",
+      "clip_id": "dash_heavy",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "同方向雙點按住衝刺後K",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        12
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 10,
+      "name": "蹲身挑空",
+      "existing_slot": "upper_heavy",
+      "category": "上＋短重擊",
+      "contact": "蹲身雙手上挑",
+      "hands_and_fan": "兩手握柄；扇收妥",
+      "clip_id": "upper_heavy",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "W＋短K放開",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        12
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 11,
+      "name": "踏步下劈",
+      "existing_slot": "ground_slam",
+      "category": "下＋短重擊",
+      "contact": "踏進斜下截斬",
+      "hands_and_fan": "不砸地；扇收妥",
+      "clip_id": "ground_slam",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "S＋短K放開",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        14
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 12,
+      "name": "詐退居合",
+      "existing_slot": "charged",
+      "category": "原地蓄力",
+      "contact": "退步抽刀橫切",
+      "hands_and_fan": "左手控鞘；扇收妥",
+      "clip_id": "charged",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "無上下方向按K≥35tick後放開",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "draw_transition",
+      "existing_gameplay_base_hit_ticks": [
+        14
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 13,
+      "name": "旋身昇刃",
+      "existing_slot": "charged_upper",
+      "category": "上＋蓄力",
+      "contact": "落地支點旋升",
+      "hands_and_fan": "兩手握柄；扇收妥",
+      "clip_id": "charged_upper",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "W＋按K≥35tick後放開",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        22
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 14,
+      "name": "低身落葉斬",
+      "existing_slot": "charged_slam",
+      "category": "下＋蓄力",
+      "contact": "低身強斜切",
+      "hands_and_fan": "刀尖離地；扇收妥",
+      "clip_id": "charged_slam",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "S＋按K≥35tick後放開",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        28
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 15,
+      "name": "飛燕橫切",
+      "existing_slot": "air_light",
+      "category": "空中輕擊",
+      "contact": "浮空單手橫切",
+      "hands_and_fan": "雙腳離地；扇收妥",
+      "clip_id": "air_light",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "空白起跳→J",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        6
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 16,
+      "name": "落身斜斬",
+      "existing_slot": "air_heavy",
+      "category": "空中重擊",
+      "contact": "下墜雙手斜切",
+      "hands_and_fan": "落地前命中；扇收妥",
+      "clip_id": "air_heavy",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "空白起跳→K",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        12,
+        19
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review."
+    },
+    {
+      "number": 17,
+      "name": "假撤回身斬",
+      "existing_slot": "mixed_finisher",
+      "category": "輕轉重派生",
+      "contact": "假退後轉腰回切",
+      "hands_and_fan": "兩手握柄；扇收妥",
+      "clip_id": "mixed_finisher",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "J→短K放開，或J→J→短K放開",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        9,
+        27
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review.",
+      "integration_note": "Approved new catalog has one designed hit, but old action has two at base9/27; author six poses around approved contact, mark old second hit for Codex redesign rather than duplicating one image into two attacks."
+    },
+    {
+      "number": 18,
+      "name": "縮步追挑",
+      "existing_slot": "mixed_rising",
+      "category": "重轉輕派生",
+      "contact": "縮短步距追挑",
+      "hands_and_fan": "單手短挑；扇收妥",
+      "clip_id": "mixed_rising",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "短K放開→J",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        9,
+        27
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review.",
+      "integration_note": "Approved new catalog has one designed hit, but old action has two at base9/27; author six poses around approved contact, mark old second hit for Codex redesign rather than duplicating one image into two attacks."
+    },
+    {
+      "number": 19,
+      "name": "扣腕過肩摔",
+      "existing_slot": "throw",
+      "category": "擒拿摔技",
+      "contact": "雙手控腕過肩",
+      "hands_and_fan": "刀入鞘；扇收妥",
+      "clip_id": "throw",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "近身按住L抓住→放開",
+      "frame_phase": [
+        "控腕持有",
+        "屈膝入身",
+        "過肩準備",
+        "放手拋出",
+        "俯身隨勢",
+        "回復站姿"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "sheathed",
+      "existing_gameplay_base_hit_ticks": [
+        0
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review.",
+      "integration_note": "Existing throw damage and target launch happen immediately on L release. Do not delay hit to frame4 without changing the gameplay contract; separate hold windup from release continuation or explicitly retime."
+    },
+    {
+      "number": 20,
+      "name": "誘扇穿隙",
+      "existing_slot": "special / 1",
+      "category": "千成奇策・第一擊",
+      "contact": "左扇撥線、右刀刺",
+      "hands_and_fan": "扇在左手；腰間不重複",
+      "clip_id": "special_1",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "站地、怒氣100、可出招狀態新按U",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "held_left",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": [
+        18,
+        44,
+        70,
+        96,
+        122,
+        148,
+        174,
+        198
+      ],
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review.",
+      "integration_note": "A new three-part special. Deliver three six-frame clips, not one 18-frame v22 clip. Old renderer repeats one six-frame special around eight hits and must change."
+    },
+    {
+      "number": 21,
+      "name": "錯身返切",
+      "existing_slot": "special / 2",
+      "category": "千成奇策・第二擊",
+      "contact": "向左錯身返切",
+      "hands_and_fan": "左扇護胸；目光朝左",
+      "clip_id": "special_2",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "接續20",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "held_left",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": null,
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review.",
+      "integration_note": "A new three-part special. Deliver three six-frame clips, not one 18-frame v22 clip. Old renderer repeats one six-frame special around eight hits and must change."
+    },
+    {
+      "number": 22,
+      "name": "決勝斬",
+      "existing_slot": "special / 3",
+      "category": "千成奇策・終擊",
+      "contact": "向右雙手決勝斬",
+      "hands_and_fan": "扇收回腰帶；兩手握刀",
+      "clip_id": "special_3",
+      "kind": "attack",
+      "required_source_frames": 6,
+      "input": "接續21",
+      "frame_phase": [
+        "起手",
+        "蓄勢／預備",
+        "出手前",
+        "核准命中姿勢",
+        "隨勢",
+        "收勢／銜接"
+      ],
+      "impact_frame_1based": 4,
+      "source_facing": "authored baseline right; contacts 09 and 21 deliberately cut back to left",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "existing_gameplay_base_hit_ticks": null,
+      "timing_status": "Existing times are audit references only. New choreography, direction and hit count require integration review.",
+      "integration_note": "A new three-part special. Deliver three six-frame clips, not one 18-frame v22 clip. Old renderer repeats one six-frame special around eight hits and must change."
+    },
+    {
+      "clip_id": "idle",
+      "kind": "support",
+      "name": "站立",
+      "required_source_frames": 6,
+      "design": "呼吸與重心微調，原地完整6姿勢；刀可安全低持，扇收妥",
+      "timing_reference": "72tick/1.2秒循環（现行每格12tick）"
+    },
+    {
+      "clip_id": "walk",
+      "kind": "support",
+      "name": "走路",
+      "required_source_frames": 6,
+      "design": "左脚開→窄→交錯→右脚開→窄→交錯，放開立刻idle",
+      "timing_reference": "60tick/1秒循環，每格10tick"
+    },
+    {
+      "clip_id": "run",
+      "kind": "support",
+      "name": "跑步",
+      "required_source_frames": 6,
+      "design": "6個真實跑姿，腳步展開、交替支撐、騰空，不能只平移walk",
+      "timing_reference": "45tick/0.75秒循環，每格7.5tick"
+    },
+    {
+      "clip_id": "jump",
+      "kind": "support",
+      "name": "跳躍",
+      "required_source_frames": 6,
+      "design": "壓腿起跳→上升→收腿頂點→伸腿下降→預備落地→吸收落地",
+      "timing_reference": "现行按vz選6格，不是固定fps；不能把腿收起後按短bbox放大"
+    },
+    {
+      "clip_id": "charge",
+      "kind": "support",
+      "name": "原地蓄力保持",
+      "required_source_frames": 6,
+      "design": "12詐退居合之前的收刀準備、半納刀、集中保持；不提前斬出",
+      "timing_reference": "35tick滿蓄；現行只推進至第3格保持，4–6為新滿蓄保持候選，需Codex路由"
+    },
+    {
+      "clip_id": "charge_upper",
+      "kind": "support",
+      "name": "上向蓄力保持",
+      "required_source_frames": 6,
+      "design": "與13旋身昇刃相接，低架斜刀預備，充能保持不揮出",
+      "timing_reference": "35tick；方向鎖定於K按下"
+    },
+    {
+      "clip_id": "charge_slam",
+      "kind": "support",
+      "name": "下向蓄力保持",
+      "required_source_frames": 6,
+      "design": "與14低身落葉斬相接，低身蓄勢，刀尖仍離地",
+      "timing_reference": "35tick；不是砸地循環"
+    },
+    {
+      "clip_id": "holding",
+      "kind": "support",
+      "name": "擒拿持有",
+      "required_source_frames": 6,
+      "design": "19前置控腕／抓持姿勢，刀入鞘，双手控制；敵人獨立層",
+      "timing_reference": "最長180tick；30tick單次50%掙脫；现行僅前3格保持，細節動畫需新路由"
+    },
+    {
+      "clip_id": "guard",
+      "kind": "support",
+      "name": "防禦及擋中",
+      "required_source_frames": 6,
+      "design": "01進入、02架起、03維持、04受壓過渡、05擋中、06回復；若扇擋需扇在左手且腰部不重複",
+      "timing_reference": "现行第3格保持，guard_hit顯示第5格"
+    },
+    {
+      "clip_id": "hurt",
+      "kind": "support",
+      "name": "受擊",
+      "required_source_frames": 6,
+      "design": "肩髖受震→彎腰失衡→最大受擊→回穩；不能只整圖震動",
+      "timing_reference": "18tick後恢復"
+    },
+    {
+      "clip_id": "grabbed",
+      "kind": "support",
+      "name": "被抓掙扎",
+      "required_source_frames": 6,
+      "design": "6個手脚／肩髖掙扎姿勢，與被抓相對位置一致，刀/扇仍合理保管",
+      "timing_reference": "新獨立clip，現有renderer把grabbed直接轉hurt，需Codex改路由"
+    },
+    {
+      "clip_id": "pulled",
+      "kind": "support",
+      "name": "被拉近",
+      "required_source_frames": 6,
+      "design": "前臂／肩膀被牽拉、後脚踉蹌失衡，身體方向與移動相配",
+      "timing_reference": "新獨立clip，現有renderer把pulled轉hurt，需Codex改路由"
+    },
+    {
+      "clip_id": "launched",
+      "kind": "support",
+      "name": "擊飛／被投飛",
+      "required_source_frames": 6,
+      "design": "上升、翻身失衡、頂點、下降、護身、落地前；原身高尺保持",
+      "timing_reference": "现行按vz選格；thrown可共用"
+    },
+    {
+      "clip_id": "down",
+      "kind": "support",
+      "name": "倒地及死亡末態",
+      "required_source_frames": 6,
+      "design": "倒下銜接→落地→躺平；末格穩定，雙腳和頭不裁掉",
+      "timing_reference": "现行24tick落到末格；死亡hold末格，存活倒地之後才recovering"
+    },
+    {
+      "clip_id": "recovering",
+      "kind": "support",
+      "name": "起身",
+      "required_source_frames": 6,
+      "design": "躺平→掌撐→侧身→单膝→半站→站穩",
+      "timing_reference": "36tick；現有完成起身有2傷害震開，屬程式效果不是新攻擊圖"
+    },
+    {
+      "clip_id": "stunned",
+      "kind": "support",
+      "name": "暈眩",
+      "required_source_frames": 6,
+      "design": "頭／肩搖晃、腳不穩但不倒地，6姿勢可循環",
+      "timing_reference": "48tick循環，每格8tick"
+    },
+    {
+      "clip_id": "victory",
+      "kind": "support",
+      "name": "勝利",
+      "required_source_frames": 6,
+      "design": "收刀／開扇發令式慶祝→回穩→定案終態，動作完整",
+      "timing_reference": "120tick播放6格，末格保持；不回idle或倒地"
+    }
+  ],
+  "aliases_and_nonclips": {
+    "thrown": "Use launched artwork with appropriate airborne trajectory.",
+    "dead/defeated": "Use down final lying state; death never plays recovering.",
+    "frozen": "Hold hurt contact/mid frame plus engine ice effect, no six extra freeze poses.",
+    "pickup": "Existing interaction has no unique attack clip; may retainidle/move, no invented attack.",
+    "sprint_bump": "Existing contact-damage fromrun; no independent command clip required.",
+    "getup_burst": "Existing2damage effect on recoverycompletion; use recovering last frame, separate VFX.",
+    "counter_cut": "Not applicable: Mitsuhide-exclusive. Do not add Hideyoshi counter to fill test list."
+  },
+  "codex_integration_required": [
+    "Add Hideyoshi to layered-hero loader/test coverage and portrait resolution. Current remote loader only coversnobunaga/oichi/tadakatsu; local layered_hero_source.gd belongs to newer shared work and is NOT present on remote966cf8c. Reconcile latest work before editing.",
+    "Change Hideyoshi weapon family tosword; migrate or preserve old spear-equipped inventory/save safely. No silent deletion of old progress.",
+    "Replace old spear audio/events/element visual assumptions for Hideyoshi with sword events.",
+    "Route upper_heavy andground_slam to their dedicated approvedclips instead of existing aliases charged_upper/charged_slam.",
+    "Route mixed_finisher andmixed_rising to their own approved choreography; old renderer substituteslight3 thencharged_slam/charged_upper and old gameplayhas2hits.",
+    "Route newthree-part special1/2/3 with actual fan draw/stow transitions; old210tick8hit special must not silently replaythree new poses as8hits.",
+    "Redesign09 dash_heavy displacement, facing and rear strike region; current code treats Hideyoshi as narrow forward spear.",
+    "Redesign11/14 damage style (approvedkatana never hitsground) and16airheavy secondgroundwave; keep oldeffects only if explicitly designed rather than blindly inherited.",
+    "Handle12iaijutsu sheath/draw geometry and19throw weapon concealment. Decide holding-to-throw sequence so actual release/launch matches art; current damage is atLrelease.",
+    "Route grabbed/pulled independent artwork and fullcharged/holding sequences instead of existing6frame first-half clamps as appropriate.",
+    "Preserve attack-speed tick remapping and make actual hit coincide withframe04 for ordinary attacks. Any new timing/hit count is gameplay work, not a metadata-only patch.",
+    "Run final native-render input/animation/equipment/save/network QA in an authorized code task. Offline sprite QA must not be reported as native gameplay pass."
+  ],
+  "qa_gates": [
+    "Before mass generation: idle6 andheavy1six orspecial1six show identity, true transparency, hands, sourceheight and three-sword swaps.",
+    "Every requiredclip has6 genuinely different sources; no whole-image wiggling/stretching/blurred interpolation as extra frames.",
+    "Approvedcontact22mapping is complete; contactframe04 matches approved direction, weapon/fanstate and silhouette.",
+    "Allpngs decode asRGBA and have transparent exterior; alpha threshold cannot remove bodyparts to hide pollution.",
+    "No crop crosses into another pose; fullhead/hair/feet/fan retained; portrait from samecharacter source.",
+    "Allcoords bounded; all occluders cover intendedhand only; no blankhand or extra limbs.",
+    "Anchored preview allclips at155worldheight, right/left; no sizepumping from crouch/air/down.",
+    "Review loops at their proposed duration plus individual-numbered frames. Loop smoke only if sourceframes truly differ.",
+    "FileSHA256, sourceprovenance, clip/framecounts, missing/blockedintegrationstages listed.",
+    "ZIP verified by fresh extract and manifest/filehash check; no privatepaths in userREADME."
+  ],
+  "sources": {
+    "current_controls": "https://github.com/guderian44444/sengoku-m1/blob/966cf8c3d48a4579554bc046a5961870faaaafa8/game/controls-v11.json",
+    "v22_loader": "https://github.com/guderian44444/sengoku-m1/blob/966cf8c3d48a4579554bc046a5961870faaaafa8/game/render/art_assets.gd#L113-L156",
+    "v22_routes": "https://github.com/guderian44444/sengoku-m1/blob/966cf8c3d48a4579554bc046a5961870faaaafa8/game/render/frame_animation.gd#L475-L541",
+    "render_draw_order": "https://github.com/guderian44444/sengoku-m1/blob/966cf8c3d48a4579554bc046a5961870faaaafa8/game/render/battle_view.gd#L781-L847",
+    "attack_tick_mapping": "https://github.com/guderian44444/sengoku-m1/blob/966cf8c3d48a4579554bc046a5961870faaaafa8/game/render/battle_view.gd#L139-L175",
+    "weapon_geometry": "https://github.com/guderian44444/sengoku-m1/blob/966cf8c3d48a4579554bc046a5961870faaaafa8/game/render/weapon_renderer.gd#L18-L86",
+    "weapon_family": "https://github.com/guderian44444/sengoku-m1/blob/966cf8c3d48a4579554bc046a5961870faaaafa8/game/core/weapon_catalog.gd#L56-L84",
+    "current_test_actions": "https://github.com/guderian44444/sengoku-m1/blob/966cf8c3d48a4579554bc046a5961870faaaafa8/game/tests/test_hero_layers_v22.gd#L7-L10"
+  }
+}

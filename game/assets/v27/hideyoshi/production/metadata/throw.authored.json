@@ -1,0 +1,1118 @@
+{
+  "animation": "throw",
+  "source": "raw/throw.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "Full-sheet native pixels; origin top-left. Rectangles x,y,width,height.",
+  "authorship": "Individually measured from native gray-composited raw. No source pixels modified. Unseen coordinates remain null except explicitly authorized heavy1 reference-inferred hidden left grips, separately labeled low-confidence.",
+  "angle_convention": "Tip up=0; clockwise positive. Two-hand axis runs from left rear grip to right forward grip.",
+  "measurement_notes": "Fixed standing-equivalent height uses visible head/trunk/thigh/shin proportions and least compressed pose, not changing crouch bounding box. Approximate hand precision3px; hidden heavy1 left grip is explicitly reference-inferred, not pixel-measured. Apply source_region_polygon then cell_rect.",
+  "impact_frame_1based": 4,
+  "frames": [
+    {
+      "frame": 1,
+      "phase": "ready",
+      "cell_rect": [
+        28,
+        33,
+        514,
+        469
+      ],
+      "alpha_bounds": [
+        30,
+        35,
+        510,
+        465
+      ],
+      "right_hand_grip": null,
+      "left_hand_position": [
+        474,
+        148
+      ],
+      "root": [
+        285,
+        492
+      ],
+      "anatomical_crown": [
+        317,
+        56
+      ],
+      "anatomical_height_px": 447,
+      "body_height_px": 447,
+      "measured_crown_to_root_px": 436,
+      "hand_occluders": [],
+      "sword_angle_deg": null,
+      "two_handed": false,
+      "weapon_visible": false,
+      "main_weapon_state": "sheathed",
+      "scabbard_mouth": [
+        318,
+        245
+      ],
+      "scabbard_mouth_visibility": "visible dark opening with gold rim at left hip",
+      "scabbard_mouth_confidence": "medium, approximately4px",
+      "grip_confidence": "high",
+      "fan_state": "stowed",
+      "sword_angle_confidence": "not applicable; sword concealed",
+      "right_hand_position": [
+        385,
+        180
+      ],
+      "hands_role": "both hands grapple a virtual opponent, not a weapon",
+      "opponent_in_body": false,
+      "source_region_polygon": [
+        [
+          28,
+          485
+        ],
+        [
+          90,
+          277
+        ],
+        [
+          257,
+          43
+        ],
+        [
+          262,
+          39
+        ],
+        [
+          273,
+          33
+        ],
+        [
+          287,
+          33
+        ],
+        [
+          500,
+          124
+        ],
+        [
+          507,
+          136
+        ],
+        [
+          541,
+          474
+        ],
+        [
+          541,
+          483
+        ],
+        [
+          540,
+          485
+        ],
+        [
+          537,
+          488
+        ],
+        [
+          534,
+          489
+        ],
+        [
+          526,
+          491
+        ],
+        [
+          64,
+          501
+        ],
+        [
+          49,
+          501
+        ],
+        [
+          42,
+          500
+        ],
+        [
+          37,
+          499
+        ],
+        [
+          34,
+          498
+        ],
+        [
+          31,
+          496
+        ],
+        [
+          30,
+          495
+        ],
+        [
+          29,
+          493
+        ],
+        [
+          28,
+          490
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      },
+      "body_foreground_occluders": [
+        {
+          "polygon": [
+            [
+              277,
+              164
+            ],
+            [
+              350,
+              168
+            ],
+            [
+              358,
+              195
+            ],
+            [
+              281,
+              203
+            ]
+          ],
+          "purpose": "Near forearm hides inventory hilt at waist; source pixel mask only."
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "phase": "windup",
+      "cell_rect": [
+        568,
+        27,
+        454,
+        469
+      ],
+      "alpha_bounds": [
+        570,
+        29,
+        450,
+        465
+      ],
+      "right_hand_grip": null,
+      "left_hand_position": [
+        977,
+        127
+      ],
+      "root": [
+        795,
+        487
+      ],
+      "anatomical_crown": [
+        809,
+        48
+      ],
+      "anatomical_height_px": 447,
+      "body_height_px": 447,
+      "measured_crown_to_root_px": 439,
+      "hand_occluders": [],
+      "sword_angle_deg": null,
+      "two_handed": false,
+      "weapon_visible": false,
+      "main_weapon_state": "sheathed",
+      "scabbard_mouth": [
+        815,
+        233
+      ],
+      "scabbard_mouth_visibility": "visible dark opening with gold rim at left hip",
+      "scabbard_mouth_confidence": "medium, approximately4px",
+      "grip_confidence": "high",
+      "fan_state": "stowed",
+      "sword_angle_confidence": "not applicable; sword concealed",
+      "right_hand_position": [
+        907,
+        171
+      ],
+      "hands_role": "both hands grapple a virtual opponent, not a weapon",
+      "opponent_in_body": false,
+      "source_region_polygon": [
+        [
+          1007,
+          114
+        ],
+        [
+          1021,
+          479
+        ],
+        [
+          1021,
+          487
+        ],
+        [
+          1020,
+          489
+        ],
+        [
+          1017,
+          492
+        ],
+        [
+          1015,
+          493
+        ],
+        [
+          1012,
+          494
+        ],
+        [
+          1008,
+          495
+        ],
+        [
+          983,
+          495
+        ],
+        [
+          585,
+          490
+        ],
+        [
+          580,
+          489
+        ],
+        [
+          577,
+          488
+        ],
+        [
+          574,
+          486
+        ],
+        [
+          572,
+          484
+        ],
+        [
+          570,
+          481
+        ],
+        [
+          569,
+          479
+        ],
+        [
+          568,
+          475
+        ],
+        [
+          568,
+          458
+        ],
+        [
+          573,
+          429
+        ],
+        [
+          614,
+          282
+        ],
+        [
+          688,
+          131
+        ],
+        [
+          689,
+          129
+        ],
+        [
+          742,
+          38
+        ],
+        [
+          750,
+          31
+        ],
+        [
+          757,
+          28
+        ],
+        [
+          764,
+          27
+        ],
+        [
+          771,
+          27
+        ],
+        [
+          1003,
+          101
+        ],
+        [
+          1004,
+          103
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      },
+      "body_foreground_occluders": [
+        {
+          "polygon": [
+            [
+              801,
+              164
+            ],
+            [
+              880,
+              162
+            ],
+            [
+              886,
+              193
+            ],
+            [
+              803,
+              210
+            ]
+          ],
+          "purpose": "Near forearm hides inventory hilt at waist; source pixel mask only."
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "phase": "acceleration",
+      "cell_rect": [
+        1103,
+        28,
+        407,
+        481
+      ],
+      "alpha_bounds": [
+        1105,
+        30,
+        403,
+        477
+      ],
+      "right_hand_grip": null,
+      "left_hand_position": [
+        1238,
+        135
+      ],
+      "root": [
+        1306,
+        499
+      ],
+      "anatomical_crown": [
+        1319,
+        47
+      ],
+      "anatomical_height_px": 447,
+      "body_height_px": 447,
+      "measured_crown_to_root_px": 452,
+      "hand_occluders": [],
+      "sword_angle_deg": null,
+      "two_handed": false,
+      "weapon_visible": false,
+      "main_weapon_state": "sheathed",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "stowed",
+      "sword_angle_confidence": "not applicable; sword concealed",
+      "right_hand_position": [
+        1232,
+        169
+      ],
+      "hands_role": "both hands grapple a virtual opponent, not a weapon",
+      "opponent_in_body": false,
+      "source_region_polygon": [
+        [
+          1103,
+          490
+        ],
+        [
+          1112,
+          287
+        ],
+        [
+          1164,
+          135
+        ],
+        [
+          1167,
+          129
+        ],
+        [
+          1173,
+          121
+        ],
+        [
+          1181,
+          111
+        ],
+        [
+          1183,
+          109
+        ],
+        [
+          1261,
+          33
+        ],
+        [
+          1265,
+          31
+        ],
+        [
+          1270,
+          29
+        ],
+        [
+          1274,
+          28
+        ],
+        [
+          1285,
+          28
+        ],
+        [
+          1326,
+          46
+        ],
+        [
+          1330,
+          48
+        ],
+        [
+          1335,
+          51
+        ],
+        [
+          1339,
+          54
+        ],
+        [
+          1342,
+          57
+        ],
+        [
+          1345,
+          61
+        ],
+        [
+          1383,
+          134
+        ],
+        [
+          1384,
+          136
+        ],
+        [
+          1442,
+          288
+        ],
+        [
+          1509,
+          464
+        ],
+        [
+          1509,
+          476
+        ],
+        [
+          1507,
+          478
+        ],
+        [
+          1505,
+          479
+        ],
+        [
+          1502,
+          480
+        ],
+        [
+          1497,
+          481
+        ],
+        [
+          1143,
+          508
+        ],
+        [
+          1124,
+          508
+        ],
+        [
+          1117,
+          507
+        ],
+        [
+          1112,
+          506
+        ],
+        [
+          1109,
+          505
+        ],
+        [
+          1105,
+          503
+        ],
+        [
+          1104,
+          502
+        ],
+        [
+          1103,
+          500
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    },
+    {
+      "frame": 4,
+      "phase": "approved_contact",
+      "cell_rect": [
+        14,
+        544,
+        571,
+        436
+      ],
+      "alpha_bounds": [
+        16,
+        546,
+        567,
+        432
+      ],
+      "right_hand_grip": null,
+      "left_hand_position": [
+        316,
+        765
+      ],
+      "root": [
+        300,
+        970
+      ],
+      "anatomical_crown": [
+        375,
+        569
+      ],
+      "anatomical_height_px": 447,
+      "body_height_px": 447,
+      "measured_crown_to_root_px": 401,
+      "hand_occluders": [],
+      "sword_angle_deg": null,
+      "two_handed": false,
+      "weapon_visible": false,
+      "main_weapon_state": "sheathed",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "stowed",
+      "sword_angle_confidence": "not applicable; sword concealed",
+      "right_hand_position": [
+        304,
+        762
+      ],
+      "hands_role": "both hands grapple a virtual opponent, not a weapon",
+      "opponent_in_body": false,
+      "left_hand_visibility": "partly hidden under right hand; visible fingers at screen-right edge",
+      "left_hand_position_confidence": "low, visible fragment center; not a complete grasp center",
+      "source_region_polygon": [
+        [
+          14,
+          962
+        ],
+        [
+          93,
+          744
+        ],
+        [
+          94,
+          742
+        ],
+        [
+          239,
+          595
+        ],
+        [
+          241,
+          593
+        ],
+        [
+          329,
+          545
+        ],
+        [
+          331,
+          544
+        ],
+        [
+          344,
+          544
+        ],
+        [
+          390,
+          567
+        ],
+        [
+          393,
+          569
+        ],
+        [
+          397,
+          572
+        ],
+        [
+          401,
+          576
+        ],
+        [
+          405,
+          582
+        ],
+        [
+          406,
+          584
+        ],
+        [
+          584,
+          961
+        ],
+        [
+          584,
+          970
+        ],
+        [
+          583,
+          973
+        ],
+        [
+          582,
+          974
+        ],
+        [
+          578,
+          976
+        ],
+        [
+          575,
+          977
+        ],
+        [
+          568,
+          978
+        ],
+        [
+          56,
+          979
+        ],
+        [
+          34,
+          979
+        ],
+        [
+          27,
+          978
+        ],
+        [
+          22,
+          977
+        ],
+        [
+          19,
+          976
+        ],
+        [
+          14,
+          971
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    },
+    {
+      "frame": 5,
+      "phase": "follow_through",
+      "cell_rect": [
+        585,
+        575,
+        434,
+        394
+      ],
+      "alpha_bounds": [
+        587,
+        577,
+        430,
+        390
+      ],
+      "right_hand_grip": null,
+      "left_hand_position": [
+        994,
+        817
+      ],
+      "root": [
+        781,
+        958
+      ],
+      "anatomical_crown": [
+        887,
+        598
+      ],
+      "anatomical_height_px": 447,
+      "body_height_px": 447,
+      "measured_crown_to_root_px": 360,
+      "hand_occluders": [],
+      "sword_angle_deg": null,
+      "two_handed": false,
+      "weapon_visible": false,
+      "main_weapon_state": "sheathed",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "stowed",
+      "sword_angle_confidence": "not applicable; sword concealed",
+      "right_hand_position": [
+        946,
+        778
+      ],
+      "hands_role": "both hands grapple a virtual opponent, not a weapon",
+      "opponent_in_body": false,
+      "source_region_polygon": [
+        [
+          925,
+          968
+        ],
+        [
+          607,
+          962
+        ],
+        [
+          596,
+          961
+        ],
+        [
+          593,
+          960
+        ],
+        [
+          589,
+          956
+        ],
+        [
+          586,
+          950
+        ],
+        [
+          585,
+          947
+        ],
+        [
+          585,
+          928
+        ],
+        [
+          592,
+          892
+        ],
+        [
+          593,
+          888
+        ],
+        [
+          594,
+          885
+        ],
+        [
+          635,
+          781
+        ],
+        [
+          761,
+          647
+        ],
+        [
+          762,
+          646
+        ],
+        [
+          771,
+          638
+        ],
+        [
+          837,
+          581
+        ],
+        [
+          846,
+          577
+        ],
+        [
+          853,
+          575
+        ],
+        [
+          861,
+          575
+        ],
+        [
+          870,
+          576
+        ],
+        [
+          908,
+          601
+        ],
+        [
+          911,
+          603
+        ],
+        [
+          919,
+          611
+        ],
+        [
+          921,
+          614
+        ],
+        [
+          925,
+          622
+        ],
+        [
+          1013,
+          806
+        ],
+        [
+          1018,
+          818
+        ],
+        [
+          1018,
+          831
+        ],
+        [
+          1017,
+          834
+        ],
+        [
+          972,
+          958
+        ],
+        [
+          969,
+          964
+        ],
+        [
+          965,
+          966
+        ],
+        [
+          957,
+          968
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    },
+    {
+      "frame": 6,
+      "phase": "recovery",
+      "cell_rect": [
+        1048,
+        519,
+        478,
+        474
+      ],
+      "alpha_bounds": [
+        1050,
+        521,
+        474,
+        470
+      ],
+      "right_hand_grip": null,
+      "left_hand_position": [
+        1453,
+        661
+      ],
+      "root": [
+        1287,
+        983
+      ],
+      "anatomical_crown": [
+        1268,
+        546
+      ],
+      "anatomical_height_px": 447,
+      "body_height_px": 447,
+      "measured_crown_to_root_px": 437,
+      "hand_occluders": [],
+      "sword_angle_deg": null,
+      "two_handed": false,
+      "weapon_visible": false,
+      "main_weapon_state": "sheathed",
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "hidden by clothing/body; do not infer an exact anchor",
+      "scabbard_mouth_confidence": "unmeasurable",
+      "grip_confidence": "high",
+      "fan_state": "stowed",
+      "sword_angle_confidence": "not applicable; sword concealed",
+      "right_hand_position": [
+        1301,
+        690
+      ],
+      "hands_role": "both hands grapple a virtual opponent, not a weapon",
+      "opponent_in_body": false,
+      "source_region_polygon": [
+        [
+          1048,
+          975
+        ],
+        [
+          1071,
+          770
+        ],
+        [
+          1138,
+          618
+        ],
+        [
+          1139,
+          616
+        ],
+        [
+          1141,
+          613
+        ],
+        [
+          1216,
+          531
+        ],
+        [
+          1223,
+          524
+        ],
+        [
+          1231,
+          519
+        ],
+        [
+          1246,
+          519
+        ],
+        [
+          1290,
+          538
+        ],
+        [
+          1294,
+          540
+        ],
+        [
+          1471,
+          631
+        ],
+        [
+          1481,
+          639
+        ],
+        [
+          1483,
+          641
+        ],
+        [
+          1488,
+          655
+        ],
+        [
+          1525,
+          953
+        ],
+        [
+          1525,
+          962
+        ],
+        [
+          1524,
+          964
+        ],
+        [
+          1523,
+          965
+        ],
+        [
+          1520,
+          967
+        ],
+        [
+          1518,
+          968
+        ],
+        [
+          1514,
+          969
+        ],
+        [
+          1507,
+          970
+        ],
+        [
+          1089,
+          992
+        ],
+        [
+          1066,
+          992
+        ],
+        [
+          1060,
+          991
+        ],
+        [
+          1056,
+          990
+        ],
+        [
+          1053,
+          989
+        ],
+        [
+          1051,
+          988
+        ],
+        [
+          1049,
+          986
+        ],
+        [
+          1048,
+          984
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      }
+    }
+  ],
+  "source_sha256": "04794d5da947e1c3fc190982af1f3c5ebfc2d2e8884af56f2e226dd32bf68fb1"
+}
