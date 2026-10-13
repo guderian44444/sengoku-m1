@@ -1,0 +1,3461 @@
+{
+  "schema_version": 2,
+  "timebase_hz": 60,
+  "curve_keyframe_domain": [
+    0,
+    1
+  ],
+  "recipes": {
+    "blade_charged_wave": {
+      "family": "blade",
+      "hit_effect": "blade_hit",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "blade_activate",
+        "charge_loop": "blade_charge_loop",
+        "release": "blade_release",
+        "hit": "blade_hit",
+        "dissipate": "blade_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "charge",
+      "phases": {
+        "charge": {
+          "duration_ticks": 60,
+          "hold": true,
+          "layers": [
+            {
+              "effect": "blade_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.1
+              ],
+              [
+                0.5,
+                0.75
+              ],
+              [
+                1,
+                0.45
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.12
+              ],
+              [
+                0.3,
+                0.7
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                7
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.2
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.25
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "release": {
+          "duration_ticks": 24,
+          "next": "dissipate",
+          "layers": [
+            {
+              "effect": "blade_wave",
+              "size": 300,
+              "offset": [
+                30,
+                -65
+              ],
+              "velocity": [
+                110,
+                0
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.65
+              ],
+              [
+                0.3,
+                1.05
+              ],
+              [
+                1,
+                1.25
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.75,
+                1
+              ],
+              [
+                1,
+                0.85
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.65
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "blade_wave",
+              "size": 300,
+              "offset": [
+                74,
+                -65
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.25
+              ],
+              [
+                1,
+                1.38
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.85
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.2
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "blade_growing_spin": {
+      "family": "blade",
+      "hit_effect": "blade_hit",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "blade_activate",
+        "charge_loop": "blade_charge_loop",
+        "release": "blade_release",
+        "hit": "blade_hit",
+        "dissipate": "blade_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "release",
+      "temporal_turns": 2,
+      "phases": {
+        "release": {
+          "duration_ticks": 72,
+          "next": "dissipate",
+          "cues": [
+            {
+              "tick": 36,
+              "phase": "release"
+            }
+          ],
+          "layers": [
+            {
+              "effect": "blade_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                0.55
+              ],
+              [
+                0.5,
+                1.15
+              ],
+              [
+                1,
+                1.8
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0
+              ],
+              [
+                0.06,
+                0.9
+              ],
+              [
+                0.94,
+                0.9
+              ],
+              [
+                1,
+                0.8
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                10.471975511965978
+              ],
+              [
+                1,
+                10.471975511965978
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.3
+              ],
+              [
+                0.5,
+                0.7
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "blade_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "radius": [
+              [
+                0,
+                1.8
+              ],
+              [
+                1,
+                1.95
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "blade_impact": {
+      "family": "blade",
+      "hit_effect": "blade_hit",
+      "allow_hit_phases": [],
+      "audio": {
+        "activate": "blade_activate",
+        "charge_loop": "blade_charge_loop",
+        "release": "blade_release",
+        "hit": "blade_hit",
+        "dissipate": "blade_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "hit",
+      "requires_confirmed_hit": true,
+      "phases": {
+        "hit": {
+          "duration_ticks": 16,
+          "next": "",
+          "layers": [
+            {
+              "effect": "blade_hit",
+              "size": 150
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.5
+              ],
+              [
+                0.25,
+                1
+              ],
+              [
+                1,
+                1.2
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.5,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "fire_charged_wave": {
+      "family": "fire",
+      "hit_effect": "fire_burn",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "fire_activate",
+        "charge_loop": "fire_charge_loop",
+        "release": "fire_release",
+        "hit": "fire_hit",
+        "dissipate": "fire_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "charge",
+      "phases": {
+        "charge": {
+          "duration_ticks": 60,
+          "hold": true,
+          "layers": [
+            {
+              "effect": "fire_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.1
+              ],
+              [
+                0.5,
+                0.75
+              ],
+              [
+                1,
+                0.45
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.12
+              ],
+              [
+                0.3,
+                0.7
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                7
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.2
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.25
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "release": {
+          "duration_ticks": 24,
+          "next": "dissipate",
+          "layers": [
+            {
+              "effect": "fire_wave",
+              "size": 300,
+              "offset": [
+                30,
+                -65
+              ],
+              "velocity": [
+                110,
+                0
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.65
+              ],
+              [
+                0.3,
+                1.05
+              ],
+              [
+                1,
+                1.25
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.75,
+                1
+              ],
+              [
+                1,
+                0.85
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.65
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "fire_wave",
+              "size": 300,
+              "offset": [
+                74,
+                -65
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.25
+              ],
+              [
+                1,
+                1.38
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.85
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.2
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "fire_growing_spin": {
+      "family": "fire",
+      "hit_effect": "fire_burn",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "fire_activate",
+        "charge_loop": "fire_charge_loop",
+        "release": "fire_release",
+        "hit": "fire_hit",
+        "dissipate": "fire_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "release",
+      "temporal_turns": 2,
+      "phases": {
+        "release": {
+          "duration_ticks": 72,
+          "next": "dissipate",
+          "cues": [
+            {
+              "tick": 36,
+              "phase": "release"
+            }
+          ],
+          "layers": [
+            {
+              "effect": "fire_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                0.55
+              ],
+              [
+                0.5,
+                1.15
+              ],
+              [
+                1,
+                1.8
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0
+              ],
+              [
+                0.06,
+                0.9
+              ],
+              [
+                0.94,
+                0.9
+              ],
+              [
+                1,
+                0.8
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                10.471975511965978
+              ],
+              [
+                1,
+                10.471975511965978
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.3
+              ],
+              [
+                0.5,
+                0.7
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "fire_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "radius": [
+              [
+                0,
+                1.8
+              ],
+              [
+                1,
+                1.95
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "fire_impact": {
+      "family": "fire",
+      "hit_effect": "fire_burn",
+      "allow_hit_phases": [],
+      "audio": {
+        "activate": "fire_activate",
+        "charge_loop": "fire_charge_loop",
+        "release": "fire_release",
+        "hit": "fire_hit",
+        "dissipate": "fire_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "hit",
+      "requires_confirmed_hit": true,
+      "phases": {
+        "hit": {
+          "duration_ticks": 16,
+          "next": "",
+          "layers": [
+            {
+              "effect": "fire_burn",
+              "size": 150
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.5
+              ],
+              [
+                0.25,
+                1
+              ],
+              [
+                1,
+                1.2
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.5,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "ice_charged_wave": {
+      "family": "ice",
+      "hit_effect": "ice_shatter",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "ice_activate",
+        "charge_loop": "ice_charge_loop",
+        "release": "ice_release",
+        "hit": "ice_hit",
+        "dissipate": "ice_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "charge",
+      "phases": {
+        "charge": {
+          "duration_ticks": 60,
+          "hold": true,
+          "layers": [
+            {
+              "effect": "ice_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.1
+              ],
+              [
+                0.5,
+                0.75
+              ],
+              [
+                1,
+                0.45
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.12
+              ],
+              [
+                0.3,
+                0.7
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                7
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.2
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.25
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "release": {
+          "duration_ticks": 24,
+          "next": "dissipate",
+          "layers": [
+            {
+              "effect": "ice_wave",
+              "size": 300,
+              "offset": [
+                30,
+                -65
+              ],
+              "velocity": [
+                110,
+                0
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.65
+              ],
+              [
+                0.3,
+                1.05
+              ],
+              [
+                1,
+                1.25
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.75,
+                1
+              ],
+              [
+                1,
+                0.85
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.65
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "ice_wave",
+              "size": 300,
+              "offset": [
+                74,
+                -65
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.25
+              ],
+              [
+                1,
+                1.38
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.85
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.2
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "ice_growing_spin": {
+      "family": "ice",
+      "hit_effect": "ice_shatter",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "ice_activate",
+        "charge_loop": "ice_charge_loop",
+        "release": "ice_release",
+        "hit": "ice_hit",
+        "dissipate": "ice_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "release",
+      "temporal_turns": 2,
+      "phases": {
+        "release": {
+          "duration_ticks": 72,
+          "next": "dissipate",
+          "cues": [
+            {
+              "tick": 36,
+              "phase": "release"
+            }
+          ],
+          "layers": [
+            {
+              "effect": "ice_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                0.55
+              ],
+              [
+                0.5,
+                1.15
+              ],
+              [
+                1,
+                1.8
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0
+              ],
+              [
+                0.06,
+                0.9
+              ],
+              [
+                0.94,
+                0.9
+              ],
+              [
+                1,
+                0.8
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                10.471975511965978
+              ],
+              [
+                1,
+                10.471975511965978
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.3
+              ],
+              [
+                0.5,
+                0.7
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "ice_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "radius": [
+              [
+                0,
+                1.8
+              ],
+              [
+                1,
+                1.95
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "ice_impact": {
+      "family": "ice",
+      "hit_effect": "ice_shatter",
+      "allow_hit_phases": [],
+      "audio": {
+        "activate": "ice_activate",
+        "charge_loop": "ice_charge_loop",
+        "release": "ice_release",
+        "hit": "ice_hit",
+        "dissipate": "ice_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "hit",
+      "requires_confirmed_hit": true,
+      "phases": {
+        "hit": {
+          "duration_ticks": 16,
+          "next": "",
+          "layers": [
+            {
+              "effect": "ice_shatter",
+              "size": 150
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.5
+              ],
+              [
+                0.25,
+                1
+              ],
+              [
+                1,
+                1.2
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.5,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "wind_charged_wave": {
+      "family": "wind",
+      "hit_effect": "wind_hit",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "wind_activate",
+        "charge_loop": "wind_charge_loop",
+        "release": "wind_release",
+        "hit": "wind_hit",
+        "dissipate": "wind_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "charge",
+      "phases": {
+        "charge": {
+          "duration_ticks": 60,
+          "hold": true,
+          "layers": [
+            {
+              "effect": "wind_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.1
+              ],
+              [
+                0.5,
+                0.75
+              ],
+              [
+                1,
+                0.45
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.12
+              ],
+              [
+                0.3,
+                0.7
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                7
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.2
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.25
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "release": {
+          "duration_ticks": 24,
+          "next": "dissipate",
+          "layers": [
+            {
+              "effect": "wind_wave",
+              "size": 300,
+              "offset": [
+                30,
+                -65
+              ],
+              "velocity": [
+                110,
+                0
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.65
+              ],
+              [
+                0.3,
+                1.05
+              ],
+              [
+                1,
+                1.25
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.75,
+                1
+              ],
+              [
+                1,
+                0.85
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.65
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "wind_wave",
+              "size": 300,
+              "offset": [
+                74,
+                -65
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.25
+              ],
+              [
+                1,
+                1.38
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.85
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.2
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "wind_growing_spin": {
+      "family": "wind",
+      "hit_effect": "wind_hit",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "wind_activate",
+        "charge_loop": "wind_charge_loop",
+        "release": "wind_release",
+        "hit": "wind_hit",
+        "dissipate": "wind_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "release",
+      "temporal_turns": 2,
+      "phases": {
+        "release": {
+          "duration_ticks": 72,
+          "next": "dissipate",
+          "cues": [
+            {
+              "tick": 36,
+              "phase": "release"
+            }
+          ],
+          "layers": [
+            {
+              "effect": "wind_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                0.55
+              ],
+              [
+                0.5,
+                1.15
+              ],
+              [
+                1,
+                1.8
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0
+              ],
+              [
+                0.06,
+                0.9
+              ],
+              [
+                0.94,
+                0.9
+              ],
+              [
+                1,
+                0.8
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                10.471975511965978
+              ],
+              [
+                1,
+                10.471975511965978
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.3
+              ],
+              [
+                0.5,
+                0.7
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "wind_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "radius": [
+              [
+                0,
+                1.8
+              ],
+              [
+                1,
+                1.95
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "wind_impact": {
+      "family": "wind",
+      "hit_effect": "wind_hit",
+      "allow_hit_phases": [],
+      "audio": {
+        "activate": "wind_activate",
+        "charge_loop": "wind_charge_loop",
+        "release": "wind_release",
+        "hit": "wind_hit",
+        "dissipate": "wind_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "hit",
+      "requires_confirmed_hit": true,
+      "phases": {
+        "hit": {
+          "duration_ticks": 16,
+          "next": "",
+          "layers": [
+            {
+              "effect": "wind_hit",
+              "size": 150
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.5
+              ],
+              [
+                0.25,
+                1
+              ],
+              [
+                1,
+                1.2
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.5,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "lightning_charged_wave": {
+      "family": "lightning",
+      "hit_effect": "lightning_hit",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "lightning_activate",
+        "charge_loop": "lightning_charge_loop",
+        "release": "lightning_release",
+        "hit": "lightning_hit",
+        "dissipate": "lightning_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "charge",
+      "phases": {
+        "charge": {
+          "duration_ticks": 60,
+          "hold": true,
+          "layers": [
+            {
+              "effect": "lightning_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.1
+              ],
+              [
+                0.5,
+                0.75
+              ],
+              [
+                1,
+                0.45
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.12
+              ],
+              [
+                0.3,
+                0.7
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                7
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.2
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.25
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "release": {
+          "duration_ticks": 24,
+          "next": "dissipate",
+          "layers": [
+            {
+              "effect": "lightning_wave",
+              "size": 300,
+              "offset": [
+                30,
+                -65
+              ],
+              "velocity": [
+                110,
+                0
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.65
+              ],
+              [
+                0.3,
+                1.05
+              ],
+              [
+                1,
+                1.25
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.75,
+                1
+              ],
+              [
+                1,
+                0.85
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.65
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "lightning_wave",
+              "size": 300,
+              "offset": [
+                74,
+                -65
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1.25
+              ],
+              [
+                1,
+                1.38
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.85
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0.2
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "lightning_growing_spin": {
+      "family": "lightning",
+      "hit_effect": "lightning_hit",
+      "allow_hit_phases": [
+        "release",
+        "dissipate"
+      ],
+      "audio": {
+        "activate": "lightning_activate",
+        "charge_loop": "lightning_charge_loop",
+        "release": "lightning_release",
+        "hit": "lightning_hit",
+        "dissipate": "lightning_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "release",
+      "temporal_turns": 2,
+      "phases": {
+        "release": {
+          "duration_ticks": 72,
+          "next": "dissipate",
+          "cues": [
+            {
+              "tick": 36,
+              "phase": "release"
+            }
+          ],
+          "layers": [
+            {
+              "effect": "lightning_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "radius": [
+              [
+                0,
+                0.55
+              ],
+              [
+                0.5,
+                1.15
+              ],
+              [
+                1,
+                1.8
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0
+              ],
+              [
+                0.06,
+                0.9
+              ],
+              [
+                0.94,
+                0.9
+              ],
+              [
+                1,
+                0.8
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                10.471975511965978
+              ],
+              [
+                1,
+                10.471975511965978
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.3
+              ],
+              [
+                0.5,
+                0.7
+              ],
+              [
+                1,
+                1.5
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.5
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "lightning_ring",
+              "size": 220,
+              "offset": [
+                0,
+                -45
+              ]
+            }
+          ],
+          "curves": {
+            "radius": [
+              [
+                0,
+                1.8
+              ],
+              [
+                1,
+                1.95
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "lightning_impact": {
+      "family": "lightning",
+      "hit_effect": "lightning_hit",
+      "allow_hit_phases": [],
+      "audio": {
+        "activate": "lightning_activate",
+        "charge_loop": "lightning_charge_loop",
+        "release": "lightning_release",
+        "hit": "lightning_hit",
+        "dissipate": "lightning_dissipate"
+      },
+      "visual_reach_only": true,
+      "damage_authority": "existing battle hitboxes, never visual scale",
+      "initial_phase": "hit",
+      "requires_confirmed_hit": true,
+      "phases": {
+        "hit": {
+          "duration_ticks": 16,
+          "next": "",
+          "layers": [
+            {
+              "effect": "lightning_hit",
+              "size": 150
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.5
+              ],
+              [
+                0.25,
+                1
+              ],
+              [
+                1,
+                1.2
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.5,
+                0.8
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "hero_matchlock": {
+      "family": "matchlock",
+      "initial_phase": "release",
+      "requires_confirmed_shot": true,
+      "muzzle_contract": "origin is measured muzzle tip at release; base pivot left root, default +X; lock face once per shot",
+      "audio": {
+        "release": "hero_matchlock_shot_{variant}"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "phases": {
+        "release": {
+          "duration_ticks": 6,
+          "next": "dissipate",
+          "layers": [
+            {
+              "effect": "matchlock_muzzle_flash",
+              "size": 230,
+              "curves": {
+                "opacity": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0.3,
+                    0.9
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ]
+              }
+            },
+            {
+              "effect": "matchlock_smoke",
+              "size": 245,
+              "curves": {
+                "opacity": [
+                  [
+                    0,
+                    0.15
+                  ],
+                  [
+                    1,
+                    0.6
+                  ]
+                ],
+                "particle_intensity": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ]
+              }
+            }
+          ],
+          "curves": {
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "scale": [
+              [
+                0,
+                0.9
+              ],
+              [
+                0.25,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                1.5
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 36,
+          "next": "",
+          "layers": [
+            {
+              "effect": "matchlock_smoke",
+              "size": 245,
+              "velocity": [
+                12,
+                -20
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1.35
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.6
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "enemy_matchlock": {
+      "family": "matchlock",
+      "initial_phase": "release",
+      "requires_confirmed_shot": true,
+      "muzzle_contract": "origin is measured muzzle tip at release; base pivot left root, default +X; lock face once per shot",
+      "audio": {
+        "release": "enemy_matchlock_shot_{variant}"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "phases": {
+        "release": {
+          "duration_ticks": 6,
+          "next": "dissipate",
+          "layers": [
+            {
+              "effect": "matchlock_muzzle_flash",
+              "size": 115,
+              "curves": {
+                "opacity": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0.3,
+                    0.9
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ]
+              }
+            },
+            {
+              "effect": "matchlock_smoke",
+              "size": 125,
+              "curves": {
+                "opacity": [
+                  [
+                    0,
+                    0.15
+                  ],
+                  [
+                    1,
+                    0.45
+                  ]
+                ],
+                "particle_intensity": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ]
+              }
+            }
+          ],
+          "curves": {
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "scale": [
+              [
+                0,
+                0.9
+              ],
+              [
+                0.25,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.4
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "audio_intensity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        },
+        "dissipate": {
+          "duration_ticks": 18,
+          "next": "",
+          "layers": [
+            {
+              "effect": "matchlock_smoke",
+              "size": 125,
+              "velocity": [
+                12,
+                -20
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1.35
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.45
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "neutral_slash_arc": {
+      "family": "neutral",
+      "initial_phase": "release",
+      "requires_confirmed_contact": false,
+      "requires_projectile_spawn": false,
+      "audio": {
+        "release": "neutral_slash_arc"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "element_overlay": "optional separate instance, both contexts layered=true for audio headroom",
+      "phases": {
+        "release": {
+          "duration_ticks": 18,
+          "hold": false,
+          "next": "",
+          "layers": [
+            {
+              "effect": "neutral_slash_arc",
+              "size": 260
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.75
+              ],
+              [
+                0.2,
+                1
+              ],
+              [
+                1,
+                1.12
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.35,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "thrust_cone": {
+      "family": "neutral",
+      "initial_phase": "release",
+      "requires_confirmed_contact": false,
+      "requires_projectile_spawn": false,
+      "audio": {
+        "release": "thrust_cone"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "element_overlay": "optional separate instance, both contexts layered=true for audio headroom",
+      "phases": {
+        "release": {
+          "duration_ticks": 14,
+          "hold": false,
+          "next": "",
+          "layers": [
+            {
+              "effect": "neutral_thrust_cone",
+              "size": 200
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.75
+              ],
+              [
+                0.2,
+                1
+              ],
+              [
+                1,
+                1.12
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.35,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "arrow_trail": {
+      "family": "neutral",
+      "initial_phase": "release",
+      "requires_confirmed_contact": false,
+      "requires_projectile_spawn": true,
+      "audio": {
+        "release": "arrow_trail"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "element_overlay": "optional separate instance, both contexts layered=true for audio headroom",
+      "phases": {
+        "release": {
+          "duration_ticks": 60,
+          "hold": true,
+          "next": "",
+          "layers": [
+            {
+              "effect": "neutral_trail_strip",
+              "size": 180
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "throwing_blade_trail": {
+      "family": "neutral",
+      "initial_phase": "release",
+      "requires_confirmed_contact": false,
+      "requires_projectile_spawn": true,
+      "audio": {
+        "release": "throwing_blade_trail"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "element_overlay": "optional separate instance, both contexts layered=true for audio headroom",
+      "phases": {
+        "release": {
+          "duration_ticks": 60,
+          "hold": true,
+          "next": "",
+          "layers": [
+            {
+              "effect": "neutral_trail_strip",
+              "size": 180,
+              "stretch": [
+                1,
+                0.65
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "blunt_impact": {
+      "family": "neutral",
+      "initial_phase": "release",
+      "requires_confirmed_contact": true,
+      "requires_projectile_spawn": false,
+      "audio": {
+        "release": "blunt_impact"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "element_overlay": "optional separate instance, both contexts layered=true for audio headroom",
+      "phases": {
+        "release": {
+          "duration_ticks": 16,
+          "hold": false,
+          "next": "",
+          "layers": [
+            {
+              "effect": "neutral_hit_burst",
+              "size": 170
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.75
+              ],
+              [
+                0.2,
+                1
+              ],
+              [
+                1,
+                1.12
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.35,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "guard_sparks": {
+      "family": "neutral",
+      "initial_phase": "release",
+      "requires_confirmed_contact": true,
+      "requires_projectile_spawn": false,
+      "audio": {
+        "release": "guard_sparks"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "element_overlay": "optional separate instance, both contexts layered=true for audio headroom",
+      "phases": {
+        "release": {
+          "duration_ticks": 12,
+          "hold": false,
+          "next": "",
+          "layers": [
+            {
+              "effect": "neutral_hit_burst",
+              "size": 110
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.75
+              ],
+              [
+                0.2,
+                1
+              ],
+              [
+                1,
+                1.12
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.35,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0.65
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "slash_hit": {
+      "family": "neutral",
+      "initial_phase": "release",
+      "requires_confirmed_contact": true,
+      "requires_projectile_spawn": false,
+      "audio": {
+        "release": "slash_hit"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "element_overlay": "optional separate instance, both contexts layered=true for audio headroom",
+      "phases": {
+        "release": {
+          "duration_ticks": 12,
+          "hold": false,
+          "next": "",
+          "layers": [
+            {
+              "effect": "neutral_slash_arc",
+              "size": 95,
+              "stretch": [
+                1,
+                0.45
+              ]
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.75
+              ],
+              [
+                0.2,
+                1
+              ],
+              [
+                1,
+                1.12
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                1
+              ],
+              [
+                0.35,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "dash_dust": {
+      "family": "neutral",
+      "initial_phase": "release",
+      "requires_confirmed_contact": false,
+      "requires_projectile_spawn": false,
+      "audio": {
+        "release": "dash_dust"
+      },
+      "allow_hit_phases": [],
+      "visual_reach_only": true,
+      "element_overlay": "optional separate instance, both contexts layered=true for audio headroom",
+      "phases": {
+        "release": {
+          "duration_ticks": 28,
+          "hold": false,
+          "next": "",
+          "layers": [
+            {
+              "effect": "neutral_dust",
+              "size": 180
+            }
+          ],
+          "curves": {
+            "scale": [
+              [
+                0,
+                0.75
+              ],
+              [
+                0.2,
+                1
+              ],
+              [
+                1,
+                1.12
+              ]
+            ],
+            "opacity": [
+              [
+                0,
+                0.28
+              ],
+              [
+                0.3,
+                0.4
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "uv_radians_per_second": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "particle_intensity": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

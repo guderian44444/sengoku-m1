@@ -1,0 +1,207 @@
+{
+  "neutral_slash_arc": {
+    "texture": "res://vfx/v2/art/neutral_slash_arc.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "seam": 0.5,
+    "split_depth": false,
+    "render_padding": 0.3,
+    "duration_ticks": 12,
+    "ticks_per_second": 60,
+    "loop": false,
+    "world_size": 170,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "recommended_opacity": 0.55,
+    "source_art": "sources/neutral_slash_arc.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+    "alpha_bounds_px": [
+      237,
+      231,
+      801,
+      800
+    ],
+    "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+    "placement_note": "hand-to-tip rotation; neutral blade path, not an energy projectile",
+    "recommended_visible_aspect_ratio_range": [
+      0.8,
+      1.25
+    ],
+    "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow."
+  },
+  "neutral_thrust_cone": {
+    "texture": "res://vfx/v2/art/neutral_thrust_cone.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.834,
+      0.516
+    ],
+    "seam": 0.5,
+    "split_depth": false,
+    "render_padding": 0.3,
+    "duration_ticks": 10,
+    "ticks_per_second": 60,
+    "loop": false,
+    "world_size": 140,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "recommended_opacity": 0.45,
+    "source_art": "sources/neutral_thrust_cone.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+    "alpha_bounds_px": [
+      200,
+      362,
+      901,
+      724
+    ],
+    "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+    "placement_note": "rightmost tip attaches to spear tip; cone opens toward left",
+    "recommended_visible_aspect_ratio_range": [
+      1.5,
+      3.5
+    ],
+    "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow."
+  },
+  "neutral_trail_strip": {
+    "texture": "res://vfx/v2/art/neutral_trail_strip.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.802,
+      0.504
+    ],
+    "seam": 0.5,
+    "split_depth": false,
+    "render_padding": 0.3,
+    "duration_ticks": 9,
+    "ticks_per_second": 60,
+    "loop": false,
+    "world_size": 160,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "recommended_opacity": 0.45,
+    "source_art": "sources/neutral_trail_strip.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+    "alpha_bounds_px": [
+      180,
+      499,
+      881,
+      598
+    ],
+    "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+    "placement_note": "right head follows projectile; tail fades left; velocity determines angle",
+    "recommended_visible_aspect_ratio_range": [
+      8,
+      24
+    ],
+    "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow."
+  },
+  "neutral_hit_burst": {
+    "texture": "res://vfx/v2/art/neutral_hit_burst.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "seam": 0.5,
+    "split_depth": false,
+    "render_padding": 0.3,
+    "duration_ticks": 8,
+    "ticks_per_second": 60,
+    "loop": false,
+    "world_size": 95,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "recommended_opacity": 0.65,
+    "source_art": "sources/neutral_hit_burst.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+    "alpha_bounds_px": [
+      256,
+      228,
+      897,
+      780
+    ],
+    "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+    "placement_note": "impact center; compact short physical scratch burst",
+    "recommended_visible_aspect_ratio_range": [
+      0.8,
+      1.2
+    ],
+    "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow."
+  },
+  "neutral_dust": {
+    "texture": "res://vfx/v2/art/neutral_dust.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.766
+    ],
+    "seam": 0.5,
+    "split_depth": false,
+    "render_padding": 0.3,
+    "duration_ticks": 18,
+    "ticks_per_second": 60,
+    "loop": false,
+    "world_size": 130,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "recommended_opacity": 0.35,
+    "source_art": "sources/neutral_dust.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+    "alpha_bounds_px": [
+      129,
+      124,
+      893,
+      891
+    ],
+    "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+    "placement_note": "bottom ground contact; small upward dust puff",
+    "recommended_visible_aspect_ratio_range": [
+      1.3,
+      2.5
+    ],
+    "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow."
+  }
+}

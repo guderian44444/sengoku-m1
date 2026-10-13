@@ -1,0 +1,1031 @@
+{
+  "version": "v2-final-candidate-20261013",
+  "requires_v1_pr_head": "95601784442fc9acb5de20ba4856ca29cb6c669e",
+  "counts": {
+    "base_total": 28,
+    "recipe_v2": 25,
+    "audio_v2": 41
+  },
+  "files": [
+    {
+      "path": "docs/HANDOFF-SHARED-VFX-V2.md",
+      "bytes": 12769,
+      "sha256": "6dbb792ed787971524d441b77620de8e49068d02ab12a0a0d19f2ed777345ab8"
+    },
+    {
+      "path": "docs/shared-vfx-v2-validation.json",
+      "bytes": 9239,
+      "sha256": "9b18a0d7ad6262cf3c8e9d24e7448b045b57659be7f1b888fa1b927e5ad6cd4f"
+    },
+    {
+      "path": "docs/vfx-v2-preview/five-families-curves-audio-demo.mp4",
+      "bytes": 1131830,
+      "sha256": "50b13ae8715ac58696cacf6e044c09b6ea264ccc9562b0bc103a6b3e77349844"
+    },
+    {
+      "path": "docs/vfx-v2-preview/five-family-peaks.jpg",
+      "bytes": 121386,
+      "sha256": "ff0e30dea19540da06c7d06cf6de000dd68800473df731e7db248812c4173ab9"
+    },
+    {
+      "path": "docs/vfx-v2-preview/matchlock-audio-demo.mp4",
+      "bytes": 186617,
+      "sha256": "da1822d3740f3626ea2cd2b2e2f152f3875bff334f19b3c074dc4f7deb40e4f1"
+    },
+    {
+      "path": "docs/vfx-v2-preview/neutral-audio-demo.mp4",
+      "bytes": 120074,
+      "sha256": "0a29508109c979b85cf43d133103eed5461b2f439ffaa7e13f7f28be1b5a8dbb"
+    },
+    {
+      "path": "docs/vfx-v2-preview/neutral-peaks.jpg",
+      "bytes": 59298,
+      "sha256": "8867077c45d2330ab4ea795e553b26c55607da3ec2251b0a09adf933d9231d55"
+    },
+    {
+      "path": "game/vfx/v2/art/lightning_arc.png",
+      "bytes": 895921,
+      "sha256": "0159231d200a9b776f68fd1012130f0a3b0e8ec6e17fbbfa09b7e849acc5521d"
+    },
+    {
+      "path": "game/vfx/v2/art/lightning_hit.png",
+      "bytes": 667443,
+      "sha256": "672dbd9809d2e3698bd086cc8fc387c2f4ea52626bcff31280ee9577839850f5"
+    },
+    {
+      "path": "game/vfx/v2/art/lightning_ring.png",
+      "bytes": 366766,
+      "sha256": "2aaf9a821c678b3251460f6b5c22087c3a54303f25ab1903ed874fd015cac78a"
+    },
+    {
+      "path": "game/vfx/v2/art/lightning_wave.png",
+      "bytes": 614409,
+      "sha256": "1baa1f9e1d0715cbfab17ec19ba57cce75a142b9325659abd9667938b8ed29aa"
+    },
+    {
+      "path": "game/vfx/v2/art/matchlock_muzzle_flash.png",
+      "bytes": 299451,
+      "sha256": "72b9b1678914395a7967d1129575ed94d577de81a8d2c88a37bc6fc198eaa5cf"
+    },
+    {
+      "path": "game/vfx/v2/art/matchlock_smoke.png",
+      "bytes": 473567,
+      "sha256": "92467379e4fc247e2db5a769c614b0536bc3f2d61d3ad5b379dd64086ca11924"
+    },
+    {
+      "path": "game/vfx/v2/art/neutral_dust.png",
+      "bytes": 227285,
+      "sha256": "862670013fd66a7bb1c6dc9651af84213f39c8cb5dd3ac948d445669f7feb0b9"
+    },
+    {
+      "path": "game/vfx/v2/art/neutral_hit_burst.png",
+      "bytes": 106055,
+      "sha256": "0eb29d5d731e31bf3fc33e0de267ee472fec2bd2367a73b18f7182350cf91136"
+    },
+    {
+      "path": "game/vfx/v2/art/neutral_slash_arc.png",
+      "bytes": 145033,
+      "sha256": "ee793da62eac561097a81b3add59211118f1a9e1a80142e7652b15d1e831d11c"
+    },
+    {
+      "path": "game/vfx/v2/art/neutral_thrust_cone.png",
+      "bytes": 186647,
+      "sha256": "04880bb528ec96c111f36d557da11622b364c74992944b18a09d3bbc439e6a49"
+    },
+    {
+      "path": "game/vfx/v2/art/neutral_trail_strip.png",
+      "bytes": 45102,
+      "sha256": "9f7ba60982033053305e7099b39c9bad75f0150740a3c82347625c3f94b70697"
+    },
+    {
+      "path": "game/vfx/v2/art/wind_arc.png",
+      "bytes": 603148,
+      "sha256": "52b0776b40a3626b4d79a9f3181b2772ec3e1e9b852ca0b32570ff4f6ad91803"
+    },
+    {
+      "path": "game/vfx/v2/art/wind_hit.png",
+      "bytes": 652814,
+      "sha256": "38427688038e0cf22109119a22e5d1ea2452300a3c7b0a1e5c461859042551d1"
+    },
+    {
+      "path": "game/vfx/v2/art/wind_ring.png",
+      "bytes": 451935,
+      "sha256": "248d8d0ff9a5aee347248b80fed2fbf66c046c1213531afd85abe19aea304f9d"
+    },
+    {
+      "path": "game/vfx/v2/art/wind_wave.png",
+      "bytes": 476800,
+      "sha256": "20c13afa46010db9f15f373f4b097359c6d4b1626dc49199cd5c816d4c84a9ff"
+    },
+    {
+      "path": "game/vfx/v2/audio/FREEZE.json",
+      "bytes": 13348,
+      "sha256": "c979c88a833637eb500302f726c61cee3a9ca7688bddeb90d59d4d2f8ffe6a9d"
+    },
+    {
+      "path": "game/vfx/v2/audio/README.md",
+      "bytes": 6942,
+      "sha256": "787ce3f8cc1a6b3a50c2b05e65e04db0ecef65df27b87f0ad06f29ab61cb7ddb"
+    },
+    {
+      "path": "game/vfx/v2/audio/build_audio_v2.py",
+      "bytes": 3004,
+      "sha256": "cb1f23bfec71f69fcb65177ceef96cb85f88290c259f03618979ae0088976183"
+    },
+    {
+      "path": "game/vfx/v2/audio/build_matchlock.py",
+      "bytes": 3326,
+      "sha256": "732d39212e54001dda71ba6632c29bbb6a7defd8e29acca6aaaa9f59dd2911b9"
+    },
+    {
+      "path": "game/vfx/v2/audio/build_neutral.py",
+      "bytes": 2116,
+      "sha256": "4799ef284d5f2cc41d1b564f0c758410b7f942e6fc0d18b3121424771e06019e"
+    },
+    {
+      "path": "game/vfx/v2/audio/demo_events.json",
+      "bytes": 13255,
+      "sha256": "e6c397572c2986fe8eafb8cb01181b033036662b3676e77fd0f7fa3b7f89c902"
+    },
+    {
+      "path": "game/vfx/v2/audio/demo_mix_report.json",
+      "bytes": 256,
+      "sha256": "bbcf36f6166c83456a20227d93eee454ffbbd95157ffd0e3b463935d780e3125"
+    },
+    {
+      "path": "game/vfx/v2/audio/effect_audio_controller.gd",
+      "bytes": 5934,
+      "sha256": "453669d56bc4b315355936fc3df310e2a2a9e1312a3c7255d054e41356190cc1"
+    },
+    {
+      "path": "game/vfx/v2/audio/five_element_effects_demo_18s.wav",
+      "bytes": 1728044,
+      "sha256": "5be0cab4c3cd507188ed8543b2131a8104f4c707faeb4c0201b0a173433487a5"
+    },
+    {
+      "path": "game/vfx/v2/audio/manifest.json",
+      "bytes": 21471,
+      "sha256": "d996eef5c7eb4041cd61f614d48e5c761f4050fe999d893065cdc79db7de99c8"
+    },
+    {
+      "path": "game/vfx/v2/audio/matchlock_cases_8s.wav",
+      "bytes": 768044,
+      "sha256": "e0851e5caa41999ddbe725beb5edba3de7aa6d021e23a4ed1a44acd4468ea85c"
+    },
+    {
+      "path": "game/vfx/v2/audio/matchlock_demo_events.json",
+      "bytes": 1939,
+      "sha256": "c221d589d0c6d28d6fc6d0fb7e5ea04f52916e9049e435fd0b1e035ba5b00360"
+    },
+    {
+      "path": "game/vfx/v2/audio/neutral_cases_8s.wav",
+      "bytes": 768044,
+      "sha256": "bce0de230f25587d6662130c5113531a94457bb463b1ea377d33ecd08397a767"
+    },
+    {
+      "path": "game/vfx/v2/audio/neutral_demo_events.json",
+      "bytes": 2675,
+      "sha256": "a7c547f80a3ef8011a87d529589b46e2a9c193a4985b47c19dddf0b1b7f45f5a"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/arrow_trail.ogg",
+      "bytes": 6061,
+      "sha256": "7e93dbe0f7cc6c13b5f8ce56444f08ec20e3facf8835a9535a169044789a0a17"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/blade_activate.ogg",
+      "bytes": 6848,
+      "sha256": "b44294882083b4610976646035e7c16e7d513118dfc7b271fca0a32546b59829"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/blade_charge_loop.ogg",
+      "bytes": 12107,
+      "sha256": "8c262e1504840d54f75bf422a88ffc6b8c47c6b142bb961d03d84976c469b53b"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/blade_dissipate.ogg",
+      "bytes": 11325,
+      "sha256": "9f1ea133e1047b2f6cd8fb93cbbf3144561bb85e53228827c405c4ec93b2a3b4"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/blade_hit.ogg",
+      "bytes": 8379,
+      "sha256": "7b29bf89ec636b80e0140ae63b2c2c65f40ea40f7178d4b7434dce49f16de69e"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/blade_release.ogg",
+      "bytes": 11482,
+      "sha256": "adf2a40f2eeb4ddaf273b928ef2af9522fcda64ccbc3604da54a58ff8a4236be"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/blunt_impact.ogg",
+      "bytes": 6997,
+      "sha256": "21e8bac37dfc0d8f786bfcb09579ea30d404b618a712c57025c2ac214de1dcac"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/dash_dust.ogg",
+      "bytes": 7904,
+      "sha256": "6120b5af87879f135d2cde360749c735b54a79974cae8d26acf547cb004c5a8a"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/enemy_matchlock_shot_0.ogg",
+      "bytes": 9934,
+      "sha256": "4b0a675281695f1526684e5d3353d49ec88247a23f076049e450c73546052f86"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/enemy_matchlock_shot_1.ogg",
+      "bytes": 10135,
+      "sha256": "b81537604fafdf979d08fc8a2edd44973c8edd64dd097038f7d9b8ca0523e3cd"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/enemy_matchlock_shot_2.ogg",
+      "bytes": 10287,
+      "sha256": "8fcbe41b325fa1aed28e749f060849cb81bb24f1412aec7d4d4c43a98e8da279"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/enemy_matchlock_shot_3.ogg",
+      "bytes": 10464,
+      "sha256": "4c68afcf16ea4111b75e3f263fc57bedf5ae614c82c74087dd48b6f1158e7d01"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/fire_activate.ogg",
+      "bytes": 6734,
+      "sha256": "ce72b406cc82ce79c2923842cab851b040993a43e07b978f28799cf37c49ee0f"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/fire_charge_loop.ogg",
+      "bytes": 12104,
+      "sha256": "3f0fe6d705a0be08e07f3d08e0bb2d189eaf26acd2682c5ef34f624d29ef9a72"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/fire_dissipate.ogg",
+      "bytes": 10812,
+      "sha256": "62248fd7907286dc04ed798a80e6934d0557ae5dacec56276a5b46ca909cf268"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/fire_hit.ogg",
+      "bytes": 7994,
+      "sha256": "94b957ffa94092b8d64c9795afc3d704e3933338480c271f42afcd2f012129d3"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/fire_release.ogg",
+      "bytes": 10906,
+      "sha256": "3e14e35fa5da9cea85e89586f1725c163f3db758e809b40c91d3863e958c0e7b"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/guard_sparks.ogg",
+      "bytes": 7680,
+      "sha256": "4c4e4efff47580561628977efa3da32c1b38ac13724907e8c6b630b0b7364718"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/hero_matchlock_shot_0.ogg",
+      "bytes": 14917,
+      "sha256": "7f1db3cc56e21ee1a7384db61ce584b63676b217792b3096b7555ed25f3a3e49"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/hero_matchlock_shot_1.ogg",
+      "bytes": 15027,
+      "sha256": "5fe66b86cc5db98daef47607cb4d4cef0ef6bd3f06232b1d01189456d27dbdab"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/hero_matchlock_shot_2.ogg",
+      "bytes": 15233,
+      "sha256": "639657b119bd4f0a8f8441e1f240d896a47d91bc289a48c3b5d5119a79bbbb49"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/hero_matchlock_shot_3.ogg",
+      "bytes": 15309,
+      "sha256": "15cd8eda4a29ec7958e8db4a681cf33a003575899f7c61019f4e298229a589a5"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/ice_activate.ogg",
+      "bytes": 6994,
+      "sha256": "8706ecd56e262de9aedebf3832c51eef47cd5fbe03266e4b95daafb994794ee7"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/ice_charge_loop.ogg",
+      "bytes": 12788,
+      "sha256": "72d32d11a027f3daeedc4c9c121598152e848f013b1880a818e68059fd4f406c"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/ice_dissipate.ogg",
+      "bytes": 11607,
+      "sha256": "a40bae5509838746ad18c3429bfc1c1eaa2da029db24f450d08890616308f93b"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/ice_hit.ogg",
+      "bytes": 8333,
+      "sha256": "f495cab9ca33da01805e670e23d3078c06ebc5bcdb215fa8d0bed74607745476"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/ice_release.ogg",
+      "bytes": 11783,
+      "sha256": "523daa8240aa683933b865d2437a9c181345f018873d430aae49d94d61259f2f"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/lightning_activate.ogg",
+      "bytes": 9041,
+      "sha256": "584a2e8c7e25d56bbe557b8ca239316ad2d42a2940c2d4e88aaff5766041e6fa"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/lightning_charge_loop.ogg",
+      "bytes": 30568,
+      "sha256": "d32c394f63f534e11662e75ad653012b77ab0ef442e969735f4975dd2bf2143d"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/lightning_dissipate.ogg",
+      "bytes": 17756,
+      "sha256": "3430ec2ba747ed6b4f8217e8bcc44e651a2d9bb0458d6508531e07836eaa4a20"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/lightning_hit.ogg",
+      "bytes": 9915,
+      "sha256": "c1eda02d7756d7af3d0cfc76ae6c423395bd4618af300ebc627b35958a98039e"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/lightning_release.ogg",
+      "bytes": 19417,
+      "sha256": "bb6c8b1df8bc12d045471e0093ed2b126b47f7d134910a518160f7513f94b111"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/neutral_slash_arc.ogg",
+      "bytes": 7158,
+      "sha256": "ec47e0deb12bb04cd3d30cbef1ca539d465af6c5b39aeb197d84f119ec2d43ce"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/slash_hit.ogg",
+      "bytes": 6133,
+      "sha256": "7e73d4e1095fbe6e1bb017931287236bab8691a9807de40e4e5d5ab23b3ea5b0"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/throwing_blade_trail.ogg",
+      "bytes": 5960,
+      "sha256": "a40aa526a3966d89f037df63cc2da7a9a483bdae3da94a260ac7dc0b0e352a1c"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/thrust_cone.ogg",
+      "bytes": 6581,
+      "sha256": "5626e88b65f3447364cbc31777789e7a282e6eced9b54de4f32b47e133bd3f99"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/wind_activate.ogg",
+      "bytes": 6904,
+      "sha256": "609cc512b7183f2bf78a4abb937d2d5b6597c5f23969fbc7e21c897eb0f000db"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/wind_charge_loop.ogg",
+      "bytes": 11229,
+      "sha256": "52c710c1df2721242664db704bfb06f2cae905ef4925da939a9cba7bd43c7981"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/wind_dissipate.ogg",
+      "bytes": 11332,
+      "sha256": "a83a654e7f5850adb3b20c3f8d3e8767808209a452ad36e7f59ec5a062dd744e"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/wind_hit.ogg",
+      "bytes": 8149,
+      "sha256": "f72694f124451da495223aa4cb03e8c14b594e96540b8f6388f2a6b546649591"
+    },
+    {
+      "path": "game/vfx/v2/audio/ogg/wind_release.ogg",
+      "bytes": 11323,
+      "sha256": "3d15c8b2b874aa15a091b5fce46cac36333052cc0680c797373a8945c0d73403"
+    },
+    {
+      "path": "game/vfx/v2/audio/render_demo_audio.py",
+      "bytes": 2904,
+      "sha256": "45b03fd861aeb85aa1e4a61d00000eaddbde471684ba5a7efcc8335617124026"
+    },
+    {
+      "path": "game/vfx/v2/audio/render_neutral_demo.py",
+      "bytes": 1893,
+      "sha256": "3b47c0cbf3ec0dd2b726f415294c8862fede6c93e3adb90642d56d9eb2f38e4d"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_0_body.wav",
+      "bytes": 55724,
+      "sha256": "b1e6f9778361f57e84041c9b9ed082d0f96b41a348fcede536e82ff232ce6b0f"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_0_crack.wav",
+      "bytes": 55724,
+      "sha256": "1f763703ac8224560286664be09d5ec0f477575cf7174defa58076b5258a8b31"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_0_powder.wav",
+      "bytes": 55724,
+      "sha256": "ce826cf0c0f616dc004eea5ca7db083c78f5ba00481c6169a23182cac705bca3"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_1_body.wav",
+      "bytes": 57452,
+      "sha256": "5d63a30a1433a8c696604ab4417be15c0f0db749e8fa560d066972bec05f5646"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_1_crack.wav",
+      "bytes": 57452,
+      "sha256": "5d1ef2238956b1e705295f99a85e516dfb02c4ec6e1cadc80edea8093ee1dd36"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_1_powder.wav",
+      "bytes": 57452,
+      "sha256": "e8812d3155d8766962a309046fe927db37c0365165b420eedd1c668e269469b0"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_2_body.wav",
+      "bytes": 59180,
+      "sha256": "1bcb3c1044305b6e9ffa5d06d54418b89801f199e8d8d9bc73388d361c75988a"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_2_crack.wav",
+      "bytes": 59180,
+      "sha256": "a27834bfa33127ff90b0b7a18616e9eb8ad377e680afcba86414f509e29d3e02"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_2_powder.wav",
+      "bytes": 59180,
+      "sha256": "92ccd2e2561718ef8b8a346acf149929f7f15663da49f2c5366ace6bedb37656"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_3_body.wav",
+      "bytes": 60908,
+      "sha256": "69b4eb54451cf7eb4206ef2a947175936b23571ecb9bd2fd336f23d9087763f1"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_3_crack.wav",
+      "bytes": 60908,
+      "sha256": "d519c36404e8c90e48387c46f589e14fa815b210ace12c6381a7b17d2440ad9a"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/enemy_matchlock_shot_3_powder.wav",
+      "bytes": 60908,
+      "sha256": "d9df5cdea402eb8c87a1f53b300124f73cbd1e5f07629aa2e78a6c3a143e756c"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_0_body.wav",
+      "bytes": 105644,
+      "sha256": "dce5fb665b1f93362eab620fbeff5d271503742d6e67bfb698e6b1bbacf5dfa2"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_0_crack.wav",
+      "bytes": 105644,
+      "sha256": "4f548e7031b6aa3c1d2643fbffbc84083ca400b5823160126c91adffafa528bb"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_0_powder.wav",
+      "bytes": 105644,
+      "sha256": "21a7309731a507a496f64bfca2589927862df9b85c79178236bbb884aa0938e7"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_1_body.wav",
+      "bytes": 107372,
+      "sha256": "1be8b85ac17dd4b682e4b9d19a9d7f40a0b1ac86cd7841fefdac3d985a53c1aa"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_1_crack.wav",
+      "bytes": 107372,
+      "sha256": "ba3f1a76566049932615a27e0aefcef19d16b8b86bb8582da091655370bd2e63"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_1_powder.wav",
+      "bytes": 107372,
+      "sha256": "fefb2c302c08c205a8059ee3fa42ba609ff848d2754d69f6135c80e43041d633"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_2_body.wav",
+      "bytes": 109100,
+      "sha256": "66887d40bfdb15fbc71d80ebd7e2cba316495b0b6adbfb2f3a9a77c0bc6a5910"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_2_crack.wav",
+      "bytes": 109100,
+      "sha256": "d109f579cb72fa55481787a0d7729db580d90b92a640d929572dc11dafecf2c2"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_2_powder.wav",
+      "bytes": 109100,
+      "sha256": "59b0cd260c7d6dc9469d37517f97f795610426cc211fa57accb31837f7410c2b"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_3_body.wav",
+      "bytes": 110828,
+      "sha256": "d618f698984db8b2816b8eb6c5e579d25623c07de2b6f728ed4f77b428cb8915"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_3_crack.wav",
+      "bytes": 110828,
+      "sha256": "cafadc9b22d7cc28e9fbab74681b744ece752248ffc484bdb330c86886701a3e"
+    },
+    {
+      "path": "game/vfx/v2/audio/stems/hero_matchlock_shot_3_powder.wav",
+      "bytes": 110828,
+      "sha256": "c6d1ed6a7431a4df89a17adb28b101bd69d392b78c9b8cc878c778b4749450d9"
+    },
+    {
+      "path": "game/vfx/v2/audio/test_effect_audio.gd",
+      "bytes": 3014,
+      "sha256": "5fe4a95bd2dd96cb070ad38fddab0d1a1d0dc7db64fb0f66643c20fa0c46db8c"
+    },
+    {
+      "path": "game/vfx/v2/audio/validate.py",
+      "bytes": 1208,
+      "sha256": "97048f5b60710af696eeb8ab26a4aec67bb15d4c29ae152628f0e568d039d5a0"
+    },
+    {
+      "path": "game/vfx/v2/audio/validation.json",
+      "bytes": 25226,
+      "sha256": "a9e0527d92f966b62e2f71765a3a6b2cc8d6e40bf2610d8d1c67323cf2b8dc9d"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/arrow_trail.wav",
+      "bytes": 15404,
+      "sha256": "89807ade5d86437325fd83da5d81f40c23e5f95b6390f48aefe835cfff6c93f2"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/blade_activate.wav",
+      "bytes": 23084,
+      "sha256": "360f5adecda97751b7122682355165694788f45eea036b28a5cf7fc8cbecf3cb"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/blade_charge_loop.wav",
+      "bytes": 96044,
+      "sha256": "d1d04caacde1b53d95d37ec57b56f0ae8cb657f284b419886b626a71763e5d41"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/blade_dissipate.wav",
+      "bytes": 62444,
+      "sha256": "8b4695cdde9c1af9a54e56570aa166a6ed100a4def70dbee48e8faac9b3367a1"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/blade_hit.wav",
+      "bytes": 36524,
+      "sha256": "19df772d10ac9fc272c513509eefeee9d5f1bdb960115fd2f13803d987dda8b7"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/blade_release.wav",
+      "bytes": 62444,
+      "sha256": "81d8a199a6ebf0df0b4a7e3924cd3123079ffb392af3fc4c315f8886a1ffcb1f"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/blunt_impact.wav",
+      "bytes": 30764,
+      "sha256": "2198558e0e5ca57cadaf88fe375473fc1f3967136418f43e019cb72e0e6c2be6"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/dash_dust.wav",
+      "bytes": 36524,
+      "sha256": "53156825981f50c6e7298937c39821e366df931c65e202f717c7b2f754c33f8c"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/enemy_matchlock_shot_0.wav",
+      "bytes": 55724,
+      "sha256": "f19cd8a6319b70739e4144887321f3d378dbde31a9dde9a2604b9851c0678d34"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/enemy_matchlock_shot_1.wav",
+      "bytes": 57452,
+      "sha256": "a8132ae81b1ed256d64e74c0f01d80d6d25a6a207da62333d3c242672cb35390"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/enemy_matchlock_shot_2.wav",
+      "bytes": 59180,
+      "sha256": "dabd96f88740d669db163c6bc2ab731a6cd5e46ef713445ccb87e7ffe274cbdb"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/enemy_matchlock_shot_3.wav",
+      "bytes": 60908,
+      "sha256": "633f3ad91c47f25b76a33c63dcbc3946d54fc1083f887f360e9e95271e6adcc0"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/fire_activate.wav",
+      "bytes": 23084,
+      "sha256": "33ceb53707f086f9d230860b22d42c597ad6452bfc7c19e99b16fdb129d1feb4"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/fire_charge_loop.wav",
+      "bytes": 96044,
+      "sha256": "34bdad5e1e4a12fd4fb760611909e4faf12359f36b21dcabee33022464d0bfd1"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/fire_dissipate.wav",
+      "bytes": 62444,
+      "sha256": "552b92ae4d3d80b2ce5ad2e7c544db700f073c1b059743f7f73623664e26a0c3"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/fire_hit.wav",
+      "bytes": 36524,
+      "sha256": "50084c4e03c2bc393494e258b6447ec2edb08df2434ce6607e3cdef8b1271b92"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/fire_release.wav",
+      "bytes": 62444,
+      "sha256": "6884326d51faf35f69d8c4cccfeeff0c1d48987459f6624e5688a7dcb67f4319"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/guard_sparks.wav",
+      "bytes": 30764,
+      "sha256": "8fb35facf9f33ad839d0c6be8545d0b1d48d6824e18278d4ef06af54b0252e1d"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/hero_matchlock_shot_0.wav",
+      "bytes": 105644,
+      "sha256": "7370f92f1350636fdb64acfdb8ef9a0218e52ea0712fe89bca42cba4201cab03"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/hero_matchlock_shot_1.wav",
+      "bytes": 107372,
+      "sha256": "64ab943d859f19d30836d0de1982eedc6f1b12f98afad8b4b46b57a2ed45ddec"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/hero_matchlock_shot_2.wav",
+      "bytes": 109100,
+      "sha256": "1a51ecfcf50a718dca3e89420e5cf2d09ab093d1faf2c28777d9b5f6055af322"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/hero_matchlock_shot_3.wav",
+      "bytes": 110828,
+      "sha256": "5e5c6efe04b13f67fc8b94f4bfdac78019b3a53eebf9798bc90ee2eff723bfa8"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/ice_activate.wav",
+      "bytes": 23084,
+      "sha256": "757e18977c4cb32499995954b6ca26639cd40aa819e6266641c05eea12ac4c2e"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/ice_charge_loop.wav",
+      "bytes": 96044,
+      "sha256": "2823361ba3616828f84ec3931329b6b7dc00c246658ebb56479f3112e23523c4"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/ice_dissipate.wav",
+      "bytes": 62444,
+      "sha256": "610d7c3a80330f94c87f1e701e1fec173256c7188e07289c3e72270dca205117"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/ice_hit.wav",
+      "bytes": 36524,
+      "sha256": "a9114d99fc7b8601e7a4ca97501e4f5d595eb4ac1d0f7afa3123ac743a4449f9"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/ice_release.wav",
+      "bytes": 62444,
+      "sha256": "09cfebbcf9cc4aa4cc1d88267b8cc1e5ae5425f8d8b06c16d3e65d77fbd45e2e"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/lightning_activate.wav",
+      "bytes": 23084,
+      "sha256": "2df168937a30ba60daf007e1daa817b59c5fa14b05af614186a6810b4942a69d"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/lightning_charge_loop.wav",
+      "bytes": 96044,
+      "sha256": "5cf3863d2f789c62e238c03c7a1ab1535efbe9f5a68b635c2d874d12865dd3ba"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/lightning_dissipate.wav",
+      "bytes": 62444,
+      "sha256": "21cee520cc53f921f418e80ece011d621a4b1ed827a38c69112099d4aa783687"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/lightning_hit.wav",
+      "bytes": 36524,
+      "sha256": "e54b708f6893747c5bca2ca423ddb7aa73f33954d42ad8b7c48a27e7a570cac0"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/lightning_release.wav",
+      "bytes": 62444,
+      "sha256": "f581ddad84b674fa5e7ee3a7dfa85f42afc0bb03f0d90b07a8db0a217ea91e4c"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/neutral_slash_arc.wav",
+      "bytes": 25964,
+      "sha256": "15679708ddbccb3871d2ae048133fc82dad40a2c8a77074b9aad54143e2fe16f"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/slash_hit.wav",
+      "bytes": 17324,
+      "sha256": "31a22fa8ccbde19a3b77cbe72dd3c469d857524d37bad374dd57e797b5a2e491"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/throwing_blade_trail.wav",
+      "bytes": 12524,
+      "sha256": "70628fd4f1aee164d536a8217f34147ae81bf1e00afc334f9257659da2703383"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/thrust_cone.wav",
+      "bytes": 19244,
+      "sha256": "dd249e5e26a162b271ce54c3dde9867a9c8e1591d0c5f383153c2ec6d9f7dcab"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/wind_activate.wav",
+      "bytes": 23084,
+      "sha256": "8b7f3d8ffb54dfa0150db75508c21eb09d119b0e94cb5aaea7046b6ecec8061a"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/wind_charge_loop.wav",
+      "bytes": 96044,
+      "sha256": "99955456f91eee92ecda73c4cd2d7320621aa80f4b8846b195ab7a702d7d95ef"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/wind_dissipate.wav",
+      "bytes": 62444,
+      "sha256": "a2a3954ad9863307fbcee73629155b70dd3b40b3986dc657ce8ad84f8074de09"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/wind_hit.wav",
+      "bytes": 36524,
+      "sha256": "2336ca44eeb449c7c53f7db38bc0825727e7c60a340038c24d52ab83e663fcc6"
+    },
+    {
+      "path": "game/vfx/v2/audio/wav/wind_release.wav",
+      "bytes": 62444,
+      "sha256": "ae189b690c6cde727473cfe4284bce80280623bf7130dbb6cb7cb5552ff02650"
+    },
+    {
+      "path": "game/vfx/v2/catalog.json",
+      "bytes": 34998,
+      "sha256": "bac21fd09a3f8a0814ef5f5acbbc35beff4971c5940afbfe70cd9a27745f8a13"
+    },
+    {
+      "path": "game/vfx/v2/curve_player.gd",
+      "bytes": 3436,
+      "sha256": "5922dd7c43cb92c641b661078a9122877977cbeceb8a9ae998207b1559df9dec"
+    },
+    {
+      "path": "game/vfx/v2/demo/element_demo.gd",
+      "bytes": 2605,
+      "sha256": "689a546c6fa55f62e696cd30d72730c722d76caec86e86a8110bbca77008d8a1"
+    },
+    {
+      "path": "game/vfx/v2/demo/element_demo.tscn",
+      "bytes": 184,
+      "sha256": "97dd52ea79917f917e278bfb2d94a8da2b0783a7378211551af97a7a1fa5c675"
+    },
+    {
+      "path": "game/vfx/v2/demo/matchlock_demo.gd",
+      "bytes": 2820,
+      "sha256": "b4a42ef608532a80f0746367cbb8a2c095183cf1bb346e6e5d468bfd8237d48d"
+    },
+    {
+      "path": "game/vfx/v2/demo/matchlock_demo.tscn",
+      "bytes": 180,
+      "sha256": "c93bf84dd75070b0951d490fe180ef50eb6e5317e7f5c3f892c543a47ccab169"
+    },
+    {
+      "path": "game/vfx/v2/demo/neutral_demo.gd",
+      "bytes": 2719,
+      "sha256": "5d30b1dbed1c792ac1cb7828909b2c835f77a50209c26d22f3dd827eabd902e1"
+    },
+    {
+      "path": "game/vfx/v2/demo/neutral_demo.tscn",
+      "bytes": 176,
+      "sha256": "357cb224838a45b432141425893030a05a0f824190a95dae1c3c1a3709a77bf6"
+    },
+    {
+      "path": "game/vfx/v2/effect_emitter.gd",
+      "bytes": 11832,
+      "sha256": "740ced8cce3c8c0f3128a3a60ef9b1b63fc90df9d884fb6f17008927222e62f8"
+    },
+    {
+      "path": "game/vfx/v2/effect_recipes.json",
+      "bytes": 70910,
+      "sha256": "75eb0dd47ea3fb91cd861746e63d1417f534ce39590bca4a4e9d5eb177d4e9f3"
+    },
+    {
+      "path": "game/vfx/v2/phase_curves.gd",
+      "bytes": 1701,
+      "sha256": "53bbdbd4540a55bc7badce915c306d9034c0c4f516f9537c84ae4bed877661d5"
+    },
+    {
+      "path": "game/vfx/v2/provenance/v1-base-files.json",
+      "bytes": 29224,
+      "sha256": "0fb33629aecce6b4cdbff2c63a20c8031c75c49371765ff76d8ffc0d1fcd7976"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/README.md",
+      "bytes": 2114,
+      "sha256": "380561aa4d05cd35da92cdc6ff362d9b905e0ff1810671cc102309de161dea2e"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/alpha_validation.json",
+      "bytes": 1855,
+      "sha256": "03be9a77e50ce7ca0909bc5e2523aa5e4f6250f121369bbebfbdb1be48e57dbe"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/generation_prompts.json",
+      "bytes": 1288,
+      "sha256": "c4945bb3d7880ce6d90b0793f0c0ae1e7225ef6727010d90f5455475bf317193"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/generation_prompts_accepted.json",
+      "bytes": 4292,
+      "sha256": "ba963790b8137667ee552ddc1ca2562c432360a08867482ced735944632349dc"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/lightning_arc_source.png",
+      "bytes": 1693539,
+      "sha256": "eabbe51954964a832fe60ae20c170499ac707892150a028da82be1bff4bb6efe"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/lightning_hit_source.png",
+      "bytes": 1245260,
+      "sha256": "0f64660bd46c0bbf1c12bdc10a3f8552c6ffd1197dfa41ee3d8cdc4e73f8edcc"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/lightning_manifest.json",
+      "bytes": 6690,
+      "sha256": "507b608220cb68c82de1e51d18dd197b2b3b5e51645a293dbc637f09898be670"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/lightning_ring_source.png",
+      "bytes": 724261,
+      "sha256": "8f589800660439150239acf03839cba02e1bc1b63ef1d7ed6a3a225631672818"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/lightning_wave_source.png",
+      "bytes": 1151360,
+      "sha256": "ca0efd9fc24dd0aa7dcca054f15262ec3ff602b61ca4b703f5105aae3f6e802e"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/rebuild_layout.py",
+      "bytes": 3382,
+      "sha256": "91204385f26eb807abdd0af8d0212f07e7789ecb8defd0824a1235e2558932b9"
+    },
+    {
+      "path": "game/vfx/v2/sources/lightning/ring_prompt_accepted.txt",
+      "bytes": 1095,
+      "sha256": "bdb36f11c2e81c8c1b85f7cb5338e2012ed46918bda479585508d2e5983136a9"
+    },
+    {
+      "path": "game/vfx/v2/sources/matchlock/generation_prompts.json",
+      "bytes": 3045,
+      "sha256": "5f001e46108637b4c7713768248bc1871dce6b58460b86435ef34618907fe874"
+    },
+    {
+      "path": "game/vfx/v2/sources/matchlock/layout_alpha_hash.json",
+      "bytes": 3170,
+      "sha256": "0f99803d9dcc4948ea98abac487603b2b1100fa373e5f2ef641e86a4b16776d5"
+    },
+    {
+      "path": "game/vfx/v2/sources/matchlock/layout_assets.py",
+      "bytes": 787,
+      "sha256": "fe3cd3e333f10afcad975277d326a75002b5fa9a0328cf25b4f6ab841f2a2b3f"
+    },
+    {
+      "path": "game/vfx/v2/sources/matchlock/source/matchlock_muzzle_flash_generated.png",
+      "bytes": 767636,
+      "sha256": "07a0d755b269ede925aa3978781f8fbc2e7cfa4840532c1c6bbeea56dd1f3eb1"
+    },
+    {
+      "path": "game/vfx/v2/sources/matchlock/source/matchlock_smoke_generated.png",
+      "bytes": 1130556,
+      "sha256": "239438b58717d273481f41cc7d3d7ae692a0d7f853d3436d93bb35b6c2fcb9b5"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/README.md",
+      "bytes": 2761,
+      "sha256": "8e327af552a45af1dd801e0845485d824ef66ae8465312f131cd29010844b47c"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/alpha_validation.json",
+      "bytes": 2868,
+      "sha256": "9863911305fdc3bf56fa91d9ecc9418c508a114ccda308dc434d2a9aedb41519"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/generation_prompts.json",
+      "bytes": 5407,
+      "sha256": "5b608655106931981da547d08005cefc465136a3a418e1c810e9cd9fbc4038fc"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/layout_neutral_assets.sh",
+      "bytes": 308,
+      "sha256": "31bf7cb8f4146854786c2857df4dc200e9923d3522a7d14367221f2ea3abcdb7"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/neutral_manifest.json",
+      "bytes": 6864,
+      "sha256": "14f1b018b93bb4be62efc2eb5766afe8a2bf2945ba3a37ff7f6252ed19352bc7"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/sources/neutral_dust.png",
+      "bytes": 449721,
+      "sha256": "d6f2b7f701fac45d2519e61491e760e1b18bd96ec29b48aedfe9202b36818be8"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/sources/neutral_hit_burst.png",
+      "bytes": 200754,
+      "sha256": "699d1c663672d54699963537ead494ed6831e340009433ad5edf660b4d1ccbf3"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/sources/neutral_slash_arc.png",
+      "bytes": 246815,
+      "sha256": "871cd09c6ad155194a5c3770e43b0fa4ea9816c891bd11a1b1c9ba1ecbd59d96"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/sources/neutral_thrust_cone.png",
+      "bytes": 315557,
+      "sha256": "19e66fa966049e8dc675dd12215917a7e700c0263239905303d2145ea44f0c3c"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/sources/neutral_trail_strip.png",
+      "bytes": 108768,
+      "sha256": "1d9cc5cb5560cf04421a617b6f2075b12754f4450f6ccd01f17100a3a83995f7"
+    },
+    {
+      "path": "game/vfx/v2/sources/neutral/validate_neutral_assets.py",
+      "bytes": 2764,
+      "sha256": "d39bef380275223519dce1d26d98e05ee20ee98aa4f061d8b21d67380ff18311"
+    },
+    {
+      "path": "game/vfx/v2/sources/wind/README.md",
+      "bytes": 3497,
+      "sha256": "4ab8328cb57ece1c5d5a46e2ddc55c97703065710aaffd0779bbab22f8ad1a86"
+    },
+    {
+      "path": "game/vfx/v2/sources/wind/alpha_validation.json",
+      "bytes": 4813,
+      "sha256": "db9d758de1a084d94c9cd33ad5baafaa9d8b8e3c96ac52182cdbed909caf7dd0"
+    },
+    {
+      "path": "game/vfx/v2/sources/wind/generation_prompts.json",
+      "bytes": 4485,
+      "sha256": "67198ef17bf2add942e18e3a5076ceb975b8a114587f8ff187e4c705d7d16e16"
+    },
+    {
+      "path": "game/vfx/v2/sources/wind/layout_wind_assets.py",
+      "bytes": 3693,
+      "sha256": "e1f336126f59430cef785d524045a8daa17b32adda138ce9c4a51529dcaa7361"
+    },
+    {
+      "path": "game/vfx/v2/sources/wind/wind_arc_source.png",
+      "bytes": 1203591,
+      "sha256": "20a4eef070c7403047b25c224c0da24342c83b4794680a573d388ca4df779452"
+    },
+    {
+      "path": "game/vfx/v2/sources/wind/wind_hit_source.png",
+      "bytes": 1281691,
+      "sha256": "b656606980594b95bb56ab9fb949eb0bdeb3c2a71e872c60d11e4b10cf856788"
+    },
+    {
+      "path": "game/vfx/v2/sources/wind/wind_manifest.json",
+      "bytes": 5447,
+      "sha256": "634889500de278465957fb3a5318fcd9d896d613dd492868fa00836c43465e70"
+    },
+    {
+      "path": "game/vfx/v2/sources/wind/wind_ring_source.png",
+      "bytes": 928398,
+      "sha256": "b385cac33c18f9bc585c3cc6b03ee89b3870138498ecc62f3ea143689416cd48"
+    },
+    {
+      "path": "game/vfx/v2/sources/wind/wind_wave_source.png",
+      "bytes": 973313,
+      "sha256": "723528b42fdd2efecdc9163888b3df64c420e6764148da9f0b46715f336940fe"
+    },
+    {
+      "path": "game/vfx/v2/tests/export_timeline.gd",
+      "bytes": 1235,
+      "sha256": "f9a7576a551d764be6de8639475cd69302d0426f40336736988730a52c333e9f"
+    },
+    {
+      "path": "game/vfx/v2/tests/export_weapon_timelines.gd",
+      "bytes": 2140,
+      "sha256": "a943133c08760fa67873fd19cababe97c0576906f4008f0210516944c1315689"
+    },
+    {
+      "path": "game/vfx/v2/tests/test_lifecycle.gd",
+      "bytes": 2315,
+      "sha256": "f39999ca4bc3101d6d3ac503e16fab8c2c2d80a7ae18f8ba9a2d86e8a4a6cb71"
+    },
+    {
+      "path": "game/vfx/v2/weapon_motion.gd",
+      "bytes": 1666,
+      "sha256": "91d9a6b6fd9835e13ea7fd199a660418a8086f3a60ae16e78aaf24bc5cdb8307"
+    },
+    {
+      "path": "scripts/vfx/build_v2_standalone.py",
+      "bytes": 1068,
+      "sha256": "b5c71ea0d55a3006ecf684d09a0afd4970a1f5d069da8388830e5e39bd181fac"
+    },
+    {
+      "path": "scripts/vfx/rebuild_v2_layout.py",
+      "bytes": 1798,
+      "sha256": "c125e40236759c9f4097082f9c9e8d8a01b1a03b75bec74cdd484e594ad2bd64"
+    },
+    {
+      "path": "scripts/vfx/render_v2_preview.py",
+      "bytes": 6491,
+      "sha256": "e64a4e0108116b4429df9018ab3a6ee2c48082ca9d161c1da37f8cc745a8968c"
+    },
+    {
+      "path": "scripts/vfx/render_weapon_previews_v2.py",
+      "bytes": 6260,
+      "sha256": "8acae43219b87c3ebe916bcd361051e9c434bd95176cfdf6e9e771ff7c2ee3c1"
+    },
+    {
+      "path": "scripts/vfx/verify_v2.py",
+      "bytes": 2772,
+      "sha256": "8693a79835df208c473dd187d1c9c08d396b3b504d7c6832566287e859a069a0"
+    }
+  ]
+}
