@@ -1,0 +1,848 @@
+{
+  "base_sha": "966cf8c3d48a4579554bc046a5961870faaaafa8",
+  "status": "VFX + audio integration frozen pending independent QA; no remote push",
+  "include_roots": [
+    "game/vfx",
+    "scripts/vfx",
+    "docs/HANDOFF-SHARED-VFX-V1.md",
+    "docs/shared-vfx-validation.json",
+    "docs/vfx-preview"
+  ],
+  "files": [
+    {
+      "path": "docs/HANDOFF-SHARED-VFX-V1.md",
+      "sha256": "c9f0d3c26bdca73769cc9ee6f48355003f840e96e1b443de51e8aa89c6905c90",
+      "bytes": 15241
+    },
+    {
+      "path": "docs/shared-vfx-validation.json",
+      "sha256": "1c7c24dc45334674ff634730f1db3d93fc34eedc4bfd38eddfda463b15db5686",
+      "bytes": 5775
+    },
+    {
+      "path": "docs/vfx-preview/shared-vfx-contact-sheet.jpg",
+      "sha256": "8d845f40656f1e9c4d6c3e676da91210ca030ca6f11b018a60bb048cca1b4c8a",
+      "bytes": 239187
+    },
+    {
+      "path": "docs/vfx-preview/shared-vfx-offline-preview.mp4",
+      "sha256": "2bdc2943a4807fd2691fbccd91f8c6382367a4f3084e44a31eb9efce470dbd3a",
+      "bytes": 1458163
+    },
+    {
+      "path": "game/vfx/art/blade_arc.png",
+      "sha256": "6af1be94548ffd21f811bbf9486a4fd923af15c6c0207683f650b9cd27149146",
+      "bytes": 324393
+    },
+    {
+      "path": "game/vfx/art/blade_hit.png",
+      "sha256": "9b7e1b76f680ef32b96fe89b7540bc6d04ef2fb5a7c7e0cfdcc3b19be69b69b9",
+      "bytes": 542274
+    },
+    {
+      "path": "game/vfx/art/blade_ring.png",
+      "sha256": "c1335ffa3390f9bf3554fd11a037901c376b5635a798f4c06241f04e021e2e45",
+      "bytes": 380410
+    },
+    {
+      "path": "game/vfx/art/blade_wave.png",
+      "sha256": "38cdc3233bca5e9823826e03b8663171d56c6563c7ea09792d0dcd0d8443f29a",
+      "bytes": 591550
+    },
+    {
+      "path": "game/vfx/art/blue_white_wave.png",
+      "sha256": "317bfb962e45ccf77f10b65d721f205a07373d64556a3fb127aee6c894fe212f",
+      "bytes": 961185
+    },
+    {
+      "path": "game/vfx/art/fire_arc.png",
+      "sha256": "534eb334aac068c97d94c57f556ee61db34712151af74dd8a0bfc40631469563",
+      "bytes": 935625
+    },
+    {
+      "path": "game/vfx/art/fire_burn.png",
+      "sha256": "ef9c97cb8d106774f74fa5e1b51bfae9bad91d3673b82402d85debcd622f1d03",
+      "bytes": 624393
+    },
+    {
+      "path": "game/vfx/art/fire_ring.png",
+      "sha256": "b626b115fd7fa89551d062b78112fde5c0558dd7ca618ea8259aaa4e42d008dc",
+      "bytes": 777140
+    },
+    {
+      "path": "game/vfx/art/fire_wave.png",
+      "sha256": "a750096bed31ffb20a28d695b2fbd67b10a5be888387cf14cacbc9bf19f47a90",
+      "bytes": 795618
+    },
+    {
+      "path": "game/vfx/art/ice_arc.png",
+      "sha256": "c71975100dad27a60708b2e22ba337ee1c4070eb98f30c98cf75a97fd600e1c4",
+      "bytes": 556845
+    },
+    {
+      "path": "game/vfx/art/ice_ring.png",
+      "sha256": "ef194f492f5ce2780f7955df0b0c1687e372599927b803fe6860bd5b30c3e850",
+      "bytes": 354604
+    },
+    {
+      "path": "game/vfx/art/ice_shatter.png",
+      "sha256": "89f39d1fb239226ba267bc30aa375bce69d3244be348171dc4962721fcca6914",
+      "bytes": 1002915
+    },
+    {
+      "path": "game/vfx/art/ice_wave.png",
+      "sha256": "aa2a6308a97fa858e4c184e394a934de923393b41be594a65126fe68999115b3",
+      "bytes": 749597
+    },
+    {
+      "path": "game/vfx/audio/README.md",
+      "sha256": "60535a1f5f01fbaff8a57a5807bf48e4e539bb7f8a87d857a76ffa1128f51fbc",
+      "bytes": 5161
+    },
+    {
+      "path": "game/vfx/audio/VOICE_HANDOFF_JA.md",
+      "sha256": "a7425028009bb9ef958450074cba600bb29a3bdc723b9028a52b479b411b4472",
+      "bytes": 3430
+    },
+    {
+      "path": "game/vfx/audio/build_audio.py",
+      "sha256": "2c51494a7f3f2d32e41e09eb8cb5cdfd295a1bdd9a6532d67f0a56ef73f8c088",
+      "bytes": 5962
+    },
+    {
+      "path": "game/vfx/audio/make_preview.py",
+      "sha256": "c7aefc77478f4b9268fdec53798469974a24856005c3d805fce3f89da343694d",
+      "bytes": 2157
+    },
+    {
+      "path": "game/vfx/audio/manifest.json",
+      "sha256": "7c138c42b3f2e2947c7e2a71de5e4396cc23b21631292bb410bcd2b351e0a80e",
+      "bytes": 28471
+    },
+    {
+      "path": "game/vfx/audio/ogg/hideyoshi_charge.ogg",
+      "sha256": "e12ef179a6ebdcd254e9c414c59616838f5fda203151d2793438031be78e9120",
+      "bytes": 7120
+    },
+    {
+      "path": "game/vfx/audio/ogg/hideyoshi_final.ogg",
+      "sha256": "80fcf3ec34b9ca60a7961b6f0b5e130e15f7f2fcf2eb9158d0d49ef675e36163",
+      "bytes": 14031
+    },
+    {
+      "path": "game/vfx/audio/ogg/hideyoshi_preview.ogg",
+      "sha256": "90b3d9518c0899efdba0beae7de7e47b673374516114e9f694e698d67d12ad36",
+      "bytes": 49056
+    },
+    {
+      "path": "game/vfx/audio/ogg/hideyoshi_release.ogg",
+      "sha256": "32747bf002bb644a3b367b2269c83dc5db6ba6ba3760d1511ebe77750d5a2d39",
+      "bytes": 9005
+    },
+    {
+      "path": "game/vfx/audio/ogg/ieyasu_charge.ogg",
+      "sha256": "7bec45160737fb6e51955e1e96c2a129c413fe09e93b9b014c98939a5d41b470",
+      "bytes": 9983
+    },
+    {
+      "path": "game/vfx/audio/ogg/ieyasu_final.ogg",
+      "sha256": "136adb258f9ac938033b43c66866e9a74a572542025a95bf6e5fc79d5065809c",
+      "bytes": 15213
+    },
+    {
+      "path": "game/vfx/audio/ogg/ieyasu_preview.ogg",
+      "sha256": "c9fd3ef215b8ca36bbb3ad480a457ee163f46931541796500a37a959f860c940",
+      "bytes": 37367
+    },
+    {
+      "path": "game/vfx/audio/ogg/ieyasu_release.ogg",
+      "sha256": "4b64ea83e5bc9f9da4c9d6ddc7841682dd4a57149f7187ccbeaefb8d9eaea0e5",
+      "bytes": 9689
+    },
+    {
+      "path": "game/vfx/audio/ogg/mitsuhide_charge.ogg",
+      "sha256": "980791401e9978b42e6cae72b02643b5f5c7be3f2465110b39dd9882ec546b61",
+      "bytes": 8108
+    },
+    {
+      "path": "game/vfx/audio/ogg/mitsuhide_final.ogg",
+      "sha256": "3762f8c03baeb0485f77581b569fe5f5abbecd3135d44c9b3135258028083d6a",
+      "bytes": 14501
+    },
+    {
+      "path": "game/vfx/audio/ogg/mitsuhide_preview.ogg",
+      "sha256": "5ccb94f98a9aa8539aecd77c87550eec695830f1239949c0e953cf7d9f5b820b",
+      "bytes": 42272
+    },
+    {
+      "path": "game/vfx/audio/ogg/mitsuhide_release.ogg",
+      "sha256": "bcb27c50fe29f7a26b4affbde5cfae5763d74d6879b884562a701cc998ec56b8",
+      "bytes": 9564
+    },
+    {
+      "path": "game/vfx/audio/ogg/nobunaga_charge.ogg",
+      "sha256": "1b78d0e9214d7b7e35fa233fd14a8ded014f668183c950239f839887068ce541",
+      "bytes": 8411
+    },
+    {
+      "path": "game/vfx/audio/ogg/nobunaga_final.ogg",
+      "sha256": "e028b04ad41628c1d170f6da60b14c392929f8edc1d9c4e807e1e921b9f1c96e",
+      "bytes": 14998
+    },
+    {
+      "path": "game/vfx/audio/ogg/nobunaga_preview.ogg",
+      "sha256": "a36566f9b5c07989c45b20a6cf5b1cb3f34c94da6a5e6dca1da3e2a3cf848c90",
+      "bytes": 44634
+    },
+    {
+      "path": "game/vfx/audio/ogg/nobunaga_release.ogg",
+      "sha256": "bce08c52ed02b85d726c114858264f01e9a4d2647976c51350eeeb8a1dacf959",
+      "bytes": 9740
+    },
+    {
+      "path": "game/vfx/audio/ogg/oichi_charge.ogg",
+      "sha256": "c139c846f09de1ea15038f1af994c35e16fc5c08706ac88714a1e78967fed7fe",
+      "bytes": 8374
+    },
+    {
+      "path": "game/vfx/audio/ogg/oichi_final.ogg",
+      "sha256": "015da77c4a2191182fda56fda4b07f7253913b29f2d1572ce19c794d1b73766f",
+      "bytes": 15705
+    },
+    {
+      "path": "game/vfx/audio/ogg/oichi_preview.ogg",
+      "sha256": "4eccafab7df107431f865f86da1840e4c3d94797f77cd73c43e6365aa2ab9436",
+      "bytes": 46834
+    },
+    {
+      "path": "game/vfx/audio/ogg/oichi_release.ogg",
+      "sha256": "8ffd92a6556a54cc1f988edd3fb2dc7cc8201d0cd5dd4f7dcd29aa062098c0c8",
+      "bytes": 10011
+    },
+    {
+      "path": "game/vfx/audio/ogg/tadakatsu_charge.ogg",
+      "sha256": "036d9f1a9886fdb3dc68735e124698fd5143a512b7534b89ce4584b1a1cc65a7",
+      "bytes": 9997
+    },
+    {
+      "path": "game/vfx/audio/ogg/tadakatsu_final.ogg",
+      "sha256": "16a5ffd3672a2d3546982a34ce4f082415bfd360411fd6649ea551be23bca5b4",
+      "bytes": 15215
+    },
+    {
+      "path": "game/vfx/audio/ogg/tadakatsu_preview.ogg",
+      "sha256": "baa9f4f27cb055b0448ff064aedf3d2dacab7d7bc6acf0a1ae4ed4bf310d7419",
+      "bytes": 43419
+    },
+    {
+      "path": "game/vfx/audio/ogg/tadakatsu_release.ogg",
+      "sha256": "a616356cea3ebccf586a8b30db891fb8aebd45f3f8d441bd49705113a2a60883",
+      "bytes": 9755
+    },
+    {
+      "path": "game/vfx/audio/preview/Sengoku_Japanese_Special_Audio_Preview.mp4",
+      "sha256": "e4ffd06cc9f772d685a18f022335c6629a87c112a3c4a629953cd3a9e9d2516d",
+      "bytes": 791996
+    },
+    {
+      "path": "game/vfx/audio/preview/concat.txt",
+      "sha256": "8c72f45f5655268f70c805006026647db4b551f896ff715ad6b5d5e5981e6f19",
+      "bytes": 118
+    },
+    {
+      "path": "game/vfx/audio/preview/hideyoshi.mp4",
+      "sha256": "a3503997e63b439f1fbb04b32547df1f15ed77b89ec30dd2c13a1d51b1d7b7a6",
+      "bytes": 149068
+    },
+    {
+      "path": "game/vfx/audio/preview/hideyoshi.png",
+      "sha256": "620110fd2750298356c8324eefc3ee7cf904f2594a15b3e1ce1a30f2af8c8924",
+      "bytes": 67414
+    },
+    {
+      "path": "game/vfx/audio/preview/ieyasu.mp4",
+      "sha256": "1f016e4acc025897d4fff4cc6da6fcfb16c16b25cd36a97de3a3f4919b18f253",
+      "bytes": 123179
+    },
+    {
+      "path": "game/vfx/audio/preview/ieyasu.png",
+      "sha256": "130f860c60db3dc2c06d3ce280aab89030e4d3554e3a07592d021a78463f06b9",
+      "bytes": 69789
+    },
+    {
+      "path": "game/vfx/audio/preview/mitsuhide.mp4",
+      "sha256": "22064ec40f5fdb62e4fbbbc57e497f3e6c9c648b09a5584c5435b319b77cd9c9",
+      "bytes": 117926
+    },
+    {
+      "path": "game/vfx/audio/preview/mitsuhide.png",
+      "sha256": "80e24921eb425049456974fc002964fd850ff697984b97be0d50cabffda64c0f",
+      "bytes": 66558
+    },
+    {
+      "path": "game/vfx/audio/preview/nobunaga.mp4",
+      "sha256": "3e4cf907a497529bfd0c91cdb658a2811705ef8f38674302f91367c08be17fbe",
+      "bytes": 141479
+    },
+    {
+      "path": "game/vfx/audio/preview/nobunaga.png",
+      "sha256": "6359a84e570fea91a2bb165988b571694c6e120dc2989c3d5bc26ca33f6965b4",
+      "bytes": 68264
+    },
+    {
+      "path": "game/vfx/audio/preview/oichi.mp4",
+      "sha256": "659690dec8effb83b81cad354910e1fd791f1100d2c36f1e7493b0ca62f60c55",
+      "bytes": 131513
+    },
+    {
+      "path": "game/vfx/audio/preview/oichi.png",
+      "sha256": "ebb14fbb4c3f51b9bc0bb87b4b2272b97ba7af8bcc7d67c419bd2bc9f5deaae0",
+      "bytes": 66626
+    },
+    {
+      "path": "game/vfx/audio/preview/tadakatsu.mp4",
+      "sha256": "92d591e5632de25f8774228a3aea1cf7b67a3dec9c5f4dc18f02d3b5269bc3ce",
+      "bytes": 135500
+    },
+    {
+      "path": "game/vfx/audio/preview/tadakatsu.png",
+      "sha256": "02134b70c59ad14f15fb22c372a840a44543b815d2de8e50ac4ed67859f6b879",
+      "bytes": 68831
+    },
+    {
+      "path": "game/vfx/audio/special_audio.gd",
+      "sha256": "0b973723334c1fbe3201fa92f32e1f4a10a03e07ae773f1f10300229a7be4f2e",
+      "bytes": 3740
+    },
+    {
+      "path": "game/vfx/audio/test_helper.gd",
+      "sha256": "e74ebc7f38baca1220da22867db887f26390f4602803ed782cd6c556093774ef",
+      "bytes": 1497
+    },
+    {
+      "path": "game/vfx/audio/validate.py",
+      "sha256": "97048f5b60710af696eeb8ab26a4aec67bb15d4c29ae152628f0e568d039d5a0",
+      "bytes": 1208
+    },
+    {
+      "path": "game/vfx/audio/validation.json",
+      "sha256": "b523b5043513c6a46b7c4fe8cfbc89df4a415e8145276ace1daf75468c941ae7",
+      "bytes": 25942
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_akechi_special_0.ogg",
+      "sha256": "c38a79a973db28ad303f8e3469f02f48386843b64b4df5e15c569e7df5e8a758",
+      "bytes": 29161
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_asakura_special_0.ogg",
+      "sha256": "9cf844effd80e036a93e8bf29c72f997e710712eb401555abd2e05be4763e4b7",
+      "bytes": 15495
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_azai_special_0.ogg",
+      "sha256": "176011ca01bb46f6dd4690302b382a7709ace02d1a4ffdaf90e80b0f89458c82",
+      "bytes": 14323
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_hashiba_special_0.ogg",
+      "sha256": "839328d91047f1fb118a47c4ef97549e3272a3a5d2aa189215c5465f610f9fc3",
+      "bytes": 8885
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_iga_special_0.ogg",
+      "sha256": "678a557e799aedec7368fbeb51f253de49b17f2d0694908e8a32999d2457a588",
+      "bytes": 11348
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_ikko_special_0.ogg",
+      "sha256": "d05422b6752d45d5eaea62196462898817c9fbb37051922d4723833769d70446",
+      "bytes": 11253
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_imagawa_special_0.ogg",
+      "sha256": "81b97cefbfdadf64c806759080e26ab48ab0e3a098a5b9dacd85c884a57273d9",
+      "bytes": 13604
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_miyoshi_special_0.ogg",
+      "sha256": "ff6b7d7de80e315c84bd815747e45be9deb6e952ef3a91249b601d7ce566a87e",
+      "bytes": 23256
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_mori_special_0.ogg",
+      "sha256": "eeee2241a7c642f3502bf4951e165cb6282f26815d61976fbf7fc034a94f2712",
+      "bytes": 14608
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_oda_special_0.ogg",
+      "sha256": "75347263b2b6ec9a03b52f34358d83d35118caf4ee44ecec5ed0db4f973cfc77",
+      "bytes": 12777
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_saito_special_0.ogg",
+      "sha256": "8f61147755082a07f1c3bbf22cb7966f2818e79ce1050ab1c2ea102702bb77f6",
+      "bytes": 16263
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/boss_takeda_special_0.ogg",
+      "sha256": "2ab04a986cbc42b5c44e5ca4ac955a0211a0fe0ef7eef6701eac634f6bb3b005",
+      "bytes": 15230
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/hideyoshi_special_0.ogg",
+      "sha256": "07e3728dc16f652a22f06b0ae09ea44e1c8972746d2da2e434a13c3624683e02",
+      "bytes": 12767
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/ieyasu_special_0.ogg",
+      "sha256": "981de85e41161c0a16880c754b35fb1cf96413d9c3b07fe3a89ce5f384af5c48",
+      "bytes": 16735
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/mitsuhide_special_0.ogg",
+      "sha256": "babb7a21b506c3013124695cff7c6365eec45cde6646ec0a4fb3c162428e678c",
+      "bytes": 10832
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/nobunaga_special_0.ogg",
+      "sha256": "de9378ac4213cf4455cf8f34031c8567114cf775e424ee1b93c867b71ac0eed1",
+      "bytes": 18487
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/oichi_special_0.ogg",
+      "sha256": "51ab8246c88c98a99deb44f223895fe71b110a322a5c2542fbe92d3623391a05",
+      "bytes": 14275
+    },
+    {
+      "path": "game/vfx/audio/voice_ogg/tadakatsu_special_0.ogg",
+      "sha256": "647dd09a2d81144ae2258efd5e8c849bf010944c19403b8c7ad5f64a3fe9e051",
+      "bytes": 21126
+    },
+    {
+      "path": "game/vfx/audio/voice_slots.json",
+      "sha256": "a4efc4b48586ddd13596e26aee0ea5242add65304b2d4a43af24c92a046cacc8",
+      "bytes": 465
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_akechi_special_0.wav",
+      "sha256": "eca9b7306d06a522b60f94096fe95d65852688828389f36d4f8512232dc6e45d",
+      "bytes": 236222
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_asakura_special_0.wav",
+      "sha256": "5fd5e2ea3c37a153105bfe37f008ccddff70b9a395d4e18f5b38f6f9f57f9926",
+      "bytes": 110744
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_azai_special_0.wav",
+      "sha256": "4e6c916c4e8175eb8013477c6b4f208eab24f9cafd743100b575266de115f44e",
+      "bytes": 98784
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_hashiba_special_0.wav",
+      "sha256": "be4d9ab1cd2566a51edb31fd70fbd6ffc9c94106b974cff6b8ea28d82d3c832e",
+      "bytes": 44714
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_iga_special_0.wav",
+      "sha256": "509e2ca372c31bef4572e03e6038abf4241bb33dda1068920d7f5453dadff5e1",
+      "bytes": 70058
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_ikko_special_0.wav",
+      "sha256": "4d3152e1c9a8e74650106e98e8cfc9daf8620d0eb97af6ac7a3a6f29cbfd57b9",
+      "bytes": 71280
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_imagawa_special_0.wav",
+      "sha256": "aa5f535d8e24f878dc9044955e8a3e01f3e9cd81f3915446e3dc69e2808f47c1",
+      "bytes": 95688
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_miyoshi_special_0.wav",
+      "sha256": "a67637b902d6d1bff5fc5abacd16a7ef5b91fd43393c8ca97db218ad6068024f",
+      "bytes": 183956
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_mori_special_0.wav",
+      "sha256": "1860dd8eab28182dd34738b3c5115f305b53e43a0408eeffcbde14351ba39dd3",
+      "bytes": 102654
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_oda_special_0.wav",
+      "sha256": "d58dc66ce360cbfa723bda7ca99e5725c546544fa4ca78c60d4c3c3609f726ac",
+      "bytes": 86806
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_saito_special_0.wav",
+      "sha256": "ce1d52cb284e07f5b7f798f7fe9350a20ea027e192d546341941caca0f37df67",
+      "bytes": 120862
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/boss_takeda_special_0.wav",
+      "sha256": "3646c79a88cb146c67a1ef4c8cd090328ef17105d5ec362dc9e5ef23ff63d66d",
+      "bytes": 112498
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/hideyoshi_special_0.wav",
+      "sha256": "f97fde4e336d5986d814fbc02e572afcf30faf2f4e518b01d029dbbfc5518a3b",
+      "bytes": 83284
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/ieyasu_special_0.wav",
+      "sha256": "182750bde0aea1eeed7a3d5eb2bbc1958efd01061f234e98b87bf61c38256588",
+      "bytes": 127166
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/mitsuhide_special_0.wav",
+      "sha256": "f1211b52d36da62c775d465edc3a77e87f0f73b850bea648ada5fd4456eee529",
+      "bytes": 64694
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/nobunaga_special_0.wav",
+      "sha256": "ec0ac9e0dbd0f6fdccc077acd528ae19fd4b07f6bf90132c6d97fbdd882a1bc1",
+      "bytes": 152648
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/oichi_special_0.wav",
+      "sha256": "c6f20d54dfc81dbf173716109b5742ca71e00d5b101d22bf2996409da84b48d7",
+      "bytes": 91026
+    },
+    {
+      "path": "game/vfx/audio/voice_wav/tadakatsu_special_0.wav",
+      "sha256": "6ff915891edbcd517669556800043e2d026d378e3233b87a948ca461de41cc31",
+      "bytes": 163742
+    },
+    {
+      "path": "game/vfx/audio/wav/hideyoshi_charge.wav",
+      "sha256": "b8e07e47419765447694f41f938a74288363c1243ccc8a99dfeca20ed1660196",
+      "bytes": 28844
+    },
+    {
+      "path": "game/vfx/audio/wav/hideyoshi_final.wav",
+      "sha256": "ab602e6a6edd8a7407b8866d3284055841341dd62412595693766ba69d00d104",
+      "bytes": 100844
+    },
+    {
+      "path": "game/vfx/audio/wav/hideyoshi_preview.wav",
+      "sha256": "05d4112a2d7bd34fbec3e3ac73efa6d24f510a5ac0ffb30a0e369eca5f917f9b",
+      "bytes": 432044
+    },
+    {
+      "path": "game/vfx/audio/wav/hideyoshi_release.wav",
+      "sha256": "d8e9f879f8f6b622691c502e4a3fb8ec3a88f90d1b696e909d5bb5e5754599e8",
+      "bytes": 46124
+    },
+    {
+      "path": "game/vfx/audio/wav/ieyasu_charge.wav",
+      "sha256": "6808c98e8f9ec37f52016cb37393a05c042835be65df364e945cd74bfcc2d199",
+      "bytes": 57644
+    },
+    {
+      "path": "game/vfx/audio/wav/ieyasu_final.wav",
+      "sha256": "f30ac1c64cad98a73203f1ca34437d054162ee8aca32f30e49840eb4042daf5f",
+      "bytes": 100844
+    },
+    {
+      "path": "game/vfx/audio/wav/ieyasu_preview.wav",
+      "sha256": "2a192d06dbfc88d0bbdb356e945a3fd60c6bc1facc12c8fbd0f53825f0e9cfd2",
+      "bytes": 432044
+    },
+    {
+      "path": "game/vfx/audio/wav/ieyasu_release.wav",
+      "sha256": "2c7056a9a1aa29243568e47bd0d075b467d42cf27a621861befaed37c35a98ef",
+      "bytes": 46124
+    },
+    {
+      "path": "game/vfx/audio/wav/mitsuhide_charge.wav",
+      "sha256": "29e088c382da35034c0350553440d3777e30b979136faafe4880ff74fc456814",
+      "bytes": 38444
+    },
+    {
+      "path": "game/vfx/audio/wav/mitsuhide_final.wav",
+      "sha256": "47dda7a375c92e533ef39b93916f4be00ca892103c13bd7e59ce3d95ca990a34",
+      "bytes": 100844
+    },
+    {
+      "path": "game/vfx/audio/wav/mitsuhide_preview.wav",
+      "sha256": "af554ea6568fe3687215b3ff2b4bb537e51ea9969b12d39c42efaa5d4ef23467",
+      "bytes": 432044
+    },
+    {
+      "path": "game/vfx/audio/wav/mitsuhide_release.wav",
+      "sha256": "7183b9e3d806d28da1c90fc54e2d8ddff86bc021da787b5d503d1fea42e08702",
+      "bytes": 46124
+    },
+    {
+      "path": "game/vfx/audio/wav/nobunaga_charge.wav",
+      "sha256": "4861a9d3b99e2f3dc519a87886e2cf2deb7715c637a3c12496f221327085a603",
+      "bytes": 41644
+    },
+    {
+      "path": "game/vfx/audio/wav/nobunaga_final.wav",
+      "sha256": "295fdaae41d1143cb13c3ca3beeca0977bf494189a079c8a04d4dcb832e6e70d",
+      "bytes": 100844
+    },
+    {
+      "path": "game/vfx/audio/wav/nobunaga_preview.wav",
+      "sha256": "80cb283508a3264c9984d07c40f5e75657d2c6e27c985d2ba5124e83da5812c3",
+      "bytes": 432044
+    },
+    {
+      "path": "game/vfx/audio/wav/nobunaga_release.wav",
+      "sha256": "fa06a0b8db79a0a58374d67feda849cb1f46b8db7cd5e010447023eff8d79549",
+      "bytes": 46124
+    },
+    {
+      "path": "game/vfx/audio/wav/oichi_charge.wav",
+      "sha256": "a80960fdab351dbc382092f4792fa3c8181b5de6b50d6ccd4e3c62b049299de5",
+      "bytes": 41644
+    },
+    {
+      "path": "game/vfx/audio/wav/oichi_final.wav",
+      "sha256": "8985f724e99cc77baefbbdcc7344f71da51f20057ccadc137b6abc39e19acacd",
+      "bytes": 100844
+    },
+    {
+      "path": "game/vfx/audio/wav/oichi_preview.wav",
+      "sha256": "881a82ffa74d1226af21dd3aad3b0c35ca1af49ec39a933233293c70253cf3f3",
+      "bytes": 432044
+    },
+    {
+      "path": "game/vfx/audio/wav/oichi_release.wav",
+      "sha256": "4b426d317d5c4b9bbca75844e385a5a237fbfc811a3a974c6ad18fc75bb32801",
+      "bytes": 46124
+    },
+    {
+      "path": "game/vfx/audio/wav/tadakatsu_charge.wav",
+      "sha256": "9d4dc2ce281c2f5a6e7bb3b7663c5baa02f47f47fdf9b34ce02e723ec0333e0d",
+      "bytes": 57644
+    },
+    {
+      "path": "game/vfx/audio/wav/tadakatsu_final.wav",
+      "sha256": "cffeee088eb5f0bcca60490505874a4b5ebc2e842ebdf6973a0456420474c2d5",
+      "bytes": 100844
+    },
+    {
+      "path": "game/vfx/audio/wav/tadakatsu_preview.wav",
+      "sha256": "3497085c689b9c5d6ba8fec575684bc32b3bc72d852ca0e36dbad5659b312f67",
+      "bytes": 432044
+    },
+    {
+      "path": "game/vfx/audio/wav/tadakatsu_release.wav",
+      "sha256": "d83b0ff98e4eb2292afed250ab02da5d2b11f2dc37b6178392b68dcceba539c7",
+      "bytes": 46124
+    },
+    {
+      "path": "game/vfx/catalog.json",
+      "sha256": "e5f0acad3f1a1a38e407b5faae468a705153d94cc8505fb2fcff1aa9cf2f8e23",
+      "bytes": 11096
+    },
+    {
+      "path": "game/vfx/demo/special_demo.gd",
+      "sha256": "3d5769859c68a12b8c3afcf954131a24d2b2fcb3bcdb72fbb1b45e9dbb419789",
+      "bytes": 1585
+    },
+    {
+      "path": "game/vfx/demo/special_demo.tscn",
+      "sha256": "14371aa7c9f4b3366f0f0440d6954e2dc87fcb839a23e9133bb418b65e4cff6c",
+      "bytes": 179
+    },
+    {
+      "path": "game/vfx/demo/standalone_demo.gd",
+      "sha256": "b03f108bf157cfc7e500a121e745c97b0d29732981c95015e47e957936e776d9",
+      "bytes": 1292
+    },
+    {
+      "path": "game/vfx/demo/standalone_demo.tscn",
+      "sha256": "c9205995d2d5db32d9b33fea795fb161c8987d4e43d31874fea75db26c3d74c3",
+      "bytes": 178
+    },
+    {
+      "path": "game/vfx/demo/vfx_demo.gd",
+      "sha256": "fa695ce241c39a3fab0aa3662df47cba00417825c8bd360826528fbb2b3c776a",
+      "bytes": 3653
+    },
+    {
+      "path": "game/vfx/demo/vfx_demo.tscn",
+      "sha256": "c6e649d4debacfd90174fb0d3d16029f07c6117d2003da3122bd35bb54c4b852",
+      "bytes": 165
+    },
+    {
+      "path": "game/vfx/recipes.json",
+      "sha256": "0bb117e2e78e4444b66fe2920f54022a811111e204e8dd8f497285a44ef05090",
+      "bytes": 3292
+    },
+    {
+      "path": "game/vfx/shaders/shared_vfx.gdshader",
+      "sha256": "64007188ec0798271251f2c48dec9d84062711af53cb39ecac0bb8bedb7193c2",
+      "bytes": 1445
+    },
+    {
+      "path": "game/vfx/sources/blade/README.md",
+      "sha256": "53b1990e3bbec2f219565fdfd8652784b28e6dffa50d84228434e134877260aa",
+      "bytes": 2837
+    },
+    {
+      "path": "game/vfx/sources/blade/alpha_validation.json",
+      "sha256": "a3544964b58e5a1024055fe9c39f482a5111813588ba70b9d663544d011730d0",
+      "bytes": 1212
+    },
+    {
+      "path": "game/vfx/sources/blade/blade_arc_base.png",
+      "sha256": "cce78fe8673dc4484d6e8ea69f9dfb7437ea02b71f0fcd40b40f5947bb2250e3",
+      "bytes": 642144
+    },
+    {
+      "path": "game/vfx/sources/blade/blade_hit_base.png",
+      "sha256": "09b6184ce2d8aa42cb3d8c86e7e691bf97ddd7e1f35df0447002924216d9c010",
+      "bytes": 1085288
+    },
+    {
+      "path": "game/vfx/sources/blade/blade_manifest.json",
+      "sha256": "5a529c4b381795c5a0f8d64933d2d01aa1073f0d0a22b13dcccd0a2effc5ac26",
+      "bytes": 4188
+    },
+    {
+      "path": "game/vfx/sources/blade/blade_ring_base_v2.png",
+      "sha256": "5447a1152c412e99f39f2c12bef9e948c8c32718a0827f379cc3baac9a85f4de",
+      "bytes": 773325
+    },
+    {
+      "path": "game/vfx/sources/blade/blade_wave_base.png",
+      "sha256": "5d18e143d0b7a0df96d4a0dbcc59b234849bc282b860ccafea518f4f80e14d9e",
+      "bytes": 1120479
+    },
+    {
+      "path": "game/vfx/sources/blade/generation_prompts.json",
+      "sha256": "d6e6ee0ec0fec176b32b224a04d4b2220065a708b861a02ca1b6677f0c29dddb",
+      "bytes": 5733
+    },
+    {
+      "path": "game/vfx/sources/generation_prompt_fire_wave.json",
+      "sha256": "98889c0cb32e6a8d78dc0d1e9db87ae495112d826fc20cc3b12de677db02ff79",
+      "bytes": 943
+    },
+    {
+      "path": "game/vfx/sources/generation_prompts.json",
+      "sha256": "1fb473be8d76a6c8c1b42d2ef19c38a1b8b55da06ffccede22219c93bb97c6ff",
+      "bytes": 4409
+    },
+    {
+      "path": "game/vfx/sources/generation_prompts_additional.json",
+      "sha256": "3503f24c90e00c3043b1c16e6949c7d1344aec5b49089aa7f3aec7b8e973f8c1",
+      "bytes": 1671
+    },
+    {
+      "path": "game/vfx/sources/ice/ICE_HANDOFF.md",
+      "sha256": "cdb5b8bcc13aa653d3714d6400dbbf829ce442a58bc25508e409e6585028c233",
+      "bytes": 3935
+    },
+    {
+      "path": "game/vfx/sources/ice/alpha_validation.json",
+      "sha256": "8c1db54b32d5f230a7ef7a9c75c1ca6e648642ff3eae58e5e870ec5c9a369a52",
+      "bytes": 1345
+    },
+    {
+      "path": "game/vfx/sources/ice/generation_prompts.txt",
+      "sha256": "67158d24adc92bc0a901000e0c980304fd77245503d8654159c7f42d229567e8",
+      "bytes": 4035
+    },
+    {
+      "path": "game/vfx/sources/ice/ice_arc_source.png",
+      "sha256": "b4f3eb66c8145622182f567adc6269f85d51ea8e509a977b442d88bbb9e7051c",
+      "bytes": 1151193
+    },
+    {
+      "path": "game/vfx/sources/ice/ice_manifest.json",
+      "sha256": "5e5a467c0e1a3df743ec1ae8d42f5c43086549ab76ecba969c8ec33b37b44362",
+      "bytes": 2943
+    },
+    {
+      "path": "game/vfx/sources/ice/ice_ring_source.png",
+      "sha256": "d7d542f90c4c3d5e9c1a5931f792c5bfcc31189d9ca61da6ea0402e52f9c95df",
+      "bytes": 1493405
+    },
+    {
+      "path": "game/vfx/sources/ice/ice_shatter_source.png",
+      "sha256": "3f8854cef7116f5e40558d8356fa4454c91c513f83334addc6d1449d6e9e22c8",
+      "bytes": 2022591
+    },
+    {
+      "path": "game/vfx/sources/ice/ice_wave_source.png",
+      "sha256": "2991a765f49ccfddec1252ea450ee838c9d78b062f377a5ffdbac51e01624438",
+      "bytes": 1497420
+    },
+    {
+      "path": "game/vfx/special_preset_adapter.gd",
+      "sha256": "b55776735e84a9d022eeab29ae8ad7526c55bcf0b5be034e07168d6019fd02c6",
+      "bytes": 1900
+    },
+    {
+      "path": "game/vfx/special_presets.json",
+      "sha256": "2e87f7a20c9aa18d1bbc95448c87946c9a80609b47b341b9bb400cf4be30dfed",
+      "bytes": 7377
+    },
+    {
+      "path": "game/vfx/tests/export_demo_actors.gd",
+      "sha256": "bc6b8d1ebc5b02d2eb2dab37fd12e253399d6a7205d233bc0cd7b06ecc4381b2",
+      "bytes": 1144
+    },
+    {
+      "path": "game/vfx/tests/test_demo_parse.gd",
+      "sha256": "8ed96b19b5a493bae9164a0c6eff54ebb95edc4837c70da9308dc54c20271b9b",
+      "bytes": 152
+    },
+    {
+      "path": "game/vfx/tests/test_special_presets.gd",
+      "sha256": "11e342a13f768a3f90d457c7d803a2e514228f5078f2b149502516beb452f314",
+      "bytes": 793
+    },
+    {
+      "path": "game/vfx/tests/test_vfx.gd",
+      "sha256": "fa021cf18eed35202d6aa81a9aebdb7c771894eee2a8d3167f7f6c6a528b947c",
+      "bytes": 758
+    },
+    {
+      "path": "game/vfx/vfx_player.gd",
+      "sha256": "6dcd388f3dc0e158fea6a82ebfcc983acff0e1c98e702c22d784b29c42fbe4ef",
+      "bytes": 8007
+    },
+    {
+      "path": "scripts/vfx/build_standalone.py",
+      "sha256": "f0997f45372c33244492497b66984e1fa81ed9eac5f5d20c8abe8e76a12e9b55",
+      "bytes": 964
+    },
+    {
+      "path": "scripts/vfx/rebuild_layout.py",
+      "sha256": "81047599942f6ca5be537b0f3dfd757610a7d75b1362732fbec89c1d3fdad96f",
+      "bytes": 1176
+    },
+    {
+      "path": "scripts/vfx/render_offline_preview.py",
+      "sha256": "27046fccb95b239c24c9c5485d181364e0cb1f5745188e3e74a188695033a15a",
+      "bytes": 6015
+    },
+    {
+      "path": "scripts/vfx/verify_vfx.py",
+      "sha256": "47ad12d64af3dda6da4e00b6dd885a1aa6d883ea9d1368ec9752dd1625407b33",
+      "bytes": 2068
+    }
+  ],
+  "excluded": [
+    ".godot",
+    "*.import",
+    "*.uid",
+    "__pycache__",
+    "discarded atlases",
+    "discarded blade ring v1",
+    "external scratch/library helper dirs"
+  ],
+  "limitations": [
+    "No native GPU pixel capture",
+    "No listening audition",
+    "New named voices remain silent slots",
+    "No battle/main modifications"
+  ]
+}

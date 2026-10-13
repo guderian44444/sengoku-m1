@@ -1,0 +1,126 @@
+{
+  "blade_arc": {
+    "texture": "res://vfx/art/blade_arc.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "split_depth": false,
+    "seam": 0.5,
+    "duration_ticks": 20,
+    "loop": false,
+    "world_size": [
+      280,
+      280
+    ],
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "blade_arc_base.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, centered on 1024x1024 transparent canvas. Alpha preserved; no threshold, background removal or effect painting.",
+    "origin": "top-left texture pixel origin; pivot normalized from top-left",
+    "direction": "right-facing curved slash; mirror X for left",
+    "loop_note": "One-shot only. No authored animation frames or seamless loop. Runtime motion is procedural demonstration.",
+    "usage": "Provenance/layout metadata only; runtime catalog.json is authoritative."
+  },
+  "blade_ring": {
+    "texture": "res://vfx/art/blade_ring.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "pivot": [
+      0.5,
+      0.5335
+    ],
+    "split_depth": true,
+    "seam": 0.5335,
+    "duration_ticks": 30,
+    "loop": false,
+    "world_size": [
+      420,
+      420
+    ],
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "blade_ring_base_v2.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, centered on 1024x1024 transparent canvas. Alpha preserved; no threshold, background removal or effect painting.",
+    "origin": "top-left texture pixel origin; pivot normalized from top-left",
+    "direction": "horizontal ellipse, no travel",
+    "loop_note": "One-shot only. No authored animation frames or seamless loop. Runtime motion is procedural demonstration.",
+    "usage": "Provenance/layout metadata only; runtime catalog.json is authoritative."
+  },
+  "blade_wave": {
+    "texture": "res://vfx/art/blade_wave.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "pivot": [
+      0.5,
+      0.8
+    ],
+    "split_depth": false,
+    "seam": 0.5,
+    "duration_ticks": 32,
+    "loop": false,
+    "world_size": [
+      340,
+      340
+    ],
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "blade_wave_base.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, centered on 1024x1024 transparent canvas. Alpha preserved; no threshold, background removal or effect painting.",
+    "origin": "top-left texture pixel origin; pivot normalized from top-left",
+    "direction": "rises upward and may travel right; mirror X for left",
+    "loop_note": "One-shot only. No authored animation frames or seamless loop. Runtime motion is procedural demonstration.",
+    "usage": "Provenance/layout metadata only; runtime catalog.json is authoritative."
+  },
+  "blade_hit": {
+    "texture": "res://vfx/art/blade_hit.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "pivot": [
+      0.5,
+      0.548
+    ],
+    "split_depth": false,
+    "seam": 0.5,
+    "duration_ticks": 14,
+    "loop": false,
+    "world_size": [
+      190,
+      190
+    ],
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "blade_hit_base.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, centered on 1024x1024 transparent canvas. Alpha preserved; no threshold, background removal or effect painting.",
+    "origin": "top-left texture pixel origin; pivot normalized from top-left",
+    "direction": "radial impact centered on bright core",
+    "loop_note": "One-shot only. No authored animation frames or seamless loop. Runtime motion is procedural demonstration.",
+    "usage": "Provenance/layout metadata only; runtime catalog.json is authoritative."
+  }
+}
