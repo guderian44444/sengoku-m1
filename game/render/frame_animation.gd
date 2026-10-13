@@ -530,7 +530,7 @@ static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictiona
 		frame = _attack_frame(local_tick,timing[0],timing[1],count) if timing[0] > 0 else mini(count-1,floori(local_tick*count/timing[1]))
 		duration = timing[1]
 		released = local_tick >= timing[0]
-	return {"source":"v22","hero":fighter.get("kind",""),"clip":clip,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released}
+	return {"source":"v22","source_version":sheets[sheet][frame].get("source_version","v22"),"hero":fighter.get("kind",""),"clip":clip,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released}
 
 static func hero_v11_sample(fighter: Dictionary, distance: float, height: float, counts: Dictionary) -> Dictionary:
 	var sample := hero_v10_sample(fighter, distance, height)

@@ -1,11 +1,12 @@
 import { spawn } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const out = process.env.TEST_ARTIFACT_DIR || path.join(root, 'artifacts/native-v19');
+const out = path.resolve(process.env.TEST_ARTIFACT_DIR || path.join(root, 'artifacts/native-v19'));
 const engine = process.env.GODOT_BIN || path.join(root, 'tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe');
 const results = [];
 await mkdir(out, { recursive: true });
@@ -20,6 +21,8 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
+  'oichi_pipeline_v27',
+  ...(existsSync(path.join(root,'game/assets/v27/oichi/registration.json')) || process.argv.some(arg => arg.startsWith('--only=') && arg.slice(7).split(',').includes('oichi_layers_v27')) ? ['oichi_layers_v27'] : []),
   'weapon_expansion_v24', 'weapons_save_v22', 'loadout_menu_v22', 'weapon_render_v22', 'hero_layers_v22', 'weapon_encyclopedia_v23', 'projectile_v22',
   'progression_v21', 'music_v21', 'engineering_menu_v21', 'render_items_v21',
   'combat_v20', 'audio_v20', 'typography_v20', 'menu_v20',

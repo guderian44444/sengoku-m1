@@ -3,6 +3,7 @@ extends Control
 const Typography = preload("res://render/game_typography.gd")
 const Battle = preload("res://core/battle.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
+const LayeredHeroSource = preload("res://render/layered_hero_source.gd")
 const HERO_NAMES := {"nobunaga":"信長", "oichi":"阿市", "hideyoshi":"秀吉", "ieyasu":"家康", "mitsuhide":"光秀", "tadakatsu":"忠勝"}
 # Native source regions retain the accepted character art; no separately generated faces.
 const PORTRAITS := {
@@ -24,7 +25,7 @@ var _font: Font
 var _tick := 0
 
 static func portrait_spec(hero: String) -> Dictionary:
-	var path := "res://assets/v22/" + hero + "/registration.json"
+	var path := LayeredHeroSource.folder(hero) + "registration.json"
 	if FileAccess.file_exists(path):
 		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
 		if data is Dictionary and data.get("portrait") is Dictionary:

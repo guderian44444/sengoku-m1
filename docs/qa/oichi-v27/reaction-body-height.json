@@ -1,0 +1,197 @@
+{
+  "schema": "oichi-reaction-anatomical-rulers-v1",
+  "units": "native source pixels",
+  "definition": "Standing-equivalent anatomical body height = top of cranium without ponytail to base of neck, plus neck-to-pelvis along the unbent torso, plus an unfolded hip/knee/ankle/plantar-sole chain. No silhouette bbox, hair extent, raised hand, airborne displacement or forward toe projection.",
+  "method": "Visually measured from native source sheets and cross-checked between adjacent phases. Manual approximations, not automatically inferred bone lengths. Values deliberately rounded to 5px.",
+  "estimated_error": "Approximately ±5% on upright poses and ±8% or more on prone/rotated/foreshortened poses. Avoid converting the uncertainty into frame-to-frame scaling jitter.",
+  "actions": {
+    "idle": {
+      "body_height": 490,
+      "per_frame_body_height": [
+        490,
+        490,
+        490,
+        490,
+        490,
+        490
+      ],
+      "representative_ruler_px": {
+        "crown_to_neck": 75,
+        "neck_to_pelvis": 145,
+        "unfolded_leg_including_sole": 270
+      },
+      "description": "Standing frame 1 anatomical crown (not ponytail) through neck and pelvis; continue down the less-foreshortened bent supporting leg through knee, ankle and plantar sole. Other frames are visually same-scale.",
+      "registration": "One ruler is sufficient."
+    },
+    "jump": {
+      "body_height": 465,
+      "per_frame_body_height": [
+        465,
+        465,
+        465,
+        465,
+        465,
+        465
+      ],
+      "representative_ruler_px": {
+        "crown_to_neck": 75,
+        "neck_to_pelvis": 125,
+        "unfolded_leg_including_sole": 265
+      },
+      "description": "Use extended takeoff frame 2 as principal ruler and cross-check the pelvis-to-knee-to-ankle chain in crouch/apex frames after unfolding. Raised arms and lifted feet do not enter ruler.",
+      "registration": "Use one ruler; small apparent segment changes in tucked frames are largely foreshortening, not reliable evidence for rescaling."
+    },
+    "hurt": {
+      "body_height": 515,
+      "per_frame_body_height": [
+        515,
+        515,
+        515,
+        515,
+        515,
+        515
+      ],
+      "representative_ruler_px": {
+        "crown_to_neck": 80,
+        "neck_to_pelvis": 160,
+        "unfolded_leg_including_sole": 275
+      },
+      "description": "Crown-to-neck plus the unbent torso/spine from flinch frame 1 and guarded frame 2; unfolded thigh/shin/sole, cross-checked against recovery frame 6. Do not shrink the hunched frames to their shorter screen-height.",
+      "registration": "One ruler is sufficient; low-confidence per-frame fluctuation under about 5% is not worth introducing scale jitter."
+    },
+    "down": {
+      "body_height": 460,
+      "per_frame_body_height": [
+        475,
+        480,
+        465,
+        450,
+        450,
+        450
+      ],
+      "per_frame_ruler_components": [
+        [
+          70,
+          145,
+          260
+        ],
+        [
+          75,
+          145,
+          260
+        ],
+        [
+          70,
+          145,
+          250
+        ],
+        [
+          65,
+          145,
+          240
+        ],
+        [
+          65,
+          150,
+          235
+        ],
+        [
+          65,
+          150,
+          235
+        ]
+      ],
+      "description": "Frame 1 uses upright head/neck, neck/pelvis and longer extended leg. Later frames follow rotated neck-to-pelvis and unfold the longer visible leg; count ankle-to-plantar-sole thickness rather than the forward toe projection. Frame 6 about 65 + 150 + 235 = 450px.",
+      "registration": "Per-frame rulers recommended. Late horizontal poses are about 5–6% smaller than the initial standing-equivalent drawing, beyond just pose compression."
+    },
+    "recovering": {
+      "body_height": 500,
+      "per_frame_body_height": [
+        450,
+        470,
+        485,
+        500,
+        495,
+        550
+      ],
+      "per_frame_ruler_components": [
+        [
+          65,
+          150,
+          235
+        ],
+        [
+          75,
+          140,
+          255
+        ],
+        [
+          75,
+          150,
+          260
+        ],
+        [
+          85,
+          145,
+          270
+        ],
+        [
+          80,
+          150,
+          265
+        ],
+        [
+          85,
+          180,
+          285
+        ]
+      ],
+      "description": "Frame 1 MUST reuse actual down6 crop and its 450px ruler/root. Elbow/palm/kneel/crouch frames use crown-neck, rotated torso and unfolded visible thigh/shin chain. Standing frame 6 is about 85 + 180 + 285 = 550px, distinctly larger than the early prone poses.",
+      "registration": "Per-frame rulers required. Do not use frame 6 standing screen-height as one ruler for every pose; that would leave the opening prone character undersized. The native generated recovery1 estimate is not used once down6 is substituted."
+    },
+    "launched": {
+      "body_height": 500,
+      "per_frame_body_height": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "representative_ruler_px": {
+        "crown_to_neck": 85,
+        "neck_to_pelvis": 145,
+        "unfolded_leg_including_sole": 270
+      },
+      "description": "On native 1774×887 source, measure crown-to-neck along tilted head, torso to pelvis and one unfolded thigh/knee/shin/ankle/sole chain; airborne translation, hair, open arms and extended toes are excluded.",
+      "registration": "One 500px ruler is the conservative recommendation. Frames 4–5 may be about 3–5% larger (rough ruler 515–525), but rotation/foreshortening uncertainty is comparable. Only use per-frame tuning after a same-scale overlay shows a visible bump.",
+      "optional_low_confidence_per_frame_body_height": [
+        495,
+        490,
+        495,
+        515,
+        525,
+        495
+      ]
+    },
+    "stunned": {
+      "body_height": 490,
+      "per_frame_body_height": [
+        490,
+        490,
+        490,
+        490,
+        490,
+        490
+      ],
+      "representative_ruler_px": {
+        "crown_to_neck": 75,
+        "neck_to_pelvis": 145,
+        "unfolded_leg_including_sole": 270
+      },
+      "description": "Use frame 1 neck/pelvis and the less-foreshortened supporting leg, cross-check frame 6 upright torso. For forehead-clutch frames unfold knees/torso; do not count high ponytail or hand on crown as body height.",
+      "registration": "One ruler is sufficient."
+    }
+  }
+}
