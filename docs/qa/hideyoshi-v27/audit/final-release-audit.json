@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-13T05:00:44.310495+00:00",
+  "status": "PASS_OFFLINE_ASSET_RELEASE",
+  "scope": "Independent read-only asset/source/metadata/rebuild/composite review; archive integrity to be recorded after final ZIP is created.",
+  "final_registration_sha256": "77a0a369a97b375df5b6f4a0e9d143967e02ab9b7efd6a12d61c8dbc04b78813",
+  "counts": {
+    "clips": 39,
+    "frames_per_clip": 6,
+    "body_frames": 234,
+    "foreground_frames": 234,
+    "atlases": 39,
+    "portrait": 1,
+    "source_pngs_including_portrait": 48,
+    "rebuild_pngs": 508,
+    "three_weapon_placements": 702
+  },
+  "checks": {
+    "native_source_to_export_pixels": "pass",
+    "source_rect_polygon_isolation_and_anchor_bounds": "pass",
+    "actual_body_and_uchigatana_contact_visual_review_all39": "pass",
+    "rgb_grade_alpha_geometry_preservation": "pass",
+    "foreground_rgb_sync": "pass",
+    "atlas_visible_pixels": "pass",
+    "portrait_alpha_geometry_profile": "pass",
+    "clean_rebuild_508_png_pixel_identity": "pass",
+    "final_metadata_replay": "pass",
+    "source_and_authored_metadata_reference_hashes": "pass",
+    "three_weapon_fit_canvas_and_final_tip_metrics": "pass"
+  },
+  "latest_revisions": {
+    "eight_clip_drawn_weapon_front_layer": {
+      "clips": [
+        "guard",
+        "charge_upper",
+        "heavy2",
+        "upper_heavy",
+        "ground_slam",
+        "charge_slam",
+        "charged_upper",
+        "charged_slam"
+      ],
+      "status": "passed_actual_composite_review; original body PNG unchanged"
+    },
+    "standing_clearance": {
+      "low_sweep": [
+        2
+      ],
+      "charge_upper": [
+        2,
+        4
+      ],
+      "status": "passed_final_three_sword_metrics_and_visual_review; hidden_secondary_grip_inference_kept_explicit"
+    },
+    "final_reaction_tip_angles": {
+      "down": [
+        4,
+        6
+      ],
+      "recovering": [
+        2,
+        3
+      ],
+      "launched": [
+        6
+      ],
+      "angle_degrees": -85,
+      "status": "passed_all18_reaction_metadata_replay_and_updated_composite_review; all508_png_pixels_unchanged"
+    }
+  },
+  "snapshot_reconciliation": "Earlier audit reports intentionally retain their checked snapshot. The only5 frame metadata differences in rebuild-pixel-identity.json are final reaction angle updates, closed by final-reaction-metadata-replay.json. Earlier layer/tip findings are closed by latest revisions above.",
+  "portable_roots": {
+    "source_root": "../sources/",
+    "authoring_root": "../production/"
+  },
+  "limits": [
+    "Hidden secondary grips are explicitly low-confidence reference inferences, not claimed directly visible measurements.",
+    "702 placements received programmatic checks; all39 uchigatana contact boards and additional high-risk/other-equipment samples were visually reviewed, not every702 image individually.",
+    "Offline previews are not native gameplay recordings."
+  ],
+  "native_game": {
+    "status": "PENDING_SEPARATE_CODEX_INTEGRATION",
+    "installed": false,
+    "gameplay_tested": false,
+    "remaining": [
+      "sword family and save/inventory migration",
+      "dedicated action routing",
+      "foreground and sheath-plane support",
+      "real hit/cancel/charge/special/throw timing",
+      "native mirroring and transitions",
+      "network/replay and performance"
+    ]
+  },
+  "evidence": [
+    "compiled-native-pixel-audit.json",
+    "final-authored-source-audit.json",
+    "graded-pixel-audit.json",
+    "graded-delivery-audit.json",
+    "final-pixel-invariants.json",
+    "rebuild-pixel-identity.json",
+    "final-reaction-metadata-replay.json",
+    "package-reference-audit.json",
+    "final-composite-metrics.json"
+  ]
+}
