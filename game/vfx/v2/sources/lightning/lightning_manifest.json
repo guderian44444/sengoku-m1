@@ -1,0 +1,233 @@
+{
+  "lightning_arc": {
+    "texture": "res://vfx/v2/art/lightning_arc.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "split_depth": false,
+    "seam": 0.5,
+    "duration_ticks": 18,
+    "loop": false,
+    "world_size": 280,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "optional_blend": "add_with_reduced_intensity_after_scene_QA",
+    "source_art": "lightning_arc_source.png",
+    "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. Original generated alpha preserved; no effect painting or background removal.",
+    "bounds_px": [
+      64,
+      64,
+      960,
+      960
+    ],
+    "visible_bounds_alpha16_px": [
+      106,
+      99,
+      893,
+      926
+    ],
+    "transparent_gutter_px": 64,
+    "render_padding": 0.3,
+    "limitations": [
+      "One generated authored frame only, not a hand-animated flipbook.",
+      "Violet-blue halo is baked into source; isolate motion with mesh, UV flow and localized sparks.",
+      "Do not use high-frequency full-screen flashes; use small localized low-amplitude intensity changes.",
+      "Runtime distortion and elliptical UV rotation require overscan validation; texture gutter alone is not sufficient."
+    ],
+    "flow_center": [
+      0.5,
+      0.5
+    ],
+    "flow_radius": [
+      0.4,
+      0.4
+    ]
+  },
+  "lightning_ring": {
+    "texture": "res://vfx/v2/art/lightning_ring.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "split_depth": true,
+    "seam": 0.5,
+    "duration_ticks": 28,
+    "loop": false,
+    "world_size": 420,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "optional_blend": "add_with_reduced_intensity_after_scene_QA",
+    "source_art": "lightning_ring_source.png",
+    "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. Original generated alpha preserved; no effect painting or background removal.",
+    "bounds_px": [
+      64,
+      79,
+      958,
+      942
+    ],
+    "visible_bounds_alpha16_px": [
+      107,
+      358,
+      918,
+      675
+    ],
+    "transparent_gutter_px": 64,
+    "render_padding": 0.3,
+    "limitations": [
+      "One generated authored frame only, not a hand-animated flipbook.",
+      "Violet-blue halo is baked into source; isolate motion with mesh, UV flow and localized sparks.",
+      "Do not use high-frequency full-screen flashes; use small localized low-amplitude intensity changes.",
+      "Runtime distortion and elliptical UV rotation require overscan validation; texture gutter alone is not sufficient."
+    ],
+    "flow_center": [
+      0.5,
+      0.5
+    ],
+    "flow_radius": [
+      0.36,
+      0.125
+    ],
+    "ringmetric": {
+      "ellipse_center_uv": [
+        0.5,
+        0.5
+      ],
+      "ellipse_radius_uv": [
+        0.36,
+        0.125
+      ],
+      "basis": "Visual centerline estimate after layout, excluding branching sparks; validate during scene integration.",
+      "seam_uv_y": 0.5,
+      "front_half": "y >= 0.5",
+      "back_half": "y < 0.5"
+    },
+    "overscan_note": "0.30 is initial render expansion for integrator QA, not proof of arbitrary full rotations. Keep ellipse-aware ring flow; full UV-plane rotation can clip or distort thin ellipse. Prefer mesh phase flow or larger padded render quad."
+  },
+  "lightning_wave": {
+    "texture": "res://vfx/v2/art/lightning_wave.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "split_depth": false,
+    "seam": 0.5,
+    "duration_ticks": 24,
+    "loop": false,
+    "world_size": 300,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "optional_blend": "add_with_reduced_intensity_after_scene_QA",
+    "source_art": "lightning_wave_source.png",
+    "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. Original generated alpha preserved; no effect painting or background removal.",
+    "bounds_px": [
+      64,
+      79,
+      950,
+      960
+    ],
+    "visible_bounds_alpha16_px": [
+      94,
+      230,
+      940,
+      809
+    ],
+    "transparent_gutter_px": 64,
+    "render_padding": 0.3,
+    "limitations": [
+      "One generated authored frame only, not a hand-animated flipbook.",
+      "Violet-blue halo is baked into source; isolate motion with mesh, UV flow and localized sparks.",
+      "Do not use high-frequency full-screen flashes; use small localized low-amplitude intensity changes.",
+      "Runtime distortion and elliptical UV rotation require overscan validation; texture gutter alone is not sufficient."
+    ],
+    "flow_center": [
+      0.5,
+      0.5
+    ],
+    "flow_radius": [
+      0.4,
+      0.4
+    ]
+  },
+  "lightning_hit": {
+    "texture": "res://vfx/v2/art/lightning_hit.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "split_depth": false,
+    "seam": 0.5,
+    "duration_ticks": 12,
+    "loop": false,
+    "world_size": 160,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "optional_blend": "add_with_reduced_intensity_after_scene_QA",
+    "source_art": "lightning_hit_source.png",
+    "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. Original generated alpha preserved; no effect painting or background removal.",
+    "bounds_px": [
+      64,
+      75,
+      960,
+      960
+    ],
+    "visible_bounds_alpha16_px": [
+      125,
+      134,
+      912,
+      874
+    ],
+    "transparent_gutter_px": 64,
+    "render_padding": 0.3,
+    "limitations": [
+      "One generated authored frame only, not a hand-animated flipbook.",
+      "Violet-blue halo is baked into source; isolate motion with mesh, UV flow and localized sparks.",
+      "Do not use high-frequency full-screen flashes; use small localized low-amplitude intensity changes.",
+      "Runtime distortion and elliptical UV rotation require overscan validation; texture gutter alone is not sufficient."
+    ],
+    "flow_center": [
+      0.5,
+      0.5
+    ],
+    "flow_radius": [
+      0.4,
+      0.4
+    ]
+  }
+}

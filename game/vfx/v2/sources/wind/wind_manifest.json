@@ -1,0 +1,170 @@
+{
+  "wind_arc": {
+    "texture": "res://vfx/v2/art/wind_arc.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "seam": 0.5,
+    "split_depth": false,
+    "flow_center": [
+      0.5,
+      0.5
+    ],
+    "flow_radius": [
+      0.35,
+      0.35
+    ],
+    "render_padding": 0.3,
+    "duration_ticks": 20,
+    "loop": false,
+    "world_size": 280,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "wind_arc_source.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Alpha retained; no thresholding, background removal, paint, or recoloring.",
+    "alpha_bounds_px": [
+      64,
+      70,
+      960,
+      960
+    ],
+    "origin": "top-left; normalized pivot/seam/flow_center in final 1024 texture coordinates",
+    "limitations": "One generated base, not an authored frame sequence or seamless loop. Flow radius is a visual centerline estimate, not alpha bounds. Ring depth split is a planar approximation. render_padding=.3 is a runtime starting value; elliptical UV warp must be validated against full alpha support, including faint dust. Clamp outside original UV; never repeat texture."
+  },
+  "wind_ring": {
+    "texture": "res://vfx/v2/art/wind_ring.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.51
+    ],
+    "seam": 0.51,
+    "split_depth": true,
+    "flow_center": [
+      0.5,
+      0.51
+    ],
+    "flow_radius": [
+      0.39,
+      0.17
+    ],
+    "render_padding": 0.3,
+    "duration_ticks": 30,
+    "loop": false,
+    "world_size": 420,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "wind_ring_source.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Alpha retained; no thresholding, background removal, paint, or recoloring.",
+    "alpha_bounds_px": [
+      64,
+      78,
+      950,
+      950
+    ],
+    "origin": "top-left; normalized pivot/seam/flow_center in final 1024 texture coordinates",
+    "limitations": "One generated base, not an authored frame sequence or seamless loop. Flow radius is a visual centerline estimate, not alpha bounds. Ring depth split is a planar approximation. render_padding=.3 is a runtime starting value; elliptical UV warp must be validated against full alpha support, including faint dust. Clamp outside original UV; never repeat texture."
+  },
+  "wind_wave": {
+    "texture": "res://vfx/v2/art/wind_wave.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "seam": 0.5,
+    "split_depth": false,
+    "flow_center": [
+      0.5,
+      0.5
+    ],
+    "flow_radius": [
+      0.35,
+      0.35
+    ],
+    "render_padding": 0.3,
+    "duration_ticks": 28,
+    "loop": false,
+    "world_size": 320,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "wind_wave_source.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Alpha retained; no thresholding, background removal, paint, or recoloring.",
+    "alpha_bounds_px": [
+      64,
+      78,
+      960,
+      960
+    ],
+    "origin": "top-left; normalized pivot/seam/flow_center in final 1024 texture coordinates",
+    "limitations": "One generated base, not an authored frame sequence or seamless loop. Flow radius is a visual centerline estimate, not alpha bounds. Ring depth split is a planar approximation. render_padding=.3 is a runtime starting value; elliptical UV warp must be validated against full alpha support, including faint dust. Clamp outside original UV; never repeat texture."
+  },
+  "wind_hit": {
+    "texture": "res://vfx/v2/art/wind_hit.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "frame_count": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "seam": 0.5,
+    "split_depth": false,
+    "flow_center": [
+      0.5,
+      0.5
+    ],
+    "flow_radius": [
+      0.35,
+      0.35
+    ],
+    "render_padding": 0.3,
+    "duration_ticks": 16,
+    "loop": false,
+    "world_size": 190,
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "wind_hit_source.png",
+    "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Alpha retained; no thresholding, background removal, paint, or recoloring.",
+    "alpha_bounds_px": [
+      64,
+      70,
+      960,
+      960
+    ],
+    "origin": "top-left; normalized pivot/seam/flow_center in final 1024 texture coordinates",
+    "limitations": "One generated base, not an authored frame sequence or seamless loop. Flow radius is a visual centerline estimate, not alpha bounds. Ring depth split is a planar approximation. render_padding=.3 is a runtime starting value; elliptical UV warp must be validated against full alpha support, including faint dust. Clamp outside original UV; never repeat texture."
+  }
+}
