@@ -19,6 +19,7 @@ func check(ok: bool, message: String) -> void:
 func _initialize() -> void:
 	var battle := Battle.new()
 	var player: Dictionary = battle.state.fighters[0]
+	player.bag_only = false # This fixture exercises permanent warehouse stock and wear; apply_to limits the live bag below.
 	check(Weapons.ITEMS.size() == 54,"48 collectible weapons plus six practice weapons")
 	for hero in Battle.HEROES:
 		var id := Weapons.default_for(hero)
@@ -41,12 +42,12 @@ func _initialize() -> void:
 	check(Equipment.instance(player,first).durability == 1,"Rejected hit consumes no durability")
 	target.invuln = 0
 	battle._damage(target,10,player.id,false,true,true)
-	check(Equipment.instance(player,first).is_empty() and int(player.weapon_uid) != first,"Exhausted blade is destroyed and a spare is equipped")
+	check(Equipment.instance(player,first).is_empty() and int(player.weapon_uid) == 0 and player.weapon_id == "practice_nobunaga","Exhausted blade returns to infinite baseline; spare remains unequipped")
 	check(Equipment.instance(player,second).durability == Weapons.item("sword_heshikiri").durability,"Breaking one duplicate does not affect another")
 	check(Equipment.valid(player),"Inventory stays valid after breakage")
 	Equipment.equip(player,second)
 	var source_durability: int = Equipment.instance(player,second).durability
-	var spare_uid: int = player.inventory[0].uid
+	var spare_uid: int = Equipment.add(player,"sword_nagamitsu")
 	var spare_durability: int = Equipment.instance(player,spare_uid).durability
 	battle._apply_element(target,"fire",player.id,second,1)
 	Equipment.equip(player,spare_uid)
@@ -132,14 +133,14 @@ func _initialize() -> void:
 	player.achievements = []
 	for rule in Achievements.RULES: player.performance[rule[3]] = rule[4]
 	check(Achievements.earned(player).size() == 30 and Achievements.valid(player.achievements),"All 30 achievement paths can unlock")
-	for pair in [["soldier",false,5],["boss",false,15],["boss",true,30]]:
+	for pair in [["soldier",false,0.5],["boss",false,1.5],["boss",true,3.0]]:
 		var count := 0
 		battle.state.loot_rng = 777
 		for attempt in range(10000):
 			battle.state.drops.clear()
 			battle._drop_boss_weapon({"kind":pair[0],"stage_boss":pair[1],"x":player.x,"y":player.y},player.id)
 			if not battle.state.drops.is_empty(): count += 1
-		check(absf(float(count)/100.0-float(pair[2])) < 1.2,"Enemy loot rate matches %d%%" % pair[2])
+		check(absf(float(count)/100.0-float(pair[2])) < 0.3,"Enemy loot rate matches %.1f%%" % pair[2])
 	var rewards := 0
 	for attempt in range(10000):
 		player.performance = {"strike_hits":3}
@@ -150,12 +151,13 @@ func _initialize() -> void:
 		battle.state.events.clear()
 		battle._check_achievements()
 		if not battle.state.drops.is_empty(): rewards += 1
-	check(absf(float(rewards)/100.0-10.0) < 1.2,"Achievement bonus is an independent 10% roll")
+	check(absf(float(rewards)/100.0-1.0) < 0.3,"Achievement bonus is an independent 1% roll")
 	battle.reset_campaign()
 	check(Wire.valid_snapshot(battle.get_state()),"New inventory and performance fields pass network validation")
 	var spear := Battle.new()
 	spear.reset("normal",1,["tadakatsu"])
 	var spearman: Dictionary = spear.state.fighters[0]
+	Equipment.equip(spearman,Equipment.add(spearman,"spear_tonbokiri"))
 	spearman.action = "light"
 	spearman.combo = 1
 	var extent := Weapons.spear_reach(spearman)

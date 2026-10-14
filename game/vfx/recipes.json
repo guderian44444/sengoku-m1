@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "scope": "Examples only: canonical action ticks; no battle rules or damage changes",
+  "recipes": {
+    "ieyasu_charged_upper": {
+      "owner": "any_actor",
+      "action": "charged_upper",
+      "charge_ticks": [
+        0,
+        22
+      ],
+      "release_tick": 22,
+      "effect": "blue_white_wave",
+      "anchor": "release_locked_weapon_tip",
+      "velocity_world_per_second": [
+        35,
+        -100
+      ],
+      "duration_ticks": 36,
+      "hit": "existing battle event only"
+    },
+    "nobunaga_blade_arc": {
+      "owner": "any_actor",
+      "action": "heavy",
+      "effect": "blade_arc",
+      "anchor": "weapon_renderer.geometry.top",
+      "release_tick": 14,
+      "duration_ticks": 24,
+      "size_in_body_heights": 1.4,
+      "hit_effect": "blade_hit",
+      "hit_trigger": "confirmed hit event"
+    },
+    "oichi_ice_arc": {
+      "owner": "any_actor",
+      "action": "heavy",
+      "effect": "ice_arc",
+      "anchor": "weapon_tip or authored hand anchor",
+      "release_tick": 14,
+      "duration_ticks": 20,
+      "hit_effect": "ice_shatter",
+      "hit_trigger": "confirmed hit event"
+    },
+    "enemy_fire_wave": {
+      "owner": "any_enemy",
+      "effect": "fire_wave",
+      "anchor": "release_locked_muzzle",
+      "face": "enemy.face",
+      "velocity_world_per_second": [
+        240,
+        0
+      ],
+      "duration_ticks": 36,
+      "camera": "subtract once from world position"
+    },
+    "scene_ice_hazard": {
+      "owner": "world",
+      "effect": "ice_ring",
+      "anchor": "world_ground",
+      "duration_ticks": 120,
+      "visual_only": true,
+      "damage_source": "separate existing hazard logic"
+    },
+    "attached_burn": {
+      "owner": "target_actor",
+      "effect": "fire_burn",
+      "anchor": "target_body_center",
+      "loop": true,
+      "duration": "while authoritative burn status is active",
+      "cancel": "status ends, target removed, or scene unload"
+    },
+    "snow_fragments": {
+      "owner": "any",
+      "effect": "ice_shatter",
+      "anchor": "confirmed hit point",
+      "particle_recipe": {
+        "budget": 12,
+        "drift_world_per_second": [
+          -12,
+          24
+        ],
+        "duration_ticks": 40
+      },
+      "note": "use sub-parts/small copies sparingly; dedicated snow sprite authoring is a later extension, not delivered flipbook"
+    },
+    "ieyasu_standing_charge_two_turns": {
+      "owner": "any_actor",
+      "action": "charge",
+      "anchor": "body",
+      "layers": [
+        {
+          "effect": "fire_ring",
+          "offset": [
+            0,
+            -45
+          ],
+          "size_in_body_heights": 2.0,
+          "phase_speed": 1.0
+        },
+        {
+          "effect": "fire_ring",
+          "offset": [
+            0,
+            -93
+          ],
+          "size_in_body_heights": 1.7,
+          "phase_speed": 1.0
+        }
+      ],
+      "ordering": "back rings, actor plus weapon, front rings",
+      "cancel": "action-instance ends",
+      "temporal_turns": 2,
+      "duration_ticks": 72,
+      "angular_speed_radians_per_second": "TAU * 2 / (72/60)",
+      "note": "Two authored layers are independent of the two temporal revolutions. The agreed skill spins twice; two stacked rings alone do not fulfill it."
+    }
+  }
+}

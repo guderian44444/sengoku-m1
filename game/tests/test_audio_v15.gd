@@ -158,7 +158,7 @@ func run() -> void:
 	check(audio.speech_playing(),"The victory queue also respects boss introductions")
 	audio.stop_speech()
 	if "--require-v15" in OS.get_cmdline_user_args():
-		check(audio.speech_manifest.version in ["0.15","0.27","0.30"],"The final build loads v15 or a complete later voice revision")
+		check(audio.speech_manifest.version in ["0.15","0.27","0.30","0.31"],"The final build loads v15 or a complete later voice revision")
 	if audio.speech_manifest.version == "0.15":
 		var short_count := 0
 		var victory_count := 0

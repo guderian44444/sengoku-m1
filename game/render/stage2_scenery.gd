@@ -18,9 +18,9 @@ const DECOR := {
 	"supply_court":["rice_bales","lantern","cart","large_crate","basket"]
 }
 const HINTS := {
-	"supply_road":"護糧加賞：靠近糧車前進，優先阻止搶糧兵。",
+	"supply_road":"糧車被搶！攔下毀車的敵兵，清場後奪回兵糧。",
 	"riverbank":"盾槍足輕擋正面輕擊；用重擊、繞背或摔技破陣。",
-	"granary":"火矢先落紅圈，再燃燒地面；離開火圈後追擊弓兵。",
+	"granary":"奪回米倉糧車；敵人會縱火毀糧，先攔下火矢與毀糧兵。",
 	"switchback":"山路夾擊：留意後方搶糧兵，別讓遠程兵分散陣形。",
 	"marune_gate":"攻寨：重擊破盾，再穿過槍陣追擊火矢兵。",
 	"supply_court":"佐久間盛重：長槍蓄勢時先錯開站位，收招時近身。"

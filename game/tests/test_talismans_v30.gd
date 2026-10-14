@@ -106,7 +106,7 @@ func _initialize() -> void:
 	battle.reset_campaign("normal",1,["nobunaga"],2)
 	player = battle.state.fighters[0]
 	target.stage_boss = true
-	for index in range(4000):
+	for index in range(40000):
 		battle.state.drops.clear()
 		battle._drop_talisman(target,player.id)
 		for drop in battle.state.drops: dropped[drop.talisman_id] = true

@@ -22,8 +22,8 @@ static func chapter(id: int) -> Dictionary:
 		assert(region.width >= 2000 and region.encounters.size() >= 2)
 		if region.has("challenge"):
 			var challenge: Dictionary = region.challenge
-			assert(challenge.kind == "escort", "Unknown stage challenge")
-			assert(challenge.start_x >= 100 and challenge.target_x > challenge.start_x and challenge.target_x <= region.width - 160)
+			assert(challenge.kind == "reclaim", "Unknown stage challenge")
+			assert(challenge.start_x >= 100 and challenge.start_x < region.encounters[0].end - 160)
 			assert(challenge.y >= 360 and challenge.y <= 600 and challenge.hp >= 1 and challenge.hp <= 1000)
 			assert(challenge.reward >= 1 and challenge.reward <= 10000)
 		var start := 0.0
@@ -37,6 +37,8 @@ static func chapter(id: int) -> Dictionary:
 				if "boss" in wave: assert(encounter.has("boss"), "Boss wave needs a named boss")
 			if encounter.has("boss"):
 				var boss: Dictionary = encounter.boss
+				for field in ["reach_thrust","reach_sweep"]:
+					if boss.has(field): assert(boss[field] > 0 and boss[field] <= 400)
 				if boss.has("variant"): assert(boss.variant in ["naginata", "matchlock", "hook_yari", "dual_swords", "cross_spear", "nodachi", "long_yari", "monk_naginata", "kusarigama", "fan_sword", "short_yari", "weighted_chain"])
 				if boss.has("actions"):
 					assert(not boss.actions.is_empty() and boss.actions.size() <= 4)

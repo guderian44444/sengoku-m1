@@ -35,6 +35,7 @@ var row: Dictionary = {}
 var current_items: Array = []
 var category: OptionButton
 var active_slot := 0
+var team_rows: Array[HBoxContainer] = []
 
 class Preview extends "res://render/battle_view.gd":
 	var fighter: Dictionary = {}
@@ -80,12 +81,13 @@ func _ready() -> void:
 	margin.add_child(page)
 	var heading := HBoxContainer.new()
 	page.add_child(heading)
-	_label(heading,"武 將 出 陣",32).size_flags_horizontal = SIZE_EXPAND_FILL
+	_label(heading,"角 色 狀 態 ／ 出 戰 準 備",30).size_flags_horizontal = SIZE_EXPAND_FILL
 	_button(heading,"玩家設定",func(): players_requested.emit())
 	_button(heading,"返回",func(): closed.emit())
 	for slot in range(2):
 		var team := HBoxContainer.new()
 		page.add_child(team)
+		team_rows.append(team)
 		if slot == 1: partner_row = team
 		_label(team,"%dP" % (slot + 1),20).custom_minimum_size.x = 42
 		var owner := OptionButton.new()
@@ -134,7 +136,7 @@ func _ready() -> void:
 	stats.size_flags_horizontal = SIZE_EXPAND_FILL
 	var actions := HBoxContainer.new()
 	character.add_child(actions)
-	_button(actions,"物品管理／出售",func(): management_requested.emit(active_slot)).size_flags_horizontal = SIZE_EXPAND_FILL
+	_button(actions,"倉庫／準備行囊",func(): management_requested.emit(active_slot)).size_flags_horizontal = SIZE_EXPAND_FILL
 	_button(actions,"成就帳",func(): achievements_requested.emit(active_slot))
 	var right := PanelContainer.new()
 	right.size_flags_horizontal = SIZE_EXPAND_FILL
@@ -144,7 +146,7 @@ func _ready() -> void:
 	right.add_child(equipment)
 	var equipment_heading := HBoxContainer.new()
 	equipment.add_child(equipment_heading)
-	_label(equipment_heading,"寶 物 與 武 備",25).size_flags_horizontal = SIZE_EXPAND_FILL
+	_label(equipment_heading,"出 戰 行 囊",25).size_flags_horizontal = SIZE_EXPAND_FILL
 	category = OptionButton.new()
 	category.add_item("護身符")
 	category.add_item("武器")
@@ -167,6 +169,7 @@ func _ready() -> void:
 		if not indices.is_empty(): item_requested.emit(active_slot,int(current_items[indices[0]].uid)))
 	equip_button.size_flags_horizontal = SIZE_EXPAND_FILL
 	unequip_button = _button(equipment_actions,"卸下護身符",func(): treasure_removed.emit(active_slot))
+	_button(equipment,"使用白板武器 ∞",func(): item_requested.emit(active_slot,0))
 	var footer := HBoxContainer.new()
 	footer.add_theme_constant_override("separation",12)
 	page.add_child(footer)
@@ -184,6 +187,7 @@ func _ready() -> void:
 
 func configure(coop: bool, character: Dictionary, owner: String) -> void:
 	partner_row.visible = coop
+	for team in team_rows: team.hide()
 	slot_choice.clear()
 	slot_choice.add_item("查看 1P")
 	if coop: slot_choice.add_item("查看 2P")
@@ -198,7 +202,7 @@ func configure(coop: bool, character: Dictionary, owner: String) -> void:
 	if hero == "oichi": stats.text = stats.text.replace("基準攻擊","普通弓射")
 	preview.fighter = row.duplicate(true)
 	preview.fighter.merge({"kind":hero,"team":0,"id":active_slot+1,"player_index":active_slot,"action":"idle","action_tick":0,"hp":values.hp,"max_hp":values.hp,"z":0,"face":1,"rage":0,"armor":0,"freeze":0,"poison":0,"invuln":0})
-	purse.text = "金錢 %d 文　｜　行囊 %d / %d 件" % [int(row.gold),row.inventory.size(),Equipment.CAPACITY]
+	purse.text = "金錢 %d 文　｜　武器 %d / 2・護符 %d / 2" % [int(row.gold),Equipment.bag_count(row,false),Equipment.bag_count(row,true)]
 	unequip_button.disabled = int(row.treasure_uid) == 0
 	_refresh_items()
 
@@ -211,6 +215,7 @@ func _refresh_items() -> void:
 	current_items.clear()
 	item_list.clear()
 	for item in row.get("inventory",[]):
+		if int(item.uid) not in row.get("bag_uids",[]): continue
 		if Equipment.TREASURES.has(item.item_id) != (category.selected == 0): continue
 		current_items.append(item)
 		var spec := Equipment.catalog(item.item_id)
@@ -221,7 +226,7 @@ func _refresh_items() -> void:
 func _show_item() -> void:
 	var indices := item_list.get_selected_items()
 	if indices.is_empty():
-		item_detail.text = "尚無護身符。戰場拾取後可存入行囊，並在此替換。" if category.selected == 0 else "尚無武器。戰場仍可用較弱的攻擊，拾取武器後再換裝。"
+		item_detail.text = "行囊尚無護符。可從倉庫準備，或在戰場拾取。" if category.selected == 0 else "行囊尚無武器。出陣使用無限耐久白板；拾取後自行換裝。"
 		equip_button.disabled = true
 		return
 	var item: Dictionary = current_items[indices[0]]

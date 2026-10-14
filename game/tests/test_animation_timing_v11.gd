@@ -18,6 +18,7 @@ func _initialize() -> void:
 		for action in impacts:
 			var hit := 5 if hero == "tadakatsu" and action == "charged" else int(impacts[action])
 			if hero == "hideyoshi" and action in ["mixed_finisher","mixed_rising"]: hit = 14
+			if hero == "hideyoshi" and action == "charged": hit = 12
 			var actual_hit := Battle.hero_tick(hero,hit)
 			var fighter := {"kind":hero,"team":0,"action":action,"action_tick":actual_hit,"combo":1,"heavy_combo":1}
 			var sample := view._fighter_animation(fighter)

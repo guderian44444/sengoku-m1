@@ -130,6 +130,23 @@ func unequip_treasure(slot: int, hero: String) -> void:
 	profile.data.characters["0:" + hero] = row
 	dirty[selected[slot]] = true
 
+func pack(slot: int, hero: String, uid: int, carry: bool) -> bool:
+	var profile = records[selected[slot]]
+	var row: Dictionary = profile.character(0,hero)
+	if not Equipment.pack(row,uid,carry): return false
+	profile.data.characters["0:" + hero] = row
+	dirty[selected[slot]] = true
+	return true
+
+func discard(slot: int, hero: String, uid: int) -> bool:
+	var profile = records[selected[slot]]
+	var row: Dictionary = profile.character(0,hero)
+	if uid not in row.bag_uids or Equipment.instance(row,uid).is_empty(): return false
+	Equipment.remove(row,uid)
+	profile.data.characters["0:" + hero] = row
+	dirty[selected[slot]] = true
+	return true
+
 func sell(slot: int, hero: String, uid: int) -> int:
 	var profile = records[selected[slot]]
 	var row: Dictionary = profile.character(0,hero)

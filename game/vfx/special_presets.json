@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "source_commit": "966cf8c",
+  "timing_source": "core/battle.gd SPECIAL_HIT_TICKS",
+  "voice_source": "audio/v11/lines.json special; audio/v11/{hero}_special_0.wav",
+  "mode": "Visual-only legacy runtime presets; proposed newer art choreography recorded separately",
+  "heroes": {
+    "nobunaga": {
+      "name": "信長",
+      "legacy_voice_line": "天魔の刃！",
+      "legacy_damage_element": "fire",
+      "duration_ticks": 210,
+      "voice_start_tick": 0,
+      "hit_ticks_snapshot": [
+        26,
+        68,
+        110,
+        152,
+        192
+      ],
+      "layers": [
+        {
+          "effect": "fire_arc",
+          "offset": [
+            65,
+            -80
+          ],
+          "size": 270,
+          "rotation": -0.3
+        },
+        {
+          "effect": "fire_wave",
+          "offset": [
+            120,
+            -25
+          ],
+          "size": 390,
+          "velocity": [
+            125,
+            0
+          ]
+        }
+      ],
+      "audio_cues": {
+        "charge_tick": 0,
+        "release_ticks": [
+          26,
+          68,
+          110,
+          152,
+          192
+        ],
+        "final_tick": 192
+      },
+      "confirmed_hit_effect": "blade_hit",
+      "voice_repetition": "once per action-instance, never per pulse",
+      "new_art_proposal": null
+    },
+    "oichi": {
+      "name": "阿市",
+      "legacy_voice_line": "氷の羽！",
+      "legacy_damage_element": "ice",
+      "duration_ticks": 210,
+      "voice_start_tick": 0,
+      "hit_ticks_snapshot": [
+        26,
+        68,
+        110,
+        152,
+        192
+      ],
+      "layers": [
+        {
+          "effect": "ice_arc",
+          "offset": [
+            80,
+            -75
+          ],
+          "size": 250
+        },
+        {
+          "effect": "ice_ring",
+          "offset": [
+            30,
+            -10
+          ],
+          "size": 260,
+          "duration_ticks": 28
+        }
+      ],
+      "audio_cues": {
+        "charge_tick": 0,
+        "release_ticks": [
+          26,
+          68,
+          110,
+          152,
+          192
+        ],
+        "final_tick": 192
+      },
+      "confirmed_hit_effect": "ice_shatter",
+      "voice_repetition": "once per action-instance, never per pulse",
+      "new_art_proposal": null
+    },
+    "hideyoshi": {
+      "name": "秀吉",
+      "legacy_voice_line": "大返し！",
+      "legacy_damage_element": "wind",
+      "duration_ticks": 210,
+      "voice_start_tick": 0,
+      "hit_ticks_snapshot": [
+        18,
+        44,
+        70,
+        96,
+        122,
+        148,
+        174,
+        198
+      ],
+      "layers": [
+        {
+          "effect": "blade_arc",
+          "offset": [
+            80,
+            -75
+          ],
+          "size": 205,
+          "alternate_side": true,
+          "rotation": -0.4
+        }
+      ],
+      "audio_cues": {
+        "charge_tick": 0,
+        "release_ticks": [
+          18,
+          44,
+          70,
+          96,
+          122,
+          148,
+          174,
+          198
+        ],
+        "final_tick": 198
+      },
+      "confirmed_hit_effect": "blade_hit",
+      "voice_repetition": "once per action-instance, never per pulse",
+      "new_art_proposal": {
+        "name": "千成奇策",
+        "stages": [
+          "誘扇穿隙",
+          "錯身返切",
+          "決勝斬"
+        ],
+        "status": "approved art concept; 3-stage choreography is NOT the current 8-hit battle simulation",
+        "new_voice_required": true
+      }
+    },
+    "ieyasu": {
+      "name": "家康",
+      "legacy_voice_line": "三河の意地！",
+      "legacy_damage_element": "earth",
+      "duration_ticks": 210,
+      "voice_start_tick": 0,
+      "hit_ticks_snapshot": [
+        36,
+        102,
+        168
+      ],
+      "layers": [
+        {
+          "effect": "fire_wave",
+          "offset": [
+            105,
+            -10
+          ],
+          "size": 450,
+          "velocity": [
+            175,
+            0
+          ]
+        },
+        {
+          "effect": "blade_ring",
+          "offset": [
+            0,
+            -5
+          ],
+          "size": 390,
+          "duration_ticks": 32,
+          "flow_radians_per_second": 0.4
+        }
+      ],
+      "audio_cues": {
+        "charge_tick": 0,
+        "release_ticks": [
+          36,
+          102,
+          168
+        ],
+        "final_tick": 168
+      },
+      "confirmed_hit_effect": "blade_hit",
+      "voice_repetition": "once per action-instance, never per pulse",
+      "new_art_proposal": {
+        "name": "三河不動",
+        "stages": [
+          "開陣",
+          "鎮陣",
+          "決陣"
+        ],
+        "status": "art proposal; mapped visual accents to legacy 36/102/168 only, no battle or damage change",
+        "new_voice_required": true,
+        "separate_charge_move": "standing charge fire ring completes 2 temporal turns; not U-special double ring"
+      }
+    },
+    "mitsuhide": {
+      "name": "光秀",
+      "legacy_voice_line": "月光一閃！",
+      "legacy_damage_element": "blade",
+      "duration_ticks": 210,
+      "voice_start_tick": 0,
+      "hit_ticks_snapshot": [
+        24,
+        66,
+        108,
+        150,
+        192
+      ],
+      "layers": [
+        {
+          "effect": "blade_wave",
+          "offset": [
+            85,
+            -110
+          ],
+          "size": 245,
+          "velocity": [
+            330,
+            0
+          ],
+          "stretch": [
+            1.1,
+            0.65
+          ]
+        },
+        {
+          "effect": "blade_wave",
+          "offset": [
+            85,
+            -70
+          ],
+          "size": 245,
+          "velocity": [
+            330,
+            0
+          ],
+          "stretch": [
+            1.1,
+            0.65
+          ]
+        },
+        {
+          "effect": "blade_wave",
+          "offset": [
+            85,
+            -30
+          ],
+          "size": 245,
+          "velocity": [
+            330,
+            0
+          ],
+          "stretch": [
+            1.1,
+            0.65
+          ]
+        }
+      ],
+      "audio_cues": {
+        "charge_tick": 0,
+        "release_ticks": [
+          24,
+          66,
+          108,
+          150,
+          192
+        ],
+        "final_tick": 192
+      },
+      "confirmed_hit_effect": "blade_hit",
+      "voice_repetition": "once per action-instance, never per pulse",
+      "new_art_proposal": null
+    },
+    "tadakatsu": {
+      "name": "忠勝",
+      "legacy_voice_line": "蜻蛉切！",
+      "legacy_damage_element": "fire",
+      "duration_ticks": 210,
+      "voice_start_tick": 0,
+      "hit_ticks_snapshot": [
+        36,
+        84,
+        132,
+        180
+      ],
+      "layers": [
+        {
+          "effect": "fire_wave",
+          "offset": [
+            180,
+            -75
+          ],
+          "size": 400,
+          "stretch": [
+            1.7,
+            0.55
+          ],
+          "velocity": [
+            280,
+            0
+          ]
+        }
+      ],
+      "audio_cues": {
+        "charge_tick": 0,
+        "release_ticks": [
+          36,
+          84,
+          132,
+          180
+        ],
+        "final_tick": 180
+      },
+      "confirmed_hit_effect": "blade_hit",
+      "voice_repetition": "once per action-instance, never per pulse",
+      "new_art_proposal": null
+    }
+  }
+}

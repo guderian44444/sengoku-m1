@@ -20,10 +20,12 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
-  'talismans_v30', 'heroes_v30', 'voice_v30',
+  'stage2_repair_v32',
+  'departure_v31', 'boss_reactions_v31',
+  'talismans_v30', 'heroes_v30', 'voice_v30', 'shared_vfx_v30',
   'oichi_pipeline_v27', 'oichi_layers_v27',
   'stage2_route_v29', 'stage2_combat_v29', 'shadows_v29',
-  'inventory_v28', 'menu_inventory_v28', 'balance_v28', 'menu_pad_v27', 'exit_save_v27',
+  'inventory_v28', 'menu_inventory_v28', 'balance_v28', 'menu_pad_v27', 'exit_save_v27', 'prone_and_boss_death_v27',
   'collection_progress_v26',
   'weapon_expansion_v24', 'weapons_save_v22', 'loadout_menu_v22', 'weapon_render_v22', 'hero_layers_v22', 'weapon_encyclopedia_v23', 'projectile_v22',
   'progression_v21', 'music_v21', 'engineering_menu_v21', 'render_items_v21',
@@ -95,6 +97,9 @@ if (process.argv.includes('--render')) {
   }
   await run('capture_enemy_walk_movie_v19', ['--windowed', '--audio-driver', 'Dummy', '--write-movie', path.join(out, 'enemy-walk-v19.avi'), '--fixed-fps', '60', '--script', 'res://tests/capture_enemy_walk_v19.gd', '--', '--movie-only'], 360000);
 }
+if (process.argv.includes('--render-shared-vfx')) {
+  await run('shared_vfx_v30_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_shared_vfx_v30.gd', '--', '--capture']);
+}
 if (process.argv.includes('--render-v20')) {
   await run('menu_v20_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_menu_v20.gd', '--', '--capture-v20']);
   await run('capture_death_v20', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/capture_death_v20.gd']);
@@ -115,6 +120,18 @@ if (process.argv.includes('--render-v28')) {
 }
 if (process.argv.includes('--render-v29')) {
   await run('capture_stage2_v29', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/capture_stage2_v29.gd']);
+}
+if (process.argv.includes('--render-stage2-v32')) {
+  await run('stage2_repair_v32_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_stage2_repair_v32.gd', '--', '--capture']);
+}
+if (process.argv.includes('--render-v31')) {
+  await run('departure_v31_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_departure_v31.gd', '--', '--capture']);
+}
+if (process.argv.includes('--render-boss-reactions-v31')) {
+  await run('boss_reactions_v31_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_boss_reactions_v31.gd', '--', '--capture']);
+}
+if (process.argv.includes('--render-heroes-v30')) {
+  await run('heroes_v30_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_heroes_v30.gd', '--', '--capture-all', '--output=' + path.join(out, 'hideyoshi-poses')], 360000);
 }
 if (process.argv.includes('--playthrough-v29')) {
   await run('stage2_playthrough_v29', ['--headless', '--script', 'res://tests/test_stage_playthrough_v18.gd', '--', '--stage2'], 360000);

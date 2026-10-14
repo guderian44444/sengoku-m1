@@ -6,6 +6,7 @@ const StageArt = preload("res://render/stage_art.gd")
 const Stage2Scenery = preload("res://render/stage2_scenery.gd")
 const Typography = preload("res://render/game_typography.gd")
 const WeaponRenderer = preload("res://render/weapon_renderer.gd")
+const SharedCombatVFX = preload("res://render/shared_combat_vfx.gd")
 
 var state: Dictionary = {}
 var camera_x: float = 0.0
@@ -31,6 +32,7 @@ var _treasures: Dictionary = {}
 var _weapons = WeaponRenderer.new()
 var _shadow_pass := false
 var _npc_alarm: Dictionary = {}
+var _fx = SharedCombatVFX.new()
 
 const INK := Color("172226")
 const PAPER := Color("e0d4b4")
@@ -52,6 +54,7 @@ static func ground_tiles(camera: float) -> Array:
 	return tiles
 
 func _init() -> void:
+	add_child(_fx)
 	if _shared_art == null: _shared_art = ArtAssets.new()
 	_art = _shared_art
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
@@ -60,6 +63,7 @@ func _init() -> void:
 		if source != null: _treasures[key] = ImageTexture.create_from_image(source)
 
 func _draw() -> void:
+	if _fx.configured: _fx.shared_player.begin_draw(self)
 	_update_motion()
 	_draw_landscape()
 	_draw_scenery()
@@ -75,7 +79,7 @@ func _draw() -> void:
 		var display: Dictionary = prop.duplicate()
 		display["scenery_prop"] = true
 		fighters.append(display)
-	if state.get("challenge",{}).get("kind","") == "escort":
+	if state.get("challenge",{}).get("kind","") == "reclaim":
 		var cart: Dictionary = state.challenge.duplicate()
 		cart.scenery_cart = true
 		fighters.append(cart)
@@ -93,6 +97,7 @@ func _draw() -> void:
 			live_origins[key] = _projectile_release_offset(effect)
 		_draw_effect(effect)
 	_projectile_origins = live_origins
+	_fx.draw_world(self,camera_x)
 	draw_set_transform(Vector2.ZERO)
 	_draw_weather()
 	_draw_stage_go()
@@ -102,7 +107,9 @@ func _draw_scene_actor(fighter: Dictionary) -> void:
 	if fighter.get("scenery_cart",false): _draw_escort_cart(fighter)
 	elif fighter.get("scenery_prop",false): _draw_prop(fighter)
 	elif fighter.get("scenery_npc",false): _draw_npc(fighter)
-	else: _draw_fighter(fighter)
+	else:
+		_draw_fighter(fighter)
+		if not _shadow_pass: _fx.draw_bound(self,int(fighter.get("id",0)),camera_x)
 
 static func fighter_depth(fighter: Dictionary) -> float:
 	return float(fighter.get("y", 0)) + (0.25 if int(fighter.get("held_by", 0)) != 0 else 0.0)
@@ -138,7 +145,7 @@ func _update_motion() -> void:
 			_facing_back[id] = movement.y < -0.1 and absf(movement.y) > absf(movement.x)
 			if movement.length() < 60.0 and str(fighter.get("action", "idle")) in ["idle", "walk", "run", "move", "retreat"] and float(fighter.get("z", 0)) <= 0:
 				_walk_distance[id] = float(_walk_distance.get(id, 0.0)) + movement.length()
-		if (int(fighter.get("team",0)) == 0 and str(fighter.get("kind","")) in ["nobunaga","oichi","tadakatsu","hideyoshi"]) or (int(fighter.get("team",0)) != 0 and fighter.get("faction","mori") in ["mori","imagawa"]):
+		if (int(fighter.get("team",0)) == 0 and str(fighter.get("kind","")) in ["nobunaga","oichi","tadakatsu","hideyoshi"]) or (int(fighter.get("team",0)) != 0 and enemy_art_faction(fighter) in ["mori","imagawa"]):
 			var walking: bool = fighter.get("moving",_moving[id]) and str(fighter.get("action","idle")) in ["idle","walk","run","move","retreat"] and float(fighter.get("z",0)) <= 0 and int(fighter.get("freeze",0)) == 0
 			if walking:
 				_walk_ticks[id] = int(_walk_ticks[id]) + elapsed if _walk_ticks.has(id) else 0
@@ -162,6 +169,7 @@ static func _hero_animation_tick(hero: String, action: String, tick: float, atta
 		"mixed_finisher":[9,27,48], "mixed_rising":[9,27,48], "counter_cut":[5,24], "throw":[12,36]
 	}[action]
 	if hero == "tadakatsu" and action == "charged": milestones = [5,10,15,36]
+	if hero == "hideyoshi" and action == "charged": milestones = [12,22,34,44,56,66]
 	if hero == "hideyoshi" and action in ["mixed_finisher","mixed_rising"]: milestones = [14,48]
 	var previous_live := 0.0
 	var previous_drawing := 0.0
@@ -195,6 +203,35 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 		fighter.action_tick = tick
 	var clock_tick := _art_clock() * 60.0
 	var walking: bool = fighter.get("moving", _moving.get(int(fighter.get("id", -1)), false))
+	var stage2_key := "oda:" + str(fighter.get("boss_variant","")) + ":poses"
+	if int(fighter.get("team",0)) == 1 and hero == "boss" and fighter.get("faction","") == "oda" and _art.enemy_clips.has(stage2_key):
+		var id := int(fighter.get("id",0))
+		if int(fighter.get("freeze",0)) > 0 and _frozen_samples.has(id): return _frozen_samples[id]
+		var cell := 0
+		var reaction_key := stage2_key.trim_suffix(":poses")+":reactions"
+		var reaction: bool = action in ["hurt","stunned","grabbed","pulled","frozen","down","dead","defeated","thrown","launched","recovering"] and _art.enemy_clips.has(reaction_key)
+		if reaction:
+			if fighter.get("airborne_lock",false) or action in ["thrown","launched"]: cell = 3
+			elif action == "recovering":
+				cell = 4 if tick < 6 else (3 if tick < 12 else 5)
+				if tick >= 26: reaction = false; cell = 0
+			elif action == "defeated":
+				var progress := tick/maxf(1,float(fighter.get("death_ticks",24)))
+				cell = 0 if progress < .12 else (1 if progress < .30 else (2 if progress < .64 else (3 if progress < .83 else 4)))
+			elif action in ["down","dead"]: cell = 4 if action == "dead" or fighter.get("down_from_air",false) or tick >= 18 else (2 if tick < 8 else 3)
+			else: cell = 0 if tick < 6 else 1
+		elif walking and action in ["idle","walk","run","retreat"]: cell = 1 + posmod(floori(float(_walk_distance.get(int(fighter.id),0))/65.0),2)
+		elif FrameAnimation.Battle.ENEMY_TIMING.has(action):
+			var timing: Array = FrameAnimation.Battle.enemy_timing(fighter)
+			if tick >= timing[0]: cell = 4 if action == "boss_sweep" else 3
+		var sample := {"clip":action,"sheet":"enemy_clip:"+stage2_key,"frame":cell,"cell":cell,"count":6,"tick":tick,"duration":0,"released":cell in [3,4],"source":"v31","hero":hero}
+		if reaction:
+			sample.sheet = "enemy_clip:"+reaction_key
+			sample.genuine_reaction = true
+			if action == "defeated": sample.duration = int(fighter.get("death_ticks",24))
+		if action == "recovering": sample.genuine_reaction = true
+		_frozen_samples[id] = sample
+		return sample
 	if int(fighter.get("team",0)) == 0 and hero == "tadakatsu":
 		if art_demo and demo_pose >= 0:
 			var showcase := FrameAnimation.demo_sample(demo_pose,demo_progress,_art_clock())
@@ -702,7 +739,7 @@ func _draw_stage2_hint() -> void:
 	var theme := str(stage.get("theme",""))
 	if not Stage2Scenery.HINTS.has(theme): return
 	var challenge: Dictionary = state.get("challenge",{})
-	var has_cart: bool = challenge.get("kind","") == "escort"
+	var has_cart: bool = challenge.get("kind","") == "reclaim"
 	var opening := int(state.get("tick",0)) - int(stage.get("entered_tick",0)) < 480
 	if not opening and not has_cart: return
 	var panel := Rect2(16,121,680,62 if has_cart else 34)
@@ -711,8 +748,8 @@ func _draw_stage2_hint() -> void:
 	Typography.draw_label(self,panel.position+Vector2(12,23),str(Stage2Scenery.HINTS[theme]),17,Typography.PAPER)
 	if has_cart:
 		var status := str(challenge.status)
-		var label := "護糧加賞  %d / %d 耐久　送達賞金 %d" % [int(challenge.hp),int(challenge.max_hp),int(challenge.reward)]
-		if status == "complete": label = "糧車送達 · 賞金 +%d" % int(challenge.reward)
+		var label := "奪回糧車  %d / %d 耐久　阻止敵人毀車，清場賞金 %d" % [int(challenge.hp),int(challenge.max_hp),int(challenge.reward)]
+		if status == "complete": label = "糧車奪回 · 賞金 +%d" % int(challenge.reward)
 		elif status == "failed": label = "糧車損毀 · 加賞失敗，仍可繼續進軍"
 		Typography.draw_label(self,panel.position+Vector2(12,50),label,16,GOLD if status != "failed" else Color("ee9780"))
 
@@ -888,10 +925,12 @@ func _draw_art_frame(frame: Dictionary, origin: Vector2, height: float, face: fl
 		for point in frame.clip_polygon:
 			vertices.append(point)
 			uvs.append((point + region.position) / frame.texture.get_size())
+		if frame.has("uv_polygon"): uvs = frame.uv_polygon
 		draw_polygon(vertices,PackedColorArray([tint]),uvs,frame.texture)
 	else:
 		draw_texture_rect_region(frame.texture, Rect2(-anchor * scale, size), region, tint)
 	draw_set_transform(Vector2.ZERO)
+	for overlay in frame.get("overlays",[]): _draw_art_frame(overlay,origin,height,face,rotation,tint,base_height)
 
 static func shadow_projection(origin: Vector2, z: float, theme: String = "") -> Transform2D:
 	var lean := .76 if theme in ["switchback","marune_gate"] else .46
@@ -1015,6 +1054,8 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 	var tint := _scene_light()
 	if int(fighter.get("invuln", 0)) > 0 and action != "special" and int(clock * 60) % 6 < 3:
 		tint = Color(1.5, 1.5, 1.5, 0.72)
+	tint.a *= low_health_alpha(fighter,int(state.get("tick",0)))
+	_fx.draw_status(self,fighter,origin-Vector2(0,z),height,false)
 	_draw_hero_power(fighter, origin, height, sample, false)
 	if pickup_flash_visible(fighter,int(state.get("tick",0))):
 		for offset in [Vector2(-3,0),Vector2(3,0),Vector2(0,-3),Vector2(0,3),Vector2(-2,-2),Vector2(2,-2),Vector2(-2,2),Vector2(2,2)]:
@@ -1030,6 +1071,10 @@ func _draw_art_fighter(fighter: Dictionary, origin: Vector2) -> bool:
 		for bubble in range(3):
 			draw_circle(origin + Vector2(-20 + bubble * 20, -z - 48 - fposmod(clock * 30 + bubble * 12, 60.0)), 3, Color("95b660"))
 	return true
+
+static func low_health_alpha(fighter: Dictionary, tick: int) -> float:
+	if int(fighter.get("team",0)) != 0 or float(fighter.get("hp",0)) <= 0 or float(fighter.hp) >= float(fighter.get("max_hp",1)) * .25: return 1.0
+	return .55 + .45 * (.5 + .5 * cos(float(tick) * TAU / 150.0))
 
 static func buff_icon(fighter: Dictionary) -> String:
 	if int(fighter.get("shield_points",0)) <= 0 or int(fighter.get("hp",0)) <= 0: return ""
@@ -1149,6 +1194,8 @@ func _draw_charge(fighter: Dictionary, ground: Vector2, height: float, sample: D
 			_paint_streak(point,direction,power.flame * 1.6,3 + power.amount * 3,_element_color(element),0.6)
 
 func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
+	var frame := _art.animation_frame(str(fighter.get("kind","")),sample)
+	if _fx.draw_actor(self,fighter,ground,height,sample,frame,front): return
 	var clip := str(sample.clip)
 	if fighter.get("kind","") == "tadakatsu" and sample.get("source","") in ["v17","v22"]:
 		if fighter.get("action","") == "charge" or clip == "charge" or (clip in ["ground_slam","charged_slam"] and not sample.released):
@@ -1156,7 +1203,7 @@ func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sampl
 		elif clip == "special": _draw_special_aura(fighter,ground,height,front)
 		elif clip not in ["ground_slam","charged_slam"]: _draw_strike_accent(fighter,ground,height,sample,front)
 		return
-	if str(fighter.get("kind","")) in ["nobunaga","oichi"] or (clip == "dash_heavy" and sample.get("source","") != "v16"):
+	if str(fighter.get("kind","")) in ["nobunaga","oichi","hideyoshi"] or (clip == "dash_heavy" and sample.get("source","") != "v16"):
 		_draw_strike_accent(fighter,ground,height,sample,front)
 	if fighter.get("action","") == "charge" or clip == "charge" or (fighter.get("kind","") == "oichi" and fighter.get("action","") == "charged" and float(sample.tick) < 14):
 		if not (fighter.get("kind","") == "tadakatsu" and sample.get("source","") == "v16"):
@@ -1166,7 +1213,7 @@ func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sampl
 		_draw_special_aura(fighter,ground,height,front)
 		return
 	if not front or not sample.released: return
-	if str(fighter.get("kind","")) in ["nobunaga","oichi"]: return
+	if str(fighter.get("kind","")) in ["nobunaga","oichi","hideyoshi"]: return
 	if str(fighter.get("kind", "")) == "tadakatsu" and sample.get("source","") == "v16": return
 	if clip in ["heavy","charged","rising","upper_heavy","charged_upper","ground_slam","charged_slam","low_sweep","dash_strike","air_light","air_heavy","mixed_finisher","mixed_rising","counter_cut"]:
 		_draw_technique_trail(fighter,ground - Vector2(0,float(fighter.get("z",0))),height,sample)
@@ -1242,14 +1289,16 @@ static func strike_radius(fighter: Dictionary, style: Dictionary, height: float)
 	return height * float(style.path[0])
 
 func _draw_strike_accent(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
-	if fighter.get("kind","") == "nobunaga" and sample.get("source","") == "v22" and fighter.get("action","") == "light":
+	if fighter.get("kind","") == "hideyoshi" and fighter.get("action","") == "charged_slam": return
+	if fighter.get("kind","") in ["nobunaga","hideyoshi"] and sample.get("source","") == "v22" and (fighter.get("action","") == "light" or (fighter.get("kind","") == "hideyoshi" and fighter.get("action","") in ["heavy","charged","dash_heavy"])):
 		if not front or int(sample.frame) not in [2,3,4]: return
 		var previous := sample.duplicate()
 		previous.frame = int(sample.frame) - 1
 		previous.cell = previous.frame
-		var trail := _weapons.sweep_trail(fighter,_art.animation_frame("nobunaga",sample),_art.animation_frame("nobunaga",previous),height)
+		var hero := str(fighter.kind)
+		var trail := _weapons.sweep_trail(fighter,_art.animation_frame(hero,sample),_art.animation_frame(hero,previous),height)
 		if trail.size() >= 3:
-			var fade := clampf((17.0 - float(sample.tick)) / 4.0,0,1)
+			var fade := clampf((17.0 - float(sample.tick)) / 4.0,0,1) if hero == "nobunaga" else 0.55
 			draw_set_transform(ground - Vector2(0,float(fighter.get("z",0))),0,Vector2(float(fighter.get("face",1)),1))
 			draw_colored_polygon(trail,Color(1,.93,.74,.38 * fade))
 			draw_polyline(trail.slice(0,13),Color(1,.97,.86,.66 * fade),1.4,true)
@@ -1413,13 +1462,14 @@ func _draw_dust(base: Vector2, radius: float, age: float, opacity: float) -> voi
 
 func _draw_status(fighter: Dictionary, ground: Vector2, height: float) -> void:
 	var origin := ground - Vector2(0, float(fighter.get("z", 0)))
+	var shared_status := _fx.draw_status(self,fighter,origin,height)
 	var clock := _art_clock()
-	if int(fighter.get("burn",0)) > 0:
+	if not shared_status and int(fighter.get("burn",0)) > 0:
 		for i in range(9):
 			var age := fposmod(floor(clock * 12) * 0.12 + i * 0.17,1)
 			var base := origin + Vector2(sin(i * 2.4) * height * 0.22,-height * (0.05 + age * 0.78))
 			_paint_flame(base,height * (0.18 + i % 3 * 0.05),i,0.85 * (1.0 - age))
-	if int(fighter.get("freeze",0)) > 0:
+	if not shared_status and int(fighter.get("freeze",0)) > 0:
 		# Separate irregular facets follow the body instead of enclosing it in a rectangular ward.
 		for i in range(9):
 			var base := origin + Vector2(sin(i * 2.4) * height * 0.22,-height * (0.03 + (i % 4) * 0.19))
@@ -1432,7 +1482,7 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 	if not _art.enemies.has(kind): return false
 	if shattered_defeat(fighter): return true
 	var sample := _fighter_animation(fighter)
-	var genuine_reaction: bool = sample.sheet == "enemy_reaction" or sample.source in ["v14","v19"]
+	var genuine_reaction: bool = sample.get("genuine_reaction",false) or sample.sheet == "enemy_reaction" or sample.source in ["v14","v19"]
 	var frame: Dictionary = _art.enemy_frame(kind,int(sample.cell),enemy_art_faction(fighter),str(sample.sheet))
 	if sample.source != "v14" and kind == "boss" and fighter.get("faction","mori") == "mori" and fighter.get("action", "") == "boss_chain" and int(sample.cell) == 6 and frame.has("hand_offset") and frame.has("clip_polygon"):
 		# The live chain replaces the atlas's short demonstration weight beyond the casting hand.
@@ -1458,10 +1508,11 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 	if down and not genuine_reaction: body_origin += Vector2(face * height * 0.33, -height * 0.09)
 	if _shadow_pass:
 		_draw_pose_shadow(frame,body_origin + Vector2(0,z),height,face,rotation,z,[-height * .18,height * .18])
-		if not down: _draw_role_shadow(fighter,body_origin + Vector2(0,z),height,face,z)
+		if not down: _draw_role_shadow(fighter,body_origin + Vector2(0,z),height,face,z,frame)
 		return true
+	_fx.draw_status(self,fighter,origin-Vector2(0,z),height,false)
 	_draw_art_frame(frame, body_origin, height, face, rotation, tint, float(frame.body_height))
-	_draw_enemy_role(fighter,body_origin,height,face,down)
+	_draw_enemy_role(fighter,body_origin,height,face,down,frame,sample)
 	_draw_status(fighter, origin, height)
 	if FrameAnimation.Battle.ENEMY_TIMING.has(action) and not sample.released and int(fighter.get("freeze",0)) == 0:
 		var warning := origin - Vector2(0,z + height + 16)
@@ -1471,50 +1522,36 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 		var bar := origin - Vector2(27, z + height + 6)
 		draw_rect(Rect2(bar,Vector2(54,9)),INK)
 		draw_rect(Rect2(bar,Vector2(54 * clampf(float(fighter.hp) / maxf(1,float(fighter.get("max_hp",100))),0,1),9)),RED)
-		if fighter.get("stage_boss",false):
+		if fighter.get("stage_boss",false) and fighter.get("faction","") != "oda":
 			Typography.draw_label(self,bar-Vector2(21,7),str(fighter.get("display_name","")),18,Typography.GOLD)
 	return true
 
-func _draw_role_shadow(fighter: Dictionary, origin: Vector2, height: float, face: float, z: float) -> void:
+func _draw_role_shadow(fighter: Dictionary, origin: Vector2, height: float, face: float, z: float, frame: Dictionary) -> void:
 	var role := str(fighter.get("role",""))
-	if role not in ["shield_spear","raider"]: return
+	if role != "shield_spear" or not frame.has("shield_anchor"): return
 	var scale := height / 146.0
 	var projection := shadow_projection(origin,z,str(state.get("stage",{}).get("theme","")))
 	draw_set_transform_matrix(projection * Transform2D(0,Vector2(face*scale,scale),0,Vector2.ZERO))
 	var tint := Color(0,0,0,lerpf(.39,.17,clampf(z/150.0,0,1)))
-	if role == "shield_spear":
-		draw_colored_polygon(PackedVector2Array([Vector2(19,-93),Vector2(51,-89),Vector2(53,-35),Vector2(27,-24),Vector2(15,-36)]),tint)
-	else: draw_circle(Vector2(-22,-40),18,tint)
+	var shield: Dictionary = _art.stage2_equipment.shield
+	var hand: Vector2 = frame.shield_anchor * 146.0 / float(frame.body_height)
+	draw_texture_rect_region(shield.texture,Rect2(hand-Vector2(16,19.5),Vector2(32,65)),shield.region,tint)
 	draw_set_transform(Vector2.ZERO)
 
-func _draw_enemy_role(fighter: Dictionary, origin: Vector2, height: float, face: float, down: bool) -> void:
+func _draw_enemy_role(fighter: Dictionary, origin: Vector2, height: float, face: float, down: bool, frame: Dictionary, sample: Dictionary) -> void:
 	var role := str(fighter.get("role",""))
 	if role.is_empty() or down or float(fighter.get("hp",0)) <= 0: return
 	var scale := height / 146.0
-	draw_set_transform(origin,0,Vector2(face * scale,scale))
 	if role == "shield_spear":
-		var shield := PackedVector2Array([Vector2(19,-93),Vector2(51,-89),Vector2(53,-35),Vector2(27,-24),Vector2(15,-36)])
-		draw_colored_polygon(shield,Color("584333"))
-		for slat in range(4): draw_line(Vector2(22+slat*8,-86),Vector2(26+slat*7,-38),Color("9c7850"),4,true)
-		draw_line(Vector2(19,-78),Vector2(51,-74),Color("b2b0a0"),4,true)
-		draw_line(Vector2(22,-45),Vector2(51,-44),Color("b2b0a0"),4,true)
-	elif role == "fire_archer":
-		draw_line(Vector2(-20,-82),Vector2(-17,-20),Color("b85931"),8,true)
-		_paint_flame(Vector2(31,-68),26,int(fighter.get("id",0)),.85)
-	elif role == "raider":
-		draw_line(Vector2(-24,-94),Vector2(23,-44),Color("b58353"),7,true)
-		draw_circle(Vector2(-22,-40),18,Color("817a49"))
-		draw_line(Vector2(-36,-41),Vector2(-8,-38),Color("c4b482"),3,true)
-	draw_set_transform(Vector2.ZERO)
-	var label: String = {"shield_spear":"盾槍","fire_archer":"火矢","raider":"搶糧"}.get(role,"")
-	var color: Color = {"shield_spear":Color("b8d3d0"),"fire_archer":Color("ef9b61"),"raider":Color("e0c379")}.get(role,GOLD)
-	Typography.draw_label(self,origin-Vector2(35,height+18),label,14,color,70,HORIZONTAL_ALIGNMENT_CENTER)
+		if not frame.has("shield_anchor"): return
+		var hand: Vector2 = frame.shield_anchor * height / float(frame.body_height)
+		_draw_art_frame(_art.stage2_equipment.shield,origin+hand*Vector2(face,1),65*scale,face,0,_scene_light(),float(_art.stage2_equipment.shield.body_height))
+	elif role == "fire_archer" and sample.clip == "bow_shot" and not sample.released and frame.has("hand_offset"):
+		var tip: Vector2 = frame.hand_offset * height / float(frame.body_height) * Vector2(face,1)
+		if _fx.configured: _fx.shared_player.draw_phase(self,"fire_burn",float(state.get("tick",0)),600,origin+tip,true,{"opacity":[[0,.8],[1,.8]]},{"size":24,"face":face})
 
 static func enemy_art_faction(fighter: Dictionary) -> String:
 	var faction := str(fighter.get("faction","mori"))
-	# Named spear bosses reuse the authored matching weapon, while their simulation faction stays Oda.
-	if faction == "oda" and fighter.get("kind","") == "boss":
-		return {"cross_spear":"azai","short_yari":"hashiba","long_yari":"takeda"}.get(str(fighter.get("boss_variant","")),faction)
 	return faction
 
 static func enemy_display_height(fighter: Dictionary) -> float:
@@ -1607,7 +1644,7 @@ func _projectile_offset(effect: Dictionary) -> Vector2:
 			var sample := _fighter_animation(release_fighter)
 			if had_frozen_sample: _frozen_samples[owner_id] = frozen_sample
 			else: _frozen_samples.erase(owner_id)
-			var frame := _art.enemy_frame(str(fighter.kind),int(sample.cell),str(fighter.get("faction","mori")),str(sample.sheet))
+			var frame := _art.enemy_frame(str(fighter.kind),int(sample.cell),enemy_art_faction(fighter),str(sample.sheet))
 			if frame.has("hand_offset"):
 				var hand: Vector2 = frame.hand_offset * (163.0 if fighter.kind == "boss" else 146.0) / float(frame.body_height)
 				return Vector2((hand.x - 40.0) * float(effect.get("face",1)), hand.y + (float(effect.get("start_z",40)) if effect.get("arcing",false) else 70.0))
@@ -1689,6 +1726,7 @@ func _draw_drop(drop: Dictionary) -> void:
 		var color := Color(str(FrameAnimation.Battle.TALISMANS[key].color))
 		draw_arc(p - Vector2(0,12),31,PI,TAU,28,Color(color,.7),2,true)
 		draw_texture_rect(texture,Rect2(p - Vector2(size.x * .5,size.y + hover),size),false)
+		Typography.draw_label(self,p+Vector2(-110,23),str(FrameAnimation.Battle.TALISMANS[key].name),16,GOLD,220,HORIZONTAL_ALIGNMENT_CENTER)
 		return
 	if kind == "food":
 		var food: Dictionary = _stage_art.food.get(str(drop.get("food_id","rice")),{})
@@ -1943,6 +1981,7 @@ static func shockwave_points(effect: Dictionary, extent: float) -> PackedVector2
 
 func _draw_ground_effect(effect: Dictionary) -> void:
 	var p := Vector2(float(effect.get("x",0)) - camera_x,float(effect.get("y",460)))
+	if _fx.draw_ground(self,effect,p): return
 	var radius := float(effect.get("radius",85))
 	var age := 1.0 - float(effect.get("life",0)) / maxf(float(effect.get("max_life",1)),1)
 	var kind := str(effect.get("type",""))
@@ -1976,7 +2015,9 @@ func _draw_ground_effect(effect: Dictionary) -> void:
 
 func _draw_effect(effect: Dictionary) -> void:
 	var ground := Vector2(float(effect.get("x", 0)) - camera_x, float(effect.get("y", 460)))
+	if _fx.draw_wave(self,effect,ground): return
 	var p := ground - Vector2(0, 52)
+	if _fx.draw_impact(self,effect,p): return
 	var kind := str(effect.get("type", effect.get("kind", "hit")))
 	var life := float(effect.get("life", effect.get("ttl", 12)))
 	var opacity := clampf(life / 8.0, 0.0, 1.0)
@@ -1990,6 +2031,7 @@ func _draw_effect(effect: Dictionary) -> void:
 			var height_ratio := clampf(float(effect.get("z",0)) / maxf(1.0,float(effect.get("start_z",1))),0.0,1.0)
 			needle_pos = ground - Vector2(0,float(effect.get("z",0))) + Vector2(release_offset.x,release_offset.y - 96.0) * height_ratio
 		else: needle_pos += release_offset
+		_fx.draw_tail(self,effect,needle_pos)
 		var face := float(effect.get("face", 1))
 		var style := projectile_style(str(effect.get("weapon", "needle")))
 		if style.bullet:
@@ -2014,6 +2056,14 @@ func _draw_effect(effect: Dictionary) -> void:
 		var age := 1.0 - life / maxf(1,float(effect.get("max_life",36)))
 		var radius := float(effect.get("radius",320)) * (0.25 + age * 0.75)
 		var face := float(effect.get("face",1))
+		if kind == "blade_wave" and effect.get("kind","") == "hideyoshi":
+			var reach := float(effect.radius)
+			var rising: bool = int(effect.get("combo",1)) == 2
+			draw_set_transform(ground+Vector2(face*(reach-48),-62),0,Vector2(face,.75))
+			draw_arc(Vector2.ZERO,48,-1.1,1.1,20,Color("e1e6ce",(1-age)*.6),3,true)
+			draw_set_transform(Vector2.ZERO)
+			_paint_streak(ground+Vector2(face*(reach-25),-62),Vector2(face*.3,-1 if rising else 1),48,2,Color("e1e6ce"),(1-age)*.45)
+			return
 		if kind == "blade_wave" and effect.get("action","") == "light":
 			var reach := float(effect.get("radius",260))
 			# This wave deals one instantaneous extended cut, so its leading edge never travels beyond that hit.
@@ -2109,7 +2159,7 @@ func _draw_chain(effect: Dictionary) -> void:
 			var hand := Vector2(float(fighter.get("face",1)) * 60,-98)
 			if _art.enemies.has(str(fighter.get("kind",""))):
 				var sample := _fighter_animation(fighter)
-				var frame := _art.enemy_frame(str(fighter.kind),int(sample.cell),str(fighter.get("faction","mori")),str(sample.sheet))
+				var frame := _art.enemy_frame(str(fighter.kind),int(sample.cell),enemy_art_faction(fighter),str(sample.sheet))
 				if frame.has("hand_offset"): hand = frame.hand_offset * 163.0 / float(frame.body_height) * Vector2(float(fighter.get("face",1)),1)
 			start += hand
 		if fighter.get("id",0) == effect.get("target",-1): end = Vector2(float(fighter.x) - camera_x,float(fighter.y) - float(fighter.get("z",0)) - 65)

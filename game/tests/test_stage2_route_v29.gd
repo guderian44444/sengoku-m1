@@ -36,11 +36,13 @@ func _test_data() -> void:
 	check(Stages.available().any(func(row): return int(row.id) == 2),"Stage discovery makes chapter 2 available")
 	var themes := []
 	var roles := {}
+	var boss_names := []
 	for scene in chapter.segments:
 		themes.append(str(scene.theme))
 		check(scene.encounters.size() == 2,"Each scene has two checkpoints")
 		var previous := 0.0
 		for encounter in scene.encounters:
+			if encounter.has("boss"): boss_names.append(str(encounter.boss.name))
 			check(encounter.end > previous+900 and encounter.end <= scene.width,"Checkpoints advance within the scene bounds")
 			for wave in encounter.waves:
 				check(not wave.is_empty() and wave.size() <= 8,"Scheduled wave has bounded enemies")
@@ -51,6 +53,7 @@ func _test_data() -> void:
 			check(prop[1] > 40 and prop[1] < scene.width-40 and prop[2] >= 350 and prop[2] <= 625,"Props stay inside the scene corridor")
 	check(themes == ["supply_road","riverbank","granary","switchback","marune_gate","supply_court"],"All six different chapter 2 scenery themes are present")
 	for role in ["shield_spear","fire_archer","raider"]: check(roles.has(role),"Scheduled waves introduce " + role)
+	check(boss_names == ["飯尾定宗","佐久間信盛","佐久間盛重"],"Boss names come from local Oda fort commanders")
 
 func _living(battle: Battle) -> Array:
 	return battle.state.fighters.filter(func(f): return f.team == 1 and f.hp > 0)
@@ -81,6 +84,7 @@ func _test_route(count: int) -> void:
 		inventories.append(player.inventory.duplicate(true))
 	var waves := 0
 	var checkpoint_count := 0
+	var defense_bonus := 0
 	for scene in range(6):
 		check(battle.state.stage.index == scene and battle.state.stage.id == 2,"Chapter 2 progresses to scene " + str(scene+1))
 		for checkpoint in range(2):
@@ -101,6 +105,7 @@ func _test_route(count: int) -> void:
 					check(not battle.state.stage.go,"Mandatory current checkpoint barrier blocks GO")
 					battle._damage_prop(prop,10000,battle.state.fighters[0].id)
 			_ticks(battle,46)
+			if checkpoint == 0 and scene in [0,2]: defense_bonus += 300 if scene == 0 else 450
 			if scene == 5 and checkpoint == 1:
 				check(battle.state.phase == "won","Only the final checkpoint wins chapter 2")
 				continue
@@ -116,7 +121,7 @@ func _test_route(count: int) -> void:
 			check(battle.state.stage.index == scene+(1 if checkpoint == 1 else 0),"Checkpoint or scene transition has no lock")
 			for player in battle.state.fighters.filter(func(f): return f.team == 0):
 				check(player.inventory == inventories[player.player_index],"Duplicate items and exact durability survive every transition")
-				check(player.gold == 271+player.player_index and player.hp == 81 and player.rage == 38,"Health, money and rage survive every transition")
+				check(player.gold == 271+player.player_index+defense_bonus and player.hp == 81 and player.rage == 38,"Health, money, earned defense bonus and rage survive every transition")
 			check(Wire.valid_snapshot(battle.get_state()),"Valid wire after %dP scene %d checkpoint %d" % [count,scene+1,checkpoint+1])
 	check(checkpoint_count == 12 and waves >= 24,"Full six-scene, twelve-checkpoint route completed")
 
@@ -182,7 +187,7 @@ func _test_progression() -> void:
 	check(app.chapter_choice.item_count == 2 and app.chapter_choice.get_item_metadata(app.chapter_choice.selected) == 2,"Persisted chapter 1 completion unlocks and selects chapter 2")
 	app._start_solo()
 	check(app.sim.state.stage.id == 2 and app.sim.state.stage.index == 0 and app.sim.state.stage.checkpoint == 0,"Existing chapter 2 save enters the second chapter start")
-	check(app.sim.state.fighters[0].score == 2211 and app.sim.state.fighters[0].inventory.size() == 2,"Starting chapter 2 restores permanent inventory and score")
+	check(app.sim.state.fighters[0].score == 2211 and app.sim.state.fighters[0].inventory.size() == 1,"Starting chapter 2 restores carried gear and score; baseline occupies no slot")
 	app.sim.state.phase = "won"
 	check(app._save_characters(true) == OK,"Second chapter completion saves")
 	app._leave_to_menu()

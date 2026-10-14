@@ -1,0 +1,615 @@
+{
+  "duration_seconds": 18,
+  "fps": 60,
+  "families": [
+    "blade",
+    "fire",
+    "ice",
+    "wind",
+    "lightning"
+  ],
+  "seconds_per_family": 3.6,
+  "events": [
+    {
+      "tick": 0,
+      "instance_id": "demo_blade_charge",
+      "cue_key": "blade_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 0,
+      "instance_id": "demo_blade_charge",
+      "cue_key": "blade_charge_loop",
+      "operation": "loop_start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 0,
+      "instance_id": "demo_blade_spin",
+      "cue_key": "blade_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 0,
+      "instance_id": "demo_blade_spin",
+      "cue_key": "blade_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 36,
+      "instance_id": "demo_blade_spin",
+      "cue_key": "blade_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 60,
+      "instance_id": "demo_blade_charge",
+      "cue_key": "blade_charge_loop",
+      "operation": "loop_stop",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 60,
+      "instance_id": "demo_blade_charge",
+      "cue_key": "blade_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 72,
+      "instance_id": "demo_blade_charge",
+      "cue_key": "blade_hit",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 72,
+      "instance_id": "demo_blade_spin",
+      "cue_key": "blade_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 84,
+      "instance_id": "demo_blade_charge",
+      "cue_key": "blade_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 90,
+      "instance_id": "demo_blade_spin",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 102,
+      "instance_id": "demo_blade_charge",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 216,
+      "instance_id": "demo_fire_charge",
+      "cue_key": "fire_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 216,
+      "instance_id": "demo_fire_charge",
+      "cue_key": "fire_charge_loop",
+      "operation": "loop_start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 216,
+      "instance_id": "demo_fire_spin",
+      "cue_key": "fire_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 216,
+      "instance_id": "demo_fire_spin",
+      "cue_key": "fire_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 252,
+      "instance_id": "demo_fire_spin",
+      "cue_key": "fire_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 276,
+      "instance_id": "demo_fire_charge",
+      "cue_key": "fire_charge_loop",
+      "operation": "loop_stop",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 276,
+      "instance_id": "demo_fire_charge",
+      "cue_key": "fire_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 288,
+      "instance_id": "demo_fire_charge",
+      "cue_key": "fire_hit",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 288,
+      "instance_id": "demo_fire_spin",
+      "cue_key": "fire_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 300,
+      "instance_id": "demo_fire_charge",
+      "cue_key": "fire_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 306,
+      "instance_id": "demo_fire_spin",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 318,
+      "instance_id": "demo_fire_charge",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 432,
+      "instance_id": "demo_ice_charge",
+      "cue_key": "ice_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 432,
+      "instance_id": "demo_ice_charge",
+      "cue_key": "ice_charge_loop",
+      "operation": "loop_start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 432,
+      "instance_id": "demo_ice_spin",
+      "cue_key": "ice_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 432,
+      "instance_id": "demo_ice_spin",
+      "cue_key": "ice_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 468,
+      "instance_id": "demo_ice_spin",
+      "cue_key": "ice_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 492,
+      "instance_id": "demo_ice_charge",
+      "cue_key": "ice_charge_loop",
+      "operation": "loop_stop",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 492,
+      "instance_id": "demo_ice_charge",
+      "cue_key": "ice_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 504,
+      "instance_id": "demo_ice_charge",
+      "cue_key": "ice_hit",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 504,
+      "instance_id": "demo_ice_spin",
+      "cue_key": "ice_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 516,
+      "instance_id": "demo_ice_charge",
+      "cue_key": "ice_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 522,
+      "instance_id": "demo_ice_spin",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 534,
+      "instance_id": "demo_ice_charge",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 648,
+      "instance_id": "demo_wind_charge",
+      "cue_key": "wind_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 648,
+      "instance_id": "demo_wind_charge",
+      "cue_key": "wind_charge_loop",
+      "operation": "loop_start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 648,
+      "instance_id": "demo_wind_spin",
+      "cue_key": "wind_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 648,
+      "instance_id": "demo_wind_spin",
+      "cue_key": "wind_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 684,
+      "instance_id": "demo_wind_spin",
+      "cue_key": "wind_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 708,
+      "instance_id": "demo_wind_charge",
+      "cue_key": "wind_charge_loop",
+      "operation": "loop_stop",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 708,
+      "instance_id": "demo_wind_charge",
+      "cue_key": "wind_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 720,
+      "instance_id": "demo_wind_charge",
+      "cue_key": "wind_hit",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 720,
+      "instance_id": "demo_wind_spin",
+      "cue_key": "wind_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 732,
+      "instance_id": "demo_wind_charge",
+      "cue_key": "wind_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 738,
+      "instance_id": "demo_wind_spin",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 750,
+      "instance_id": "demo_wind_charge",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 864,
+      "instance_id": "demo_lightning_charge",
+      "cue_key": "lightning_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 864,
+      "instance_id": "demo_lightning_charge",
+      "cue_key": "lightning_charge_loop",
+      "operation": "loop_start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 864,
+      "instance_id": "demo_lightning_spin",
+      "cue_key": "lightning_activate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 864,
+      "instance_id": "demo_lightning_spin",
+      "cue_key": "lightning_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0
+      }
+    },
+    {
+      "tick": 900,
+      "instance_id": "demo_lightning_spin",
+      "cue_key": "lightning_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 924,
+      "instance_id": "demo_lightning_charge",
+      "cue_key": "lightning_charge_loop",
+      "operation": "loop_stop",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 924,
+      "instance_id": "demo_lightning_charge",
+      "cue_key": "lightning_release",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 936,
+      "instance_id": "demo_lightning_charge",
+      "cue_key": "lightning_hit",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 0.5
+      }
+    },
+    {
+      "tick": 936,
+      "instance_id": "demo_lightning_spin",
+      "cue_key": "lightning_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 948,
+      "instance_id": "demo_lightning_charge",
+      "cue_key": "lightning_dissipate",
+      "operation": "start",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 954,
+      "instance_id": "demo_lightning_spin",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    },
+    {
+      "tick": 966,
+      "instance_id": "demo_lightning_charge",
+      "cue_key": "",
+      "operation": "finish",
+      "context": {
+        "intensity": 1.0,
+        "phase_progress": 1
+      }
+    }
+  ],
+  "notes": "No voice. Charged wave upper row, 2-turn growing spin lower row. Tick72 hit is explicitly confirmed for demo target."
+}

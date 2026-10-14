@@ -77,6 +77,7 @@ func _ready() -> void:
 	_food_player.volume_db = -10.0
 	add_child(_food_player)
 	var voice_root := "res://audio/v30/" if FileAccess.file_exists("res://audio/v30/manifest.json") else ("res://audio/v27/" if FileAccess.file_exists("res://audio/v27/manifest.json") else ("res://audio/v15/" if FileAccess.file_exists("res://audio/v15/manifest.json") else ("res://audio/v14/" if FileAccess.file_exists("res://audio/v14/manifest.json") else ("res://audio/v11/" if FileAccess.file_exists("res://audio/v11/manifest.json") else "res://audio/v10/"))))
+	if FileAccess.file_exists("res://audio/v31/manifest.json"): voice_root = "res://audio/v31/"
 	var manifest_path := voice_root + "manifest.json"
 	if FileAccess.file_exists(manifest_path):
 		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
@@ -220,6 +221,7 @@ func set_music_paused(paused: bool) -> void:
 
 func play_event(event: Dictionary) -> void:
 	_play_character_event(event)
+	if event.get("shared_sfx",false): return
 	var kind := sound_for_event(event)
 	if not _sound_variants.has(kind) or _voices.is_empty():
 		return

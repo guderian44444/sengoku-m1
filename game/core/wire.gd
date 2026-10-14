@@ -118,12 +118,12 @@ static func valid_snapshot(world: Dictionary) -> bool:
 
 
 static func _valid_challenge(cart: Variant, stage: Dictionary) -> bool:
-	if not cart is Dictionary or cart.size() != 9: return false
-	if cart.get("kind") != "escort" or not _choice(cart.get("status"),["active","complete","failed"]): return false
-	if not _number(cart.get("target_x"),80,stage.width-160) or not _number(cart.get("x"),80,cart.target_x) or not _number(cart.get("y"),360,600): return false
+	if not cart is Dictionary or cart.size() != 8: return false
+	if cart.get("kind") != "reclaim" or not _choice(cart.get("status"),["active","complete","failed"]): return false
+	if not _number(cart.get("x"),80,stage.width-160) or not _number(cart.get("y"),360,600): return false
 	if not _integer(cart.get("max_hp"),1,10000) or not _integer(cart.get("hp"),0,cart.max_hp): return false
 	if (cart.status == "failed") != (cart.hp == 0): return false
-	if cart.status == "complete" and cart.x != cart.target_x: return false
+	if cart.status == "complete" and stage.checkpoint == 0 and stage.phase != "exit": return false
 	return _integer(cart.get("reward"),1,10000) and _integer(cart.get("next_hit_tick"),0)
 
 
@@ -148,6 +148,8 @@ static func _valid_stage(stage: Variant) -> bool:
 
 
 static func _valid_fighter(fighter: Dictionary) -> bool:
+	for field in ["reach_thrust","reach_sweep"]:
+		if fighter.has(field) and not _number(fighter[field],1,400): return false
 	if not _position(fighter) or not _number(fighter.get("z"), 0.0, 10000.0):
 		return false
 	if not _choice(fighter.get("kind"), KINDS) or not _action(fighter.get("action")):
@@ -168,6 +170,7 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 	if fighter.has("role"):
 		if fighter.team != 1 or not _choice(fighter.role,Battle.ENEMY_ROLES.keys()) or fighter.kind != Battle.ENEMY_ROLES[fighter.role]: return false
 	if fighter.team == 0:
+		if fighter.get("bag_only") != true: return false
 		if fighter.weapon_id != "" and not Weapons.compatible(fighter.kind,fighter.weapon_id): return false
 		if not Equipment.valid(fighter) or not Achievements.valid(fighter.get("achievements")) or not Achievements.valid(fighter.get("performance_awards")): return false
 		for field in ["attack_id","achievement_reward_tick"]:

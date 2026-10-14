@@ -144,7 +144,7 @@ func _enter_segment(index: int) -> void:
 		if old.team != 0: continue
 		var player := _make_fighter(0, old.kind, 180.0 + old.player_index * 65.0, 450.0 + old.player_index * 65.0, old.max_hp)
 		for field in ["id", "player_index", "hp", "max_hp", "max_hp_bonus", "weapon", "weapon_id", "owned_weapons", "armor", "rage", "lives", "score", "next_life_score", "extra_life_tick", "respawn_ticks", "shield_points", "shield_kind"]: player[field] = old[field]
-		for field in ["inventory","next_item_uid","weapon_uid","treasure_uid","gold","achievements","performance","performance_awards","achievement_reward_tick","attack_id"]: player[field] = old.get(field,player.get(field,0))
+		for field in ["inventory","next_item_uid","weapon_uid","treasure_uid","gold","achievements","bag_uids","bag_only","storage_reserve","performance","performance_awards","achievement_reward_tick","attack_id"]: player[field] = old.get(field,player.get(field,0))
 		Equipment.sync(player)
 		if player.hp <= 0: player.action = "defeated"
 		party.append(player)
@@ -164,7 +164,7 @@ func _enter_segment(index: int) -> void:
 	state.civilian_flee_tick = -1
 	if spec.has("challenge"):
 		var challenge: Dictionary = spec.challenge
-		state.challenge = {"kind":"escort", "x":float(challenge.start_x), "y":float(challenge.y), "target_x":float(challenge.target_x),
+		state.challenge = {"kind":"reclaim", "x":float(challenge.start_x), "y":float(challenge.y),
 			"hp":int(challenge.hp), "max_hp":int(challenge.hp), "reward":int(challenge.reward), "status":"active", "next_hit_tick":0}
 	state.wet_zones = [{"x":float(spec.width) * 0.5,"y":495.0,"width":float(spec.width),"depth":210.0}] if spec.weather in ["rain","storm"] else []
 	for player in party: cancel_input(player.player_index)
@@ -193,7 +193,23 @@ func _start_checkpoint(index: int) -> void:
 	state.stage.next_reinforce_tick = -1
 	state.stage.reinforcement_queue = 0
 	state.wave = 1
+	_revive_exhausted_party()
 	_spawn_segment_wave()
+
+
+func _revive_exhausted_party() -> void:
+	var party: Array = state.fighters.filter(func(f): return f.team == 0)
+	var survivors: Array = party.filter(func(f): return f.hp > 0)
+	if party.size() != 2 or survivors.is_empty(): return
+	for player in party:
+		if player.hp > 0 or player.lives > 0: continue
+		player.lives = 1
+		player.x = clampf(float(survivors[0].x) - 65.0,_left_edge() + 40.0,_right_edge() - 40.0)
+		player.y = survivors[0].y
+		player.z = 0.0
+		player.airborne_lock = false
+		player.respawn_ticks = 1
+		_tick_respawn(player)
 
 
 static func camera_left(world: Dictionary) -> float:
@@ -237,6 +253,8 @@ func _spawn_segment_wave() -> void:
 		fighter.cooldown = 70
 		if kind == "boss":
 			fighter.boss_variant = str(spec.boss.get("variant",fighter.boss_variant))
+			for field in ["reach_thrust","reach_sweep"]:
+				if spec.boss.has(field): fighter[field] = float(spec.boss[field])
 			fighter.display_name = str(spec.boss.name)
 			fighter.stage_boss = bool(spec.boss.final)
 			fighter.render_scale = 1.30 if fighter.stage_boss else 1.0
@@ -337,6 +355,7 @@ func _tick_segment() -> void:
 	if state.props.any(func(p): return p.get("mandatory",false) and not p.broken and p.x < state.stage.encounter_end): return
 	if state.stage.clear_tick < 0: state.stage.clear_tick = state.tick
 	if state.tick - state.stage.clear_tick < 45: return
+	if state.stage.checkpoint == 0 and state.get("challenge",{}).get("status","") == "active": _complete_cart()
 	if state.stage.index == state.stage.total - 1 and state.stage.checkpoint == state.stage.checkpoint_total - 1:
 		state.phase = "won"
 		return
@@ -348,31 +367,32 @@ func _tick_segment() -> void:
 	else: _enter_segment(int(state.stage.index) + 1)
 
 
-func _tick_escort() -> void:
-	if not state.has("challenge") or state.challenge.status != "active": return
+func _complete_cart() -> void:
 	var cart: Dictionary = state.challenge
-	var escorts: Array = state.fighters.filter(func(f): return f.team == 0 and f.hp > 0 and absf(f.x-cart.x) <= 350.0 and absf(f.y-cart.y) <= 150.0)
-	if escorts.is_empty(): return
-	cart.x = minf(minf(float(cart.target_x),float(state.stage.encounter_end) - 80.0),float(cart.x) + 1.5)
-	if cart.x < cart.target_x: return
 	cart.status = "complete"
 	for player in state.fighters:
 		if player.team == 0: player.gold = mini(1000000000,int(player.gold) + int(cart.reward))
 	_event("challenge_complete",cart.x,cart.y,0,0,{"amount":int(cart.reward)})
 
 
-func _damage_escort(attacker: Dictionary, reach: float, depth: float, amount: int) -> void:
-	if attacker.get("role","") != "raider" or not state.has("challenge"): return
+func _damage_cart(attacker: Dictionary, reach: float, depth: float, amount: int) -> void:
+	if attacker.get("team",1) != 1 or not state.has("challenge"): return
 	var cart: Dictionary = state.challenge
 	if cart.status != "active" or state.tick < cart.next_hit_tick: return
 	var ahead: float = (cart.x - attacker.x) * attacker.face
 	if ahead < -15.0 or ahead > reach or absf(cart.y - attacker.y) > depth: return
-	cart.hp = maxi(0,int(cart.hp) - maxi(1,roundi(amount * _difficulty.enemy_damage)))
+	_hurt_cart(maxi(1,roundi(amount * _difficulty.enemy_damage)),int(attacker.id))
+
+func _hurt_cart(amount: int, owner: int) -> void:
+	if not state.has("challenge"): return
+	var cart: Dictionary = state.challenge
+	if cart.status != "active" or state.tick < cart.next_hit_tick: return
+	cart.hp = maxi(0,int(cart.hp) - amount)
 	cart.next_hit_tick = state.tick + 90
 	_effect("hit",cart.x,cart.y,12,{"heavy":true})
 	if cart.hp == 0:
 		cart.status = "failed"
-		_event("challenge_failed",cart.x,cart.y,attacker.id,0)
+		_event("challenge_failed",cart.x,cart.y,owner,0)
 
 
 func get_state() -> Dictionary:
@@ -492,7 +512,6 @@ func step(inputs: Array) -> void:
 		_tick_training()
 		return
 	if state.has("stage"):
-		_tick_escort()
 		_tick_segment()
 		return
 	var players_alive := false
@@ -601,6 +620,8 @@ func _make_fighter(team: int, kind: String, x: float, y: float, hp: int) -> Dict
 	if role != "": fighter.role = role
 	if team == 0:
 		Equipment.ensure(fighter)
+		fighter.bag_only = true
+		fighter.storage_reserve = 0
 		fighter.attack_id = 0
 		fighter.attack_speed = 1.0
 		fighter.performance = {}
@@ -619,7 +640,7 @@ func _tick_respawn(player: Dictionary) -> void:
 		return
 	var restored := _make_fighter(0,player.kind,clampf(player.x,_left_edge(),_right_edge()),player.y,player.max_hp)
 	for field in ["id","player_index","lives","score","next_life_score","extra_life_tick","weapon","weapon_id","owned_weapons","max_hp_bonus","armor","face"]: restored[field] = player[field]
-	for field in ["inventory","next_item_uid","weapon_uid","treasure_uid","gold","achievements","performance","performance_awards","achievement_reward_tick","attack_id"]: restored[field] = player[field]
+	for field in ["inventory","next_item_uid","weapon_uid","treasure_uid","gold","achievements","bag_uids","bag_only","storage_reserve","performance","performance_awards","achievement_reward_tick","attack_id"]: restored[field] = player[field]
 	player.merge(restored,true)
 	Equipment.sync(player)
 	_begin(player,"recovering")
@@ -728,18 +749,14 @@ static func character_stats(row: Dictionary, difficulty: String = "normal") -> D
 	var hero := str(row.get("hero",row.get("kind","nobunaga")))
 	var profile: Dictionary = HERO_PROFILES[hero]
 	var weapon := Weapons.item(str(row.weapon_id))
-	var unarmed: bool = int(row.weapon_uid) == 0
 	var base: int = 24 if hero == "oichi" else (18 if hero == "tadakatsu" else 14)
 	var damage: int = base + int(weapon.get("damage_bonus",0)) + int(Equipment.bonus(row,"damage_bonus"))
 	var reach: float = (760.0 if hero == "oichi" else (120.0 if hero == "tadakatsu" else 110.0)) + float(weapon.get("reach_bonus",0)) + Equipment.bonus(row,"reach_bonus")
-	if unarmed:
-		damage = maxi(1,roundi(damage * 0.55))
-		if hero != "oichi": reach *= 0.7
 	if hero != "oichi":
 		damage = maxi(1,roundi(damage * profile.damage))
 		reach *= profile.reach
 	damage = maxi(1,roundi(damage*Equipment.damage_multiplier(row,"heavy" if hero == "oichi" else "light")))
-	if hero == "tadakatsu" and not unarmed:
+	if hero == "tadakatsu":
 		var stance := row.duplicate()
 		stance.kind = hero
 		stance.action = "light"
@@ -889,7 +906,7 @@ func _tick_fighter(fighter: Dictionary) -> void:
 			if fighter.action_tick <= fighter_tick(fighter, 9): _move_fighter(fighter,fighter.face * 6.0,0.0,true)
 			if fighter.action_tick == fighter_tick(fighter, 12):
 				var spear: bool = fighter.kind == "tadakatsu"
-				_melee(fighter, 20.0 if fighter.kind == "hideyoshi" else (205.0 if spear else 190.0), 28.0 if spear else 85.0, 32 + fighter.weapon * 6, true, 0, true, false, 180.0 if fighter.kind == "hideyoshi" else 0.0, "", 360.0 if spear or fighter.kind == "hideyoshi" else 120.0)
+				_melee(fighter, 205.0 if spear else 190.0, 28.0 if spear else 85.0, 32 + fighter.weapon * 6, true, 0, true, false, 0.0, "", 360.0 if spear else 120.0)
 				if fighter.kind == "oichi":
 					for angle in [-32.0, -16.0, 0.0, 16.0, 32.0]:
 						_projectile(fighter, 8 + fighter.weapon * 2, 0, true, "needle", 360.0, 0.0, "", true, {"spread_angle": angle})
@@ -929,7 +946,8 @@ func _tick_fighter(fighter: Dictionary) -> void:
 			var powered: bool = fighter.action == "charged_slam"
 			if fighter.action_tick == fighter_tick(fighter, 28 if powered else 14):
 				if fighter.kind == "hideyoshi":
-					_melee(fighter,205.0 if powered else 165.0,85.0,(54 if powered else 32)+fighter.weapon*6,true,0,powered)
+					if powered: _wave(fighter,240,54+fighter.weapon*6,"earth",24)
+					else: _melee(fighter,165,85,32+fighter.weapon*6,true)
 				elif fighter.kind == "oichi" and not powered:
 					for lane in [-40.0, 0.0, 40.0]: _projectile(fighter, 25 + fighter.weapon * 5, 0, true, "arrow", 440.0, lane)
 				elif powered and fighter.kind in ["nobunaga", "oichi"]:
@@ -943,6 +961,22 @@ func _tick_fighter(fighter: Dictionary) -> void:
 			if fighter.action_tick >= fighter_tick(fighter, 72 if powered else 42):
 				_begin(fighter, "idle")
 		"heavy", "charged":
+			if fighter.kind == "hideyoshi":
+				if fighter.action == "charged":
+					for cut in range(3):
+						var start := fighter_tick(fighter,cut*22) if cut > 0 else 0
+						var hit := fighter_tick(fighter,12+cut*22)
+						if fighter.action_tick > start and fighter.action_tick <= hit:
+							_move_fighter(fighter,fighter.face*42.0/(hit-start),0,true)
+						if fighter.action_tick == hit:
+							_melee(fighter,220,85,(34 if cut == 2 else 20)+fighter.weapon*6,cut == 2,0,false,false,0,"",120)
+							_effect("blade_wave",fighter.x,fighter.y,10,{"kind":"hideyoshi","face":fighter.face,"radius":fighter.attack_reach,"action":"charged","combo":cut+1})
+				elif fighter.action_tick == fighter_tick(fighter,14):
+					var second: bool = fighter.heavy_combo == 2
+					_melee(fighter,220 if second else 210,85,(40 if second else 32)+fighter.weapon*8,second,0,second,false,0,"",120)
+					_effect("blade_wave",fighter.x,fighter.y,10,{"kind":"hideyoshi","face":fighter.face,"radius":fighter.attack_reach,"action":"heavy","combo":fighter.heavy_combo})
+				if fighter.action_tick >= fighter_tick(fighter,66 if fighter.action == "charged" else 36): _begin(fighter,"idle")
+				return
 			if fighter.kind == "tadakatsu":
 				if fighter.action == "charged":
 					# Spread the three lunges over their active ticks so the following camera never jumps.
@@ -1236,7 +1270,7 @@ func _damage_prop(prop: Dictionary, damage: int, owner: int) -> void:
 		_award_score(owner,50)
 		_effect("debris", prop.x, prop.y, 36, {"kind": prop.kind, "target": prop.id})
 		_event("prop_break", prop.x, prop.y, owner, prop.id,{"material":material})
-		if not str(prop.drop).is_empty() and _add_drop(prop.drop, prop.x, prop.y):
+		if not str(prop.drop).is_empty() and (prop.drop == "food" or _loot_roll(1000) < 100) and _add_drop(prop.drop, prop.x, prop.y):
 			if prop.drop == "talisman": state.drops[-1].talisman_id = prop.talisman_id
 			if prop.drop == "food" and not str(prop.get("food_id","")).is_empty():
 				state.drops[-1].food_id = prop.food_id
@@ -1263,7 +1297,7 @@ func _enemy_input(fighter: Dictionary) -> void:
 			target = player
 	if target.is_empty(): return
 	var chasing_cart := false
-	if fighter.get("role","") == "raider" and state.has("challenge") and state.challenge.status == "active":
+	if fighter.get("role","") in ["raider","fire_archer"] and state.has("challenge") and state.challenge.status == "active":
 		var cart: Dictionary = state.challenge
 		if Vector2(cart.x-fighter.x,(cart.y-fighter.y)*1.8).length_squared() < distance * 1.25:
 			target = cart
@@ -1434,9 +1468,12 @@ func _enemy_melee(attacker: Dictionary, reach: float, depth: float, amount: int,
 		var profile: Dictionary = BOSS_PROFILES.get(attacker.boss_variant, BOSS_PROFILES.kusarigama)
 		reach *= profile.reach
 		amount = maxi(1, roundi(amount * profile.damage * (1.2 if attacker.get("stage_boss",false) else 1.0)))
+		if attacker.has("reach_thrust"):
+			reach = float(attacker.reach_sweep if attacker.action == "boss_sweep" else attacker.reach_thrust) * float(attacker.get("render_scale",1.0))
+	attacker.attack_reach = reach
 	_effect("slash", attacker.x + attacker.face * reach * 0.5, attacker.y, 12, {"face": attacker.face, "radius": reach * 0.55})
 	_melee_props(attacker, reach, depth, amount)
-	_damage_escort(attacker,reach,depth,amount)
+	_damage_cart(attacker,reach,depth,amount)
 	for player in state.fighters:
 		if player.team != 0 or player.hp <= 0 or player.z >= 50.0: continue
 		var ahead: float = (player.x - attacker.x) * attacker.face
@@ -1491,14 +1528,14 @@ func _drop_boss_weapon(boss: Dictionary, owner: int) -> void:
 	var player := _fighter(owner)
 	if player.is_empty() or player.team != 0: return
 	var major: bool = boss.get("stage_boss",false)
-	if _loot_roll(100) >= (30 if major else (15 if boss.kind == "boss" else 5)): return
+	if _loot_roll(1000) >= (30 if major else (15 if boss.kind == "boss" else 5)): return
 	_spawn_weapon_loot(player,boss.x,boss.y,3 if major else 2)
 
 func _drop_talisman(enemy: Dictionary, owner: int) -> void:
 	var player := _fighter(owner)
 	if state.has("training") or player.is_empty() or player.team != 0: return
 	var chance := 18 if enemy.get("stage_boss",false) else (8 if enemy.kind == "boss" else 2)
-	if _loot_roll(100) >= chance: return
+	if _loot_roll(1000) >= chance: return
 	var tier := mini(4,int(state.get("stage",{}).get("id",1))+2)
 	var candidates := TALISMANS.keys().filter(func(id): return int(TALISMANS[id].tier) <= tier)
 	if _add_drop("talisman",clampf(enemy.x-18,_left_edge()+30,_right_edge()-30),enemy.y): state.drops[-1].talisman_id = candidates[_loot_roll(candidates.size())]
@@ -1516,7 +1553,7 @@ func _check_achievements() -> void:
 		var earned := Achievements.earned(player)
 		if earned.is_empty(): continue
 		var eligible: bool = int(state.tick) - int(player.achievement_reward_tick) >= Achievements.REWARD_COOLDOWN
-		var loot: bool = eligible and _loot_roll(100) < 10
+		var loot: bool = eligible and _loot_roll(1000) < 10
 		if eligible: player.achievement_reward_tick = state.tick
 		if loot: _spawn_weapon_loot(player,player.x + 45,player.y)
 		for index in range(earned.size()):
@@ -1524,7 +1561,7 @@ func _check_achievements() -> void:
 
 func _wear_weapon(player: Dictionary, uid: int) -> void:
 	var item := Equipment.instance(player,uid)
-	if item.is_empty(): return
+	if item.is_empty() or Equipment.is_practice(str(item.item_id)): return
 	item.durability -= 1
 	if item.durability <= 0:
 		var name := str(Equipment.catalog(item.item_id).name)
@@ -1537,9 +1574,6 @@ func _melee(attacker: Dictionary, reach: float, depth: float, damage: int, heavy
 	var weapon_uid := int(attacker.get("weapon_uid",0))
 	damage += int(equipment.get("damage_bonus",0)) + int(Equipment.bonus(attacker,"damage_bonus"))
 	reach += float(equipment.get("reach_bonus",0)) + Equipment.bonus(attacker,"reach_bonus")
-	if attacker.team == 0 and weapon_uid == 0:
-		damage = maxi(1,roundi(damage * 0.55))
-		reach *= 0.7
 	if element == "": element = str(equipment.get("element",""))
 	if HERO_PROFILES.has(attacker.kind):
 		var profile: Dictionary = HERO_PROFILES[attacker.kind]
@@ -1561,6 +1595,10 @@ func _melee(attacker: Dictionary, reach: float, depth: float, damage: int, heavy
 		if ahead >= -behind and ahead <= reach and absf(target.y - attacker.y) <= depth and absf(target.z - attacker.z) < 80.0:
 			if _damage(target, damage, attacker.id, heavy and (attacker.action != "dash_heavy" or target.weight != "heavy"), true, false, attacker.action in ["heavy", "dash_heavy", "charged", "charged_upper", "upper_heavy", "mixed_finisher", "mixed_rising", "air_heavy"],NAN,NAN,"",24,"",weapon_uid,int(attacker.get("attack_id",0)),element):
 				var hit_face: int = (1 if target.x >= attacker.x else -1) if behind > reach else int(attacker.face)
+				if attacker.kind == "hideyoshi" and attacker.action == "charged" and not heavy:
+					# Keep rapid follow-up cuts reachable without bypassing an existing invulnerability window.
+					target.invuln = mini(target.invuln,fighter_tick(attacker,22)-1)
+					if target.weight != "heavy": target.knockback += hit_face*2.8
 				if launch and target.weight != "heavy":
 					_launch(target, hit_face, 16.0 if attacker.action == "charged" else (13.0 if attacker.action in ["heavy", "dash_heavy"] else (12.0 if attacker.kind == "oichi" and attacker.action == "light" else 8.0)))
 				elif uppercut and target.weight == "light":
@@ -1874,7 +1912,6 @@ func _wave(fighter: Dictionary, radius: float, damage: int, element: String, lif
 		var equipment := Weapons.item(str(fighter.weapon_id))
 		damage += int(equipment.get("damage_bonus",0)) + int(Equipment.bonus(fighter,"damage_bonus"))
 		radius += float(equipment.get("reach_bonus",0)) + Equipment.bonus(fighter,"reach_bonus")
-		if int(fighter.weapon_uid) == 0: damage = maxi(1,roundi(damage * 0.55))
 	if HERO_PROFILES.has(fighter.kind):
 		radius *= sqrt(HERO_PROFILES[fighter.kind].reach)
 		damage = maxi(1, roundi(damage * HERO_PROFILES[fighter.kind].damage))
@@ -1909,6 +1946,7 @@ func _launch(target: Dictionary, direction: int, horizontal: float = 8.0, vertic
 
 func _melee_weapon(fighter: Dictionary) -> String:
 	var kind := str(fighter.get("kind", ""))
+	if kind == "hideyoshi" and fighter.get("action","") == "charged_slam": return "blunt"
 	if fighter.get("action", "") in ["holding", "throw"]: return "blunt"
 	if kind == "oichi":
 		if fighter.get("action", "") == "dash_heavy": return "needle"
@@ -1935,7 +1973,6 @@ func _projectile(attacker: Dictionary, damage: int, poison: int, finisher: bool 
 	if attacker.team == 0:
 		damage += int(Equipment.bonus(attacker,"damage_bonus"))
 		reach += Equipment.bonus(attacker,"reach_bonus")
-		if int(attacker.weapon_uid) == 0: damage = maxi(1,roundi(damage * 0.55))
 	damage += int(equipment.get("damage_bonus",0))
 	reach += float(equipment.get("reach_bonus",0))
 	if options.get("descending",false): reach = minf(reach,420.0)
@@ -1976,7 +2013,6 @@ func _arc_arrow(attacker: Dictionary, damage: int, landing_distance: float = 0.0
 		closest = {"x":clampf(attacker.x + attacker.face * landing_distance,_left_edge()+30,_right_edge()-30),"y":attacker.y}
 		distance = absf(closest.x - attacker.x)
 		damage += int(Weapons.item(str(attacker.get("weapon_id",""))).get("damage_bonus",0)) + int(Equipment.bonus(attacker,"damage_bonus"))
-		if int(attacker.weapon_uid) == 0: damage = maxi(1,roundi(damage * 0.55))
 	else:
 		for player in state.fighters:
 			if player.team != 0 or player.hp <= 0: continue
@@ -2019,6 +2055,8 @@ func _tick_arc_arrow(effect: Dictionary) -> void:
 			_damage_prop(prop, effect.damage, effect.owner)
 			break
 	_effect("arrow_impact", effect.x, effect.y, 24, {"wet": _wet(effect.x, effect.y)})
+	var cart: Dictionary = state.get("challenge",{})
+	if effect.team == 1 and not cart.is_empty() and absf(cart.x-effect.x) < 55 and absf(cart.y-effect.y) < 38: _hurt_cart(int(effect.damage),int(effect.owner))
 	if effect.get("fire_area",false):
 		_effect("fire_patch",effect.x,effect.y,150,{"radius":78.0,"owner":effect.owner,"team":effect.team,"damage":maxi(1,roundi(8 * _difficulty.enemy_damage)),"warmup":30,"interval":45})
 	effect.life = 0
@@ -2044,6 +2082,8 @@ func _tick_effects() -> void:
 		if effect.type == "fire_patch":
 			var age: int = effect.max_life - effect.life
 			if age >= effect.warmup and (age - effect.warmup) % effect.interval == 0:
+				var cart: Dictionary = state.get("challenge",{})
+				if effect.team == 1 and not cart.is_empty() and Vector2(cart.x-effect.x,(cart.y-effect.y)*1.8).length() <= effect.radius: _hurt_cart(int(effect.damage),int(effect.owner))
 				for target in state.fighters:
 					if target.team == effect.team or target.hp <= 0 or target.z > 45.0: continue
 					if Vector2(target.x-effect.x,(target.y-effect.y)*1.8).length() <= effect.radius:
@@ -2060,6 +2100,11 @@ func _tick_effects() -> void:
 		if effect.get("descending",false): distance = minf(distance,float(effect.z) * absf(effect.vx) / maxf(0.001,-float(effect.vz)))
 		effect.x += signf(effect.vx) * distance
 		effect.y += float(effect.get("vy", 0.0)) * distance / maxf(absf(effect.vx), 0.001)
+		var supply: Dictionary = state.get("challenge",{})
+		if effect.team == 1 and supply.get("status","") == "active" and effect.z < 95 and supply.x >= minf(previous_x,effect.x)-45 and supply.x <= maxf(previous_x,effect.x)+45 and absf(supply.y-effect.y) < 32:
+			_hurt_cart(int(effect.damage),int(effect.owner))
+			effect.life = 0
+			continue
 		if effect.get("descending",false): effect.z = maxf(0.0,effect.z + effect.vz * distance / maxf(absf(effect.vx),0.001))
 		if effect.get("rising", false): effect.z += 1.4
 		if effect.has("range_left"): effect.range_left -= distance
@@ -2152,6 +2197,7 @@ func _tick_shockwave(effect: Dictionary) -> void:
 
 
 func _pickup(fighter: Dictionary) -> void:
+	var full := false
 	for drop in state.drops:
 		if absf(drop.x - fighter.x) > 55.0 or absf(drop.y - fighter.y) > 40.0:
 			continue
@@ -2168,10 +2214,9 @@ func _pickup(fighter: Dictionary) -> void:
 				if not Weapons.compatible(fighter.kind,id): continue
 				var uid := Equipment.add(fighter,id)
 				if uid == 0:
-					_event("inventory_full",fighter.x,fighter.y,fighter.id,0)
-					return
-				if int(fighter.weapon_uid) == 0 or int(Weapons.item(id).tier) > int(Weapons.item(str(fighter.weapon_id)).get("tier",0)): Equipment.equip(fighter,uid)
-				else: Equipment.sync(fighter)
+					full = true
+					continue
+				Equipment.sync(fighter)
 				fighter.pickup_flash_tick = state.tick
 			"armor":
 				if fighter.armor > 0:
@@ -2182,15 +2227,15 @@ func _pickup(fighter: Dictionary) -> void:
 				if not TALISMANS.has(key): continue
 				var uid := Equipment.add(fighter,key)
 				if uid == 0:
-					_event("inventory_full",fighter.x,fighter.y,fighter.id,0)
-					return
-				if int(fighter.treasure_uid) == 0: Equipment.equip(fighter,uid)
-				else: Equipment.sync(fighter)
+					full = true
+					continue
+				Equipment.sync(fighter)
 				fighter.pickup_flash_tick = state.tick
 				_event("armor_pickup",drop.x,drop.y,fighter.id,drop.id)
 		if drop.kind not in ["food","talisman"]: _event("pickup", drop.x, drop.y, fighter.id, drop.id)
 		state.drops.erase(drop)
 		return
+	if full: _event("inventory_full",fighter.x,fighter.y,fighter.id,0)
 
 
 func _add_drop(kind: String, x: float, y: float) -> bool:

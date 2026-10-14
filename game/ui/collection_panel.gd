@@ -4,13 +4,16 @@ signal closed
 signal equip_requested(id: String)
 signal details_requested(id: String)
 signal sell_requested(id: String)
+signal pack_requested(id: String)
+signal discard_requested(id: String)
+signal unequip_requested(treasure: bool)
 var entries: Array = []
 var equipped: Array = []
 var selected_id := ""
 var listed: Array = []
 var title: Label
 var equipment_summary: Label
-var categories: OptionButton
+var categories: TabBar
 var item_list: ItemList
 var item_name: Label
 var description: Label
@@ -19,6 +22,9 @@ var equip_button: Button
 var details_button: Button
 var notice: Label
 var sell_button: Button
+var pack_button: Button
+var discard_button: Button
+var in_battle := false
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -37,6 +43,11 @@ func _ready() -> void:
 	title.size_flags_horizontal = SIZE_EXPAND_FILL
 	_button(heading,"返回",func(): closed.emit()).name = "Back"
 	equipment_summary = _label(page,"",21)
+	categories = TabBar.new()
+	categories.focus_mode = Control.FOCUS_ALL
+	for category in ["全部","刀","槍","弓","護符"]: categories.add_tab(category)
+	page.add_child(categories)
+	categories.tab_changed.connect(func(_index): refresh_list())
 	var body := HBoxContainer.new()
 	body.size_flags_vertical = SIZE_EXPAND_FILL
 	body.add_theme_constant_override("separation",24)
@@ -44,9 +55,6 @@ func _ready() -> void:
 	var sidebar := VBoxContainer.new()
 	sidebar.custom_minimum_size.x = 340
 	body.add_child(sidebar)
-	categories = OptionButton.new()
-	sidebar.add_child(categories)
-	categories.item_selected.connect(func(_index): refresh_list())
 	item_list = ItemList.new()
 	item_list.size_flags_vertical = SIZE_EXPAND_FILL
 	item_list.add_theme_font_size_override("font_size",21)
@@ -73,30 +81,27 @@ func _ready() -> void:
 	equip_button = _button(actions,"裝備",func(): equip_requested.emit(selected_id))
 	details_button = _button(actions,"查看圖鑑",func(): details_requested.emit(selected_id))
 	sell_button = _button(actions,"出售",func(): sell_requested.emit(selected_id))
-	var buy_button := _button(actions,"購買（尚未開放）",func(): pass)
-	buy_button.disabled = true
+	pack_button = _button(actions,"放入行囊",func(): pack_requested.emit(selected_id))
+	discard_button = _button(actions,"丟棄",func(): discard_requested.emit(selected_id))
+	var removal := HBoxContainer.new()
+	detail.add_child(removal)
+	_button(removal,"使用白板武器 ∞",func(): unequip_requested.emit(false))
+	_button(removal,"卸下護符",func(): unequip_requested.emit(true))
 	notice = _label(page,"",18)
 
 # Rows supply id, name, category, description and optional image/actions; the page is independent of weapon data.
-func configure(owner: String, items: Array, equipped_ids: Array) -> void:
+func configure(owner: String, items: Array, equipped_ids: Array, battle: bool = false) -> void:
+	in_battle = battle
 	entries = items.duplicate(true)
 	equipped = equipped_ids.duplicate()
-	title.text = owner + "　行囊（%d 件）" % entries.size()
+	title.text = owner + ("　戰場行囊" if battle else "　倉庫／出戰準備")
 	var slots: Array[String] = []
 	for item in entries:
 		if item.id in equipped: slots.append(str(item.get("slot","裝備")) + "：" + str(item.name))
 	equipment_summary.text = "　｜　".join(slots)
-	categories.clear()
-	categories.add_item("全部收藏")
-	categories.set_item_metadata(0,"")
-	var names: Array = []
-	for item in entries:
-		var category := str(item.get("category","其他"))
-		if category not in names: names.append(category)
-	for category in names:
-		categories.add_item(str(category))
-		categories.set_item_metadata(categories.item_count - 1,category)
-	categories.selected = 0
+	sell_button.visible = not battle
+	pack_button.visible = not battle
+	discard_button.visible = battle
 	selected_id = str(equipped[0]) if not equipped.is_empty() else ""
 	notice.text = ""
 	refresh_list()
@@ -104,11 +109,11 @@ func configure(owner: String, items: Array, equipped_ids: Array) -> void:
 func refresh_list() -> void:
 	item_list.clear()
 	listed.clear()
-	var category := str(categories.get_item_metadata(categories.selected))
+	var category: String = ["","刀","槍","弓","護符"][categories.current_tab]
 	for item in entries:
 		if category != "" and str(item.get("category","其他")) != category: continue
 		listed.append(item)
-		item_list.add_item(("◆ " if item.id in equipped else "　") + str(item.name))
+		item_list.add_item(("◆ " if item.id in equipped else ("▣ " if item.get("packed",false) else "　")) + str(item.name))
 	if listed.is_empty():
 		selected_id = ""
 		item_name.text = "尚無收藏"
@@ -117,6 +122,8 @@ func refresh_list() -> void:
 		equip_button.disabled = true
 		details_button.hide()
 		sell_button.disabled = true
+		pack_button.disabled = true
+		discard_button.disabled = true
 		return
 	if not listed.any(func(item): return str(item.id) == selected_id): selected_id = str(listed[0].id)
 	select_item(selected_id)
@@ -137,6 +144,10 @@ func select_item(id: String) -> void:
 		details_button.visible = item.get("has_details",false)
 		sell_button.disabled = id in equipped
 		sell_button.text = "出售　%d 文" % int(item.get("price",0))
+		pack_button.text = "移回倉庫" if item.get("packed",false) else "放入行囊"
+		pack_button.disabled = not item.get("can_pack",false)
+		discard_button.disabled = not in_battle
+		details_button.visible = not in_battle and item.get("has_details",false)
 		return
 
 func _label(parent: Node, value: String, size: int) -> Label:

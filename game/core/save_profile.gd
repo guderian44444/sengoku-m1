@@ -76,7 +76,10 @@ func apply_to(fighter: Dictionary) -> void:
 	for field in ["score","max_hp_bonus","weapon_id","owned_weapons"]: fighter[field] = row[field]
 	for field in ["score","max_hp_bonus"]: fighter[field] = int(row[field])
 	if data.version == 2:
-		for field in ["inventory","next_item_uid","weapon_uid","treasure_uid","gold","achievements"]: fighter[field] = row[field].duplicate(true) if row[field] is Array else row[field]
+		for field in ["next_item_uid","weapon_uid","treasure_uid","gold","achievements","bag_uids"]: fighter[field] = row[field].duplicate(true) if row[field] is Array else row[field]
+		fighter.inventory = row.inventory.filter(func(item): return int(item.uid) in row.bag_uids).duplicate(true)
+		fighter.bag_only = true
+		fighter.storage_reserve = row.inventory.size() - fighter.inventory.size()
 		Equipment.sync(fighter)
 	fighter.max_hp += int(row.max_hp_bonus)
 	fighter.hp = fighter.max_hp
@@ -87,7 +90,12 @@ func capture(fighter: Dictionary) -> void:
 	var row := character(int(fighter.player_index),str(fighter.kind))
 	for field in ["score","max_hp_bonus","weapon_id","owned_weapons"]: row[field] = fighter[field].duplicate() if fighter[field] is Array else fighter[field]
 	if data.version == 2:
-		for field in ["inventory","next_item_uid","weapon_uid","treasure_uid","gold","achievements"]: row[field] = fighter[field].duplicate(true) if fighter[field] is Array else fighter[field]
+		# Only carried instances can break or be discarded; warehouse stock survives battle saves.
+		if fighter.get("bag_only",false):
+			row.inventory = row.inventory.filter(func(item): return int(item.uid) not in row.bag_uids)
+			row.inventory.append_array(fighter.inventory.duplicate(true))
+		else: row.inventory = fighter.inventory.duplicate(true)
+		for field in ["next_item_uid","weapon_uid","treasure_uid","gold","achievements","bag_uids"]: row[field] = fighter[field].duplicate(true) if fighter[field] is Array else fighter[field]
 		Equipment.sync(row)
 	data.characters["%d:%s" % [fighter.player_index,fighter.kind]] = row
 

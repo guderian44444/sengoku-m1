@@ -29,7 +29,7 @@ func _initialize() -> void:
 	_test_shield()
 	_test_fire()
 	_test_raider()
-	_test_escort()
+	_test_reclaim()
 	_test_boss()
 	_test_wire()
 	print("STAGE 2 COMBAT V29 %s: %d checks, %d failures" % ["PASS" if failures == 0 else "FAILED",checks,failures])
@@ -38,6 +38,7 @@ func _initialize() -> void:
 func _test_shield() -> void:
 	var battle := arena("shield_spear")
 	var player: Dictionary = battle.state.fighters[0]
+	Equipment.equip(player,Equipment.add(player,"sword_nagamitsu"))
 	var guard: Dictionary = battle.state.fighters[-1]
 	check(guard.kind == "soldier" and guard.role == "shield_spear","Shield role reuses soldier art and actions")
 	var durability: int = Equipment.instance(player,player.weapon_uid).durability
@@ -132,94 +133,80 @@ func _test_raider() -> void:
 	quick._enemy_melee(quick.state.fighters[-1],145.0,65.0,16)
 	check(quick.state.fighters[0].hp == quick.state.fighters[0].max_hp-13,"Fast raider has reduced melee damage")
 
-func _test_escort() -> void:
+func _test_reclaim() -> void:
 	var battle := Battle.new()
 	battle.reset_campaign("normal",2,["nobunaga","oichi"],2)
-	check(Wire.valid_snapshot(battle.state),"Chapter2 starts with a valid optional cart")
 	var cart: Dictionary = battle.state.challenge
-	check(cart.status == "active" and cart.reward == 300,"First scene introduces the optional300 gold escort")
+	var start: float = cart.x
 	for player in battle.state.fighters:
 		if player.team == 0: player.x = 1000.0
-	var start: float = cart.x
-	battle._tick_escort()
-	check(cart.x == start,"Unattended cart waits instead of completing itself")
-	battle.state.fighters[0].x = cart.x + 60
-	battle.state.fighters[0].y = cart.y
-	battle._tick_escort()
-	check(cart.x == start + 1.5,"Living nearby escort moves cart")
+	check(cart.x == start and cart.kind == "reclaim" and not cart.has("guard_flee_tick"),"Stolen cart starts without friendly escorts")
 	var raider := battle._make_fighter(1,"raider",cart.x+80,cart.y,82)
 	raider.cooldown = 0
+	raider.face = -1
 	battle.state.fighters.append(raider)
-	battle.state.fighters[0].x = cart.x-300
-	raider.entering = true
-	raider.entry_x = raider.x-10.0
-	battle._enemy_input(raider)
-	check(raider.x < cart.x+80.0,"Entering raider may select cart without requiring hero-only fields")
-	raider.entering = false
-	battle._enemy_input(raider)
-	check(raider.action.begins_with("commander_"),"Nearby raider deliberately attacks cart instead of a distant player")
+	check(cart.x == start,"Cart remains stationary until reclaimed")
 	var hp: int = cart.hp
 	battle._enemy_melee(raider,145,65,16)
-	check(cart.hp == hp-13,"Raider attack damages cart")
+	check(cart.hp == hp-13,"Raider damages stationary supplies")
 	battle._enemy_melee(raider,145,65,16)
-	check(cart.hp == hp-13,"Cart cooldown prevents stacked instant damage")
-	check(Wire.valid_snapshot(battle.state),"Damaged cart has valid wire state")
+	check(cart.hp == hp-13,"Shared cart grace prevents stacked instant damage")
 	battle.state.tick += 90
 	battle._enemy_melee(raider,145,65,16)
-	check(cart.hp == hp-26,"Cart can be damaged again after90 ticks")
-	cart.x = battle.state.stage.encounter_end-80.0
-	battle.state.fighters[0].x = cart.x
-	battle.state.fighters[0].y = cart.y
-	battle._tick_escort()
-	check(cart.x == battle.state.stage.encounter_end-80.0,"Cart waits behind a closed checkpoint")
-	battle._start_checkpoint(1)
-	cart.x = cart.target_x-1
-	for player in battle.state.fighters:
-		if player.team == 0:
-			player.x = cart.x
-			player.y = cart.y
-			player.gold = 0
+	check(cart.hp == hp-26 and Wire.valid_snapshot(battle.state),"Cart takes subsequent damage and remains valid")
+	var gunner := battle._make_fighter(1,"gunner",cart.x+220,cart.y,80)
+	gunner.face = -1
+	battle.state.fighters.append(gunner)
+	battle.state.tick += 90
+	hp = cart.hp
+	battle._projectile(gunner,10,0,false,"bullet",600)
+	for tick in range(15): battle._tick_effects()
+	check(cart.hp == hp-10,"Enemy gunfire intersects and damages stationary supplies")
+	battle.state.fighters = battle.state.fighters.filter(func(f): return f.team == 0)
+	battle.state.wave = battle.state.stage.wave_total
+	battle.state.stage.clear_tick = battle.state.tick-45
 	battle.state.fighters[0].gold = 999999950
-	for player in battle.state.fighters:
-		if player.team == 0:
-			player.hp = 0
-			player.lives = 0
-	battle._tick_escort()
-	check(cart.status == "active" and battle.state.fighters[1].gold == 0,"All defeated party cannot finish escort or collect gold")
-	for player in battle.state.fighters:
-		if player.team == 0:
-			player.hp = player.max_hp
-			player.lives = 3
-	battle._tick_escort()
-	check(cart.status == "complete" and battle.state.fighters[0].gold == 1000000000 and battle.state.fighters[1].gold == 300,"Completion rewards both current players and respects the gold cap")
-	check(battle.state.events.any(func(e): return e.type == "challenge_complete" and e.amount == 300),"Completion emits a UI event")
-	battle._tick_escort()
-	check(battle.state.fighters[1].gold == 300,"Completed cart cannot pay twice")
-	check(Wire.valid_snapshot(battle.state),"Completed escort reward has valid state")
-	var profile_dir := "user://stage2-escort-%d" % Time.get_ticks_usec()
-	var profiles := Players.new(profile_dir,"user://stage2-missing-legacy.json")
-	for player in battle.state.fighters:
-		if player.team == 0: profiles.capture(player)
-	check(profiles.save() == OK,"Escort gold can be saved through the actual player store")
-	var reloaded := Players.new(profile_dir,"user://stage2-missing-legacy.json")
-	check(int(reloaded.character(0,"nobunaga").gold) == 1000000000 and int(reloaded.character(1,"oichi").gold) == 300,"Co-op rewards reload in separate player records")
+	battle._tick_segment()
+	check(cart.status == "complete" and battle.state.fighters[0].gold == 1000000000 and battle.state.fighters[1].gold == 300,"Checkpoint survival rewards both players within gold cap")
+	battle._tick_segment()
+	check(cart.x == start and battle.state.fighters[1].gold == 300,"Cart never moves or pays twice")
+	check(Wire.valid_snapshot(battle.state),"Completed stationary reclaim snapshot validates")
+	var folder := "user://cart-v31-%d" % Time.get_ticks_usec()
+	var profiles := Players.new(folder,"user://missing-cart-v31.json")
+	for player in battle.state.fighters: profiles.capture(player)
+	check(profiles.save() == OK,"Reclaimed cart rewards save")
+	var loaded := Players.new(folder,"user://missing-cart-v31.json")
+	check(int(loaded.character(0,"nobunaga").gold) == 1000000000 and int(loaded.character(1,"oichi").gold) == 300,"Co-op bonuses reload in independent accounts")
 	battle._enter_segment(2)
 	cart = battle.state.challenge
-	check(cart.hp == 210 and cart.reward == 450,"Granary has its own larger optional escort")
+	check(cart.hp == 210 and cart.reward == 450,"Granary has its own stationary supply cache")
 	raider = battle._make_fighter(1,"raider",cart.x+80,cart.y,82)
+	raider.face = -1
 	battle.state.fighters.append(raider)
 	cart.hp = 1
 	battle._enemy_melee(raider,145,65,16)
-	check(cart.status == "failed" and cart.hp == 0 and battle.state.phase == "playing","Destroyed cart fails only the optional challenge")
-	var gold: int = battle.state.fighters[0].gold
-	cart.x = cart.target_x
-	battle._tick_escort()
-	check(battle.state.fighters[0].gold == gold,"Destroyed cart cannot be rewarded")
-	check(Wire.valid_snapshot(battle.state),"Failed optional challenge has valid state")
+	check(cart.status == "failed" and cart.hp == 0 and battle.state.phase == "playing","Destruction fails bonus only")
+	check(Wire.valid_snapshot(battle.state),"Failed cart snapshot validates")
+	battle._enter_segment(0)
+	cart = battle.state.challenge
+	battle.state.fighters = battle.state.fighters.filter(func(f): return f.team == 0)
+	for player in battle.state.fighters: player.x = 150.0
+	var fire_archer := battle._make_fighter(1,"fire_archer",float(cart.x)+400,cart.y,58)
+	fire_archer.cooldown = 0
+	battle.state.fighters.append(fire_archer)
+	battle._enemy_input(fire_archer)
+	check(fire_archer.action == "bow_shot" and fire_archer.target_x == cart.x and fire_archer.target_y == cart.y,"Fire archer deliberately aims to destroy closer stolen cart")
+	fire_archer.action_tick = 30
+	battle._tick_enemy_attack(fire_archer)
+	var fire_arrow: Dictionary = battle.state.effects.filter(func(e): return e.type == "projectile")[0]
+	hp = cart.hp
+	for tick in range(int(fire_arrow.flight_ticks)): battle._tick_effects()
+	check(cart.hp < hp and battle.state.effects.any(func(e): return e.type == "fire_patch"),"Cart-targeted fire arrow damages supplies and leaves burning ground")
+	check(Wire.valid_snapshot(battle.state),"Cart-targeted fire area remains a valid snapshot")
 	battle._enter_segment(3)
-	check(not battle.state.has("challenge"),"Leaving an escort scene clears cart state")
+	check(not battle.state.has("challenge"),"Leaving reclaim scene clears cart")
 	battle.reset_campaign("normal",1,["nobunaga"],1)
-	check(not battle.state.has("challenge"),"First chapter does not inherit escort changes")
+	check(not battle.state.has("challenge"),"First chapter inherits no supply-cart state")
 
 func _test_boss() -> void:
 	var battle := Battle.new()
@@ -249,10 +236,10 @@ func _test_wire() -> void:
 		check(not Wire.valid_snapshot(bad),"Reject invalid cart " + field)
 	var bad: Dictionary = battle.get_state()
 	bad.challenge.status = "complete"
-	check(not Wire.valid_snapshot(bad),"Reject completion before cart reaches target")
+	check(not Wire.valid_snapshot(bad),"Reject completion while first checkpoint is still in combat")
 	bad = battle.get_state()
-	bad.challenge.target_x = 999999
-	check(not Wire.valid_snapshot(bad),"Reject out-of-stage escort target")
+	bad.challenge.x = 999999
+	check(not Wire.valid_snapshot(bad),"Reject out-of-stage stationary cart")
 	bad = battle.get_state()
 	bad.fighters[0].role = "raider"
 	check(not Wire.valid_snapshot(bad),"Player cannot masquerade as an enemy role")

@@ -67,18 +67,18 @@ func run() -> void:
 	check(app.profiles.character(0,"nobunaga").weapon_uid == blade,"Equipment saved for selected player")
 	await screenshot("character-select")
 	app._open_collection(0)
-	check(app.collection.entries.size() == 5,"Management shows distinct inventory instances")
+	check(app.collection.entries.size() == 4,"Warehouse shows distinct instances; permanent baseline occupies no storage")
 	check(app.collection.sell_button.disabled,"Equipped gear cannot be sold")
 	await screenshot("inventory")
-	var spare: int = app.profiles.character(0,"nobunaga").inventory[0].uid
+	var spare: int = app.profiles.character(0,"nobunaga").inventory.filter(func(item): return item.item_id == "wind")[0].uid
 	app.collection.select_item(str(spare))
 	app._request_sale(str(spare))
 	check(app.menu_screen == "confirm","Sale shows concrete item and price before confirmation")
 	app._cancel_confirmation()
-	check(app.profiles.character(0,"nobunaga").inventory.size() == 5,"Cancelled sale preserves inventory")
+	check(app.profiles.character(0,"nobunaga").inventory.size() == 4,"Cancelled sale preserves inventory")
 	app._request_sale(str(spare))
 	app._accept_confirmation()
-	check(app.profiles.character(0,"nobunaga").inventory.size() == 4 and app.profiles.character(0,"nobunaga").gold > 0,"Confirmed sale removes one instance and credits money")
+	check(app.profiles.character(0,"nobunaga").inventory.size() == 3 and app.profiles.character(0,"nobunaga").gold > 0,"Confirmed sale removes one instance and credits money")
 	app._menu_back()
 	app._open_achievements(0)
 	check(app.achievements_list.item_count == 30,"Achievement page lists all 30 conditions")
@@ -100,6 +100,10 @@ func run() -> void:
 	for slot in range(2):
 		var choice: OptionButton = app.character_panel.player_choices[slot]
 		check(choice.get_item_metadata(choice.selected) == app.profiles.selected[slot] and choice.text == app.profiles.name_for(slot),"Rendered selector still matches its player's save after layout")
+	row = app.profiles.character(0,"nobunaga")
+	var uid := Equipment.add(row,"wind")
+	Equipment.pack(row,uid,true)
+	app.profiles.records[app.profiles.selected[0]].data.characters["0:nobunaga"] = row
 	app._start_local_coop()
 	check(app.active and app.session == "local","Two different local players can start together")
 	app.sim.state.fighters[0].score = 1234
@@ -111,9 +115,6 @@ func run() -> void:
 	app._show_menu_page("pause")
 	app._open_collection(0)
 	row = app.profiles.character(0,"nobunaga")
-	var uid := Equipment.add(row,"wind")
-	Equipment.sync(row)
-	app.profiles.records[app.profiles.selected[0]].data.characters["0:nobunaga"] = row
 	var health: int = app.sim.state.fighters[0].hp
 	app._equip_inventory(0,uid)
 	check(app.sim.state.fighters[0].shield_kind == "wind" and app.sim.state.fighters[0].hp == health,"Pause equipment changes preserve live HP and update charm")

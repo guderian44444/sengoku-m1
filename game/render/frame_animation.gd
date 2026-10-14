@@ -169,7 +169,7 @@ static func primary_enemy_sample(fighter: Dictionary, count: int) -> Dictionary:
 
 static func enemy_v14_sample(fighter: Dictionary, locomotion_tick: float, idle_tick: float, clips: Dictionary) -> Dictionary:
 	var faction := str(fighter.get("faction","mori"))
-	if faction not in ["mori", "imagawa"]: return {}
+	if faction not in ["mori", "imagawa", "oda"]: return {}
 	var action := str(fighter.get("action","idle"))
 	var clip := action
 	var tick := float(fighter.get("action_tick",0))
@@ -481,6 +481,8 @@ static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictiona
 	elif action == "light": clip = "light%d" % clampi(int(fighter.get("combo",1)),1,3)
 	elif action == "heavy": clip = "heavy%d" % clampi(int(fighter.get("heavy_combo",1)),1,2)
 	elif action in ["defeated","dead"]: clip = "down"
+	elif action == "dash_heavy" and fighter.get("kind","") == "hideyoshi": clip = "heavy1"
+	elif action == "charged" and fighter.get("kind","") == "hideyoshi": clip = ["light1","light2","heavy1"][mini(2,floori(tick/22.0))]
 	elif action in ["frozen","pulled","grabbed"]: clip = action if fighter.get("kind","") == "hideyoshi" and sheets.has("v22_"+action) else "hurt"
 	elif action == "thrown": clip = "launched"
 	elif action == "counter_cut": clip = "light2"
@@ -538,12 +540,16 @@ static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictiona
 			if action == "throw": timing = [12,36]
 			elif action in ["mixed_finisher","mixed_rising"]: timing = [14,48]
 		var local_tick := tick
+		if fighter.get("kind","") == "hideyoshi" and action == "charged":
+			local_tick = fposmod(tick,22)
+			timing = [12,22]
 		if action in ["mixed_finisher","mixed_rising"] and fighter.get("kind","") != "hideyoshi":
 			if tick < 22: timing = [9,22]
 			else: local_tick -= 22
 		if action == "charged" and fighter.get("kind","") == "tadakatsu": timing = [5,36]
 		frame = _attack_frame(local_tick,timing[0],timing[1],count) if timing[0] > 0 else mini(count-1,floori(local_tick*count/timing[1]))
 		duration = timing[1]
+		if fighter.get("kind","") == "hideyoshi" and action == "charged": duration = 66
 		released = local_tick >= timing[0]
 	return {"source":"v22","source_version":sheets[sheet][frame].get("source_version","v22"),"hero":fighter.get("kind",""),"clip":clip,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released}
 

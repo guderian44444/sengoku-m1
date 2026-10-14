@@ -15,13 +15,15 @@ func run() -> void:
 	var audio := Audio.new()
 	root.add_child(audio)
 	await process_frame
-	check(audio.speech_manifest.version == "0.30", "The complete six-speaker revision is active")
+	check(audio.speech_manifest.version == "0.31", "The complete revision with per-event performance instructions is active")
 	check(audio._speech_streams.size() == audio.speech_manifest.clips.size(), "All new and inherited speech files decode")
 	var pcm_owners := {}
 	var references := []
+	var speakers := []
 	var active := 0
 	for hero in Battle.HEROES:
 		check(audio.speech_manifest.hero_voice_profiles.has(hero), hero+" has a documented individual voice")
+		speakers.append(str(audio.speech_manifest.hero_voice_profiles[hero].speaker))
 		var events: Dictionary = audio.speech_manifest.actors[hero]
 		var reference: String = events.intro[0]
 		references.append(audio.speech_manifest.clips[reference].sha256)
@@ -31,9 +33,11 @@ func run() -> void:
 			check(pool.size() == (3 if event in ["attack","heavy","hurt","guard","victory"] else 1), hero+" has its complete varied "+event+" pool")
 			for key in pool:
 				var clip: Dictionary = audio.speech_manifest.clips[key]
-				check(clip.actor == hero and str(clip.file).begins_with(hero+"_v30_"), hero+" never borrows another actor or an early generic TTS file")
-				if key != reference:
-					check(clip.reference_key == reference and clip.reference_sha256 == audio.speech_manifest.clips[reference].sha256, hero+" keeps the same designed speaker across "+event)
+				check(clip.actor == hero and str(clip.file).begins_with(hero+"_v31_"), hero+" never borrows another actor or an early generic TTS file")
+				var performed_event: String = "heavy" if event == "guard" else event
+				var identity: String = audio.speech_manifest.hero_voice_profiles[hero].description
+				check(clip.backend == "Qwen3-TTS-12Hz-1.7B-CustomVoice" and clip.performance_event == performed_event and clip.identity_description == identity and clip.speaker == audio.speech_manifest.hero_voice_profiles[hero].speaker, hero+" directs the correct performance with its fixed voice identity")
+				check(clip.instruction == identity+" Fixed speaker preset "+str(audio.speech_manifest.hero_voice_profiles[hero].speaker)+". Performance: "+str(audio.speech_manifest.performance_delivery[performed_event]), hero+" uses a real event-specific generation instruction")
 				var stream: AudioStreamWAV = audio._speech_streams[key]
 				var digest := HashingContext.new()
 				digest.start(HashingContext.HASH_SHA256)
@@ -55,6 +59,7 @@ func run() -> void:
 				last = audio.last_spoken
 	check(active == 96 and pcm_owners.size() == 96, "Six complete heroes have ninety-six unique recordings")
 	check(references.size() == 6 and references.all(func(hash): return references.count(hash) == 1), "Every hero has a different reference recording")
+	check(speakers.size() == 6 and speakers.all(func(speaker): return speakers.count(speaker)==1),"Six characters use six fixed speaker identities")
 	for attacker in Battle.HEROES:
 		for victim in Battle.HEROES:
 			audio.stop_speech()
@@ -71,5 +76,5 @@ func run() -> void:
 	audio.stop_speech()
 	audio.queue_free()
 	await process_frame
-	print("VOICE V30 %s: %d checks, %d failures; human audition remains separate" % ["PASS" if failures == 0 else "FAILED",checks,failures])
+	print("VOICE V31 %s: %d checks, %d failures; human audition remains separate" % ["PASS" if failures == 0 else "FAILED",checks,failures])
 	quit(1 if failures else 0)

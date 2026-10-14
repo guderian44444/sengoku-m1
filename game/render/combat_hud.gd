@@ -102,7 +102,7 @@ func _draw() -> void:
 		_label(Vector2(text_x + 181, origin.y + 77), "MAX" if rage >= 100 else str(int(rage)), 13, GOLD)
 		_label(Vector2(text_x + 237, origin.y + 77), "甲%d" % fighter.get("armor", 0), 13, MUTED)
 		var item := Equipment.instance(fighter,int(fighter.get("weapon_uid",0)))
-		_label(Vector2(text_x, origin.y + 97), Weapons.name_for(fighter) + ("　耐 %d" % int(item.durability) if not item.is_empty() else ""), 15, GOLD)
+		_label(Vector2(text_x, origin.y + 97), Weapons.name_for(fighter) + ("　耐 %d" % int(item.durability) if not item.is_empty() and not Equipment.is_practice(str(item.item_id)) else "　∞"), 15, GOLD)
 	if not boss.is_empty():
 		draw_rect(BOSS_RECT, PANEL)
 		var name_text := str(boss.get("display_name", "陣營小王"))

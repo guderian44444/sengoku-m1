@@ -1,0 +1,114 @@
+{
+  "ice_arc": {
+    "texture": "res://vfx/art/ice_arc.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "split_depth": false,
+    "seam": 0.5,
+    "duration_ticks": 20,
+    "loop": false,
+    "world_size": [
+      280,
+      280
+    ],
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "ice_arc_source.png",
+    "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. No alpha removal, no effect painting.",
+    "usage": "Provenance/layout metadata only; runtime catalog.json is authoritative."
+  },
+  "ice_ring": {
+    "texture": "res://vfx/art/ice_ring.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "split_depth": true,
+    "seam": 0.5,
+    "duration_ticks": 30,
+    "loop": false,
+    "world_size": [
+      420,
+      420
+    ],
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "ice_ring_source.png",
+    "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. No alpha removal, no effect painting.",
+    "usage": "Provenance/layout metadata only; runtime catalog.json is authoritative."
+  },
+  "ice_wave": {
+    "texture": "res://vfx/art/ice_wave.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "split_depth": false,
+    "seam": 0.5,
+    "duration_ticks": 28,
+    "loop": false,
+    "world_size": [
+      300,
+      300
+    ],
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "ice_wave_source.png",
+    "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. No alpha removal, no effect painting.",
+    "usage": "Provenance/layout metadata only; runtime catalog.json is authoritative."
+  },
+  "ice_shatter": {
+    "texture": "res://vfx/art/ice_shatter.png",
+    "cell": [
+      1024,
+      1024
+    ],
+    "columns": 1,
+    "rows": 1,
+    "row": 0,
+    "frames": 1,
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "split_depth": false,
+    "seam": 0.5,
+    "duration_ticks": 16,
+    "loop": false,
+    "world_size": [
+      150,
+      150
+    ],
+    "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+    "blend": "mix",
+    "source_art": "ice_shatter_source.png",
+    "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. No alpha removal, no effect painting.",
+    "usage": "Provenance/layout metadata only; runtime catalog.json is authoritative."
+  }
+}

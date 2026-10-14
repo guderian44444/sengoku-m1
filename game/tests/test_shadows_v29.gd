@@ -76,21 +76,28 @@ func _initialize() -> void:
 	view._update_motion()
 	check(view._npc_samples(0).all(func(p): return p.mode == "walk"),"Restarting the same scene resets pedestrian panic")
 	for variant in ["cross_spear","short_yari","long_yari"]:
-		var expected: String = {"cross_spear":"azai","short_yari":"hashiba","long_yari":"takeda"}[variant]
+		var expected := "oda"
 		var boss := {"id":777,"team":1,"kind":"boss","faction":"oda","boss_variant":variant,"action":"idle","action_tick":0,"hp":240,"stage_boss":true,"x":800.0,"y":460.0,"face":-1,"z":0.0,"moving":false}
 		var unchanged := var_to_bytes(boss)
 		check(View.enemy_art_faction(boss) == expected,"Named spear boss selects its authored matching weapon: " + variant)
-		check(view._art._enemy_key("boss",expected) == "boss-" + expected,"Matching spear boss source exists without faction fallback")
+		check(view._art.enemy_clips.has("oda:"+variant+":poses"),"New HD matching spear boss source exists without old faction fallback")
 		for action in ["idle","boss_thrust","boss_sweep","boss_dash","boss_double","dead"]:
 			boss.action = action
 			var before := var_to_bytes(boss)
 			var sample: Dictionary = view._fighter_animation(boss)
 			var frame: Dictionary = view._art.enemy_frame("boss",int(sample.cell),View.enemy_art_faction(boss),str(sample.sheet))
-			check(not frame.is_empty(),"Matching spear boss has drawable action " + action)
+			check(not frame.is_empty() and sample.source == "v31","HD matching spear boss has drawable action " + action)
 			check(var_to_bytes(boss) == before,"Visual source selection leaves authoritative fighter untouched")
 		boss.action = "idle"
 		check(var_to_bytes(boss) == unchanged,"Boss identity and combat faction remain Oda")
-	check(View.enemy_art_faction({"kind":"commander","faction":"oda","boss_variant":"long_yari"}) == "oda","Regular Oda troops retain their accepted art")
+		var frozen_boss := boss.duplicate()
+		frozen_boss.moving = true
+		view._walk_distance[777] = 70
+		var before_freeze: Dictionary = view._fighter_animation(frozen_boss)
+		frozen_boss.freeze = 60
+		frozen_boss.moving = false
+		check(view._fighter_animation(frozen_boss) == before_freeze,"New HD boss keeps its actual pose while frozen")
+	check(View.enemy_art_faction({"kind":"commander","faction":"oda","boss_variant":"long_yari"}) == "oda","Regular Oda troops use dedicated Oda clips and corrected banners")
 	check(View.enemy_art_faction({"kind":"boss","faction":"imagawa","boss_variant":"naginata"}) == "imagawa","First-chapter boss art stays unchanged")
 	view.free()
 	print("SHADOWS V29 %s: %d checks, %d failures. Geometry checks; native pose captures cover appearance." % ["PASS" if failures == 0 else "FAILED",checks,failures])
