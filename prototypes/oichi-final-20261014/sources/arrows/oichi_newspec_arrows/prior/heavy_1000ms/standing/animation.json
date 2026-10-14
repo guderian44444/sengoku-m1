@@ -1,0 +1,1160 @@
+{
+  "schema_version": 1,
+  "action_family": "bow_shoot",
+  "group": "standing",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "game_scale": 0.2948766455977237,
+  "root_anchor": [
+    480,
+    884
+  ],
+  "holds_ms": [
+    60,
+    80,
+    80,
+    110,
+    110,
+    150,
+    100,
+    50,
+    90,
+    170
+  ],
+  "cycle_ms": 1000,
+  "release_event_ms": 690,
+  "heavy1_release_target_ms": 690,
+  "size_correction_method": "upper-face template registration to original; no per-frame body bounding-box height normalization",
+  "identity_reference_sha256": "01d3875f040f9070e3fe6eae2d6106c789aa6b2ccfeb7f66d964668b261108fe",
+  "weapon_data_is_separate": true,
+  "variant": "heavy_standing_1000ms_10_actual_poses",
+  "frames": [
+    {
+      "index": 0,
+      "name": "01_01_ready",
+      "character_png": "standing/character/01_01_ready.png",
+      "front_hands_png": "standing/front_hands/01_01_ready.png",
+      "grip": [
+        622.381,
+        591.619
+      ],
+      "draw_point": [
+        482.381,
+        565.905
+      ],
+      "right_hand_position": [
+        482.381,
+        565.905
+      ],
+      "is_drawing": false,
+      "arrow_nocked": false,
+      "release_event": false,
+      "arrow_flying": false,
+      "phase": "01_ready",
+      "hold_ms": 60,
+      "start_ms": 0,
+      "source_prompt_id": "27ee526b-ba09-41e8-bdf3-494f3fd3449d",
+      "generation_seconds": 59.003,
+      "source_png": "output/standing/01_ready_00001_.png",
+      "root_translation_before_scale": [
+        2.5,
+        -9
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        260,
+        383,
+        671,
+        885
+      ],
+      "game_body_height_px": 148.03,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            242.0,
+            171.0,
+            122.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            0.9958677685950413,
+            1.023391812865497,
+            1.0327868852459017
+          ]
+        },
+        "red": {
+          "before_median": [
+            155.0,
+            26.0,
+            26.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            0.9935483870967742,
+            1.0384615384615385,
+            1.12
+          ]
+        }
+      },
+      "sha256": {
+        "character": "3c17f6fe5cce66e92ca2b220a1442593dc7a932f3fec0e2d97bb4d26522636c3",
+        "front_hands": "15ccf0d31a96c51f44cf70752df026311b1f9dd18c307533d44f90d01fc6f099"
+      },
+      "native_source_alpha_extrema": [
+        249,
+        255
+      ],
+      "alpha_route": "native near-opaque alpha preserved inside deterministic background cutout",
+      "normalization_scale": 0.952381,
+      "source_root_before_normalization": [
+        477.5,
+        893
+      ],
+      "head_scale_before": 1.05,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9797,
+      "source_artifact_type": "native Qwen generation",
+      "source_prompt_ids": [
+        "27ee526b-ba09-41e8-bdf3-494f3fd3449d"
+      ],
+      "local_composition_recipe": null,
+      "head_template_used": "full upper-face crop",
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "01_ready",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    },
+    {
+      "index": 1,
+      "name": "02_raise_retry",
+      "character_png": "standing/character/02_raise_retry.png",
+      "front_hands_png": "standing/front_hands/02_raise_retry.png",
+      "grip": [
+        669,
+        589
+      ],
+      "draw_point": [
+        508.5,
+        545
+      ],
+      "right_hand_position": [
+        508.5,
+        545
+      ],
+      "is_drawing": false,
+      "arrow_nocked": false,
+      "release_event": false,
+      "arrow_flying": false,
+      "phase": "raise_retry",
+      "hold_ms": 80,
+      "start_ms": 60,
+      "source_prompt_id": "d201b8aa-47db-42c3-8c2f-455b2fb4b6dc",
+      "generation_seconds": 43.554,
+      "source_png": "output/heavy1000/raise_retry_00001_.png",
+      "root_translation_before_scale": [
+        33.5,
+        0
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        267,
+        389,
+        697,
+        885
+      ],
+      "game_body_height_px": 146.26,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            241.0,
+            173.0,
+            125.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            1.0,
+            1.0115606936416186,
+            1.008
+          ]
+        },
+        "red": {
+          "before_median": [
+            153.0,
+            25.0,
+            27.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            1.0065359477124183,
+            1.08,
+            1.1111111111111112
+          ]
+        }
+      },
+      "sha256": {
+        "character": "9a9544ce65fa24f61e483a0f0505ff44dfee42f9695967cd5f2dc33ec865b432",
+        "front_hands": "dd2b18a8c868ea51d961ea5584343ac3991f9c9676d939b5749b91356d726f81"
+      },
+      "native_source_alpha_extrema": [
+        247,
+        255
+      ],
+      "alpha_route": "native near-opaque alpha preserved inside deterministic background cutout",
+      "normalization_scale": 1.0,
+      "source_root_before_normalization": [
+        446.5,
+        884
+      ],
+      "head_scale_before": 1.0,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9832,
+      "source_artifact_type": "native Qwen generation",
+      "source_prompt_ids": [
+        "3a2ab586-2771-4d92-8bec-dd505ca5ee6e"
+      ],
+      "local_composition_recipe": null,
+      "head_template_used": "full upper-face crop",
+      "provenance": {
+        "kind": "new_Qwen_generated_arm_pose_local_composite",
+        "base": "02_raise_nock",
+        "prompt_id": "d201b8aa-47db-42c3-8c2f-455b2fb4b6dc",
+        "generation_seconds": 43.554,
+        "generated_source": "output/heavy1000/raise_retry_00001_.png",
+        "changed_pixels": 19421,
+        "outside_arm_mask_unchanged": true,
+        "alpha_route": "deterministic gray cutout in generated arm region",
+        "skin_colour_gain": [
+          1.0,
+          1.0057142857142858,
+          1.007936507936508
+        ],
+        "no_optical_flow": true,
+        "no_spatial_warp": true
+      }
+    },
+    {
+      "index": 2,
+      "name": "03_02_raise_nock",
+      "character_png": "standing/character/03_02_raise_nock.png",
+      "front_hands_png": "standing/front_hands/03_02_raise_nock.png",
+      "grip": [
+        682.5,
+        565.0
+      ],
+      "draw_point": [
+        508.5,
+        545.0
+      ],
+      "right_hand_position": [
+        508.5,
+        545.0
+      ],
+      "is_drawing": true,
+      "arrow_nocked": true,
+      "release_event": false,
+      "arrow_flying": false,
+      "phase": "02_raise_nock",
+      "hold_ms": 80,
+      "start_ms": 140,
+      "source_prompt_id": "3a2ab586-2771-4d92-8bec-dd505ca5ee6e",
+      "generation_seconds": 54.956,
+      "source_png": "output/standing/02_raise_nock_clean_00001_.png",
+      "root_translation_before_scale": [
+        33.5,
+        0
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        267,
+        389,
+        697,
+        885
+      ],
+      "game_body_height_px": 146.26,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            241.0,
+            173.0,
+            125.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            1.0,
+            1.0115606936416186,
+            1.008
+          ]
+        },
+        "red": {
+          "before_median": [
+            153.0,
+            25.0,
+            27.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            1.0065359477124183,
+            1.08,
+            1.1111111111111112
+          ]
+        }
+      },
+      "sha256": {
+        "character": "9f5f555ba0e8205addaa1d0f3be0d817b747077cc1d843d82ade0053410139f9",
+        "front_hands": "0e225a9ec9209721b8f5d5ad2de03282345011ede96d5a3566e82fe001d2dcfc"
+      },
+      "native_source_alpha_extrema": [
+        247,
+        255
+      ],
+      "alpha_route": "native near-opaque alpha preserved inside deterministic background cutout",
+      "normalization_scale": 1.0,
+      "source_root_before_normalization": [
+        446.5,
+        884
+      ],
+      "head_scale_before": 1.0,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9832,
+      "source_artifact_type": "native Qwen generation",
+      "source_prompt_ids": [
+        "3a2ab586-2771-4d92-8bec-dd505ca5ee6e"
+      ],
+      "local_composition_recipe": null,
+      "head_template_used": "full upper-face crop",
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "02_raise_nock",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    },
+    {
+      "index": 3,
+      "name": "04_03_half_draw",
+      "character_png": "standing/character/04_03_half_draw.png",
+      "front_hands_png": "standing/front_hands/04_03_half_draw.png",
+      "grip": [
+        767.245,
+        473.796
+      ],
+      "draw_point": [
+        585.612,
+        519.714
+      ],
+      "right_hand_position": [
+        585.612,
+        519.714
+      ],
+      "is_drawing": true,
+      "arrow_nocked": true,
+      "release_event": false,
+      "arrow_flying": false,
+      "phase": "03_half_draw",
+      "hold_ms": 110,
+      "start_ms": 220,
+      "source_prompt_id": "cad73887-6b94-4bb3-808e-7d085b4d76f5",
+      "generation_seconds": 38.783,
+      "source_png": "output/standing/03_half_draw_arm_composite_00001_.png",
+      "root_translation_before_scale": [
+        30.5,
+        2
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        263,
+        375,
+        779,
+        885
+      ],
+      "game_body_height_px": 150.39,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            242.0,
+            174.0,
+            125.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            0.9958677685950413,
+            1.0057471264367817,
+            1.008
+          ]
+        },
+        "red": {
+          "before_median": [
+            156.0,
+            24.0,
+            27.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            0.9871794871794872,
+            1.12,
+            1.1111111111111112
+          ]
+        }
+      },
+      "sha256": {
+        "character": "0f41deddf0bded7bc19bd07824b3dd773b123e9794b83b4e1fbe92d30e0ce115",
+        "front_hands": "1ce350c18efff7082cea9949df77e71d8c92372405169a825d3a98d6dac63eed"
+      },
+      "native_source_alpha_extrema": [
+        255,
+        255
+      ],
+      "alpha_route": "native near-opaque alpha preserved inside deterministic background cutout",
+      "normalization_scale": 1.020408,
+      "source_root_before_normalization": [
+        449.5,
+        882
+      ],
+      "head_scale_before": 0.98,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9401,
+      "source_artifact_type": "deterministic_local_composite",
+      "source_prompt_ids": [
+        "cad73887-6b94-4bb3-808e-7d085b4d76f5",
+        "d0a63cbb-8418-4485-8dce-4aa20b955810"
+      ],
+      "local_composition_recipe": "create_generated_arm_guide.py",
+      "head_template_used": "eyes-only fallback [446,426,499,456], excluded occluding drawing hand",
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "03_half_draw",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    },
+    {
+      "index": 4,
+      "name": "05_draw75",
+      "character_png": "standing/character/05_draw75.png",
+      "front_hands_png": "standing/front_hands/05_draw75.png",
+      "grip": [
+        767.245,
+        473.796
+      ],
+      "draw_point": [
+        539,
+        486
+      ],
+      "right_hand_position": [
+        539,
+        486
+      ],
+      "is_drawing": true,
+      "arrow_nocked": true,
+      "release_event": false,
+      "arrow_flying": false,
+      "phase": "draw75",
+      "hold_ms": 110,
+      "start_ms": 330,
+      "source_prompt_id": "9ade968c-4f9c-455e-a6f7-3228b1ef4601",
+      "generation_seconds": 49.951,
+      "source_png": "output/heavy1000/draw75_00001_.png",
+      "root_translation_before_scale": [
+        30.5,
+        2
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        258,
+        374,
+        779,
+        885
+      ],
+      "game_body_height_px": 150.68,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            242.0,
+            170.0,
+            122.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            0.9958677685950413,
+            1.0294117647058822,
+            1.0327868852459017
+          ]
+        },
+        "red": {
+          "before_median": [
+            156.0,
+            24.0,
+            27.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            0.9871794871794872,
+            1.12,
+            1.1111111111111112
+          ]
+        }
+      },
+      "sha256": {
+        "character": "93e0900408d35707c98259372e6b3ba07e62733d5519ffec1e59aad9bfc6d500",
+        "front_hands": "ef5b49a6c5ad90258626945c57acf5a99f34f265d1a3c96eee1a227bce66fcb7"
+      },
+      "native_source_alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_route": "native RGBA alpha preserved",
+      "normalization_scale": 1.020408,
+      "source_root_before_normalization": [
+        449.5,
+        882
+      ],
+      "head_scale_before": 0.98,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9401,
+      "source_artifact_type": "native Qwen generation",
+      "source_prompt_ids": [
+        "cad73887-6b94-4bb3-808e-7d085b4d76f5"
+      ],
+      "local_composition_recipe": null,
+      "head_template_used": "eyes-only fallback [446,426,499,456], excluded occluding drawing hand",
+      "provenance": {
+        "kind": "new_Qwen_generated_arm_pose_local_composite",
+        "base": "04_full_draw",
+        "prompt_id": "9ade968c-4f9c-455e-a6f7-3228b1ef4601",
+        "generation_seconds": 49.951,
+        "generated_source": "output/heavy1000/draw75_00001_.png",
+        "changed_pixels": 26241,
+        "outside_arm_mask_unchanged": true,
+        "alpha_route": "deterministic gray cutout in generated arm region",
+        "skin_colour_gain": [
+          0.95,
+          0.9252873563218391,
+          0.92
+        ],
+        "no_optical_flow": true,
+        "no_spatial_warp": true
+      }
+    },
+    {
+      "index": 5,
+      "name": "06_04_full_draw",
+      "character_png": "standing/character/06_04_full_draw.png",
+      "front_hands_png": "standing/front_hands/06_04_full_draw.png",
+      "grip": [
+        767.245,
+        473.796
+      ],
+      "draw_point": [
+        481.531,
+        465.633
+      ],
+      "right_hand_position": [
+        481.531,
+        465.633
+      ],
+      "is_drawing": true,
+      "arrow_nocked": true,
+      "release_event": false,
+      "arrow_flying": false,
+      "phase": "04_full_draw",
+      "hold_ms": 150,
+      "start_ms": 440,
+      "source_prompt_id": "cad73887-6b94-4bb3-808e-7d085b4d76f5",
+      "generation_seconds": 38.783,
+      "source_png": "output/standing/04_full_draw_clean_00001_.png",
+      "root_translation_before_scale": [
+        30.5,
+        2
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        258,
+        374,
+        779,
+        885
+      ],
+      "game_body_height_px": 150.68,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            242.0,
+            170.0,
+            122.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            0.9958677685950413,
+            1.0294117647058822,
+            1.0327868852459017
+          ]
+        },
+        "red": {
+          "before_median": [
+            156.0,
+            24.0,
+            27.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            0.9871794871794872,
+            1.12,
+            1.1111111111111112
+          ]
+        }
+      },
+      "sha256": {
+        "character": "1e9282d951e763e92ceffbe9388b3c25aa130b59cedaa239854451e6baf7e498",
+        "front_hands": "a1ca2ec395f7481d71b04034d560d81bfeecc3a64e1e90b627affe004ec049af"
+      },
+      "native_source_alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_route": "native RGBA alpha preserved",
+      "normalization_scale": 1.020408,
+      "source_root_before_normalization": [
+        449.5,
+        882
+      ],
+      "head_scale_before": 0.98,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9401,
+      "source_artifact_type": "native Qwen generation",
+      "source_prompt_ids": [
+        "cad73887-6b94-4bb3-808e-7d085b4d76f5"
+      ],
+      "local_composition_recipe": null,
+      "head_template_used": "eyes-only fallback [446,426,499,456], excluded occluding drawing hand",
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "04_full_draw",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    },
+    {
+      "index": 6,
+      "name": "07_aim_settle",
+      "character_png": "standing/character/07_aim_settle.png",
+      "front_hands_png": "standing/front_hands/07_aim_settle.png",
+      "grip": [
+        767.245,
+        473.796
+      ],
+      "draw_point": [
+        480,
+        476
+      ],
+      "right_hand_position": [
+        480,
+        476
+      ],
+      "is_drawing": true,
+      "arrow_nocked": true,
+      "release_event": false,
+      "arrow_flying": false,
+      "phase": "aim_settle",
+      "hold_ms": 100,
+      "start_ms": 590,
+      "source_prompt_id": "b32ce939-d4e0-4fe9-9304-98aed72de21c",
+      "generation_seconds": 49.711,
+      "source_png": "output/heavy1000/aim_settle_00001_.png",
+      "root_translation_before_scale": [
+        30.5,
+        2
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        258,
+        374,
+        779,
+        885
+      ],
+      "game_body_height_px": 150.68,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            242.0,
+            170.0,
+            122.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            0.9958677685950413,
+            1.0294117647058822,
+            1.0327868852459017
+          ]
+        },
+        "red": {
+          "before_median": [
+            156.0,
+            24.0,
+            27.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            0.9871794871794872,
+            1.12,
+            1.1111111111111112
+          ]
+        }
+      },
+      "sha256": {
+        "character": "e6f0acd96874bd74d7906624852489d74afc1cc4f31787a21162b9f9b55ebfb8",
+        "front_hands": "338cb2ba73a6c1089aa218a0cd83176cbe980dbc76b858ac14395e1ddf2ae1a7"
+      },
+      "native_source_alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_route": "native RGBA alpha preserved",
+      "normalization_scale": 1.020408,
+      "source_root_before_normalization": [
+        449.5,
+        882
+      ],
+      "head_scale_before": 0.98,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9401,
+      "source_artifact_type": "native Qwen generation",
+      "source_prompt_ids": [
+        "cad73887-6b94-4bb3-808e-7d085b4d76f5"
+      ],
+      "local_composition_recipe": null,
+      "head_template_used": "eyes-only fallback [446,426,499,456], excluded occluding drawing hand",
+      "provenance": {
+        "kind": "new_Qwen_generated_arm_pose_local_composite",
+        "base": "04_full_draw",
+        "prompt_id": "b32ce939-d4e0-4fe9-9304-98aed72de21c",
+        "generation_seconds": 49.711,
+        "generated_source": "output/heavy1000/aim_settle_00001_.png",
+        "changed_pixels": 13367,
+        "outside_arm_mask_unchanged": true,
+        "alpha_route": "deterministic gray cutout in generated arm region",
+        "skin_colour_gain": [
+          1.0136986301369864,
+          1.0472972972972974,
+          1.0792079207920793
+        ],
+        "no_optical_flow": true,
+        "no_spatial_warp": true
+      }
+    },
+    {
+      "index": 7,
+      "name": "08_05_release",
+      "character_png": "standing/character/08_05_release.png",
+      "front_hands_png": "standing/front_hands/08_05_release.png",
+      "grip": [
+        683.5,
+        534.0
+      ],
+      "draw_point": [
+        466.5,
+        505.0
+      ],
+      "right_hand_position": [
+        466.5,
+        505.0
+      ],
+      "is_drawing": false,
+      "arrow_nocked": false,
+      "release_event": true,
+      "arrow_flying": true,
+      "phase": "05_release",
+      "hold_ms": 50,
+      "start_ms": 690,
+      "source_prompt_id": "c69171f2-f81f-490e-825f-347e3d9a5762",
+      "generation_seconds": 56.102,
+      "source_png": "output/standing/05_release_clean_00001_.png",
+      "root_translation_before_scale": [
+        33.5,
+        0
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        252,
+        388,
+        708,
+        885
+      ],
+      "game_body_height_px": 146.55,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            240.0,
+            169.0,
+            121.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            1.0041666666666667,
+            1.0355029585798816,
+            1.0413223140495869
+          ]
+        },
+        "red": {
+          "before_median": [
+            153.0,
+            27.0,
+            27.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            1.0065359477124183,
+            1.0,
+            1.1111111111111112
+          ]
+        }
+      },
+      "sha256": {
+        "character": "0ab6e28d1c2af5d790b16189133850147c48625629d179b4e3647192eda465eb",
+        "front_hands": "5cd3547b67d25d4f5dc8e5c86f072e94a37a2c566408e1d95347121e119af8eb"
+      },
+      "native_source_alpha_extrema": [
+        250,
+        255
+      ],
+      "alpha_route": "native near-opaque alpha preserved inside deterministic background cutout",
+      "normalization_scale": 1.0,
+      "source_root_before_normalization": [
+        446.5,
+        884
+      ],
+      "head_scale_before": 1.0,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9684,
+      "source_artifact_type": "native Qwen generation",
+      "source_prompt_ids": [
+        "c69171f2-f81f-490e-825f-347e3d9a5762"
+      ],
+      "local_composition_recipe": null,
+      "head_template_used": "full upper-face crop",
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "05_release",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    },
+    {
+      "index": 8,
+      "name": "09_followthrough",
+      "character_png": "standing/character/09_followthrough.png",
+      "front_hands_png": "standing/front_hands/09_followthrough.png",
+      "grip": [
+        674,
+        558
+      ],
+      "draw_point": [
+        480,
+        541
+      ],
+      "right_hand_position": [
+        480,
+        541
+      ],
+      "is_drawing": false,
+      "arrow_nocked": false,
+      "release_event": false,
+      "arrow_flying": false,
+      "phase": "followthrough",
+      "hold_ms": 90,
+      "start_ms": 740,
+      "source_prompt_id": "5d783dd3-95d5-4e5d-8997-0f3367a177ea",
+      "generation_seconds": 49.708,
+      "source_png": "output/heavy1000/followthrough_00001_.png",
+      "root_translation_before_scale": [
+        33.5,
+        0
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        252,
+        388,
+        708,
+        885
+      ],
+      "game_body_height_px": 146.55,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            240.0,
+            169.0,
+            121.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            1.0041666666666667,
+            1.0355029585798816,
+            1.0413223140495869
+          ]
+        },
+        "red": {
+          "before_median": [
+            153.0,
+            27.0,
+            27.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            1.0065359477124183,
+            1.0,
+            1.1111111111111112
+          ]
+        }
+      },
+      "sha256": {
+        "character": "70f8a6baeea5ac2b2e9734ea56e49bc48f69bd0f46c536869fa728a6889e50e8",
+        "front_hands": "a72d3ab361d58522d792fafa18b2ce86f7d6f04d955b439367984e53240b490a"
+      },
+      "native_source_alpha_extrema": [
+        250,
+        255
+      ],
+      "alpha_route": "native near-opaque alpha preserved inside deterministic background cutout",
+      "normalization_scale": 1.0,
+      "source_root_before_normalization": [
+        446.5,
+        884
+      ],
+      "head_scale_before": 1.0,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9684,
+      "source_artifact_type": "native Qwen generation",
+      "source_prompt_ids": [
+        "c69171f2-f81f-490e-825f-347e3d9a5762"
+      ],
+      "local_composition_recipe": null,
+      "head_template_used": "full upper-face crop",
+      "provenance": {
+        "kind": "new_Qwen_generated_arm_pose_local_composite",
+        "base": "05_release",
+        "prompt_id": "5d783dd3-95d5-4e5d-8997-0f3367a177ea",
+        "generation_seconds": 49.708,
+        "generated_source": "output/heavy1000/followthrough_00001_.png",
+        "changed_pixels": 42069,
+        "outside_arm_mask_unchanged": true,
+        "alpha_route": "deterministic gray cutout in generated arm region",
+        "skin_colour_gain": [
+          0.9833333333333333,
+          0.9826589595375722,
+          0.975609756097561
+        ],
+        "no_optical_flow": true,
+        "no_spatial_warp": true
+      }
+    },
+    {
+      "index": 9,
+      "name": "10_06_recover",
+      "character_png": "standing/character/10_06_recover.png",
+      "front_hands_png": "standing/front_hands/10_06_recover.png",
+      "grip": [
+        658.218,
+        586.97
+      ],
+      "draw_point": [
+        506.733,
+        564.198
+      ],
+      "right_hand_position": [
+        506.733,
+        564.198
+      ],
+      "is_drawing": false,
+      "arrow_nocked": false,
+      "release_event": false,
+      "arrow_flying": false,
+      "phase": "06_recover",
+      "hold_ms": 170,
+      "start_ms": 830,
+      "source_prompt_id": "324cc1e7-ed39-4746-a41b-5cd06ce8be94",
+      "generation_seconds": 58.738,
+      "source_png": "output/standing/06_recover_00001_.png",
+      "root_translation_before_scale": [
+        32.0,
+        -4
+      ],
+      "hand_detection": [
+        "manual pixel review of source frame",
+        "manual pixel review of source frame"
+      ],
+      "alpha_bbox": [
+        272,
+        381,
+        675,
+        885
+      ],
+      "game_body_height_px": 148.62,
+      "color_calibration": {
+        "skin": {
+          "before_median": [
+            239.0,
+            171.0,
+            123.0
+          ],
+          "reference_median": [
+            241.0,
+            175.0,
+            126.0
+          ],
+          "gain": [
+            1.00836820083682,
+            1.023391812865497,
+            1.024390243902439
+          ]
+        },
+        "red": {
+          "before_median": [
+            152.0,
+            27.0,
+            28.0
+          ],
+          "reference_median": [
+            154.0,
+            27.0,
+            30.0
+          ],
+          "gain": [
+            1.013157894736842,
+            1.0,
+            1.0714285714285714
+          ]
+        }
+      },
+      "sha256": {
+        "character": "35995aef7eb697afe6eee3d8a717ba82d1dbf1c7404d20a24669046c8d2d9309",
+        "front_hands": "9dfec4b6d0b73b96bca78aec07bf4cf963eef050886fc81a7b92f0b04752d7a6"
+      },
+      "native_source_alpha_extrema": [
+        251,
+        255
+      ],
+      "alpha_route": "native near-opaque alpha preserved inside deterministic background cutout",
+      "normalization_scale": 0.990099,
+      "source_root_before_normalization": [
+        448.0,
+        888
+      ],
+      "head_scale_before": 1.01,
+      "head_scale_after": 1.0,
+      "head_match_correlation": 0.9754,
+      "source_artifact_type": "native Qwen generation",
+      "source_prompt_ids": [
+        "324cc1e7-ed39-4746-a41b-5cd06ce8be94"
+      ],
+      "local_composition_recipe": null,
+      "head_template_used": "full upper-face crop",
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "06_recover",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    }
+  ]
+}

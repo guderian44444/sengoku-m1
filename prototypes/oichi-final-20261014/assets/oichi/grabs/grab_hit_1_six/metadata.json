@@ -1,0 +1,230 @@
+{
+  "clip": "grab_hit_1",
+  "revision": "six_keyframes",
+  "prototype": true,
+  "runtime_modified": false,
+  "frame_count": 6,
+  "total_ms": 420,
+  "contact_ms": 190,
+  "contact_preserved_from_original_ms": 190,
+  "new_frames": [
+    1,
+    4
+  ],
+  "original_frames_preserved": [
+    0,
+    2,
+    3,
+    5
+  ],
+  "layer_order": [
+    "neutral_victim",
+    "stowed_bow",
+    "body"
+  ],
+  "grip_note": "Bow stowed behind, no string draw.",
+  "frames": [
+    {
+      "frame": 0,
+      "source": "original_four.png",
+      "source_rect": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "source_sha256": "c2dab6ab238bf3706d8ca29f422407496755eaa99541ff23b2812b223f2746db",
+      "body_crop_sha256": "8e09b3455187f5a21ca60e6dcf37b9cfd01096d502d0daed7f1d57bdb396a8ac",
+      "body_height": 490,
+      "grab_contact_cell": [
+        685,
+        130
+      ],
+      "grab_contact_preview": [
+        218,
+        88
+      ],
+      "preview_offset": [
+        11,
+        49
+      ],
+      "scale": 0.3020408163265306,
+      "duration_ms": 60,
+      "start_ms": 0,
+      "phase": "hold",
+      "events": [],
+      "weapon_behind": true,
+      "weapon_stowed": true,
+      "second_hand": null
+    },
+    {
+      "frame": 1,
+      "source": "inbetweens_v2.png",
+      "source_rect": [
+        0,
+        0,
+        1086,
+        724
+      ],
+      "source_sha256": "2bc9d1b7de88b2cae7d8c3389eb762cba1e9bb2bbbc6377c2aa5c0e82001cb62",
+      "body_crop_sha256": "b83e43d9cbe866d6654075f77d073886db0ceee65fa50a0400b49a9ae1901079",
+      "body_height": 710,
+      "grab_contact_cell": [
+        975,
+        173
+      ],
+      "grab_contact_preview": [
+        218,
+        88
+      ],
+      "preview_offset": [
+        15,
+        52
+      ],
+      "scale": 0.2084507042253521,
+      "duration_ms": 50,
+      "start_ms": 60,
+      "phase": "early_lift_new",
+      "events": [],
+      "weapon_behind": true,
+      "weapon_stowed": true,
+      "second_hand": null
+    },
+    {
+      "frame": 2,
+      "source": "original_four.png",
+      "source_rect": [
+        768,
+        0,
+        1536,
+        512
+      ],
+      "source_sha256": "c2dab6ab238bf3706d8ca29f422407496755eaa99541ff23b2812b223f2746db",
+      "body_crop_sha256": "a47ba3d6b53a188366e48fbccb61fa4ff1bc0330f11c927cd13e8a8b75762d4a",
+      "body_height": 490,
+      "grab_contact_cell": [
+        462,
+        130
+      ],
+      "grab_contact_preview": [
+        218,
+        88
+      ],
+      "preview_offset": [
+        78,
+        49
+      ],
+      "scale": 0.3020408163265306,
+      "duration_ms": 80,
+      "start_ms": 110,
+      "phase": "high_knee",
+      "events": [],
+      "weapon_behind": true,
+      "weapon_stowed": true,
+      "second_hand": null
+    },
+    {
+      "frame": 3,
+      "source": "original_four.png",
+      "source_rect": [
+        0,
+        512,
+        768,
+        1024
+      ],
+      "source_sha256": "c2dab6ab238bf3706d8ca29f422407496755eaa99541ff23b2812b223f2746db",
+      "body_crop_sha256": "a0a2f080ca5a9a5cec39b38607de2df6847f957eaa3e12ca1767bcaed22d3550",
+      "body_height": 490,
+      "grab_contact_cell": [
+        720,
+        88
+      ],
+      "grab_contact_preview": [
+        218,
+        88
+      ],
+      "preview_offset": [
+        1,
+        61
+      ],
+      "scale": 0.3020408163265306,
+      "duration_ms": 70,
+      "start_ms": 190,
+      "phase": "knee_contact_1",
+      "events": [
+        "knee_contact_1"
+      ],
+      "weapon_behind": true,
+      "weapon_stowed": true,
+      "second_hand": null
+    },
+    {
+      "frame": 4,
+      "source": "inbetweens.png",
+      "source_rect": [
+        1086,
+        0,
+        2172,
+        724
+      ],
+      "source_sha256": "aca0abb37a7b55849dcef4a75dba1a46b68f21a202050530b9ada91b9d2363f0",
+      "body_crop_sha256": "afd58d0eb09095f83c5be2a1efdf41d261e2d28a4f50ff9e208797ccdc915961",
+      "body_height": 710,
+      "grab_contact_cell": [
+        730,
+        173
+      ],
+      "grab_contact_preview": [
+        218,
+        88
+      ],
+      "preview_offset": [
+        66,
+        52
+      ],
+      "scale": 0.2084507042253521,
+      "duration_ms": 60,
+      "start_ms": 260,
+      "phase": "lower_knee_new",
+      "events": [],
+      "weapon_behind": true,
+      "weapon_stowed": true,
+      "second_hand": null
+    },
+    {
+      "frame": 5,
+      "source": "original_four.png",
+      "source_rect": [
+        768,
+        512,
+        1536,
+        1024
+      ],
+      "source_sha256": "c2dab6ab238bf3706d8ca29f422407496755eaa99541ff23b2812b223f2746db",
+      "body_crop_sha256": "2e931e490a7c4dc6bd743014063cf764fe518526d5a267077f7b9a93bc9d1021",
+      "body_height": 490,
+      "grab_contact_cell": [
+        512,
+        118
+      ],
+      "grab_contact_preview": [
+        218,
+        88
+      ],
+      "preview_offset": [
+        63,
+        52
+      ],
+      "scale": 0.3020408163265306,
+      "duration_ms": 100,
+      "start_ms": 320,
+      "phase": "return_hold",
+      "events": [
+        "return_hold"
+      ],
+      "weapon_behind": true,
+      "weapon_stowed": true,
+      "second_hand": null
+    }
+  ]
+}

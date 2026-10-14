@@ -1,0 +1,261 @@
+{
+  "action": "air_light",
+  "prototype": true,
+  "source_sha256": "577c676815e90598850777a8077c170d57ecdb199071e5df49dbc6ef991f20fa",
+  "raw_sha256": "577c676815e90598850777a8077c170d57ecdb199071e5df49dbc6ef991f20fa",
+  "native_alpha_preserved": true,
+  "anatomical_measurement": "Manually inspected crown-neck, torso, unfolded thigh/shin/foot chain; constant standing-equivalent ruler across tucked poses, never bbox height.",
+  "frames": [
+    {
+      "frame": 1,
+      "source_rect": [
+        0,
+        0,
+        512,
+        480
+      ],
+      "body_height": 560,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        412,
+        162
+      ],
+      "right_hand": [
+        352,
+        157
+      ],
+      "weapon_angle": -20,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          403,
+          153,
+          421,
+          171
+        ]
+      ],
+      "event": "airborne",
+      "duration_ms": 80,
+      "root_preview": [
+        128,
+        207
+      ]
+    },
+    {
+      "frame": 2,
+      "source_rect": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "body_height": 560,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        226,
+        31
+      ],
+      "right_hand": [
+        215,
+        42
+      ],
+      "weapon_angle": -65,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          217,
+          22,
+          235,
+          40
+        ]
+      ],
+      "event": "large_overhead_backswing",
+      "duration_ms": 110,
+      "root_preview": [
+        128,
+        194
+      ]
+    },
+    {
+      "frame": 3,
+      "source_rect": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "body_height": 560,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        458,
+        376
+      ],
+      "right_hand": [
+        425,
+        379
+      ],
+      "weapon_angle": 115,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          449,
+          367,
+          467,
+          385
+        ]
+      ],
+      "event": "steep_downward_contact",
+      "duration_ms": 60,
+      "root_preview": [
+        128,
+        190
+      ]
+    },
+    {
+      "frame": 4,
+      "source_rect": [
+        0,
+        490,
+        512,
+        534
+      ],
+      "body_height": 560,
+      "foot": [
+        300,
+        572
+      ],
+      "left_hand": [
+        495,
+        428
+      ],
+      "right_hand": [
+        464,
+        434
+      ],
+      "weapon_angle": 150,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          486,
+          419,
+          504,
+          437
+        ]
+      ],
+      "event": "deep_followthrough",
+      "duration_ms": 80,
+      "root_preview": [
+        128,
+        195
+      ]
+    },
+    {
+      "frame": 5,
+      "source_rect": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "body_height": 560,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        446,
+        341
+      ],
+      "right_hand": [
+        411,
+        341
+      ],
+      "weapon_angle": 120,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          437,
+          332,
+          455,
+          350
+        ]
+      ],
+      "event": "recover_from_downswing",
+      "duration_ms": 90,
+      "root_preview": [
+        128,
+        208
+      ]
+    },
+    {
+      "frame": 6,
+      "source_rect": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "body_height": 560,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        464,
+        295
+      ],
+      "right_hand": [
+        384,
+        278
+      ],
+      "weapon_angle": 30,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          455,
+          286,
+          473,
+          304
+        ]
+      ],
+      "event": "descent_exit",
+      "duration_ms": 140,
+      "root_preview": [
+        128,
+        225
+      ]
+    }
+  ],
+  "preview_only": true,
+  "runtime_changed": false,
+  "volley": "no arrows",
+  "timing": "Approximate prototype; old metadata has no durations; variable keyframe dwell, no optical flow",
+  "revision": 2,
+  "user_revision": "User requested visibly bigger motion and deeper downward swing. New cloud imagegen body poses plus separately rotated/grip-locked reference bow. No changes to other attacks.",
+  "library_gif_id": "libfile_8c45d64dcf6c8191ab23edae31b09f5b",
+  "source_rgba_sha256": "17f88be8a0b37324801c0e2d427ee87a8fd279fc39455e93693ed0c9647f1797",
+  "source_alpha_sha256": "706cbce89cea3eaf4a8e7beb8afc95da10264fd95cebc961ceae675e712f2725",
+  "native_alpha_zero_fraction": 0.5877615610758463,
+  "raw_final_decoded_equal": true,
+  "grading": "None; generated RGB/native alpha retained.",
+  "old_to_new_deepest_weapon_angle_deg": [
+    65,
+    150
+  ],
+  "duration_ms": 560
+}

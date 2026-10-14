@@ -1,0 +1,267 @@
+{
+  "clip": "throw_forward",
+  "prototype": true,
+  "runtime_modified": false,
+  "source": "throw_forward.png",
+  "sha256": "3ad7ea5f8109dddef59dfee3d05d903748d31b710db22e698b838e067f1c43fc",
+  "coordinate_space": "cell_pixels",
+  "body_height_target": 148,
+  "frames": [
+    {
+      "frame": 0,
+      "source_rect": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "root": [
+        210,
+        480
+      ],
+      "body_height": 490,
+      "grab_contact": [
+        355,
+        140
+      ],
+      "grip": null,
+      "stow_anchor": [
+        170,
+        100
+      ],
+      "weapon_angle": 18,
+      "weapon_behind": true,
+      "second_hand": null,
+      "duration_ms": 100,
+      "events": [
+        "grab_attached"
+      ],
+      "measurement_status": "preview visually authored anchors; runtime registration pending"
+    },
+    {
+      "frame": 1,
+      "source_rect": [
+        384,
+        0,
+        384,
+        512
+      ],
+      "root": [
+        230,
+        480
+      ],
+      "body_height": 490,
+      "grab_contact": [
+        310,
+        190
+      ],
+      "grip": null,
+      "stow_anchor": [
+        170,
+        100
+      ],
+      "weapon_angle": 18,
+      "weapon_behind": true,
+      "second_hand": null,
+      "duration_ms": 100,
+      "events": [],
+      "measurement_status": "preview visually authored anchors; runtime registration pending"
+    },
+    {
+      "frame": 2,
+      "source_rect": [
+        768,
+        0,
+        384,
+        512
+      ],
+      "root": [
+        220,
+        480
+      ],
+      "body_height": 490,
+      "grab_contact": [
+        335,
+        160
+      ],
+      "grip": null,
+      "stow_anchor": [
+        170,
+        100
+      ],
+      "weapon_angle": 18,
+      "weapon_behind": true,
+      "second_hand": null,
+      "duration_ms": 110,
+      "events": [
+        "hip_pivot"
+      ],
+      "measurement_status": "preview visually authored anchors; runtime registration pending"
+    },
+    {
+      "frame": 3,
+      "source_rect": [
+        1152,
+        0,
+        384,
+        512
+      ],
+      "root": [
+        210,
+        480
+      ],
+      "body_height": 490,
+      "grab_contact": [
+        325,
+        220
+      ],
+      "grip": null,
+      "stow_anchor": [
+        170,
+        100
+      ],
+      "weapon_angle": 18,
+      "weapon_behind": true,
+      "second_hand": null,
+      "duration_ms": 100,
+      "events": [
+        "victim_loaded"
+      ],
+      "measurement_status": "preview visually authored anchors; runtime registration pending"
+    },
+    {
+      "frame": 4,
+      "source_rect": [
+        0,
+        512,
+        384,
+        512
+      ],
+      "root": [
+        210,
+        480
+      ],
+      "body_height": 490,
+      "grab_contact": [
+        380,
+        125
+      ],
+      "grip": null,
+      "stow_anchor": [
+        170,
+        100
+      ],
+      "weapon_angle": 18,
+      "weapon_behind": true,
+      "second_hand": null,
+      "duration_ms": 80,
+      "events": [],
+      "measurement_status": "preview visually authored anchors; runtime registration pending"
+    },
+    {
+      "frame": 5,
+      "source_rect": [
+        384,
+        512,
+        384,
+        512
+      ],
+      "root": [
+        200,
+        480
+      ],
+      "body_height": 490,
+      "grab_contact": [
+        380,
+        125
+      ],
+      "grip": null,
+      "stow_anchor": [
+        170,
+        100
+      ],
+      "weapon_angle": 18,
+      "weapon_behind": true,
+      "second_hand": null,
+      "duration_ms": 80,
+      "events": [
+        "throw_release"
+      ],
+      "measurement_status": "preview visually authored anchors; runtime registration pending"
+    },
+    {
+      "frame": 6,
+      "source_rect": [
+        768,
+        512,
+        384,
+        512
+      ],
+      "root": [
+        210,
+        480
+      ],
+      "body_height": 490,
+      "grab_contact": [
+        325,
+        220
+      ],
+      "grip": null,
+      "stow_anchor": [
+        170,
+        100
+      ],
+      "weapon_angle": 18,
+      "weapon_behind": true,
+      "second_hand": null,
+      "duration_ms": 120,
+      "events": [],
+      "measurement_status": "preview visually authored anchors; runtime registration pending"
+    },
+    {
+      "frame": 7,
+      "source_rect": [
+        1152,
+        512,
+        384,
+        512
+      ],
+      "root": [
+        220,
+        480
+      ],
+      "body_height": 490,
+      "grab_contact": [
+        350,
+        170
+      ],
+      "grip": null,
+      "stow_anchor": [
+        170,
+        100
+      ],
+      "weapon_angle": 18,
+      "weapon_behind": true,
+      "second_hand": null,
+      "duration_ms": 210,
+      "events": [
+        "victim_land",
+        "recovery_end"
+      ],
+      "measurement_status": "preview visually authored anchors; runtime registration pending"
+    }
+  ],
+  "layer_order": [
+    "victim_preview",
+    "stowed_bow",
+    "body"
+  ],
+  "victim_note": "Neutral silhouette is only a preview stand-in. Release and landing belong to victim layer.",
+  "alpha_zero_fraction": 0.5348834991455078,
+  "root_note": "Preview root only; source-cell anchors visually authored, not approved production registration.",
+  "events_note": "Timing and events are presentation prototypes, no damage/collision/runtime changes.",
+  "left_foot_support": "Left-leg support requested for knee strikes; anatomical verification pending",
+  "right_foot_support": "Recovered after knee strike; no world-motion registration",
+  "grip_note": "No active bow grip during hold/strike/throw; independent back-side stow anchor only.",
+  "contact_note": "Preview contact anchors approximate. Full victim rig joint synchronization still needs production pass."
+}

@@ -1,0 +1,272 @@
+{
+  "action": "dash_heavy",
+  "prototype": true,
+  "source_sha256": "7016e48c02141a90170222f69c3b07385a40f6d395f64f9c32bfe67907b4fd31",
+  "raw_sha256": "7016e48c02141a90170222f69c3b07385a40f6d395f64f9c32bfe67907b4fd31",
+  "native_alpha_preserved": true,
+  "anatomical_measurement": "Manually inspected crown-neck, torso, unfolded thigh/shin/foot chain; constant standing-equivalent ruler across tucked poses, never bbox height.",
+  "frames": [
+    {
+      "frame": 1,
+      "source_rect": [
+        0,
+        0,
+        512,
+        500
+      ],
+      "body_height": 530,
+      "foot": [
+        420,
+        483
+      ],
+      "left_hand": [
+        398,
+        159
+      ],
+      "right_hand": [
+        354,
+        205
+      ],
+      "weapon_angle": -15,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          389,
+          150,
+          407,
+          168
+        ]
+      ],
+      "event": "last_running_step",
+      "duration_ms": 80,
+      "root_preview": [
+        122,
+        246
+      ]
+    },
+    {
+      "frame": 2,
+      "source_rect": [
+        512,
+        0,
+        512,
+        500
+      ],
+      "body_height": 530,
+      "foot": [
+        458,
+        480
+      ],
+      "left_hand": [
+        238,
+        90
+      ],
+      "right_hand": [
+        194,
+        78
+      ],
+      "weapon_angle": 105,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          229,
+          81,
+          247,
+          99
+        ]
+      ],
+      "event": "front_foot_plant",
+      "duration_ms": 100,
+      "root_preview": [
+        150,
+        246
+      ],
+      "bow_bash_support_hand": [
+        194,
+        78
+      ]
+    },
+    {
+      "frame": 3,
+      "source_rect": [
+        1024,
+        0,
+        512,
+        500
+      ],
+      "body_height": 530,
+      "foot": [
+        426,
+        480
+      ],
+      "left_hand": [
+        452,
+        136
+      ],
+      "right_hand": [
+        422,
+        150
+      ],
+      "weapon_angle": 65,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          443,
+          127,
+          461,
+          145
+        ]
+      ],
+      "event": "melee_contact",
+      "duration_ms": 60,
+      "root_preview": [
+        150,
+        246
+      ],
+      "bow_bash_support_hand": [
+        422,
+        150
+      ]
+    },
+    {
+      "frame": 4,
+      "source_rect": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "body_height": 530,
+      "foot": [
+        370,
+        484
+      ],
+      "left_hand": [
+        470,
+        243
+      ],
+      "right_hand": [
+        453,
+        248
+      ],
+      "weapon_angle": 74,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          461,
+          234,
+          479,
+          252
+        ]
+      ],
+      "event": "braking_support",
+      "duration_ms": 90,
+      "root_preview": [
+        150,
+        246
+      ],
+      "bow_bash_support_hand": [
+        453,
+        248
+      ]
+    },
+    {
+      "frame": 5,
+      "source_rect": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "body_height": 530,
+      "foot": [
+        401,
+        484
+      ],
+      "left_hand": [
+        416,
+        254
+      ],
+      "right_hand": [
+        370,
+        245
+      ],
+      "weapon_angle": 30,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          407,
+          245,
+          425,
+          263
+        ]
+      ],
+      "event": "recover",
+      "duration_ms": 130,
+      "root_preview": [
+        150,
+        246
+      ]
+    },
+    {
+      "frame": 6,
+      "source_rect": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "body_height": 530,
+      "foot": [
+        364,
+        487
+      ],
+      "left_hand": [
+        371,
+        285
+      ],
+      "right_hand": [
+        185,
+        281
+      ],
+      "weapon_angle": 0,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          362,
+          276,
+          380,
+          294
+        ]
+      ],
+      "event": "standing_exit",
+      "duration_ms": 180,
+      "root_preview": [
+        150,
+        246
+      ]
+    }
+  ],
+  "preview_only": true,
+  "runtime_changed": false,
+  "volley": "no arrows",
+  "timing": "Approximate prototype; old metadata has no durations; variable keyframe dwell, no optical flow",
+  "source_rgba_sha256": "d1dba67c84b2f5e39cec5f1264b86c36840198406f7e6412a6575a9854cc37a3",
+  "source_alpha_sha256": "ba52df45902eaa1e4209b4ec6e1b07d8bd086d4defb5d5eef03f549ccd9376c2",
+  "alpha_zero_fraction": 0.6215184529622396,
+  "raw_final_decoded_equal": true,
+  "grading": "None; retained generated RGB/native alpha. No runtime grading.",
+  "on_confirmed_hit": {
+    "normal_enemy": "launch",
+    "shield_enemy": "normal_hit",
+    "boss": "may_block"
+  },
+  "library_gif_id": "libfile_6d30556d95bc8191bf5591e835c75460",
+  "preview_sha256": "2f9cdda236acacb57deabb82b3ef2eb5a43bc30be625abe379b9bc0274214b0a"
+}
