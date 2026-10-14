@@ -1,0 +1,2 @@
+User v3 correction: preserve near/mid/far spread, make downward angles shallower and horizontal reach longer. This supersedes old half-screen range constraint for this visual prototype. Canvas expands from 480 to 600 pixels; body remains 148px standing equivalent, unchanged 740ms body action and simultaneous launch.
+Only projectile/preview canvas changes. No other actions or runtime touched. Rebuild with python build_preview.py air_heavy. Native RGBA source, independent bow/string/projectile layers, anchors/events and hashes retained.

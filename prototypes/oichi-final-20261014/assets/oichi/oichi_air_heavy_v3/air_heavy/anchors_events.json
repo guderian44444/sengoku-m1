@@ -1,0 +1,292 @@
+{
+  "action": "air_heavy",
+  "prototype": true,
+  "source_sha256": "b0a792948741f151a777d9ca1f1c01113c6a2dd8e225042a8846fcda76c21154",
+  "raw_sha256": "b0a792948741f151a777d9ca1f1c01113c6a2dd8e225042a8846fcda76c21154",
+  "native_alpha_preserved": true,
+  "anatomical_measurement": "Manually inspected crown-neck, torso, unfolded thigh/shin/foot chain; constant standing-equivalent ruler across tucked poses, never bbox height.",
+  "frames": [
+    {
+      "frame": 1,
+      "source_rect": [
+        0,
+        0,
+        512,
+        500
+      ],
+      "body_height": 550,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        473,
+        235
+      ],
+      "right_hand": [
+        264,
+        100
+      ],
+      "weapon_angle": 25,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          464,
+          226,
+          482,
+          244
+        ]
+      ],
+      "event": "airborne",
+      "duration_ms": 100,
+      "root_preview": [
+        128,
+        208
+      ],
+      "second_hand": [
+        264,
+        100
+      ]
+    },
+    {
+      "frame": 2,
+      "source_rect": [
+        512,
+        0,
+        512,
+        500
+      ],
+      "body_height": 550,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        445,
+        238
+      ],
+      "right_hand": [
+        211,
+        108
+      ],
+      "weapon_angle": 25,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          436,
+          229,
+          454,
+          247
+        ]
+      ],
+      "event": "draw",
+      "duration_ms": 130,
+      "root_preview": [
+        128,
+        193
+      ],
+      "second_hand": [
+        211,
+        108
+      ]
+    },
+    {
+      "frame": 3,
+      "source_rect": [
+        1024,
+        0,
+        512,
+        500
+      ],
+      "body_height": 550,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        462,
+        228
+      ],
+      "right_hand": [
+        239,
+        112
+      ],
+      "weapon_angle": 25,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          453,
+          219,
+          471,
+          237
+        ]
+      ],
+      "event": "full_draw",
+      "duration_ms": 160,
+      "root_preview": [
+        128,
+        187
+      ],
+      "second_hand": [
+        239,
+        112
+      ]
+    },
+    {
+      "frame": 4,
+      "source_rect": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "body_height": 550,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        475,
+        229
+      ],
+      "right_hand": [
+        198,
+        63
+      ],
+      "weapon_angle": 25,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          466,
+          220,
+          484,
+          238
+        ]
+      ],
+      "event": "release_three_simultaneous",
+      "duration_ms": 90,
+      "root_preview": [
+        128,
+        192
+      ]
+    },
+    {
+      "frame": 5,
+      "source_rect": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "body_height": 550,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        445,
+        233
+      ],
+      "right_hand": [
+        120,
+        42
+      ],
+      "weapon_angle": 25,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          436,
+          224,
+          454,
+          242
+        ]
+      ],
+      "event": "followthrough",
+      "duration_ms": 110,
+      "root_preview": [
+        128,
+        210
+      ]
+    },
+    {
+      "frame": 6,
+      "source_rect": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "body_height": 550,
+      "foot": [
+        300,
+        550
+      ],
+      "left_hand": [
+        420,
+        308
+      ],
+      "right_hand": [
+        262,
+        150
+      ],
+      "weapon_angle": 5,
+      "weapon_behind": false,
+      "weapon_visible": true,
+      "hand_occluders": [
+        [
+          411,
+          299,
+          429,
+          317
+        ]
+      ],
+      "event": "descent_exit",
+      "duration_ms": 150,
+      "root_preview": [
+        128,
+        228
+      ]
+    }
+  ],
+  "preview_only": true,
+  "runtime_changed": false,
+  "volley": "User-approved revision: simultaneous near/mid/far divergent down-right trajectories; v3 longer shallower spread, horizontal reaches 135/220/310 on expanded 600px canvas",
+  "timing": "Approximate prototype; old metadata has no durations; variable keyframe dwell, no optical flow",
+  "revision": 3,
+  "user_revision": "User v3 correction: preserve near/mid/far spread, make downward angles shallower and horizontal reach longer. This supersedes old half-screen range constraint for this visual prototype. Canvas expands from 480 to 600 pixels; body remains 148px standing equivalent, unchanged 740ms body action and simultaneous launch.",
+  "library_gif_id": "libfile_70cb76ea3ce48191ab676a2fbaf9f758",
+  "source_rgba_sha256": "3ae2f4abb595ce2e8829a4f3410676a22140a6ca17b6b170974cb8d8a47a46fc",
+  "source_alpha_sha256": "f8b9550e0d7f88416ce1db7640e9746a8e266551cb27ccd9e49c406658a6eca1",
+  "native_alpha_zero_fraction": 0.6039600372314453,
+  "raw_final_decoded_equal": true,
+  "body_source_identical_to_v1": true,
+  "duration_ms": 740,
+  "projectile_trajectories": {
+    "origin": "frame 4 measured bow grip",
+    "ground_y": 246,
+    "horizontal_reach_px": [
+      135,
+      220,
+      310
+    ],
+    "previous_horizontal_reach_px": [
+      65,
+      140,
+      230
+    ],
+    "far_reach_increase_percent": 34.78260869565217,
+    "viewport_width_px": 600,
+    "previous_viewport_width_px": 480,
+    "body_scale_px": 148,
+    "flight_progress_frames_4_5_6": [
+      0.18,
+      0.62,
+      1.0
+    ]
+  }
+}

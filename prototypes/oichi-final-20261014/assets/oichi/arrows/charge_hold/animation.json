@@ -1,0 +1,159 @@
+{
+  "action": "charge_hold",
+  "status": "prototype, new specification not yet mapped to game ticks",
+  "preview_only_ms": 760,
+  "runtime_timing_changed": false,
+  "game_scale": 0.2948766455977237,
+  "standing_equivalent_height_px": 148,
+  "root": [
+    480,
+    884
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "pose": "04_full_draw",
+      "duration_ms": 220,
+      "start_ms": 0,
+      "root": [
+        480,
+        884
+      ],
+      "grip_left_hand": [
+        767.245,
+        473.796
+      ],
+      "right_draw_fingertips": [
+        481.531,
+        465.633
+      ],
+      "bow_tips": [
+        [
+          720.265,
+          137.916
+        ],
+        [
+          715.405,
+          649.836
+        ]
+      ],
+      "arrow_nock": [
+        481.531,
+        465.633
+      ],
+      "release_event": false,
+      "projectiles": 0,
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "04_full_draw",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    },
+    {
+      "index": 1,
+      "pose": "aim_settle",
+      "duration_ms": 320,
+      "start_ms": 220,
+      "root": [
+        480,
+        884
+      ],
+      "grip_left_hand": [
+        767.245,
+        473.796
+      ],
+      "right_draw_fingertips": [
+        480,
+        476
+      ],
+      "bow_tips": [
+        [
+          720.265,
+          137.916
+        ],
+        [
+          715.405,
+          649.836
+        ]
+      ],
+      "arrow_nock": [
+        480,
+        476
+      ],
+      "release_event": false,
+      "projectiles": 0,
+      "provenance": {
+        "kind": "new_Qwen_generated_arm_pose_local_composite",
+        "base": "04_full_draw",
+        "prompt_id": "b32ce939-d4e0-4fe9-9304-98aed72de21c",
+        "generation_seconds": 49.711,
+        "generated_source": "output/heavy1000/aim_settle_00001_.png",
+        "changed_pixels": 13367,
+        "outside_arm_mask_unchanged": true,
+        "alpha_route": "deterministic gray cutout in generated arm region",
+        "skin_colour_gain": [
+          1.0136986301369864,
+          1.0472972972972974,
+          1.0792079207920793
+        ],
+        "no_optical_flow": true,
+        "no_spatial_warp": true
+      }
+    },
+    {
+      "index": 2,
+      "pose": "04_full_draw",
+      "duration_ms": 220,
+      "start_ms": 540,
+      "root": [
+        480,
+        884
+      ],
+      "grip_left_hand": [
+        767.245,
+        473.796
+      ],
+      "right_draw_fingertips": [
+        481.531,
+        465.633
+      ],
+      "bow_tips": [
+        [
+          720.265,
+          137.916
+        ],
+        [
+          715.405,
+          649.836
+        ]
+      ],
+      "arrow_nock": [
+        481.531,
+        465.633
+      ],
+      "release_event": false,
+      "projectiles": 0,
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "04_full_draw",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    }
+  ],
+  "event_rules": {
+    "heavy": "one arrow, contact standing knockback, no ice",
+    "charge_release": "one piercing arrow, contact knockback, no ice",
+    "charge_rain": "one upward arrow, on viewport exit immediately independent rain, area knockdown, no ice"
+  },
+  "layers": [
+    "character",
+    "bow",
+    "string",
+    "arrow",
+    "arrow_tail"
+  ],
+  "loopable": true,
+  "no_optical_flow": true
+}

@@ -1,0 +1,278 @@
+{
+  "action": "charge_ready",
+  "status": "prototype, new specification not yet mapped to game ticks",
+  "preview_only_ms": 900,
+  "runtime_timing_changed": false,
+  "game_scale": 0.2948766455977237,
+  "standing_equivalent_height_px": 148,
+  "root": [
+    480,
+    884
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "pose": "01_ready",
+      "duration_ms": 100,
+      "start_ms": 0,
+      "root": [
+        480,
+        884
+      ],
+      "grip_left_hand": [
+        622.381,
+        591.619
+      ],
+      "right_draw_fingertips": null,
+      "bow_tips": [
+        [
+          575.401,
+          255.73900000000003
+        ],
+        [
+          570.5409999999999,
+          767.6590000000001
+        ]
+      ],
+      "arrow_nock": null,
+      "release_event": false,
+      "projectiles": 0,
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "01_ready",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    },
+    {
+      "index": 1,
+      "pose": "raise_retry",
+      "duration_ms": 100,
+      "start_ms": 100,
+      "root": [
+        480,
+        884
+      ],
+      "grip_left_hand": [
+        669,
+        589
+      ],
+      "right_draw_fingertips": null,
+      "bow_tips": [
+        [
+          622.02,
+          253.12
+        ],
+        [
+          617.16,
+          765.04
+        ]
+      ],
+      "arrow_nock": null,
+      "release_event": false,
+      "projectiles": 0,
+      "provenance": {
+        "kind": "new_Qwen_generated_arm_pose_local_composite",
+        "base": "02_raise_nock",
+        "prompt_id": "d201b8aa-47db-42c3-8c2f-455b2fb4b6dc",
+        "generation_seconds": 43.554,
+        "generated_source": "output/heavy1000/raise_retry_00001_.png",
+        "changed_pixels": 19421,
+        "outside_arm_mask_unchanged": true,
+        "alpha_route": "deterministic gray cutout in generated arm region",
+        "skin_colour_gain": [
+          1.0,
+          1.0057142857142858,
+          1.007936507936508
+        ],
+        "no_optical_flow": true,
+        "no_spatial_warp": true
+      }
+    },
+    {
+      "index": 2,
+      "pose": "02_raise_nock",
+      "duration_ms": 130,
+      "start_ms": 200,
+      "root": [
+        480,
+        884
+      ],
+      "grip_left_hand": [
+        682.5,
+        565.0
+      ],
+      "right_draw_fingertips": [
+        508.5,
+        545.0
+      ],
+      "bow_tips": [
+        [
+          635.52,
+          229.12
+        ],
+        [
+          630.66,
+          741.04
+        ]
+      ],
+      "arrow_nock": [
+        508.5,
+        545.0
+      ],
+      "release_event": false,
+      "projectiles": 0,
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "02_raise_nock",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    },
+    {
+      "index": 3,
+      "pose": "03_half_draw",
+      "duration_ms": 170,
+      "start_ms": 330,
+      "root": [
+        480,
+        884
+      ],
+      "grip_left_hand": [
+        767.245,
+        473.796
+      ],
+      "right_draw_fingertips": [
+        585.612,
+        519.714
+      ],
+      "bow_tips": [
+        [
+          720.265,
+          137.916
+        ],
+        [
+          715.405,
+          649.836
+        ]
+      ],
+      "arrow_nock": [
+        585.612,
+        519.714
+      ],
+      "release_event": false,
+      "projectiles": 0,
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "03_half_draw",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    },
+    {
+      "index": 4,
+      "pose": "draw75",
+      "duration_ms": 180,
+      "start_ms": 500,
+      "root": [
+        480,
+        884
+      ],
+      "grip_left_hand": [
+        767.245,
+        473.796
+      ],
+      "right_draw_fingertips": [
+        539,
+        486
+      ],
+      "bow_tips": [
+        [
+          720.265,
+          137.916
+        ],
+        [
+          715.405,
+          649.836
+        ]
+      ],
+      "arrow_nock": [
+        539,
+        486
+      ],
+      "release_event": false,
+      "projectiles": 0,
+      "provenance": {
+        "kind": "new_Qwen_generated_arm_pose_local_composite",
+        "base": "04_full_draw",
+        "prompt_id": "9ade968c-4f9c-455e-a6f7-3228b1ef4601",
+        "generation_seconds": 49.951,
+        "generated_source": "output/heavy1000/draw75_00001_.png",
+        "changed_pixels": 26241,
+        "outside_arm_mask_unchanged": true,
+        "alpha_route": "deterministic gray cutout in generated arm region",
+        "skin_colour_gain": [
+          0.95,
+          0.9252873563218391,
+          0.92
+        ],
+        "no_optical_flow": true,
+        "no_spatial_warp": true
+      }
+    },
+    {
+      "index": 5,
+      "pose": "04_full_draw",
+      "duration_ms": 220,
+      "start_ms": 680,
+      "root": [
+        480,
+        884
+      ],
+      "grip_left_hand": [
+        767.245,
+        473.796
+      ],
+      "right_draw_fingertips": [
+        481.531,
+        465.633
+      ],
+      "bow_tips": [
+        [
+          720.265,
+          137.916
+        ],
+        [
+          715.405,
+          649.836
+        ]
+      ],
+      "arrow_nock": [
+        481.531,
+        465.633
+      ],
+      "release_event": false,
+      "projectiles": 0,
+      "provenance": {
+        "kind": "reused_frozen_pose",
+        "original_name": "04_full_draw",
+        "character_hash_unchanged": true,
+        "hand_hash_unchanged": true
+      }
+    }
+  ],
+  "event_rules": {
+    "heavy": "one arrow, contact standing knockback, no ice",
+    "charge_release": "one piercing arrow, contact knockback, no ice",
+    "charge_rain": "one upward arrow, on viewport exit immediately independent rain, area knockdown, no ice"
+  },
+  "layers": [
+    "character",
+    "bow",
+    "string",
+    "arrow",
+    "arrow_tail"
+  ],
+  "loopable": false,
+  "no_optical_flow": true
+}

@@ -1,0 +1,452 @@
+[
+  {
+    "id": "light_1",
+    "name": "輕攻擊第一段",
+    "revision": "v2",
+    "asset_directory": "assets/oichi/melee/light_1_v2",
+    "metadata": "assets/oichi/melee/light_1_v2/anchors_events.json",
+    "preview": "docs/combat-art-reference/images/light_1.gif",
+    "representative": "docs/combat-art-reference/images/light_1.png",
+    "playback_keys": 8,
+    "duration_ms": 840,
+    "description": "上舉蓄勢後向前下方大幅揮弓；前踏、擊中、收回共同待機。",
+    "events": [
+      {
+        "frame": 3,
+        "event": "foot_plant"
+      },
+      {
+        "frame": 4,
+        "event": "downward_bow_body_contact",
+        "on_confirmed_hit": "push_standing_target"
+      },
+      {
+        "frame": 7,
+        "event": "ready_and_optional_next_press"
+      }
+    ]
+  },
+  {
+    "id": "light_2",
+    "name": "輕攻擊第二段",
+    "revision": "v2",
+    "asset_directory": "assets/oichi/melee/light_2_v2",
+    "metadata": "assets/oichi/melee/light_2_v2/anchors_events.json",
+    "preview": "docs/combat-art-reference/images/light_2.gif",
+    "representative": "docs/combat-art-reference/images/light_2.png",
+    "playback_keys": 8,
+    "duration_ms": 840,
+    "description": "重新製作明確下擊，肩肘帶動弓身砸向前下方，避免像從後方拉回。",
+    "events": [
+      {
+        "frame": 3,
+        "event": "foot_plant"
+      },
+      {
+        "frame": 4,
+        "event": "downward_bow_body_contact",
+        "on_confirmed_hit": "push_standing_target"
+      },
+      {
+        "frame": 7,
+        "event": "ready_and_optional_next_press"
+      }
+    ]
+  },
+  {
+    "id": "light_3",
+    "name": "輕攻擊第三段",
+    "revision": "v3 force",
+    "asset_directory": "assets/oichi/melee/light_3_v3",
+    "metadata": "assets/oichi/melee/light_3_v3/anchors_events.json",
+    "preview": "docs/combat-art-reference/images/light_3.gif",
+    "representative": "docs/combat-art-reference/images/light_3.png",
+    "playback_keys": 10,
+    "duration_ms": 970,
+    "description": "加重扭腰蓄勢、蹬地跨步與深弓步，肩臂伸展橫掃；接觸後擊飛，末格回共同待機。",
+    "events": [
+      {
+        "frame": 4,
+        "event": "foot_plant"
+      },
+      {
+        "frame": 4,
+        "event": "forceful_horizontal_bow_contact",
+        "on_confirmed_hit": "launch_target"
+      },
+      {
+        "frame": 9,
+        "event": "ready"
+      }
+    ]
+  },
+  {
+    "id": "heavy",
+    "name": "站立重射",
+    "revision": "horizontal 9 keys",
+    "asset_directory": "assets/oichi/arrows/heavy_package/heavy_horizontal_9keys",
+    "metadata": "assets/oichi/arrows/heavy_package/heavy_horizontal_9keys/animation.json",
+    "preview": "docs/combat-art-reference/images/heavy.gif",
+    "representative": "docs/combat-art-reference/images/heavy.png",
+    "playback_keys": 9,
+    "duration_ms": 800,
+    "description": "短拉弓後單箭水平射出；增加兩張有效過渡姿勢，保留回待機。",
+    "events": [
+      {
+        "frame": 5,
+        "release_event": true
+      }
+    ]
+  },
+  {
+    "id": "charge_ready",
+    "name": "蓄力拉弓",
+    "revision": "v1 approved",
+    "asset_directory": "assets/oichi/arrows/charge_ready",
+    "metadata": "assets/oichi/arrows/charge_ready/animation.json",
+    "preview": "docs/combat-art-reference/images/charge_ready.gif",
+    "representative": "docs/combat-art-reference/images/charge_ready.png",
+    "playback_keys": 6,
+    "duration_ms": 900,
+    "description": "逐步舉弓、開肩拉弦至臉頰附近；雙腳固定支撐。",
+    "events": []
+  },
+  {
+    "id": "charge_hold",
+    "name": "滿蓄保持",
+    "revision": "v1 approved",
+    "asset_directory": "assets/oichi/arrows/charge_hold",
+    "metadata": "assets/oichi/arrows/charge_hold/animation.json",
+    "preview": "docs/combat-art-reference/images/charge_hold.gif",
+    "representative": "docs/combat-art-reference/images/charge_hold.png",
+    "playback_keys": 3,
+    "duration_ms": 760,
+    "description": "保持滿弓瞄準，少量呼吸循環；此段不發射。",
+    "events": []
+  },
+  {
+    "id": "charge_release",
+    "name": "蓄力貫穿箭",
+    "revision": "horizontal",
+    "asset_directory": "assets/oichi/arrows/release_package/charge_release_horizontal",
+    "metadata": "assets/oichi/arrows/release_package/charge_release_horizontal/animation.json",
+    "preview": "docs/combat-art-reference/images/charge_release.gif",
+    "representative": "docs/combat-art-reference/images/charge_release.png",
+    "playback_keys": 5,
+    "duration_ms": 660,
+    "description": "放弦後單箭水平貫穿；以實際碰撞處理擊退，無冰爆。",
+    "events": [
+      {
+        "frame": 1,
+        "release_event": true
+      }
+    ]
+  },
+  {
+    "id": "charge_rain",
+    "name": "圓形箭雨",
+    "revision": "radius1230 arrows70",
+    "asset_directory": "assets/oichi/arrows/rain_package/charge_rain",
+    "metadata": "assets/oichi/arrows/rain_package/charge_rain/animation.json",
+    "preview": "docs/combat-art-reference/images/charge_rain.gif",
+    "representative": "docs/combat-art-reference/images/charge_rain.png",
+    "playback_keys": 10,
+    "duration_ms": 1300,
+    "description": "滿蓄蹲身、舉弓向空中射箭，箭離屏即啟動以阿市為中心的大圓形箭雨。70支隨機錯落落下，半徑1230來源座標單位；前後景分層。",
+    "events": [
+      {
+        "frame": 6,
+        "release_event": true
+      }
+    ]
+  },
+  {
+    "id": "air_light",
+    "name": "空中輕擊",
+    "revision": "v2 deep downswing",
+    "asset_directory": "assets/oichi/oichi_air_light_v2/air_light",
+    "metadata": "assets/oichi/oichi_air_light_v2/air_light/anchors_events.json",
+    "preview": "docs/combat-art-reference/images/air_light.gif",
+    "representative": "docs/combat-art-reference/images/air_light.png",
+    "playback_keys": 6,
+    "duration_ms": 560,
+    "description": "空中舉弓後更大幅向前下揮，接近地面敵人；此招是弓身近戰。",
+    "events": [
+      {
+        "frame": 0,
+        "event": "airborne"
+      },
+      {
+        "frame": 1,
+        "event": "large_overhead_backswing"
+      },
+      {
+        "frame": 2,
+        "event": "steep_downward_contact"
+      },
+      {
+        "frame": 3,
+        "event": "deep_followthrough"
+      },
+      {
+        "frame": 4,
+        "event": "recover_from_downswing"
+      },
+      {
+        "frame": 5,
+        "event": "descent_exit"
+      }
+    ]
+  },
+  {
+    "id": "air_heavy",
+    "name": "空中三箭",
+    "revision": "v3 shallow far",
+    "asset_directory": "assets/oichi/oichi_air_heavy_v3/air_heavy",
+    "metadata": "assets/oichi/oichi_air_heavy_v3/air_heavy/anchors_events.json",
+    "preview": "docs/combat-art-reference/images/air_heavy.gif",
+    "representative": "docs/combat-art-reference/images/air_heavy.png",
+    "playback_keys": 6,
+    "duration_ms": 740,
+    "description": "同時射出近、中、遠三支箭；角度較平、最遠射程加長。最新視覺方向取代早先平行／半畫面試案。",
+    "events": [
+      {
+        "frame": 0,
+        "event": "airborne"
+      },
+      {
+        "frame": 1,
+        "event": "draw"
+      },
+      {
+        "frame": 2,
+        "event": "full_draw"
+      },
+      {
+        "frame": 3,
+        "event": "release_three_simultaneous"
+      },
+      {
+        "frame": 4,
+        "event": "followthrough"
+      },
+      {
+        "frame": 5,
+        "event": "descent_exit"
+      }
+    ]
+  },
+  {
+    "id": "dash_heavy",
+    "name": "衝刺重擊",
+    "revision": "v1 approved",
+    "asset_directory": "assets/oichi/dash/dash_heavy",
+    "metadata": "assets/oichi/dash/dash_heavy/anchors_events.json",
+    "preview": "docs/combat-art-reference/images/dash_heavy.gif",
+    "representative": "docs/combat-art-reference/images/dash_heavy.png",
+    "playback_keys": 6,
+    "duration_ms": 640,
+    "description": "衝刺最後一步前踏，弓身大範圍掃擊後制動站穩；不蓄力、不射箭。",
+    "events": [
+      {
+        "frame": 0,
+        "event": "last_running_step"
+      },
+      {
+        "frame": 1,
+        "event": "front_foot_plant"
+      },
+      {
+        "frame": 2,
+        "event": "melee_contact"
+      },
+      {
+        "frame": 3,
+        "event": "braking_support"
+      },
+      {
+        "frame": 4,
+        "event": "recover"
+      },
+      {
+        "frame": 5,
+        "event": "standing_exit"
+      }
+    ]
+  },
+  {
+    "id": "grab_start",
+    "name": "抓取起手",
+    "revision": "v1 approved",
+    "asset_directory": "assets/oichi/grabs",
+    "metadata": "assets/oichi/grabs/grab_start.json",
+    "preview": "docs/combat-art-reference/images/grab_start.gif",
+    "representative": "docs/combat-art-reference/images/grab_start.png",
+    "playback_keys": 6,
+    "duration_ms": 680,
+    "description": "將弓收納側背，伸手抓住上臂或衣領，把目標拉近。",
+    "events": [
+      {
+        "frame": 1,
+        "events": [
+          "bow_stowed"
+        ]
+      },
+      {
+        "frame": 3,
+        "events": [
+          "grab_attach"
+        ]
+      },
+      {
+        "frame": 4,
+        "events": [
+          "pull_close"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grab_hold",
+    "name": "抓取保持",
+    "revision": "v1 approved",
+    "asset_directory": "assets/oichi/grabs",
+    "metadata": "assets/oichi/grabs/grab_hold.json",
+    "preview": "docs/combat-art-reference/images/grab_hold.gif",
+    "representative": "docs/combat-art-reference/images/grab_hold.png",
+    "playback_keys": 3,
+    "duration_ms": 720,
+    "description": "維持雙方抓取接點與距離，小幅準備膝擊。",
+    "events": [
+      {
+        "frame": 0,
+        "events": [
+          "hold_loop_start"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grab_hit_1",
+    "name": "第一膝擊",
+    "revision": "six keys",
+    "asset_directory": "assets/oichi/grabs/grab_hit_1_six",
+    "metadata": "assets/oichi/grabs/grab_hit_1_six/metadata.json",
+    "preview": "docs/combat-art-reference/images/grab_hit_1.gif",
+    "representative": "docs/combat-art-reference/images/grab_hit_1.png",
+    "playback_keys": 6,
+    "duration_ms": 420,
+    "description": "膝擊加入兩張過渡，共六格，190ms接觸，回到保持位置。",
+    "events": [
+      {
+        "frame": 3,
+        "events": [
+          "knee_contact_1"
+        ]
+      },
+      {
+        "frame": 5,
+        "events": [
+          "return_hold"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grab_hit_2",
+    "name": "第二膝擊",
+    "revision": "v1 approved",
+    "asset_directory": "assets/oichi/grabs",
+    "metadata": "assets/oichi/grabs/grab_hit_2.json",
+    "preview": "docs/combat-art-reference/images/grab_hit_2.gif",
+    "representative": "docs/combat-art-reference/images/grab_hit_2.png",
+    "playback_keys": 4,
+    "duration_ms": 440,
+    "description": "第二次獨立膝擊接觸，收回後準備轉髖。",
+    "events": [
+      {
+        "frame": 2,
+        "events": [
+          "knee_contact_2"
+        ]
+      },
+      {
+        "frame": 3,
+        "events": [
+          "turn_hip_prepare"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "throw_forward",
+    "name": "前摔",
+    "revision": "edge cleaned",
+    "asset_directory": "assets/oichi/grabs/throw_fixes",
+    "metadata": "assets/oichi/grabs/throw_fixes/throw_forward_metadata.json",
+    "preview": "docs/combat-art-reference/images/throw_forward.gif",
+    "representative": "docs/combat-art-reference/images/throw_forward.png",
+    "playback_keys": 8,
+    "duration_ms": 900,
+    "description": "轉髖拉人後向前拋出，已清除鄰格多餘手部污染；目標軌跡獨立。",
+    "events": [
+      {
+        "frame": 0,
+        "events": [
+          "grab_attached"
+        ]
+      },
+      {
+        "frame": 2,
+        "events": [
+          "hip_pivot"
+        ]
+      },
+      {
+        "frame": 3,
+        "events": [
+          "victim_loaded"
+        ]
+      },
+      {
+        "frame": 5,
+        "events": [
+          "throw_release"
+        ]
+      },
+      {
+        "frame": 7,
+        "events": [
+          "victim_land",
+          "recovery_end"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "throw_reverse",
+    "name": "反向過肩摔",
+    "revision": "registered slim13",
+    "asset_directory": "assets/oichi/grabs/reverse_coherent",
+    "metadata": "assets/oichi/grabs/reverse_coherent/registered_metadata.json",
+    "preview": "docs/combat-art-reference/images/throw_reverse.gif",
+    "representative": "docs/combat-art-reference/images/throw_reverse.png",
+    "playback_keys": 13,
+    "duration_ms": 960,
+    "description": "轉身、上肩、向後拋出；細腿版本保留，13格承重腳定位校正，580ms放手，結束面向左。",
+    "events": [
+      {
+        "frame": 9,
+        "events": [
+          "release"
+        ]
+      },
+      {
+        "frame": 12,
+        "events": [
+          "victim_land"
+        ]
+      }
+    ]
+  }
+]

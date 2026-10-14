@@ -1,0 +1,743 @@
+{
+  "clip": "throw_reverse",
+  "prototype": true,
+  "frame_count": 13,
+  "total_ms": 960,
+  "release_ms": 580,
+  "loop": false,
+  "registration_method": "Rigid whole-body translations from measured planted sole; extra 3% uniform size calibration for frames2/4 based on neck/head comparison; no limb warp or optical flow.",
+  "frames": [
+    {
+      "frame": 0,
+      "pose": "b0",
+      "file": "b0.png",
+      "source": "base_slim.png",
+      "source_rect": [
+        0,
+        0,
+        402,
+        523
+      ],
+      "root_full_source": [
+        205,
+        495
+      ],
+      "grip_full_source": [
+        329,
+        142
+      ],
+      "grip_preview": [
+        207,
+        95
+      ],
+      "body_height": 490,
+      "scale": 0.3020408163265306,
+      "start_ms": 0,
+      "duration_ms": 70,
+      "events": [],
+      "victim_grip_constrained": true,
+      "victim_shoulder": [
+        227,
+        88
+      ],
+      "victim_hip": [
+        230,
+        139
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        -1,
+        -5
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_right_sole",
+      "support_sole_before": [
+        203.0,
+        207
+      ],
+      "support_sole_after": [
+        202.0,
+        202
+      ],
+      "body_canvas": "stable_body_00.png",
+      "victim_canvas": "stable_victim_00.png",
+      "weapon_canvas": "stable_weapon_00.png"
+    },
+    {
+      "frame": 1,
+      "pose": "t0",
+      "file": "t0.png",
+      "source": "turn_slim_fix.png",
+      "source_rect": [
+        109,
+        0,
+        822,
+        707
+      ],
+      "root_full_source": [
+        555,
+        700
+      ],
+      "grip_full_source": [
+        637,
+        176
+      ],
+      "grip_preview": [
+        188,
+        90
+      ],
+      "body_height": 690,
+      "scale": 0.2144927536231884,
+      "start_ms": 70,
+      "duration_ms": 50,
+      "events": [],
+      "victim_grip_constrained": true,
+      "victim_shoulder": [
+        216,
+        89
+      ],
+      "victim_hip": [
+        230,
+        135
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        -1,
+        1
+      ],
+      "registration_additional_scale": 1.03,
+      "stance_reference": "screen_right_sole",
+      "support_sole_before": [
+        202.875,
+        201
+      ],
+      "support_sole_after": [
+        201.9,
+        202
+      ],
+      "body_canvas": "stable_body_01.png",
+      "victim_canvas": "stable_victim_01.png",
+      "weapon_canvas": "stable_weapon_01.png"
+    },
+    {
+      "frame": 2,
+      "pose": "b1",
+      "file": "b1.png",
+      "source": "base_slim.png",
+      "source_rect": [
+        369,
+        0,
+        786,
+        523
+      ],
+      "root_full_source": [
+        589,
+        495
+      ],
+      "grip_full_source": [
+        622,
+        111
+      ],
+      "grip_preview": [
+        180,
+        86
+      ],
+      "body_height": 490,
+      "scale": 0.3020408163265306,
+      "start_ms": 120,
+      "duration_ms": 70,
+      "events": [],
+      "victim_grip_constrained": true,
+      "victim_shoulder": [
+        205,
+        91
+      ],
+      "victim_hip": [
+        229,
+        131
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        1,
+        -5
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_right_sole",
+      "support_sole_before": [
+        201.49333333333334,
+        207
+      ],
+      "support_sole_after": [
+        202.5,
+        202
+      ],
+      "body_canvas": "stable_body_02.png",
+      "victim_canvas": "stable_victim_02.png",
+      "weapon_canvas": "stable_weapon_02.png"
+    },
+    {
+      "frame": 3,
+      "pose": "t1",
+      "file": "t1.png",
+      "source": "turn_slim_fix.png",
+      "source_rect": [
+        827,
+        0,
+        1385,
+        708
+      ],
+      "root_full_source": [
+        1145,
+        700
+      ],
+      "grip_full_source": [
+        1160,
+        170
+      ],
+      "grip_preview": [
+        173,
+        88
+      ],
+      "body_height": 690,
+      "scale": 0.2144927536231884,
+      "start_ms": 190,
+      "duration_ms": 50,
+      "events": [],
+      "victim_grip_constrained": true,
+      "victim_shoulder": [
+        193,
+        92
+      ],
+      "victim_hip": [
+        228,
+        112
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        -1,
+        1
+      ],
+      "registration_additional_scale": 1.03,
+      "stance_reference": "screen_right_sole",
+      "support_sole_before": [
+        202.88235294117646,
+        201
+      ],
+      "support_sole_after": [
+        201.9,
+        202
+      ],
+      "body_canvas": "stable_body_03.png",
+      "victim_canvas": "stable_victim_03.png",
+      "weapon_canvas": "stable_weapon_03.png"
+    },
+    {
+      "frame": 4,
+      "pose": "b2",
+      "file": "b2.png",
+      "source": "base_slim.png",
+      "source_rect": [
+        769,
+        0,
+        1176,
+        526
+      ],
+      "root_full_source": [
+        973,
+        495
+      ],
+      "grip_full_source": [
+        1009,
+        102
+      ],
+      "grip_preview": [
+        181,
+        83
+      ],
+      "body_height": 490,
+      "scale": 0.3020408163265306,
+      "start_ms": 240,
+      "duration_ms": 90,
+      "events": [],
+      "victim_grip_constrained": true,
+      "victim_shoulder": [
+        181,
+        93
+      ],
+      "victim_hip": [
+        224,
+        94
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        -4,
+        -6
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_right_sole",
+      "support_sole_before": [
+        205.5897435897436,
+        208
+      ],
+      "support_sole_after": [
+        201.6,
+        202
+      ],
+      "body_canvas": "stable_body_04.png",
+      "victim_canvas": "stable_victim_04.png",
+      "weapon_canvas": "stable_weapon_04.png"
+    },
+    {
+      "frame": 5,
+      "pose": "b3",
+      "file": "b3.png",
+      "source": "base_slim.png",
+      "source_rect": [
+        1169,
+        5,
+        1518,
+        530
+      ],
+      "root_full_source": [
+        1357,
+        495
+      ],
+      "grip_full_source": [
+        1243,
+        117
+      ],
+      "grip_preview": [
+        136,
+        88
+      ],
+      "body_height": 490,
+      "scale": 0.3020408163265306,
+      "start_ms": 330,
+      "duration_ms": 70,
+      "events": [],
+      "victim_grip_constrained": true,
+      "victim_shoulder": [
+        176,
+        83
+      ],
+      "victim_hip": [
+        211,
+        55
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        0,
+        -7
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_left_sole",
+      "support_sole_before": [
+        137.859375,
+        209
+      ],
+      "support_sole_after": [
+        137.9,
+        202
+      ],
+      "body_canvas": "stable_body_05.png",
+      "victim_canvas": "stable_victim_05.png",
+      "weapon_canvas": "stable_weapon_05.png"
+    },
+    {
+      "frame": 6,
+      "pose": "t2",
+      "file": "t2.png",
+      "source": "turn_slim_fix.png",
+      "source_rect": [
+        1480,
+        0,
+        2050,
+        706
+      ],
+      "root_full_source": [
+        1745,
+        700
+      ],
+      "grip_full_source": [
+        1560,
+        170
+      ],
+      "grip_preview": [
+        132,
+        95
+      ],
+      "body_height": 730,
+      "scale": 0.20273972602739726,
+      "start_ms": 400,
+      "duration_ms": 50,
+      "events": [],
+      "victim_grip_constrained": true,
+      "victim_shoulder": [
+        160,
+        70
+      ],
+      "victim_hip": [
+        183,
+        33
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        7,
+        1
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_left_sole",
+      "support_sole_before": [
+        131.3125,
+        201
+      ],
+      "support_sole_after": [
+        138.3,
+        202
+      ],
+      "body_canvas": "stable_body_06.png",
+      "victim_canvas": "stable_victim_06.png",
+      "weapon_canvas": "stable_weapon_06.png"
+    },
+    {
+      "frame": 7,
+      "pose": "b4",
+      "file": "b4.png",
+      "source": "base_slim.png",
+      "source_rect": [
+        15,
+        455,
+        436,
+        996
+      ],
+      "root_full_source": [
+        205,
+        1007
+      ],
+      "grip_full_source": [
+        47,
+        556
+      ],
+      "grip_preview": [
+        122,
+        66
+      ],
+      "body_height": 490,
+      "scale": 0.3020408163265306,
+      "start_ms": 450,
+      "duration_ms": 80,
+      "events": [],
+      "victim_grip_constrained": true,
+      "victim_shoulder": [
+        144,
+        56
+      ],
+      "victim_hip": [
+        155,
+        13
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        -1,
+        7
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_left_sole",
+      "support_sole_before": [
+        138.768115942029,
+        195
+      ],
+      "support_sole_after": [
+        137.8,
+        202
+      ],
+      "body_canvas": "stable_body_07.png",
+      "victim_canvas": "stable_victim_07.png",
+      "weapon_canvas": "stable_weapon_07.png"
+    },
+    {
+      "frame": 8,
+      "pose": "e0",
+      "file": "e0.png",
+      "source": "end_slim.png",
+      "source_rect": [
+        0,
+        32,
+        872,
+        1024
+      ],
+      "root_full_source": [
+        440,
+        940
+      ],
+      "grip_full_source": [
+        120,
+        125
+      ],
+      "grip_preview": [
+        120,
+        74
+      ],
+      "body_height": 940,
+      "scale": 0.1574468085106383,
+      "start_ms": 530,
+      "duration_ms": 50,
+      "events": [],
+      "victim_grip_constrained": true,
+      "victim_shoulder": [
+        132,
+        65
+      ],
+      "victim_hip": [
+        130,
+        17
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        4,
+        0
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_left_sole",
+      "support_sole_before": [
+        134.10714285714286,
+        202
+      ],
+      "support_sole_after": [
+        138.1,
+        202
+      ],
+      "body_canvas": "stable_body_08.png",
+      "victim_canvas": "stable_victim_08.png",
+      "weapon_canvas": "stable_weapon_08.png"
+    },
+    {
+      "frame": 9,
+      "pose": "b5",
+      "file": "b5.png",
+      "source": "base_slim.png",
+      "source_rect": [
+        368,
+        491,
+        842,
+        994
+      ],
+      "root_full_source": [
+        589,
+        1007
+      ],
+      "grip_full_source": [
+        410,
+        644
+      ],
+      "grip_preview": [
+        116,
+        92
+      ],
+      "body_height": 490,
+      "scale": 0.3020408163265306,
+      "start_ms": 580,
+      "duration_ms": 90,
+      "events": [
+        "release"
+      ],
+      "victim_grip_constrained": false,
+      "victim_shoulder": [
+        109,
+        91
+      ],
+      "victim_hip": [
+        91,
+        48
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        -9,
+        6
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_left_sole",
+      "support_sole_before": [
+        146.53731343283582,
+        196
+      ],
+      "support_sole_after": [
+        137.5,
+        202
+      ],
+      "body_canvas": "stable_body_09.png",
+      "victim_canvas": "stable_victim_09.png",
+      "weapon_canvas": "stable_weapon_09.png"
+    },
+    {
+      "frame": 10,
+      "pose": "b6",
+      "file": "b6.png",
+      "source": "base_slim.png",
+      "source_rect": [
+        789,
+        445,
+        1220,
+        1008
+      ],
+      "root_full_source": [
+        973,
+        1007
+      ],
+      "grip_full_source": [
+        875,
+        739
+      ],
+      "grip_preview": [
+        140,
+        121
+      ],
+      "body_height": 490,
+      "scale": 0.3020408163265306,
+      "start_ms": 670,
+      "duration_ms": 100,
+      "events": [],
+      "victim_grip_constrained": false,
+      "victim_shoulder": [
+        76,
+        137
+      ],
+      "victim_hip": [
+        35,
+        119
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        -6,
+        4
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_left_sole",
+      "support_sole_before": [
+        144.29787234042553,
+        198
+      ],
+      "support_sole_after": [
+        138.3,
+        202
+      ],
+      "body_canvas": "stable_body_10.png",
+      "victim_canvas": "stable_victim_10.png",
+      "weapon_canvas": "stable_weapon_10.png"
+    },
+    {
+      "frame": 11,
+      "pose": "e1",
+      "file": "e1.png",
+      "source": "end_slim.png",
+      "source_rect": [
+        777,
+        32,
+        1518,
+        1006
+      ],
+      "root_full_source": [
+        1130,
+        940
+      ],
+      "grip_full_source": [
+        970,
+        420
+      ],
+      "grip_preview": [
+        143,
+        115
+      ],
+      "body_height": 880,
+      "scale": 0.16818181818181818,
+      "start_ms": 770,
+      "duration_ms": 50,
+      "events": [],
+      "victim_grip_constrained": false,
+      "victim_shoulder": [
+        65,
+        162
+      ],
+      "victim_hip": [
+        20,
+        150
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        0,
+        0
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_left_sole",
+      "support_sole_before": [
+        138.05084745762713,
+        202
+      ],
+      "support_sole_after": [
+        138.1,
+        202
+      ],
+      "body_canvas": "stable_body_11.png",
+      "victim_canvas": "stable_victim_11.png",
+      "weapon_canvas": "stable_weapon_11.png"
+    },
+    {
+      "frame": 12,
+      "pose": "b7",
+      "file": "b7.png",
+      "source": "base_slim.png",
+      "source_rect": [
+        1166,
+        441,
+        1533,
+        1001
+      ],
+      "root_full_source": [
+        1357,
+        1007
+      ],
+      "grip_full_source": [
+        1251,
+        732
+      ],
+      "grip_preview": [
+        138,
+        119
+      ],
+      "body_height": 490,
+      "scale": 0.3020408163265306,
+      "start_ms": 820,
+      "duration_ms": 140,
+      "events": [
+        "victim_land"
+      ],
+      "victim_grip_constrained": false,
+      "victim_shoulder": [
+        60,
+        189
+      ],
+      "victim_hip": [
+        15,
+        189
+      ],
+      "weapon_behind": true,
+      "registration_translation": [
+        -2,
+        5
+      ],
+      "registration_additional_scale": 1.0,
+      "stance_reference": "screen_left_sole",
+      "support_sole_before": [
+        139.75,
+        197
+      ],
+      "support_sole_after": [
+        137.8,
+        202
+      ],
+      "body_canvas": "stable_body_12.png",
+      "victim_canvas": "stable_victim_12.png",
+      "weapon_canvas": "stable_weapon_12.png"
+    }
+  ]
+}

@@ -1,0 +1,1354 @@
+{
+  "seed": 141026,
+  "center_ground_root": [
+    480,
+    884
+  ],
+  "preview_canvas_root": [
+    1536,
+    884
+  ],
+  "preview_canvas": [
+    3072,
+    1536
+  ],
+  "body_translation_only": [
+    1056,
+    0
+  ],
+  "previous_radius": 820,
+  "diameter_multiplier": 1.5,
+  "previous_particle_count": 140,
+  "character_scale_unchanged": true,
+  "circle_world_radius": 1230,
+  "perspective_y_scale": 0.2,
+  "release_ms": 720,
+  "upward_arrow_exit_ms": 800,
+  "rain_start_ms": 800,
+  "trigger_delay_ms": 0,
+  "layout": "uniform-area seeded irregular circle projected as ground ellipse, targets left right front back",
+  "occlusion": "target ground depth below/above root controls front/behind character",
+  "particle_count": 70,
+  "particles": [
+    {
+      "id": 0,
+      "ground_target": [
+        762.033,
+        768.752
+      ],
+      "world_angle": 5.167548966292552,
+      "world_radius": 641.5588202475109,
+      "birth_offset_ms": 0,
+      "fall_duration_ms": 284,
+      "drop_height": 659,
+      "slant": 0.011715659755450011,
+      "length": 104,
+      "z_layer": "behind"
+    },
+    {
+      "id": 1,
+      "ground_target": [
+        342.828,
+        746.824
+      ],
+      "world_angle": 4.514998307616693,
+      "world_radius": 699.4612774534104,
+      "birth_offset_ms": 77,
+      "fall_duration_ms": 241,
+      "drop_height": 610,
+      "slant": 0.006418371208957191,
+      "length": 105,
+      "z_layer": "behind"
+    },
+    {
+      "id": 2,
+      "ground_target": [
+        1387.99,
+        871.263
+      ],
+      "world_angle": 6.213161060839657,
+      "world_radius": 910.2205407824241,
+      "birth_offset_ms": 152,
+      "fall_duration_ms": 294,
+      "drop_height": 753,
+      "slant": -0.0780225572107368,
+      "length": 134,
+      "z_layer": "behind"
+    },
+    {
+      "id": 3,
+      "ground_target": [
+        -387.01,
+        794.421
+      ],
+      "world_angle": 3.6184287413476532,
+      "world_radius": 975.8658914742082,
+      "birth_offset_ms": 67,
+      "fall_duration_ms": 283,
+      "drop_height": 756,
+      "slant": 0.0034814112868084973,
+      "length": 130,
+      "z_layer": "behind"
+    },
+    {
+      "id": 4,
+      "ground_target": [
+        -206.294,
+        848.964
+      ],
+      "world_angle": 3.3915077194036716,
+      "world_radius": 708.298572426781,
+      "birth_offset_ms": 113,
+      "fall_duration_ms": 301,
+      "drop_height": 652,
+      "slant": -0.011428152039988287,
+      "length": 132,
+      "z_layer": "behind"
+    },
+    {
+      "id": 5,
+      "ground_target": [
+        -342.221,
+        1030.791
+      ],
+      "world_angle": 2.4128537946149393,
+      "world_radius": 1102.1516774235408,
+      "birth_offset_ms": 15,
+      "fall_duration_ms": 274,
+      "drop_height": 783,
+      "slant": 0.0267732452872414,
+      "length": 98,
+      "z_layer": "front"
+    },
+    {
+      "id": 6,
+      "ground_target": [
+        252.596,
+        847.598
+      ],
+      "world_angle": 3.8165626876099914,
+      "world_radius": 291.2727590567485,
+      "birth_offset_ms": 19,
+      "fall_duration_ms": 332,
+      "drop_height": 563,
+      "slant": -0.016118470696616566,
+      "length": 124,
+      "z_layer": "behind"
+    },
+    {
+      "id": 7,
+      "ground_target": [
+        -621.954,
+        894.646
+      ],
+      "world_angle": 3.093323717559145,
+      "world_radius": 1103.2393635709745,
+      "birth_offset_ms": 12,
+      "fall_duration_ms": 283,
+      "drop_height": 702,
+      "slant": 0.009729361858128185,
+      "length": 118,
+      "z_layer": "front"
+    },
+    {
+      "id": 8,
+      "ground_target": [
+        -354.754,
+        752.106
+      ],
+      "world_angle": 3.810215741926626,
+      "world_radius": 1063.8201465028517,
+      "birth_offset_ms": 169,
+      "fall_duration_ms": 324,
+      "drop_height": 625,
+      "slant": 0.08344524895629701,
+      "length": 121,
+      "z_layer": "behind"
+    },
+    {
+      "id": 9,
+      "ground_target": [
+        610.382,
+        753.844
+      ],
+      "world_angle": 4.910118267446629,
+      "world_radius": 663.7125712443649,
+      "birth_offset_ms": 22,
+      "fall_duration_ms": 235,
+      "drop_height": 766,
+      "slant": -0.026301793547094013,
+      "length": 120,
+      "z_layer": "behind"
+    },
+    {
+      "id": 10,
+      "ground_target": [
+        1251.949,
+        947.332
+      ],
+      "world_angle": 0.38927825935435606,
+      "world_radius": 834.3740955161769,
+      "birth_offset_ms": 165,
+      "fall_duration_ms": 248,
+      "drop_height": 600,
+      "slant": 0.0022189706810941817,
+      "length": 106,
+      "z_layer": "front"
+    },
+    {
+      "id": 11,
+      "ground_target": [
+        925.575,
+        834.717
+      ],
+      "world_angle": 5.7780168938204595,
+      "world_radius": 509.17418617750076,
+      "birth_offset_ms": 160,
+      "fall_duration_ms": 286,
+      "drop_height": 626,
+      "slant": 0.09041954577304578,
+      "length": 118,
+      "z_layer": "behind"
+    },
+    {
+      "id": 12,
+      "ground_target": [
+        887.586,
+        832.345
+      ],
+      "world_angle": 5.718376311403944,
+      "world_radius": 482.5268615013303,
+      "birth_offset_ms": 160,
+      "fall_duration_ms": 270,
+      "drop_height": 619,
+      "slant": -0.0004874932269639809,
+      "length": 102,
+      "z_layer": "behind"
+    },
+    {
+      "id": 13,
+      "ground_target": [
+        282.55,
+        867.622
+      ],
+      "world_angle": 3.5347347448913475,
+      "world_radius": 213.75810248198337,
+      "birth_offset_ms": 156,
+      "fall_duration_ms": 280,
+      "drop_height": 622,
+      "slant": 0.07424695198758482,
+      "length": 97,
+      "z_layer": "behind"
+    },
+    {
+      "id": 14,
+      "ground_target": [
+        -47.569,
+        1013.588
+      ],
+      "world_angle": 2.254151756408007,
+      "world_radius": 835.5563556006433,
+      "birth_offset_ms": 80,
+      "fall_duration_ms": 257,
+      "drop_height": 620,
+      "slant": 0.006583081420216422,
+      "length": 132,
+      "z_layer": "front"
+    },
+    {
+      "id": 15,
+      "ground_target": [
+        829.735,
+        1080.303
+      ],
+      "world_angle": 1.2285018667973961,
+      "world_radius": 1041.964471338662,
+      "birth_offset_ms": 119,
+      "fall_duration_ms": 232,
+      "drop_height": 600,
+      "slant": 0.07064447027842366,
+      "length": 124,
+      "z_layer": "front"
+    },
+    {
+      "id": 16,
+      "ground_target": [
+        1129.283,
+        899.267
+      ],
+      "world_angle": 0.11702795322569164,
+      "world_radius": 653.7543429990895,
+      "birth_offset_ms": 82,
+      "fall_duration_ms": 302,
+      "drop_height": 761,
+      "slant": -0.0452227470129154,
+      "length": 114,
+      "z_layer": "front"
+    },
+    {
+      "id": 17,
+      "ground_target": [
+        509.26,
+        896.169
+      ],
+      "world_angle": 1.1225456484706904,
+      "world_radius": 67.51348066323891,
+      "birth_offset_ms": 20,
+      "fall_duration_ms": 250,
+      "drop_height": 700,
+      "slant": 0.09532708282096344,
+      "length": 127,
+      "z_layer": "front"
+    },
+    {
+      "id": 18,
+      "ground_target": [
+        -534.694,
+        868.503
+      ],
+      "world_angle": 3.217806923699521,
+      "world_radius": 1017.6482235092714,
+      "birth_offset_ms": 0,
+      "fall_duration_ms": 295,
+      "drop_height": 625,
+      "slant": 0.05417201831710347,
+      "length": 105,
+      "z_layer": "behind"
+    },
+    {
+      "id": 19,
+      "ground_target": [
+        -86.06,
+        863.888
+      ],
+      "world_angle": 3.31740456882528,
+      "world_radius": 574.922168589349,
+      "birth_offset_ms": 87,
+      "fall_duration_ms": 220,
+      "drop_height": 728,
+      "slant": 0.05162978931920789,
+      "length": 98,
+      "z_layer": "behind"
+    },
+    {
+      "id": 20,
+      "ground_target": [
+        480.533,
+        1036.297
+      ],
+      "world_angle": 1.5700966550010607,
+      "world_radius": 761.4853495737227,
+      "birth_offset_ms": 10,
+      "fall_duration_ms": 263,
+      "drop_height": 687,
+      "slant": 0.06206218210391409,
+      "length": 97,
+      "z_layer": "front"
+    },
+    {
+      "id": 21,
+      "ground_target": [
+        -85.518,
+        792.651
+      ],
+      "world_angle": 3.820985324124324,
+      "world_radius": 726.9297974610855,
+      "birth_offset_ms": 66,
+      "fall_duration_ms": 286,
+      "drop_height": 649,
+      "slant": -0.05391041774688426,
+      "length": 105,
+      "z_layer": "behind"
+    },
+    {
+      "id": 22,
+      "ground_target": [
+        -639.517,
+        975.091
+      ],
+      "world_angle": 2.7552120753693923,
+      "world_radius": 1208.6170091184358,
+      "birth_offset_ms": 133,
+      "fall_duration_ms": 285,
+      "drop_height": 803,
+      "slant": -0.045464794060099914,
+      "length": 107,
+      "z_layer": "front"
+    },
+    {
+      "id": 23,
+      "ground_target": [
+        459.67,
+        820.162
+      ],
+      "world_angle": 4.648783577332957,
+      "world_radius": 319.836233090292,
+      "birth_offset_ms": 83,
+      "fall_duration_ms": 276,
+      "drop_height": 678,
+      "slant": -0.015192436849517585,
+      "length": 111,
+      "z_layer": "behind"
+    },
+    {
+      "id": 24,
+      "ground_target": [
+        -143.145,
+        958.548
+      ],
+      "world_angle": 2.602525625077104,
+      "world_radius": 726.1165681771605,
+      "birth_offset_ms": 104,
+      "fall_duration_ms": 305,
+      "drop_height": 641,
+      "slant": -0.01211660464867674,
+      "length": 134,
+      "z_layer": "front"
+    },
+    {
+      "id": 25,
+      "ground_target": [
+        829.397,
+        769.451
+      ],
+      "world_angle": 5.260158421706401,
+      "world_radius": 670.9048621637274,
+      "birth_offset_ms": 15,
+      "fall_duration_ms": 325,
+      "drop_height": 621,
+      "slant": 0.08057055393130827,
+      "length": 101,
+      "z_layer": "behind"
+    },
+    {
+      "id": 26,
+      "ground_target": [
+        1240.075,
+        930.433
+      ],
+      "world_angle": 0.2964503104289823,
+      "world_radius": 794.7419072409627,
+      "birth_offset_ms": 78,
+      "fall_duration_ms": 260,
+      "drop_height": 709,
+      "slant": 0.06344177180707208,
+      "length": 105,
+      "z_layer": "front"
+    },
+    {
+      "id": 27,
+      "ground_target": [
+        -236.38,
+        1006.0
+      ],
+      "world_angle": 2.43622826974768,
+      "world_radius": 940.9025435619159,
+      "birth_offset_ms": 29,
+      "fall_duration_ms": 268,
+      "drop_height": 590,
+      "slant": -0.032370998652385574,
+      "length": 117,
+      "z_layer": "front"
+    },
+    {
+      "id": 28,
+      "ground_target": [
+        1056.548,
+        702.817
+      ],
+      "world_angle": 5.279162887951719,
+      "world_radius": 1073.820443483974,
+      "birth_offset_ms": 98,
+      "fall_duration_ms": 300,
+      "drop_height": 707,
+      "slant": -0.09139982161558054,
+      "length": 110,
+      "z_layer": "behind"
+    },
+    {
+      "id": 29,
+      "ground_target": [
+        332.197,
+        1123.88
+      ],
+      "world_angle": 1.6934089068495213,
+      "world_radius": 1208.472388266057,
+      "birth_offset_ms": 140,
+      "fall_duration_ms": 262,
+      "drop_height": 572,
+      "slant": 0.0386778683226576,
+      "length": 123,
+      "z_layer": "front"
+    },
+    {
+      "id": 30,
+      "ground_target": [
+        481.105,
+        769.224
+      ],
+      "world_angle": 4.714314808118631,
+      "world_radius": 573.8818412252419,
+      "birth_offset_ms": 139,
+      "fall_duration_ms": 297,
+      "drop_height": 797,
+      "slant": 0.003373942278803027,
+      "length": 105,
+      "z_layer": "behind"
+    },
+    {
+      "id": 31,
+      "ground_target": [
+        1317.28,
+        961.95
+      ],
+      "world_angle": 0.435665476143102,
+      "world_radius": 923.5497245582632,
+      "birth_offset_ms": 168,
+      "fall_duration_ms": 291,
+      "drop_height": 612,
+      "slant": 0.06580904862223588,
+      "length": 113,
+      "z_layer": "front"
+    },
+    {
+      "id": 32,
+      "ground_target": [
+        754.967,
+        802.689
+      ],
+      "world_angle": 5.3070543949714635,
+      "world_radius": 490.8096528367486,
+      "birth_offset_ms": 51,
+      "fall_duration_ms": 264,
+      "drop_height": 664,
+      "slant": 0.08099474506821203,
+      "length": 123,
+      "z_layer": "behind"
+    },
+    {
+      "id": 33,
+      "ground_target": [
+        351.937,
+        900.089
+      ],
+      "world_angle": 2.5807064413102605,
+      "world_radius": 151.23416926130716,
+      "birth_offset_ms": 171,
+      "fall_duration_ms": 240,
+      "drop_height": 665,
+      "slant": -0.04943007808142452,
+      "length": 102,
+      "z_layer": "front"
+    },
+    {
+      "id": 34,
+      "ground_target": [
+        1467.881,
+        932.661
+      ],
+      "world_angle": 0.241484527319513,
+      "world_radius": 1017.4021240786309,
+      "birth_offset_ms": 61,
+      "fall_duration_ms": 294,
+      "drop_height": 817,
+      "slant": 0.08035441903374624,
+      "length": 133,
+      "z_layer": "front"
+    },
+    {
+      "id": 35,
+      "ground_target": [
+        1346.832,
+        866.555
+      ],
+      "world_angle": 6.182895430818717,
+      "world_radius": 871.2095893696604,
+      "birth_offset_ms": 44,
+      "fall_duration_ms": 290,
+      "drop_height": 620,
+      "slant": -0.019703435507088043,
+      "length": 100,
+      "z_layer": "behind"
+    },
+    {
+      "id": 36,
+      "ground_target": [
+        329.403,
+        946.014
+      ],
+      "world_angle": 2.0229307649727275,
+      "world_radius": 344.7046559375509,
+      "birth_offset_ms": 169,
+      "fall_duration_ms": 289,
+      "drop_height": 603,
+      "slant": 0.008319360766898945,
+      "length": 109,
+      "z_layer": "front"
+    },
+    {
+      "id": 37,
+      "ground_target": [
+        575.922,
+        1122.096
+      ],
+      "world_angle": 1.4903956974693309,
+      "world_radius": 1194.3370145068088,
+      "birth_offset_ms": 20,
+      "fall_duration_ms": 311,
+      "drop_height": 787,
+      "slant": -0.06776420499176702,
+      "length": 117,
+      "z_layer": "front"
+    },
+    {
+      "id": 38,
+      "ground_target": [
+        1027.224,
+        858.974
+      ],
+      "world_angle": 6.058385970024403,
+      "world_radius": 561.3485267501817,
+      "birth_offset_ms": 126,
+      "fall_duration_ms": 332,
+      "drop_height": 766,
+      "slant": 0.078729380363606,
+      "length": 118,
+      "z_layer": "behind"
+    },
+    {
+      "id": 39,
+      "ground_target": [
+        438.849,
+        696.99
+      ],
+      "world_angle": 4.668407736878148,
+      "world_radius": 935.9530838582145,
+      "birth_offset_ms": 28,
+      "fall_duration_ms": 222,
+      "drop_height": 732,
+      "slant": -0.03423393739886027,
+      "length": 102,
+      "z_layer": "behind"
+    },
+    {
+      "id": 40,
+      "ground_target": [
+        975.499,
+        843.912
+      ],
+      "world_angle": 5.8987831544299585,
+      "world_radius": 534.5060217592473,
+      "birth_offset_ms": 49,
+      "fall_duration_ms": 232,
+      "drop_height": 770,
+      "slant": 0.023423789651965524,
+      "length": 100,
+      "z_layer": "behind"
+    },
+    {
+      "id": 41,
+      "ground_target": [
+        825.339,
+        666.516
+      ],
+      "world_angle": 5.019891478874503,
+      "world_radius": 1140.9404561353444,
+      "birth_offset_ms": 108,
+      "fall_duration_ms": 313,
+      "drop_height": 566,
+      "slant": -0.004532585558823812,
+      "length": 102,
+      "z_layer": "behind"
+    },
+    {
+      "id": 42,
+      "ground_target": [
+        1351.43,
+        925.807
+      ],
+      "world_angle": 0.23542879815816975,
+      "world_radius": 896.150764866595,
+      "birth_offset_ms": 40,
+      "fall_duration_ms": 325,
+      "drop_height": 786,
+      "slant": -0.002240109215896041,
+      "length": 99,
+      "z_layer": "front"
+    },
+    {
+      "id": 43,
+      "ground_target": [
+        1064.588,
+        830.912
+      ],
+      "world_angle": 5.856957832943729,
+      "world_radius": 642.0292584751197,
+      "birth_offset_ms": 92,
+      "fall_duration_ms": 275,
+      "drop_height": 578,
+      "slant": 0.013110697227578114,
+      "length": 134,
+      "z_layer": "behind"
+    },
+    {
+      "id": 44,
+      "ground_target": [
+        -0.915,
+        945.325
+      ],
+      "world_angle": 2.573993411227014,
+      "world_radius": 570.3490531353015,
+      "birth_offset_ms": 84,
+      "fall_duration_ms": 337,
+      "drop_height": 614,
+      "slant": 0.0540924941781781,
+      "length": 126,
+      "z_layer": "front"
+    },
+    {
+      "id": 45,
+      "ground_target": [
+        80.688,
+        721.8
+      ],
+      "world_angle": 4.254864704255184,
+      "world_radius": 903.9754025235425,
+      "birth_offset_ms": 149,
+      "fall_duration_ms": 291,
+      "drop_height": 553,
+      "slant": 0.04102254304127037,
+      "length": 131,
+      "z_layer": "behind"
+    },
+    {
+      "id": 46,
+      "ground_target": [
+        1401.095,
+        768.287
+      ],
+      "world_angle": 5.7223416805988965,
+      "world_radius": 1087.728176696908,
+      "birth_offset_ms": 161,
+      "fall_duration_ms": 328,
+      "drop_height": 595,
+      "slant": 0.09654057012014072,
+      "length": 117,
+      "z_layer": "behind"
+    },
+    {
+      "id": 47,
+      "ground_target": [
+        -541.019,
+        862.502
+      ],
+      "world_angle": 3.2464829359593375,
+      "world_radius": 1026.6615880471345,
+      "birth_offset_ms": 121,
+      "fall_duration_ms": 237,
+      "drop_height": 555,
+      "slant": -0.07472256013091993,
+      "length": 120,
+      "z_layer": "behind"
+    },
+    {
+      "id": 48,
+      "ground_target": [
+        720.576,
+        645.033
+      ],
+      "world_angle": 4.911078462791804,
+      "world_radius": 1218.8159286476632,
+      "birth_offset_ms": 101,
+      "fall_duration_ms": 305,
+      "drop_height": 562,
+      "slant": -0.0702044521690719,
+      "length": 105,
+      "z_layer": "behind"
+    },
+    {
+      "id": 49,
+      "ground_target": [
+        24.102,
+        1030.986
+      ],
+      "world_angle": 2.1260280865917007,
+      "world_radius": 864.8520318528101,
+      "birth_offset_ms": 90,
+      "fall_duration_ms": 239,
+      "drop_height": 679,
+      "slant": -0.006814837339853469,
+      "length": 103,
+      "z_layer": "front"
+    },
+    {
+      "id": 50,
+      "ground_target": [
+        838.496,
+        844.206
+      ],
+      "world_angle": 5.776500362271759,
+      "world_radius": 410.01062154290304,
+      "birth_offset_ms": 155,
+      "fall_duration_ms": 311,
+      "drop_height": 596,
+      "slant": -0.029182260379964783,
+      "length": 119,
+      "z_layer": "behind"
+    },
+    {
+      "id": 51,
+      "ground_target": [
+        635.093,
+        931.574
+      ],
+      "world_angle": 0.9930059410400002,
+      "world_radius": 283.96295537951437,
+      "birth_offset_ms": 72,
+      "fall_duration_ms": 267,
+      "drop_height": 724,
+      "slant": -0.07737447650945893,
+      "length": 123,
+      "z_layer": "front"
+    },
+    {
+      "id": 52,
+      "ground_target": [
+        1176.206,
+        1081.344
+      ],
+      "world_angle": 0.9563370778048027,
+      "world_radius": 1207.6070037435793,
+      "birth_offset_ms": 3,
+      "fall_duration_ms": 339,
+      "drop_height": 722,
+      "slant": -0.07371098750535476,
+      "length": 118,
+      "z_layer": "front"
+    },
+    {
+      "id": 53,
+      "ground_target": [
+        1150.501,
+        974.269
+      ],
+      "world_angle": 0.5924740373535095,
+      "world_radius": 808.2596731774665,
+      "birth_offset_ms": 120,
+      "fall_duration_ms": 282,
+      "drop_height": 754,
+      "slant": -0.0005140804192012016,
+      "length": 118,
+      "z_layer": "front"
+    },
+    {
+      "id": 54,
+      "ground_target": [
+        1580.797,
+        924.017
+      ],
+      "world_angle": 0.17980114905822317,
+      "world_radius": 1118.8333135273072,
+      "birth_offset_ms": 137,
+      "fall_duration_ms": 276,
+      "drop_height": 615,
+      "slant": -0.07824655926690541,
+      "length": 103,
+      "z_layer": "front"
+    },
+    {
+      "id": 55,
+      "ground_target": [
+        804.14,
+        889.669
+      ],
+      "world_angle": 0.08721830087394063,
+      "world_radius": 325.37673494495937,
+      "birth_offset_ms": 66,
+      "fall_duration_ms": 242,
+      "drop_height": 562,
+      "slant": -0.06489626562998943,
+      "length": 116,
+      "z_layer": "front"
+    },
+    {
+      "id": 56,
+      "ground_target": [
+        987.676,
+        1001.236
+      ],
+      "world_angle": 0.8570450815828347,
+      "world_radius": 775.4643178782658,
+      "birth_offset_ms": 31,
+      "fall_duration_ms": 313,
+      "drop_height": 673,
+      "slant": 0.08558724171708929,
+      "length": 110,
+      "z_layer": "front"
+    },
+    {
+      "id": 57,
+      "ground_target": [
+        1366.626,
+        868.515
+      ],
+      "world_angle": 6.196083583998881,
+      "world_radius": 890.0001147163143,
+      "birth_offset_ms": 21,
+      "fall_duration_ms": 334,
+      "drop_height": 566,
+      "slant": 0.04275443871447124,
+      "length": 104,
+      "z_layer": "behind"
+    },
+    {
+      "id": 58,
+      "ground_target": [
+        468.378,
+        1091.629
+      ],
+      "world_angle": 1.58199063523985,
+      "world_radius": 1038.2113169410036,
+      "birth_offset_ms": 127,
+      "fall_duration_ms": 330,
+      "drop_height": 785,
+      "slant": 0.06386568977196008,
+      "length": 133,
+      "z_layer": "front"
+    },
+    {
+      "id": 59,
+      "ground_target": [
+        -522.209,
+        927.95
+      ],
+      "world_angle": 2.925743277878073,
+      "world_radius": 1026.0179522171302,
+      "birth_offset_ms": 71,
+      "fall_duration_ms": 270,
+      "drop_height": 732,
+      "slant": 0.05918602178502291,
+      "length": 127,
+      "z_layer": "front"
+    },
+    {
+      "id": 60,
+      "ground_target": [
+        1245.676,
+        994.281
+      ],
+      "world_angle": 0.6241227502011896,
+      "world_radius": 943.5593449634837,
+      "birth_offset_ms": 60,
+      "fall_duration_ms": 281,
+      "drop_height": 817,
+      "slant": 0.006973581990560501,
+      "length": 129,
+      "z_layer": "front"
+    },
+    {
+      "id": 61,
+      "ground_target": [
+        92.129,
+        683.083
+      ],
+      "world_angle": 4.343921776606999,
+      "world_radius": 1076.8620198425497,
+      "birth_offset_ms": 169,
+      "fall_duration_ms": 302,
+      "drop_height": 769,
+      "slant": -0.09533604264362117,
+      "length": 108,
+      "z_layer": "behind"
+    },
+    {
+      "id": 62,
+      "ground_target": [
+        -538.294,
+        930.777
+      ],
+      "world_angle": 2.9158252386669132,
+      "world_radius": 1044.8081799735226,
+      "birth_offset_ms": 45,
+      "fall_duration_ms": 325,
+      "drop_height": 772,
+      "slant": 0.04543354812085926,
+      "length": 95,
+      "z_layer": "front"
+    },
+    {
+      "id": 63,
+      "ground_target": [
+        903.502,
+        916.326
+      ],
+      "world_angle": 0.3645900436542568,
+      "world_radius": 453.2969850446937,
+      "birth_offset_ms": 110,
+      "fall_duration_ms": 296,
+      "drop_height": 736,
+      "slant": 0.027196087988496043,
+      "length": 122,
+      "z_layer": "front"
+    },
+    {
+      "id": 64,
+      "ground_target": [
+        31.622,
+        785.649
+      ],
+      "world_angle": 3.9730955731648043,
+      "world_radius": 665.479743193508,
+      "birth_offset_ms": 108,
+      "fall_duration_ms": 309,
+      "drop_height": 809,
+      "slant": -0.048216878611525016,
+      "length": 127,
+      "z_layer": "behind"
+    },
+    {
+      "id": 65,
+      "ground_target": [
+        558.081,
+        728.185
+      ],
+      "world_angle": 4.812277670668986,
+      "world_radius": 782.9790904661777,
+      "birth_offset_ms": 115,
+      "fall_duration_ms": 259,
+      "drop_height": 688,
+      "slant": -0.084497809380248,
+      "length": 133,
+      "z_layer": "behind"
+    },
+    {
+      "id": 66,
+      "ground_target": [
+        574.648,
+        855.123
+      ],
+      "world_angle": 5.292645575957051,
+      "world_radius": 172.6405349050263,
+      "birth_offset_ms": 79,
+      "fall_duration_ms": 265,
+      "drop_height": 649,
+      "slant": -0.045367479939418524,
+      "length": 98,
+      "z_layer": "behind"
+    },
+    {
+      "id": 67,
+      "ground_target": [
+        -625.703,
+        945.931
+      ],
+      "world_angle": 2.8685360592413534,
+      "world_radius": 1148.24447182158,
+      "birth_offset_ms": 112,
+      "fall_duration_ms": 281,
+      "drop_height": 679,
+      "slant": -0.055761174389018314,
+      "length": 105,
+      "z_layer": "front"
+    },
+    {
+      "id": 68,
+      "ground_target": [
+        784.716,
+        867.74
+      ],
+      "world_angle": 6.022448101885342,
+      "world_radius": 315.37544964792204,
+      "birth_offset_ms": 163,
+      "fall_duration_ms": 328,
+      "drop_height": 808,
+      "slant": -0.08096226418731126,
+      "length": 106,
+      "z_layer": "behind"
+    },
+    {
+      "id": 69,
+      "ground_target": [
+        559.083,
+        892.938
+      ],
+      "world_angle": 0.5143724948699936,
+      "world_radius": 90.83722402752538,
+      "birth_offset_ms": 151,
+      "fall_duration_ms": 221,
+      "drop_height": 814,
+      "slant": 0.09753209329641202,
+      "length": 111,
+      "z_layer": "front"
+    }
+  ],
+  "states": [
+    {
+      "time_ms": 0,
+      "character_frame": 0,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 40,
+      "character_frame": 0,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 80,
+      "character_frame": 1,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 120,
+      "character_frame": 1,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 160,
+      "character_frame": 2,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 200,
+      "character_frame": 2,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 240,
+      "character_frame": 2,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 280,
+      "character_frame": 2,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 320,
+      "character_frame": 3,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 360,
+      "character_frame": 3,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 400,
+      "character_frame": 4,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 440,
+      "character_frame": 4,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 480,
+      "character_frame": 4,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 520,
+      "character_frame": 4,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 560,
+      "character_frame": 5,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 600,
+      "character_frame": 5,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 640,
+      "character_frame": 5,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 680,
+      "character_frame": 5,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 720,
+      "character_frame": 6,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 760,
+      "character_frame": 6,
+      "active": {
+        "behind": 0,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 800,
+      "character_frame": 6,
+      "active": {
+        "behind": 2,
+        "front": 0
+      }
+    },
+    {
+      "time_ms": 840,
+      "character_frame": 7,
+      "active": {
+        "behind": 7,
+        "front": 9
+      }
+    },
+    {
+      "time_ms": 880,
+      "character_frame": 7,
+      "active": {
+        "behind": 14,
+        "front": 17
+      }
+    },
+    {
+      "time_ms": 920,
+      "character_frame": 8,
+      "active": {
+        "behind": 23,
+        "front": 25
+      }
+    },
+    {
+      "time_ms": 960,
+      "character_frame": 8,
+      "active": {
+        "behind": 32,
+        "front": 30
+      }
+    },
+    {
+      "time_ms": 1000,
+      "character_frame": 8,
+      "active": {
+        "behind": 36,
+        "front": 34
+      }
+    },
+    {
+      "time_ms": 1040,
+      "character_frame": 8,
+      "active": {
+        "behind": 36,
+        "front": 34
+      }
+    },
+    {
+      "time_ms": 1080,
+      "character_frame": 9,
+      "active": {
+        "behind": 36,
+        "front": 34
+      }
+    },
+    {
+      "time_ms": 1120,
+      "character_frame": 9,
+      "active": {
+        "behind": 36,
+        "front": 34
+      }
+    },
+    {
+      "time_ms": 1160,
+      "character_frame": 9,
+      "active": {
+        "behind": 34,
+        "front": 34
+      }
+    },
+    {
+      "time_ms": 1200,
+      "character_frame": 9,
+      "active": {
+        "behind": 31,
+        "front": 29
+      }
+    },
+    {
+      "time_ms": 1240,
+      "character_frame": 9,
+      "active": {
+        "behind": 27,
+        "front": 23
+      }
+    },
+    {
+      "time_ms": 1280,
+      "character_frame": 9,
+      "active": {
+        "behind": 17,
+        "front": 14
+      }
+    }
+  ],
+  "contact_event": "area_knockdown",
+  "ice": false,
+  "explosion": false,
+  "runtime_changes": false
+}
