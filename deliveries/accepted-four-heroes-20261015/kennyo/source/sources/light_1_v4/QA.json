@@ -1,0 +1,426 @@
+{
+  "action": "light_1_v4",
+  "expected_frames": 10,
+  "expected_duration_ms": 670,
+  "support_foot": "same anatomical left / screen right in every generated pose",
+  "frames": [
+    {
+      "frame": 1,
+      "rendered_weapon_pca_angle_degrees": -31.698,
+      "declared_angle_degrees": -31.701,
+      "angle_error_degrees": 0.004,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        204,
+        101,
+        326,
+        289
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 2,
+      "rendered_weapon_pca_angle_degrees": -32.082,
+      "declared_angle_degrees": -32.125,
+      "angle_error_degrees": 0.043,
+      "fixed_contact_pixel_distance": 1.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        164,
+        57,
+        288,
+        243
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 3,
+      "rendered_weapon_pca_angle_degrees": -28.089,
+      "declared_angle_degrees": -28.142,
+      "angle_error_degrees": 0.053,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        183,
+        52,
+        295,
+        244
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 4,
+      "rendered_weapon_pca_angle_degrees": 25.757,
+      "declared_angle_degrees": 25.769,
+      "angle_error_degrees": 0.013,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        227,
+        50,
+        332,
+        247
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 5,
+      "rendered_weapon_pca_angle_degrees": 41.017,
+      "declared_angle_degrees": 40.986,
+      "angle_error_degrees": 0.031,
+      "fixed_contact_pixel_distance": 1.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        291,
+        67,
+        438,
+        234
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 6,
+      "rendered_weapon_pca_angle_degrees": 83.085,
+      "declared_angle_degrees": 83.047,
+      "angle_error_degrees": 0.038,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        319,
+        208,
+        534,
+        253
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 7,
+      "rendered_weapon_pca_angle_degrees": 113.742,
+      "declared_angle_degrees": 113.749,
+      "angle_error_degrees": 0.008,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        286,
+        224,
+        486,
+        324
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 8,
+      "rendered_weapon_pca_angle_degrees": 38.333,
+      "declared_angle_degrees": 38.333,
+      "angle_error_degrees": 0.0,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        273,
+        65,
+        413,
+        237
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 9,
+      "rendered_weapon_pca_angle_degrees": -26.004,
+      "declared_angle_degrees": -26.003,
+      "angle_error_degrees": 0.001,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        183,
+        55,
+        288,
+        252
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 10,
+      "rendered_weapon_pca_angle_degrees": -31.698,
+      "declared_angle_degrees": -31.701,
+      "angle_error_degrees": 0.004,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        204,
+        101,
+        326,
+        289
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    }
+  ],
+  "passed": true,
+  "actual_gif_frame_count": 10,
+  "actual_gif_durations_ms": [
+    80,
+    80,
+    70,
+    30,
+    20,
+    40,
+    20,
+    90,
+    100,
+    140
+  ],
+  "actual_gif_total_ms": 670,
+  "rendered_active_arc_degrees": 141.89,
+  "single_contact_frame": 6,
+  "fixed_pivot_world": [
+    330.484,
+    325.0
+  ],
+  "unchanged_previous_assets": true,
+  "anatomy_and_downward_drive": {
+    "method": "Manual visible 2D landmarks measured on original raster at constant 0.408 source scale. Projected proxies only; hidden 3D bone lengths cannot be recovered exactly from sprites.",
+    "landmarks_source_xy": {
+      "v3": {
+        "crown": [
+          668,
+          451
+        ],
+        "brow": [
+          685,
+          481
+        ],
+        "chin": [
+          682,
+          518
+        ],
+        "neck": [
+          662,
+          530
+        ],
+        "belt": [
+          629,
+          606
+        ],
+        "elbow": [
+          670,
+          576
+        ],
+        "wrist": [
+          714,
+          578
+        ],
+        "knee": [
+          726,
+          751
+        ],
+        "ankle": [
+          751,
+          787
+        ]
+      },
+      "v4": {
+        "crown": [
+          728,
+          508
+        ],
+        "brow": [
+          751,
+          544
+        ],
+        "chin": [
+          746,
+          582
+        ],
+        "neck": [
+          712,
+          590
+        ],
+        "belt": [
+          643,
+          634
+        ],
+        "elbow": [
+          730,
+          636
+        ],
+        "wrist": [
+          775,
+          638
+        ],
+        "knee": [
+          730,
+          750
+        ],
+        "ankle": [
+          752,
+          789
+        ]
+      }
+    },
+    "projected_length_comparison": {
+      "face_brow_chin": {
+        "v3_projected_px": 15.146,
+        "v4_projected_px": 15.638,
+        "change_percent": 3.249
+      },
+      "torso_neck_belt": {
+        "v3_projected_px": 33.805,
+        "v4_projected_px": 33.389,
+        "change_percent": -1.231
+      },
+      "visible_forearm": {
+        "v3_projected_px": 17.971,
+        "v4_projected_px": 18.378,
+        "change_percent": 2.268
+      },
+      "support_shin": {
+        "v3_projected_px": 17.882,
+        "v4_projected_px": 18.269,
+        "change_percent": 2.163
+      }
+    },
+    "contact_landmark_world_y_delta_px": {
+      "crown": 21.216,
+      "neck": 22.44,
+      "belt": 9.384,
+      "knee": -2.448,
+      "ankle": -1.224
+    },
+    "same_pixel_bodies": [
+      1,
+      2,
+      3,
+      4,
+      8,
+      9,
+      10
+    ],
+    "changed_pose_frames": [
+      5,
+      6,
+      7
+    ],
+    "not_whole_body_translation": true,
+    "no_anisotropic_or_per_frame_scale": true
+  },
+  "timing_comparison": {
+    "previous_durations_ms": [
+      80,
+      80,
+      70,
+      60,
+      40,
+      40,
+      50,
+      60,
+      70,
+      120
+    ],
+    "new_durations_ms": [
+      80,
+      80,
+      70,
+      30,
+      20,
+      40,
+      20,
+      90,
+      100,
+      140
+    ],
+    "startup_frames_1_to_3_ms": {
+      "before": 230,
+      "after": 230
+    },
+    "active_frames_4_to_7_ms": {
+      "before": 190,
+      "after": 110
+    },
+    "entry_to_contact_frames_4_to_5_ms": {
+      "before": 100,
+      "after": 50
+    },
+    "contact_hold_ms": {
+      "before": 40,
+      "after": 40
+    },
+    "recovery_frames_8_to_10_ms": {
+      "before": 250,
+      "after": 330
+    },
+    "contact_start_ms": {
+      "before": 330,
+      "after": 280
+    },
+    "contact_window_ms": [
+      280,
+      320
+    ],
+    "duration_ms": 670
+  },
+  "independent_visual_review": {
+    "passed": true,
+    "findings": "Clear hip/upper-body forward-down articulation; fixed planted anatomical left foot; exact seven unchanged body frames; no blocking head/torso scale issue.",
+    "minor_caveat": "Hood and shoulder silhouettes slightly fuller in redrawn contact/follow-through; projected joint landmarks remain comparable."
+  }
+}

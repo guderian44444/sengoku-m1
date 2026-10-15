@@ -1,0 +1,105 @@
+{
+  "action": "grab_hold",
+  "canvas": [
+    640,
+    320
+  ],
+  "body_height_standing_equivalent": 163,
+  "anatomical_scale_policy": "Fixed one scale per source sheet from its neutral upright frame and visually cross-checked head/torso; no per-frame bounding-box scaling; crouches remain shorter.",
+  "source": "sources/grab_start.png",
+  "source_sha256": "40731dc3618aa3e29a45ed9308b68303da5ef3102f6486209d00256301a2dff1",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "fixed_sheet_scale": 0.3381742738589212,
+  "runtime_loop": true,
+  "duration_ms": 800,
+  "frame_count": 1,
+  "interpolation": "none, generated keyframes; later repeated recovery frames allow separately tracked victim flight",
+  "generator": "image_gen.imagegen",
+  "identity": "approved-concept03.png and idle-body.png",
+  "compositing": [
+    "weapon_back",
+    "victim_back if shoulder-loaded",
+    "body",
+    "victim_front otherwise",
+    "fingers_front"
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "source_frame": 5,
+      "source_crop": [
+        1056,
+        523,
+        1504,
+        993
+      ],
+      "source_sha256": "40731dc3618aa3e29a45ed9308b68303da5ef3102f6486209d00256301a2dff1",
+      "uniform_sheet_scale": 0.3381742738589212,
+      "body_translation": [
+        172,
+        112
+      ],
+      "root": [
+        185,
+        270
+      ],
+      "support_foot": [
+        185,
+        270
+      ],
+      "hands": [
+        [
+          303.55,
+          147.85
+        ],
+        [
+          269.39,
+          172.2
+        ]
+      ],
+      "forehead": null,
+      "duration_ms": 800,
+      "events": [],
+      "victim": {
+        "source": "headbutt",
+        "pose": 0,
+        "scale": 0.305,
+        "translation": [
+          283,
+          111
+        ],
+        "released": false,
+        "layer": "front",
+        "bbox": [
+          283,
+          111,
+          362,
+          264
+        ]
+      },
+      "weapon": {
+        "asset": "../weapons/ornate_shakujo.png",
+        "layer": "back",
+        "length_px": 215,
+        "rotation_pil_deg": -17,
+        "translation": [
+          122,
+          3
+        ]
+      },
+      "finger_mask": "tight hand-only elliptical alpha intersection, 14x16px per hand",
+      "attached": true
+    }
+  ],
+  "limitations": [
+    "Keyframe prototype; no interpolation or optical flow.",
+    "Grip landmarks are manually measured visual anchors with roughly 3px game-scale uncertainty, not runtime hitboxes.",
+    "Static grab_hold intentionally reuses the exact final grab_start pose for seamless hold.",
+    "Independent victim and weapon layers included; no enemy baked into Kennyo body.",
+    "No game runtime, website or repository changes."
+  ],
+  "path_base": "Paths are relative to grabs directory unless labeled source crop paths; ../weapons refers to package-level shared weapons."
+}

@@ -1,0 +1,702 @@
+{
+  "action": "heavy",
+  "version": "kennyo03-new-spec-staff-attacks-v1",
+  "standing_equivalent_px": 163,
+  "preview_canvas": [
+    640,
+    380
+  ],
+  "source_provenance": "Built-in image_gen body-only; deterministic cropping, uniform scaling, weapon composition and timing only. No optical flow, Comfy or Qwen.",
+  "weapon_source": "../weapons/ornate_shakujo.png",
+  "weapon_sha256": "f036c2a0fcda691127602285f88bf494089fd813ea9a46cf3af9763aa190e1cb",
+  "weapon_physical_length_px": 215,
+  "shared_combo_guard": "light_1/source.png rect [0,0,512,512], identical first and last body/grip/angle at retained root offset",
+  "runtime_integrated": false,
+  "root_motion_clamp": "Renderer may stop root advance at blocking targets while retaining body pose sequence.",
+  "frames": [
+    {
+      "source": "light_1/source.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "feet": {
+        "left": [
+          101,
+          501
+        ],
+        "right": [
+          385,
+          498
+        ]
+      },
+      "grips": [
+        [
+          278,
+          209
+        ],
+        [
+          257,
+          175
+        ]
+      ],
+      "angle": -32,
+      "duration": 110,
+      "event": "guard",
+      "anchor": "right",
+      "phase": 0,
+      "root_dx": 0,
+      "frame": 1,
+      "source_sha256": "e8902f59abe9b2c0d15358bf9c51afe8aac0b86bd52ced7030bb423394734803",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        192.31399999999996,
+        157.17399999999998
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          226.351,
+          326.011
+        ],
+        "right": [
+          322.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          286.0,
+          227.60699999999997
+        ],
+        [
+          278.923,
+          216.14899999999997
+        ]
+      ],
+      "weapon_angle": -31.701429669505718,
+      "weapon_projection": 1,
+      "weapon_spin_phase": 0,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "One fixed anatomical scale per source sheet. No individual frame bbox normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 0
+    },
+    {
+      "source": "heavy/low-prep-body-only-source.png",
+      "rect": [
+        0,
+        0,
+        545,
+        512
+      ],
+      "feet": {
+        "left": [
+          84,
+          500
+        ],
+        "right": [
+          440,
+          499
+        ]
+      },
+      "grips": [
+        [
+          245,
+          251
+        ],
+        [
+          358,
+          256
+        ]
+      ],
+      "angle": 93,
+      "duration": 190,
+      "event": "draw_staff_close",
+      "anchor": "left",
+      "root_dx": 0,
+      "frame": 2,
+      "source_sha256": "1d56ada3a1d9ec23c7e39ae4240a3f0b8cac4fe4044be553e1e51169186d8794",
+      "source_crop_xyxy": [
+        0,
+        0,
+        545,
+        512
+      ],
+      "alpha_mask_source": "heavy/low-prep-correction-source.png",
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        198.043,
+        156.5
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          226.351,
+          325.0
+        ],
+        "right": [
+          346.323,
+          324.663
+        ]
+      },
+      "grip_world": [
+        [
+          280.608,
+          241.087
+        ],
+        [
+          318.689,
+          242.772
+        ]
+      ],
+      "weapon_angle": 92.53355888839458,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "One fixed anatomical scale per source sheet. No individual frame bbox normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 110
+    },
+    {
+      "source": "heavy/low-prep-body-only-source.png",
+      "rect": [
+        545,
+        0,
+        1024,
+        512
+      ],
+      "feet": {
+        "left": [
+          591,
+          499
+        ],
+        "right": [
+          858,
+          472
+        ]
+      },
+      "grips": [
+        [
+          775,
+          262
+        ],
+        [
+          868,
+          266
+        ]
+      ],
+      "angle": 92,
+      "duration": 150,
+      "event": "one_front_step_lift",
+      "anchor": "left",
+      "root_dx": 5,
+      "frame": 3,
+      "source_sha256": "1d56ada3a1d9ec23c7e39ae4240a3f0b8cac4fe4044be553e1e51169186d8794",
+      "source_crop_xyxy": [
+        545,
+        0,
+        1024,
+        512
+      ],
+      "alpha_mask_source": "heavy/low-prep-correction-source.png",
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        210.849,
+        156.837
+      ],
+      "world_root": [
+        291,
+        325
+      ],
+      "root_motion_x": 5,
+      "screen_feet": {
+        "left": [
+          226.351,
+          325.0
+        ],
+        "right": [
+          316.33,
+          315.901
+        ]
+      },
+      "grip_world": [
+        [
+          288.359,
+          245.131
+        ],
+        [
+          319.7,
+          246.47899999999998
+        ]
+      ],
+      "weapon_angle": 92.46281667591683,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "One fixed anatomical scale per source sheet. No individual frame bbox normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 300
+    },
+    {
+      "source": "heavy/source.png",
+      "rect": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "feet": {
+        "left": [
+          1070,
+          497
+        ],
+        "right": [
+          1450,
+          498
+        ]
+      },
+      "grips": [
+        [
+          1364,
+          241
+        ],
+        [
+          1441,
+          144
+        ]
+      ],
+      "angle": 38,
+      "duration": 80,
+      "event": "one_front_step_plant",
+      "anchor": "left",
+      "root_dx": 20,
+      "frame": 4,
+      "source_sha256": "b7294d13e5f4ccfc230fcb75da5ef86d463e418dd5e3040a148afea2bc5c5634",
+      "source_crop_xyxy": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        210.849,
+        157.511
+      ],
+      "world_root": [
+        306,
+        325
+      ],
+      "root_motion_x": 20,
+      "screen_feet": {
+        "left": [
+          226.351,
+          325.0
+        ],
+        "right": [
+          354.411,
+          325.337
+        ]
+      },
+      "grip_world": [
+        [
+          325.429,
+          238.728
+        ],
+        [
+          351.378,
+          206.039
+        ]
+      ],
+      "weapon_angle": 38.44305350183661,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "One fixed anatomical scale per source sheet. No individual frame bbox normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 450
+    },
+    {
+      "source": "heavy/source.png",
+      "rect": [
+        0,
+        512,
+        550,
+        1024
+      ],
+      "feet": {
+        "left": [
+          75,
+          985
+        ],
+        "right": [
+          486,
+          984
+        ]
+      },
+      "grips": [
+        [
+          386,
+          650
+        ],
+        [
+          473,
+          555
+        ]
+      ],
+      "angle": 42,
+      "duration": 60,
+      "event": "rising_contact",
+      "anchor": "left",
+      "root_dx": 20,
+      "contact": true,
+      "frame": 5,
+      "source_sha256": "b7294d13e5f4ccfc230fcb75da5ef86d463e418dd5e3040a148afea2bc5c5634",
+      "source_crop_xyxy": [
+        0,
+        512,
+        550,
+        1024
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        201.076,
+        165.599
+      ],
+      "world_root": [
+        306,
+        325
+      ],
+      "root_motion_x": 20,
+      "screen_feet": {
+        "left": [
+          226.351,
+          325.0
+        ],
+        "right": [
+          364.858,
+          324.663
+        ]
+      },
+      "grip_world": [
+        [
+          331.158,
+          212.105
+        ],
+        [
+          360.477,
+          180.09
+        ]
+      ],
+      "weapon_angle": 42.48312434306046,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": [
+        430.4378344929173,
+        103.69598532382582
+      ],
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "One fixed anatomical scale per source sheet. No individual frame bbox normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 530
+    },
+    {
+      "source": "heavy/source.png",
+      "rect": [
+        550,
+        512,
+        1024,
+        1024
+      ],
+      "feet": {
+        "left": [
+          591,
+          984
+        ],
+        "right": [
+          974,
+          983
+        ]
+      },
+      "grips": [
+        [
+          921,
+          535
+        ]
+      ],
+      "angle": 25,
+      "duration": 110,
+      "event": "high_followthrough",
+      "anchor": "left",
+      "root_dx": 20,
+      "hidden_auxiliary_hand": true,
+      "frame": 6,
+      "source_sha256": "b7294d13e5f4ccfc230fcb75da5ef86d463e418dd5e3040a148afea2bc5c5634",
+      "source_crop_xyxy": [
+        550,
+        512,
+        1024,
+        1024
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        212.534,
+        165.93599999999998
+      ],
+      "world_root": [
+        306,
+        325
+      ],
+      "root_motion_x": 20,
+      "screen_feet": {
+        "left": [
+          226.351,
+          325.0
+        ],
+        "right": [
+          355.422,
+          324.663
+        ]
+      },
+      "grip_world": [
+        [
+          337.561,
+          173.68699999999998
+        ]
+      ],
+      "weapon_angle": 25,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "occluded, not fabricated",
+      "body_height_scale_basis": "One fixed anatomical scale per source sheet. No individual frame bbox normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 590
+    },
+    {
+      "source": "heavy/source.png",
+      "rect": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "feet": {
+        "left": [
+          1090,
+          985
+        ],
+        "right": [
+          1447,
+          984
+        ]
+      },
+      "grips": [
+        [
+          1391,
+          725
+        ],
+        [
+          1434,
+          654
+        ]
+      ],
+      "angle": 31,
+      "duration": 160,
+      "event": "lower_to_guard",
+      "anchor": "left",
+      "root_dx": 20,
+      "frame": 7,
+      "source_sha256": "b7294d13e5f4ccfc230fcb75da5ef86d463e418dd5e3040a148afea2bc5c5634",
+      "source_crop_xyxy": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        204.109,
+        165.599
+      ],
+      "world_root": [
+        306,
+        325
+      ],
+      "root_motion_x": 20,
+      "screen_feet": {
+        "left": [
+          226.351,
+          325.0
+        ],
+        "right": [
+          346.66,
+          324.663
+        ]
+      },
+      "grip_world": [
+        [
+          327.788,
+          237.38
+        ],
+        [
+          342.279,
+          213.453
+        ]
+      ],
+      "weapon_angle": 31.20051460398061,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "One fixed anatomical scale per source sheet. No individual frame bbox normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 700
+    },
+    {
+      "source": "light_1/source.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "feet": {
+        "left": [
+          101,
+          501
+        ],
+        "right": [
+          385,
+          498
+        ]
+      },
+      "grips": [
+        [
+          278,
+          209
+        ],
+        [
+          257,
+          175
+        ]
+      ],
+      "angle": -32,
+      "duration": 240,
+      "event": "settled_guard",
+      "anchor": "right",
+      "phase": 0,
+      "root_dx": 20,
+      "front_dx": 20,
+      "frame": 8,
+      "source_sha256": "e8902f59abe9b2c0d15358bf9c51afe8aac0b86bd52ced7030bb423394734803",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        212.31399999999996,
+        157.17399999999998
+      ],
+      "world_root": [
+        306,
+        325
+      ],
+      "root_motion_x": 20,
+      "screen_feet": {
+        "left": [
+          246.351,
+          326.011
+        ],
+        "right": [
+          342.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          306.0,
+          227.60699999999997
+        ],
+        [
+          298.923,
+          216.14899999999997
+        ]
+      ],
+      "weapon_angle": -31.701429669505718,
+      "weapon_projection": 1,
+      "weapon_spin_phase": 0,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "One fixed anatomical scale per source sheet. No individual frame bbox normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 860
+    }
+  ],
+  "total_duration_ms": 1100,
+  "qa": {
+    "true_alpha": true,
+    "no_per_frame_bbox_scaling": true,
+    "body_weapon_fx_hands_separate": true,
+    "final_root_retained": true,
+    "rear_step_anatomy": false,
+    "heavy_single_front_step": true,
+    "visible_actual_spin_views": false,
+    "damage_values": "not assigned",
+    "contact_response": "launch_high"
+  }
+}

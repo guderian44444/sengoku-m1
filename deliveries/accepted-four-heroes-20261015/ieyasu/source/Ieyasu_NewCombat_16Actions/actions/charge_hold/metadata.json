@@ -1,0 +1,64 @@
+{
+  "action": "charge_hold",
+  "frames": [
+    {
+      "frame": 0,
+      "duration_ms": 400,
+      "grip_world": [
+        191.63,
+        305.84
+      ],
+      "saya_mouth": [
+        181.005,
+        305.84
+      ],
+      "root_world": [
+        120,
+        365
+      ],
+      "source_foot": [
+        1080,
+        1000
+      ],
+      "source_grip": [
+        1327,
+        796
+      ],
+      "source_mouth": [
+        1280,
+        793
+      ],
+      "body_scale": 0.29,
+      "event": "charge_hold",
+      "blade_angle_deg": 270,
+      "blade_visible_fraction": 0
+    }
+  ],
+  "total_ms": 400,
+  "revision": "20261015_0253_issen_wave_knockdown",
+  "candidate": false,
+  "canvas": [
+    640,
+    400
+  ],
+  "standing_ruler_px": 152,
+  "playback": "hold_until_release",
+  "limitations": [
+    "Not tested in native game runtime",
+    "Contact-sheet and frame inspection; wide trousers partly obscure anatomical left/right leg distinction",
+    "Noto guide based on official manual, not viewed video"
+  ],
+  "sources": [
+    "https://www.kendo.or.jp/wp/wp-content/uploads/2020/12/iai_manual.pdf"
+  ],
+  "hit_policy": {
+    "shape": "forward_swept_corridor",
+    "pierces_enemies": true,
+    "reaction": "knockdown",
+    "deduplicate": "per_enemy_per_action",
+    "proxy_is_demo_only": true
+  },
+  "visual_approved": true,
+  "approval_message_id": "Sentinel_48c5008369588191923f0cf026fd4e44",
+  "runtime_verified": false
+}

@@ -1,0 +1,14 @@
+{
+  "revision_date": "2026-10-15",
+  "scope": ["light_1", "light_2"],
+  "current_actions": {
+    "light_1": {"folder":"light_1_v2","library_file_id":"libfile_be9e72ec74b881919226608590ac814b","library_version":0,"frames":10,"actual_gif_total_ms":670,"actual_frame_durations_ms":[80,80,70,60,40,40,50,60,70,120],"contact_events":1,"changes":"New imagegen body poses, rear shuffle, tail-end two-hand grip, most staff length projects forward at contact. 7 to 10 frames; largest-remainder centisecond duration allocation."},
+    "light_2": {"folder":"light_2_v2","library_file_id":"libfile_c3a2f78e80388191b6d1393d0aa63b6d","library_version":0,"frames":7,"actual_gif_total_ms":680,"actual_frame_durations_ms":[110,100,60,60,70,100,180],"contact_events":1,"changes":"Removed the second forward extension from recovery; compact upward return to guard. Seven body poses retained. Tail grip synchronized with light_1 and the next combo guard."}
+  },
+  "common_guard": {"body_source":"light_1/source.png","source_crop_xyxy":[0,0,512,512],"uniform_scale":0.337,"grips_source":[[278,209],[257,175]],"principal_grip_world":[286,227.607],"floor_y":325,"weapon_source":"weapons/ornate_shakujo.png","weapon_source_pivot":[64,234],"standing_equivalent_px":163},
+  "new_light1_source": {"file":"light_1_v2/source.png","dimensions":[1254,1254],"uniform_scale":0.408,"generation":"built-in imagegen"},
+  "dependencies_to_retain": ["build_light_revisions.py","build_staff_attacks.py","light_1/source.png","light_2/source.png","light_2/step-correction-source.png","light_2/sweep-correction-source.png","weapons/ornate_shakujo.png","fx_neutral"],
+  "not_modified": ["light_3","heavy","other character actions","runtime","Git","website"],
+  "light3_note":"The parent assigned the newest front-facing upper-left to lower-right diagonal light_3 revision to a separate worker. This index makes no claim about that worker's result.",
+  "supersedes_for_light1_and_light2_only":"STAFF_ATTACKS_INDEX.json and the v1 action folders remain historical source references; use the current folders above for these two actions."
+}

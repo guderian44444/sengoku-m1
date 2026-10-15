@@ -1,0 +1,230 @@
+{
+  "head_scale": 0.95,
+  "action": "light_1",
+  "description": "後腳承重舉刀、前跨落地，雙手下切時肩背胸與重心一同向前下方跟進，再跟步回正。",
+  "duration_ms": 590,
+  "frames": [
+    {
+      "index": 0,
+      "source_rect": [
+        30,
+        39,
+        368,
+        501
+      ],
+      "source_component": 3,
+      "body_scale": 0.31875000000000003,
+      "root": [
+        220,
+        250
+      ],
+      "source_grip": [
+        193.33333333333331,
+        220.0
+      ],
+      "grip_world": [
+        179.625,
+        167.125
+      ],
+      "weapon_angle": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 90,
+      "event": null
+    },
+    {
+      "index": 1,
+      "source_rect": [
+        400,
+        14,
+        708,
+        506
+      ],
+      "source_component": 1,
+      "body_scale": 0.31875000000000003,
+      "root": [
+        223,
+        250
+      ],
+      "source_grip": [
+        554.6666666666666,
+        41.33333333333333
+      ],
+      "grip_world": [
+        261.25,
+        105.49999999999999
+      ],
+      "weapon_angle": -25,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 70,
+      "event": null
+    },
+    {
+      "index": 2,
+      "source_rect": [
+        742,
+        18,
+        1164,
+        506
+      ],
+      "source_component": 2,
+      "body_scale": 0.31875000000000003,
+      "root": [
+        226,
+        250
+      ],
+      "source_grip": [
+        954.6666666666666,
+        42.666666666666664
+      ],
+      "grip_world": [
+        172.02499999999998,
+        105.49999999999997
+      ],
+      "weapon_angle": -20,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "index": 3,
+      "source_rect": [
+        1172,
+        90,
+        1532,
+        509
+      ],
+      "source_component": 6,
+      "body_scale": 0.31875000000000003,
+      "root": [
+        229,
+        250
+      ],
+      "source_grip": [
+        1458.6666666666665,
+        309.3333333333333
+      ],
+      "grip_world": [
+        214.12499999999994,
+        190.925
+      ],
+      "weapon_angle": 80,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 50,
+      "event": null
+    },
+    {
+      "index": 4,
+      "source_rect": [
+        11,
+        560,
+        437,
+        985
+      ],
+      "source_component": 11,
+      "body_scale": 0.31875000000000003,
+      "root": [
+        229,
+        250
+      ],
+      "source_grip": [
+        388.0,
+        782.6666666666666
+      ],
+      "grip_world": [
+        221.775,
+        189.22500000000002
+      ],
+      "weapon_angle": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 80,
+      "event": "contact_push"
+    },
+    {
+      "index": 5,
+      "source_rect": [
+        464,
+        574,
+        784,
+        987
+      ],
+      "source_component": 14,
+      "body_scale": 0.31875000000000003,
+      "root": [
+        229,
+        250
+      ],
+      "source_grip": [
+        753.3333333333333,
+        794.6666666666666
+      ],
+      "grip_world": [
+        241.75,
+        192.625
+      ],
+      "weapon_angle": 125,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 70,
+      "event": null
+    },
+    {
+      "index": 6,
+      "source_rect": [
+        818,
+        539,
+        1131,
+        997
+      ],
+      "source_component": 10,
+      "body_scale": 0.31875000000000003,
+      "root": [
+        229,
+        250
+      ],
+      "source_grip": [
+        996.0,
+        764.0
+      ],
+      "grip_world": [
+        197.125,
+        183.27500000000003
+      ],
+      "weapon_angle": 125,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 70,
+      "event": null
+    },
+    {
+      "index": 7,
+      "source_rect": [
+        30,
+        39,
+        368,
+        501
+      ],
+      "source_component": 3,
+      "body_scale": 0.31875000000000003,
+      "root": [
+        229,
+        250
+      ],
+      "source_grip": [
+        193.33333333333331,
+        220.0
+      ],
+      "grip_world": [
+        188.625,
+        167.125
+      ],
+      "weapon_angle": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 100,
+      "event": null
+    }
+  ],
+  "source_sha256": "f2cc232cee652ea2c6973d0b2abe6e3308ecac98fa01ad3543d2b75bb2ef3cfa",
+  "limitations": [
+    "whole-body transparent frames, not anatomical rig parts",
+    "katana flat rotation; perspective variants pending",
+    "not runtime integrated"
+  ]
+}

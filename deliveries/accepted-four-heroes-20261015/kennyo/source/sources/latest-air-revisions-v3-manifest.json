@@ -1,0 +1,50 @@
+{
+  "revision": "air-actions-v3",
+  "frozen_at_utc": "2026-10-15T04:43:18.114509+00:00",
+  "actions": [
+    {
+      "action": "air_light",
+      "directory": "air_light_continuous_11f_v3",
+      "main_gif": "air_light_continuous_11f_v3/kennyo03-air-light-continuous-11f-770ms.gif",
+      "library_file_id": "libfile_034dba8f4324819199b673ca3ebf7f34",
+      "library_version": 0,
+      "frames": 11,
+      "duration_ms": 770,
+      "metadata": "air_light_continuous_11f_v3/metadata.json",
+      "qa": "air_light_continuous_11f_v3/qa.json",
+      "builder": "build_airlight_continuity_v3.py",
+      "gif_sha256": "b9497776060d33cadea670cef90c19d22c8dbe348476913eb2284003b90647f7",
+      "source_dependencies": [
+        "light_1/source.png",
+        "air_light_continuous_11f_v3/arms-pass1-source.png",
+        "air_light_continuous_11f_v3/takeoff-source.png",
+        "air_light_continuous_11f_v3/rising-source.png",
+        "air_light_continuous_11f_v3/contact-source.png"
+      ]
+    },
+    {
+      "action": "air_heavy",
+      "directory": "air_heavy_deep_13f_v3",
+      "main_gif": "air_heavy_deep_13f_v3/kennyo03-air-heavy-deep-13f-950ms.gif",
+      "library_file_id": "libfile_9dfc4ff85ed081918793faf7e9924b59",
+      "library_version": 1,
+      "frames": 13,
+      "duration_ms": 950,
+      "metadata": "air_heavy_deep_13f_v3/metadata.json",
+      "qa": "air_heavy_deep_13f_v3/qa.json",
+      "builder": "build_airheavy_deep_v3.py",
+      "gif_sha256": "83b39763ecb75540ca86b1954395cc811c81286f23600fc38f48d156284123b5",
+      "source_dependencies": [
+        "light_1/source.png",
+        "air_heavy_11f_v2/extra-source.png",
+        "air_heavy_deep_13f_v3/rise-arms-source.png",
+        "air_heavy_deep_13f_v3/bridge-arms-source.png",
+        "air_heavy/body-source.png",
+        "air_heavy/contact-body-source.png",
+        "air_heavy_deep_13f_v3/deep-landing-source.png",
+        "air_heavy/body-source-fixed.png",
+        "air_light_continuous_11f_v3/arms-pass1-source.png"
+      ]
+    }
+  ]
+}

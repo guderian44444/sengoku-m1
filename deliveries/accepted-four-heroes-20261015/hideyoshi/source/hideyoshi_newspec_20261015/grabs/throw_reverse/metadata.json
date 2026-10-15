@@ -1,0 +1,336 @@
+{
+  "action": "throw_reverse",
+  "source": "sources/throw_reverse.png",
+  "source_sha256": "a9d615864ee99ce2d4ba020858c6fa69be0555d6dac552b8435181f1eff5fc9d",
+  "head_scale": 0.95,
+  "head_edit": "neck-anchored local rescale including topknot; body and feet not scaled by head edit",
+  "body_scale": 0.55,
+  "body_height_standing_equivalent": 266,
+  "body_height_basis": "first standing source 484 px at .55; constant factor for every action",
+  "frames": [
+    {
+      "index": 0,
+      "source_frame": 0,
+      "source_crop": [
+        64,
+        13,
+        523,
+        491
+      ],
+      "scale": 0.55,
+      "translation": [
+        368,
+        98
+      ],
+      "support_foot": [
+        390,
+        360
+      ],
+      "hand_contact": [
+        601,
+        160
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 100,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        306.5,
+        142
+      ],
+      "victim_pose": 1,
+      "victim_translation": [
+        563,
+        105
+      ],
+      "victim_released": false,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 0
+    },
+    {
+      "index": 1,
+      "source_frame": 1,
+      "source_crop": [
+        632,
+        16,
+        986,
+        490
+      ],
+      "scale": 0.55,
+      "translation": [
+        357,
+        100
+      ],
+      "support_foot": [
+        390,
+        360
+      ],
+      "hand_contact": [
+        416,
+        141
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 100,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        855.0,
+        144
+      ],
+      "victim_pose": 3,
+      "victim_translation": [
+        337,
+        58
+      ],
+      "victim_released": false,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 75
+    },
+    {
+      "index": 2,
+      "source_frame": 2,
+      "source_crop": [
+        1086,
+        19,
+        1492,
+        489
+      ],
+      "scale": 0.55,
+      "translation": [
+        367,
+        103
+      ],
+      "support_foot": [
+        390,
+        360
+      ],
+      "hand_contact": [
+        441,
+        137
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 120,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        1271.5,
+        139
+      ],
+      "victim_pose": 3,
+      "victim_translation": [
+        362,
+        54
+      ],
+      "victim_released": false,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 180
+    },
+    {
+      "index": 3,
+      "source_frame": 3,
+      "source_crop": [
+        35,
+        503,
+        539,
+        975
+      ],
+      "scale": 0.55,
+      "translation": [
+        308,
+        101
+      ],
+      "support_foot": [
+        390,
+        360
+      ],
+      "hand_contact": [
+        330,
+        228
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 70,
+      "events": [
+        "throw_release"
+      ],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        231.5,
+        645
+      ],
+      "victim_pose": 4,
+      "victim_translation": [
+        122,
+        120
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 225
+    },
+    {
+      "index": 4,
+      "source_frame": 4,
+      "source_crop": [
+        585,
+        497,
+        1026,
+        985
+      ],
+      "scale": 0.55,
+      "translation": [
+        333,
+        93
+      ],
+      "support_foot": [
+        390,
+        360
+      ],
+      "hand_contact": [
+        352,
+        251
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 80,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        672.5,
+        637
+      ],
+      "victim_pose": 4,
+      "victim_translation": [
+        96,
+        132
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 180
+    },
+    {
+      "index": 5,
+      "source_frame": 5,
+      "source_crop": [
+        1070,
+        492,
+        1518,
+        983
+      ],
+      "scale": 0.55,
+      "translation": [
+        359,
+        91
+      ],
+      "support_foot": [
+        390,
+        360
+      ],
+      "hand_contact": [
+        385,
+        165
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 90,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        1254.5,
+        627
+      ],
+      "victim_pose": 4,
+      "victim_translation": [
+        72,
+        168
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 180
+    },
+    {
+      "index": 6,
+      "source_frame": 5,
+      "source_crop": [
+        1070,
+        492,
+        1518,
+        983
+      ],
+      "scale": 0.55,
+      "translation": [
+        359,
+        91
+      ],
+      "support_foot": [
+        390,
+        360
+      ],
+      "hand_contact": [
+        385,
+        165
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 100,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        1254.5,
+        627
+      ],
+      "victim_pose": 4,
+      "victim_translation": [
+        46,
+        202
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 180
+    },
+    {
+      "index": 7,
+      "source_frame": 5,
+      "source_crop": [
+        1070,
+        492,
+        1518,
+        983
+      ],
+      "scale": 0.55,
+      "translation": [
+        359,
+        91
+      ],
+      "support_foot": [
+        390,
+        360
+      ],
+      "hand_contact": [
+        385,
+        165
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 180,
+      "events": [
+        "victim_land"
+      ],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        1254.5,
+        627
+      ],
+      "victim_pose": 5,
+      "victim_translation": [
+        19,
+        271
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 180
+    }
+  ],
+  "duration_ms": 840,
+  "runtime_loop": false,
+  "limitations": [
+    "Keyframe animation without interpolation.",
+    "Hand contacts are approximate visual annotations, not engine collision registration.",
+    "Neutral victim is a separate generated preview actor.",
+    "Not runtime integrated."
+  ]
+}

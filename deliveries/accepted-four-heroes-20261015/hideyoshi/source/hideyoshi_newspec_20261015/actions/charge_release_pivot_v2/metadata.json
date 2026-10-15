@@ -1,0 +1,925 @@
+{
+  "action": "charge_release",
+  "revision": "left_foot_pivot_720_v2",
+  "description": "以左腳前掌為轉軸，鞋尖隨膝髖轉向；右腳離地繞踏，骨盆、腿、胸肩與雙手腰斬一同轉完兩圈，再雙腳制動回站。",
+  "duration_ms": 1240,
+  "frame_count": 17,
+  "head_scale": 0.95,
+  "canvas": [
+    520,
+    300
+  ],
+  "revolutions": 2,
+  "pivot_foot": "anatomical left",
+  "pivot_world": [
+    244,
+    250
+  ],
+  "footwork": "left forefoot/toe pivots; free right foot circles and lifts; pelvis and legs rotate with chest",
+  "rotation_axis": "vertical axis through supporting left forefoot",
+  "blade_plane": "waist_horizontal",
+  "fan": "stored flat gold fan retained; no dangling bottle",
+  "frames": [
+    {
+      "source": "charge_hold",
+      "source_frame": 0,
+      "head_scale": 0.95,
+      "index": 0,
+      "duration_ms": 90,
+      "event": null
+    },
+    {
+      "source_index": 0,
+      "source_rect": [
+        99,
+        17,
+        369,
+        450
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        323,
+        442
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        174.35,
+        240.9
+      ],
+      "grip_world": [
+        195.87499999999997,
+        169.325
+      ],
+      "hand_centers": [
+        [
+          191.14999999999998,
+          167.75
+        ],
+        [
+          200.59999999999997,
+          170.9
+        ]
+      ],
+      "body_offset": [
+        130.95,
+        95.30000000000001
+      ],
+      "rotation_progress_degrees": 0,
+      "weapon_yaw_degrees": 0,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 1,
+      "index": 1,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 1,
+      "source_rect": [
+        530,
+        17,
+        755,
+        449
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        698,
+        439
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        211.45000000000002,
+        237.05
+      ],
+      "grip_world": [
+        251.7,
+        167.925
+      ],
+      "hand_centers": [
+        [
+          245.4,
+          169.15000000000003
+        ],
+        [
+          258.0,
+          166.70000000000002
+        ]
+      ],
+      "body_offset": [
+        -0.29999999999998295,
+        96.35000000000002
+      ],
+      "rotation_progress_degrees": 60,
+      "weapon_yaw_degrees": 60,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 1,
+      "index": 2,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 2,
+      "source_rect": [
+        981,
+        13,
+        1236,
+        452
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1036,
+        444
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        302.8,
+        232.15
+      ],
+      "grip_world": [
+        264.475,
+        161.8
+      ],
+      "hand_centers": [
+        [
+          240.85000000000002,
+          160.05
+        ],
+        [
+          288.1,
+          163.55
+        ]
+      ],
+      "body_offset": [
+        -118.59999999999997,
+        94.60000000000002
+      ],
+      "rotation_progress_degrees": 120,
+      "weapon_yaw_degrees": 120,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 1,
+      "index": 3,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 3,
+      "source_rect": [
+        1422,
+        15,
+        1689,
+        448
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1462,
+        434
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        295.8,
+        242.3
+      ],
+      "grip_world": [
+        253.09999999999997,
+        169.675
+      ],
+      "hand_centers": [
+        [
+          249.59999999999997,
+          169.5
+        ],
+        [
+          256.59999999999997,
+          169.85000000000002
+        ]
+      ],
+      "body_offset": [
+        -267.7,
+        98.10000000000002
+      ],
+      "rotation_progress_degrees": 180,
+      "weapon_yaw_degrees": 180,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 1,
+      "index": 4,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 4,
+      "source_rect": [
+        96,
+        454,
+        337,
+        873
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        177,
+        866
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        289.5,
+        220.95
+      ],
+      "grip_world": [
+        227.55,
+        172.12500000000003
+      ],
+      "hand_centers": [
+        [
+          223.70000000000002,
+          170.90000000000003
+        ],
+        [
+          231.4,
+          173.35000000000002
+        ]
+      ],
+      "body_offset": [
+        182.05,
+        -53.099999999999966
+      ],
+      "rotation_progress_degrees": 240,
+      "weapon_yaw_degrees": 240,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 1,
+      "index": 5,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 5,
+      "source_rect": [
+        503,
+        452,
+        769,
+        874
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        727,
+        867
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        177.5,
+        227.95
+      ],
+      "grip_world": [
+        215.125,
+        169.675
+      ],
+      "hand_centers": [
+        [
+          211.1,
+          169.85
+        ],
+        [
+          219.15,
+          169.5
+        ]
+      ],
+      "body_offset": [
+        -10.449999999999989,
+        -53.44999999999999
+      ],
+      "rotation_progress_degrees": 300,
+      "weapon_yaw_degrees": 300,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 1,
+      "index": 6,
+      "duration_ms": 60,
+      "event": "contact_launch_turn_1"
+    },
+    {
+      "source_index": 0,
+      "source_rect": [
+        99,
+        17,
+        369,
+        450
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        323,
+        442
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        174.35,
+        240.9
+      ],
+      "grip_world": [
+        195.87499999999997,
+        169.325
+      ],
+      "hand_centers": [
+        [
+          191.14999999999998,
+          167.75
+        ],
+        [
+          200.59999999999997,
+          170.9
+        ]
+      ],
+      "body_offset": [
+        130.95,
+        95.30000000000001
+      ],
+      "rotation_progress_degrees": 360,
+      "weapon_yaw_degrees": 360,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 2,
+      "index": 7,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 1,
+      "source_rect": [
+        530,
+        17,
+        755,
+        449
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        698,
+        439
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        211.45000000000002,
+        237.05
+      ],
+      "grip_world": [
+        251.7,
+        167.925
+      ],
+      "hand_centers": [
+        [
+          245.4,
+          169.15000000000003
+        ],
+        [
+          258.0,
+          166.70000000000002
+        ]
+      ],
+      "body_offset": [
+        -0.29999999999998295,
+        96.35000000000002
+      ],
+      "rotation_progress_degrees": 420,
+      "weapon_yaw_degrees": 420,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 2,
+      "index": 8,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 2,
+      "source_rect": [
+        981,
+        13,
+        1236,
+        452
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1036,
+        444
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        302.8,
+        232.15
+      ],
+      "grip_world": [
+        264.475,
+        161.8
+      ],
+      "hand_centers": [
+        [
+          240.85000000000002,
+          160.05
+        ],
+        [
+          288.1,
+          163.55
+        ]
+      ],
+      "body_offset": [
+        -118.59999999999997,
+        94.60000000000002
+      ],
+      "rotation_progress_degrees": 480,
+      "weapon_yaw_degrees": 480,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 2,
+      "index": 9,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 3,
+      "source_rect": [
+        1422,
+        15,
+        1689,
+        448
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1462,
+        434
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        295.8,
+        242.3
+      ],
+      "grip_world": [
+        253.09999999999997,
+        169.675
+      ],
+      "hand_centers": [
+        [
+          249.59999999999997,
+          169.5
+        ],
+        [
+          256.59999999999997,
+          169.85000000000002
+        ]
+      ],
+      "body_offset": [
+        -267.7,
+        98.10000000000002
+      ],
+      "rotation_progress_degrees": 540,
+      "weapon_yaw_degrees": 540,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 2,
+      "index": 10,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 4,
+      "source_rect": [
+        96,
+        454,
+        337,
+        873
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        177,
+        866
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        289.5,
+        220.95
+      ],
+      "grip_world": [
+        227.55,
+        172.12500000000003
+      ],
+      "hand_centers": [
+        [
+          223.70000000000002,
+          170.90000000000003
+        ],
+        [
+          231.4,
+          173.35000000000002
+        ]
+      ],
+      "body_offset": [
+        182.05,
+        -53.099999999999966
+      ],
+      "rotation_progress_degrees": 600,
+      "weapon_yaw_degrees": 600,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 2,
+      "index": 11,
+      "duration_ms": 60,
+      "event": null
+    },
+    {
+      "source_index": 5,
+      "source_rect": [
+        503,
+        452,
+        769,
+        874
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        727,
+        867
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        177.5,
+        227.95
+      ],
+      "grip_world": [
+        215.125,
+        169.675
+      ],
+      "hand_centers": [
+        [
+          211.1,
+          169.85
+        ],
+        [
+          219.15,
+          169.5
+        ]
+      ],
+      "body_offset": [
+        -10.449999999999989,
+        -53.44999999999999
+      ],
+      "rotation_progress_degrees": 660,
+      "weapon_yaw_degrees": 660,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 2,
+      "index": 12,
+      "duration_ms": 60,
+      "event": "contact_launch_turn_2"
+    },
+    {
+      "source_index": 0,
+      "source_rect": [
+        99,
+        17,
+        369,
+        450
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        323,
+        442
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        174.35,
+        240.9
+      ],
+      "grip_world": [
+        195.87499999999997,
+        169.325
+      ],
+      "hand_centers": [
+        [
+          191.14999999999998,
+          167.75
+        ],
+        [
+          200.59999999999997,
+          170.9
+        ]
+      ],
+      "body_offset": [
+        130.95,
+        95.30000000000001
+      ],
+      "rotation_progress_degrees": 720,
+      "weapon_yaw_degrees": 720,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "turn": 2,
+      "index": 13,
+      "duration_ms": 80,
+      "event": "two_turns_complete"
+    },
+    {
+      "source_index": 6,
+      "source_rect": [
+        943,
+        456,
+        1278,
+        875
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1230,
+        866
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        153.7,
+        248.60000000000002
+      ],
+      "grip_world": [
+        193.42499999999995,
+        173.52500000000003
+      ],
+      "hand_centers": [
+        [
+          189.04999999999995,
+          173.70000000000002
+        ],
+        [
+          197.79999999999995,
+          173.35000000000002
+        ]
+      ],
+      "body_offset": [
+        -186.5,
+        -53.099999999999966
+      ],
+      "rotation_progress_degrees": null,
+      "weapon_yaw_degrees": null,
+      "weapon_angle": 103,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "index": 14,
+      "duration_ms": 100,
+      "event": null
+    },
+    {
+      "source_index": 7,
+      "source_rect": [
+        1422,
+        456,
+        1713,
+        875
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1670,
+        866
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        168.04999999999995,
+        248.60000000000002
+      ],
+      "grip_world": [
+        201.64999999999998,
+        173.35000000000002
+      ],
+      "hand_centers": [
+        [
+          197.79999999999995,
+          173.35000000000002
+        ],
+        [
+          205.5,
+          173.35000000000002
+        ]
+      ],
+      "body_offset": [
+        -340.5,
+        -53.099999999999966
+      ],
+      "rotation_progress_degrees": null,
+      "weapon_yaw_degrees": null,
+      "weapon_angle": 115,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "new full-body pivot pose, not a pasted leg rotation",
+      "index": 15,
+      "duration_ms": 110,
+      "event": null
+    },
+    {
+      "source": "light_1",
+      "source_frame": 0,
+      "head_scale": 0.95,
+      "index": 16,
+      "duration_ms": 140,
+      "event": null
+    }
+  ],
+  "source_sha256": "948e907797669b796e640aeeb8ccda6d34416059b6754d977a28ad27813b5e20",
+  "source_sheet": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/charge_release_pivot_fixed.png",
+  "render_body_layer": "body_canvas_XX.png",
+  "quality_checks": [
+    "new leg/hip poses for all six turning directions",
+    "same anatomical left support foot through front and back views",
+    "left support ball locked to [244,250] for both 360-degree turns",
+    "right foot airborne circling path changes per pose",
+    "17 GIF frames decoded; exact 1240ms",
+    "95 percent neck-anchored head, independent katana and FX layers"
+  ],
+  "limitations": [
+    "six distinct rotational body poses per turn",
+    "whole-body sprites, not anatomical rig parts",
+    "weapon uses 2.5D projection",
+    "review candidate; not runtime integrated"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "prompts": [
+    {
+      "name": "late-descent",
+      "prompt": "Use case: precise-object-edit. One full-body warrior monk sprite, genuine transparent RGBA. Create one NEW anatomical transition pose precisely BETWEEN reference 1 (airborne descending overhead) and reference 2 (grounded slam). He is STILL AIRBORNE, just about to touch down: feet spread toward the wide landing stance, knees partly extending downward but still flexed, BOTH soles off ground, no floor. Torso pitches forward about 15 degrees. Both arms have already swung down halfway from overhead: rear gripping fist at shoulder/upper-chest level, front gripping fist one forearm-length diagonally DOWN-RIGHT, at lower-chest height. Fist centers lie on one imaginary straight shaft angled 135 degrees clockwise from up (diagonal down-right45 degrees). Both gripping fists clearly separate, wrists and elbows connected naturally. NOT the overhead endpoint and NOT the grounded endpoint.\nExact approved identity, costume and painterly game-art treatment from both references: ivory patterned hood, stern tan moustache and pointed goatee, large brown beads, black charcoal robe with gold stole, lamellar bracers/shins, brown wide pants, rope sandals. Fixed front/right three-quarter camera and SAME physical anatomy scale/proportions. Preserve character design; change only joint posture needed for this intermediate. Both hands grip the SAME invisible staff, do not flip the wrist/hand order. Full body and all fingers/toes with generous transparent margins.\nBODY ONLY: absolutely no drawn weapon, shaft fragments, speed marks, dust, ground, cast shadow, background, guide marks or text. No mirroring, no back view, no squash/stretch, no duplicate endpoint pose.",
+      "source": "late-descent-source.png",
+      "references": [
+        "../air_heavy_deep_13f_v3/body_06.png",
+        "../air_heavy_deep_13f_v3/body_07.png"
+      ]
+    },
+    {
+      "name": "impact-compression",
+      "prompt": "Use case: precise-object-edit. One full-body warrior monk sprite, genuine transparent RGBA. Create one NEW anatomical transition pose precisely BETWEEN reference 1 (first landing knee flexion) and reference 2 (deepest compression). BOTH feet planted flat in the same wide stance. Knees and hips flex more deeply than image1 but not as low as image2, hips descend toward the knee line, torso hinges forward about25 degrees, shoulders absorb the downstrike. Preserve fixed head/torso/bone size. Both empty gripping fists remain on one invisible straight shaft angled124 degrees clockwise from up (34 degrees down-right from horizontal): rear fist near upper sternum, front fist one forearm-length diagonally down-right near the front thigh. A genuine separate anatomy key with different knee angles, hip position, elbow flexion and robe folds, not translating/scaling either reference.\nExact approved identity, costume and painterly game-art treatment from both references: ivory patterned hood, stern tan moustache and pointed goatee, large brown beads, black charcoal robe with gold stole, lamellar bracers/shins, brown wide pants, rope sandals. Fixed front/right three-quarter camera and SAME physical anatomy scale/proportions. Preserve character design; change only joint posture needed for this intermediate. Both hands grip the SAME invisible staff, do not flip the wrist/hand order. Full body and all fingers/toes with generous transparent margins.\nBODY ONLY: absolutely no drawn weapon, shaft fragments, speed marks, dust, ground, cast shadow, background, guide marks or text. No mirroring, no back view, no squash/stretch, no duplicate endpoint pose.",
+      "source": "impact-compression-source.png",
+      "references": [
+        "../air_heavy_deep_13f_v3/body_08.png",
+        "../air_heavy_deep_13f_v3/body_09.png"
+      ]
+    }
+  ],
+  "tool": "image_gen.imagegen",
+  "transparent_background": true
+}

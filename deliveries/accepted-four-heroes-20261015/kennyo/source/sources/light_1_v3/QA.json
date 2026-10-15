@@ -1,0 +1,244 @@
+{
+  "action": "light_1_v3",
+  "expected_frames": 10,
+  "expected_duration_ms": 670,
+  "support_foot": "same anatomical left / screen right in every generated pose",
+  "frames": [
+    {
+      "frame": 1,
+      "rendered_weapon_pca_angle_degrees": -31.698,
+      "declared_angle_degrees": -31.701,
+      "angle_error_degrees": 0.004,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        204,
+        101,
+        326,
+        289
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 2,
+      "rendered_weapon_pca_angle_degrees": -32.082,
+      "declared_angle_degrees": -32.125,
+      "angle_error_degrees": 0.043,
+      "fixed_contact_pixel_distance": 1.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        164,
+        57,
+        288,
+        243
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 3,
+      "rendered_weapon_pca_angle_degrees": -28.089,
+      "declared_angle_degrees": -28.142,
+      "angle_error_degrees": 0.053,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        183,
+        52,
+        295,
+        244
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 4,
+      "rendered_weapon_pca_angle_degrees": 25.757,
+      "declared_angle_degrees": 25.769,
+      "angle_error_degrees": 0.013,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        227,
+        50,
+        332,
+        247
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 5,
+      "rendered_weapon_pca_angle_degrees": 47.049,
+      "declared_angle_degrees": 47.045,
+      "angle_error_degrees": 0.004,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        284,
+        69,
+        446,
+        221
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 6,
+      "rendered_weapon_pca_angle_degrees": 81.673,
+      "declared_angle_degrees": 81.674,
+      "angle_error_degrees": 0.001,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        294,
+        181,
+        509,
+        231
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 7,
+      "rendered_weapon_pca_angle_degrees": 111.843,
+      "declared_angle_degrees": 111.801,
+      "angle_error_degrees": 0.042,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        284,
+        226,
+        486,
+        319
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 8,
+      "rendered_weapon_pca_angle_degrees": 38.333,
+      "declared_angle_degrees": 38.333,
+      "angle_error_degrees": 0.0,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        273,
+        65,
+        413,
+        237
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 9,
+      "rendered_weapon_pca_angle_degrees": -26.004,
+      "declared_angle_degrees": -26.003,
+      "angle_error_degrees": 0.001,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        183,
+        55,
+        288,
+        252
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    },
+    {
+      "frame": 10,
+      "rendered_weapon_pca_angle_degrees": -31.698,
+      "declared_angle_degrees": -31.701,
+      "angle_error_degrees": 0.004,
+      "fixed_contact_pixel_distance": 0.0,
+      "hand_shaft_pixel_contact": [
+        true,
+        true
+      ],
+      "weapon_bbox": [
+        204,
+        101,
+        326,
+        289
+      ],
+      "support_ball_world": [
+        330.484,
+        325.0
+      ]
+    }
+  ],
+  "passed": true,
+  "actual_gif_frame_count": 10,
+  "actual_gif_durations_ms": [
+    80,
+    80,
+    70,
+    60,
+    40,
+    40,
+    50,
+    60,
+    70,
+    120
+  ],
+  "actual_gif_total_ms": 670,
+  "rendered_active_arc_degrees": 139.94,
+  "single_contact_frame": 6,
+  "fixed_pivot_world": [
+    330.484,
+    325.0
+  ],
+  "unchanged_previous_assets": true,
+  "independent_visual_review": {
+    "result": "pass: visible swing arc and same planted anatomical foot",
+    "minor_caveats": "Small heel/ankle drawing variations; game-speed angular transitions are deliberately snappy."
+  }
+}

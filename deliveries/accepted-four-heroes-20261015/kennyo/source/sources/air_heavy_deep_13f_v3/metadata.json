@@ -1,0 +1,1469 @@
+{
+  "action": "air_heavy",
+  "version": "air_heavy_deep_13f_v3",
+  "standing_equivalent_px": 163,
+  "preview_canvas": [
+    640,
+    380
+  ],
+  "source_provenance": "Built-in image_gen authored two new full-body deep squat/rebound poses at the same head/torso/bone scale. No whole-body squashing, vertical stretch, optical flow or duplicate padding. Original airborne root trajectory retained; only two upper-arm phase drawings corrected. One existing recovery pose is reused as a distinct in-action frame.",
+  "scale_contract": "../identity/scale-contract.json",
+  "default_weapon": "../weapons/ornate_shakujo.png",
+  "weapon_physical_length_px": 215,
+  "weapon_length_fixed": true,
+  "hand_grip_mode": "measured two-hand staff grip",
+  "body_weapon_fx_hand_layers_separate": true,
+  "runtime_integrated": false,
+  "frames": [
+    {
+      "source": "light_1/source.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "root_source": [
+        278,
+        498
+      ],
+      "grips": [
+        [
+          278,
+          209
+        ],
+        [
+          257,
+          175
+        ]
+      ],
+      "duration": 60,
+      "event": "ready",
+      "dx": 0,
+      "air_height": 0,
+      "angle": null,
+      "scale": 0.337,
+      "feet": {
+        "left": [
+          101,
+          501
+        ],
+        "right": [
+          385,
+          498
+        ]
+      },
+      "frame": 1,
+      "start_ms": 0,
+      "source_sha256": "e8902f59abe9b2c0d15358bf9c51afe8aac0b86bd52ced7030bb423394734803",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        192.314,
+        157.17399999999998
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "ground_root": [
+        286,
+        325
+      ],
+      "grip_world": [
+        [
+          286.0,
+          227.60699999999997
+        ],
+        [
+          278.923,
+          216.14899999999997
+        ]
+      ],
+      "weapon_angle": -31.701429669505718,
+      "weapon_source_pivot": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        164.53264342938823
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        208.7525465338784,
+        102.539694388184
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          226.351,
+          326.01099999999997
+        ],
+        "right": [
+          322.05899999999997,
+          325.0
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        321.73351588909026,
+        285.46126382043184
+      ],
+      "weapon_rendered_alpha_bbox": [
+        204,
+        101,
+        326,
+        289
+      ]
+    },
+    {
+      "source": "air_heavy_11f_v2/extra-source.png",
+      "rect": [
+        0,
+        0,
+        715,
+        788
+      ],
+      "root_source": [
+        380,
+        775
+      ],
+      "grips": [
+        [
+          607,
+          164
+        ],
+        [
+          465,
+          36
+        ]
+      ],
+      "event": "new_takeoff_staff_lift",
+      "scale": 0.238,
+      "dx": 0,
+      "air_height": 12,
+      "feet": {
+        "left": [
+          148,
+          770
+        ],
+        "right": [
+          420,
+          648
+        ]
+      },
+      "new_pose": true,
+      "frame": 2,
+      "duration": 60,
+      "start_ms": 60,
+      "source_sha256": "e45183e31a0ad7544372efde0f47ef1a2b9e67664e1874e72d5c8ba4dc7bf764",
+      "source_crop_xyxy": [
+        0,
+        0,
+        715,
+        788
+      ],
+      "uniform_source_scale": 0.238,
+      "render_origin": [
+        195.56,
+        128.55
+      ],
+      "world_root": [
+        286,
+        313
+      ],
+      "ground_root": [
+        286,
+        325
+      ],
+      "grip_world": [
+        [
+          340.02599999999995,
+          167.582
+        ],
+        [
+          306.23,
+          137.11800000000002
+        ]
+      ],
+      "weapon_angle": -47.96823402987169,
+      "weapon_source_pivot": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        132.500275693143
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        230.83826148767474,
+        69.15924979170673
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          230.784,
+          311.81
+        ],
+        "right": [
+          295.52,
+          282.774
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        390.53461373359255,
+        213.11089125281592
+      ],
+      "weapon_rendered_alpha_bbox": [
+        229,
+        67,
+        394,
+        217
+      ]
+    },
+    {
+      "source": "air_heavy_deep_13f_v3/rise-arms-source.png",
+      "rect": [
+        0,
+        0,
+        1243,
+        1265
+      ],
+      "root_source": [
+        725.8823529411765,
+        1220.9150326797387
+      ],
+      "grips": [
+        [
+          837,
+          174
+        ],
+        [
+          853,
+          47
+        ]
+      ],
+      "event": "rising_raise_staff_continuous_head_direction",
+      "scale": 0.153,
+      "dx": 0,
+      "air_height": 24,
+      "feet": {},
+      "new_pose": true,
+      "weapon_grip": [
+        64,
+        145
+      ],
+      "frame": 3,
+      "duration": 70,
+      "start_ms": 120,
+      "source_sha256": "9b227dbcf25733f13a4c24928d3e8115dfc7e4b629c290f6761a9f8a09e551cc",
+      "source_crop_xyxy": [
+        0,
+        0,
+        1243,
+        1265
+      ],
+      "uniform_source_scale": 0.153,
+      "render_origin": [
+        174.94,
+        114.19999999999999
+      ],
+      "world_root": [
+        286,
+        301
+      ],
+      "ground_root": [
+        286,
+        325
+      ],
+      "grip_world": [
+        [
+          303.001,
+          140.822
+        ],
+        [
+          305.44899999999996,
+          121.39099999999999
+        ]
+      ],
+      "weapon_angle": 7.18053549772009,
+      "weapon_source_pivot": [
+        64,
+        145
+      ],
+      "aux_grip_source": [
+        64,
+        125.41540235286922
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        317.2505651444176,
+        27.716076666184293
+      ],
+      "contact_point": null,
+      "screen_feet": {},
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        290.3763852667879,
+        241.02987944487182
+      ],
+      "weapon_rendered_alpha_bbox": [
+        285,
+        27,
+        330,
+        243
+      ]
+    },
+    {
+      "source": "air_heavy_deep_13f_v3/bridge-arms-source.png",
+      "rect": [
+        0,
+        0,
+        1188,
+        1324
+      ],
+      "root_source": [
+        602.1897810218977,
+        1240.875912408759
+      ],
+      "grips": [
+        [
+          745,
+          472
+        ],
+        [
+          1082,
+          318
+        ]
+      ],
+      "event": "rising_forward_sweep_bridge",
+      "scale": 0.137,
+      "dx": 16,
+      "air_height": 42,
+      "feet": {},
+      "new_pose": true,
+      "frame": 4,
+      "duration": 70,
+      "start_ms": 190,
+      "source_sha256": "a196f5ed33d6e65c5b00191f4d4a41d62393a2edf1dcb1f88fd275f927465254",
+      "source_crop_xyxy": [
+        0,
+        0,
+        1188,
+        1324
+      ],
+      "uniform_source_scale": 0.137,
+      "render_origin": [
+        219.5,
+        113.0
+      ],
+      "world_root": [
+        302,
+        283
+      ],
+      "ground_root": [
+        302,
+        325
+      ],
+      "grip_world": [
+        [
+          321.565,
+          177.664
+        ],
+        [
+          367.73400000000004,
+          156.566
+        ]
+      ],
+      "weapon_angle": 65.44086511661554,
+      "weapon_source_pivot": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        127.23877301522349
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        455.26631896211666,
+        116.5660678926827
+      ],
+      "contact_point": null,
+      "screen_feet": {},
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        259.71677082024536,
+        205.9269890020243
+      ],
+      "weapon_rendered_alpha_bbox": [
+        257,
+        110,
+        455,
+        211
+      ]
+    },
+    {
+      "source": "air_heavy/body-source.png",
+      "rect": [
+        570,
+        0,
+        1035,
+        550
+      ],
+      "root_source": [
+        800,
+        570
+      ],
+      "grips": [
+        [
+          808,
+          25
+        ],
+        [
+          876,
+          45
+        ]
+      ],
+      "duration": 70,
+      "event": "apex_staff_high",
+      "dx": 8,
+      "air_height": 58,
+      "angle": null,
+      "scale": 0.337,
+      "feet": {
+        "left": [
+          650,
+          402
+        ],
+        "right": [
+          875,
+          462
+        ]
+      },
+      "frame": 5,
+      "start_ms": 260,
+      "source_sha256": "6b4ee9c6fcceb64b2b43c147eddae9e7199d56ce132c6a6f52db25d12b827672",
+      "source_crop_xyxy": [
+        570,
+        0,
+        1035,
+        550
+      ],
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        216.49,
+        74.91
+      ],
+      "world_root": [
+        294,
+        267
+      ],
+      "ground_root": [
+        294,
+        325
+      ],
+      "grip_world": [
+        [
+          296.696,
+          83.335
+        ],
+        [
+          319.612,
+          90.075
+        ]
+      ],
+      "weapon_angle": 106.38954033403482,
+      "weapon_source_pivot": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        154.11337914228972
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        437.72272873097677,
+        124.81344962675797
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          243.45000000000002,
+          210.38400000000001
+        ],
+        "right": [
+          319.27500000000003,
+          230.604
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        231.45914589315365,
+        64.14768996857454
+      ],
+      "weapon_rendered_alpha_bbox": [
+        229,
+        59,
+        438,
+        135
+      ]
+    },
+    {
+      "source": "air_heavy_11f_v2/extra-source.png",
+      "rect": [
+        715,
+        0,
+        1318,
+        788
+      ],
+      "root_source": [
+        1050,
+        780
+      ],
+      "grips": [
+        [
+          1140,
+          32
+        ],
+        [
+          1180,
+          78
+        ]
+      ],
+      "event": "new_descending_overhand_transition",
+      "scale": 0.238,
+      "dx": 18,
+      "air_height": 32,
+      "feet": {
+        "left": [
+          1020,
+          717
+        ],
+        "right": [
+          1087,
+          654
+        ]
+      },
+      "new_pose": true,
+      "frame": 6,
+      "duration": 60,
+      "start_ms": 330,
+      "source_sha256": "e45183e31a0ad7544372efde0f47ef1a2b9e67664e1874e72d5c8ba4dc7bf764",
+      "source_crop_xyxy": [
+        715,
+        0,
+        1318,
+        788
+      ],
+      "uniform_source_scale": 0.238,
+      "render_origin": [
+        224.27,
+        107.36000000000001
+      ],
+      "world_root": [
+        304,
+        293
+      ],
+      "ground_root": [
+        304,
+        325
+      ],
+      "grip_world": [
+        [
+          325.42,
+          114.97600000000001
+        ],
+        [
+          334.94,
+          125.924
+        ]
+      ],
+      "weapon_angle": 138.99091309842981,
+      "weapon_source_pivot": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        163.49175737727
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        421.87827109394357,
+        225.90301175803526
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          296.86,
+          278.006
+        ],
+        "right": [
+          312.80600000000004,
+          263.012
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        280.79984738511456,
+        63.66282449288167
+      ],
+      "weapon_rendered_alpha_bbox": [
+        277,
+        60,
+        423,
+        227
+      ]
+    },
+    {
+      "source": "air_heavy/contact-body-source.png",
+      "rect": [
+        0,
+        0,
+        1272,
+        1236
+      ],
+      "root_source": [
+        640,
+        1175
+      ],
+      "grips": [
+        [
+          700,
+          460
+        ],
+        [
+          1140,
+          815
+        ]
+      ],
+      "duration": 50,
+      "event": "downward_slam_contact",
+      "dx": 22,
+      "air_height": 0,
+      "angle": null,
+      "scale": 0.129,
+      "feet": {
+        "left": [
+          150,
+          1173
+        ],
+        "right": [
+          1140,
+          1170
+        ]
+      },
+      "contact": true,
+      "landing": true,
+      "weapon_grip": [
+        64,
+        171
+      ],
+      "front_anchor": [
+        1140,
+        1170
+      ],
+      "front_world": 372.5,
+      "frame": 7,
+      "start_ms": 390,
+      "source_sha256": "ac910c0b233dee6b2abf47d010469c2f0e9e9dd066b30965cb4f99c443f662f2",
+      "source_crop_xyxy": [
+        0,
+        0,
+        1272,
+        1236
+      ],
+      "uniform_source_scale": 0.129,
+      "render_origin": [
+        225.44,
+        174.07
+      ],
+      "world_root": [
+        308,
+        325
+      ],
+      "ground_root": [
+        308,
+        325
+      ],
+      "grip_world": [
+        [
+          315.74,
+          233.41
+        ],
+        [
+          372.5,
+          279.205
+        ]
+      ],
+      "weapon_angle": 128.8972203463442,
+      "weapon_source_pivot": [
+        64,
+        171
+      ],
+      "aux_grip_source": [
+        64,
+        98.06935057878617
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        424.6983057749185,
+        321.3195421593092
+      ],
+      "contact_point": [
+        424.6983057749185,
+        321.3195421593092
+      ],
+      "screen_feet": {
+        "left": [
+          244.79,
+          325.387
+        ],
+        "right": [
+          372.5,
+          325.0
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        257.3694790491508,
+        186.31560241465579
+      ],
+      "weapon_rendered_alpha_bbox": [
+        254,
+        183,
+        426,
+        324
+      ]
+    },
+    {
+      "source": "air_heavy_11f_v2/extra-source.png",
+      "rect": [
+        1318,
+        0,
+        1996,
+        788
+      ],
+      "root_source": [
+        1660,
+        770
+      ],
+      "grips": [
+        [
+          1634,
+          385
+        ],
+        [
+          1873,
+          543
+        ]
+      ],
+      "event": "first_landing_knee_flexion",
+      "scale": 0.238,
+      "dx": 22,
+      "air_height": 0,
+      "feet": {
+        "left": [
+          1377,
+          770
+        ],
+        "right": [
+          1930,
+          770
+        ]
+      },
+      "new_pose": true,
+      "landing": true,
+      "weapon_grip": [
+        64,
+        188
+      ],
+      "front_anchor": [
+        1930,
+        770
+      ],
+      "front_world": 372.26,
+      "frame": 8,
+      "duration": 50,
+      "start_ms": 440,
+      "source_sha256": "e45183e31a0ad7544372efde0f47ef1a2b9e67664e1874e72d5c8ba4dc7bf764",
+      "source_crop_xyxy": [
+        1318,
+        0,
+        1996,
+        788
+      ],
+      "uniform_source_scale": 0.238,
+      "render_origin": [
+        226.60399999999998,
+        141.74
+      ],
+      "world_root": [
+        308,
+        325
+      ],
+      "ground_root": [
+        308,
+        325
+      ],
+      "grip_world": [
+        [
+          301.812,
+          233.37
+        ],
+        [
+          358.69399999999996,
+          270.974
+        ]
+      ],
+      "weapon_angle": 123.46820695231033,
+      "weapon_source_pivot": [
+        64,
+        188
+      ],
+      "aux_grip_source": [
+        64,
+        119.81185777571005
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        432.7801376950432,
+        319.95144667705785
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          240.646,
+          325.0
+        ],
+        "right": [
+          372.26,
+          325.0
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        253.42886632921974,
+        201.38449740592768
+      ],
+      "weapon_rendered_alpha_bbox": [
+        251,
+        197,
+        434,
+        325
+      ]
+    },
+    {
+      "source": "air_heavy_deep_13f_v3/deep-landing-source.png",
+      "rect": [
+        0,
+        0,
+        914,
+        887
+      ],
+      "root_source": [
+        447,
+        844
+      ],
+      "grips": [
+        [
+          493,
+          427
+        ],
+        [
+          800,
+          636
+        ]
+      ],
+      "event": "maximum_impact_compression",
+      "scale": 0.17,
+      "dx": 22,
+      "air_height": 0,
+      "feet": {
+        "left": [
+          87,
+          844
+        ],
+        "right": [
+          825,
+          844
+        ]
+      },
+      "front_anchor": [
+        825,
+        844
+      ],
+      "front_world": 372.26,
+      "landing": true,
+      "new_pose": true,
+      "weapon_grip": [
+        64,
+        149
+      ],
+      "frame": 9,
+      "duration": 110,
+      "start_ms": 490,
+      "source_sha256": "b3bf210a0504f46f5fecae03a54b04ff243c589249341989753c81727b1803de",
+      "source_crop_xyxy": [
+        0,
+        0,
+        914,
+        887
+      ],
+      "uniform_source_scale": 0.17,
+      "render_origin": [
+        232.01,
+        181.51999999999998
+      ],
+      "world_root": [
+        308,
+        325
+      ],
+      "ground_root": [
+        308,
+        325
+      ],
+      "grip_world": [
+        [
+          315.82,
+          254.10999999999999
+        ],
+        [
+          368.01,
+          289.64
+        ]
+      ],
+      "weapon_angle": 124.24631975306048,
+      "weapon_source_pivot": [
+        64,
+        149
+      ],
+      "aux_grip_source": [
+        64,
+        85.86382178180247
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        413.36185593427285,
+        320.51471625492843
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          246.79999999999998,
+          325.0
+        ],
+        "right": [
+          372.26,
+          325.0
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        235.6372879184367,
+        199.52307223111814
+      ],
+      "weapon_rendered_alpha_bbox": [
+        233,
+        196,
+        414,
+        324
+      ]
+    },
+    {
+      "source": "air_heavy_deep_13f_v3/deep-landing-source.png",
+      "rect": [
+        914,
+        0,
+        1774,
+        887
+      ],
+      "root_source": [
+        1332,
+        846
+      ],
+      "grips": [
+        [
+          1288,
+          313
+        ],
+        [
+          1655,
+          537
+        ]
+      ],
+      "event": "deep_squat_rebound_transition",
+      "scale": 0.17,
+      "dx": 22,
+      "air_height": 0,
+      "feet": {
+        "left": [
+          982,
+          846
+        ],
+        "right": [
+          1710,
+          846
+        ]
+      },
+      "front_anchor": [
+        1710,
+        846
+      ],
+      "front_world": 372.26,
+      "new_pose": true,
+      "weapon_grip": [
+        64,
+        160
+      ],
+      "frame": 10,
+      "duration": 70,
+      "start_ms": 600,
+      "source_sha256": "b3bf210a0504f46f5fecae03a54b04ff243c589249341989753c81727b1803de",
+      "source_crop_xyxy": [
+        914,
+        0,
+        1774,
+        887
+      ],
+      "uniform_source_scale": 0.17,
+      "render_origin": [
+        236.93999999999997,
+        181.17999999999998
+      ],
+      "world_root": [
+        308,
+        325
+      ],
+      "ground_root": [
+        308,
+        325
+      ],
+      "grip_world": [
+        [
+          300.52,
+          234.39
+        ],
+        [
+          362.90999999999997,
+          272.46999999999997
+        ]
+      ],
+      "weapon_angle": 121.39798029305842,
+      "weapon_source_pivot": [
+        64,
+        160
+      ],
+      "aux_grip_source": [
+        64,
+        86.90691893209045
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        410.6304219771834,
+        301.5963610977904
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          248.49999999999997,
+          325.0
+        ],
+        "right": [
+          372.26,
+          325.0
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        227.11305201521105,
+        189.5857592681397
+      ],
+      "weapon_rendered_alpha_bbox": [
+        224,
+        186,
+        411,
+        306
+      ]
+    },
+    {
+      "source": "air_heavy/body-source-fixed.png",
+      "rect": [
+        0,
+        575,
+        568,
+        1024
+      ],
+      "root_source": [
+        290,
+        995
+      ],
+      "grips": [
+        [
+          399,
+          836
+        ],
+        [
+          440,
+          831
+        ]
+      ],
+      "duration": 70,
+      "event": "horse_stance_landing_recoil",
+      "dx": 22,
+      "air_height": 0,
+      "angle": null,
+      "scale": 0.337,
+      "feet": {
+        "left": [
+          82,
+          994
+        ],
+        "right": [
+          500,
+          992
+        ]
+      },
+      "landing": true,
+      "front_anchor": [
+        500,
+        992
+      ],
+      "front_world": 378.77,
+      "frame": 11,
+      "start_ms": 670,
+      "source_sha256": "eefcce05a34b33a986b4245dc37c1e55c7e70942e999adba159a891cd31268c3",
+      "source_crop_xyxy": [
+        0,
+        575,
+        568,
+        1024
+      ],
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        210.26999999999998,
+        184.471
+      ],
+      "world_root": [
+        308,
+        325
+      ],
+      "ground_root": [
+        308,
+        325
+      ],
+      "grip_world": [
+        [
+          344.733,
+          272.428
+        ],
+        [
+          358.54999999999995,
+          270.743
+        ]
+      ],
+      "weapon_angle": 83.04704253182605,
+      "weapon_source_pivot": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        164.08063528748534
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        490.6519439999273,
+        254.63300682927706
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          237.904,
+          325.674
+        ],
+        "right": [
+          378.77,
+          325.0
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        277.2330803265643,
+        280.65969752115075
+      ],
+      "weapon_rendered_alpha_bbox": [
+        276,
+        241,
+        490,
+        287
+      ]
+    },
+    {
+      "source": "air_light_continuous_11f_v3/arms-pass1-source.png",
+      "rect": [
+        836,
+        836,
+        1254,
+        1254
+      ],
+      "root_source": [
+        1023.6363636363636,
+        1190.0
+      ],
+      "grips": [
+        [
+          1078,
+          1073
+        ],
+        [
+          1097,
+          1014
+        ]
+      ],
+      "event": "rise_from_deep_squat_continuous_guard",
+      "scale": 0.55,
+      "dx": 22,
+      "air_height": 0,
+      "feet": {},
+      "new_pose": true,
+      "original_frame": 10,
+      "anatomical_calibration": "Uniform source scale calibrated against approved head/torso and unchanged lower-body landmarks; no alpha-bbox equalization",
+      "weapon_grip": [
+        64,
+        188
+      ],
+      "frame": 12,
+      "duration": 80,
+      "start_ms": 740,
+      "source_sha256": "24ed0eec56d7e3cd4cfd71fc3034537b83ae436810d7d01cd74b40043f4b4d2c",
+      "source_crop_xyxy": [
+        836,
+        836,
+        1254,
+        1254
+      ],
+      "uniform_source_scale": 0.55,
+      "render_origin": [
+        204.8,
+        130.29999999999998
+      ],
+      "world_root": [
+        308,
+        325
+      ],
+      "ground_root": [
+        308,
+        325
+      ],
+      "grip_world": [
+        [
+          337.90000000000003,
+          260.65
+        ],
+        [
+          348.35,
+          228.2
+        ]
+      ],
+      "weapon_angle": 17.85031830221682,
+      "weapon_source_pivot": [
+        64,
+        188
+      ],
+      "aux_grip_source": [
+        64,
+        153.90887212191421
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        386.0254244760447,
+        111.20789241649283
+      ],
+      "contact_point": null,
+      "screen_feet": {},
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        320.12118076681156,
+        315.85791235569053
+      ],
+      "weapon_rendered_alpha_bbox": [
+        315,
+        111,
+        395,
+        319
+      ]
+    },
+    {
+      "source": "light_1/source.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "root_source": [
+        278,
+        498
+      ],
+      "grips": [
+        [
+          278,
+          209
+        ],
+        [
+          257,
+          175
+        ]
+      ],
+      "duration": 130,
+      "event": "settled_guard",
+      "dx": 22,
+      "air_height": 0,
+      "angle": null,
+      "scale": 0.337,
+      "feet": {
+        "left": [
+          101,
+          501
+        ],
+        "right": [
+          385,
+          498
+        ]
+      },
+      "front_anchor": [
+        385,
+        498
+      ],
+      "front_world": 344.059,
+      "frame": 13,
+      "start_ms": 820,
+      "source_sha256": "e8902f59abe9b2c0d15358bf9c51afe8aac0b86bd52ced7030bb423394734803",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        214.31400000000002,
+        157.17399999999998
+      ],
+      "world_root": [
+        308,
+        325
+      ],
+      "ground_root": [
+        308,
+        325
+      ],
+      "grip_world": [
+        [
+          308.0,
+          227.60699999999997
+        ],
+        [
+          300.923,
+          216.14899999999997
+        ]
+      ],
+      "weapon_angle": -31.701429669505718,
+      "weapon_source_pivot": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        164.53264342938823
+      ],
+      "weapon_real_length_px": 215,
+      "weapon_tip": [
+        230.7525465338784,
+        102.539694388184
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          248.35100000000003,
+          326.01099999999997
+        ],
+        "right": [
+          344.059,
+          325.0
+        ]
+      },
+      "weapon_spin_phase": null,
+      "weapon_projection": 1,
+      "weapon_layer": "front_with_palm_occlusion",
+      "mirror_x": false,
+      "weapon_tail": [
+        343.73351588909026,
+        285.46126382043184
+      ],
+      "weapon_rendered_alpha_bbox": [
+        226,
+        101,
+        348,
+        289
+      ]
+    }
+  ],
+  "total_duration_ms": 950,
+  "frame_count": 13,
+  "motion_description": "Overhead airborne attack preserved. Two targeted upper-arm pose corrections remove the inherited staff head/tail discontinuity. Two new anatomical landing keys add maximum knee/hip flexion with shoulder compression and rebound; a previously authored recovery pose bridges back to guard. 13 unique frames / 950 ms, deepest compression held 110 ms.",
+  "user_override_ids": [
+    "Sentinel_14b7d4340f94819196c2dcee5dc7311e",
+    "Sentinel_0bf940b07e6c8191a85ef86e7bd0088b"
+  ],
+  "new_generated_transition_poses": 4,
+  "previous_version": "../air_heavy_11f_v2",
+  "weapon_layer_policy": "Same front staff layer throughout; actual two-palm cutouts occlude staff. Landing grip slides prevent full finial going through ground."
+}

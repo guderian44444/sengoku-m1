@@ -1,0 +1,87 @@
+{
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "pose_requests": [
+    {
+      "name": "rising-overhead",
+      "refs": [
+        "body_03.png",
+        "body_05.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Create ONE transparent RGBA body-only animation transition of this exact warrior monk, between image1 rising and image2 apex. Keep exact identity/costume/painterly shading, fixed front-right three-quarter view. BOTH ARMS STAY ABOVE THE HEAD: two closed gripping fists centered on an invisible straight staff angled 65 degrees clockwise from up, first fist above forehead and second fist about 1.2 head widths up-right, both elbows raised. Hands do not move down to chest. Keep torso nearly upright. In air, both knees draw upward/back, with one knee slightly higher, an intermediate between one raised knee in image1 and both knees folded back in image2. NO wide-legged kick, NO grounded stance, NO front thrust. Preserve head/torso/arm/leg proportions and anatomy size exactly; no enlarged head or compressed torso. Body has the same ivory patterned hood, brown round beads, black robe/gold stole, lamellar bracers and greaves, brown pants, rope sandals, moustache and short goatee. Full body isolated, all fingertips and sandals visible with transparent margins. No weapon or shaft, no ground/background, no effects or shadow, no labels."
+    },
+    {
+      "name": "descent-opening",
+      "refs": [
+        "body_05.png",
+        "body_07.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Create ONE transparent RGBA full-body transition of this exact warrior monk between reference1 airborne overhead apex and reference2 descending swing. BODY ONLY, no weapon. Front-right three-quarter fixed camera, exact identity/costume/physical anatomy scale. Torso pitches slightly forward. Both bent legs start unfolding DOWN from the knees-folded-back apex, knees still bent close beneath hips, feet moving toward landing but not already wide apart. Both hands lower together from overhead toward the upper-right of the chest: rear closed gripping fist just ABOVE forehead, front closed gripping fist diagonally DOWN-RIGHT around face/chest height, hand spacing approximately TWO head widths, midway between narrow overhead grip and the wide grip of reference2. The two fists align on an invisible staff at 134 degrees clockwise from up, with natural elbows/wrists. Do NOT put both fists touching together overhead. Exact same head/torso/bone lengths, ivory patterned hood, brown round beads, black robe/gold stole, lamellar bracers/shins, brown pants, rope sandals, moustache and short goatee. All limbs fully visible with genuine transparent margin. No shaft fragments, no floor, no dust, no speed marks, no scenery or text."
+    },
+    {
+      "name": "recovery-low",
+      "refs": [
+        "body_12.png",
+        "body_15.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Create ONE new anatomical transition sprite, body-only transparent RGBA, exact same warrior monk. This is early recovery from the deep wide squat in image1 toward guard in image2. Both feet stay fully PLANTED in the SAME wide stance as image1. Hips and knees extend slightly, raising the pelvis and head a modest amount, torso more upright. Do not squat deeper or lunge. Move both gripping hands smoothly toward the front of the lower chest: rear fist at center-lower chest, front fist roughly TWO head-widths horizontally to the RIGHT and slightly ABOVE it. They align on an invisible staff angled 80 degrees clockwise from up (almost horizontal toward right, slightly upward). Both bent elbows natural. Head size, torso length and all bones IDENTICAL to references, no enlargement or squash. Fixed front-right three-quarter camera. Preserve exact ivory patterned hood, brown round beads, black robe/gold stole, lamellar bracers/shins, brown pants and rope sandals, moustache and short goatee. Full body and all toes/fingers with transparent margins. No actual weapon, shaft, ground, shadow, dust, background, text or extra limbs."
+    },
+    {
+      "name": "recovery-rise",
+      "refs": [
+        "body_12.png",
+        "body_15.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Create ONE new anatomical body-only animation key, transparent RGBA, exact same warrior monk. This is late recovery between deep wide squat image1 and standing guard image2: torso upright, knees halfway straightened toward guard, pelvis and head higher than squat, but not fully standing. Front/right foot has taken a small inward step, rear/left foot remains planted, stance becoming narrower like image2; show this with actual knee/ankle articulation rather than sliding stretched legs. Two gripping fists retract near chest: rear fist in front of center abdomen, front fist about 1.3 head widths diagonally UP-RIGHT at sternum level. Their invisible shaft is angled 30 degrees clockwise from up. No hands crossing or touching. Head/torso/limb proportions EXACT same as references, no enlarged head, no cartoon changes. Fixed front-right three-quarter camera. Same ivory patterned hood, brown round beads, black robe/gold stole, lamellar bracers/shins, brown pants, rope sandals, moustache and goatee. Full body isolated with genuine transparent margins. No staff, shaft fragments, ground, shadow, dust, effects, text, background or extra limbs."
+    },
+    {
+      "name": "rising-overhead-corrected",
+      "refs": [
+        "/workspace/scratch/98b7ec868bfb/kennyo03_newspec_20261015/air_heavy_continuous_15f_v5/rising-overhead-source.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Edit ONLY the arms and hands of this exact transparent warrior monk sprite. Keep the full body, head, face, robe, legs and sandals in their EXACT present positions and size. The fists currently form a nearly vertical pair. Change them to a diagonally upper-right pair with a LARGE horizontal offset: left-screen/rear fist must be ABOVE AND TO THE LEFT of forehead, while the other fist must be ABOVE AND TO THE RIGHT of forehead. Both fists at about the SAME HIGH HEIGHT, with right fist only slightly higher. Invisible straight shaft between fist centers angles25 degrees above horizontal to the right. Hands separated horizontally by about ONE WHOLE HEAD WIDTH. Both elbows remain raised, like holding a long staff horizontally over the head. Preserve the airborne tucked knees exactly. No actual weapon or line or shaft, no background/shadow/effect. Keep true transparency. Important: do NOT keep the fists vertically stacked and do not lower the hands toward chest."
+    },
+    {
+      "name": "landing-aligned",
+      "refs": [
+        "/workspace/scratch/98b7ec868bfb/kennyo03_newspec_20261015/air_heavy_deep_15f_v4/body_08.png",
+        "/workspace/scratch/98b7ec868bfb/kennyo03_newspec_20261015/air_heavy_deep_15f_v4/body_10.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Create one new full-body transition of exact same warrior monk BETWEEN landing image1 and deeper compression image2. Fixed front-right three-quarter camera. Keep both feet in the EXACT planted wide stance from image1, heels/toes in same positions; bend knees and hips slightly more, lower head/torso in a smooth nearly vertical path toward image2. Head and chest keep their horizontal alignment, do NOT sway left. Hands stay in same horizontal track: rear gripping fist near sternum, front gripping fist diagonally down-right at front thigh, a little lower than image1 and above image2. Both fists align along one invisible staff angled125 degrees clockwise from up. Same hand spacing and two-handed order as references. Same head/torso/bone lengths and exact identity/costume, no whole-body compression or enlarged head. Body-only genuine transparent RGBA, all fingers and toes visible, no actual staff, ground, shadow, effects, text or scenery."
+    },
+    {
+      "name": "compression-foot-fixed",
+      "refs": [
+        "/workspace/scratch/98b7ec868bfb/kennyo03_newspec_20261015/air_heavy_deep_15f_v4/body_10.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Make a narrowly localized correction to this exact transparent sprite. Preserve upper body, head, torso, waist, both arms/hands and right-side leg/foot EXACTLY unchanged in size and position. Move ONLY the LEFT-SCREEN sandal and lower shin modestly INWARD to the right by about one quarter of its sandal length (about80 pixels on this1282px-wide reference), keeping the sole planted at exactly the same baseline. Bend and adjust the left ankle/shin/knee naturally to connect; do not warp or translate the entire body. Preserve the same deep landing squat, identity, robe, all anatomy scale. True transparent background, no weapon/effects/ground/text."
+    },
+    {
+      "name": "recovery-rise-step",
+      "refs": [
+        "/workspace/scratch/98b7ec868bfb/kennyo03_newspec_20261015/air_heavy_continuous_15f_v5/recovery-rise-source.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Make only TWO local corrections to this exact transparent warrior monk sprite; preserve head, torso, costume, physical scale and all other pixels as closely as possible. 1) Move the HIGHER closed gripping fist (currently on right of chest) LEFT toward the center of his sternum, and slightly UP: it should be nearly above the lower fist, only about HALF a fist-width to its right. The two fist centers should define a steep shaft tilted about25 degrees clockwise from upright, not45. Adjust the higher forearm/wrist naturally. Keep lower fist exactly in place. 2) His LEFT-SCREEN sandal remains fully planted. Lift his RIGHT-SCREEN sandal a little off the floor, about one third of sandal height, by flexing that knee/ankle, moving it modestly inward to indicate a real closing step. Do not shift or scale whole body. Keep full body, fixed front-right three-quarter camera, exact anatomy/design, true transparent RGBA. No staff or fragments, ground, dust, background, labels."
+    },
+    {
+      "name": "compression-foot-minimal",
+      "refs": [
+        "/workspace/scratch/98b7ec868bfb/kennyo03_newspec_20261015/air_heavy_deep_15f_v4/body_10.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Very small local pose correction. Preserve this exact full-body transparent monk sprite entirely unchanged except the left-screen sandal and lower leg. The left-screen sandal currently sits far left. Move its center only SIX PERCENT OF THE IMAGE WIDTH toward the right, a tiny adjustment of around70px on this1282px image. NOT one foot length, NOT halfway to center. Keep its sole planted at the exact same baseline. Preserve left knee approximately in place; slightly change the shin/ankle articulation to meet that tiny shifted foot. Keep the same very wide squat. All other pixels, head, torso, hands, right leg/foot, costume, physical proportions and transparency unchanged. Do not bring the left sandal anywhere near body center. No staff or background."
+    }
+  ],
+  "selected_sources": [
+    "rising-overhead-corrected-source.png",
+    "descent-opening-source.png",
+    "landing-aligned-source.png",
+    "compression-foot-minimal-source.png",
+    "recovery-low-source.png",
+    "recovery-rise-step-source.png"
+  ],
+  "rejected_or_superseded_sources": [
+    "rising-overhead-source.png",
+    "compression-foot-fixed-source.png",
+    "recovery-rise-source.png"
+  ]
+}

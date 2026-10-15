@@ -1,0 +1,422 @@
+{
+  "source_metadata": "../../throw_forward/metadata.json",
+  "head_scale": 0.95,
+  "game_normalization": {
+    "source_body_height_equivalent": 266,
+    "target_body_height_equivalent": 150,
+    "scale": 0.5639097744360902,
+    "source_canvas": [
+      800,
+      420
+    ],
+    "target_canvas": [
+      520,
+      300
+    ],
+    "translation": [
+      34,
+      48
+    ],
+    "floor": 251,
+    "method": "Uniform whole-scene scale; character, victim, weapon and contacts use identical affine transform"
+  },
+  "frames": [
+    {
+      "index": 0,
+      "source_frame": 0,
+      "source_crop": [
+        102,
+        19,
+        518,
+        524
+      ],
+      "scale": 0.55,
+      "support_foot": [
+        180.617,
+        251.008
+      ],
+      "hand_contact": [
+        286.068,
+        128.075
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 100,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        278.0,
+        147
+      ],
+      "victim_pose": 1,
+      "victim_translation": [
+        264.639,
+        97.06
+      ],
+      "victim_released": false,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 0,
+      "source_translation": [
+        235,
+        83
+      ],
+      "body_scale": 0.3101503759398497,
+      "normalization_transform": [
+        0.5639097744360902,
+        0,
+        34,
+        0,
+        0.5639097744360902,
+        48
+      ]
+    },
+    {
+      "index": 1,
+      "source_frame": 1,
+      "source_crop": [
+        579,
+        26,
+        996,
+        521
+      ],
+      "scale": 0.55,
+      "support_foot": [
+        180.617,
+        251.008
+      ],
+      "hand_contact": [
+        290.579,
+        135.97
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 90,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        832.0,
+        151
+      ],
+      "victim_pose": 3,
+      "victim_translation": [
+        246.03,
+        89.165
+      ],
+      "victim_released": false,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 35,
+      "source_translation": [
+        237,
+        89
+      ],
+      "body_scale": 0.3101503759398497,
+      "normalization_transform": [
+        0.5639097744360902,
+        0,
+        34,
+        0,
+        0.5639097744360902,
+        48
+      ]
+    },
+    {
+      "index": 2,
+      "source_frame": 2,
+      "source_crop": [
+        1071,
+        40,
+        1490,
+        514
+      ],
+      "scale": 0.55,
+      "support_foot": [
+        180.617,
+        251.008
+      ],
+      "hand_contact": [
+        231.932,
+        111.722
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 110,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        1262.0,
+        165
+      ],
+      "victim_pose": 3,
+      "victim_translation": [
+        187.383,
+        64.917
+      ],
+      "victim_released": false,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 100,
+      "source_translation": [
+        229,
+        100
+      ],
+      "body_scale": 0.3101503759398497,
+      "normalization_transform": [
+        0.5639097744360902,
+        0,
+        34,
+        0,
+        0.5639097744360902,
+        48
+      ]
+    },
+    {
+      "index": 3,
+      "source_frame": 3,
+      "source_crop": [
+        32,
+        528,
+        547,
+        984
+      ],
+      "scale": 0.55,
+      "support_foot": [
+        180.617,
+        251.008
+      ],
+      "hand_contact": [
+        318.211,
+        159.09
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 70,
+      "events": [
+        "throw_release"
+      ],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        346.5,
+        681
+      ],
+      "victim_pose": 4,
+      "victim_translation": [
+        221.218,
+        115.669
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 35,
+      "source_translation": [
+        237,
+        110
+      ],
+      "body_scale": 0.3101503759398497,
+      "normalization_transform": [
+        0.5639097744360902,
+        0,
+        34,
+        0,
+        0.5639097744360902,
+        48
+      ]
+    },
+    {
+      "index": 4,
+      "source_frame": 4,
+      "source_crop": [
+        532,
+        543,
+        1053,
+        983
+      ],
+      "scale": 0.55,
+      "support_foot": [
+        180.617,
+        251.008
+      ],
+      "hand_contact": [
+        317.647,
+        177.699
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 80,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        866.5,
+        707
+      ],
+      "victim_pose": 4,
+      "victim_translation": [
+        240.391,
+        122.436
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 20,
+      "source_translation": [
+        236,
+        119
+      ],
+      "body_scale": 0.3101503759398497,
+      "normalization_transform": [
+        0.5639097744360902,
+        0,
+        34,
+        0,
+        0.5639097744360902,
+        48
+      ]
+    },
+    {
+      "index": 5,
+      "source_frame": 5,
+      "source_crop": [
+        1127,
+        515,
+        1505,
+        999
+      ],
+      "scale": 0.55,
+      "support_foot": [
+        180.617,
+        251.008
+      ],
+      "hand_contact": [
+        234.752,
+        169.241
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 90,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        1309.0,
+        652
+      ],
+      "victim_pose": 4,
+      "victim_translation": [
+        260.692,
+        142.737
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 0,
+      "source_translation": [
+        232,
+        95
+      ],
+      "body_scale": 0.3101503759398497,
+      "normalization_transform": [
+        0.5639097744360902,
+        0,
+        34,
+        0,
+        0.5639097744360902,
+        48
+      ]
+    },
+    {
+      "index": 6,
+      "source_frame": 5,
+      "source_crop": [
+        1127,
+        515,
+        1505,
+        999
+      ],
+      "scale": 0.55,
+      "support_foot": [
+        180.617,
+        251.008
+      ],
+      "hand_contact": [
+        234.752,
+        169.241
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 100,
+      "events": [],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        1309.0,
+        652
+      ],
+      "victim_pose": 4,
+      "victim_translation": [
+        279.865,
+        161.91
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 0,
+      "source_translation": [
+        232,
+        95
+      ],
+      "body_scale": 0.3101503759398497,
+      "normalization_transform": [
+        0.5639097744360902,
+        0,
+        34,
+        0,
+        0.5639097744360902,
+        48
+      ]
+    },
+    {
+      "index": 7,
+      "source_frame": 5,
+      "source_crop": [
+        1127,
+        515,
+        1505,
+        999
+      ],
+      "scale": 0.55,
+      "support_foot": [
+        180.617,
+        251.008
+      ],
+      "hand_contact": [
+        234.752,
+        169.241
+      ],
+      "hand_measurement": "manual visual source landmarks; +/- 6 source px",
+      "duration_ms": 180,
+      "events": [
+        "victim_land"
+      ],
+      "head_scale": 0.95,
+      "head_neck_anchor_source": [
+        1309.0,
+        652
+      ],
+      "victim_pose": 5,
+      "victim_translation": [
+        298.474,
+        200.82
+      ],
+      "victim_released": true,
+      "weapon": "separate sheathed back layer",
+      "yaw_deg": 0,
+      "source_translation": [
+        232,
+        95
+      ],
+      "body_scale": 0.3101503759398497,
+      "normalization_transform": [
+        0.5639097744360902,
+        0,
+        34,
+        0,
+        0.5639097744360902,
+        48
+      ]
+    }
+  ],
+  "duration_ms": 820,
+  "source_sha256": "727100f6af2e863a8dae63eeea017b0a7730ae10211ef95f823a1ab61e18ed7e",
+  "source": "sources/throw_forward.png",
+  "revision": "head95_game150_nobottle",
+  "qa": {
+    "contact_inspected": true,
+    "bottle_removed": true,
+    "normal_speed_browser": "pending parent review; local browser blocked"
+  }
+}

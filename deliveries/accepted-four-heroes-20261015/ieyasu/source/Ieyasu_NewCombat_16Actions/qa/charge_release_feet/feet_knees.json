@@ -1,0 +1,750 @@
+{
+  "action": "charge_release",
+  "read_only_source_review": true,
+  "native_canvas": [
+    560,
+    400
+  ],
+  "coordinate_origin": "top-left",
+  "method": "manual visual sole-center and knee estimates from enlarged native raster; +/-3px; no metadata yaw used as visual truth",
+  "source_png_sha256": {
+    "composite_00.png": "1acb6a653e4239717811a1e189a9bb398763a29e219aee734c136d726eacb0e1",
+    "body_08.png": "7e0bc7f560b0a643592fa03cec5cccdb13bae9ec2876c726fb53581673cf690b",
+    "body_07.png": "ad9d1e749e75b03a2e8d21c07d9e2b8a2d340ea33f8d49f24a77ddacb6383149",
+    "body_15.png": "f79a3067995ab6652eb6a0c44c5f575a22f16fc3a63c2d0965145a956bc8da96",
+    "body_canvas_02.png": "e842f23599f853b76c3edd94e893817e44cc49727387e52cebe7fc76df510ec4",
+    "sword_13.png": "b86d0f576d07905bd8e990dcd3eac2f8f81d888497c1fe61de4958c82b1f2d36",
+    "body_11.png": "5c4121cd4db69190c7526e1bc8d269df79dcabfedb1b890a5a46b77116ca8f92",
+    "sheath_08.png": "566131ce27e03aeb6ff0ad03aee9e9fac9c136fa7b5db995ce05bd61bcdd30b4",
+    "body_canvas_06.png": "58f8260d4e2dda05b47f5827b41880a5390c9c29b5bc22c0989a2c8bd7d11496",
+    "sword_11.png": "65d2f321e848102802d05b8985c8dc3d4d190f1adbedc25f03b104b5c9c4317c",
+    "body_03.png": "bbbcaa42a8a306bdab11c4d9aadfc1200ffa06df9220b4d7e8fd6f71eada270f",
+    "sword_04.png": "7f67f32c8d85033de17ea78bb94d2309cf1e8056fa4d3ab7ab1484a51c6d35d9",
+    "body_canvas_15.png": "79f91a3e4f9984900e403931cc09b12157b466adb1e410dca190068ca474fc3b",
+    "composite_03.png": "3532519458f3091d07af711c2c5b849efde57484f1b8f7a786343cdb44c737c2",
+    "composite_15.png": "fe752c2aa527d57e4f9212151bd2b37f6d689b8ed71aed77b1c3c8075f581d09",
+    "body_16.png": "c8925ac111136167491e249da60d4cbe87d16909c9a709d0c9cf79fdceaed93c",
+    "composite_14.png": "67bc5bddd6c88df33b57c5f215a6fc3de2fd03ad688b8ebdef4684e023ac0687",
+    "composite_02.png": "278572b7f9fbec24543c98917aff3203c99b09dd00d36f1582cf7a0617fcd5b1",
+    "body_canvas_00.png": "ae0dc25337ba971c93965773d8cd0ac0bd9dc52ee805357e81961b52301c3386",
+    "sword_10.png": "df50a27ea4f7baec6fe78994c92406b0234844b8ed2464a96ea6e7f29ce873b2",
+    "contact_sheet.png": "58903e850eba14597574d2fa793c5e14c054812c3757ece71ff6cd5cab24622c",
+    "sheath_02.png": "f0be8ec09d8f661853a12e840b6afb458f1bc8aac8db404860427a9e8d9282dc",
+    "body_canvas_04.png": "116ba677748ad03a40eef42e2cb1f955f4070bfad960dd9d64c0b6da5769c2d4",
+    "sheath_14.png": "3f4bab79f2c4f134c4aeff9d102ffdbbd8f47ee895f1900c5f0b8c7f07259586",
+    "body_02.png": "d18fccd4fbe44e7a9376430eb54eda92f7d76bcb62f5f3a67e0877dcf6353af1",
+    "body_05.png": "5ef3dd2433797a718ad45522c7de719e8fd3e34882b2264f1ee20bb4c0ed7b6a",
+    "sheath_04.png": "86caef4f557e3b725a5282a66668f781a094dc3e6a45b7e6006b9b0dc4cc5093",
+    "sheath_03.png": "604f19bbe752769577c2a89a33db3395a24142a4b73e5752353ecf80c617ca0f",
+    "body_canvas_16.png": "ae0dc25337ba971c93965773d8cd0ac0bd9dc52ee805357e81961b52301c3386",
+    "composite_05.png": "6a9b41f664197df2d19c1d5d25333e7df7747acb4777232b8462d863c831574e",
+    "sword_08.png": "9c3bf463493559eac98a0f74bae6b98fef442861906d42ae23b781bc274bd30a",
+    "composite_13.png": "7f1d1c639bb7de61702ce13492447a63bb9db8f1585a4a7c8ad20e31767f922e",
+    "sword_05.png": "2f14e2f07ec3a6278911a30b49e2a755f5d729385eefa668eaea6af22945c3bb",
+    "sheath_00.png": "5e20a24053971f980a9bbf8c3ffd42d666d44806f6dd9140411f1571498db529",
+    "source.png": "16b28dd60ef29587ab6c58c94649826b60e7f6b1c6949e91e28b0193901cc528",
+    "composite_07.png": "010ca66ad00de9d070bc8d0afa005d3780e3dcece87abbfc50a1b8b720213bb6",
+    "sheath_11.png": "6c3247ae8273dde37cd2de6c6910fb1ce0b39cca00d6a04f01af0b54e1cd817a",
+    "sheath_05.png": "6f2206f5d108e4382214334fd609720d6917e5e91d7851dc0d16382bea1d2fa1",
+    "sheath_13.png": "8918fd851066833b81d306f8919038daafdadebfe7ad4be26c0024f777bbaea5",
+    "sword_06.png": "177875581b62553a4525357b95499b29e00ba7c0a79b12db541f4251a6857331",
+    "body_canvas_03.png": "52e3b1b83aa857f15d67089d7ae9c2a8dcc9babc9b40740c629d1d3b502719e9",
+    "sword_00.png": "c3282c3b675751394a02071e1c2ba042679c10f64fb48fd771f2267401d250e5",
+    "sword_07.png": "8b67246811ad336e8b5adddef3eef1bbdd5ca16f68df94aba964d931d51b4a14",
+    "sheath_15.png": "7163196fa3ba2b42edf45721c9022983b72e2553fa4ce788c5575871eb5528c5",
+    "body_canvas_10.png": "cf5899f49f0cfe8cd14768ac94eccb783735118761676da4644dbaa3c95b3461",
+    "body_canvas_13.png": "dcf5f7eda75e8c7916a4c5df496e6fe319e96a700eac66bfb6f7c412c5dd8b50",
+    "sheath_06.png": "a1e864a5203bc76c57b6020885d04301b2e0bdfc59bcd966af5fecf1363841dd",
+    "composite_06.png": "5653c0af7e0527a18c68f39dde66fc24dc0677bbbd368e0c0bcd9e81d6cc931e",
+    "sheath_09.png": "9c1f91d36e9562a69f13e4fcb5ae4175b594a13db2f8bb26baec9df4eec49a20",
+    "body_canvas_08.png": "54391a8ddaea21ccb57ce807b2b532854894db3e72c8374d50a0d44eac3b360f",
+    "composite_04.png": "8f6c52cd3f1b79cf433a3c0454e9d95367abbdda580679b898378f60a6ab346d",
+    "body_canvas_07.png": "eedbc10035a871a92cb9bfa34f7030602820b75b1aa38f8bf503b8406bc90e4f",
+    "body_00.png": "c8925ac111136167491e249da60d4cbe87d16909c9a709d0c9cf79fdceaed93c",
+    "composite_08.png": "174454000acd307b1a0d941ccb5daafdc41fba9670712f486cdf0985ff137324",
+    "composite_01.png": "ffb80cc3dd5cb51ee4a3cd908743793e8d398e24a6ec137a0ace9a77e2f84adf",
+    "body_01.png": "231518a7a307db33ee829c14abd9308e3f5f81b6401cc439c2982e11d36a44e9",
+    "sword_12.png": "162615deee55e63b3cec09178a0389f729d91b6299bfede8df220d9e94760932",
+    "body_13.png": "a0268adc7524f9cc6ec31eb3d3e85b58f0c053e9c9914b3a951417bac6fcceda",
+    "sword_15.png": "9f31d78ec879f23714b835ccb632d11fc7d3fbe3bcdb002b93277ae24742b721",
+    "body_12.png": "de69fccbb831ea3043eaad01d3de551637b8640613ba5ac8d6194bb8e1941a80",
+    "body_09.png": "17e6db3b2a382486511cacf968dd282a74d297b4979715d6413dd4fd8f1b1bac",
+    "sword_02.png": "4f4f873ebae144ae113e9099e32e5568963c105be07e3cf3b245caba19f560ec",
+    "sword_16.png": "c3282c3b675751394a02071e1c2ba042679c10f64fb48fd771f2267401d250e5",
+    "sword_01.png": "e7651ba871e280a9818405825369acf4f63838cb8c1e6f84b52191d6be7ff904",
+    "composite_10.png": "fe1263df8d6d63af06b714107c534fdc81c94113f0f2f62427b5943959b6d983",
+    "composite_09.png": "319f42071c4673434f944c52fcc39b146be68321ab480922d46e48e03bffb7db",
+    "body_14.png": "7a734ca4547ed826170382257d7739beb7cdaf8ba9c2c52fb3a18c6fdf546aa6",
+    "body_canvas_11.png": "25793264c925083a2bc481c87a171ccefac3429f1f4f0324d3a7e40fbcda3728",
+    "sword_09.png": "89dc16e2d069a073c47c816a06dda5580bc76ccf817f1c96c02830b2f7f90da0",
+    "body_canvas_14.png": "f4db5b8e678fe24748c577e44a4565dcc72f21e243261c82385a4714d7b1df87",
+    "legs_audit.png": "8eaab7ec1c66705f58c354d9e9ffb1e27225d6cbc33208a61598a88694fd9274",
+    "body_04.png": "edfdc138569ec6c67f193e6c4e82dd3242b1570adbb8cf8d4084e3ea1d4730d2",
+    "sheath_16.png": "5e20a24053971f980a9bbf8c3ffd42d666d44806f6dd9140411f1571498db529",
+    "composite_12.png": "54347edf1c852ea39e62901ac088ab06277ee2587a7b6df1e6b9b10220bd3a9d",
+    "body_06.png": "6c6034802018f001ee1010d28c35d9787a76ed969059940b87b31053b0273fb7",
+    "composite_11.png": "52facfed57608fcae9f962bb70f045288ae93e3441b37763215b3ac963f35784",
+    "sword_03.png": "e353a308a4b1b0d358c913f083028c65e0922dcc2d2cd4ba023df0f3293f7714",
+    "body_canvas_01.png": "b9ac86c862ec2d42c2d942753ff38754c625a59011dfc1d39f687467076fe5bf",
+    "sheath_10.png": "909740090708af609b739934f10e652e15d19eefb77eeb581f3a843020bdbc53",
+    "body_canvas_12.png": "30348e15b08e426060f1ddb5e1bd378556ac187469982e4ceaec4236da697b2d",
+    "sword_14.png": "ca0755316296405d449adf87ecbfbb3325456efb3101fbd6a01b70fa8b89b4e7",
+    "composite_16.png": "1acb6a653e4239717811a1e189a9bb398763a29e219aee734c136d726eacb0e1",
+    "sheath_12.png": "d0a8d19158d9f08cb1b804a416c2d28d22a7df00a75d299f8dfe4b60c93c6569",
+    "body_canvas_05.png": "a50440263a33a19bb9b752c905a8dd7a321801d0a7c88160f40256bfd8879cbf",
+    "sheath_07.png": "bed0815f0c4736474cc554b15a4b0ea83bb2675f3390a401918232d9afbb13b4",
+    "body_10.png": "be7d6c24d029a75bf75df4ef47c3d9544de44ec5a13166e4bf938761be55c255",
+    "sheath_01.png": "d1a341b8bce60ebdb8516a7d5bfb0689a8fc948233b3ed6c2b9c0848666cddaa",
+    "body_canvas_09.png": "a3702f7f4b957792d6a949cb77ac728dfd8d1adefc42d3ec0ce9fffa135d8ed9"
+  },
+  "frames": [
+    {
+      "frame_1based": 1,
+      "right_foot_sole_center": [
+        205,
+        363
+      ],
+      "left_foot_sole_center": [
+        279,
+        356
+      ],
+      "right_knee_approx": [
+        218,
+        326
+      ],
+      "left_knee_approx": [
+        270,
+        327
+      ],
+      "screen_left_foot": [
+        205,
+        363
+      ],
+      "screen_right_foot": [
+        279,
+        356
+      ],
+      "anatomical_right_screen_side": "left",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 2.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 2,
+      "right_foot_sole_center": [
+        205,
+        362
+      ],
+      "left_foot_sole_center": [
+        277,
+        352
+      ],
+      "right_knee_approx": [
+        214,
+        324
+      ],
+      "left_knee_approx": [
+        265,
+        321
+      ],
+      "screen_left_foot": [
+        205,
+        362
+      ],
+      "screen_right_foot": [
+        277,
+        352
+      ],
+      "anatomical_right_screen_side": "left",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 3.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 3,
+      "right_foot_sole_center": [
+        208,
+        365
+      ],
+      "left_foot_sole_center": [
+        256,
+        357
+      ],
+      "right_knee_approx": [
+        218,
+        326
+      ],
+      "left_knee_approx": [
+        252,
+        331
+      ],
+      "screen_left_foot": [
+        208,
+        365
+      ],
+      "screen_right_foot": [
+        256,
+        357
+      ],
+      "anatomical_right_screen_side": "left",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 3.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 4,
+      "right_foot_sole_center": [
+        202,
+        361
+      ],
+      "left_foot_sole_center": [
+        126,
+        353
+      ],
+      "right_knee_approx": [
+        192,
+        326
+      ],
+      "left_knee_approx": [
+        135,
+        326
+      ],
+      "screen_left_foot": [
+        126,
+        353
+      ],
+      "screen_right_foot": [
+        202,
+        361
+      ],
+      "anatomical_right_screen_side": "right",
+      "anatomical_assignment": "inferred: torso/hip orientation and previous frame; legs partly obscured by skirt",
+      "assignment_confidence": "medium",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 5.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 5,
+      "right_foot_sole_center": [
+        205,
+        364
+      ],
+      "left_foot_sole_center": [
+        126,
+        357
+      ],
+      "right_knee_approx": [
+        191,
+        328
+      ],
+      "left_knee_approx": [
+        131,
+        327
+      ],
+      "screen_left_foot": [
+        126,
+        357
+      ],
+      "screen_right_foot": [
+        205,
+        364
+      ],
+      "anatomical_right_screen_side": "right",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 1.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 6,
+      "right_foot_sole_center": [
+        203,
+        362
+      ],
+      "left_foot_sole_center": [
+        120,
+        358
+      ],
+      "right_knee_approx": [
+        191,
+        328
+      ],
+      "left_knee_approx": [
+        128,
+        326
+      ],
+      "screen_left_foot": [
+        120,
+        358
+      ],
+      "screen_right_foot": [
+        203,
+        362
+      ],
+      "anatomical_right_screen_side": "right",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 3.6,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 7,
+      "right_foot_sole_center": [
+        202,
+        360
+      ],
+      "left_foot_sole_center": [
+        118,
+        359
+      ],
+      "right_knee_approx": [
+        185,
+        329
+      ],
+      "left_knee_approx": [
+        128,
+        329
+      ],
+      "screen_left_foot": [
+        118,
+        359
+      ],
+      "screen_right_foot": [
+        202,
+        360
+      ],
+      "anatomical_right_screen_side": "right",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 5.8,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 8,
+      "right_foot_sole_center": [
+        197,
+        357
+      ],
+      "left_foot_sole_center": [
+        128,
+        365
+      ],
+      "right_knee_approx": [
+        182,
+        332
+      ],
+      "left_knee_approx": [
+        132,
+        334
+      ],
+      "screen_left_foot": [
+        128,
+        365
+      ],
+      "screen_right_foot": [
+        197,
+        357
+      ],
+      "anatomical_right_screen_side": "right",
+      "anatomical_assignment": "inferred: torso/hip orientation and previous frame; legs partly obscured by skirt",
+      "assignment_confidence": "medium",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 11.3,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 9,
+      "right_foot_sole_center": [
+        205,
+        361
+      ],
+      "left_foot_sole_center": [
+        118,
+        365
+      ],
+      "right_knee_approx": [
+        190,
+        332
+      ],
+      "left_knee_approx": [
+        127,
+        330
+      ],
+      "screen_left_foot": [
+        118,
+        365
+      ],
+      "screen_right_foot": [
+        205,
+        361
+      ],
+      "anatomical_right_screen_side": "right",
+      "anatomical_assignment": "inferred: torso/hip orientation and previous frame; legs partly obscured by skirt",
+      "assignment_confidence": "low",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 4.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 10,
+      "right_foot_sole_center": [
+        196,
+        361
+      ],
+      "left_foot_sole_center": [
+        121,
+        367
+      ],
+      "right_knee_approx": [
+        182,
+        333
+      ],
+      "left_knee_approx": [
+        129,
+        331
+      ],
+      "screen_left_foot": [
+        121,
+        367
+      ],
+      "screen_right_foot": [
+        196,
+        361
+      ],
+      "anatomical_right_screen_side": "right",
+      "anatomical_assignment": "inferred: torso/hip orientation and previous frame; legs partly obscured by skirt",
+      "assignment_confidence": "low",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 9.8,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 11,
+      "right_foot_sole_center": [
+        193,
+        360
+      ],
+      "left_foot_sole_center": [
+        126,
+        366
+      ],
+      "right_knee_approx": [
+        183,
+        334
+      ],
+      "left_knee_approx": [
+        135,
+        332
+      ],
+      "screen_left_foot": [
+        126,
+        366
+      ],
+      "screen_right_foot": [
+        193,
+        360
+      ],
+      "anatomical_right_screen_side": "right",
+      "anatomical_assignment": "inferred: torso/hip orientation and previous frame; legs partly obscured by skirt",
+      "assignment_confidence": "low",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 13.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 12,
+      "right_foot_sole_center": [
+        108,
+        361
+      ],
+      "left_foot_sole_center": [
+        195,
+        365
+      ],
+      "right_knee_approx": [
+        121,
+        329
+      ],
+      "left_knee_approx": [
+        182,
+        332
+      ],
+      "screen_left_foot": [
+        108,
+        361
+      ],
+      "screen_right_foot": [
+        195,
+        365
+      ],
+      "anatomical_right_screen_side": "left",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 97.1,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 13,
+      "right_foot_sole_center": [
+        205,
+        364
+      ],
+      "left_foot_sole_center": [
+        283,
+        361
+      ],
+      "right_knee_approx": [
+        222,
+        330
+      ],
+      "left_knee_approx": [
+        274,
+        332
+      ],
+      "screen_left_foot": [
+        205,
+        364
+      ],
+      "screen_right_foot": [
+        283,
+        361
+      ],
+      "anatomical_right_screen_side": "left",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 1.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 14,
+      "right_foot_sole_center": [
+        205,
+        363
+      ],
+      "left_foot_sole_center": [
+        280,
+        362
+      ],
+      "right_knee_approx": [
+        216,
+        329
+      ],
+      "left_knee_approx": [
+        270,
+        332
+      ],
+      "screen_left_foot": [
+        205,
+        363
+      ],
+      "screen_right_foot": [
+        280,
+        362
+      ],
+      "anatomical_right_screen_side": "left",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 2.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 15,
+      "right_foot_sole_center": [
+        205,
+        361
+      ],
+      "left_foot_sole_center": [
+        276,
+        362
+      ],
+      "right_knee_approx": [
+        215,
+        331
+      ],
+      "left_knee_approx": [
+        267,
+        332
+      ],
+      "screen_left_foot": [
+        205,
+        361
+      ],
+      "screen_right_foot": [
+        276,
+        362
+      ],
+      "anatomical_right_screen_side": "left",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 4.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 16,
+      "right_foot_sole_center": [
+        197,
+        361
+      ],
+      "left_foot_sole_center": [
+        266,
+        362
+      ],
+      "right_knee_approx": [
+        210,
+        330
+      ],
+      "left_knee_approx": [
+        258,
+        333
+      ],
+      "screen_left_foot": [
+        197,
+        361
+      ],
+      "screen_right_foot": [
+        266,
+        362
+      ],
+      "anatomical_right_screen_side": "left",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 8.9,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    },
+    {
+      "frame_1based": 17,
+      "right_foot_sole_center": [
+        205,
+        363
+      ],
+      "left_foot_sole_center": [
+        279,
+        356
+      ],
+      "right_knee_approx": [
+        218,
+        326
+      ],
+      "left_knee_approx": [
+        270,
+        327
+      ],
+      "screen_left_foot": [
+        205,
+        363
+      ],
+      "screen_right_foot": [
+        279,
+        356
+      ],
+      "anatomical_right_screen_side": "left",
+      "anatomical_assignment": "visual torso/leg correspondence, not 3D-ground-truth",
+      "assignment_confidence": "medium-high",
+      "nominal_pivot": [
+        205,
+        365
+      ],
+      "right_sole_center_distance_to_nominal_pivot": 2.0,
+      "measurement_uncertainty_px": 3,
+      "note": "sole center is not identical to contact pivot; small offsets do not prove slipping"
+    }
+  ],
+  "major_pairs_1based": [
+    [
+      3,
+      4
+    ],
+    [
+      11,
+      12
+    ],
+    [
+      12,
+      13
+    ]
+  ],
+  "limitations": [
+    "anatomical mapping uncertain for 9-11 due hip/torso rotation ambiguity",
+    "foot sole center is not a physical contact point",
+    "static frame review, no realtime playback claim"
+  ]
+}

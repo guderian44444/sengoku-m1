@@ -1,0 +1,359 @@
+{
+  "action": "charge_ready",
+  "description": "雙手近身收刀，雙腳逐步開馬步下沉；腰前金扇收納，刀留在腰側安全位置。",
+  "canvas": [
+    520,
+    300
+  ],
+  "head_scale": 0.95,
+  "head_scale_method": "neck-anchored original head pixels; no replacement face",
+  "duration_ms": 680,
+  "frame_count": 6,
+  "loopable": false,
+  "fan": "stored flat gold fan retained; no dangling bottle",
+  "layers": [
+    "body_canvas",
+    "weapon",
+    "fx_back",
+    "fx_front",
+    "composite"
+  ],
+  "frames": [
+    {
+      "source": "shared_light_1_ready",
+      "head_scale": 0.95,
+      "foot_ground": 251,
+      "weapon_plane": "shared_ready",
+      "index": 0,
+      "duration_ms": 120,
+      "event": null
+    },
+    {
+      "source": "ready",
+      "source_index": 1,
+      "source_rect": [
+        615,
+        22,
+        967,
+        520
+      ],
+      "body_scale": 0.3,
+      "hand_centers": [
+        [
+          167.2,
+          164.90000000000003
+        ],
+        [
+          188.79999999999998,
+          173.0
+        ]
+      ],
+      "grip_world": [
+        178.0,
+        168.95000000000002
+      ],
+      "foot_ground": 251,
+      "center_world": 184,
+      "weapon_angle": 112,
+      "weapon_yaw_degrees": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "weapon_plane": "waist_safe",
+      "head_scale": 0.95,
+      "index": 1,
+      "duration_ms": 110,
+      "event": null
+    },
+    {
+      "source": "ready",
+      "source_index": 2,
+      "source_rect": [
+        1102,
+        33,
+        1482,
+        520
+      ],
+      "body_scale": 0.3,
+      "hand_centers": [
+        [
+          182.8,
+          173.3
+        ],
+        [
+          190.0,
+          176.3
+        ]
+      ],
+      "grip_world": [
+        186.4,
+        174.8
+      ],
+      "foot_ground": 251,
+      "center_world": 184,
+      "weapon_angle": 102,
+      "weapon_yaw_degrees": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "weapon_plane": "waist_safe",
+      "head_scale": 0.95,
+      "index": 2,
+      "duration_ms": 100,
+      "event": null
+    },
+    {
+      "source": "ready",
+      "source_index": 3,
+      "source_rect": [
+        54,
+        526,
+        493,
+        995
+      ],
+      "body_scale": 0.3,
+      "hand_centers": [
+        [
+          185.2,
+          179.0
+        ],
+        [
+          191.5,
+          182.29999999999998
+        ]
+      ],
+      "grip_world": [
+        188.35,
+        180.64999999999998
+      ],
+      "foot_ground": 251,
+      "center_world": 184,
+      "weapon_angle": 95,
+      "weapon_yaw_degrees": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "weapon_plane": "waist_safe",
+      "head_scale": 0.95,
+      "index": 3,
+      "duration_ms": 100,
+      "event": null
+    },
+    {
+      "source": "ready",
+      "source_index": 4,
+      "source_rect": [
+        542,
+        535,
+        998,
+        995
+      ],
+      "body_scale": 0.3,
+      "hand_centers": [
+        [
+          176.5,
+          179.29999999999998
+        ],
+        [
+          184.29999999999998,
+          182.6
+        ]
+      ],
+      "grip_world": [
+        180.39999999999998,
+        180.95
+      ],
+      "foot_ground": 251,
+      "center_world": 184,
+      "weapon_angle": 90,
+      "weapon_yaw_degrees": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "weapon_plane": "waist_safe",
+      "head_scale": 0.95,
+      "index": 4,
+      "duration_ms": 100,
+      "event": null
+    },
+    {
+      "source": "ready",
+      "source_index": 5,
+      "source_rect": [
+        1050,
+        534,
+        1509,
+        995
+      ],
+      "body_scale": 0.3,
+      "hand_centers": [
+        [
+          177.10000000000002,
+          180.2
+        ],
+        [
+          184.3,
+          183.79999999999998
+        ]
+      ],
+      "grip_world": [
+        180.70000000000002,
+        182.0
+      ],
+      "foot_ground": 251,
+      "center_world": 184,
+      "weapon_angle": 90,
+      "weapon_yaw_degrees": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "weapon_plane": "waist_safe",
+      "head_scale": 0.95,
+      "index": 5,
+      "duration_ms": 150,
+      "event": null
+    }
+  ],
+  "source_sha256": {
+    "charge_ready_cutout.png": "7f1c07bcdc416d2f732c6aabae2b5a7d0fa1df2a3f4564ec321ad700543ddc63",
+    "charge_release_clean.png": "d9cb075c9a1baae5ed3231cc5974193efde085abadedeafb368336c1e072f914"
+  },
+  "limitations": [
+    "whole-body frames, not anatomical rig parts",
+    "katana uses 2.5D projection of approved weapon reference",
+    "review candidate; not runtime integrated"
+  ],
+  "scale_audit_20261015": {
+    "action": "charge_ready",
+    "status": "measured_no_render_change",
+    "body_unique_count": 6,
+    "frame_count": 6,
+    "pose_height_range_px": [
+      138,
+      151
+    ],
+    "reason": "head/chest scale visually consistent within ~2px landmark reading; height decrease follows deliberate knee bend; do not equalize",
+    "frames": [
+      {
+        "index": 0,
+        "body_sha256": "0c7281aaeb11a4be22c02b01bf4321e79591eacd89695ad9ee87998356a9d857",
+        "body_bbox": [
+          136,
+          102,
+          232,
+          253
+        ],
+        "pose_height_px": 151,
+        "body_scale": null,
+        "grip_world": null,
+        "foot_ground": 251,
+        "correction_factor": 1.0
+      },
+      {
+        "index": 1,
+        "body_sha256": "e58d20b25c23376cee9e342df4fb83175e759ad66e8617718c6bece79d89c779",
+        "body_bbox": [
+          132,
+          103,
+          238,
+          252
+        ],
+        "pose_height_px": 149,
+        "body_scale": 0.3,
+        "grip_world": [
+          178.0,
+          168.95000000000002
+        ],
+        "foot_ground": 251,
+        "correction_factor": 1.0
+      },
+      {
+        "index": 2,
+        "body_sha256": "d296bc9e5fe556832cb5c7b206b9342d9db01ff4e02af5b5a4a279f15ff4d5b7",
+        "body_bbox": [
+          127,
+          106,
+          241,
+          252
+        ],
+        "pose_height_px": 146,
+        "body_scale": 0.3,
+        "grip_world": [
+          186.4,
+          174.8
+        ],
+        "foot_ground": 251,
+        "correction_factor": 1.0
+      },
+      {
+        "index": 3,
+        "body_sha256": "2bf89a393be9951d93b3041c162451588168820ecfd8ee3d58fb5e6546583af3",
+        "body_bbox": [
+          119,
+          112,
+          251,
+          253
+        ],
+        "pose_height_px": 141,
+        "body_scale": 0.3,
+        "grip_world": [
+          188.35,
+          180.64999999999998
+        ],
+        "foot_ground": 251,
+        "correction_factor": 1.0
+      },
+      {
+        "index": 4,
+        "body_sha256": "608389dcfd3cb2067cccca298d11c62c810ca376b0f6957b01ef851a672cbae1",
+        "body_bbox": [
+          115,
+          114,
+          252,
+          252
+        ],
+        "pose_height_px": 138,
+        "body_scale": 0.3,
+        "grip_world": [
+          180.39999999999998,
+          180.95
+        ],
+        "foot_ground": 251,
+        "correction_factor": 1.0
+      },
+      {
+        "index": 5,
+        "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+        "body_bbox": [
+          116,
+          114,
+          254,
+          252
+        ],
+        "pose_height_px": 138,
+        "body_scale": 0.3,
+        "grip_world": [
+          180.70000000000002,
+          182.0
+        ],
+        "foot_ground": 251,
+        "correction_factor": 1.0
+      }
+    ]
+  }
+}

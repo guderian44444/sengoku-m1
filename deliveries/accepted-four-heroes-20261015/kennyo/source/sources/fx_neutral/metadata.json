@@ -1,0 +1,121 @@
+{
+  "source": "source.png",
+  "source_sha256": "d12d703b44f023274b88b5a8d2bc7b1066fec0bac535ecd52c0dfb529f355abf",
+  "source_provenance": "Built-in image_gen; uniform 1/8 pixel scaling, no procedural substitute.",
+  "frames": [
+    {
+      "name": "footstep",
+      "frame": 1,
+      "file": "footstep_01.png",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "anchor": [
+        32,
+        44
+      ],
+      "duration_ms": 60,
+      "draw_layer": "front",
+      "trigger": "foot_plant",
+      "no_extra_damage": true
+    },
+    {
+      "name": "footstep",
+      "frame": 2,
+      "file": "footstep_02.png",
+      "source_crop_xyxy": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "anchor": [
+        32,
+        44
+      ],
+      "duration_ms": 80,
+      "draw_layer": "front",
+      "trigger": "foot_plant",
+      "no_extra_damage": true
+    },
+    {
+      "name": "footstep",
+      "frame": 3,
+      "file": "footstep_03.png",
+      "source_crop_xyxy": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "anchor": [
+        32,
+        44
+      ],
+      "duration_ms": 60,
+      "draw_layer": "front",
+      "trigger": "foot_plant",
+      "no_extra_damage": true
+    },
+    {
+      "name": "blunt_impact",
+      "frame": 1,
+      "file": "blunt_impact_01.png",
+      "source_crop_xyxy": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "duration_ms": 60,
+      "draw_layer": "front",
+      "trigger": "confirmed_blunt_contact",
+      "no_extra_damage": true
+    },
+    {
+      "name": "blunt_impact",
+      "frame": 2,
+      "file": "blunt_impact_02.png",
+      "source_crop_xyxy": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "duration_ms": 80,
+      "draw_layer": "front",
+      "trigger": "confirmed_blunt_contact",
+      "no_extra_damage": true
+    },
+    {
+      "name": "blunt_impact",
+      "frame": 3,
+      "file": "blunt_impact_03.png",
+      "source_crop_xyxy": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "duration_ms": 60,
+      "draw_layer": "front",
+      "trigger": "confirmed_blunt_contact",
+      "no_extra_damage": true
+    }
+  ]
+}

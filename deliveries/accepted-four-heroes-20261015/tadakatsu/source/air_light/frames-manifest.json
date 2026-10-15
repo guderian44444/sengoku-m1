@@ -1,0 +1,391 @@
+{
+  "schema": "sprite-frame-manifest/v1",
+  "action": "air_light",
+  "version": 5,
+  "canvas": {
+    "width": 640,
+    "height": 340
+  },
+  "duration_ms": 720,
+  "frame_count": 12,
+  "loop": false,
+  "facing": "right",
+  "background": "transparent",
+  "root_reference": "pixel coordinates in each640x340frame; root path included per frame",
+  "preview_gif": "normal.gif",
+  "contact_sheet": "contact.png",
+  "frames": [
+    {
+      "index": 0,
+      "src": "composite/00.png",
+      "duration_ms": 70,
+      "start_ms": 0,
+      "root": [
+        300,
+        180
+      ],
+      "hands": [
+        [
+          288.77,
+          151.9794493177361
+        ],
+        [
+          328.33,
+          151.96282856624185
+        ]
+      ],
+      "weapon_tip": [
+        505.92694549092175,
+        151.8882129267794
+      ],
+      "event": "forward_guard",
+      "layers": {
+        "character": "character/00.png",
+        "weapon_back": "weapon_back/00.png",
+        "weapon_front": "weapon_front/00.png",
+        "hand_occlusion": "hand_occlusion/00.png"
+      }
+    },
+    {
+      "index": 1,
+      "src": "composite/01.png",
+      "duration_ms": 50,
+      "start_ms": 70,
+      "root": [
+        304,
+        168
+      ],
+      "hands": [
+        [
+          286.76,
+          140.95523849490326
+        ],
+        [
+          331.90999999999997,
+          140.97082630436435
+        ]
+      ],
+      "weapon_tip": [
+        503.916951715054,
+        141.03021083568922
+      ],
+      "event": "tighten_grip",
+      "layers": {
+        "character": "character/01.png",
+        "weapon_back": "weapon_back/01.png",
+        "weapon_front": "weapon_front/01.png",
+        "hand_occlusion": "hand_occlusion/01.png"
+      }
+    },
+    {
+      "index": 2,
+      "src": "composite/02.png",
+      "duration_ms": 50,
+      "start_ms": 120,
+      "root": [
+        308,
+        158
+      ],
+      "hands": [
+        [
+          312.28999999999996,
+          127.12488354011145
+        ],
+        [
+          362.16999999999996,
+          127.0750225175158
+        ]
+      ],
+      "weapon_tip": [
+        529.4468561611677,
+        126.9078093037071
+      ],
+      "event": "forward_push_start",
+      "layers": {
+        "character": "character/02.png",
+        "weapon_back": "weapon_back/02.png",
+        "weapon_front": "weapon_front/02.png",
+        "hand_occlusion": "hand_occlusion/02.png"
+      }
+    },
+    {
+      "index": 3,
+      "src": "composite/03.png",
+      "duration_ms": 50,
+      "start_ms": 170,
+      "root": [
+        312,
+        151
+      ],
+      "hands": [
+        [
+          320.59000000000003,
+          116.72823772653969
+        ],
+        [
+          376.49,
+          116.71009325265041
+        ]
+      ],
+      "weapon_tip": [
+        537.7469532174164,
+        116.65775116719232
+      ],
+      "event": "forward_thrust_acceleration",
+      "layers": {
+        "character": "character/03.png",
+        "weapon_back": "weapon_back/03.png",
+        "weapon_front": "weapon_front/03.png",
+        "hand_occlusion": "hand_occlusion/03.png"
+      }
+    },
+    {
+      "index": 4,
+      "src": "composite/04.png",
+      "duration_ms": 50,
+      "start_ms": 220,
+      "root": [
+        316,
+        148
+      ],
+      "hands": [
+        [
+          335.23,
+          114.7908163040395
+        ],
+        [
+          383.82,
+          114.81445349885566
+        ]
+      ],
+      "weapon_tip": [
+        552.3869389623706,
+        114.89645493075139
+      ],
+      "event": "forward_thrust_extend",
+      "layers": {
+        "character": "character/04.png",
+        "weapon_back": "weapon_back/04.png",
+        "weapon_front": "weapon_front/04.png",
+        "hand_occlusion": "hand_occlusion/04.png"
+      }
+    },
+    {
+      "index": 5,
+      "src": "composite/05.png",
+      "duration_ms": 50,
+      "start_ms": 270,
+      "root": [
+        320,
+        148
+      ],
+      "hands": [
+        [
+          342.53,
+          116.1971537967175
+        ],
+        [
+          387.68,
+          116.24822696749182
+        ]
+      ],
+      "weapon_tip": [
+        559.6868257213832,
+        116.44279914876361
+      ],
+      "event": "near_full_reach",
+      "layers": {
+        "character": "character/05.png",
+        "weapon_back": "weapon_back/05.png",
+        "weapon_front": "weapon_front/05.png",
+        "hand_occlusion": "hand_occlusion/05.png"
+      }
+    },
+    {
+      "index": 6,
+      "src": "composite/06.png",
+      "duration_ms": 70,
+      "start_ms": 320,
+      "root": [
+        324,
+        151
+      ],
+      "hands": [
+        [
+          371.59000000000003,
+          118.84160173027443
+        ],
+        [
+          417.16999999999996,
+          118.58531929228668
+        ]
+      ],
+      "weapon_tip": [
+        588.7435320623142,
+        117.62061365185008
+      ],
+      "event": "forward_thrust_contact_preview",
+      "layers": {
+        "character": "character/06.png",
+        "weapon_back": "weapon_back/06.png",
+        "weapon_front": "weapon_front/06.png",
+        "hand_occlusion": "hand_occlusion/06.png"
+      }
+    },
+    {
+      "index": 7,
+      "src": "composite/07.png",
+      "duration_ms": 50,
+      "start_ms": 390,
+      "root": [
+        328,
+        157
+      ],
+      "hands": [
+        [
+          346.2,
+          124.34675704104451
+        ],
+        [
+          397.37,
+          122.49318175147448
+        ]
+      ],
+      "weapon_tip": [
+        563.2146314445199,
+        116.48564783016487
+      ],
+      "event": "early_withdrawal",
+      "layers": {
+        "character": "character/07.png",
+        "weapon_back": "weapon_back/07.png",
+        "weapon_front": "weapon_front/07.png",
+        "hand_occlusion": "hand_occlusion/07.png"
+      }
+    },
+    {
+      "index": 8,
+      "src": "composite/08.png",
+      "duration_ms": 60,
+      "start_ms": 440,
+      "root": [
+        332,
+        166
+      ],
+      "hands": [
+        [
+          327.28,
+          126.10674105743958
+        ],
+        [
+          374.15,
+          123.85419026843566
+        ]
+      ],
+      "weapon_tip": [
+        544.1866123975923,
+        115.68230835216193
+      ],
+      "event": "mid_withdrawal",
+      "layers": {
+        "character": "character/08.png",
+        "weapon_back": "weapon_back/08.png",
+        "weapon_front": "weapon_front/08.png",
+        "hand_occlusion": "hand_occlusion/08.png"
+      }
+    },
+    {
+      "index": 9,
+      "src": "composite/09.png",
+      "duration_ms": 60,
+      "start_ms": 500,
+      "root": [
+        336,
+        178
+      ],
+      "hands": [
+        [
+          336.87,
+          143.7451633529986
+        ],
+        [
+          369.98,
+          143.46708364549337
+        ]
+      ],
+      "weapon_tip": [
+        554.0193062044032,
+        141.92139966969216
+      ],
+      "event": "late_withdrawal",
+      "layers": {
+        "character": "character/09.png",
+        "weapon_back": "weapon_back/09.png",
+        "weapon_front": "weapon_front/09.png",
+        "hand_occlusion": "hand_occlusion/09.png"
+      }
+    },
+    {
+      "index": 10,
+      "src": "composite/10.png",
+      "duration_ms": 70,
+      "start_ms": 560,
+      "root": [
+        340,
+        190
+      ],
+      "hands": [
+        [
+          340.28,
+          153.5109181841617
+        ],
+        [
+          370.81,
+          153.25869840366482
+        ]
+      ],
+      "weapon_tip": [
+        557.4295545203415,
+        151.7169642707613
+      ],
+      "event": "forward_guard_return",
+      "layers": {
+        "character": "character/10.png",
+        "weapon_back": "weapon_back/10.png",
+        "weapon_front": "weapon_front/10.png",
+        "hand_occlusion": "hand_occlusion/10.png"
+      }
+    },
+    {
+      "index": 11,
+      "src": "composite/11.png",
+      "duration_ms": 90,
+      "start_ms": 630,
+      "root": [
+        344,
+        200
+      ],
+      "hands": [
+        [
+          342.27,
+          160.50056829958697
+        ],
+        [
+          368.07,
+          160.35061085326635
+        ]
+      ],
+      "weapon_tip": [
+        559.4232966561494,
+        159.23840729855368
+      ],
+      "event": "airborne_descent_exit",
+      "layers": {
+        "character": "character/11.png",
+        "weapon_back": "weapon_back/11.png",
+        "weapon_front": "weapon_front/11.png",
+        "hand_occlusion": "hand_occlusion/11.png"
+      }
+    }
+  ]
+}

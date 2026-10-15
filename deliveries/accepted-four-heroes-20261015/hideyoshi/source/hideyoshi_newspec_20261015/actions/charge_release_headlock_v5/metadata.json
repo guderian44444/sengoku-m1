@@ -1,0 +1,2366 @@
+{
+  "action": "charge_release",
+  "revision": "left_pivot_reach_approved_head_identity_v5",
+  "description": "保留左腳支點與右腳繞踏兩圈，雙臂向外送、握點外移，使用同長打刀擴大腰部旋斬範圍，再制動回站。",
+  "duration_ms": 1240,
+  "frame_count": 17,
+  "head_scale": 0.95,
+  "canvas": [
+    520,
+    300
+  ],
+  "revolutions": 2,
+  "pivot_foot": "anatomical left",
+  "pivot_world": [
+    244,
+    250
+  ],
+  "footwork": "left forefoot/toe pivots; free right foot circles and lifts; pelvis and legs rotate with chest",
+  "rotation_axis": "vertical axis through supporting left forefoot",
+  "blade_plane": "waist_horizontal",
+  "fan": "stored flat gold fan retained; no dangling bottle",
+  "frames": [
+    {
+      "source": "charge_hold",
+      "source_frame": 0,
+      "head_scale": 0.95,
+      "index": 0,
+      "duration_ms": 90,
+      "event": null,
+      "anatomical_scale_correction": 1.0,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "weapon_scale": 0.145,
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 0,
+        "source_index": null,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          185,
+          144
+        ],
+        "changed_bbox": [
+          165,
+          114,
+          207,
+          145
+        ],
+        "changed_pixels": 762,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_00.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 0,
+      "source_rect": [
+        92,
+        16,
+        371,
+        452
+      ],
+      "body_scale": 0.33599999999999997,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        323,
+        442
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        177.136,
+        241.264
+      ],
+      "grip_world": [
+        207.88,
+        169.69600000000003
+      ],
+      "hand_centers": [
+        [
+          203.68,
+          170.368
+        ],
+        [
+          212.08,
+          169.024
+        ]
+      ],
+      "body_offset": [
+        135.47199999999998,
+        101.48800000000003
+      ],
+      "approved_head_and_lower_body_preserved": "pose pixels uniformly scale-calibrated; no regeneration or anatomical warp",
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 0,
+      "weapon_yaw_degrees": 0,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 1,
+      "index": 1,
+      "duration_ms": 60,
+      "event": null,
+      "original_body_offset": [
+        130.95,
+        95.30000000000001
+      ],
+      "anatomical_scale_correction": 0.96,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 1,
+        "source_index": 0,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          227,
+          138.5
+        ],
+        "changed_bbox": [
+          212,
+          106,
+          246,
+          139
+        ],
+        "changed_pixels": 706,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_01.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 1,
+      "source_rect": [
+        525,
+        16,
+        799,
+        450
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        698,
+        439
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        211.45000000000002,
+        237.05
+      ],
+      "grip_world": [
+        266.575,
+        163.90000000000003
+      ],
+      "hand_centers": [
+        [
+          259.75,
+          165.65000000000003
+        ],
+        [
+          273.4,
+          162.15000000000003
+        ]
+      ],
+      "body_offset": [
+        -0.29999999999998295,
+        96.35000000000002
+      ],
+      "approved_head_and_lower_body_preserved": true,
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 60,
+      "weapon_yaw_degrees": 60,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 1,
+      "index": 2,
+      "duration_ms": 60,
+      "event": null,
+      "anatomical_scale_correction": 1.0,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 2,
+        "source_index": 1,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          231,
+          131
+        ],
+        "changed_bbox": [
+          210,
+          102,
+          246,
+          132
+        ],
+        "changed_pixels": 680,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_02.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 2,
+      "source_rect": [
+        991,
+        14,
+        1256,
+        454
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1036,
+        444
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        302.8,
+        232.15
+      ],
+      "grip_world": [
+        249.075,
+        162.5
+      ],
+      "hand_centers": [
+        [
+          246.45,
+          162.5
+        ],
+        [
+          251.7,
+          162.5
+        ]
+      ],
+      "body_offset": [
+        -118.59999999999997,
+        94.60000000000002
+      ],
+      "approved_head_and_lower_body_preserved": true,
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 120,
+      "weapon_yaw_degrees": 120,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 1,
+      "index": 3,
+      "duration_ms": 60,
+      "event": null,
+      "anatomical_scale_correction": 1.0,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 3,
+        "source_index": 2,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          268,
+          127
+        ],
+        "changed_bbox": [
+          251,
+          99,
+          288,
+          128
+        ],
+        "changed_pixels": 616,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_03.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 3,
+      "source_rect": [
+        1403,
+        14,
+        1699,
+        451
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1462,
+        434
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        295.8,
+        242.3
+      ],
+      "grip_world": [
+        234.72499999999997,
+        166.175
+      ],
+      "hand_centers": [
+        [
+          229.64999999999998,
+          164.60000000000002
+        ],
+        [
+          239.79999999999995,
+          167.75
+        ]
+      ],
+      "body_offset": [
+        -267.7,
+        98.10000000000002
+      ],
+      "approved_head_and_lower_body_preserved": true,
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 180,
+      "weapon_yaw_degrees": 180,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 1,
+      "index": 4,
+      "duration_ms": 60,
+      "event": null,
+      "anatomical_scale_correction": 1.0,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 4,
+        "source_index": 3,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          268,
+          135
+        ],
+        "changed_bbox": [
+          251,
+          103,
+          289,
+          137
+        ],
+        "changed_pixels": 791,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_04.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 4,
+      "source_rect": [
+        72,
+        453,
+        345,
+        876
+      ],
+      "body_scale": 0.33949999999999997,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        177,
+        866
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        288.135,
+        221.8215
+      ],
+      "grip_world": [
+        220.06525,
+        170.72675000000004
+      ],
+      "hand_centers": [
+        [
+          215.1425,
+          169.5385
+        ],
+        [
+          224.988,
+          171.91500000000002
+        ]
+      ],
+      "body_offset": [
+        183.9085,
+        -44.00699999999995
+      ],
+      "approved_head_and_lower_body_preserved": "pose pixels uniformly scale-calibrated; no regeneration or anatomical warp",
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 240,
+      "weapon_yaw_degrees": 240,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 1,
+      "index": 5,
+      "duration_ms": 60,
+      "event": null,
+      "original_body_offset": [
+        182.05,
+        -53.099999999999966
+      ],
+      "anatomical_scale_correction": 0.97,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 5,
+        "source_index": 4,
+        "method": "approved95 original pixels mirrored for left-facing same angle",
+        "neck_anchor": [
+          247,
+          146.5
+        ],
+        "changed_bbox": [
+          228,
+          110,
+          267,
+          148
+        ],
+        "changed_pixels": 880,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_05.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 5,
+      "source_rect": [
+        505,
+        452,
+        783,
+        877
+      ],
+      "body_scale": 0.32899999999999996,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        727,
+        867
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        181.49,
+        229.273
+      ],
+      "grip_world": [
+        227.221,
+        169.88850000000002
+      ],
+      "hand_centers": [
+        [
+          223.931,
+          169.395
+        ],
+        [
+          230.511,
+          170.382
+        ]
+      ],
+      "body_offset": [
+        4.817000000000036,
+        -35.242999999999995
+      ],
+      "approved_head_and_lower_body_preserved": "pose pixels uniformly scale-calibrated; no regeneration or anatomical warp",
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 300,
+      "weapon_yaw_degrees": 300,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 1,
+      "index": 6,
+      "duration_ms": 60,
+      "event": "contact_launch_turn_1",
+      "original_body_offset": [
+        -10.449999999999989,
+        -53.44999999999999
+      ],
+      "anatomical_scale_correction": 0.94,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 6,
+        "source_index": 5,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          220,
+          148
+        ],
+        "changed_bbox": [
+          204,
+          113,
+          238,
+          150
+        ],
+        "changed_pixels": 723,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_06.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 0,
+      "source_rect": [
+        92,
+        16,
+        371,
+        452
+      ],
+      "body_scale": 0.33599999999999997,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        323,
+        442
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        177.136,
+        241.264
+      ],
+      "grip_world": [
+        207.88,
+        169.69600000000003
+      ],
+      "hand_centers": [
+        [
+          203.68,
+          170.368
+        ],
+        [
+          212.08,
+          169.024
+        ]
+      ],
+      "body_offset": [
+        135.47199999999998,
+        101.48800000000003
+      ],
+      "approved_head_and_lower_body_preserved": "pose pixels uniformly scale-calibrated; no regeneration or anatomical warp",
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 360,
+      "weapon_yaw_degrees": 360,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 2,
+      "index": 7,
+      "duration_ms": 60,
+      "event": null,
+      "original_body_offset": [
+        130.95,
+        95.30000000000001
+      ],
+      "anatomical_scale_correction": 0.96,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 7,
+        "source_index": 0,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          227,
+          138.5
+        ],
+        "changed_bbox": [
+          212,
+          106,
+          246,
+          139
+        ],
+        "changed_pixels": 706,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_07.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 1,
+      "source_rect": [
+        525,
+        16,
+        799,
+        450
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        698,
+        439
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        211.45000000000002,
+        237.05
+      ],
+      "grip_world": [
+        266.575,
+        163.90000000000003
+      ],
+      "hand_centers": [
+        [
+          259.75,
+          165.65000000000003
+        ],
+        [
+          273.4,
+          162.15000000000003
+        ]
+      ],
+      "body_offset": [
+        -0.29999999999998295,
+        96.35000000000002
+      ],
+      "approved_head_and_lower_body_preserved": true,
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 420,
+      "weapon_yaw_degrees": 420,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 2,
+      "index": 8,
+      "duration_ms": 60,
+      "event": null,
+      "anatomical_scale_correction": 1.0,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 8,
+        "source_index": 1,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          231,
+          131
+        ],
+        "changed_bbox": [
+          210,
+          102,
+          246,
+          132
+        ],
+        "changed_pixels": 680,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_08.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 2,
+      "source_rect": [
+        991,
+        14,
+        1256,
+        454
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1036,
+        444
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        302.8,
+        232.15
+      ],
+      "grip_world": [
+        249.075,
+        162.5
+      ],
+      "hand_centers": [
+        [
+          246.45,
+          162.5
+        ],
+        [
+          251.7,
+          162.5
+        ]
+      ],
+      "body_offset": [
+        -118.59999999999997,
+        94.60000000000002
+      ],
+      "approved_head_and_lower_body_preserved": true,
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 480,
+      "weapon_yaw_degrees": 480,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 2,
+      "index": 9,
+      "duration_ms": 60,
+      "event": null,
+      "anatomical_scale_correction": 1.0,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 9,
+        "source_index": 2,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          268,
+          127
+        ],
+        "changed_bbox": [
+          251,
+          99,
+          288,
+          128
+        ],
+        "changed_pixels": 616,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_09.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 3,
+      "source_rect": [
+        1403,
+        14,
+        1699,
+        451
+      ],
+      "body_scale": 0.35,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1462,
+        434
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        295.8,
+        242.3
+      ],
+      "grip_world": [
+        234.72499999999997,
+        166.175
+      ],
+      "hand_centers": [
+        [
+          229.64999999999998,
+          164.60000000000002
+        ],
+        [
+          239.79999999999995,
+          167.75
+        ]
+      ],
+      "body_offset": [
+        -267.7,
+        98.10000000000002
+      ],
+      "approved_head_and_lower_body_preserved": true,
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 540,
+      "weapon_yaw_degrees": 540,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": true,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 2,
+      "index": 10,
+      "duration_ms": 60,
+      "event": null,
+      "anatomical_scale_correction": 1.0,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 10,
+        "source_index": 3,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          268,
+          135
+        ],
+        "changed_bbox": [
+          251,
+          103,
+          289,
+          137
+        ],
+        "changed_pixels": 791,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_10.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 4,
+      "source_rect": [
+        72,
+        453,
+        345,
+        876
+      ],
+      "body_scale": 0.33949999999999997,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        177,
+        866
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        288.135,
+        221.8215
+      ],
+      "grip_world": [
+        220.06525,
+        170.72675000000004
+      ],
+      "hand_centers": [
+        [
+          215.1425,
+          169.5385
+        ],
+        [
+          224.988,
+          171.91500000000002
+        ]
+      ],
+      "body_offset": [
+        183.9085,
+        -44.00699999999995
+      ],
+      "approved_head_and_lower_body_preserved": "pose pixels uniformly scale-calibrated; no regeneration or anatomical warp",
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 600,
+      "weapon_yaw_degrees": 600,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 2,
+      "index": 11,
+      "duration_ms": 60,
+      "event": null,
+      "original_body_offset": [
+        182.05,
+        -53.099999999999966
+      ],
+      "anatomical_scale_correction": 0.97,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 11,
+        "source_index": 4,
+        "method": "approved95 original pixels mirrored for left-facing same angle",
+        "neck_anchor": [
+          247,
+          146.5
+        ],
+        "changed_bbox": [
+          228,
+          110,
+          267,
+          148
+        ],
+        "changed_pixels": 880,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_11.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 5,
+      "source_rect": [
+        505,
+        452,
+        783,
+        877
+      ],
+      "body_scale": 0.32899999999999996,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        727,
+        867
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        181.49,
+        229.273
+      ],
+      "grip_world": [
+        227.221,
+        169.88850000000002
+      ],
+      "hand_centers": [
+        [
+          223.931,
+          169.395
+        ],
+        [
+          230.511,
+          170.382
+        ]
+      ],
+      "body_offset": [
+        4.817000000000036,
+        -35.242999999999995
+      ],
+      "approved_head_and_lower_body_preserved": "pose pixels uniformly scale-calibrated; no regeneration or anatomical warp",
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 660,
+      "weapon_yaw_degrees": 660,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 2,
+      "index": 12,
+      "duration_ms": 60,
+      "event": "contact_launch_turn_2",
+      "original_body_offset": [
+        -10.449999999999989,
+        -53.44999999999999
+      ],
+      "anatomical_scale_correction": 0.94,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 12,
+        "source_index": 5,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          220,
+          148
+        ],
+        "changed_bbox": [
+          204,
+          113,
+          238,
+          150
+        ],
+        "changed_pixels": 723,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_12.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 0,
+      "source_rect": [
+        92,
+        16,
+        371,
+        452
+      ],
+      "body_scale": 0.33599999999999997,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        323,
+        442
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        177.136,
+        241.264
+      ],
+      "grip_world": [
+        207.88,
+        169.69600000000003
+      ],
+      "hand_centers": [
+        [
+          203.68,
+          170.368
+        ],
+        [
+          212.08,
+          169.024
+        ]
+      ],
+      "body_offset": [
+        135.47199999999998,
+        101.48800000000003
+      ],
+      "approved_head_and_lower_body_preserved": "pose pixels uniformly scale-calibrated; no regeneration or anatomical warp",
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": 720,
+      "weapon_yaw_degrees": 720,
+      "weapon_angle": null,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "turn": 2,
+      "index": 13,
+      "duration_ms": 80,
+      "event": "two_turns_complete",
+      "original_body_offset": [
+        130.95,
+        95.30000000000001
+      ],
+      "anatomical_scale_correction": 0.96,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 13,
+        "source_index": 0,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          227,
+          138.5
+        ],
+        "changed_bbox": [
+          212,
+          106,
+          246,
+          139
+        ],
+        "changed_pixels": 706,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_13.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 6,
+      "source_rect": [
+        948,
+        455,
+        1281,
+        877
+      ],
+      "body_scale": 0.322,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1230,
+        866
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        160.92399999999998,
+        248.71200000000002
+      ],
+      "grip_world": [
+        197.47099999999995,
+        179.64300000000003
+      ],
+      "hand_centers": [
+        [
+          193.44599999999997,
+          179.80400000000003
+        ],
+        [
+          201.49599999999995,
+          179.48200000000003
+        ]
+      ],
+      "body_offset": [
+        -152.06,
+        -28.851999999999975
+      ],
+      "approved_head_and_lower_body_preserved": "pose pixels uniformly scale-calibrated; no regeneration or anatomical warp",
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": null,
+      "weapon_yaw_degrees": null,
+      "weapon_angle": 103,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "index": 14,
+      "duration_ms": 100,
+      "event": null,
+      "original_body_offset": [
+        -186.5,
+        -53.099999999999966
+      ],
+      "anatomical_scale_correction": 0.92,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 14,
+        "source_index": 6,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          208.5,
+          151
+        ],
+        "changed_bbox": [
+          189,
+          118,
+          229,
+          152
+        ],
+        "changed_pixels": 802,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_14.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source_index": 7,
+      "source_rect": [
+        1422,
+        454,
+        1713,
+        877
+      ],
+      "body_scale": 0.322,
+      "head_scale": 0.95,
+      "head_scale_anchor": "neck",
+      "anatomical_support_foot": "left",
+      "support_point": "ball/toe contact",
+      "source_support_point": [
+        1670,
+        866
+      ],
+      "pivot_world": [
+        244,
+        250
+      ],
+      "free_right_foot_world": [
+        174.12599999999998,
+        248.71200000000002
+      ],
+      "grip_world": [
+        205.03799999999998,
+        179.48200000000003
+      ],
+      "hand_centers": [
+        [
+          201.49599999999995,
+          179.48200000000003
+        ],
+        [
+          208.57999999999998,
+          179.48200000000003
+        ]
+      ],
+      "body_offset": [
+        -293.74,
+        -28.851999999999975
+      ],
+      "approved_head_and_lower_body_preserved": "pose pixels uniformly scale-calibrated; no regeneration or anatomical warp",
+      "arm_edit": "imagegen shoulder/forearm band only; original head and legs retained",
+      "rotation_progress_degrees": null,
+      "weapon_yaw_degrees": null,
+      "weapon_angle": 115,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "weapon_behind_body": false,
+      "leg_generation": "approved pivot footwork reused unchanged; arms locally extended",
+      "index": 15,
+      "duration_ms": 110,
+      "event": null,
+      "original_body_offset": [
+        -340.5,
+        -53.099999999999966
+      ],
+      "anatomical_scale_correction": 0.92,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 15,
+        "source_index": 7,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          213.5,
+          151.5
+        ],
+        "changed_bbox": [
+          193,
+          118,
+          234,
+          153
+        ],
+        "changed_pixels": 785,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_15.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    },
+    {
+      "source": "light_1",
+      "source_frame": 0,
+      "head_scale": 0.95,
+      "index": 16,
+      "duration_ms": 140,
+      "event": null,
+      "anatomical_scale_correction": 1.0,
+      "anatomical_scale_anchor": [
+        244.0,
+        250.0
+      ],
+      "weapon_scale": 0.145,
+      "source_before_scale": "actions/charge_release_reach_v3",
+      "scale_correction_basis": "manual projected cranial width + collar/belt + shin cross-check; no bounding-box equal-height normalization",
+      "root_motion_preserved": true,
+      "head_identity_correction": {
+        "index": 16,
+        "source_index": null,
+        "method": "exact approved shared-ready head already present",
+        "neck_anchor": null,
+        "changed_bbox": null,
+        "changed_pixels": 0,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_16.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    }
+  ],
+  "source_sha256": "b90b7984be399a05036a22ab985300dcdc84ac1c2235ecbb97e9b3883421cf76",
+  "source_sheet": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/charge_release_reach_refined.png",
+  "render_body_layer": "body_canvas_XX.png",
+  "quality_checks": [
+    "same anatomical left support foot through front and back views",
+    "left support ball locked to [244,250] for both 360-degree turns",
+    "right foot airborne circling path changes per pose",
+    "17 GIF frames decoded; exact 1240ms",
+    "17 frames / 1240ms redecoded after calibration",
+    "fixed katana scale .145 at transformed grip; no weapon length scaling",
+    "source0,4,5 calibrated by 3-6%; brake/recover by8%; yaw side/back frames unchanged"
+  ],
+  "limitations": [
+    "six distinct rotational body poses per turn",
+    "whole-body sprites, not anatomical rig parts",
+    "weapon uses 2.5D projection",
+    "review candidate; not runtime integrated"
+  ],
+  "reach_revision": {
+    "weapon_scale_unchanged": 0.145,
+    "weapon_reference_unchanged": "sword_uchigatana.png",
+    "max_projected_blade_radius_before_px": 92.83500000000004,
+    "max_projected_blade_radius_after_px": 111.21000000000004,
+    "increase_percent": 19.793181450961384,
+    "method": "arms/grip extend outward; katana is not lengthened",
+    "approved_head_and_leg_pixels_retained": "same authored poses; uniform scale correction only",
+    "reach_preservation": "extended-arm poses retained; same-length weapon recomposed at calibrated grip",
+    "historical_reach_before_scale_calibration": true,
+    "max_projected_blade_radius_after_scale_calibration_px": 111.21000000000004,
+    "increase_over_original_pivot_percent_after_calibration": 19.793181450961384
+  },
+  "scale_calibration": {
+    "reference": "reference/shared_ready/body_canvas_00.png",
+    "head95_preserved": true,
+    "body_scale_by_source": {
+      "0": 0.96,
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 0.97,
+      "5": 0.94,
+      "6": 0.92,
+      "7": 0.92
+    },
+    "method": "single uniform body transform around unchanged support foot; hand/grip coordinates follow; weapon re-rendered at original scale",
+    "bbox_equalization": false,
+    "root_motion_separate": true,
+    "source_pose_preserved": true,
+    "manual_landmark_uncertainty_px": 2,
+    "qa": [
+      {
+        "index": 0,
+        "source_index": null,
+        "body_scale_factor": 1.0,
+        "body_bbox_before": [
+          116,
+          114,
+          254,
+          252
+        ],
+        "body_bbox_after": [
+          116,
+          114,
+          254,
+          252
+        ],
+        "pose_height_before": 138,
+        "pose_height_after": 138,
+        "support_anchor": null,
+        "grip_before": null,
+        "grip_after": null,
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 1,
+        "source_index": 0,
+        "body_scale_factor": 0.96,
+        "body_bbox_before": [
+          166,
+          101,
+          260,
+          253
+        ],
+        "body_bbox_after": [
+          169,
+          106,
+          260,
+          253
+        ],
+        "pose_height_before": 152,
+        "pose_height_after": 147,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          206.375,
+          166.35000000000002
+        ],
+        "grip_after": [
+          207.88,
+          169.69600000000003
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 2,
+        "source_index": 1,
+        "body_scale_factor": 1.0,
+        "body_bbox_before": [
+          185,
+          102,
+          280,
+          253
+        ],
+        "body_bbox_after": [
+          185,
+          102,
+          280,
+          253
+        ],
+        "pose_height_before": 151,
+        "pose_height_after": 151,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          266.575,
+          163.90000000000003
+        ],
+        "grip_after": [
+          266.575,
+          163.90000000000003
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 3,
+        "source_index": 2,
+        "body_scale_factor": 1.0,
+        "body_bbox_before": [
+          225,
+          99,
+          314,
+          253
+        ],
+        "body_bbox_after": [
+          225,
+          99,
+          314,
+          253
+        ],
+        "pose_height_before": 154,
+        "pose_height_after": 154,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          249.075,
+          162.5
+        ],
+        "grip_after": [
+          249.075,
+          162.5
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 4,
+        "source_index": 3,
+        "body_scale_factor": 1.0,
+        "body_bbox_before": [
+          223,
+          103,
+          323,
+          255
+        ],
+        "body_bbox_after": [
+          223,
+          103,
+          323,
+          255
+        ],
+        "pose_height_before": 152,
+        "pose_height_after": 152,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          234.72499999999997,
+          166.175
+        ],
+        "grip_after": [
+          234.72499999999997,
+          166.175
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 5,
+        "source_index": 4,
+        "body_scale_factor": 0.97,
+        "body_bbox_before": [
+          207,
+          106,
+          301,
+          253
+        ],
+        "body_bbox_after": [
+          208,
+          110,
+          299,
+          253
+        ],
+        "pose_height_before": 147,
+        "pose_height_after": 143,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          219.325,
+          168.27500000000003
+        ],
+        "grip_after": [
+          220.06525,
+          170.72675000000004
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 6,
+        "source_index": 5,
+        "body_scale_factor": 0.94,
+        "body_bbox_before": [
+          166,
+          105,
+          260,
+          253
+        ],
+        "body_bbox_after": [
+          170,
+          113,
+          260,
+          253
+        ],
+        "pose_height_before": 148,
+        "pose_height_after": 140,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          226.15,
+          164.775
+        ],
+        "grip_after": [
+          227.221,
+          169.88850000000002
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 7,
+        "source_index": 0,
+        "body_scale_factor": 0.96,
+        "body_bbox_before": [
+          166,
+          101,
+          260,
+          253
+        ],
+        "body_bbox_after": [
+          169,
+          106,
+          260,
+          253
+        ],
+        "pose_height_before": 152,
+        "pose_height_after": 147,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          206.375,
+          166.35000000000002
+        ],
+        "grip_after": [
+          207.88,
+          169.69600000000003
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 8,
+        "source_index": 1,
+        "body_scale_factor": 1.0,
+        "body_bbox_before": [
+          185,
+          102,
+          280,
+          253
+        ],
+        "body_bbox_after": [
+          185,
+          102,
+          280,
+          253
+        ],
+        "pose_height_before": 151,
+        "pose_height_after": 151,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          266.575,
+          163.90000000000003
+        ],
+        "grip_after": [
+          266.575,
+          163.90000000000003
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 9,
+        "source_index": 2,
+        "body_scale_factor": 1.0,
+        "body_bbox_before": [
+          225,
+          99,
+          314,
+          253
+        ],
+        "body_bbox_after": [
+          225,
+          99,
+          314,
+          253
+        ],
+        "pose_height_before": 154,
+        "pose_height_after": 154,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          249.075,
+          162.5
+        ],
+        "grip_after": [
+          249.075,
+          162.5
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 10,
+        "source_index": 3,
+        "body_scale_factor": 1.0,
+        "body_bbox_before": [
+          223,
+          103,
+          323,
+          255
+        ],
+        "body_bbox_after": [
+          223,
+          103,
+          323,
+          255
+        ],
+        "pose_height_before": 152,
+        "pose_height_after": 152,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          234.72499999999997,
+          166.175
+        ],
+        "grip_after": [
+          234.72499999999997,
+          166.175
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 11,
+        "source_index": 4,
+        "body_scale_factor": 0.97,
+        "body_bbox_before": [
+          207,
+          106,
+          301,
+          253
+        ],
+        "body_bbox_after": [
+          208,
+          110,
+          299,
+          253
+        ],
+        "pose_height_before": 147,
+        "pose_height_after": 143,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          219.325,
+          168.27500000000003
+        ],
+        "grip_after": [
+          220.06525,
+          170.72675000000004
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 12,
+        "source_index": 5,
+        "body_scale_factor": 0.94,
+        "body_bbox_before": [
+          166,
+          105,
+          260,
+          253
+        ],
+        "body_bbox_after": [
+          170,
+          113,
+          260,
+          253
+        ],
+        "pose_height_before": 148,
+        "pose_height_after": 140,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          226.15,
+          164.775
+        ],
+        "grip_after": [
+          227.221,
+          169.88850000000002
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 13,
+        "source_index": 0,
+        "body_scale_factor": 0.96,
+        "body_bbox_before": [
+          166,
+          101,
+          260,
+          253
+        ],
+        "body_bbox_after": [
+          169,
+          106,
+          260,
+          253
+        ],
+        "pose_height_before": 152,
+        "pose_height_after": 147,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          206.375,
+          166.35000000000002
+        ],
+        "grip_after": [
+          207.88,
+          169.69600000000003
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 14,
+        "source_index": 6,
+        "body_scale_factor": 0.92,
+        "body_bbox_before": [
+          144,
+          107,
+          261,
+          254
+        ],
+        "body_bbox_after": [
+          152,
+          118,
+          260,
+          254
+        ],
+        "pose_height_before": 147,
+        "pose_height_after": 136,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          193.42499999999995,
+          173.52500000000003
+        ],
+        "grip_after": [
+          197.47099999999995,
+          179.64300000000003
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 15,
+        "source_index": 7,
+        "body_scale_factor": 0.92,
+        "body_bbox_before": [
+          157,
+          107,
+          259,
+          254
+        ],
+        "body_bbox_after": [
+          164,
+          118,
+          258,
+          254
+        ],
+        "pose_height_before": 147,
+        "pose_height_after": 136,
+        "support_anchor": [
+          244,
+          250
+        ],
+        "grip_before": [
+          201.64999999999998,
+          173.35000000000002
+        ],
+        "grip_after": [
+          205.03799999999998,
+          179.48200000000003
+        ],
+        "weapon_scale": 0.145
+      },
+      {
+        "index": 16,
+        "source_index": null,
+        "body_scale_factor": 1.0,
+        "body_bbox_before": [
+          136,
+          102,
+          232,
+          253
+        ],
+        "body_bbox_after": [
+          136,
+          102,
+          232,
+          253
+        ],
+        "pose_height_before": 151,
+        "pose_height_after": 151,
+        "support_anchor": null,
+        "grip_before": null,
+        "grip_after": null,
+        "weapon_scale": 0.145
+      }
+    ]
+  },
+  "head_identity_audit": {
+    "approved_reference": "hideyoshi_head95_single_preview.png",
+    "approved_sha256": "686ccacafafd38163fefbe9053eea3702fb71989efba88837f2d6e7a3832ceff",
+    "source_before_fix": "actions/charge_release_scale_v4",
+    "method": "same-angle approved head pixels; original yaw heads only locally calibrated when face direction differs",
+    "frames": [
+      {
+        "index": 0,
+        "source_index": null,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          185,
+          144
+        ],
+        "changed_bbox": [
+          165,
+          114,
+          207,
+          145
+        ],
+        "changed_pixels": 762,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_00.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 1,
+        "source_index": 0,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          227,
+          138.5
+        ],
+        "changed_bbox": [
+          212,
+          106,
+          246,
+          139
+        ],
+        "changed_pixels": 706,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_01.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 2,
+        "source_index": 1,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          231,
+          131
+        ],
+        "changed_bbox": [
+          210,
+          102,
+          246,
+          132
+        ],
+        "changed_pixels": 680,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_02.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 3,
+        "source_index": 2,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          268,
+          127
+        ],
+        "changed_bbox": [
+          251,
+          99,
+          288,
+          128
+        ],
+        "changed_pixels": 616,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_03.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 4,
+        "source_index": 3,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          268,
+          135
+        ],
+        "changed_bbox": [
+          251,
+          103,
+          289,
+          137
+        ],
+        "changed_pixels": 791,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_04.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 5,
+        "source_index": 4,
+        "method": "approved95 original pixels mirrored for left-facing same angle",
+        "neck_anchor": [
+          247,
+          146.5
+        ],
+        "changed_bbox": [
+          228,
+          110,
+          267,
+          148
+        ],
+        "changed_pixels": 880,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_05.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 6,
+        "source_index": 5,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          220,
+          148
+        ],
+        "changed_bbox": [
+          204,
+          113,
+          238,
+          150
+        ],
+        "changed_pixels": 723,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_06.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 7,
+        "source_index": 0,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          227,
+          138.5
+        ],
+        "changed_bbox": [
+          212,
+          106,
+          246,
+          139
+        ],
+        "changed_pixels": 706,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_07.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 8,
+        "source_index": 1,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          231,
+          131
+        ],
+        "changed_bbox": [
+          210,
+          102,
+          246,
+          132
+        ],
+        "changed_pixels": 680,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_08.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 9,
+        "source_index": 2,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          268,
+          127
+        ],
+        "changed_bbox": [
+          251,
+          99,
+          288,
+          128
+        ],
+        "changed_pixels": 616,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_09.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 10,
+        "source_index": 3,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          268,
+          135
+        ],
+        "changed_bbox": [
+          251,
+          103,
+          289,
+          137
+        ],
+        "changed_pixels": 791,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_10.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 11,
+        "source_index": 4,
+        "method": "approved95 original pixels mirrored for left-facing same angle",
+        "neck_anchor": [
+          247,
+          146.5
+        ],
+        "changed_bbox": [
+          228,
+          110,
+          267,
+          148
+        ],
+        "changed_pixels": 880,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_11.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 12,
+        "source_index": 5,
+        "method": "same-angle original head only; narrow facial/hair volume, neck locked; no angle substitution",
+        "neck_anchor": [
+          220,
+          148
+        ],
+        "changed_bbox": [
+          204,
+          113,
+          238,
+          150
+        ],
+        "changed_pixels": 723,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_12.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 13,
+        "source_index": 0,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          227,
+          138.5
+        ],
+        "changed_bbox": [
+          212,
+          106,
+          246,
+          139
+        ],
+        "changed_pixels": 706,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_13.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 14,
+        "source_index": 6,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          208.5,
+          151
+        ],
+        "changed_bbox": [
+          189,
+          118,
+          229,
+          152
+        ],
+        "changed_pixels": 802,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_14.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 15,
+        "source_index": 7,
+        "method": "approved95 original pixels",
+        "neck_anchor": [
+          213.5,
+          151.5
+        ],
+        "changed_bbox": [
+          193,
+          118,
+          234,
+          153
+        ],
+        "changed_pixels": 785,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_15.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      },
+      {
+        "index": 16,
+        "source_index": null,
+        "method": "exact approved shared-ready head already present",
+        "neck_anchor": null,
+        "changed_bbox": null,
+        "changed_pixels": 0,
+        "body_below_y165_pixel_exact": true,
+        "weapon_pixel_exact": true,
+        "mask": "head_edit_mask_16.png",
+        "outside_head_edit_mask_diff_pixels": 0
+      }
+    ],
+    "body_and_weapon_unchanged": true,
+    "generated_turntable_used": false,
+    "all_non_head_pixels_exact": true,
+    "mask_validation": "per-frame declared clear mask union inserted-head alpha; zero body pixel differences outside this head/neck mask"
+  }
+}

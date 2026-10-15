@@ -1,0 +1,1 @@
+Light 2 only: exactly one rightward sweep and one contact. Removed the second forward re-extension during recovery. Seven poses, actual GIF 680 ms; no changes to light 1, light 3, heavy or other actions. Body sources remain the verified v1 sources; weapon recovery angles now close upward into guard.

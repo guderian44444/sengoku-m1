@@ -1,0 +1,824 @@
+{
+  "reference": "reference/shared_ready/body_canvas_00.png",
+  "head_scale": 0.95,
+  "method": "projected head/chest and bone-length visual cross-check; exact body layer hash for static hold; no pose bbox equalization",
+  "actions": [
+    {
+      "action": "charge_ready",
+      "status": "measured_no_render_change",
+      "body_unique_count": 6,
+      "frame_count": 6,
+      "pose_height_range_px": [
+        138,
+        151
+      ],
+      "reason": "head/chest scale visually consistent within ~2px landmark reading; height decrease follows deliberate knee bend; do not equalize",
+      "frames": [
+        {
+          "index": 0,
+          "body_sha256": "0c7281aaeb11a4be22c02b01bf4321e79591eacd89695ad9ee87998356a9d857",
+          "body_bbox": [
+            136,
+            102,
+            232,
+            253
+          ],
+          "pose_height_px": 151,
+          "body_scale": null,
+          "grip_world": null,
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 1,
+          "body_sha256": "e58d20b25c23376cee9e342df4fb83175e759ad66e8617718c6bece79d89c779",
+          "body_bbox": [
+            132,
+            103,
+            238,
+            252
+          ],
+          "pose_height_px": 149,
+          "body_scale": 0.3,
+          "grip_world": [
+            178.0,
+            168.95000000000002
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 2,
+          "body_sha256": "d296bc9e5fe556832cb5c7b206b9342d9db01ff4e02af5b5a4a279f15ff4d5b7",
+          "body_bbox": [
+            127,
+            106,
+            241,
+            252
+          ],
+          "pose_height_px": 146,
+          "body_scale": 0.3,
+          "grip_world": [
+            186.4,
+            174.8
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 3,
+          "body_sha256": "2bf89a393be9951d93b3041c162451588168820ecfd8ee3d58fb5e6546583af3",
+          "body_bbox": [
+            119,
+            112,
+            251,
+            253
+          ],
+          "pose_height_px": 141,
+          "body_scale": 0.3,
+          "grip_world": [
+            188.35,
+            180.64999999999998
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 4,
+          "body_sha256": "608389dcfd3cb2067cccca298d11c62c810ca376b0f6957b01ef851a672cbae1",
+          "body_bbox": [
+            115,
+            114,
+            252,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.39999999999998,
+            180.95
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 5,
+          "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+          "body_bbox": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.70000000000002,
+            182.0
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        }
+      ]
+    },
+    {
+      "action": "charge_hold",
+      "status": "measured_no_render_change",
+      "body_unique_count": 1,
+      "frame_count": 8,
+      "pose_height_range_px": [
+        138,
+        138
+      ],
+      "reason": "all 8 body canvases are byte-identical; only FX brightness changes",
+      "frames": [
+        {
+          "index": 0,
+          "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+          "body_bbox": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.70000000000002,
+            182.0
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 1,
+          "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+          "body_bbox": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.70000000000002,
+            182.0
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 2,
+          "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+          "body_bbox": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.70000000000002,
+            182.0
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 3,
+          "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+          "body_bbox": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.70000000000002,
+            182.0
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 4,
+          "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+          "body_bbox": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.70000000000002,
+            182.0
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 5,
+          "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+          "body_bbox": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.70000000000002,
+            182.0
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 6,
+          "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+          "body_bbox": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.70000000000002,
+            182.0
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        },
+        {
+          "index": 7,
+          "body_sha256": "852c14d6235bc3fad3843fac704175374091d528eb978c69a1e4d285bdb56277",
+          "body_bbox": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_px": 138,
+          "body_scale": 0.3,
+          "grip_world": [
+            180.70000000000002,
+            182.0
+          ],
+          "foot_ground": 251,
+          "correction_factor": 1.0
+        }
+      ]
+    },
+    {
+      "action": "charge_release",
+      "status": "corrected",
+      "source": "actions/charge_release_reach_v3",
+      "output": "actions/charge_release_scale_v4",
+      "frames": [
+        {
+          "index": 0,
+          "source_index": null,
+          "body_scale_factor": 1.0,
+          "body_bbox_before": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "body_bbox_after": [
+            116,
+            114,
+            254,
+            252
+          ],
+          "pose_height_before": 138,
+          "pose_height_after": 138,
+          "support_anchor": null,
+          "grip_before": null,
+          "grip_after": null,
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 1,
+          "source_index": 0,
+          "body_scale_factor": 0.96,
+          "body_bbox_before": [
+            166,
+            101,
+            260,
+            253
+          ],
+          "body_bbox_after": [
+            169,
+            106,
+            260,
+            253
+          ],
+          "pose_height_before": 152,
+          "pose_height_after": 147,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            206.375,
+            166.35000000000002
+          ],
+          "grip_after": [
+            207.88,
+            169.69600000000003
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 2,
+          "source_index": 1,
+          "body_scale_factor": 1.0,
+          "body_bbox_before": [
+            185,
+            102,
+            280,
+            253
+          ],
+          "body_bbox_after": [
+            185,
+            102,
+            280,
+            253
+          ],
+          "pose_height_before": 151,
+          "pose_height_after": 151,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            266.575,
+            163.90000000000003
+          ],
+          "grip_after": [
+            266.575,
+            163.90000000000003
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 3,
+          "source_index": 2,
+          "body_scale_factor": 1.0,
+          "body_bbox_before": [
+            225,
+            99,
+            314,
+            253
+          ],
+          "body_bbox_after": [
+            225,
+            99,
+            314,
+            253
+          ],
+          "pose_height_before": 154,
+          "pose_height_after": 154,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            249.075,
+            162.5
+          ],
+          "grip_after": [
+            249.075,
+            162.5
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 4,
+          "source_index": 3,
+          "body_scale_factor": 1.0,
+          "body_bbox_before": [
+            223,
+            103,
+            323,
+            255
+          ],
+          "body_bbox_after": [
+            223,
+            103,
+            323,
+            255
+          ],
+          "pose_height_before": 152,
+          "pose_height_after": 152,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            234.72499999999997,
+            166.175
+          ],
+          "grip_after": [
+            234.72499999999997,
+            166.175
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 5,
+          "source_index": 4,
+          "body_scale_factor": 0.97,
+          "body_bbox_before": [
+            207,
+            106,
+            301,
+            253
+          ],
+          "body_bbox_after": [
+            208,
+            110,
+            299,
+            253
+          ],
+          "pose_height_before": 147,
+          "pose_height_after": 143,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            219.325,
+            168.27500000000003
+          ],
+          "grip_after": [
+            220.06525,
+            170.72675000000004
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 6,
+          "source_index": 5,
+          "body_scale_factor": 0.94,
+          "body_bbox_before": [
+            166,
+            105,
+            260,
+            253
+          ],
+          "body_bbox_after": [
+            170,
+            113,
+            260,
+            253
+          ],
+          "pose_height_before": 148,
+          "pose_height_after": 140,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            226.15,
+            164.775
+          ],
+          "grip_after": [
+            227.221,
+            169.88850000000002
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 7,
+          "source_index": 0,
+          "body_scale_factor": 0.96,
+          "body_bbox_before": [
+            166,
+            101,
+            260,
+            253
+          ],
+          "body_bbox_after": [
+            169,
+            106,
+            260,
+            253
+          ],
+          "pose_height_before": 152,
+          "pose_height_after": 147,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            206.375,
+            166.35000000000002
+          ],
+          "grip_after": [
+            207.88,
+            169.69600000000003
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 8,
+          "source_index": 1,
+          "body_scale_factor": 1.0,
+          "body_bbox_before": [
+            185,
+            102,
+            280,
+            253
+          ],
+          "body_bbox_after": [
+            185,
+            102,
+            280,
+            253
+          ],
+          "pose_height_before": 151,
+          "pose_height_after": 151,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            266.575,
+            163.90000000000003
+          ],
+          "grip_after": [
+            266.575,
+            163.90000000000003
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 9,
+          "source_index": 2,
+          "body_scale_factor": 1.0,
+          "body_bbox_before": [
+            225,
+            99,
+            314,
+            253
+          ],
+          "body_bbox_after": [
+            225,
+            99,
+            314,
+            253
+          ],
+          "pose_height_before": 154,
+          "pose_height_after": 154,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            249.075,
+            162.5
+          ],
+          "grip_after": [
+            249.075,
+            162.5
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 10,
+          "source_index": 3,
+          "body_scale_factor": 1.0,
+          "body_bbox_before": [
+            223,
+            103,
+            323,
+            255
+          ],
+          "body_bbox_after": [
+            223,
+            103,
+            323,
+            255
+          ],
+          "pose_height_before": 152,
+          "pose_height_after": 152,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            234.72499999999997,
+            166.175
+          ],
+          "grip_after": [
+            234.72499999999997,
+            166.175
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 11,
+          "source_index": 4,
+          "body_scale_factor": 0.97,
+          "body_bbox_before": [
+            207,
+            106,
+            301,
+            253
+          ],
+          "body_bbox_after": [
+            208,
+            110,
+            299,
+            253
+          ],
+          "pose_height_before": 147,
+          "pose_height_after": 143,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            219.325,
+            168.27500000000003
+          ],
+          "grip_after": [
+            220.06525,
+            170.72675000000004
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 12,
+          "source_index": 5,
+          "body_scale_factor": 0.94,
+          "body_bbox_before": [
+            166,
+            105,
+            260,
+            253
+          ],
+          "body_bbox_after": [
+            170,
+            113,
+            260,
+            253
+          ],
+          "pose_height_before": 148,
+          "pose_height_after": 140,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            226.15,
+            164.775
+          ],
+          "grip_after": [
+            227.221,
+            169.88850000000002
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 13,
+          "source_index": 0,
+          "body_scale_factor": 0.96,
+          "body_bbox_before": [
+            166,
+            101,
+            260,
+            253
+          ],
+          "body_bbox_after": [
+            169,
+            106,
+            260,
+            253
+          ],
+          "pose_height_before": 152,
+          "pose_height_after": 147,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            206.375,
+            166.35000000000002
+          ],
+          "grip_after": [
+            207.88,
+            169.69600000000003
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 14,
+          "source_index": 6,
+          "body_scale_factor": 0.92,
+          "body_bbox_before": [
+            144,
+            107,
+            261,
+            254
+          ],
+          "body_bbox_after": [
+            152,
+            118,
+            260,
+            254
+          ],
+          "pose_height_before": 147,
+          "pose_height_after": 136,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            193.42499999999995,
+            173.52500000000003
+          ],
+          "grip_after": [
+            197.47099999999995,
+            179.64300000000003
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 15,
+          "source_index": 7,
+          "body_scale_factor": 0.92,
+          "body_bbox_before": [
+            157,
+            107,
+            259,
+            254
+          ],
+          "body_bbox_after": [
+            164,
+            118,
+            258,
+            254
+          ],
+          "pose_height_before": 147,
+          "pose_height_after": 136,
+          "support_anchor": [
+            244,
+            250
+          ],
+          "grip_before": [
+            201.64999999999998,
+            173.35000000000002
+          ],
+          "grip_after": [
+            205.03799999999998,
+            179.48200000000003
+          ],
+          "weapon_scale": 0.145
+        },
+        {
+          "index": 16,
+          "source_index": null,
+          "body_scale_factor": 1.0,
+          "body_bbox_before": [
+            136,
+            102,
+            232,
+            253
+          ],
+          "body_bbox_after": [
+            136,
+            102,
+            232,
+            253
+          ],
+          "pose_height_before": 151,
+          "pose_height_after": 151,
+          "support_anchor": null,
+          "grip_before": null,
+          "grip_after": null,
+          "weapon_scale": 0.145
+        }
+      ],
+      "head95_preserved": true,
+      "weapon_scale": 0.145,
+      "pivot_world": [
+        244,
+        250
+      ],
+      "duration_ms": 1240,
+      "frame_count": 17
+    }
+  ]
+}

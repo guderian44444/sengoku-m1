@@ -1,0 +1,24 @@
+{
+  "action": "light_1",
+  "revision": "v3",
+  "source_user_feedback": [
+    "Sentinel_45df8cb2e0ac81918d0384b3cbbf7f33",
+    "Sentinel_ee63af796c708191b1dbe90ea053ea27"
+  ],
+  "preview": "kennyo03-light1-fixed-pivot-arc-v3.gif",
+  "builder": "../build_light1_fixed_pivot.py",
+  "builder_dependency": "../build_staff_attacks.py",
+  "source_dependencies": [
+    "source.png",
+    "arc-correction-source.png",
+    "../light_1/source.png",
+    "../weapons/ornate_shakujo.png"
+  ],
+  "expected_frame_count": 10,
+  "actual_duration_ms": 670,
+  "scale_contract": "163 px standing equivalent, fixed scale per source; no bbox normalization",
+  "untouched": "light2_v3 and all previous accepted assets",
+  "library_file_id": "libfile_6039e8775f1c8191840ff030abfd6831",
+  "library_version": 0,
+  "freeze_status": "frozen after rendered pixel QA and independent visual review"
+}

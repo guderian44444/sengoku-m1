@@ -1,0 +1,703 @@
+{
+  "action": "light_3",
+  "revision": "faster_lower_cut_11f_v3",
+  "description": "第三段保持前跨與胸肩前向發力，實際下斬加速並壓低雙手握點與刀斬高度；命中擊飛後後腳跟進，總時長保持680ms。",
+  "duration_ms": 680,
+  "frame_count": 11,
+  "head_scale": 0.95,
+  "canvas": [
+    520,
+    300
+  ],
+  "net_forward_travel_px": 58,
+  "source_sha256": "729811093e1a8bbe73ad34655fdb35435c52e664d129fd8f73dae41f75546e1d",
+  "source_sheet": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/light_3_fastlow_source.png",
+  "frames": [
+    {
+      "source": "frozen_shared_light3_start",
+      "root_translation": [
+        0,
+        0
+      ],
+      "head_scale": 0.95,
+      "index": 0,
+      "duration_ms": 60,
+      "phase": "shared_ready",
+      "event": null,
+      "start_ms": 0,
+      "end_ms": 60,
+      "active_downslash": false
+    },
+    {
+      "source_index": 0,
+      "source_rect": [
+        74,
+        10,
+        373,
+        352
+      ],
+      "body_scale": 0.425,
+      "head_scale": 0.95,
+      "source_head_rect": [
+        237,
+        10,
+        318,
+        113
+      ],
+      "head_scale_anchor": "neck",
+      "hand_centers": [
+        [
+          191.775,
+          126.75
+        ],
+        [
+          196.025,
+          121.65
+        ]
+      ],
+      "grip_world": [
+        193.9,
+        124.2
+      ],
+      "weapon_angle": -30,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "support_foot": "rear_toe_push",
+      "support_world": [
+        148,
+        250
+      ],
+      "rear_foot_world": [
+        148.0,
+        250.0
+      ],
+      "front_foot_world": [
+        246.60000000000002,
+        244.9
+      ],
+      "body_offset": [
+        105.075,
+        104.65
+      ],
+      "pose_generation": "new imagegen pose; no frame repetition or body-only translation",
+      "index": 1,
+      "duration_ms": 100,
+      "phase": "rear_load",
+      "event": null,
+      "start_ms": 60,
+      "end_ms": 160,
+      "active_downslash": false
+    },
+    {
+      "source_index": 1,
+      "source_rect": [
+        594,
+        7,
+        970,
+        346
+      ],
+      "body_scale": 0.425,
+      "head_scale": 0.95,
+      "source_head_rect": [
+        754,
+        7,
+        847,
+        115
+      ],
+      "head_scale_anchor": "neck",
+      "hand_centers": [
+        [
+          199.0,
+          136.10000000000002
+        ],
+        [
+          203.675,
+          132.275
+        ]
+      ],
+      "grip_world": [
+        201.3375,
+        134.1875
+      ],
+      "weapon_angle": -20,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "support_foot": "rear_toe_push",
+      "support_world": [
+        148,
+        250
+      ],
+      "rear_foot_world": [
+        148.0,
+        250.0
+      ],
+      "front_foot_world": [
+        286.97499999999997,
+        234.70000000000002
+      ],
+      "body_offset": [
+        -113.375,
+        107.20000000000002
+      ],
+      "pose_generation": "new imagegen pose; no frame repetition or body-only translation",
+      "index": 2,
+      "duration_ms": 80,
+      "phase": "rear_push_front_lift",
+      "event": null,
+      "start_ms": 160,
+      "end_ms": 240,
+      "active_downslash": false
+    },
+    {
+      "source_index": 2,
+      "source_rect": [
+        1081,
+        10,
+        1494,
+        352
+      ],
+      "body_scale": 0.425,
+      "head_scale": 0.95,
+      "source_head_rect": [
+        1250,
+        10,
+        1341,
+        115
+      ],
+      "head_scale_anchor": "neck",
+      "hand_centers": [
+        [
+          272.1,
+          168.82500000000002
+        ],
+        [
+          277.625,
+          165.85000000000002
+        ]
+      ],
+      "grip_world": [
+        274.8625,
+        167.33750000000003
+      ],
+      "weapon_angle": 35,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "support_foot": "rear_toe_push",
+      "support_world": [
+        148,
+        250
+      ],
+      "rear_foot_world": [
+        148.0,
+        250.0
+      ],
+      "front_foot_world": [
+        298.025,
+        242.775
+      ],
+      "body_offset": [
+        -323.75,
+        105.92500000000001
+      ],
+      "pose_generation": "new imagegen pose; no frame repetition or body-only translation",
+      "index": 3,
+      "duration_ms": 30,
+      "phase": "front_foot_reach",
+      "event": null,
+      "start_ms": 240,
+      "end_ms": 270,
+      "active_downslash": true
+    },
+    {
+      "source_index": 3,
+      "source_rect": [
+        78,
+        346,
+        486,
+        689
+      ],
+      "body_scale": 0.425,
+      "head_scale": 0.95,
+      "source_head_rect": [
+        287,
+        346,
+        375,
+        439
+      ],
+      "head_scale_anchor": "neck",
+      "hand_centers": [
+        [
+          285.67499999999995,
+          187.95000000000002
+        ],
+        [
+          292.475,
+          190.5
+        ]
+      ],
+      "grip_world": [
+        289.075,
+        189.22500000000002
+      ],
+      "weapon_angle": 70,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "support_foot": "front_sole_locked",
+      "support_world": [
+        298,
+        250
+      ],
+      "rear_foot_world": [
+        152.225,
+        252.55
+      ],
+      "front_foot_world": [
+        298,
+        250
+      ],
+      "body_offset": [
+        108.875,
+        -36.44999999999999
+      ],
+      "pose_generation": "new imagegen pose; no frame repetition or body-only translation",
+      "index": 4,
+      "duration_ms": 30,
+      "phase": "front_foot_landing",
+      "event": "front_foot_landing",
+      "source_sheet": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/light_3_fastlow_source.png",
+      "blade_guard_world": [
+        306.9244613318283,
+        182.72832737752896
+      ],
+      "blade_tip_world": [
+        385.1105319037227,
+        155.04245384016775
+      ],
+      "source_arm_edit": "localized lower two-hand downward-cut pose",
+      "start_ms": 270,
+      "end_ms": 300,
+      "active_downslash": true
+    },
+    {
+      "source_index": 4,
+      "source_rect": [
+        533,
+        351,
+        971,
+        687
+      ],
+      "body_scale": 0.425,
+      "head_scale": 0.95,
+      "source_head_rect": [
+        795,
+        351,
+        881,
+        440
+      ],
+      "head_scale_anchor": "neck",
+      "hand_centers": [
+        [
+          293.75,
+          197.725
+        ],
+        [
+          301.40000000000003,
+          199.85
+        ]
+      ],
+      "grip_world": [
+        297.57500000000005,
+        198.7875
+      ],
+      "weapon_angle": 90,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "support_foot": "front_sole_locked",
+      "support_world": [
+        298,
+        250
+      ],
+      "rear_foot_world": [
+        141.17500000000004,
+        247.45
+      ],
+      "front_foot_world": [
+        298,
+        250
+      ],
+      "body_offset": [
+        -95.97499999999997,
+        -36.44999999999999
+      ],
+      "pose_generation": "new imagegen pose; no frame repetition or body-only translation",
+      "index": 5,
+      "duration_ms": 30,
+      "phase": "contact_hip_chest_drive",
+      "event": "contact_launch",
+      "source_sheet": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/light_3_fastlow_source.png",
+      "blade_guard_world": [
+        316.57000000000005,
+        198.7875
+      ],
+      "blade_tip_world": [
+        399.51000000000005,
+        199.5125
+      ],
+      "source_arm_edit": "localized lower two-hand downward-cut pose",
+      "start_ms": 300,
+      "end_ms": 330,
+      "active_downslash": true
+    },
+    {
+      "source_index": 5,
+      "source_rect": [
+        1041,
+        348,
+        1438,
+        691
+      ],
+      "body_scale": 0.425,
+      "head_scale": 0.95,
+      "source_head_rect": [
+        1253,
+        348,
+        1343,
+        439
+      ],
+      "head_scale_anchor": "neck",
+      "hand_centers": [
+        [
+          295.025,
+          199.42500000000004
+        ],
+        [
+          301.82500000000005,
+          203.25000000000003
+        ]
+      ],
+      "grip_world": [
+        298.425,
+        201.33750000000003
+      ],
+      "weapon_angle": 110,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "support_foot": "front_sole_locked",
+      "support_world": [
+        298,
+        250
+      ],
+      "rear_foot_world": [
+        155.625,
+        250.425
+      ],
+      "front_foot_world": [
+        298,
+        250
+      ],
+      "body_offset": [
+        -296.15,
+        -37.724999999999966
+      ],
+      "pose_generation": "new imagegen pose; no frame repetition or body-only translation",
+      "index": 6,
+      "duration_ms": 40,
+      "phase": "follow_through",
+      "event": null,
+      "source_sheet": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/light_3_fastlow_source.png",
+      "blade_guard_world": [
+        316.2744613318283,
+        207.8341726224711
+      ],
+      "blade_tip_world": [
+        393.96460269590045,
+        236.88260045997185
+      ],
+      "source_arm_edit": "localized lower two-hand downward-cut pose",
+      "start_ms": 330,
+      "end_ms": 370,
+      "active_downslash": true
+    },
+    {
+      "source_index": 6,
+      "source_rect": [
+        101,
+        680,
+        477,
+        1017
+      ],
+      "body_scale": 0.425,
+      "head_scale": 0.95,
+      "source_head_rect": [
+        249,
+        680,
+        348,
+        785
+      ],
+      "head_scale_anchor": "neck",
+      "hand_centers": [
+        [
+          272.07500000000005,
+          177.325
+        ],
+        [
+          277.6,
+          179.02499999999998
+        ]
+      ],
+      "grip_world": [
+        274.83750000000003,
+        178.17499999999998
+      ],
+      "weapon_angle": 115,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "support_foot": "front_sole_locked",
+      "support_world": [
+        298,
+        250
+      ],
+      "rear_foot_world": [
+        179.85000000000002,
+        218.54999999999995
+      ],
+      "front_foot_world": [
+        298,
+        250
+      ],
+      "body_offset": [
+        112.70000000000002,
+        -177.55
+      ],
+      "pose_generation": "new imagegen pose; no frame repetition or body-only translation",
+      "index": 7,
+      "duration_ms": 60,
+      "phase": "rear_foot_lift_catch_up",
+      "event": null,
+      "source_sheet": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/light_3_fastlow_source.png",
+      "blade_guard_world": [
+        292.0528164147612,
+        186.20263388176457
+      ],
+      "blade_tip_world": [
+        366.9155860318189,
+        221.91166565613975
+      ],
+      "source_arm_edit": "localized lower two-hand downward-cut pose",
+      "start_ms": 370,
+      "end_ms": 430,
+      "active_downslash": false
+    },
+    {
+      "source_index": 7,
+      "source_rect": [
+        628,
+        677,
+        958,
+        1017
+      ],
+      "body_scale": 0.425,
+      "head_scale": 0.95,
+      "source_head_rect": [
+        749,
+        677,
+        846,
+        783
+      ],
+      "head_scale_anchor": "neck",
+      "hand_centers": [
+        [
+          255.075,
+          177.75
+        ],
+        [
+          261.02500000000003,
+          176.05
+        ]
+      ],
+      "grip_world": [
+        258.05,
+        176.9
+      ],
+      "weapon_angle": 120,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "support_foot": "front_sole_locked",
+      "support_world": [
+        298,
+        250
+      ],
+      "rear_foot_world": [
+        201.52500000000003,
+        249.15000000000003
+      ],
+      "front_foot_world": [
+        298.0,
+        250.0
+      ],
+      "body_offset": [
+        -92.14999999999998,
+        -177.97499999999997
+      ],
+      "pose_generation": "new imagegen pose; no frame repetition or body-only translation",
+      "index": 8,
+      "duration_ms": 70,
+      "phase": "rear_foot_landing",
+      "event": null,
+      "start_ms": 430,
+      "end_ms": 500,
+      "active_downslash": false
+    },
+    {
+      "source_index": 8,
+      "source_rect": [
+        1195,
+        672,
+        1402,
+        1020
+      ],
+      "body_scale": 0.425,
+      "head_scale": 0.95,
+      "source_head_rect": [
+        1246,
+        672,
+        1333,
+        784
+      ],
+      "head_scale_anchor": "neck",
+      "hand_centers": [
+        [
+          257.625,
+          178.17499999999995
+        ],
+        [
+          264.85,
+          180.29999999999995
+        ]
+      ],
+      "grip_world": [
+        261.2375,
+        179.23749999999995
+      ],
+      "weapon_angle": 120,
+      "weapon_scale": 0.145,
+      "weapon_grip_local": [
+        180,
+        710
+      ],
+      "support_foot": "front_sole_locked",
+      "support_world": [
+        298,
+        250
+      ],
+      "rear_foot_world": [
+        235.52499999999998,
+        252.125
+      ],
+      "front_foot_world": [
+        298.0,
+        250.0
+      ],
+      "body_offset": [
+        -283.4,
+        -177.55
+      ],
+      "pose_generation": "new imagegen pose; no frame repetition or body-only translation",
+      "index": 9,
+      "duration_ms": 70,
+      "phase": "settle_ready",
+      "event": null,
+      "start_ms": 500,
+      "end_ms": 570,
+      "active_downslash": false
+    },
+    {
+      "source": "frozen_shared_light3_start",
+      "root_translation": [
+        58,
+        0
+      ],
+      "head_scale": 0.95,
+      "index": 10,
+      "duration_ms": 110,
+      "phase": "shared_ready_advanced",
+      "event": null,
+      "start_ms": 570,
+      "end_ms": 680,
+      "active_downslash": false
+    }
+  ],
+  "render_body_layer": "body_canvas_XX.png",
+  "quality_checks": [
+    "11 decoded GIF frames with exact durations totaling 680ms",
+    "active descending cut shortened from 220ms to 130ms",
+    "arms and two-hand grip lowered together in four poses",
+    "front foot lock and rear catch-up preserved",
+    "unchanged poses reuse approved prior frames",
+    "original head 95 percent, independent katana layer"
+  ],
+  "limitations": [
+    "whole-body sprites, not anatomical rig parts",
+    "large third swing is game choreography",
+    "katana flat rotation; perspective variants pending",
+    "review candidate; not runtime integrated"
+  ],
+  "unchanged_frame_source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/light_3_step_v2",
+  "timing_revision": {
+    "total_ms": 680,
+    "frame_count": 11,
+    "old_active_downslash_ms": 220,
+    "new_active_downslash_ms": 130,
+    "active_frames": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "active_start_ms": 240,
+    "active_end_ms": 370,
+    "time_moved_to_windup_recovery_ms": 90
+  },
+  "contact_event": {
+    "frame": 5,
+    "time_ms": 300,
+    "end_ms": 330,
+    "event": "contact_launch",
+    "blade_guard_world": [
+      316.57000000000005,
+      198.7875
+    ],
+    "blade_tip_world": [
+      399.51000000000005,
+      199.5125
+    ],
+    "grip_world": [
+      297.57500000000005,
+      198.7875
+    ]
+  }
+}
