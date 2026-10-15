@@ -1,0 +1,227 @@
+{
+  "action": "charge_ready",
+  "frames": [
+    {
+      "frame": 0,
+      "source_pose": 0,
+      "source_crop": [
+        63,
+        6,
+        425,
+        515
+      ],
+      "source_grip": [
+        240,
+        219
+      ],
+      "source_foot": [
+        370,
+        505
+      ],
+      "body_scale": 0.30707070707070705,
+      "root_world": [
+        205,
+        365
+      ],
+      "blade_angle_deg": -55,
+      "blade_projection": 1,
+      "spin_accumulated_deg": null,
+      "weapon_behind": false,
+      "duration_ms": 100,
+      "event": null,
+      "saya_mouth": [
+        166.3090909090909,
+        288.3582222222222
+      ],
+      "scale_tune_factor": 1,
+      "scale_tune_pivot": [
+        205,
+        365
+      ],
+      "body_canvas_sha256": "270262e62b0839d4ec00f89ba5d055f9dd4bf4eb20b20d362632f942445bbf3d"
+    },
+    {
+      "frame": 1,
+      "source_pose": 1,
+      "source_crop": [
+        524,
+        12,
+        981,
+        515
+      ],
+      "source_grip": [
+        668,
+        226
+      ],
+      "source_foot": [
+        932,
+        505
+      ],
+      "body_scale": 0.30707070707070705,
+      "root_world": [
+        205,
+        365
+      ],
+      "blade_angle_deg": -70,
+      "blade_projection": 1,
+      "spin_accumulated_deg": null,
+      "weapon_behind": false,
+      "duration_ms": 100,
+      "event": null,
+      "saya_mouth": [
+        149.8808080808081,
+        289.2978585858586
+      ],
+      "scale_tune_factor": 1,
+      "scale_tune_pivot": [
+        205,
+        365
+      ],
+      "body_canvas_sha256": "2e12f86b9aa82732eeb2049206456123061b77e91ffba56a1b1e2459ff0acf72"
+    },
+    {
+      "source": "entry_source.png",
+      "source_pose": 0,
+      "source_crop": [
+        13,
+        56,
+        715,
+        723
+      ],
+      "source_grip": [
+        278,
+        411
+      ],
+      "support_foot": [
+        65,
+        695
+      ],
+      "root_world": [
+        205,
+        365
+      ],
+      "body_scale": 0.22068148148148148,
+      "frame": 2,
+      "duration_ms": 110,
+      "event": null,
+      "scale_tune_factor": 0.98,
+      "scale_tune_pivot": [
+        205,
+        365
+      ],
+      "body_canvas_sha256": "fb26199b372ae12e5f1ec5c8cc33b1618f9970a302f1eefd2c2b889ed66d658f"
+    },
+    {
+      "source": "entry_source.png",
+      "source_pose": 1,
+      "source_crop": [
+        673,
+        33,
+        1372,
+        723
+      ],
+      "source_grip": [
+        688,
+        207
+      ],
+      "support_foot": [
+        765,
+        695
+      ],
+      "root_world": [
+        205,
+        365
+      ],
+      "body_scale": 0.22068148148148148,
+      "frame": 3,
+      "duration_ms": 110,
+      "event": null,
+      "scale_tune_factor": 0.98,
+      "scale_tune_pivot": [
+        205,
+        365
+      ],
+      "body_canvas_sha256": "46ddf91e314b5d8895ba8c981502cd85e5ecebc40bfe58e95fd144c06f1a7a82"
+    },
+    {
+      "source": "entry_source.png",
+      "source_pose": 2,
+      "source_crop": [
+        1407,
+        21,
+        2080,
+        721
+      ],
+      "source_grip": [
+        1401,
+        183
+      ],
+      "support_foot": [
+        1490,
+        695
+      ],
+      "root_world": [
+        205,
+        365
+      ],
+      "body_scale": 0.22068148148148148,
+      "frame": 4,
+      "duration_ms": 120,
+      "event": null,
+      "scale_tune_factor": 0.98,
+      "scale_tune_pivot": [
+        205,
+        365
+      ],
+      "body_canvas_sha256": "78601ebbab8b2728ff759e2701ddbaff1cb037ddbb30cd8a44c0dd39ab4a2773"
+    },
+    {
+      "frame": 5,
+      "source": "sources/pivot_views.png",
+      "source_pose": 1,
+      "source_crop": [
+        416,
+        38,
+        769,
+        481
+      ],
+      "source_grip": [
+        441,
+        142
+      ],
+      "support_foot": [
+        502,
+        469
+      ],
+      "support_side": "anatomical_right",
+      "root_world": [
+        205,
+        365
+      ],
+      "pivot_world": [
+        205,
+        365
+      ],
+      "body_scale": 0.34545454545454546,
+      "grip_world": [
+        183.92727272727274,
+        252.03636363636363
+      ],
+      "blade_angle_deg": -90,
+      "blade_projection": 0.72,
+      "weapon_behind": false,
+      "spin_accumulated_deg": 0.0,
+      "duration_ms": 130,
+      "event": "hold_enter",
+      "scale_tune_factor": 1,
+      "scale_tune_pivot": [
+        205,
+        365
+      ],
+      "body_canvas_sha256": "ae0dc25337ba971c93965773d8cd0ac0bd9dc52ee805357e81961b52301c3386"
+    }
+  ],
+  "total_ms": 670,
+  "revision": "left hand releases and right arm extends before holding",
+  "scale_tune": "visual head and torso proportion matching, conservative<=3%, root locked; no bbox equal-height"
+}

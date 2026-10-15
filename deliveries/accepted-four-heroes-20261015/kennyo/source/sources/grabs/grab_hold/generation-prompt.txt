@@ -1,0 +1,1 @@
+Reuse the exact last generated grab_start frame (source pose 5, zero-based) as a stable hold loop. No additional image generation or pose interpolation. This preserves the exact body, hand, foot, and enemy anchors at the grab_start/hold boundary. Source generation prompt: ../grab_start/generation-prompt.txt.

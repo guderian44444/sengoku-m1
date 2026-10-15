@@ -1,0 +1,489 @@
+{
+  "source": "sources/release.png",
+  "source_sha256": "03042980467335643eb708e9a902a1c8fa3f39a2b7f3e4e63cf37c88894445a3",
+  "image_size": [
+    1448,
+    1086
+  ],
+  "layout": "3 rows x4 columns, row-major",
+  "coordinate_system": "source pixels, top-left origin",
+  "frame_mapping": "source1..12 -> release2..13; release1 hold;release14 repeats13",
+  "source_png_unchanged": true,
+  "standing_ruler_suggestion": {
+    "source_px": 390,
+    "scale_to_152": 0.38974358974358975,
+    "uncertainty_source_px": 20,
+    "basis": "Conservative standing-equivalent estimate using head/torso/leg proportions. Do not normalize running bbox heights (330-340px). Compare same skull/chin distance against hold before finalizing."
+  },
+  "three_contact_candidates": {
+    "left_step_1_release_frame": 5,
+    "right_step_2_release_frame": 9,
+    "left_step_3_release_frame": 12,
+    "note": "Phase timing can read as three steps, but anatomical left/right is not verified from this side-view sheet. Frame12 heel-extension can be contact onset;13 settles."
+  },
+  "rows": [
+    {
+      "source_pose_1based": 1,
+      "release_frame_1based": 2,
+      "source_bbox": [
+        36,
+        18,
+        304,
+        354
+      ],
+      "right_grip_center": [
+        242,
+        184
+      ],
+      "left_saya_hand_center": [
+        260,
+        182
+      ],
+      "hand_uncertainty_source_px": 5,
+      "screen_rear_shoe_contact_or_sole": [
+        58,
+        347
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        203,
+        315
+      ],
+      "suggested_registration_support": [
+        58,
+        347
+      ],
+      "suggested_support_anatomical_side": "right",
+      "anatomical_side_confidence": "medium",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": true,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Rear leg planted; front knee tucked, front shoe clearly airborne."
+    },
+    {
+      "source_pose_1based": 2,
+      "release_frame_1based": 3,
+      "source_bbox": [
+        430,
+        18,
+        644,
+        348
+      ],
+      "right_grip_center": [
+        538,
+        160
+      ],
+      "left_saya_hand_center": [
+        591,
+        181
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        461,
+        340
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        451,
+        307
+      ],
+      "suggested_registration_support": [
+        461,
+        340
+      ],
+      "suggested_support_anatomical_side": "right",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": true,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Legs overlap/cross; lower rear shoe appears supporting, other shoe tucked behind thigh."
+    },
+    {
+      "source_pose_1based": 3,
+      "release_frame_1based": 4,
+      "source_bbox": [
+        692,
+        17,
+        1052,
+        353
+      ],
+      "right_grip_center": [
+        1034,
+        113
+      ],
+      "left_saya_hand_center": [
+        921,
+        184
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        714,
+        344
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        1000,
+        345
+      ],
+      "suggested_registration_support": [
+        1000,
+        345
+      ],
+      "suggested_support_anatomical_side": "left",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": false,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Wide landing/extension, both shoes near same ground level."
+    },
+    {
+      "source_pose_1based": 4,
+      "release_frame_1based": 5,
+      "source_bbox": [
+        1052,
+        18,
+        1419,
+        352
+      ],
+      "right_grip_center": [
+        1404,
+        112
+      ],
+      "left_saya_hand_center": [
+        1284,
+        180
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        1075,
+        345
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        1372,
+        345
+      ],
+      "suggested_registration_support": [
+        1372,
+        345
+      ],
+      "suggested_support_anatomical_side": "left",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": false,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Near repeat of preceding wide landing; useful impact settle, not another step."
+    },
+    {
+      "source_pose_1based": 5,
+      "release_frame_1based": 6,
+      "source_bbox": [
+        44,
+        364,
+        351,
+        703
+      ],
+      "right_grip_center": [
+        332,
+        456
+      ],
+      "left_saya_hand_center": [
+        212,
+        519
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        73,
+        694
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        204,
+        681
+      ],
+      "suggested_registration_support": [
+        73,
+        694
+      ],
+      "suggested_support_anatomical_side": "right",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": true,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Front knee raised/folded, rear shoe toe-low; swing/transfer pose."
+    },
+    {
+      "source_pose_1based": 6,
+      "release_frame_1based": 7,
+      "source_bbox": [
+        412,
+        368,
+        697,
+        705
+      ],
+      "right_grip_center": [
+        679,
+        465
+      ],
+      "left_saya_hand_center": [
+        557,
+        525
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        494,
+        693
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        624,
+        697
+      ],
+      "suggested_registration_support": [
+        494,
+        693
+      ],
+      "suggested_support_anatomical_side": "right",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": false,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Front shoe extends heel-first; rear foot toe support."
+    },
+    {
+      "source_pose_1based": 7,
+      "release_frame_1based": 8,
+      "source_bbox": [
+        724,
+        376,
+        1068,
+        713
+      ],
+      "right_grip_center": [
+        1049,
+        468
+      ],
+      "left_saya_hand_center": [
+        919,
+        529
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        747,
+        696
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        1026,
+        703
+      ],
+      "suggested_registration_support": [
+        1026,
+        703
+      ],
+      "suggested_support_anatomical_side": "left",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": false,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Front heel approaches contact, rear leg extended; landing preparation."
+    },
+    {
+      "source_pose_1based": 8,
+      "release_frame_1based": 9,
+      "source_bbox": [
+        1091,
+        378,
+        1435,
+        709
+      ],
+      "right_grip_center": [
+        1422,
+        463
+      ],
+      "left_saya_hand_center": [
+        1305,
+        531
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        1114,
+        650
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        1369,
+        700
+      ],
+      "suggested_registration_support": [
+        1369,
+        700
+      ],
+      "suggested_support_anatomical_side": "left",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": false,
+      "screen_rear_shoe_airborne": true,
+      "visual_phase": "Front foot planted, rear shoe lifted."
+    },
+    {
+      "source_pose_1based": 9,
+      "release_frame_1based": 10,
+      "source_bbox": [
+        27,
+        721,
+        343,
+        1060
+      ],
+      "right_grip_center": [
+        327,
+        816
+      ],
+      "left_saya_hand_center": [
+        213,
+        869
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        57,
+        1050
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        201,
+        1000
+      ],
+      "suggested_registration_support": [
+        57,
+        1050
+      ],
+      "suggested_support_anatomical_side": "right",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": true,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Rear foot planted, front knee tucked high: next-step preparation."
+    },
+    {
+      "source_pose_1based": 10,
+      "release_frame_1based": 11,
+      "source_bbox": [
+        357,
+        724,
+        714,
+        1060
+      ],
+      "right_grip_center": [
+        690,
+        813
+      ],
+      "left_saya_hand_center": [
+        575,
+        875
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        382,
+        1050
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        674,
+        1045
+      ],
+      "suggested_registration_support": [
+        382,
+        1050
+      ],
+      "suggested_support_anatomical_side": "right",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": false,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Front heel extends forward; rear toe trailing."
+    },
+    {
+      "source_pose_1based": 11,
+      "release_frame_1based": 12,
+      "source_bbox": [
+        720,
+        736,
+        1066,
+        1057
+      ],
+      "right_grip_center": [
+        1050,
+        826
+      ],
+      "left_saya_hand_center": [
+        919,
+        885
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        744,
+        1050
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        990,
+        1050
+      ],
+      "suggested_registration_support": [
+        990,
+        1050
+      ],
+      "suggested_support_anatomical_side": "left",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": false,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Deep forward lunge with both feet low: braking contact."
+    },
+    {
+      "source_pose_1based": 12,
+      "release_frame_1based": 13,
+      "source_bbox": [
+        1043,
+        733,
+        1438,
+        1059
+      ],
+      "right_grip_center": [
+        1421,
+        819
+      ],
+      "left_saya_hand_center": [
+        1279,
+        885
+      ],
+      "hand_uncertainty_source_px": 4,
+      "screen_rear_shoe_contact_or_sole": [
+        1065,
+        1050
+      ],
+      "screen_front_shoe_contact_or_sole": [
+        1383,
+        1050
+      ],
+      "suggested_registration_support": [
+        1383,
+        1050
+      ],
+      "suggested_support_anatomical_side": "left",
+      "anatomical_side_confidence": "low",
+      "anatomical_side_note": "Provisional only: wide trousers and overlapping thighs obscure leg attachment. Track near/far leg through adjacent frames; do not relabel solely to force L-R-L.",
+      "foot_uncertainty_source_px": 6,
+      "screen_front_shoe_airborne": false,
+      "screen_rear_shoe_airborne": false,
+      "visual_phase": "Settled forward lunge, same forward fist; hold candidate."
+    }
+  ],
+  "qa": [
+    "Source3/4 very similar wide stride, not two separate steps.",
+    "Source5/6 and8/9 provide knee-lift/reach alternation; retain them instead of translating a single wide pose.",
+    "No opaque right-edge clipping: alpha at image right edge <=1; source8 fist opaque bounds end x1435, safe13px.",
+    "Right fist stays extended from source3 onward; left hand remains at waist for scabbard.",
+    "Static source review only; no realtime playback claim."
+  ]
+}

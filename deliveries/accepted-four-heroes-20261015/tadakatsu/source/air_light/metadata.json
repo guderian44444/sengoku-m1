@@ -1,0 +1,928 @@
+{
+  "action": "air_light",
+  "version": 5,
+  "user_override": {
+    "source_message": "Sentinel_fcf9acb655148191b5ba708f50b698c3",
+    "verbatim": "這招應該從握持到前戳就可以了，不用把槍頭轉到後面",
+    "supersedes": "Earlier air_light horizontal sweep/body turn directions, including old generic specification.",
+    "accepted_action": "forward holding -> direct forward thrust -> withdrawal and airborne descent; spear points forward throughout"
+  },
+  "canvas": [
+    640,
+    340
+  ],
+  "floor": 296,
+  "frame_count": 12,
+  "duration_ms": 720,
+  "all_twelve_new_cloud_keyposes": true,
+  "source_scale": {
+    "A": 0.43,
+    "B": 0.43
+  },
+  "weapon_length_px": 285,
+  "weapon_projection": 1,
+  "runtime_integrated": false,
+  "events": [
+    {
+      "at_ms": 320,
+      "type": "contact_preview",
+      "verified_collision": false
+    }
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "duration_ms": 70,
+      "start_ms": 0,
+      "event": "forward_guard",
+      "source_file": "source-A.png",
+      "source_pose": 0,
+      "source_rect": [
+        54,
+        78,
+        424,
+        495
+      ],
+      "source_sha256": "1c7edf208d499a2771eaf39b9bdc0361dcb1107954a5bfa8b8125d9ccf61ff94",
+      "scale": 0.43,
+      "hip_source": [
+        320,
+        335
+      ],
+      "root_canvas": [
+        300,
+        180
+      ],
+      "translation": [
+        186,
+        69
+      ],
+      "hands_source": [
+        [
+          293,
+          270.9754635296188
+        ],
+        [
+          385,
+          270.93681061916715
+        ]
+      ],
+      "hands_canvas": [
+        [
+          288.77,
+          151.9794493177361
+        ],
+        [
+          328.33,
+          151.96282856624185
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        505.92694549092175,
+        151.8882129267794
+      ],
+      "weapon_butt_canvas": [
+        220.92697064471884,
+        152.00795291054524
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 89.97592773364707,
+      "weapon_projection": 1,
+      "character_bbox": [
+        186,
+        69,
+        345,
+        248
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 1,
+      "duration_ms": 50,
+      "start_ms": 70,
+      "event": "tighten_grip",
+      "source_file": "source-A.png",
+      "source_pose": 1,
+      "source_rect": [
+        535,
+        77,
+        909,
+        499
+      ],
+      "source_sha256": "1c7edf208d499a2771eaf39b9bdc0361dcb1107954a5bfa8b8125d9ccf61ff94",
+      "scale": 0.43,
+      "hip_source": [
+        808,
+        333
+      ],
+      "root_canvas": [
+        304,
+        168
+      ],
+      "translation": [
+        187,
+        58
+      ],
+      "hands_source": [
+        [
+          767,
+          269.9191592904727
+        ],
+        [
+          872,
+          269.95541001014965
+        ]
+      ],
+      "hands_canvas": [
+        [
+          286.76,
+          140.95523849490326
+        ],
+        [
+          331.90999999999997,
+          140.97082630436435
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        503.916951715054,
+        141.03021083568922
+      ],
+      "weapon_butt_canvas": [
+        218.9169687002082,
+        140.9318160310015
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 90.01978107770742,
+      "weapon_projection": 1,
+      "character_bbox": [
+        187,
+        58,
+        348,
+        239
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 2,
+      "duration_ms": 50,
+      "start_ms": 120,
+      "event": "forward_push_start",
+      "source_file": "source-A.png",
+      "source_pose": 2,
+      "source_rect": [
+        1028,
+        80,
+        1464,
+        499
+      ],
+      "source_sha256": "1c7edf208d499a2771eaf39b9bdc0361dcb1107954a5bfa8b8125d9ccf61ff94",
+      "scale": 0.43,
+      "hip_source": [
+        1322,
+        335
+      ],
+      "root_canvas": [
+        308,
+        158
+      ],
+      "translation": [
+        182,
+        48
+      ],
+      "hands_source": [
+        [
+          1331,
+          264.01135707002663
+        ],
+        [
+          1447,
+          263.8954012035251
+        ]
+      ],
+      "hands_canvas": [
+        [
+          312.28999999999996,
+          127.12488354011145
+        ],
+        [
+          362.16999999999996,
+          127.0750225175158
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        529.4468561611677,
+        126.9078093037071
+      ],
+      "weapon_butt_canvas": [
+        244.44699855265014,
+        127.19270072992946
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 89.94272603838441,
+      "weapon_projection": 1,
+      "character_bbox": [
+        182,
+        48,
+        369,
+        228
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 3,
+      "duration_ms": 50,
+      "start_ms": 170,
+      "event": "forward_thrust_acceleration",
+      "source_file": "source-A.png",
+      "source_pose": 3,
+      "source_rect": [
+        30,
+        564,
+        491,
+        974
+      ],
+      "source_sha256": "1c7edf208d499a2771eaf39b9bdc0361dcb1107954a5bfa8b8125d9ccf61ff94",
+      "scale": 0.43,
+      "hip_source": [
+        323,
+        813
+      ],
+      "root_canvas": [
+        312,
+        151
+      ],
+      "translation": [
+        186,
+        44
+      ],
+      "hands_source": [
+        [
+          343,
+          733.1354365733481
+        ],
+        [
+          473,
+          733.0932401224428
+        ]
+      ],
+      "hands_canvas": [
+        [
+          320.59000000000003,
+          116.72823772653969
+        ],
+        [
+          376.49,
+          116.71009325265041
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        537.7469532174164,
+        116.65775116719232
+      ],
+      "weapon_butt_canvas": [
+        252.74696823084815,
+        116.75025876622665
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 89.98140247336623,
+      "weapon_projection": 1,
+      "character_bbox": [
+        186,
+        44,
+        384,
+        220
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 4,
+      "duration_ms": 50,
+      "start_ms": 220,
+      "event": "forward_thrust_extend",
+      "source_file": "source-A.png",
+      "source_pose": 4,
+      "source_rect": [
+        518,
+        571,
+        1010,
+        971
+      ],
+      "source_sha256": "1c7edf208d499a2771eaf39b9bdc0361dcb1107954a5bfa8b8125d9ccf61ff94",
+      "scale": 0.43,
+      "hip_source": [
+        835,
+        809
+      ],
+      "root_canvas": [
+        316,
+        148
+      ],
+      "translation": [
+        180,
+        46
+      ],
+      "hands_source": [
+        [
+          879,
+          730.9786425675337
+        ],
+        [
+          992,
+          731.0336127880364
+        ]
+      ],
+      "hands_canvas": [
+        [
+          335.23,
+          114.7908163040395
+        ],
+        [
+          383.82,
+          114.81445349885566
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        552.3869389623706,
+        114.89645493075139
+      ],
+      "weapon_butt_canvas": [
+        267.38697268433447,
+        114.75781324057834
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 90.02787222464835,
+      "weapon_projection": 1,
+      "character_bbox": [
+        180,
+        46,
+        392,
+        218
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 5,
+      "duration_ms": 50,
+      "start_ms": 270,
+      "event": "near_full_reach",
+      "source_file": "source-A.png",
+      "source_pose": 5,
+      "source_rect": [
+        1022,
+        576,
+        1516,
+        973
+      ],
+      "source_sha256": "1c7edf208d499a2771eaf39b9bdc0361dcb1107954a5bfa8b8125d9ccf61ff94",
+      "scale": 0.43,
+      "hip_source": [
+        1340,
+        804
+      ],
+      "root_canvas": [
+        320,
+        148
+      ],
+      "translation": [
+        183,
+        50
+      ],
+      "hands_source": [
+        [
+          1393,
+          729.9468692946919
+        ],
+        [
+          1498,
+          730.0656441104461
+        ]
+      ],
+      "hands_canvas": [
+        [
+          342.53,
+          116.1971537967175
+        ],
+        [
+          387.68,
+          116.24822696749182
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        559.6868257213832,
+        116.44279914876361
+      ],
+      "weapon_butt_canvas": [
+        274.68700806248734,
+        116.12041056940706
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 90.06481231192865,
+      "weapon_projection": 1,
+      "character_bbox": [
+        183,
+        50,
+        395,
+        221
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 6,
+      "duration_ms": 70,
+      "start_ms": 320,
+      "event": "forward_thrust_contact_preview",
+      "source_file": "source-B.png",
+      "source_pose": 0,
+      "source_rect": [
+        22,
+        68,
+        559,
+        455
+      ],
+      "source_sha256": "ae30f391ecc4fa6f38583c2b6b7311ccf58c58c79a32a2a8c2d8a63a17d155bb",
+      "scale": 0.43,
+      "hip_source": [
+        325,
+        300
+      ],
+      "root_canvas": [
+        324,
+        151
+      ],
+      "translation": [
+        194,
+        51
+      ],
+      "hands_source": [
+        [
+          435,
+          225.7711668145917
+        ],
+        [
+          541,
+          225.17516114485275
+        ]
+      ],
+      "hands_canvas": [
+        [
+          371.59000000000003,
+          118.84160173027443
+        ],
+        [
+          417.16999999999996,
+          118.58531929228668
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        588.7435320623142,
+        117.62061365185008
+      ],
+      "weapon_butt_canvas": [
+        303.74803705010925,
+        119.2230563959759
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 89.67784670204969,
+      "weapon_projection": 1,
+      "character_bbox": [
+        194,
+        51,
+        425,
+        217
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 7,
+      "duration_ms": 50,
+      "start_ms": 390,
+      "event": "early_withdrawal",
+      "source_file": "source-B.png",
+      "source_pose": 1,
+      "source_rect": [
+        537,
+        67,
+        1015,
+        470
+      ],
+      "source_sha256": "ae30f391ecc4fa6f38583c2b6b7311ccf58c58c79a32a2a8c2d8a63a17d155bb",
+      "scale": 0.43,
+      "hip_source": [
+        835,
+        310
+      ],
+      "root_canvas": [
+        328,
+        157
+      ],
+      "translation": [
+        200,
+        53
+      ],
+      "hands_source": [
+        [
+          877,
+          232.92269079312678
+        ],
+        [
+          996,
+          228.61205058482437
+        ]
+      ],
+      "hands_canvas": [
+        [
+          346.2,
+          124.34675704104451
+        ],
+        [
+          397.37,
+          122.49318175147448
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        563.2146314445199,
+        116.48564783016487
+      ],
+      "weapon_butt_canvas": [
+        278.40143164966565,
+        126.80268338387049
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 87.92543236311401,
+      "weapon_projection": 1,
+      "character_bbox": [
+        200,
+        53,
+        406,
+        226
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 8,
+      "duration_ms": 60,
+      "start_ms": 440,
+      "event": "mid_withdrawal",
+      "source_file": "source-B.png",
+      "source_pose": 2,
+      "source_rect": [
+        1027,
+        68,
+        1451,
+        493
+      ],
+      "source_sha256": "ae30f391ecc4fa6f38583c2b6b7311ccf58c58c79a32a2a8c2d8a63a17d155bb",
+      "scale": 0.43,
+      "hip_source": [
+        1333,
+        334
+      ],
+      "root_canvas": [
+        332,
+        166
+      ],
+      "translation": [
+        200,
+        52
+      ],
+      "hands_source": [
+        [
+          1323,
+          240.3412582731153
+        ],
+        [
+          1432,
+          235.10276806612944
+        ]
+      ],
+      "hands_canvas": [
+        [
+          327.28,
+          126.10674105743958
+        ],
+        [
+          374.15,
+          123.85419026843566
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        544.1866123975923,
+        115.68230835216193
+      ],
+      "weapon_butt_canvas": [
+        259.5151783914752,
+        129.3634874278469
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 87.2485080987469,
+      "weapon_projection": 1,
+      "character_bbox": [
+        200,
+        52,
+        382,
+        235
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 9,
+      "duration_ms": 60,
+      "start_ms": 500,
+      "event": "late_withdrawal",
+      "source_file": "source-B.png",
+      "source_pose": 3,
+      "source_rect": [
+        48,
+        523,
+        454,
+        973
+      ],
+      "source_sha256": "ae30f391ecc4fa6f38583c2b6b7311ccf58c58c79a32a2a8c2d8a63a17d155bb",
+      "scale": 0.43,
+      "hip_source": [
+        355,
+        785
+      ],
+      "root_canvas": [
+        336,
+        178
+      ],
+      "translation": [
+        204,
+        65
+      ],
+      "hands_source": [
+        [
+          357,
+          706.1282868674385
+        ],
+        [
+          434,
+          705.4815898732404
+        ]
+      ],
+      "hands_canvas": [
+        [
+          336.87,
+          143.7451633529986
+        ],
+        [
+          369.98,
+          143.46708364549337
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        554.0193062044032,
+        141.92139966969216
+      ],
+      "weapon_butt_canvas": [
+        269.02935727038425,
+        144.31493399894288
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 89.51880341274007,
+      "weapon_projection": 1,
+      "character_bbox": [
+        204,
+        65,
+        379,
+        259
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 10,
+      "duration_ms": 70,
+      "start_ms": 560,
+      "event": "forward_guard_return",
+      "source_file": "source-B.png",
+      "source_pose": 4,
+      "source_rect": [
+        545,
+        519,
+        942,
+        977
+      ],
+      "source_sha256": "ae30f391ecc4fa6f38583c2b6b7311ccf58c58c79a32a2a8c2d8a63a17d155bb",
+      "scale": 0.43,
+      "hip_source": [
+        840,
+        791
+      ],
+      "root_canvas": [
+        340,
+        190
+      ],
+      "translation": [
+        213,
+        73
+      ],
+      "hands_source": [
+        [
+          841,
+          706.2346934515389
+        ],
+        [
+          912,
+          705.6481358224763
+        ]
+      ],
+      "hands_canvas": [
+        [
+          340.28,
+          153.5109181841617
+        ],
+        [
+          370.81,
+          153.25869840366482
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        557.4295545203415,
+        151.7169642707613
+      ],
+      "weapon_butt_canvas": [
+        272.4392796928264,
+        154.07137581877112
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 89.5266688443847,
+      "weapon_projection": 1,
+      "character_bbox": [
+        213,
+        73,
+        384,
+        270
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    },
+    {
+      "index": 11,
+      "duration_ms": 90,
+      "start_ms": 630,
+      "event": "airborne_descent_exit",
+      "source_file": "source-B.png",
+      "source_pose": 5,
+      "source_rect": [
+        1039,
+        519,
+        1422,
+        995
+      ],
+      "source_sha256": "ae30f391ecc4fa6f38583c2b6b7311ccf58c58c79a32a2a8c2d8a63a17d155bb",
+      "scale": 0.43,
+      "hip_source": [
+        1333,
+        797
+      ],
+      "root_canvas": [
+        344,
+        200
+      ],
+      "translation": [
+        218,
+        80
+      ],
+      "hands_source": [
+        [
+          1328,
+          706.2106239525278
+        ],
+        [
+          1388,
+          705.8618857052705
+        ]
+      ],
+      "hands_canvas": [
+        [
+          342.27,
+          160.50056829958697
+        ],
+        [
+          368.07,
+          160.35061085326635
+        ]
+      ],
+      "gripping_hands": [
+        "anatomical_right_rear",
+        "anatomical_left_forward"
+      ],
+      "weapon_grip_source": [
+        188,
+        740
+      ],
+      "weapon_tip_canvas": [
+        559.4232966561494,
+        159.23840729855368
+      ],
+      "weapon_butt_canvas": [
+        274.42811059446353,
+        160.89488599295208
+      ],
+      "weapon_length_px": 285,
+      "weapon_angle_degrees": 89.66698325467722,
+      "weapon_projection": 1,
+      "character_bbox": [
+        218,
+        80,
+        383,
+        285
+      ],
+      "contact_status": "preview event only; collision and runtime unverified"
+    }
+  ],
+  "limits": [
+    "No opponent collision, damage/range or game-runtime verification.",
+    "Whole-body image layers, not per-limb skeletal rigs.",
+    "Magenta guide was masked beneath the original complete weapon; fullbody wrist overlap pixels are not independently repaintable.",
+    "No optical flow, translated duplicate frames, mirrored playback or spear-length scaling."
+  ]
+}

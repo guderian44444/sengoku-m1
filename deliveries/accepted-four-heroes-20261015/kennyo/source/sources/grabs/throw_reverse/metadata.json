@@ -1,0 +1,665 @@
+{
+  "action": "throw_reverse",
+  "revision": "Added2 actual imagegen poses, strengthened grounded weight transfer, original total timing preserved",
+  "canvas": [
+    640,
+    320
+  ],
+  "frame_count": 12,
+  "duration_ms": 1030,
+  "durations_ms": [
+    80,
+    90,
+    90,
+    90,
+    80,
+    60,
+    60,
+    70,
+    70,
+    80,
+    100,
+    160
+  ],
+  "body_height_standing_equivalent": 163,
+  "source_scale_policy": "Fixed per-source anatomical scale; no per-pose bbox normalization",
+  "generator": "image_gen.imagegen",
+  "release_frame": 5,
+  "frames": [
+    {
+      "index": 0,
+      "source": "sources/throw_reverse_weight.png",
+      "source_frame": 0,
+      "source_crop": [
+        19,
+        14,
+        471,
+        497
+      ],
+      "source_sha256": "bcfb5e50cae8ca83e233cd187acd5030c61c15a11ae0ff89f6e47ab8458a4bc3",
+      "duration_ms": 80,
+      "scale": 0.33747412008281574,
+      "translation": [
+        339,
+        108
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          456.441,
+          138.71
+        ],
+        [
+          449.017,
+          148.497
+        ]
+      ],
+      "grip_attached": true,
+      "events": [],
+      "victim": {
+        "pose": 0,
+        "back": false,
+        "released": false,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "translation": [
+          436.311,
+          101.805
+        ]
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 1,
+      "source": "sources/throw_reverse_weight.png",
+      "source_frame": 1,
+      "source_crop": [
+        562,
+        14,
+        1006,
+        505
+      ],
+      "source_sha256": "bcfb5e50cae8ca83e233cd187acd5030c61c15a11ae0ff89f6e47ab8458a4bc3",
+      "duration_ms": 90,
+      "scale": 0.33747412008281574,
+      "translation": [
+        331,
+        105
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          428.53,
+          135.035
+        ],
+        [
+          426.168,
+          138.41
+        ]
+      ],
+      "grip_attached": true,
+      "events": [
+        "turn_under_weight"
+      ],
+      "victim": {
+        "pose": 3,
+        "back": true,
+        "released": false,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": -20,
+        "translation": [
+          344,
+          48
+        ]
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 2,
+      "source": "sources/throw_reverse_weight.png",
+      "source_frame": 2,
+      "source_crop": [
+        1077,
+        15,
+        1520,
+        507
+      ],
+      "source_sha256": "bcfb5e50cae8ca83e233cd187acd5030c61c15a11ae0ff89f6e47ab8458a4bc3",
+      "duration_ms": 90,
+      "scale": 0.33747412008281574,
+      "translation": [
+        333,
+        105
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          435.93,
+          124.911
+        ],
+        [
+          432.555,
+          128.961
+        ]
+      ],
+      "grip_attached": true,
+      "events": [
+        "weight_transfer"
+      ],
+      "victim": {
+        "pose": 3,
+        "back": true,
+        "released": false,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": -10,
+        "translation": [
+          355,
+          49
+        ]
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 3,
+      "source": "sources/throw_reverse_weight.png",
+      "source_frame": 3,
+      "source_crop": [
+        14,
+        498,
+        541,
+        994
+      ],
+      "source_sha256": "bcfb5e50cae8ca83e233cd187acd5030c61c15a11ae0ff89f6e47ab8458a4bc3",
+      "duration_ms": 90,
+      "scale": 0.33747412008281574,
+      "translation": [
+        336,
+        104
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          389.996,
+          117.161
+        ],
+        [
+          387.971,
+          120.874
+        ]
+      ],
+      "grip_attached": true,
+      "events": [
+        "shoulder_load"
+      ],
+      "victim": {
+        "pose": 3,
+        "back": true,
+        "released": false,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": 5,
+        "translation": [
+          352,
+          50
+        ]
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 4,
+      "source": "sources/throw_reverse_weight.png",
+      "source_frame": 4,
+      "source_crop": [
+        603,
+        532,
+        1079,
+        991
+      ],
+      "source_sha256": "bcfb5e50cae8ca83e233cd187acd5030c61c15a11ae0ff89f6e47ab8458a4bc3",
+      "duration_ms": 80,
+      "scale": 0.33747412008281574,
+      "translation": [
+        330,
+        116
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          342.487,
+          139.623
+        ],
+        [
+          340.799,
+          145.023
+        ]
+      ],
+      "grip_attached": true,
+      "events": [
+        "over_shoulder_roll_grip_held"
+      ],
+      "victim": {
+        "pose": 3,
+        "back": true,
+        "released": false,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": 30,
+        "translation": [
+          258,
+          61
+        ]
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 5,
+      "source": "sources/throw_reverse_weight.png",
+      "source_frame": 5,
+      "source_crop": [
+        1008,
+        531,
+        1521,
+        999
+      ],
+      "source_sha256": "bcfb5e50cae8ca83e233cd187acd5030c61c15a11ae0ff89f6e47ab8458a4bc3",
+      "duration_ms": 60,
+      "scale": 0.33747412008281574,
+      "translation": [
+        298,
+        113
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          310.487,
+          145.06
+        ],
+        [
+          320.948,
+          159.234
+        ]
+      ],
+      "grip_attached": false,
+      "events": [
+        "throw_release_left"
+      ],
+      "victim": {
+        "pose": 4,
+        "back": false,
+        "released": true,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": 0,
+        "translation": [
+          234,
+          66
+        ],
+        "trajectory_phase": 0.0
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 6,
+      "source": "sources/throw_reverse.png",
+      "source_frame": 4,
+      "source_crop": [
+        13,
+        471,
+        548,
+        856
+      ],
+      "source_sha256": "8f2cfac1af83541805c14d5dfb42ef34edfd5129f2d440107ce2b3f5901d88bd",
+      "duration_ms": 60,
+      "scale": 0.38534278959810875,
+      "translation": [
+        303,
+        123
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          317.643,
+          154.213
+        ],
+        [
+          326.891,
+          170.783
+        ]
+      ],
+      "grip_attached": false,
+      "events": [],
+      "victim": {
+        "pose": 4,
+        "back": false,
+        "released": true,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": 0,
+        "translation": [
+          207,
+          61
+        ],
+        "trajectory_phase": 0.13636363636363635
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 7,
+      "source": "sources/throw_reverse.png",
+      "source_frame": 5,
+      "source_crop": [
+        471,
+        475,
+        945,
+        856
+      ],
+      "source_sha256": "8f2cfac1af83541805c14d5dfb42ef34edfd5129f2d440107ce2b3f5901d88bd",
+      "duration_ms": 70,
+      "scale": 0.38534278959810875,
+      "translation": [
+        290,
+        124
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          300.404,
+          163.69
+        ],
+        [
+          305.799,
+          170.626
+        ]
+      ],
+      "grip_attached": false,
+      "events": [],
+      "victim": {
+        "pose": 4,
+        "back": false,
+        "released": true,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": 0,
+        "translation": [
+          180,
+          63
+        ],
+        "trajectory_phase": 0.2727272727272727
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 8,
+      "source": "sources/throw_reverse.png",
+      "source_frame": 6,
+      "source_crop": [
+        950,
+        453,
+        1342,
+        859
+      ],
+      "source_sha256": "8f2cfac1af83541805c14d5dfb42ef34edfd5129f2d440107ce2b3f5901d88bd",
+      "duration_ms": 70,
+      "scale": 0.38534278959810875,
+      "translation": [
+        332,
+        115
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          352.809,
+          154.305
+        ],
+        [
+          386.333,
+          165.095
+        ]
+      ],
+      "grip_attached": false,
+      "events": [],
+      "victim": {
+        "pose": 4,
+        "back": false,
+        "released": true,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": 0,
+        "translation": [
+          149,
+          75
+        ],
+        "trajectory_phase": 0.4318181818181818
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 9,
+      "source": "sources/throw_reverse.png",
+      "source_frame": 7,
+      "source_crop": [
+        1362,
+        458,
+        1758,
+        858
+      ],
+      "source_sha256": "8f2cfac1af83541805c14d5dfb42ef34edfd5129f2d440107ce2b3f5901d88bd",
+      "duration_ms": 80,
+      "scale": 0.38534278959810875,
+      "translation": [
+        332,
+        117
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          368.993,
+          163.241
+        ],
+        [
+          400.206,
+          162.47
+        ]
+      ],
+      "grip_attached": false,
+      "events": [],
+      "victim": {
+        "pose": 4,
+        "back": false,
+        "released": true,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": 0,
+        "translation": [
+          118,
+          96
+        ],
+        "trajectory_phase": 0.5909090909090909
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 10,
+      "source": "sources/throw_reverse.png",
+      "source_frame": 7,
+      "source_crop": [
+        1362,
+        458,
+        1758,
+        858
+      ],
+      "source_sha256": "8f2cfac1af83541805c14d5dfb42ef34edfd5129f2d440107ce2b3f5901d88bd",
+      "duration_ms": 100,
+      "scale": 0.38534278959810875,
+      "translation": [
+        332,
+        117
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          368.993,
+          163.241
+        ],
+        [
+          400.206,
+          162.47
+        ]
+      ],
+      "grip_attached": false,
+      "events": [],
+      "victim": {
+        "pose": 4,
+        "back": false,
+        "released": true,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "rotation_pil_deg": 0,
+        "translation": [
+          83,
+          133
+        ],
+        "trajectory_phase": 0.7727272727272727
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    },
+    {
+      "index": 11,
+      "source": "sources/throw_reverse.png",
+      "source_frame": 7,
+      "source_crop": [
+        1362,
+        458,
+        1758,
+        858
+      ],
+      "source_sha256": "8f2cfac1af83541805c14d5dfb42ef34edfd5129f2d440107ce2b3f5901d88bd",
+      "duration_ms": 160,
+      "scale": 0.38534278959810875,
+      "translation": [
+        332,
+        117
+      ],
+      "root": [
+        350,
+        270
+      ],
+      "support_foot": [
+        350,
+        270
+      ],
+      "hands": [
+        [
+          368.993,
+          163.241
+        ],
+        [
+          400.206,
+          162.47
+        ]
+      ],
+      "grip_attached": false,
+      "events": [
+        "victim_land"
+      ],
+      "victim": {
+        "pose": 5,
+        "back": false,
+        "released": true,
+        "source": "references/victim-headbutt.png",
+        "scale": 0.305,
+        "translation": [
+          43,
+          215
+        ],
+        "trajectory_phase": 1
+      },
+      "weapon": "215px ornate_shakujo back-stowed layer"
+    }
+  ],
+  "interpolation": "None; new generated body poses plus separately transformed independent victim. No optical flow.",
+  "limitations": [
+    "Imagegen anatomy/costume microdetails can vary.",
+    "Victim uses rigid independent actor transforms; grip landmarks are approximate visual registration, not hitboxes.",
+    "Runtime is not integrated."
+  ]
+}

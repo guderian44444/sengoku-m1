@@ -1,0 +1,24 @@
+{
+  "character": "kennyo_03",
+  "scope": ["light_1", "light_2", "light_3", "heavy"],
+  "source_spec": "source/specs/docs/combat-art-reference/characters/kennyo.md",
+  "latest_instruction_precedence": "The source character document's original charge_ready, charge_hold and charge_release entries were superseded by the user's later directions. These source entries are retained only as historical production reference. This worker's four ground staff attacks are unaffected; charge assets and latest charge behavior belong to the separately coordinated production scope.",
+  "baseline_weapon": "weapons/ornate_shakujo.png",
+  "standing_equivalent_px": 163,
+  "source_scales": {"1536x1024_body_sources": 0.337, "1254x1254_light_3_source": 0.406},
+  "actions": [
+    {"id":"light_1","folder":"light_1","frames":7,"duration_ms":670,"library_file_id":"libfile_27176a797f7881918b33dd96c977381e","library_version":2,"root_advance_px":16},
+    {"id":"light_2","folder":"light_2","frames":7,"duration_ms":680,"library_file_id":"libfile_bb2ffd9ffa7c8191bcd6dddca962faaa","library_version":1,"root_advance_px":16},
+    {"id":"light_3","folder":"light_3","frames":11,"duration_ms":950,"library_file_id":"libfile_271967ace34c81918811f4cacc94f0a3","library_version":1,"root_advance_px":18,"spin_phase_degrees":[0,360]},
+    {"id":"heavy","folder":"heavy","frames":8,"duration_ms":1100,"library_file_id":"libfile_836acfa326e8819196a3bf3e9c36fae5","library_version":0,"root_advance_px":20}
+  ],
+  "layer_order": ["weapon_back", "body_canvas", "weapon_front", "hand_occlusion", "effect"],
+  "body_sources_have_no_active_weapon_pixels": true,
+  "heavy_source_note": "heavy/low-prep-correction-source.png is a preserved rejected RGB intermediate with accidental shaft pixels. Only its already-clean outer alpha silhouette is reused. Active low-prep RGB comes from low-prep-body-only-source.png, in which imagegen removed the shaft and reconstructed the cloth sash. No rejected shaft RGB is in final body PNGs.",
+  "fx": "fx_neutral/metadata.json",
+  "qa": "QA_STAFF_ATTACKS.json",
+  "documentation": "README_STAFF_ATTACKS.md",
+  "builder": "build_staff_attacks.py",
+  "runtime_integrated": false,
+  "git_or_website_modified": false
+}

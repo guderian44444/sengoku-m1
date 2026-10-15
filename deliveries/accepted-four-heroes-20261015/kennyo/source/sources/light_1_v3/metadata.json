@@ -1,0 +1,1168 @@
+{
+  "action": "light_1",
+  "version": "kennyo03-light1-v3-fixed-pivot-true-swing",
+  "standing_equivalent_px": 163,
+  "preview_canvas": [
+    640,
+    380
+  ],
+  "source_provenance": "Built-in image_gen body-only; deterministic cropping, uniform scaling, weapon composition and timing only. No optical flow, Comfy or Qwen.",
+  "weapon_source": "../weapons/ornate_shakujo.png",
+  "weapon_sha256": "f036c2a0fcda691127602285f88bf494089fd813ea9a46cf3af9763aa190e1cb",
+  "weapon_physical_length_px": 215,
+  "shared_combo_guard": "Original body guard at start/end, with normal grip at source y178 and no root offset.",
+  "runtime_integrated": false,
+  "root_motion_clamp": "Renderer may stop root advance at blocking targets while retaining body pose sequence.",
+  "frames": [
+    {
+      "source": "light_1/source.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "feet": {
+        "left": [
+          101,
+          501
+        ],
+        "right": [
+          410,
+          498
+        ]
+      },
+      "grips": [
+        [
+          278,
+          209
+        ],
+        [
+          257,
+          175
+        ]
+      ],
+      "angle": -32,
+      "duration": 80,
+      "event": "normal_guard_fixed_left_foot",
+      "anchor": "right",
+      "phase": 0,
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        178
+      ],
+      "frame": 1,
+      "source_sha256": "e8902f59abe9b2c0d15358bf9c51afe8aac0b86bd52ced7030bb423394734803",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        192.31400000000002,
+        157.17399999999998
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          226.351,
+          326.011
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          286.0,
+          227.60699999999997
+        ],
+        [
+          278.923,
+          216.14899999999997
+        ]
+      ],
+      "weapon_angle": -31.701429669505718,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 0,
+      "weapon_working_length_from_main_px": 147,
+      "weapon_auxiliary_source_grip": [
+        64,
+        164.53264342938823
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          226.351,
+          326.011
+        ]
+      }
+    },
+    {
+      "source": "light_1_v3/source.png",
+      "rect": [
+        0,
+        0,
+        418,
+        426
+      ],
+      "feet": {
+        "left": [
+          56,
+          400
+        ],
+        "right": [
+          333,
+          413
+        ]
+      },
+      "grips": [
+        [
+          137,
+          75
+        ],
+        [
+          110,
+          32
+        ]
+      ],
+      "angle": -32,
+      "duration": 80,
+      "event": "wind_up_over_fixed_left_foot",
+      "anchor": "right",
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        184
+      ],
+      "frame": 2,
+      "source_sha256": "4a87fb334f60c38000787b1165f928c8506b70d28c0882d924985fac0bc413b4",
+      "source_crop_xyxy": [
+        0,
+        0,
+        418,
+        426
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        194.62000000000003,
+        156.496
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          217.468,
+          319.696
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          250.51600000000002,
+          187.096
+        ],
+        [
+          239.50000000000003,
+          169.55200000000002
+        ]
+      ],
+      "weapon_angle": -32.12499844038753,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 80,
+      "weapon_working_length_from_main_px": 153,
+      "weapon_auxiliary_source_grip": [
+        64,
+        163.2842042875491
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          217.468,
+          319.696
+        ]
+      }
+    },
+    {
+      "source": "light_1_v3/source.png",
+      "rect": [
+        418,
+        0,
+        836,
+        426
+      ],
+      "feet": {
+        "left": [
+          567,
+          376
+        ],
+        "right": [
+          750,
+          415
+        ]
+      },
+      "grips": [
+        [
+          588,
+          90
+        ],
+        [
+          565,
+          47
+        ]
+      ],
+      "angle": -28,
+      "duration": 70,
+      "event": "right_foot_lift_left_foot_planted",
+      "anchor": "right",
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        190
+      ],
+      "frame": 3,
+      "source_sha256": "4a87fb334f60c38000787b1165f928c8506b70d28c0882d924985fac0bc413b4",
+      "source_crop_xyxy": [
+        418,
+        0,
+        836,
+        426
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        195.02800000000005,
+        155.68
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          255.82,
+          309.088
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          264.38800000000003,
+          192.4
+        ],
+        [
+          255.00400000000005,
+          174.856
+        ]
+      ],
+      "weapon_angle": -28.14160123226167,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 160,
+      "weapon_working_length_from_main_px": 159,
+      "weapon_auxiliary_source_grip": [
+        64,
+        170.10398552473384
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          255.82,
+          309.088
+        ]
+      }
+    },
+    {
+      "source": "light_1_v3/arc-correction-source.png",
+      "rect": [
+        0,
+        426,
+        418,
+        840
+      ],
+      "feet": {
+        "left": [
+          89,
+          819
+        ],
+        "right": [
+          377,
+          830
+        ]
+      },
+      "grips": [
+        [
+          178,
+          542
+        ],
+        [
+          206,
+          484
+        ]
+      ],
+      "angle": 26,
+      "duration": 60,
+      "event": "moving_right_foot_cross_step",
+      "anchor": "right",
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        206
+      ],
+      "frame": 4,
+      "source_sha256": "0c1fc0fff2c180816889e65e609ec6de0491b34296503b2f4585a6fdf913e7a3",
+      "source_crop_xyxy": [
+        0,
+        426,
+        418,
+        840
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        176.66800000000003,
+        160.168
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          212.98,
+          320.512
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          249.29200000000003,
+          207.496
+        ],
+        [
+          260.716,
+          183.832
+        ]
+      ],
+      "weapon_angle": 25.769327624338658,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 230,
+      "weapon_working_length_from_main_px": 175,
+      "weapon_auxiliary_source_grip": [
+        64,
+        179.72277274901325
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          212.98,
+          320.512
+        ]
+      }
+    },
+    {
+      "source": "light_1_v3/arc-correction-source.png",
+      "rect": [
+        836,
+        0,
+        1254,
+        426
+      ],
+      "feet": {
+        "left": [
+          970,
+          411
+        ],
+        "right": [
+          1189,
+          416
+        ]
+      },
+      "grips": [
+        [
+          1127,
+          112
+        ],
+        [
+          1185,
+          58
+        ]
+      ],
+      "angle": 47,
+      "duration": 40,
+      "event": "diagonal_arc_acceleration",
+      "anchor": "right",
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        222
+      ],
+      "frame": 5,
+      "source_sha256": "0c1fc0fff2c180816889e65e609ec6de0491b34296503b2f4585a6fdf913e7a3",
+      "source_crop_xyxy": [
+        836,
+        0,
+        1254,
+        426
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        186.46000000000004,
+        155.27200000000002
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          241.132,
+          322.96
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          305.18800000000005,
+          200.96800000000002
+        ],
+        [
+          328.85200000000003,
+          178.936
+        ]
+      ],
+      "weapon_angle": 47.0454084888872,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 290,
+      "weapon_working_length_from_main_px": 191,
+      "weapon_auxiliary_source_grip": [
+        64,
+        189.6674479819486
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          241.132,
+          322.96
+        ]
+      }
+    },
+    {
+      "source": "light_1_v3/source.png",
+      "rect": [
+        418,
+        426,
+        836,
+        840
+      ],
+      "feet": {
+        "left": [
+          525,
+          824
+        ],
+        "right": [
+          784,
+          828
+        ]
+      },
+      "grips": [
+        [
+          728,
+          578
+        ],
+        [
+          769,
+          572
+        ]
+      ],
+      "angle": 82,
+      "duration": 40,
+      "event": "single_sweep_contact_tail_grip",
+      "anchor": "right",
+      "contact": true,
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "frame": 6,
+      "source_sha256": "4a87fb334f60c38000787b1165f928c8506b70d28c0882d924985fac0bc413b4",
+      "source_crop_xyxy": [
+        418,
+        426,
+        836,
+        840
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        181.15600000000003,
+        160.984
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          224.812,
+          323.368
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          307.636,
+          223.0
+        ],
+        [
+          324.36400000000003,
+          220.55200000000002
+        ]
+      ],
+      "weapon_angle": 81.67434966957323,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": [
+        508.4965960192229,
+        193.60576643621155
+      ],
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 330,
+      "weapon_working_length_from_main_px": 203,
+      "weapon_auxiliary_source_grip": [
+        64,
+        217.09382692623785
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          224.812,
+          323.368
+        ]
+      }
+    },
+    {
+      "source": "light_1_v3/source.png",
+      "rect": [
+        836,
+        426,
+        1254,
+        840
+      ],
+      "feet": {
+        "left": [
+          926,
+          826
+        ],
+        "right": [
+          1209,
+          829
+        ]
+      },
+      "grips": [
+        [
+          1127,
+          609
+        ],
+        [
+          1157,
+          621
+        ]
+      ],
+      "angle": 112,
+      "duration": 50,
+      "event": "down_right_arc_followthrough",
+      "anchor": "right",
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "frame": 7,
+      "source_sha256": "4a87fb334f60c38000787b1165f928c8506b70d28c0882d924985fac0bc413b4",
+      "source_crop_xyxy": [
+        836,
+        426,
+        1254,
+        840
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        178.30000000000004,
+        160.57600000000002
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          215.02,
+          323.776
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          297.028,
+          235.24
+        ],
+        [
+          309.26800000000003,
+          240.13600000000002
+        ]
+      ],
+      "weapon_angle": 111.80140948635186,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 370,
+      "weapon_working_length_from_main_px": 203,
+      "weapon_auxiliary_source_grip": [
+        64,
+        220.81711655213473
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          215.02,
+          323.776
+        ]
+      }
+    },
+    {
+      "source": "light_1_v3/source.png",
+      "rect": [
+        0,
+        840,
+        418,
+        1254
+      ],
+      "feet": {
+        "left": [
+          88,
+          1237
+        ],
+        "right": [
+          355,
+          1239
+        ]
+      },
+      "grips": [
+        [
+          265,
+          962
+        ],
+        [
+          299,
+          919
+        ]
+      ],
+      "angle": 38,
+      "duration": 60,
+      "event": "close_elbows_recover",
+      "anchor": "right",
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        218
+      ],
+      "frame": 8,
+      "source_sha256": "4a87fb334f60c38000787b1165f928c8506b70d28c0882d924985fac0bc413b4",
+      "source_crop_xyxy": [
+        0,
+        840,
+        418,
+        1254
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        185.64400000000003,
+        162.208
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          221.548,
+          324.184
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          293.764,
+          211.98399999999998
+        ],
+        [
+          307.636,
+          194.44
+        ]
+      ],
+      "weapon_angle": 38.333340109098685,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 420,
+      "weapon_working_length_from_main_px": 187,
+      "weapon_auxiliary_source_grip": [
+        64,
+        195.6343048397775
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          221.548,
+          324.184
+        ]
+      }
+    },
+    {
+      "source": "light_1_v3/source.png",
+      "rect": [
+        418,
+        840,
+        836,
+        1254
+      ],
+      "feet": {
+        "left": [
+          492,
+          1234
+        ],
+        "right": [
+          765,
+          1239
+        ]
+      },
+      "grips": [
+        [
+          595,
+          939
+        ],
+        [
+          575,
+          898
+        ]
+      ],
+      "angle": -26,
+      "duration": 70,
+      "event": "normal_grip_guard_recovery",
+      "anchor": "right",
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        194
+      ],
+      "frame": 9,
+      "source_sha256": "4a87fb334f60c38000787b1165f928c8506b70d28c0882d924985fac0bc413b4",
+      "source_crop_xyxy": [
+        418,
+        840,
+        836,
+        1254
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        188.90800000000004,
+        162.208
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          219.1,
+          322.96
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          261.124,
+          202.6
+        ],
+        [
+          252.96400000000006,
+          185.87199999999999
+        ]
+      ],
+      "weapon_angle": -26.003345844511344,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 480,
+      "weapon_working_length_from_main_px": 163,
+      "weapon_auxiliary_source_grip": [
+        64,
+        175.38786460397412
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          219.1,
+          322.96
+        ]
+      }
+    },
+    {
+      "source": "light_1/source.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "feet": {
+        "left": [
+          101,
+          501
+        ],
+        "right": [
+          410,
+          498
+        ]
+      },
+      "grips": [
+        [
+          278,
+          209
+        ],
+        [
+          257,
+          175
+        ]
+      ],
+      "angle": -32,
+      "duration": 120,
+      "event": "settled_guard_same_left_foot",
+      "anchor": "right",
+      "phase": 0,
+      "root_dx": 0,
+      "front_dx": 0,
+      "anatomical_support_foot": "left",
+      "moving_foot": "right",
+      "support_exchange": false,
+      "weapon_source_grip": [
+        64,
+        178
+      ],
+      "frame": 10,
+      "source_sha256": "e8902f59abe9b2c0d15358bf9c51afe8aac0b86bd52ced7030bb423394734803",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        192.31400000000002,
+        157.17399999999998
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          226.351,
+          326.011
+        ],
+        "right": [
+          330.484,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          286.0,
+          227.60699999999997
+        ],
+        [
+          278.923,
+          216.14899999999997
+        ]
+      ],
+      "weapon_angle": -31.701429669505718,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "Empty during this air swing; independent neutral impact emits only on confirmed target contact.",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Original guard: fixed 0.337. Every new body pose, including corrected arm poses: fixed 0.408. No bbox-height normalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 550,
+      "weapon_working_length_from_main_px": 147,
+      "weapon_auxiliary_source_grip": [
+        64,
+        164.53264342938823
+      ],
+      "anatomical_feet_world": {
+        "left": [
+          330.484,
+          325.0
+        ],
+        "right": [
+          226.351,
+          326.011
+        ]
+      }
+    }
+  ],
+  "total_duration_ms": 670,
+  "qa": {
+    "true_alpha": true,
+    "no_per_frame_bbox_scaling": true,
+    "body_weapon_fx_hands_separate": true,
+    "final_root_retained": false,
+    "rear_step_anatomy": true,
+    "heavy_single_front_step": false,
+    "visible_actual_spin_views": false,
+    "damage_values": "not assigned",
+    "contact_response": "push_standing",
+    "fixed_support_foot": true,
+    "one_contact": true
+  },
+  "revision": "v3-fixed-anatomical-left-foot-and-visible-angular-arc",
+  "replaces": "light_1_v2",
+  "requested_changes": [
+    "Actual swing with clear changing staff angle; not a fixed-angle thrust.",
+    "One same anatomical left foot remains planted; anatomical right foot moves around it.",
+    "Ten rendered frames, exactly 670 ms, fixed 163 px anatomical scale."
+  ],
+  "weapon_grip_track_source_y": [
+    178,
+    184,
+    190,
+    206,
+    222,
+    234,
+    234,
+    218,
+    194,
+    178
+  ],
+  "weapon_swing_plane": "visible clockwise screen-plane arc, no foreshortening",
+  "root_motion_policy": "Latest user fixed-foot request overrides prior forward root advance. Root displacement is zero; generated articulation transfers weight around the planted left foot.",
+  "support_foot": {
+    "anatomical": "left",
+    "screen_side": "right",
+    "constant_world_ball_contact": [
+      330.484,
+      325.0
+    ],
+    "registration": "Each generated source is uniformly scaled at 0.408 and registered by measured opaque ball-of-sandal contact, never bbox normalized."
+  },
+  "gif_duration_unit_ms": 10,
+  "source_prompt_files": [
+    "source-prompt.txt",
+    "arc-correction-prompt.txt"
+  ],
+  "actual_gif_durations_ms": [
+    80,
+    80,
+    70,
+    60,
+    40,
+    40,
+    50,
+    60,
+    70,
+    120
+  ],
+  "actual_gif_total_ms": 670,
+  "actual_weapon_angles_degrees": [
+    -31.7,
+    -32.12,
+    -28.14,
+    25.77,
+    47.05,
+    81.67,
+    111.8,
+    38.33,
+    -26.0,
+    -31.7
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "action": "charge_hold",
+  "frames": [
+    {
+      "frame": 0,
+      "source": "sources/pivot_views.png",
+      "source_pose": 1,
+      "source_crop": [
+        416,
+        38,
+        769,
+        481
+      ],
+      "source_grip": [
+        441,
+        142
+      ],
+      "support_foot": [
+        502,
+        469
+      ],
+      "support_side": "anatomical_right",
+      "root_world": [
+        205,
+        365
+      ],
+      "pivot_world": [
+        205,
+        365
+      ],
+      "body_scale": 0.34545454545454546,
+      "grip_world": [
+        183.92727272727274,
+        252.03636363636363
+      ],
+      "blade_angle_deg": -90,
+      "blade_projection": 0.72,
+      "weapon_behind": false,
+      "spin_accumulated_deg": 0.0,
+      "duration_ms": 760,
+      "event": "full_charge_hold",
+      "scale_tune_factor": 1,
+      "scale_tune_pivot": [
+        205,
+        365
+      ],
+      "body_canvas_sha256": "ae0dc25337ba971c93965773d8cd0ac0bd9dc52ee805357e81961b52301c3386"
+    }
+  ],
+  "total_ms": 760,
+  "source": "exact ready final = release first",
+  "scale_tune": "visual head and torso proportion matching, conservative<=3%, root locked; no bbox equal-height"
+}

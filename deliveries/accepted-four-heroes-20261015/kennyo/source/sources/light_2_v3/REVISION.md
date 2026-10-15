@@ -1,0 +1,1 @@
+Light 2 v3: starts with normal two-hand holding at shaft-local y178, progressively slides y184→202, reaches tail y234 only at maximum striking reach, then returns y218→194→178 to normal guard. All visible hands stay on the measured shaft axis. Same seven body poses, exactly one rightward contact and encoded 680 ms. Light 1 and all other action files are unchanged.

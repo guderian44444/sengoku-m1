@@ -1,0 +1,729 @@
+{
+  "action": "dash_heavy",
+  "version": "kennyo03-air-dash-v1",
+  "standing_equivalent_px": 163,
+  "scale_contract": "../identity/scale-contract.json",
+  "preview_canvas": [
+    640,
+    340
+  ],
+  "source_provenance": "Built-in image_gen body-only; deterministic crop, fixed anatomical scale, layer registration and composition. No local generative model, optical-flow or invented in-between poses.",
+  "frame_design": "Distinct authored key poses with nonuniform game timing. Slow preview runs 3x slower.",
+  "default_weapon": "../weapons/ornate_shakujo.png",
+  "weapon_length_px": 215,
+  "weapon_alternates": [
+    "../weapons/long_staff.png",
+    "../weapons/approved03_naginata.png"
+  ],
+  "weapon_metadata": "../weapons/weapons-metadata.json",
+  "body_weapon_fx_hand_layers_separate": true,
+  "air_root_and_pose_separate": true,
+  "no_per_frame_bbox_scaling": true,
+  "runtime_integrated": false,
+  "numeric_multiplier": null,
+  "multiplier_applies_to": "runtime attack power and range only; not PNG scaling",
+  "response": "launch normal enemy; boss block and shield normal-hit are runtime exceptions",
+  "contact_preview": "Separate simple blue measurement dummy; confirmed-contact effect layer only. Normal no-target GIF contains no hit sparks.",
+  "total_duration_ms": 730,
+  "frames": [
+    {
+      "source": "dash_heavy/body-source.png",
+      "rect": [
+        0,
+        0,
+        560,
+        500
+      ],
+      "root_source": [
+        300,
+        480
+      ],
+      "grips": [
+        [
+          346,
+          214
+        ],
+        [
+          431,
+          214
+        ]
+      ],
+      "duration": 90,
+      "event": "running_last_stride",
+      "dx": 0,
+      "air_height": 8,
+      "angle": null,
+      "scale": 0.334,
+      "feet": {
+        "left": [
+          85,
+          420
+        ],
+        "right": [
+          481,
+          464
+        ]
+      },
+      "frame": 1,
+      "source_sha256": "1f0fbc8d9db94d1099c7956d8405c4aa151f16cb0e733469e0034fa85ae27df3",
+      "source_crop_xyxy": [
+        0,
+        0,
+        560,
+        500
+      ],
+      "uniform_source_scale": 0.334,
+      "render_origin": [
+        185.8,
+        116.67999999999998
+      ],
+      "world_root": [
+        286,
+        277
+      ],
+      "ground_root": [
+        286,
+        285
+      ],
+      "airborne_height_px": 8,
+      "grip_world": [
+        [
+          301.36400000000003,
+          188.15599999999998
+        ],
+        [
+          329.754,
+          188.15599999999998
+        ]
+      ],
+      "weapon_angle": 90.0,
+      "weapon_layer": "front",
+      "weapon_real_length_px": 215,
+      "weapon_grip_source": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        149.61
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          214.19,
+          256.96
+        ],
+        "right": [
+          346.454,
+          271.65599999999995
+        ]
+      },
+      "hand_occlusion": "Tight actual fist-pixel cutouts, separate layer",
+      "body_height_scale_basis": "Shared fixed anatomical scale per generated sheet; single contact pose calibrated by head and torso to sheet, never by cropped pose height",
+      "standing_equivalent_px": 163,
+      "start_ms": 0,
+      "source_design_duration": 90
+    },
+    {
+      "source": "dash_heavy/body-source.png",
+      "rect": [
+        565,
+        0,
+        1052,
+        500
+      ],
+      "root_source": [
+        800,
+        492
+      ],
+      "grips": [
+        [
+          744,
+          99
+        ],
+        [
+          775,
+          71
+        ]
+      ],
+      "duration": 90,
+      "event": "long_step_windup",
+      "dx": 14,
+      "air_height": 0,
+      "angle": null,
+      "scale": 0.334,
+      "feet": {
+        "left": [
+          619,
+          462
+        ],
+        "right": [
+          994,
+          483
+        ]
+      },
+      "frame": 2,
+      "source_sha256": "1f0fbc8d9db94d1099c7956d8405c4aa151f16cb0e733469e0034fa85ae27df3",
+      "source_crop_xyxy": [
+        565,
+        0,
+        1052,
+        500
+      ],
+      "uniform_source_scale": 0.334,
+      "render_origin": [
+        221.51,
+        120.672
+      ],
+      "world_root": [
+        300,
+        285
+      ],
+      "ground_root": [
+        300,
+        285
+      ],
+      "airborne_height_px": 0,
+      "grip_world": [
+        [
+          281.296,
+          153.738
+        ],
+        [
+          291.65,
+          144.386
+        ]
+      ],
+      "weapon_angle": 47.9108378261677,
+      "weapon_layer": "front",
+      "weapon_real_length_px": 215,
+      "weapon_grip_source": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        164.04775215243077
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          239.546,
+          274.98
+        ],
+        "right": [
+          364.796,
+          281.994
+        ]
+      },
+      "hand_occlusion": "Tight actual fist-pixel cutouts, separate layer",
+      "body_height_scale_basis": "Shared fixed anatomical scale per generated sheet; single contact pose calibrated by head and torso to sheet, never by cropped pose height",
+      "standing_equivalent_px": 163,
+      "start_ms": 90,
+      "source_design_duration": 90
+    },
+    {
+      "source": "dash_heavy/body-source.png",
+      "rect": [
+        1052,
+        0,
+        1536,
+        501
+      ],
+      "root_source": [
+        1300,
+        485
+      ],
+      "grips": [
+        [
+          1232,
+          164
+        ]
+      ],
+      "duration": 70,
+      "event": "front_foot_plants_swing",
+      "dx": 36,
+      "air_height": 0,
+      "angle": 66,
+      "scale": 0.334,
+      "feet": {
+        "left": [
+          1090,
+          472
+        ],
+        "right": [
+          1480,
+          485
+        ]
+      },
+      "front_anchor": [
+        1480,
+        485
+      ],
+      "auxiliary": "other fist behind the visible grip",
+      "frame": 3,
+      "source_sha256": "1f0fbc8d9db94d1099c7956d8405c4aa151f16cb0e733469e0034fa85ae27df3",
+      "source_crop_xyxy": [
+        1052,
+        0,
+        1536,
+        501
+      ],
+      "uniform_source_scale": 0.334,
+      "render_origin": [
+        245.048,
+        123.00999999999999
+      ],
+      "world_root": [
+        322,
+        285
+      ],
+      "ground_root": [
+        322,
+        285
+      ],
+      "airborne_height_px": 0,
+      "grip_world": [
+        [
+          305.168,
+          177.786
+        ]
+      ],
+      "weapon_angle": 66,
+      "weapon_layer": "front",
+      "weapon_real_length_px": 215,
+      "weapon_grip_source": [
+        64,
+        178
+      ],
+      "aux_grip_source": null,
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          257.74,
+          280.658
+        ],
+        "right": [
+          388.0,
+          285.0
+        ]
+      },
+      "hand_occlusion": "Tight actual fist-pixel cutouts, separate layer",
+      "body_height_scale_basis": "Shared fixed anatomical scale per generated sheet; single contact pose calibrated by head and torso to sheet, never by cropped pose height",
+      "standing_equivalent_px": 163,
+      "start_ms": 180,
+      "source_design_duration": 65
+    },
+    {
+      "source": "dash_heavy/contact-body-source.png",
+      "rect": [
+        0,
+        0,
+        1351,
+        1164
+      ],
+      "root_source": [
+        700,
+        1110
+      ],
+      "grips": [
+        [
+          942,
+          450
+        ],
+        [
+          1237,
+          635
+        ]
+      ],
+      "duration": 60,
+      "event": "forward_sweep_contact",
+      "dx": 52,
+      "air_height": 0,
+      "angle": null,
+      "scale": 0.145,
+      "feet": {
+        "left": [
+          80,
+          1080
+        ],
+        "right": [
+          1240,
+          1110
+        ]
+      },
+      "front_anchor": [
+        1240,
+        1110
+      ],
+      "contact": true,
+      "frame": 4,
+      "source_sha256": "3b062b078b17c2e37572e5a7629d2d2dfe6ee4d1f7cea897f38a711047a8b28c",
+      "source_crop_xyxy": [
+        0,
+        0,
+        1351,
+        1164
+      ],
+      "uniform_source_scale": 0.145,
+      "render_origin": [
+        208.20000000000002,
+        124.05000000000001
+      ],
+      "world_root": [
+        338,
+        285
+      ],
+      "ground_root": [
+        338,
+        285
+      ],
+      "airborne_height_px": 0,
+      "grip_world": [
+        [
+          344.79,
+          189.3
+        ],
+        [
+          387.565,
+          216.125
+        ]
+      ],
+      "weapon_angle": 122.09259132873417,
+      "weapon_layer": "split_tail_back_head_front",
+      "weapon_real_length_px": 215,
+      "weapon_grip_source": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        127.50959249520758
+      ],
+      "contact_point": [
+        469.3270221938329,
+        267.3994884944376
+      ],
+      "screen_feet": {
+        "left": [
+          219.8,
+          280.65
+        ],
+        "right": [
+          388.0,
+          285.0
+        ]
+      },
+      "hand_occlusion": "Tight actual fist-pixel cutouts, separate layer",
+      "body_height_scale_basis": "Shared fixed anatomical scale per generated sheet; single contact pose calibrated by head and torso to sheet, never by cropped pose height",
+      "standing_equivalent_px": 163,
+      "start_ms": 250,
+      "source_design_duration": 65
+    },
+    {
+      "source": "dash_heavy/body-source.png",
+      "rect": [
+        625,
+        510,
+        1108,
+        1024
+      ],
+      "root_source": [
+        850,
+        990
+      ],
+      "grips": [
+        [
+          911,
+          769
+        ]
+      ],
+      "duration": 100,
+      "event": "brake_followthrough",
+      "dx": 58,
+      "air_height": 0,
+      "angle": 118,
+      "scale": 0.334,
+      "feet": {
+        "left": [
+          672,
+          958
+        ],
+        "right": [
+          1047,
+          987
+        ]
+      },
+      "front_anchor": [
+        1047,
+        987
+      ],
+      "auxiliary": "second hand behind front fist",
+      "frame": 5,
+      "source_sha256": "1f0fbc8d9db94d1099c7956d8405c4aa151f16cb0e733469e0034fa85ae27df3",
+      "source_crop_xyxy": [
+        625,
+        510,
+        1108,
+        1024
+      ],
+      "uniform_source_scale": 0.334,
+      "render_origin": [
+        247.052,
+        125.68199999999999
+      ],
+      "world_root": [
+        344,
+        285
+      ],
+      "ground_root": [
+        344,
+        285
+      ],
+      "airborne_height_px": 0,
+      "grip_world": [
+        [
+          342.576,
+          212.188
+        ]
+      ],
+      "weapon_angle": 118,
+      "weapon_layer": "front",
+      "weapon_real_length_px": 215,
+      "weapon_grip_source": [
+        64,
+        178
+      ],
+      "aux_grip_source": null,
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          262.75,
+          275.31399999999996
+        ],
+        "right": [
+          388.0,
+          285.0
+        ]
+      },
+      "hand_occlusion": "Tight actual fist-pixel cutouts, separate layer",
+      "body_height_scale_basis": "Shared fixed anatomical scale per generated sheet; single contact pose calibrated by head and torso to sheet, never by cropped pose height",
+      "standing_equivalent_px": 163,
+      "start_ms": 310,
+      "source_design_duration": 100
+    },
+    {
+      "source": "dash_heavy/body-source.png",
+      "rect": [
+        1108,
+        495,
+        1536,
+        1024
+      ],
+      "root_source": [
+        1300,
+        991
+      ],
+      "grips": [
+        [
+          1267,
+          688
+        ],
+        [
+          1390,
+          626
+        ]
+      ],
+      "duration": 120,
+      "event": "recover_upright",
+      "dx": 58,
+      "air_height": 0,
+      "angle": null,
+      "scale": 0.334,
+      "feet": {
+        "left": [
+          1161,
+          991
+        ],
+        "right": [
+          1440,
+          990
+        ]
+      },
+      "front_anchor": [
+        1440,
+        990
+      ],
+      "frame": 6,
+      "source_sha256": "1f0fbc8d9db94d1099c7956d8405c4aa151f16cb0e733469e0034fa85ae27df3",
+      "source_crop_xyxy": [
+        1108,
+        495,
+        1536,
+        1024
+      ],
+      "uniform_source_scale": 0.334,
+      "render_origin": [
+        277.11199999999997,
+        119.66999999999999
+      ],
+      "world_root": [
+        344,
+        285
+      ],
+      "ground_root": [
+        344,
+        285
+      ],
+      "airborne_height_px": 0,
+      "grip_world": [
+        [
+          330.21799999999996,
+          184.132
+        ],
+        [
+          371.29999999999995,
+          163.42399999999998
+        ]
+      ],
+      "weapon_angle": 63.24892421841446,
+      "weapon_layer": "front",
+      "weapon_real_length_px": 215,
+      "weapon_grip_source": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        131.99400052167107
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          294.81399999999996,
+          285.334
+        ],
+        "right": [
+          388.0,
+          285.0
+        ]
+      },
+      "hand_occlusion": "Tight actual fist-pixel cutouts, separate layer",
+      "body_height_scale_basis": "Shared fixed anatomical scale per generated sheet; single contact pose calibrated by head and torso to sheet, never by cropped pose height",
+      "standing_equivalent_px": 163,
+      "start_ms": 410,
+      "source_design_duration": 120
+    },
+    {
+      "source": "light_1/source.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "root_source": [
+        278,
+        498
+      ],
+      "grips": [
+        [
+          278,
+          209
+        ],
+        [
+          257,
+          175
+        ]
+      ],
+      "duration": 200,
+      "event": "settled_guard",
+      "dx": 58,
+      "air_height": 0,
+      "angle": null,
+      "scale": 0.334,
+      "feet": {
+        "left": [
+          101,
+          501
+        ],
+        "right": [
+          385,
+          498
+        ]
+      },
+      "frame": 7,
+      "source_sha256": "e8902f59abe9b2c0d15358bf9c51afe8aac0b86bd52ced7030bb423394734803",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "uniform_source_scale": 0.334,
+      "render_origin": [
+        259.40999999999997,
+        118.66799999999998
+      ],
+      "world_root": [
+        344,
+        285
+      ],
+      "ground_root": [
+        344,
+        285
+      ],
+      "airborne_height_px": 0,
+      "grip_world": [
+        [
+          352.26199999999994,
+          188.474
+        ],
+        [
+          345.248,
+          177.118
+        ]
+      ],
+      "weapon_angle": -31.70142966950556,
+      "weapon_layer": "front",
+      "weapon_real_length_px": 215,
+      "weapon_grip_source": [
+        64,
+        178
+      ],
+      "aux_grip_source": [
+        64,
+        164.65253087660437
+      ],
+      "contact_point": null,
+      "screen_feet": {
+        "left": [
+          293.14399999999995,
+          286.00199999999995
+        ],
+        "right": [
+          388.0,
+          285.0
+        ]
+      },
+      "hand_occlusion": "Tight actual fist-pixel cutouts, separate layer",
+      "body_height_scale_basis": "Shared fixed anatomical scale per generated sheet; single contact pose calibrated by head and torso to sheet, never by cropped pose height",
+      "standing_equivalent_px": 163,
+      "start_ms": 530,
+      "source_design_duration": 200
+    }
+  ],
+  "left_facing_qa": "left-facing-qa.gif; deterministic horizontal composition mirror, no body/weapon regeneration; runtime must mirror all anchors as x=639-x and angle=-angle.",
+  "source_design_total_ms": 730,
+  "gif_decoded_total_ms": 730,
+  "gif_decoded_durations_ms": [
+    90,
+    90,
+    70,
+    60,
+    100,
+    120,
+    200
+  ],
+  "timing_quantization": "cumulative nearest 10ms, no cumulative truncation"
+}

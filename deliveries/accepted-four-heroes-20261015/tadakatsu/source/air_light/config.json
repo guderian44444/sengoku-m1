@@ -1,0 +1,32 @@
+{
+  "action": "air_light",
+  "version": 5,
+  "user_override": {
+    "source_message": "Sentinel_fcf9acb655148191b5ba708f50b698c3",
+    "verbatim": "這招應該從握持到前戳就可以了，不用把槍頭轉到後面",
+    "supersedes": "Earlier air_light horizontal sweep/body turn directions, including old generic specification.",
+    "accepted_action": "forward holding -> direct forward thrust -> withdrawal and airborne descent; spear points forward throughout"
+  },
+  "canvas": [
+    640,
+    340
+  ],
+  "floor": 296,
+  "frame_count": 12,
+  "duration_ms": 720,
+  "all_twelve_new_cloud_keyposes": true,
+  "source_scale": {
+    "A": 0.43,
+    "B": 0.43
+  },
+  "weapon_length_px": 285,
+  "weapon_projection": 1,
+  "runtime_integrated": false,
+  "events": [
+    {
+      "at_ms": 320,
+      "type": "contact_preview",
+      "verified_collision": false
+    }
+  ]
+}

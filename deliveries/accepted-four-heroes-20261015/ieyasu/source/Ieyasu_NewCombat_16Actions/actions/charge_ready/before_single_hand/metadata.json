@@ -1,0 +1,212 @@
+{
+  "action": "charge_ready",
+  "candidate": true,
+  "source_sha256": "15a50b803926f08c59c60fad9e1f3141f4d173f00cd92feb74085b64d55cac82",
+  "unique_source_poses": 6,
+  "frames": [
+    {
+      "frame": 0,
+      "source_pose": 0,
+      "source_crop": [
+        63,
+        6,
+        425,
+        515
+      ],
+      "source_grip": [
+        240,
+        219
+      ],
+      "source_foot": [
+        370,
+        505
+      ],
+      "body_scale": 0.30707070707070705,
+      "root_world": [
+        205,
+        365
+      ],
+      "blade_angle_deg": -55,
+      "blade_projection": 1,
+      "spin_accumulated_deg": null,
+      "weapon_behind": false,
+      "duration_ms": 100,
+      "event": "charge_start",
+      "saya_mouth": [
+        166.3090909090909,
+        288.3582222222222
+      ]
+    },
+    {
+      "frame": 1,
+      "source_pose": 1,
+      "source_crop": [
+        524,
+        12,
+        981,
+        515
+      ],
+      "source_grip": [
+        668,
+        226
+      ],
+      "source_foot": [
+        932,
+        505
+      ],
+      "body_scale": 0.30707070707070705,
+      "root_world": [
+        205,
+        365
+      ],
+      "blade_angle_deg": -70,
+      "blade_projection": 1,
+      "spin_accumulated_deg": null,
+      "weapon_behind": false,
+      "duration_ms": 100,
+      "event": null,
+      "saya_mouth": [
+        149.8808080808081,
+        289.2978585858586
+      ]
+    },
+    {
+      "frame": 2,
+      "source_pose": 2,
+      "source_crop": [
+        1050,
+        67,
+        1530,
+        518
+      ],
+      "source_grip": [
+        1187,
+        265
+      ],
+      "source_foot": [
+        1480,
+        505
+      ],
+      "body_scale": 0.30707070707070705,
+      "root_world": [
+        205,
+        365
+      ],
+      "blade_angle_deg": -85,
+      "blade_projection": 1,
+      "spin_accumulated_deg": null,
+      "weapon_behind": false,
+      "duration_ms": 110,
+      "event": null,
+      "saya_mouth": [
+        146.65656565656565,
+        298.3625858585859
+      ]
+    },
+    {
+      "frame": 3,
+      "source_pose": 3,
+      "source_crop": [
+        16,
+        544,
+        519,
+        1003
+      ],
+      "source_grip": [
+        151,
+        750
+      ],
+      "source_foot": [
+        470,
+        990
+      ],
+      "body_scale": 0.30707070707070705,
+      "root_world": [
+        205,
+        365
+      ],
+      "blade_angle_deg": -100,
+      "blade_projection": 1,
+      "spin_accumulated_deg": null,
+      "weapon_behind": false,
+      "duration_ms": 110,
+      "event": null,
+      "saya_mouth": [
+        142.8181818181818,
+        297.10973737373735
+      ]
+    },
+    {
+      "frame": 4,
+      "source_pose": 4,
+      "source_crop": [
+        533,
+        544,
+        1023,
+        1003
+      ],
+      "source_grip": [
+        665,
+        750
+      ],
+      "source_foot": [
+        970,
+        990
+      ],
+      "body_scale": 0.30707070707070705,
+      "root_world": [
+        205,
+        365
+      ],
+      "blade_angle_deg": -100,
+      "blade_projection": 1,
+      "spin_accumulated_deg": null,
+      "weapon_behind": false,
+      "duration_ms": 120,
+      "event": null,
+      "saya_mouth": [
+        146.04242424242423,
+        297.10973737373735
+      ]
+    },
+    {
+      "frame": 5,
+      "source_pose": 5,
+      "source_crop": [
+        1046,
+        539,
+        1534,
+        1005
+      ],
+      "source_grip": [
+        1195,
+        752
+      ],
+      "source_foot": [
+        1485,
+        990
+      ],
+      "body_scale": 0.30707070707070705,
+      "root_world": [
+        205,
+        365
+      ],
+      "blade_angle_deg": -100,
+      "blade_projection": 1,
+      "spin_accumulated_deg": null,
+      "weapon_behind": false,
+      "duration_ms": 130,
+      "event": "hold_enter",
+      "saya_mouth": [
+        145.12121212121212,
+        296.6276363636364
+      ]
+    }
+  ],
+  "total_ms": 670,
+  "limitations": [
+    "whole-body character frames, not anatomical limb split",
+    "visual contact-sheet QA; realtime playback QA pending",
+    "not native runtime tested"
+  ]
+}

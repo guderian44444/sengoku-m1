@@ -1,0 +1,84 @@
+{
+  "baseline": "reference/shared_ready/body_canvas_00.png",
+  "measurement_method": "Manual same-view head/topknot-to-chin, shoulder/chest width and straight limb comparison. Approximate landmark precision ±3 pixels. Pose bbox height is not a scale criterion.",
+  "light_3": {
+    "issue": "Source-sheet head and shoulder mass differed despite identical source scale .425.",
+    "fix": "Local neck-anchored head proportion correction and 3% horizontal body adjustment around locked support foot. Vertical body/leg lengths unchanged.",
+    "global_head_setting": 0.95,
+    "frame_count": 11,
+    "duration_ms": 680,
+    "active_downslash_ms": 130,
+    "blade_scale": 0.145,
+    "unchanged_start_end": true,
+    "front_support_lock": [
+      298,
+      250
+    ],
+    "source": "actions/light_3_fastlow_v3",
+    "output": "actions/light_3_scale_v4"
+  },
+  "grabs": {
+    "actions": [
+      "grab_start",
+      "grab_hold",
+      "grab_hit_1",
+      "grab_hit_2",
+      "throw_forward",
+      "throw_reverse"
+    ],
+    "same_view_representative_head_height_px_approx": [
+      31,
+      32,
+      31,
+      31,
+      32,
+      32
+    ],
+    "baseline_head_height_px_approx": 31,
+    "audit_sheet": "grabs/scale_audit_reference.jpg",
+    "result": "No obvious new scale mismatch in normalized body set. Preserve all six; no unnecessary re-render. Leaning/back-view head envelopes not compared as if frontal."
+  },
+  "air_light": {
+    "result": "Retain inplace_scale_v2; previous anatomy/pelvis correction already addresses major jump.",
+    "corrected_head_height_px_range": [
+      27.44,
+      32.4
+    ],
+    "pelvis_x": [
+      185,
+      185,
+      185,
+      185,
+      185,
+      185,
+      185,
+      185,
+      185,
+      185,
+      185
+    ],
+    "duration_ms": 620
+  },
+  "air_heavy": {
+    "result": "Retain forwardstep_scale_v2; preserves explicit forward landing.",
+    "corrected_head_height_px_range": [
+      29,
+      32.4
+    ],
+    "pelvis_x": [
+      185,
+      185,
+      187,
+      192,
+      198,
+      206,
+      214,
+      220,
+      221,
+      221,
+      221
+    ],
+    "duration_ms": 700
+  },
+  "playback_review": "Contact sheets and decoded GIF dimensions/durations inspected. Normal-speed browser playback remains parent review."
+}

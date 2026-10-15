@@ -1,0 +1,58 @@
+{
+  "generator": "image_gen.imagegen",
+  "identity_references": [
+    "../identity/approved-concept03.png",
+    "../identity/idle-body.png"
+  ],
+  "sources": [
+    {
+      "path": "sources/grab_hit_1.png",
+      "sha256": "e958bbc8cec543529918288b56df52bb592d473f1cfa2b62cefc391230e272fe"
+    },
+    {
+      "path": "sources/grab_hit_2.png",
+      "sha256": "f3cd2094aeab61e38f015a0599eb794e25d41b0a2d2f0f9000b204e4f2ddda30"
+    },
+    {
+      "path": "sources/grab_start.png",
+      "sha256": "40731dc3618aa3e29a45ed9308b68303da5ef3102f6486209d00256301a2dff1"
+    },
+    {
+      "path": "sources/throw_forward.png",
+      "sha256": "8878624a99f969fd8fcad7a76010102a884c1889b8450f940082b360f0ab2d75"
+    },
+    {
+      "path": "sources/throw_forward_weight.png",
+      "sha256": "f3ada08d5a6141d503b7871c76358aa595a75097098e72c4a989bc9fea57131a"
+    },
+    {
+      "path": "sources/throw_reverse.png",
+      "sha256": "8f2cfac1af83541805c14d5dfb42ef34edfd5129f2d440107ce2b3f5901d88bd"
+    },
+    {
+      "path": "sources/throw_reverse_weight.png",
+      "sha256": "bcfb5e50cae8ca83e233cd187acd5030c61c15a11ae0ff89f6e47ab8458a4bc3"
+    },
+    {
+      "path": "references/victim-forward-weight.png",
+      "sha256": "0e716fdf2c7bcbc2b49d26d0d64dc4ed90d10781f82bda705f3a9dc8399972bf"
+    },
+    {
+      "path": "references/victim-headbutt.png",
+      "sha256": "f620bd1fdf662bd22d49ad5d667a821227b7fa5cf3c9cd32610fd12f3cba0a08"
+    },
+    {
+      "path": "references/victim.png",
+      "sha256": "984bb13c8f80bbaf2ae3fcbd947bf6b0a7aaa1bcae4bd1e70d453b9350846651"
+    }
+  ],
+  "postprocessing": [
+    "Connected-component alpha extraction and stray-alpha cleanup",
+    "One uniform anatomical scale per source sheet, never per frame bounding box",
+    "Measured foot registration and independent victim transform",
+    "Weapon rear layer and fingertip alpha masks",
+    "GIF assembly with fixed palette"
+  ],
+  "artwork_not_generated_by_code": true,
+  "revision": "Two throws revised from10 to12frames with real imagegen weight-transfer poses, original980/1030ms kept. First headbutt reuses second by user selection."
+}

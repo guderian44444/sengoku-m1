@@ -1,0 +1,796 @@
+{
+  "head_scale": 0.95,
+  "action": "air_light",
+  "description": "原地起跳與落地：腰帶／骨盆中心X固定，頭胸校準固有尺度；11格620ms。",
+  "duration_ms": 620,
+  "frames": [
+    {
+      "index": 0,
+      "source_rect": [
+        55,
+        17,
+        355,
+        490
+      ],
+      "source_component": 2,
+      "body_scale": 0.36798196166854563,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        149.37326388888889,
+        112.02994791666667
+      ],
+      "grip_world": [
+        179.625,
+        245.125
+      ],
+      "weapon_angle": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 60,
+      "event": null,
+      "shared_ready_override": {
+        "action": "light_1",
+        "frame": 0,
+        "translation": [
+          0,
+          80
+        ]
+      },
+      "baseline_frame": 0,
+      "original_grip_world": [
+        179.625,
+        247.125
+      ],
+      "pelvis_world": [
+        185,
+        247
+      ],
+      "anatomical_scale_correction": 1,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        -2
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 29,
+        "measured_chest_width_px": 35,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "index": 1,
+      "source_rect": [
+        509,
+        65,
+        821,
+        444
+      ],
+      "source_component": 4,
+      "body_scale": 0.3311837655016911,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        651.390625,
+        280.65234375
+      ],
+      "grip_world": [
+        177.74,
+        277.41749999999996
+      ],
+      "weapon_angle": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 60,
+      "event": null,
+      "baseline_frame": 1,
+      "original_grip_world": [
+        176.93333333333334,
+        278.575
+      ],
+      "pelvis_world": [
+        185,
+        276.9
+      ],
+      "anatomical_scale_correction": 0.9,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        0.9,
+        0,
+        18.5,
+        0,
+        0.9,
+        26.69999999999996
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 34,
+        "measured_chest_width_px": 38,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "source": "../air_light_extra3_source.png",
+      "source_rect": [
+        134,
+        28,
+        566,
+        671
+      ],
+      "body_scale": 0.2597,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        304,
+        91
+      ],
+      "grip_world": [
+        157.3395,
+        176.8722
+      ],
+      "weapon_angle": -30,
+      "event": null,
+      "new_transition_pose": "a",
+      "head_scale": 0.95,
+      "source_sha256": "871f465e6ba02bf74c16684bd98c929e1803ca150f121295764f70a26732167d",
+      "index": 2,
+      "duration_ms": 40,
+      "original_grip_world": [
+        250.775,
+        157.89
+      ],
+      "pelvis_world": [
+        185,
+        225
+      ],
+      "anatomical_scale_correction": 0.98,
+      "lower_body_y_scale": 0.8,
+      "registration_affine": [
+        0.98,
+        0,
+        -88.42000000000002,
+        0,
+        0.98,
+        22.140000000000015
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 31,
+        "measured_chest_width_px": 35,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "index": 3,
+      "source_rect": [
+        965,
+        3,
+        1266,
+        404
+      ],
+      "source_component": 1,
+      "body_scale": 0.36798196166854563,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        1053.3125,
+        33.493489583333336
+      ],
+      "grip_world": [
+        158.66666666666663,
+        156.12499999999997
+      ],
+      "weapon_angle": -30,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 60,
+      "event": null,
+      "baseline_frame": 2,
+      "original_grip_world": [
+        191.66666666666663,
+        141.12499999999997
+      ],
+      "pelvis_world": [
+        185,
+        211
+      ],
+      "anatomical_scale_correction": 1,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        1,
+        0,
+        -33,
+        0,
+        1,
+        15
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 29,
+        "measured_chest_width_px": 34,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "source": "../air_light_extra3_source.png",
+      "source_rect": [
+        874,
+        29,
+        1344,
+        517
+      ],
+      "body_scale": 0.2597,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        1311,
+        125
+      ],
+      "grip_world": [
+        238.08170000000004,
+        154.7755
+      ],
+      "weapon_angle": 40,
+      "event": null,
+      "new_transition_pose": "b",
+      "head_scale": 0.95,
+      "source_sha256": "871f465e6ba02bf74c16684bd98c929e1803ca150f121295764f70a26732167d",
+      "index": 4,
+      "duration_ms": 40,
+      "original_grip_world": [
+        289.165,
+        147.975
+      ],
+      "pelvis_world": [
+        185,
+        194
+      ],
+      "anatomical_scale_correction": 0.98,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        0.98,
+        0,
+        -45.29999999999998,
+        0,
+        0.98,
+        9.759999999999991
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 28,
+        "measured_chest_width_px": 38,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "index": 5,
+      "source_rect": [
+        1359,
+        7,
+        1668,
+        418
+      ],
+      "source_component": 2,
+      "body_scale": 0.3311837655016911,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        1638.486111111111,
+        203.27083333333334
+      ],
+      "grip_world": [
+        217.24999999999994,
+        184.28
+      ],
+      "weapon_angle": 60,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 50,
+      "event": null,
+      "baseline_frame": 3,
+      "original_grip_world": [
+        290.83333333333326,
+        180.2
+      ],
+      "pelvis_world": [
+        185,
+        194
+      ],
+      "anatomical_scale_correction": 0.9,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        0.9,
+        0,
+        -44.5,
+        0,
+        0.9,
+        22.099999999999994
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 36,
+        "measured_chest_width_px": 40,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "index": 6,
+      "source_rect": [
+        15,
+        455,
+        459,
+        883
+      ],
+      "source_component": 5,
+      "body_scale": 0.34590304396843286,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        426.5607638888889,
+        597.1080729166667
+      ],
+      "grip_world": [
+        235.8226666666667,
+        196.05650000000003
+      ],
+      "weapon_angle": 90,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 60,
+      "event": "air_contact",
+      "baseline_frame": 4,
+      "original_grip_world": [
+        229.0666666666667,
+        175.97500000000002
+      ],
+      "pelvis_world": [
+        185,
+        213
+      ],
+      "anatomical_scale_correction": 0.94,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        0.94,
+        0,
+        20.5,
+        0,
+        0.94,
+        30.640000000000015
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 31,
+        "measured_chest_width_px": 40,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "index": 7,
+      "source_rect": [
+        515,
+        463,
+        782,
+        804
+      ],
+      "source_component": 7,
+      "body_scale": 0.32382412626832013,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        643.6909722222223,
+        615.5872395833334
+      ],
+      "grip_world": [
+        180.80533333333338,
+        237.106
+      ],
+      "weapon_angle": 125,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 50,
+      "event": null,
+      "baseline_frame": 5,
+      "original_grip_world": [
+        226.23333333333338,
+        236.57500000000002
+      ],
+      "pelvis_world": [
+        185,
+        241
+      ],
+      "anatomical_scale_correction": 0.88,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        0.88,
+        0,
+        -18.28,
+        0,
+        0.88,
+        28.919999999999987
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 35,
+        "measured_chest_width_px": 40,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "source": "../air_light_extra3_source.png",
+      "source_rect": [
+        1608,
+        124,
+        2087,
+        691
+      ],
+      "body_scale": 0.24380000000000002,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        1902,
+        431
+      ],
+      "grip_world": [
+        189.6736,
+        263.4538
+      ],
+      "weapon_angle": 125,
+      "event": null,
+      "new_transition_pose": "c",
+      "head_scale": 0.95,
+      "source_sha256": "871f465e6ba02bf74c16684bd98c929e1803ca150f121295764f70a26732167d",
+      "index": 8,
+      "duration_ms": 40,
+      "original_grip_world": [
+        186.07999999999998,
+        249.015
+      ],
+      "pelvis_world": [
+        185,
+        257
+      ],
+      "anatomical_scale_correction": 0.92,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        0.92,
+        0,
+        18.47999999999999,
+        0,
+        0.92,
+        34.359999999999985
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 31,
+        "measured_chest_width_px": 40,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "index": 9,
+      "source_rect": [
+        944,
+        505,
+        1253,
+        884
+      ],
+      "source_component": 8,
+      "body_scale": 0.32382412626832013,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        1062.5520833333333,
+        704.5182291666667
+      ],
+      "grip_world": [
+        174.44,
+        273.438
+      ],
+      "weapon_angle": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 70,
+      "event": null,
+      "baseline_frame": 6,
+      "original_grip_world": [
+        169.0,
+        277.725
+      ],
+      "pelvis_world": [
+        185,
+        273.68
+      ],
+      "anatomical_scale_correction": 0.88,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        0.88,
+        0,
+        25.72,
+        0,
+        0.88,
+        29.039999999999992
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 36,
+        "measured_chest_width_px": 43,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    },
+    {
+      "index": 10,
+      "source_rect": [
+        55,
+        17,
+        355,
+        490
+      ],
+      "source_component": 2,
+      "body_scale": 0.36798196166854563,
+      "root": [
+        185,
+        330
+      ],
+      "source_grip": [
+        149.37326388888889,
+        112.02994791666667
+      ],
+      "grip_world": [
+        179.625,
+        245.125
+      ],
+      "weapon_angle": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "duration_ms": 90,
+      "event": null,
+      "shared_ready_override": {
+        "action": "light_1",
+        "frame": 0,
+        "translation": [
+          0,
+          80
+        ]
+      },
+      "baseline_frame": 7,
+      "original_grip_world": [
+        179.625,
+        247.125
+      ],
+      "pelvis_world": [
+        185,
+        247
+      ],
+      "anatomical_scale_correction": 1,
+      "lower_body_y_scale": 1.0,
+      "registration_affine": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        -2
+      ],
+      "scale_basis": {
+        "measured_head_height_px": 29,
+        "measured_chest_width_px": 35,
+        "baseline_head_height_px": 29,
+        "baseline_chest_width_px": 35,
+        "method": "Manual head, chest and limb comparison; no pose-bbox-height normalization; foreshortening retained"
+      },
+      "weapon_scale_constant": 0.145
+    }
+  ],
+  "source_sha256": "27c13d085dc532cb4003b64720c5d3a7352afc23c0032f368e040999c67be4da",
+  "limitations": [
+    "whole-body transparent frames, not anatomical rig parts",
+    "katana flat rotation; perspective variants pending",
+    "not runtime integrated"
+  ],
+  "render_body_layer": "body_canvas_XX.png",
+  "frame_count": 11,
+  "revision": "inplace_scale_v2",
+  "added_pose_source": "actions/air_light_extra3_source.png",
+  "added_pose_source_sha256": "871f465e6ba02bf74c16684bd98c929e1803ca150f121295764f70a26732167d",
+  "canvas": [
+    520,
+    380
+  ],
+  "floor": 331,
+  "interpolation": "none; three new imagegen poses inserted among eight unchanged baseline frames",
+  "registration": "pelvis-based; fixed X in air_light; explicit +36px landing in air_heavy",
+  "body_raw_semantics": "body_XX now registered canvas, same as body_canvas_XX",
+  "scale_qa": [
+    {
+      "index": 0,
+      "pelvis_x": 185,
+      "pelvis_y": 247,
+      "corrected_head_height": 29,
+      "corrected_chest_width": 35,
+      "weapon_bbox": [
+        163,
+        232,
+        267,
+        298
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 1,
+      "pelvis_x": 185,
+      "pelvis_y": 276.9,
+      "corrected_head_height": 30.6,
+      "corrected_chest_width": 34.2,
+      "weapon_bbox": [
+        161,
+        265,
+        265,
+        330
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 2,
+      "pelvis_x": 185,
+      "pelvis_y": 225,
+      "corrected_head_height": 30.38,
+      "corrected_chest_width": 34.3,
+      "weapon_bbox": [
+        107,
+        88,
+        168,
+        195
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 3,
+      "pelvis_x": 185,
+      "pelvis_y": 211,
+      "corrected_head_height": 29,
+      "corrected_chest_width": 34,
+      "weapon_bbox": [
+        108,
+        67,
+        169,
+        174
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 4,
+      "pelvis_x": 185,
+      "pelvis_y": 194,
+      "corrected_head_height": 27.44,
+      "corrected_chest_width": 37.24,
+      "weapon_bbox": [
+        223,
+        77,
+        305,
+        170
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 5,
+      "pelvis_x": 185,
+      "pelvis_y": 194,
+      "corrected_head_height": 32.4,
+      "corrected_chest_width": 36.0,
+      "weapon_bbox": [
+        199,
+        134,
+        306,
+        194
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 6,
+      "pelvis_x": 185,
+      "pelvis_y": 213,
+      "corrected_head_height": 29.14,
+      "corrected_chest_width": 37.6,
+      "weapon_bbox": [
+        217,
+        190,
+        338,
+        205
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 7,
+      "pelvis_x": 185,
+      "pelvis_y": 241,
+      "corrected_head_height": 30.8,
+      "corrected_chest_width": 35.2,
+      "weapon_bbox": [
+        165,
+        223,
+        263,
+        297
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 8,
+      "pelvis_x": 185,
+      "pelvis_y": 257,
+      "corrected_head_height": 28.52,
+      "corrected_chest_width": 36.8,
+      "weapon_bbox": [
+        174,
+        250,
+        273,
+        324
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 9,
+      "pelvis_x": 185,
+      "pelvis_y": 273.68,
+      "corrected_head_height": 31.68,
+      "corrected_chest_width": 37.84,
+      "weapon_bbox": [
+        158,
+        261,
+        262,
+        326
+      ],
+      "weapon_clipped": false
+    },
+    {
+      "index": 10,
+      "pelvis_x": 185,
+      "pelvis_y": 247,
+      "corrected_head_height": 29,
+      "corrected_chest_width": 35,
+      "weapon_bbox": [
+        163,
+        232,
+        267,
+        298
+      ],
+      "weapon_clipped": false
+    }
+  ]
+}

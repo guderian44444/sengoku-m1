@@ -1,0 +1,983 @@
+{
+  "action": "light_1",
+  "version": "kennyo03-new-spec-staff-attacks-v1",
+  "standing_equivalent_px": 163,
+  "preview_canvas": [
+    640,
+    380
+  ],
+  "source_provenance": "Built-in image_gen body-only; deterministic cropping, uniform scaling, weapon composition and timing only. No optical flow, Comfy or Qwen.",
+  "weapon_source": "../weapons/ornate_shakujo.png",
+  "weapon_sha256": "f036c2a0fcda691127602285f88bf494089fd813ea9a46cf3af9763aa190e1cb",
+  "weapon_physical_length_px": 215,
+  "shared_combo_guard": "light_1/source.png rect [0,0,512,512], identical first and last body/grip/angle at retained root offset",
+  "runtime_integrated": false,
+  "root_motion_clamp": "Renderer may stop root advance at blocking targets while retaining body pose sequence.",
+  "frames": [
+    {
+      "source": "light_1/source.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "feet": {
+        "left": [
+          101,
+          501
+        ],
+        "right": [
+          385,
+          498
+        ]
+      },
+      "grips": [
+        [
+          278,
+          209
+        ],
+        [
+          257,
+          175
+        ]
+      ],
+      "angle": -32,
+      "duration": 80,
+      "event": "guard",
+      "anchor": "right",
+      "phase": 0,
+      "root_dx": 0,
+      "frame": 1,
+      "source_sha256": "e8902f59abe9b2c0d15358bf9c51afe8aac0b86bd52ced7030bb423394734803",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        192.31399999999996,
+        157.17399999999998
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          226.351,
+          326.011
+        ],
+        "right": [
+          322.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          286.0,
+          227.60699999999997
+        ],
+        [
+          278.923,
+          216.14899999999997
+        ]
+      ],
+      "weapon_angle": -31.701429669505718,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 0,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": null
+    },
+    {
+      "source": "light_1_v2/source.png",
+      "rect": [
+        0,
+        0,
+        426,
+        426
+      ],
+      "feet": {
+        "left": [
+          70,
+          411
+        ],
+        "right": [
+          376,
+          410
+        ]
+      },
+      "grips": [
+        [
+          154,
+          209
+        ],
+        [
+          181,
+          211
+        ]
+      ],
+      "angle": 94,
+      "duration": 80,
+      "event": "tail_grip_windup",
+      "anchor": "right",
+      "root_dx": 0,
+      "projection": 0.55,
+      "sweep_yaw": -57,
+      "frame": 2,
+      "source_sha256": "90e655787a2cd672552885ca7e6c68939f465e020bd8642b04299f946421dad5",
+      "source_crop_xyxy": [
+        0,
+        0,
+        426,
+        426
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        168.65099999999998,
+        157.72
+      ],
+      "world_root": [
+        286,
+        325
+      ],
+      "root_motion_x": 0,
+      "screen_feet": {
+        "left": [
+          197.211,
+          325.408
+        ],
+        "right": [
+          322.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          231.48299999999998,
+          242.992
+        ],
+        [
+          242.49899999999997,
+          243.808
+        ]
+      ],
+      "weapon_angle": 94.23639479905886,
+      "weapon_projection": 0.55,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 80,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": -57
+    },
+    {
+      "source": "light_1_v2/source.png",
+      "rect": [
+        426,
+        0,
+        842,
+        426
+      ],
+      "feet": {
+        "left": [
+          529,
+          378
+        ],
+        "right": [
+          755,
+          411
+        ]
+      },
+      "grips": [
+        [
+          568,
+          210
+        ],
+        [
+          590,
+          211
+        ]
+      ],
+      "angle": 93,
+      "duration": 70,
+      "event": "rear_foot_lift",
+      "anchor": "right",
+      "root_dx": 5,
+      "projection": 0.65,
+      "sweep_yaw": -49,
+      "frame": 3,
+      "source_sha256": "90e655787a2cd672552885ca7e6c68939f465e020bd8642b04299f946421dad5",
+      "source_crop_xyxy": [
+        426,
+        0,
+        842,
+        426
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        187.82699999999997,
+        157.312
+      ],
+      "world_root": [
+        291,
+        325
+      ],
+      "root_motion_x": 5,
+      "screen_feet": {
+        "left": [
+          229.851,
+          311.536
+        ],
+        "right": [
+          322.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          245.76299999999998,
+          242.99200000000002
+        ],
+        [
+          254.73899999999998,
+          243.4
+        ]
+      ],
+      "weapon_angle": 92.60256220249973,
+      "weapon_projection": 0.65,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 160,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": -49
+    },
+    {
+      "source": "light_1_v2/source.png",
+      "rect": [
+        842,
+        0,
+        1254,
+        426
+      ],
+      "feet": {
+        "left": [
+          904,
+          412
+        ],
+        "right": [
+          1174,
+          411
+        ]
+      },
+      "grips": [
+        [
+          1090,
+          186
+        ],
+        [
+          1122,
+          190
+        ]
+      ],
+      "angle": 97,
+      "duration": 60,
+      "event": "rear_foot_plant",
+      "anchor": "right",
+      "root_dx": 11,
+      "projection": 0.8,
+      "sweep_yaw": -37,
+      "frame": 4,
+      "source_sha256": "90e655787a2cd672552885ca7e6c68939f465e020bd8642b04299f946421dad5",
+      "source_crop_xyxy": [
+        842,
+        0,
+        1254,
+        426
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        186.60299999999998,
+        157.312
+      ],
+      "world_root": [
+        297,
+        325
+      ],
+      "root_motion_x": 11,
+      "screen_feet": {
+        "left": [
+          211.899,
+          325.408
+        ],
+        "right": [
+          322.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          287.787,
+          233.2
+        ],
+        [
+          300.84299999999996,
+          234.832
+        ]
+      ],
+      "weapon_angle": 97.12501634890184,
+      "weapon_projection": 0.8,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 230,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": -37
+    },
+    {
+      "source": "light_1_v2/source.png",
+      "rect": [
+        0,
+        426,
+        426,
+        824
+      ],
+      "feet": {
+        "left": [
+          58,
+          812
+        ],
+        "right": [
+          373,
+          813
+        ]
+      },
+      "grips": [
+        [
+          285,
+          551
+        ],
+        [
+          324,
+          549
+        ]
+      ],
+      "angle": 87,
+      "duration": 40,
+      "event": "forward_sweep_accelerate",
+      "anchor": "right",
+      "root_dx": 14,
+      "projection": 0.92,
+      "sweep_yaw": -23,
+      "frame": 5,
+      "source_sha256": "90e655787a2cd672552885ca7e6c68939f465e020bd8642b04299f946421dad5",
+      "source_crop_xyxy": [
+        0,
+        426,
+        426,
+        824
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        169.87499999999997,
+        167.104
+      ],
+      "world_root": [
+        300,
+        325
+      ],
+      "root_motion_x": 14,
+      "screen_feet": {
+        "left": [
+          193.539,
+          324.592
+        ],
+        "right": [
+          322.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          286.155,
+          218.104
+        ],
+        [
+          302.06699999999995,
+          217.288
+        ]
+      ],
+      "weapon_angle": 87.06432655357882,
+      "weapon_projection": 0.92,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 290,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": -23
+    },
+    {
+      "source": "light_1_v2/source.png",
+      "rect": [
+        426,
+        426,
+        842,
+        824
+      ],
+      "feet": {
+        "left": [
+          475,
+          803
+        ],
+        "right": [
+          791,
+          813
+        ]
+      },
+      "grips": [
+        [
+          774,
+          539
+        ],
+        [
+          819,
+          537
+        ]
+      ],
+      "angle": 87,
+      "duration": 40,
+      "event": "single_forward_sweep_contact",
+      "anchor": "right",
+      "root_dx": 16,
+      "contact": true,
+      "sweep_yaw": 0,
+      "frame": 6,
+      "source_sha256": "90e655787a2cd672552885ca7e6c68939f465e020bd8642b04299f946421dad5",
+      "source_crop_xyxy": [
+        426,
+        426,
+        842,
+        824
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        173.13899999999998,
+        167.104
+      ],
+      "world_root": [
+        302,
+        325
+      ],
+      "root_motion_x": 16,
+      "screen_feet": {
+        "left": [
+          193.131,
+          320.92
+        ],
+        "right": [
+          322.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          315.12299999999993,
+          213.20800000000003
+        ],
+        [
+          333.48299999999995,
+          212.392
+        ]
+      ],
+      "weapon_angle": 87.45519562018681,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": [
+        517.9228027126403,
+        204.19467543499346
+      ],
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 330,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": 0
+    },
+    {
+      "source": "light_1_v2/source.png",
+      "rect": [
+        842,
+        426,
+        1254,
+        824
+      ],
+      "feet": {
+        "left": [
+          876,
+          814
+        ],
+        "right": [
+          1189,
+          814
+        ]
+      },
+      "grips": [
+        [
+          1197,
+          561
+        ]
+      ],
+      "angle": 100,
+      "duration": 50,
+      "event": "forward_low_followthrough",
+      "anchor": "right",
+      "front_dx": 8,
+      "root_dx": 16,
+      "hidden_auxiliary_hand": true,
+      "sweep_yaw": 12,
+      "frame": 7,
+      "source_sha256": "90e655787a2cd672552885ca7e6c68939f465e020bd8642b04299f946421dad5",
+      "source_crop_xyxy": [
+        842,
+        426,
+        1254,
+        824
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        188.48299999999998,
+        166.696
+      ],
+      "world_root": [
+        302,
+        325
+      ],
+      "root_motion_x": 16,
+      "screen_feet": {
+        "left": [
+          202.355,
+          325.0
+        ],
+        "right": [
+          330.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          333.323,
+          221.776
+        ]
+      ],
+      "weapon_angle": 100,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "occluded, not fabricated",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 370,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": 12
+    },
+    {
+      "source": "light_1_v2/source.png",
+      "rect": [
+        0,
+        824,
+        426,
+        1254
+      ],
+      "feet": {
+        "left": [
+          81,
+          1231
+        ],
+        "right": [
+          372,
+          1230
+        ]
+      },
+      "grips": [
+        [
+          242,
+          939
+        ],
+        [
+          272,
+          945
+        ]
+      ],
+      "angle": 101,
+      "duration": 60,
+      "event": "pull_grip_back_to_chest",
+      "anchor": "right",
+      "front_dx": 16,
+      "root_dx": 16,
+      "sweep_yaw": 12,
+      "frame": 8,
+      "source_sha256": "90e655787a2cd672552885ca7e6c68939f465e020bd8642b04299f946421dad5",
+      "source_crop_xyxy": [
+        0,
+        824,
+        426,
+        1254
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        186.283,
+        159.352
+      ],
+      "world_root": [
+        302,
+        325
+      ],
+      "root_motion_x": 16,
+      "screen_feet": {
+        "left": [
+          219.331,
+          325.408
+        ],
+        "right": [
+          338.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          285.019,
+          206.272
+        ],
+        [
+          297.259,
+          208.72
+        ]
+      ],
+      "weapon_angle": 101.30993247402024,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 420,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": 12
+    },
+    {
+      "source": "light_1_v2/source.png",
+      "rect": [
+        426,
+        824,
+        842,
+        1254
+      ],
+      "feet": {
+        "left": [
+          500,
+          1230
+        ],
+        "right": [
+          784,
+          1230
+        ]
+      },
+      "grips": [
+        [
+          702,
+          1022
+        ],
+        [
+          669,
+          1006
+        ]
+      ],
+      "angle": -64,
+      "duration": 70,
+      "event": "compact_guard_recovery",
+      "anchor": "right",
+      "front_dx": 16,
+      "root_dx": 16,
+      "frame": 9,
+      "source_sha256": "90e655787a2cd672552885ca7e6c68939f465e020bd8642b04299f946421dad5",
+      "source_crop_xyxy": [
+        426,
+        824,
+        842,
+        1254
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.408,
+      "render_origin": [
+        191.99499999999998,
+        159.352
+      ],
+      "world_root": [
+        302,
+        325
+      ],
+      "root_motion_x": 16,
+      "screen_feet": {
+        "left": [
+          222.187,
+          325.0
+        ],
+        "right": [
+          338.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          304.60299999999995,
+          240.136
+        ],
+        [
+          291.13899999999995,
+          233.608
+        ]
+      ],
+      "weapon_angle": -64.1336432059055,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 480,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": null
+    },
+    {
+      "source": "light_1/source.png",
+      "rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "feet": {
+        "left": [
+          101,
+          501
+        ],
+        "right": [
+          385,
+          498
+        ]
+      },
+      "grips": [
+        [
+          278,
+          209
+        ],
+        [
+          257,
+          175
+        ]
+      ],
+      "angle": -32,
+      "duration": 120,
+      "event": "settled_guard",
+      "anchor": "right",
+      "phase": 0,
+      "root_dx": 16,
+      "front_dx": 16,
+      "frame": 10,
+      "source_sha256": "e8902f59abe9b2c0d15358bf9c51afe8aac0b86bd52ced7030bb423394734803",
+      "source_crop_xyxy": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "alpha_mask_source": null,
+      "uniform_source_scale": 0.337,
+      "render_origin": [
+        208.31399999999996,
+        157.17399999999998
+      ],
+      "world_root": [
+        302,
+        325
+      ],
+      "root_motion_x": 16,
+      "screen_feet": {
+        "left": [
+          242.351,
+          326.011
+        ],
+        "right": [
+          338.059,
+          325.0
+        ]
+      },
+      "grip_world": [
+        [
+          302.0,
+          227.60699999999997
+        ],
+        [
+          294.923,
+          216.14899999999997
+        ]
+      ],
+      "weapon_angle": -31.701429669505718,
+      "weapon_projection": 1,
+      "weapon_spin_phase": null,
+      "weapon_layer": "front",
+      "contact_point": null,
+      "hand_occlusion": "tight ellipse cutouts of actual fist pixels",
+      "effect_layer": "generated neutral footstep dust on actual foot plant; emit independent blunt impact only on confirmed target contact",
+      "auxiliary_grip_status": "measured visible",
+      "body_height_scale_basis": "Common guard at 0.337; all new 1254-square generated poses at one fixed 0.408 scale. No per-frame bbox equalization.",
+      "standing_equivalent_px": 163,
+      "start_ms": 550,
+      "weapon_source_grip": [
+        64,
+        234
+      ],
+      "weapon_sweep_yaw_degrees": null
+    }
+  ],
+  "total_duration_ms": 670,
+  "qa": {
+    "true_alpha": true,
+    "no_per_frame_bbox_scaling": true,
+    "body_weapon_fx_hands_separate": true,
+    "final_root_retained": true,
+    "rear_step_anatomy": true,
+    "heavy_single_front_step": false,
+    "visible_actual_spin_views": false,
+    "damage_values": "not assigned",
+    "contact_response": "push_standing"
+  },
+  "revision": "v2-tail-grip-forward-sweep-10-frames",
+  "replaces": "light_1",
+  "requested_changes": "7 to 10 actual pose frames, tail-end two-hand grip, working shaft projects forward on the active swing, actual rear foot shuffle retained.",
+  "weapon_main_source_grip": [
+    64,
+    234
+  ],
+  "weapon_working_length_from_main_px": 203,
+  "gif_quantization": {
+    "unit_ms": 10,
+    "method": "largest remainder, stable frame-order tie break",
+    "requested_weights_ms": [
+      80,
+      75,
+      70,
+      55,
+      40,
+      40,
+      50,
+      65,
+      75,
+      120
+    ],
+    "allocated_ms": [
+      80,
+      80,
+      70,
+      60,
+      40,
+      40,
+      50,
+      60,
+      70,
+      120
+    ]
+  },
+  "actual_gif_durations_ms": [
+    80,
+    80,
+    70,
+    60,
+    40,
+    40,
+    50,
+    60,
+    70,
+    120
+  ],
+  "actual_gif_total_ms": 670
+}

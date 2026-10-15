@@ -1,0 +1,76 @@
+[
+  {
+    "folder": "main",
+    "command": [
+      "python",
+      "build_action.py",
+      "light_3_v3"
+    ],
+    "ok": true,
+    "byte_identical": true,
+    "stderr": ""
+  },
+  {
+    "folder": "main",
+    "command": [
+      "python",
+      "build_action.py",
+      "heavy_v2"
+    ],
+    "ok": true,
+    "byte_identical": true,
+    "stderr": ""
+  },
+  {
+    "folder": "main",
+    "command": [
+      "python",
+      "build_action.py",
+      "charge_release_v3"
+    ],
+    "ok": true,
+    "byte_identical": true,
+    "stderr": ""
+  },
+  {
+    "folder": "main",
+    "command": [
+      "python",
+      "build_action.py",
+      "dash_heavy_v2"
+    ],
+    "ok": true,
+    "byte_identical": true,
+    "stderr": ""
+  },
+  {
+    "folder": "air_light",
+    "command": [
+      "python",
+      "build.py"
+    ],
+    "ok": true,
+    "byte_identical": true,
+    "stderr": ""
+  },
+  {
+    "folder": "air_heavy",
+    "command": [
+      "python",
+      "build.py"
+    ],
+    "ok": true,
+    "byte_identical": true,
+    "stderr": ""
+  },
+  {
+    "folder": "grabs",
+    "command": [
+      "bash",
+      "build_all.sh"
+    ],
+    "ok": true,
+    "byte_identical": true,
+    "stderr": ""
+  }
+]

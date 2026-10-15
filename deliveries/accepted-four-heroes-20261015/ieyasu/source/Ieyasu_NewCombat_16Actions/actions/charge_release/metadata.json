@@ -1,0 +1,458 @@
+{
+  "action": "charge_release",
+  "frames": [
+    {
+      "frame": 0,
+      "duration_ms": 40,
+      "grip_world": [
+        191.63,
+        305.84
+      ],
+      "saya_mouth": [
+        181.005,
+        305.84
+      ],
+      "root_world": [
+        120,
+        365
+      ],
+      "source_foot": [
+        1080,
+        1000
+      ],
+      "source_grip": [
+        1327,
+        796
+      ],
+      "source_mouth": [
+        1280,
+        793
+      ],
+      "body_scale": 0.29,
+      "event": null,
+      "blade_angle_deg": 270,
+      "blade_visible_fraction": 0,
+      "afterimage_event": null,
+      "hit_policy": null
+    },
+    {
+      "frame": 1,
+      "duration_ms": 40,
+      "grip_world": [
+        245.57999999999998,
+        274.13
+      ],
+      "saya_mouth": [
+        201.51,
+        301.82
+      ],
+      "root_world": [
+        120,
+        365
+      ],
+      "source_foot": [
+        712,
+        346
+      ],
+      "source_grip": [
+        1034,
+        113
+      ],
+      "source_mouth": [
+        921,
+        184
+      ],
+      "body_scale": 0.39,
+      "event": "instant_draw_linear_hit_start",
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": null,
+      "hit_policy": {
+        "shape": "forward_swept_corridor",
+        "pierces_enemies": true,
+        "reaction": "knockdown",
+        "deduplicate": "per_enemy_per_action",
+        "proxy_is_demo_only": true
+      }
+    },
+    {
+      "frame": 2,
+      "duration_ms": 100,
+      "grip_world": [
+        278.70000000000005,
+        273.74
+      ],
+      "saya_mouth": [
+        231.89999999999998,
+        300.26
+      ],
+      "root_world": [
+        267,
+        365
+      ],
+      "source_foot": [
+        1374,
+        346
+      ],
+      "source_grip": [
+        1404,
+        112
+      ],
+      "source_mouth": [
+        1284,
+        180
+      ],
+      "body_scale": 0.39,
+      "event": "step_left_1",
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": {
+        "opacity": 0.26,
+        "ttl_ms": 120,
+        "independent_layer": true
+      },
+      "hit_policy": null
+    },
+    {
+      "frame": 3,
+      "duration_ms": 40,
+      "grip_world": [
+        316.92,
+        274.52
+      ],
+      "saya_mouth": [
+        270.12,
+        299.09000000000003
+      ],
+      "root_world": [
+        267,
+        365
+      ],
+      "source_foot": [
+        204,
+        688
+      ],
+      "source_grip": [
+        332,
+        456
+      ],
+      "source_mouth": [
+        212,
+        519
+      ],
+      "body_scale": 0.39,
+      "event": null,
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": null,
+      "hit_policy": null
+    },
+    {
+      "frame": 4,
+      "duration_ms": 40,
+      "grip_world": [
+        336.81,
+        275.29999999999995
+      ],
+      "saya_mouth": [
+        289.23,
+        298.7
+      ],
+      "root_world": [
+        267,
+        365
+      ],
+      "source_foot": [
+        500,
+        695
+      ],
+      "source_grip": [
+        679,
+        465
+      ],
+      "source_mouth": [
+        557,
+        525
+      ],
+      "body_scale": 0.39,
+      "event": null,
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": null,
+      "hit_policy": null
+    },
+    {
+      "frame": 5,
+      "duration_ms": 40,
+      "grip_world": [
+        383.61,
+        274.90999999999997
+      ],
+      "saya_mouth": [
+        332.91,
+        298.7
+      ],
+      "root_world": [
+        267,
+        365
+      ],
+      "source_foot": [
+        750,
+        699
+      ],
+      "source_grip": [
+        1049,
+        468
+      ],
+      "source_mouth": [
+        919,
+        529
+      ],
+      "body_scale": 0.39,
+      "event": null,
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": null,
+      "hit_policy": null
+    },
+    {
+      "frame": 6,
+      "duration_ms": 100,
+      "grip_world": [
+        388.55000000000007,
+        272.57
+      ],
+      "saya_mouth": [
+        342.9200000000001,
+        299.09000000000003
+      ],
+      "root_world": [
+        371,
+        365
+      ],
+      "source_foot": [
+        1377,
+        700
+      ],
+      "source_grip": [
+        1422,
+        463
+      ],
+      "source_mouth": [
+        1305,
+        531
+      ],
+      "body_scale": 0.39,
+      "event": "step_right_2",
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": {
+        "opacity": 0.26,
+        "ttl_ms": 120,
+        "independent_layer": true
+      },
+      "hit_policy": null
+    },
+    {
+      "frame": 7,
+      "duration_ms": 40,
+      "grip_world": [
+        473.17999999999995,
+        272.96
+      ],
+      "saya_mouth": [
+        428.71999999999997,
+        293.63
+      ],
+      "root_world": [
+        371,
+        365
+      ],
+      "source_foot": [
+        65,
+        1052
+      ],
+      "source_grip": [
+        327,
+        816
+      ],
+      "source_mouth": [
+        213,
+        869
+      ],
+      "body_scale": 0.39,
+      "event": null,
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": null,
+      "hit_policy": null
+    },
+    {
+      "frame": 8,
+      "duration_ms": 40,
+      "grip_world": [
+        491.12,
+        272.18
+      ],
+      "saya_mouth": [
+        446.27,
+        296.36
+      ],
+      "root_world": [
+        371,
+        365
+      ],
+      "source_foot": [
+        382,
+        1051
+      ],
+      "source_grip": [
+        690,
+        813
+      ],
+      "source_mouth": [
+        575,
+        875
+      ],
+      "body_scale": 0.39,
+      "event": "linear_hit_end",
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": null,
+      "hit_policy": null
+    },
+    {
+      "frame": 9,
+      "duration_ms": 100,
+      "grip_world": [
+        506.84,
+        277.25
+      ],
+      "saya_mouth": [
+        455.75,
+        300.26000000000005
+      ],
+      "root_world": [
+        485,
+        365
+      ],
+      "source_foot": [
+        994,
+        1051
+      ],
+      "source_grip": [
+        1050,
+        826
+      ],
+      "source_mouth": [
+        919,
+        885
+      ],
+      "body_scale": 0.39,
+      "event": "step_left_3_and_brake",
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": {
+        "opacity": 0.26,
+        "ttl_ms": 120,
+        "independent_layer": true
+      },
+      "hit_policy": null
+    },
+    {
+      "frame": 10,
+      "duration_ms": 80,
+      "grip_world": [
+        500.21000000000004,
+        274.13
+      ],
+      "saya_mouth": [
+        444.83,
+        299.87
+      ],
+      "root_world": [
+        485,
+        365
+      ],
+      "source_foot": [
+        1382,
+        1052
+      ],
+      "source_grip": [
+        1421,
+        819
+      ],
+      "source_mouth": [
+        1279,
+        885
+      ],
+      "body_scale": 0.39,
+      "event": "forward_stop",
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": null,
+      "hit_policy": null
+    },
+    {
+      "frame": 11,
+      "duration_ms": 140,
+      "grip_world": [
+        500.21000000000004,
+        274.13
+      ],
+      "saya_mouth": [
+        444.83,
+        299.87
+      ],
+      "root_world": [
+        485,
+        365
+      ],
+      "source_foot": [
+        1382,
+        1052
+      ],
+      "source_grip": [
+        1421,
+        819
+      ],
+      "source_mouth": [
+        1279,
+        885
+      ],
+      "body_scale": 0.39,
+      "event": "forward_blade_stop",
+      "blade_angle_deg": 90,
+      "blade_visible_fraction": 1,
+      "afterimage_event": null,
+      "hit_policy": null
+    }
+  ],
+  "total_ms": 800,
+  "revision": "20261015_0253_issen_wave_knockdown",
+  "candidate": false,
+  "canvas": [
+    640,
+    400
+  ],
+  "standing_ruler_px": 152,
+  "playback": "one_shot_hold_last",
+  "limitations": [
+    "Not tested in native game runtime",
+    "Contact-sheet and frame inspection; wide trousers partly obscure anatomical left/right leg distinction",
+    "Noto guide based on official manual, not viewed video"
+  ],
+  "sources": [
+    "https://www.kendo.or.jp/wp/wp-content/uploads/2020/12/iai_manual.pdf"
+  ],
+  "hit_policy": {
+    "shape": "forward_swept_corridor",
+    "pierces_enemies": true,
+    "reaction": "knockdown",
+    "deduplicate": "per_enemy_per_action",
+    "proxy_is_demo_only": true
+  },
+  "visual_approved": true,
+  "approval_message_id": "Sentinel_48c5008369588191923f0cf026fd4e44",
+  "runtime_verified": false
+}

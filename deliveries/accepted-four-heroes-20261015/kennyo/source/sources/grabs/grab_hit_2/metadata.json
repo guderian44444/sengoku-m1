@@ -1,0 +1,455 @@
+{
+  "action": "grab_hit_2",
+  "canvas": [
+    640,
+    320
+  ],
+  "body_height_standing_equivalent": 163,
+  "anatomical_scale_policy": "Fixed one scale per source sheet from its neutral upright frame and visually cross-checked head/torso; no per-frame bounding-box scaling; crouches remain shorter.",
+  "source": "sources/grab_hit_2.png",
+  "source_sha256": "f3cd2094aeab61e38f015a0599eb794e25d41b0a2d2f0f9000b204e4f2ddda30",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "fixed_sheet_scale": 0.3299595141700405,
+  "runtime_loop": false,
+  "duration_ms": 600,
+  "frame_count": 6,
+  "interpolation": "none, generated keyframes; later repeated recovery frames allow separately tracked victim flight",
+  "generator": "image_gen.imagegen",
+  "identity": "approved-concept03.png and idle-body.png",
+  "compositing": [
+    "weapon_back",
+    "victim_back if shoulder-loaded",
+    "body",
+    "victim_front otherwise",
+    "fingers_front"
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "source_frame": 0,
+      "source_crop": [
+        64,
+        26,
+        481,
+        522
+      ],
+      "source_sha256": "f3cd2094aeab61e38f015a0599eb794e25d41b0a2d2f0f9000b204e4f2ddda30",
+      "uniform_sheet_scale": 0.3299595141700405,
+      "body_translation": [
+        172,
+        107
+      ],
+      "root": [
+        185,
+        270
+      ],
+      "support_foot": [
+        185,
+        270
+      ],
+      "hands": [
+        [
+          302.33,
+          144.29
+        ],
+        [
+          274.62,
+          161.44
+        ]
+      ],
+      "forehead": [
+        250.86,
+        119.21
+      ],
+      "duration_ms": 110,
+      "events": [],
+      "victim": {
+        "source": "headbutt",
+        "pose": 0,
+        "scale": 0.305,
+        "translation": [
+          282,
+          107
+        ],
+        "released": false,
+        "layer": "front",
+        "bbox": [
+          282,
+          107,
+          361,
+          260
+        ]
+      },
+      "weapon": {
+        "asset": "../weapons/ornate_shakujo.png",
+        "layer": "back",
+        "length_px": 215,
+        "rotation_pil_deg": -17,
+        "translation": [
+          122,
+          3
+        ]
+      },
+      "finger_mask": "tight hand-only elliptical alpha intersection, 14x16px per hand",
+      "attached": true
+    },
+    {
+      "index": 1,
+      "source_frame": 1,
+      "source_crop": [
+        559,
+        21,
+        976,
+        522
+      ],
+      "source_sha256": "f3cd2094aeab61e38f015a0599eb794e25d41b0a2d2f0f9000b204e4f2ddda30",
+      "uniform_sheet_scale": 0.3299595141700405,
+      "body_translation": [
+        172,
+        106
+      ],
+      "root": [
+        185,
+        270
+      ],
+      "support_foot": [
+        185,
+        270
+      ],
+      "hands": [
+        [
+          301.67,
+          147.24
+        ],
+        [
+          275.61,
+          165.06
+        ]
+      ],
+      "forehead": [
+        236.67,
+        113.92
+      ],
+      "duration_ms": 90,
+      "events": [],
+      "victim": {
+        "source": "headbutt",
+        "pose": 0,
+        "scale": 0.305,
+        "translation": [
+          282,
+          110
+        ],
+        "released": false,
+        "layer": "front",
+        "bbox": [
+          282,
+          110,
+          361,
+          263
+        ]
+      },
+      "weapon": {
+        "asset": "../weapons/ornate_shakujo.png",
+        "layer": "back",
+        "length_px": 215,
+        "rotation_pil_deg": -17,
+        "translation": [
+          122,
+          3
+        ]
+      },
+      "finger_mask": "tight hand-only elliptical alpha intersection, 14x16px per hand",
+      "attached": true
+    },
+    {
+      "index": 2,
+      "source_frame": 2,
+      "source_crop": [
+        1051,
+        15,
+        1485,
+        523
+      ],
+      "source_sha256": "f3cd2094aeab61e38f015a0599eb794e25d41b0a2d2f0f9000b204e4f2ddda30",
+      "uniform_sheet_scale": 0.3299595141700405,
+      "body_translation": [
+        172,
+        103
+      ],
+      "root": [
+        185,
+        270
+      ],
+      "support_foot": [
+        185,
+        270
+      ],
+      "hands": [
+        [
+          292.77,
+          144.9
+        ],
+        [
+          268.68,
+          160.41
+        ]
+      ],
+      "forehead": [
+        221.49,
+        111.58
+      ],
+      "duration_ms": 80,
+      "events": [],
+      "victim": {
+        "source": "headbutt",
+        "pose": 0,
+        "scale": 0.305,
+        "translation": [
+          273,
+          108
+        ],
+        "released": false,
+        "layer": "front",
+        "bbox": [
+          273,
+          108,
+          352,
+          261
+        ]
+      },
+      "weapon": {
+        "asset": "../weapons/ornate_shakujo.png",
+        "layer": "back",
+        "length_px": 215,
+        "rotation_pil_deg": -17,
+        "translation": [
+          122,
+          3
+        ]
+      },
+      "finger_mask": "tight hand-only elliptical alpha intersection, 14x16px per hand",
+      "attached": true
+    },
+    {
+      "index": 3,
+      "source_frame": 3,
+      "source_crop": [
+        43,
+        549,
+        503,
+        1000
+      ],
+      "source_sha256": "f3cd2094aeab61e38f015a0599eb794e25d41b0a2d2f0f9000b204e4f2ddda30",
+      "uniform_sheet_scale": 0.3299595141700405,
+      "body_translation": [
+        172,
+        122
+      ],
+      "root": [
+        185,
+        270
+      ],
+      "support_foot": [
+        185,
+        270
+      ],
+      "hands": [
+        [
+          313.55,
+          161.6
+        ],
+        [
+          305.96,
+          165.55
+        ]
+      ],
+      "forehead": [
+        309.59,
+        135.86
+      ],
+      "duration_ms": 60,
+      "events": [
+        "grab_hit_2_headbutt_contact"
+      ],
+      "victim": {
+        "source": "headbutt",
+        "pose": 0,
+        "scale": 0.305,
+        "translation": [
+          306,
+          117
+        ],
+        "released": false,
+        "layer": "front",
+        "bbox": [
+          306,
+          117,
+          385,
+          270
+        ]
+      },
+      "weapon": {
+        "asset": "../weapons/ornate_shakujo.png",
+        "layer": "back",
+        "length_px": 215,
+        "rotation_pil_deg": -17,
+        "translation": [
+          122,
+          3
+        ]
+      },
+      "finger_mask": "tight hand-only elliptical alpha intersection, 14x16px per hand",
+      "attached": true
+    },
+    {
+      "index": 4,
+      "source_frame": 4,
+      "source_crop": [
+        533,
+        563,
+        1013,
+        1000
+      ],
+      "source_sha256": "f3cd2094aeab61e38f015a0599eb794e25d41b0a2d2f0f9000b204e4f2ddda30",
+      "uniform_sheet_scale": 0.3299595141700405,
+      "body_translation": [
+        172,
+        127
+      ],
+      "root": [
+        185,
+        270
+      ],
+      "support_foot": [
+        185,
+        270
+      ],
+      "hands": [
+        [
+          315.86,
+          163.96
+        ],
+        [
+          308.27,
+          168.24
+        ]
+      ],
+      "forehead": [
+        308.6,
+        140.86
+      ],
+      "duration_ms": 90,
+      "events": [],
+      "victim": {
+        "source": "headbutt",
+        "pose": 2,
+        "scale": 0.305,
+        "translation": [
+          267,
+          107
+        ],
+        "released": false,
+        "layer": "front",
+        "bbox": [
+          267,
+          107,
+          347,
+          270
+        ]
+      },
+      "weapon": {
+        "asset": "../weapons/ornate_shakujo.png",
+        "layer": "back",
+        "length_px": 215,
+        "rotation_pil_deg": -17,
+        "translation": [
+          122,
+          3
+        ]
+      },
+      "finger_mask": "tight hand-only elliptical alpha intersection, 14x16px per hand",
+      "attached": true
+    },
+    {
+      "index": 5,
+      "source_frame": 5,
+      "source_crop": [
+        1051,
+        531,
+        1513,
+        1001
+      ],
+      "source_sha256": "f3cd2094aeab61e38f015a0599eb794e25d41b0a2d2f0f9000b204e4f2ddda30",
+      "uniform_sheet_scale": 0.3299595141700405,
+      "body_translation": [
+        173,
+        116
+      ],
+      "root": [
+        185,
+        270
+      ],
+      "support_foot": [
+        185,
+        270
+      ],
+      "hands": [
+        [
+          290.47,
+          157.9
+        ],
+        [
+          280.57,
+          145.7
+        ]
+      ],
+      "forehead": [
+        270.34,
+        130.19
+      ],
+      "duration_ms": 170,
+      "events": [],
+      "victim": {
+        "source": "headbutt",
+        "pose": 0,
+        "scale": 0.305,
+        "translation": [
+          270,
+          117
+        ],
+        "released": false,
+        "layer": "front",
+        "bbox": [
+          270,
+          117,
+          349,
+          270
+        ]
+      },
+      "weapon": {
+        "asset": "../weapons/ornate_shakujo.png",
+        "layer": "back",
+        "length_px": 215,
+        "rotation_pil_deg": -17,
+        "translation": [
+          122,
+          3
+        ]
+      },
+      "finger_mask": "tight hand-only elliptical alpha intersection, 14x16px per hand",
+      "attached": true
+    }
+  ],
+  "limitations": [
+    "Keyframe prototype; no interpolation or optical flow.",
+    "Grip landmarks are manually measured visual anchors with roughly 3px game-scale uncertainty, not runtime hitboxes.",
+    "Static grab_hold intentionally reuses the exact final grab_start pose for seamless hold.",
+    "Independent victim and weapon layers included; no enemy baked into Kennyo body.",
+    "No game runtime, website or repository changes."
+  ],
+  "path_base": "Paths are relative to grabs directory unless labeled source crop paths; ../weapons refers to package-level shared weapons."
+}

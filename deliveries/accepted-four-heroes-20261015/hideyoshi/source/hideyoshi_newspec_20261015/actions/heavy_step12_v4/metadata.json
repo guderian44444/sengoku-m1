@@ -1,0 +1,345 @@
+{
+  "action": "heavy",
+  "revision": "step12_fastswing_v5",
+  "head_scale": 0.95,
+  "head_approval": "approved",
+  "duration_ms": 950,
+  "frames": [
+    {
+      "shared_ready": true,
+      "head_scale": 0.95,
+      "index": 0,
+      "phase": "ready",
+      "grip_world": [
+        179.625,
+        167.125
+      ],
+      "blade_angle": 120,
+      "blade_roll_scale": 1,
+      "duration_ms": 90,
+      "blade_edge": "neutral",
+      "event": null,
+      "start_ms": 0,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_wrist_source.png",
+      "source_rect": [
+        187,
+        3,
+        840,
+        837
+      ],
+      "head_scale": 0.95,
+      "source_pose": 0,
+      "new_wrist_pose": true,
+      "index": 1,
+      "phase": "wrist_half_turn",
+      "grip_world": [
+        155.50193359374998,
+        185.40376302083334
+      ],
+      "blade_angle": 115,
+      "blade_roll_scale": 0.16,
+      "duration_ms": 70,
+      "blade_edge": "turning",
+      "event": null,
+      "start_ms": 90,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_wrist_source.png",
+      "source_rect": [
+        962,
+        4,
+        1616,
+        837
+      ],
+      "head_scale": 0.95,
+      "source_pose": 1,
+      "new_wrist_pose": true,
+      "index": 2,
+      "phase": "edge_up_set",
+      "grip_world": [
+        167.5769140625,
+        188.15253906249998
+      ],
+      "blade_angle": 115,
+      "blade_roll_scale": -1,
+      "duration_ms": 100,
+      "blade_edge": "upper/leading",
+      "event": null,
+      "start_ms": 160,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_step_source.png",
+      "source_rect": [
+        809,
+        72,
+        1059,
+        485
+      ],
+      "head_scale": 0.95,
+      "source_pose": 2,
+      "root_advance": 0,
+      "index": 3,
+      "phase": "lift_front_foot",
+      "grip_world": [
+        182.43124999999998,
+        184.65625
+      ],
+      "blade_angle": 115,
+      "blade_roll_scale": -1,
+      "duration_ms": 120,
+      "blade_edge": "upper/leading",
+      "event": null,
+      "start_ms": 260,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_inbetween_source.png",
+      "source_rect": [
+        33,
+        135,
+        794,
+        875
+      ],
+      "head_scale": 0.95,
+      "source_pose": 0,
+      "root_advance": 3,
+      "index": 4,
+      "phase": "heel_approach",
+      "grip_world": [
+        243.95074999999997,
+        183.12475
+      ],
+      "blade_angle": 110,
+      "blade_roll_scale": -1,
+      "duration_ms": 70,
+      "blade_edge": "upper/leading",
+      "event": null,
+      "start_ms": 380,
+      "intrinsic_scale_correction": 0.975,
+      "scale_anchor": [
+        173,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_step_source.png",
+      "source_rect": [
+        1115,
+        70,
+        1518,
+        489
+      ],
+      "head_scale": 0.95,
+      "source_pose": 3,
+      "root_advance": 6,
+      "index": 5,
+      "phase": "plant_and_drive",
+      "grip_world": [
+        279.91249999999997,
+        169.03750000000002
+      ],
+      "blade_angle": 85,
+      "blade_roll_scale": -1,
+      "duration_ms": 40,
+      "blade_edge": "upper/leading",
+      "event": null,
+      "start_ms": 450,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_step_source.png",
+      "source_rect": [
+        7,
+        558,
+        436,
+        968
+      ],
+      "head_scale": 0.95,
+      "source_pose": 4,
+      "root_advance": 12,
+      "index": 6,
+      "phase": "contact",
+      "grip_world": [
+        298.6625,
+        131.10625000000002
+      ],
+      "blade_angle": 30,
+      "blade_roll_scale": -1,
+      "duration_ms": 40,
+      "blade_edge": "upper/leading",
+      "event": "contact_launch_up",
+      "start_ms": 490,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_inbetween_source.png",
+      "source_rect": [
+        765,
+        134,
+        1509,
+        878
+      ],
+      "head_scale": 0.95,
+      "source_pose": 1,
+      "root_advance": 12,
+      "index": 7,
+      "phase": "upper_drive",
+      "grip_world": [
+        293.52049999999997,
+        128.29075
+      ],
+      "blade_angle": 15,
+      "blade_roll_scale": -1,
+      "duration_ms": 40,
+      "blade_edge": "upper/leading",
+      "event": null,
+      "start_ms": 530,
+      "intrinsic_scale_correction": 0.975,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_step_source.png",
+      "source_rect": [
+        436,
+        515,
+        810,
+        975
+      ],
+      "head_scale": 0.95,
+      "source_pose": 5,
+      "root_advance": 12,
+      "index": 8,
+      "phase": "follow",
+      "grip_world": [
+        270.29375000000005,
+        114.85
+      ],
+      "blade_angle": 0,
+      "blade_roll_scale": -1,
+      "duration_ms": 60,
+      "blade_edge": "upper/leading",
+      "event": null,
+      "start_ms": 570,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_step_source.png",
+      "source_rect": [
+        828,
+        549,
+        1170,
+        974
+      ],
+      "head_scale": 0.95,
+      "source_pose": 6,
+      "root_advance": 8,
+      "index": 9,
+      "phase": "recover",
+      "grip_world": [
+        206.6875,
+        185.29375000000002
+      ],
+      "blade_angle": 90,
+      "blade_roll_scale": -1,
+      "duration_ms": 120,
+      "blade_edge": "upper/leading",
+      "event": null,
+      "start_ms": 630,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "source": "/workspace/scratch/98b7ec868bfb/hideyoshi_newspec_20261015/actions/heavy_step_source.png",
+      "source_rect": [
+        1192,
+        551,
+        1524,
+        975
+      ],
+      "head_scale": 0.95,
+      "source_pose": 7,
+      "root_advance": 2,
+      "index": 10,
+      "phase": "settle",
+      "grip_world": [
+        201.325,
+        191.03125000000003
+      ],
+      "blade_angle": 115,
+      "blade_roll_scale": -0.25,
+      "duration_ms": 100,
+      "blade_edge": "upper/leading",
+      "event": null,
+      "start_ms": 750,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    },
+    {
+      "shared_ready": true,
+      "head_scale": 0.95,
+      "index": 11,
+      "phase": "ready",
+      "grip_world": [
+        179.625,
+        167.125
+      ],
+      "blade_angle": 120,
+      "blade_roll_scale": 1,
+      "duration_ms": 100,
+      "blade_edge": "neutral",
+      "event": null,
+      "start_ms": 850,
+      "intrinsic_scale_correction": 1,
+      "scale_anchor": [
+        182,
+        250
+      ]
+    }
+  ],
+  "description": "雙手翻腕轉刃向上，抬前腳跨步踏實，後腿推地、腰肩前送上撩，刀鋒先行擊飛。",
+  "swing_phase_ms": 180,
+  "original_swing_phase_ms": 300,
+  "scale_audit": "Conservative 2–2.5% intrinsic correction from same-orientation head/chest landmarks. Support foot fixed, natural crouch height retained; sword length unchanged."
+}

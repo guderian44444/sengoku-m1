@@ -1,0 +1,33 @@
+{
+  "action": "charge_ready",
+  "scale": 0.35667396061269147,
+  "scale_basis": "shared skeleton/head scale, no bbox-height normalization",
+  "standing_equivalent_pixels": 163,
+  "root": [
+    320,
+    285
+  ],
+  "body_frames": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "durations_ms": [
+    90,
+    90,
+    100,
+    900
+  ],
+  "events": [
+    "empty-grip idle",
+    "hands approach",
+    "palms meet",
+    "fixed upright chant"
+  ],
+  "weapon_layer": "full ornate shakujo held-to-back stow transition; preserved behind body during chanting",
+  "effect_layer": "independent optional chant FX; body static during hold",
+  "runtime_integrated": false,
+  "current_preview": "kennyo03_charge_ready_stow_staff.gif",
+  "stow_metadata": "../charge_ready/stow-metadata.json"
+}

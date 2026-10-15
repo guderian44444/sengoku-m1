@@ -1,0 +1,435 @@
+{
+  "conclusion": "Reach did not replace protected head pixels. Frames2-16 retained the regenerated pivot heads, whose broader hair/face volume differs from the approved original. A .95 shrink record is not identity proof.",
+  "approved_reference": "hideyoshi_head95_single_preview.png",
+  "shared_ready_reconstruction": {
+    "scale": 0.31875,
+    "output_size": [
+      96,
+      151
+    ],
+    "placement": [
+      136,
+      102
+    ],
+    "different_pixels": 0
+  },
+  "reach_to_pivot_head_masks": [
+    {
+      "source_index": 0,
+      "frame_indices": [
+        1,
+        7,
+        13
+      ],
+      "head_restore_box": [
+        207,
+        100,
+        247,
+        142
+      ],
+      "head_restore_diff_pixels": 0,
+      "expanded_box": [
+        202,
+        95,
+        252,
+        146
+      ],
+      "expanded_diff_pixels": 306
+    },
+    {
+      "source_index": 1,
+      "frame_indices": [
+        2,
+        8
+      ],
+      "head_restore_box": [
+        210,
+        101,
+        246,
+        138
+      ],
+      "head_restore_diff_pixels": 0,
+      "expanded_box": [
+        205,
+        96,
+        251,
+        142
+      ],
+      "expanded_diff_pixels": 209
+    },
+    {
+      "source_index": 2,
+      "frame_indices": [
+        3,
+        9
+      ],
+      "head_restore_box": [
+        251,
+        98,
+        287,
+        134
+      ],
+      "head_restore_diff_pixels": 0,
+      "expanded_box": [
+        246,
+        93,
+        292,
+        138
+      ],
+      "expanded_diff_pixels": 0
+    },
+    {
+      "source_index": 3,
+      "frame_indices": [
+        4,
+        10
+      ],
+      "head_restore_box": [
+        249,
+        102,
+        288,
+        144
+      ],
+      "head_restore_diff_pixels": 0,
+      "expanded_box": [
+        244,
+        97,
+        293,
+        148
+      ],
+      "expanded_diff_pixels": 248
+    },
+    {
+      "source_index": 4,
+      "frame_indices": [
+        5,
+        11
+      ],
+      "head_restore_box": [
+        228,
+        104,
+        267,
+        152
+      ],
+      "head_restore_diff_pixels": 0,
+      "expanded_box": [
+        223,
+        99,
+        272,
+        156
+      ],
+      "expanded_diff_pixels": 313
+    },
+    {
+      "source_index": 5,
+      "frame_indices": [
+        6,
+        12
+      ],
+      "head_restore_box": [
+        202,
+        102,
+        237,
+        151
+      ],
+      "head_restore_diff_pixels": 0,
+      "expanded_box": [
+        197,
+        97,
+        242,
+        155
+      ],
+      "expanded_diff_pixels": 310
+    },
+    {
+      "source_index": 6,
+      "frame_indices": [
+        14
+      ],
+      "head_restore_box": [
+        185,
+        105,
+        226,
+        152
+      ],
+      "head_restore_diff_pixels": 0,
+      "expanded_box": [
+        180,
+        100,
+        231,
+        156
+      ],
+      "expanded_diff_pixels": 0
+    },
+    {
+      "source_index": 7,
+      "frame_indices": [
+        15
+      ],
+      "head_restore_box": [
+        189,
+        105,
+        232,
+        153
+      ],
+      "head_restore_diff_pixels": 0,
+      "expanded_box": [
+        184,
+        100,
+        237,
+        157
+      ],
+      "expanded_diff_pixels": 0
+    }
+  ],
+  "frames": [
+    {
+      "frame_0based": 0,
+      "frame_1based": 1,
+      "head_source": "actions/charge_hold/body_canvas_00.png",
+      "entire_body_pixel_equal": true,
+      "identity_source": "charge_ready_cutout pose5, local95 shrink, not approved reference head pixels"
+    },
+    {
+      "frame_0based": 1,
+      "frame_1based": 2,
+      "source_pose": 0,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_01.png",
+      "protected_head_roi": [
+        207,
+        100,
+        247,
+        142
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 2,
+      "frame_1based": 3,
+      "source_pose": 1,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_02.png",
+      "protected_head_roi": [
+        210,
+        101,
+        246,
+        138
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 3,
+      "frame_1based": 4,
+      "source_pose": 2,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_03.png",
+      "protected_head_roi": [
+        251,
+        98,
+        287,
+        134
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 4,
+      "frame_1based": 5,
+      "source_pose": 3,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_04.png",
+      "protected_head_roi": [
+        249,
+        102,
+        288,
+        144
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 5,
+      "frame_1based": 6,
+      "source_pose": 4,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_05.png",
+      "protected_head_roi": [
+        228,
+        104,
+        267,
+        152
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 6,
+      "frame_1based": 7,
+      "source_pose": 5,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_06.png",
+      "protected_head_roi": [
+        202,
+        102,
+        237,
+        151
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 7,
+      "frame_1based": 8,
+      "source_pose": 0,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_07.png",
+      "protected_head_roi": [
+        207,
+        100,
+        247,
+        142
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 8,
+      "frame_1based": 9,
+      "source_pose": 1,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_08.png",
+      "protected_head_roi": [
+        210,
+        101,
+        246,
+        138
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 9,
+      "frame_1based": 10,
+      "source_pose": 2,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_09.png",
+      "protected_head_roi": [
+        251,
+        98,
+        287,
+        134
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 10,
+      "frame_1based": 11,
+      "source_pose": 3,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_10.png",
+      "protected_head_roi": [
+        249,
+        102,
+        288,
+        144
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 11,
+      "frame_1based": 12,
+      "source_pose": 4,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_11.png",
+      "protected_head_roi": [
+        228,
+        104,
+        267,
+        152
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 12,
+      "frame_1based": 13,
+      "source_pose": 5,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_12.png",
+      "protected_head_roi": [
+        202,
+        102,
+        237,
+        151
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 13,
+      "frame_1based": 14,
+      "source_pose": 0,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_13.png",
+      "protected_head_roi": [
+        207,
+        100,
+        247,
+        142
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 14,
+      "frame_1based": 15,
+      "source_pose": 6,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_14.png",
+      "protected_head_roi": [
+        185,
+        105,
+        226,
+        152
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 15,
+      "frame_1based": 16,
+      "source_pose": 7,
+      "head_source": "actions/charge_release_pivot_fixed.png",
+      "rendered_head_source": "actions/charge_release_pivot_v2/body_canvas_15.png",
+      "protected_head_roi": [
+        189,
+        105,
+        232,
+        153
+      ],
+      "protected_head_diff_pixels": 0,
+      "identity_source": "pivot imagegen source head locally shrunk95; not approved original head"
+    },
+    {
+      "frame_0based": 16,
+      "frame_1based": 17,
+      "head_source": "reference/shared_ready/body_canvas_00.png",
+      "entire_body_pixel_equal": true,
+      "identity_source": "exact approved95 single resized .31875 and placed at136,102"
+    }
+  ],
+  "source_chain": [
+    "charge_release_source.png -> charge_release_clean.png (bottle removal)",
+    "charge_release_pivot_source.png -> charge_release_pivot_fixed.png (regenerated full-body pivot poses; head identity drift already present)",
+    "build_charge_pivot.py applies local95 shrink to generated head per angle",
+    "build_charge_reach.py restores protected pivot head rectangle after edited arms band; not original approved95 head",
+    "fix_charge_scale.py uniformly scales selected whole-body frames without replacing face identity"
+  ],
+  "note": "Expanded head boxes include collar/shoulder pixels; nonzero expanded differences are arm-edit boundary, not evidence that protected face pixels were overwritten.",
+  "correction": "headlock_v5: exact approved95 same-angle head pixels where available; existing nonmatching-yaw heads locally narrowed and hair-volume calibrated with angles unchanged; body/weapon layers locked; rejected generated turntable unused"
+}

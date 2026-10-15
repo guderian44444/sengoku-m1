@@ -115,3 +115,7 @@ v0.20 標題與城郭背景使用原創圖形，提示詞、參考構圖與原�
 自動化測試驗證程式與素材接線；實體搖桿、震動、真人聽感及動作觀感需另外依流程驗收。
 
 DOT 的 `verify-handoff.py` 預設仍檢查原交付全部程式快照；整合後新增裝備與大關邏輯，使用 `--assets-only` 核對完整美術 SHA，再跑上述遊戲測試。素材資料夾 README 保留製作階段的歷史描述，現行存檔／換裝規則以本文件與操作說明為準。`.gitattributes` 固定文字 LF，避免 Windows checkout 改變受 SHA 保護的 JSON 位元組。
+
+## 四角色已核准招式素材（2026-10-15）
+
+[本多／秀吉／家康／顯如64招代表圖、說明與交接](docs/HANDOFF-ACCEPTED-FOUR-HEROES-20261015.md) · [原始來源與accepted索引](deliveries/accepted-four-heroes-20261015/README.md)。阿市17招沿用 [PR #5](https://github.com/guderian44444/sengoku-m1/pull/5)。此批為素材交付，未修改runtime。
