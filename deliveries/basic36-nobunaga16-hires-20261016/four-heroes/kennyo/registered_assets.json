@@ -1,0 +1,37 @@
+{
+  "idle": {
+    "registration": "idle/metadata.json",
+    "reused_approved_pixels": true,
+    "layers": {
+      "body": {
+        "path": "idle/body.png",
+        "sha256": "0bacbd635ca5bf7bc3c03a8ab39c4ac221df9378b4ad706668b840d225b2c824"
+      },
+      "weapon": {
+        "path": "idle/weapon.png",
+        "sha256": "0afd206e459e7e3b7335cb63e214c236b4dbef38af329e30bdc676251f9ca7a9"
+      },
+      "hand_occlusion": {
+        "path": "idle/hand_occlusion.png",
+        "sha256": "5260acf03f86427c8636778f49f97d0d4e3f835b431cdb913468065a0618c2e4"
+      },
+      "composite": {
+        "path": "idle/composite.png",
+        "sha256": "177c15dd7331c29e84bb323d8c76b10e3737370c3d82d3cfa97ede0f4f293dc1"
+      }
+    }
+  },
+  "portrait": {
+    "path": "portrait-approved-crop.png",
+    "source": "source/approved-concept03.png",
+    "crop_xyxy": [
+      615,
+      40,
+      1024,
+      490
+    ],
+    "redrawn": false,
+    "sha256": "bdc65f0580745eb248eed7ec6b5da149977d0dc04ffd4ab02c880e3e94c2f8dd",
+    "crop_pixel_exact": true
+  }
+}

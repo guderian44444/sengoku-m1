@@ -1,0 +1,260 @@
+{
+  "loop": false,
+  "description": "\u5f37\u529b\u64ca\u98db\u4fee\u7248\uff1a30ms\u53d7\u64ca\u5f8c\u8fc5\u901f\u5f8c\u98db\u96e2\u5730\uff0c\u80cc\u810a\u53cd\u5f13\u3001\u7a7a\u624b\u8207\u96d9\u817f\u6163\u6027\u7529\u958b\uff0c\u98db\u96e2210px\u518d\u63a5\u5730\u3002",
+  "idle_start": 50,
+  "idle_end": null,
+  "representative": 3,
+  "frames": [
+    {
+      "src": "source_0.png",
+      "side": 0,
+      "scale": 0.164,
+      "head": [
+        132,
+        130,
+        336,
+        281
+      ],
+      "hands": [
+        388,
+        407,
+        509,
+        477
+      ],
+      "grip": [
+        451,
+        443
+      ],
+      "feet": {
+        "near": [
+          165,
+          929
+        ],
+        "far": [
+          687,
+          914
+        ]
+      },
+      "origin": [
+        426,
+        929
+      ],
+      "angle": 117,
+      "duration_ms": 30,
+      "phase": "sharp_hit_recoil",
+      "support": "heels_release",
+      "world": [
+        -10,
+        -8
+      ],
+      "event": "launch_hit",
+      "preview": [
+        -10,
+        -8
+      ]
+    },
+    {
+      "src": "v2_explosive_liftoff.png",
+      "side": 0,
+      "scale": 0.115,
+      "head": [
+        167,
+        143,
+        430,
+        309
+      ],
+      "hands": [
+        840,
+        190,
+        937,
+        280
+      ],
+      "grip": [
+        886,
+        237
+      ],
+      "feet": {
+        "near": [
+          933,
+          1049
+        ],
+        "far": [
+          1238,
+          691
+        ]
+      },
+      "origin": [
+        750,
+        1120
+      ],
+      "angle": 75,
+      "duration_ms": 60,
+      "phase": "explosive_backward_liftoff",
+      "support": "air",
+      "world": [
+        -65,
+        -85
+      ],
+      "preview": [
+        -65,
+        -85
+      ],
+      "grip_hand": "one_hand",
+      "event": "explosive_liftoff"
+    },
+    {
+      "src": "v2_full_flight.png",
+      "side": 0,
+      "scale": 0.115,
+      "head": [
+        185,
+        104,
+        453,
+        281
+      ],
+      "hands": [
+        520,
+        145,
+        623,
+        224
+      ],
+      "grip": [
+        573,
+        186
+      ],
+      "feet": {
+        "near": [
+          848,
+          944
+        ],
+        "far": [
+          1482,
+          514
+        ]
+      },
+      "origin": [
+        800,
+        1070
+      ],
+      "angle": 30,
+      "duration_ms": 100,
+      "phase": "violent_air_apex",
+      "support": "air",
+      "world": [
+        -130,
+        -105
+      ],
+      "preview": [
+        -130,
+        -105
+      ],
+      "grip_hand": "one_hand",
+      "event": "apex"
+    },
+    {
+      "src": "source_2.png",
+      "side": 0,
+      "scale": 0.12,
+      "head": [
+        60,
+        190,
+        329,
+        394
+      ],
+      "hands": [
+        579,
+        460,
+        744,
+        583
+      ],
+      "grip": [
+        662,
+        521
+      ],
+      "feet": {
+        "near": [
+          1380,
+          864
+        ],
+        "far": [
+          1483,
+          482
+        ]
+      },
+      "origin": [
+        810,
+        1030
+      ],
+      "angle": 65,
+      "duration_ms": 90,
+      "phase": "back_first_fast_descent",
+      "support": "air",
+      "world": [
+        -185,
+        -45
+      ],
+      "preview": [
+        -185,
+        -45
+      ]
+    },
+    {
+      "src": "source_3.png",
+      "side": 0,
+      "scale": 0.12,
+      "head": [
+        75,
+        302,
+        329,
+        480
+      ],
+      "hands": [
+        574,
+        484,
+        746,
+        601
+      ],
+      "grip": [
+        660,
+        543
+      ],
+      "feet": {
+        "near": [
+          1215,
+          898
+        ],
+        "far": [
+          1436,
+          672
+        ]
+      },
+      "origin": [
+        790,
+        906
+      ],
+      "angle": 55,
+      "duration_ms": 170,
+      "phase": "ground_contact_to_down",
+      "support": "back_hips_near_heel",
+      "world": [
+        -210,
+        0
+      ],
+      "event": "land_contact",
+      "preview": [
+        -210,
+        0
+      ]
+    }
+  ],
+  "review_width": 840,
+  "review_candidate_x": 430,
+  "preview_canvas": [
+    840,
+    380
+  ],
+  "preview_base": [
+    260,
+    0
+  ]
+}

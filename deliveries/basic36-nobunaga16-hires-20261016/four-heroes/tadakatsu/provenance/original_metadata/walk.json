@@ -1,0 +1,966 @@
+{
+  "hero": "tadakatsu",
+  "revision": "r3_walk_candidate_01",
+  "action": "walk",
+  "approval": "accepted",
+  "loop": true,
+  "loop_start": 1,
+  "loop_end": 8,
+  "frame_count": 8,
+  "total_ms": 1120,
+  "standing_ruler_source_px": 740,
+  "standing_ruler_target_px": 163,
+  "one_constant_body_scale": 0.22027027027027027,
+  "per_frame_bbox_height_normalization": false,
+  "original_png_preserved": true,
+  "final_downsample_only": true,
+  "image_generation_tool": "official image_gen.imagegen",
+  "direct_approved_master_reference": "../source/approved-original-master.png",
+  "detail_note": "High-resolution redrawing clarified existing armor, lacing and feather details; no new ornaments intended.",
+  "layers": [
+    "body",
+    "weapon",
+    "hand_occlusion"
+  ],
+  "ordinary_action_fx": false,
+  "world_motion": {
+    "mode": "in_place",
+    "per_frame_delta": [
+      0,
+      0
+    ],
+    "driver": "runtime_controller",
+    "preview_motion_not_baked": true
+  },
+  "preview_motion": {
+    "mode": "discrete_support_foot_lock",
+    "displacement_per_cycle": 218.68378378378378,
+    "displacement_by_frame": [
+      0.0,
+      23.12837837837838,
+      57.93108108108108,
+      107.05135135135134,
+      117.05135135135134,
+      130.48783783783784,
+      144.36486486486487,
+      208.68378378378378
+    ],
+    "step_switch_advance": 10.0,
+    "not_runtime_world_motion": true
+  },
+  "shared_idle": "../identity/registration.json",
+  "frames": [
+    {
+      "render_origin": [
+        103.25675675675676,
+        29.844594594594582
+      ],
+      "scale": 0.22027027027027027,
+      "grip_source": [
+        610,
+        430
+      ],
+      "grip_canvas": [
+        237.6216216216216,
+        124.56081081081079
+      ],
+      "hands_source": [
+        [
+          610,
+          430
+        ],
+        [
+          742,
+          420
+        ]
+      ],
+      "hands_canvas": [
+        [
+          237.6216216216216,
+          124.56081081081079
+        ],
+        [
+          266.6972972972973,
+          122.3581081081081
+        ]
+      ],
+      "weapon_angle_degrees": 85.66768601681149,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "weapon_behind": false,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_length_px": 275.0625,
+      "frame": 1,
+      "source_file": "../source/walk-01-02.png",
+      "source_component": 0,
+      "source_sha256": "0ecfb24362391bdacf3020012cd3c35a5076629b428c3635384ab3f73f013bdc",
+      "source_bbox": [
+        29,
+        22,
+        834,
+        947
+      ],
+      "source_effective_height": 925,
+      "source_root": [
+        530,
+        945
+      ],
+      "root_canvas": [
+        220,
+        238
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "duration_ms": 120,
+      "start_ms": 0,
+      "phase": "far_contact",
+      "feet_source": {
+        "near": [
+          250,
+          941
+        ],
+        "far": [
+          733,
+          936
+        ]
+      },
+      "feet_local": {
+        "near": [
+          -61.67567567567568,
+          -0.8810810810810811
+        ],
+        "far": [
+          44.714864864864865,
+          -1.9824324324324325
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          158.32432432432432,
+          237.11891891891892
+        ],
+        "far": [
+          264.71486486486486,
+          236.01756756756757
+        ]
+      },
+      "support_foot": "far",
+      "loop_next": 2,
+      "world_delta": [
+        0,
+        0
+      ],
+      "fx": null,
+      "grounded": true,
+      "preview_displacement_px": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "render_origin": [
+        -57.98108108108107,
+        32.26756756756757
+      ],
+      "scale": 0.22027027027027027,
+      "grip_source": [
+        1345,
+        430
+      ],
+      "grip_canvas": [
+        238.28243243243242,
+        126.98378378378378
+      ],
+      "hands_source": [
+        [
+          1345,
+          430
+        ],
+        [
+          1472,
+          420
+        ]
+      ],
+      "hands_canvas": [
+        [
+          238.28243243243242,
+          126.98378378378378
+        ],
+        [
+          266.2567567567568,
+          124.78108108108108
+        ]
+      ],
+      "weapon_angle_degrees": 85.49781050795903,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "weapon_behind": false,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_length_px": 275.0625,
+      "frame": 2,
+      "source_file": "../source/walk-01-02.png",
+      "source_component": 1,
+      "source_sha256": "0ecfb24362391bdacf3020012cd3c35a5076629b428c3635384ab3f73f013bdc",
+      "source_bbox": [
+        796,
+        22,
+        1513,
+        936
+      ],
+      "source_effective_height": 914,
+      "source_root": [
+        1262,
+        934
+      ],
+      "root_canvas": [
+        220,
+        238
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "duration_ms": 150,
+      "start_ms": 120,
+      "phase": "far_down_near_toeoff",
+      "feet_source": {
+        "near": [
+          1015,
+          907
+        ],
+        "far": [
+          1360,
+          930
+        ]
+      },
+      "feet_local": {
+        "near": [
+          -54.40675675675676,
+          -5.947297297297297
+        ],
+        "far": [
+          21.586486486486486,
+          -0.8810810810810811
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          165.59324324324325,
+          232.0527027027027
+        ],
+        "far": [
+          241.58648648648648,
+          237.11891891891892
+        ]
+      },
+      "support_foot": "far",
+      "loop_next": 3,
+      "world_delta": [
+        0,
+        0
+      ],
+      "fx": null,
+      "grounded": true,
+      "preview_displacement_px": [
+        23.1284,
+        0
+      ]
+    },
+    {
+      "render_origin": [
+        98.85135135135135,
+        27.421621621621625
+      ],
+      "scale": 0.22027027027027027,
+      "grip_source": [
+        640,
+        430
+      ],
+      "grip_canvas": [
+        239.82432432432432,
+        122.13783783783784
+      ],
+      "hands_source": [
+        [
+          640,
+          430
+        ],
+        [
+          760,
+          416
+        ]
+      ],
+      "hands_canvas": [
+        [
+          239.82432432432432,
+          122.13783783783784
+        ],
+        [
+          266.2567567567568,
+          119.05405405405406
+        ]
+      ],
+      "weapon_angle_degrees": 83.3455749539934,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "weapon_behind": false,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_length_px": 275.0625,
+      "frame": 3,
+      "source_file": "../source/walk-03-04.png",
+      "source_component": 0,
+      "source_sha256": "d162e109640d283de0dbbb1c495cc9c2e193d5ce99ba2812dbedba6740234f45",
+      "source_bbox": [
+        39,
+        17,
+        793,
+        958
+      ],
+      "source_effective_height": 941,
+      "source_root": [
+        550,
+        956
+      ],
+      "root_canvas": [
+        220,
+        238
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "duration_ms": 170,
+      "start_ms": 270,
+      "phase": "far_support_near_passing",
+      "feet_source": {
+        "near": [
+          556,
+          858
+        ],
+        "far": [
+          490,
+          952
+        ]
+      },
+      "feet_local": {
+        "near": [
+          1.3216216216216217,
+          -21.586486486486486
+        ],
+        "far": [
+          -13.216216216216216,
+          -0.8810810810810811
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          221.32162162162163,
+          216.41351351351352
+        ],
+        "far": [
+          206.78378378378378,
+          237.11891891891892
+        ]
+      },
+      "support_foot": "far",
+      "loop_next": 4,
+      "world_delta": [
+        0,
+        0
+      ],
+      "fx": null,
+      "grounded": true,
+      "preview_displacement_px": [
+        57.9311,
+        0
+      ]
+    },
+    {
+      "render_origin": [
+        -58.421621621621625,
+        28.963513513513504
+      ],
+      "scale": 0.22027027027027027,
+      "grip_source": [
+        1345,
+        430
+      ],
+      "grip_canvas": [
+        237.84189189189186,
+        123.67972972972971
+      ],
+      "hands_source": [
+        [
+          1345,
+          430
+        ],
+        [
+          1470,
+          420
+        ]
+      ],
+      "hands_canvas": [
+        [
+          237.84189189189186,
+          123.67972972972971
+        ],
+        [
+          265.37567567567567,
+          121.47702702702702
+        ]
+      ],
+      "weapon_angle_degrees": 85.42607874009914,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "weapon_behind": false,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_length_px": 275.0625,
+      "frame": 4,
+      "source_file": "../source/walk-03-04.png",
+      "source_component": 1,
+      "source_sha256": "d162e109640d283de0dbbb1c495cc9c2e193d5ce99ba2812dbedba6740234f45",
+      "source_bbox": [
+        776,
+        18,
+        1532,
+        951
+      ],
+      "source_effective_height": 933,
+      "source_root": [
+        1264,
+        949
+      ],
+      "root_canvas": [
+        220,
+        238
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "duration_ms": 120,
+      "start_ms": 440,
+      "phase": "far_push_near_forward_swing",
+      "feet_source": {
+        "near": [
+          1450,
+          909
+        ],
+        "far": [
+          981,
+          945
+        ]
+      },
+      "feet_local": {
+        "near": [
+          40.97027027027027,
+          -8.81081081081081
+        ],
+        "far": [
+          -62.336486486486486,
+          -0.8810810810810811
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          260.97027027027025,
+          229.1891891891892
+        ],
+        "far": [
+          157.66351351351352,
+          237.11891891891892
+        ]
+      },
+      "support_foot": "far",
+      "loop_next": 5,
+      "world_delta": [
+        0,
+        0
+      ],
+      "fx": null,
+      "grounded": true,
+      "preview_displacement_px": [
+        107.0514,
+        0
+      ]
+    },
+    {
+      "render_origin": [
+        102.81621621621622,
+        28.302702702702703
+      ],
+      "scale": 0.22027027027027027,
+      "grip_source": [
+        620,
+        430
+      ],
+      "grip_canvas": [
+        239.3837837837838,
+        123.01891891891891
+      ],
+      "hands_source": [
+        [
+          620,
+          430
+        ],
+        [
+          745,
+          420
+        ]
+      ],
+      "hands_canvas": [
+        [
+          239.3837837837838,
+          123.01891891891891
+        ],
+        [
+          266.9175675675676,
+          120.81621621621622
+        ]
+      ],
+      "weapon_angle_degrees": 85.42607874009914,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "weapon_behind": false,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_length_px": 275.0625,
+      "frame": 5,
+      "source_file": "../source/walk-05-06-corrected.png",
+      "source_component": 0,
+      "source_sha256": "40fc458dc4cdff9b9ccf45717d381b31f18ff3dd79b4de370a98b61f595ab54f",
+      "source_bbox": [
+        50,
+        11,
+        806,
+        954
+      ],
+      "source_effective_height": 943,
+      "source_root": [
+        532,
+        952
+      ],
+      "root_canvas": [
+        220,
+        238
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "duration_ms": 120,
+      "start_ms": 560,
+      "phase": "near_contact",
+      "feet_source": {
+        "near": [
+          700,
+          948
+        ],
+        "far": [
+          323,
+          931
+        ]
+      },
+      "feet_local": {
+        "near": [
+          37.005405405405405,
+          -0.8810810810810811
+        ],
+        "far": [
+          -46.03648648648649,
+          -4.625675675675676
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          257.0054054054054,
+          237.11891891891892
+        ],
+        "far": [
+          173.9635135135135,
+          233.37432432432433
+        ]
+      },
+      "support_foot": "near",
+      "loop_next": 6,
+      "world_delta": [
+        0,
+        0
+      ],
+      "fx": null,
+      "grounded": true,
+      "preview_displacement_px": [
+        117.0514,
+        0
+      ]
+    },
+    {
+      "render_origin": [
+        -60.84459459459458,
+        27.86216216216215
+      ],
+      "scale": 0.22027027027027027,
+      "grip_source": [
+        1345,
+        430
+      ],
+      "grip_canvas": [
+        235.4189189189189,
+        122.57837837837836
+      ],
+      "hands_source": [
+        [
+          1345,
+          430
+        ],
+        [
+          1490,
+          420
+        ]
+      ],
+      "hands_canvas": [
+        [
+          235.4189189189189,
+          122.57837837837836
+        ],
+        [
+          267.3581081081081,
+          120.37567567567567
+        ]
+      ],
+      "weapon_angle_degrees": 86.05481377096244,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "weapon_behind": false,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_length_px": 275.0625,
+      "frame": 6,
+      "source_file": "../source/walk-05-06-corrected.png",
+      "source_component": 1,
+      "source_sha256": "40fc458dc4cdff9b9ccf45717d381b31f18ff3dd79b4de370a98b61f595ab54f",
+      "source_bbox": [
+        797,
+        12,
+        1528,
+        956
+      ],
+      "source_effective_height": 944,
+      "source_root": [
+        1275,
+        954
+      ],
+      "root_canvas": [
+        220,
+        238
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "duration_ms": 120,
+      "start_ms": 680,
+      "phase": "near_down_far_toeoff",
+      "feet_source": {
+        "near": [
+          1382,
+          950
+        ],
+        "far": [
+          1067,
+          818
+        ]
+      },
+      "feet_local": {
+        "near": [
+          23.568918918918918,
+          -0.8810810810810811
+        ],
+        "far": [
+          -45.81621621621622,
+          -29.956756756756757
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          243.5689189189189,
+          237.11891891891892
+        ],
+        "far": [
+          174.18378378378378,
+          208.04324324324324
+        ]
+      },
+      "support_foot": "near",
+      "loop_next": 7,
+      "world_delta": [
+        0,
+        0
+      ],
+      "fx": null,
+      "grounded": true,
+      "preview_displacement_px": [
+        130.4878,
+        0
+      ]
+    },
+    {
+      "render_origin": [
+        104.13783783783784,
+        24.558108108108115
+      ],
+      "scale": 0.22027027027027027,
+      "grip_source": [
+        610,
+        430
+      ],
+      "grip_canvas": [
+        238.50270270270272,
+        119.27432432432433
+      ],
+      "hands_source": [
+        [
+          610,
+          430
+        ],
+        [
+          725,
+          420
+        ]
+      ],
+      "hands_canvas": [
+        [
+          238.50270270270272,
+          119.27432432432433
+        ],
+        [
+          263.83378378378376,
+          117.07162162162163
+        ]
+      ],
+      "weapon_angle_degrees": 85.0302592718897,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "weapon_behind": false,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_length_px": 275.0625,
+      "frame": 7,
+      "source_file": "../source/walk-07-08-corrected.png",
+      "source_component": 0,
+      "source_sha256": "bf3d2b5547b9516dd8e16917231046ac0d9f11d4cbf8d3071ac1270aa8493b7e",
+      "source_bbox": [
+        51,
+        16,
+        761,
+        971
+      ],
+      "source_effective_height": 955,
+      "source_root": [
+        526,
+        969
+      ],
+      "root_canvas": [
+        220,
+        238
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "duration_ms": 200,
+      "start_ms": 800,
+      "phase": "near_support_far_passing",
+      "feet_source": {
+        "near": [
+          570,
+          965
+        ],
+        "far": [
+          362,
+          853
+        ]
+      },
+      "feet_local": {
+        "near": [
+          9.691891891891892,
+          -0.8810810810810811
+        ],
+        "far": [
+          -36.12432432432433,
+          -25.55135135135135
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          229.69189189189188,
+          237.11891891891892
+        ],
+        "far": [
+          183.87567567567567,
+          212.44864864864866
+        ]
+      },
+      "support_foot": "near",
+      "loop_next": 8,
+      "world_delta": [
+        0,
+        0
+      ],
+      "fx": null,
+      "grounded": true,
+      "preview_displacement_px": [
+        144.3649,
+        0
+      ]
+    },
+    {
+      "render_origin": [
+        -55.77837837837836,
+        30.06486486486486
+      ],
+      "scale": 0.22027027027027027,
+      "grip_source": [
+        1335,
+        425
+      ],
+      "grip_canvas": [
+        238.28243243243247,
+        123.67972972972973
+      ],
+      "hands_source": [
+        [
+          1335,
+          425
+        ],
+        [
+          1460,
+          415
+        ]
+      ],
+      "hands_canvas": [
+        [
+          238.28243243243247,
+          123.67972972972973
+        ],
+        [
+          265.8162162162162,
+          121.47702702702702
+        ]
+      ],
+      "weapon_angle_degrees": 85.42607874009914,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "weapon_behind": false,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_length_px": 275.0625,
+      "frame": 8,
+      "source_file": "../source/walk-07-08-corrected.png",
+      "source_component": 1,
+      "source_sha256": "bf3d2b5547b9516dd8e16917231046ac0d9f11d4cbf8d3071ac1270aa8493b7e",
+      "source_bbox": [
+        768,
+        16,
+        1533,
+        946
+      ],
+      "source_effective_height": 930,
+      "source_root": [
+        1252,
+        944
+      ],
+      "root_canvas": [
+        220,
+        238
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "duration_ms": 120,
+      "start_ms": 1000,
+      "phase": "near_push_far_forward_swing",
+      "feet_source": {
+        "near": [
+          1004,
+          939
+        ],
+        "far": [
+          1444,
+          878
+        ]
+      },
+      "feet_local": {
+        "near": [
+          -54.627027027027026,
+          -1.1013513513513513
+        ],
+        "far": [
+          42.29189189189189,
+          -14.537837837837838
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          165.37297297297297,
+          236.89864864864865
+        ],
+        "far": [
+          262.2918918918919,
+          223.46216216216217
+        ]
+      },
+      "support_foot": "near",
+      "loop_next": 1,
+      "world_delta": [
+        0,
+        0
+      ],
+      "fx": null,
+      "grounded": true,
+      "preview_displacement_px": [
+        208.6838,
+        0
+      ]
+    }
+  ],
+  "runtime_integrated": false,
+  "anatomical_leg_mapping": {
+    "near": "right",
+    "far": "left"
+  },
+  "cycle_order": "left support and right swing, then right support and left swing; no duplicated idle inside loop",
+  "pre_acceptance_status": {
+    "approval": "pending_user_review"
+  },
+  "status": "accepted",
+  "approved": true,
+  "accepted": true,
+  "candidate": false,
+  "not_user_approved": false,
+  "acceptance_event_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+  "acceptance_record": "../acceptance.json"
+}

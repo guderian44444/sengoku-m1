@@ -1,0 +1,487 @@
+{
+  "hero": "ieyasu06",
+  "revision": "stunned_candidate_01",
+  "action": "stunned",
+  "approval": "accepted",
+  "loop": true,
+  "frame_count": 4,
+  "total_ms": 1080,
+  "standing_ruler_source_px": 920,
+  "standing_ruler_target_px": 152,
+  "one_constant_new_body_scale": 0.16521739130434782,
+  "per_frame_bbox_height_normalization": false,
+  "original_png_preserved": true,
+  "body_final_downsample_only": true,
+  "image_generation_tool": "official image_gen.imagegen",
+  "direct_approved_references": [
+    "ieyasu06_newspec_20261015/reference/identity06.png",
+    "ieyasu06_newspec_20261015/actions/light_1_source.png"
+  ],
+  "layers": [
+    "body",
+    "weapon",
+    "sheath",
+    "hand_occlusion"
+  ],
+  "ordinary_action_fx": false,
+  "world_motion": {
+    "mode": "runtime_controller",
+    "per_frame_delta": [
+      0,
+      0
+    ],
+    "preview_motion_not_baked": true
+  },
+  "shared_idle": "../idle/registration.json",
+  "frames": [
+    {
+      "source_file": "../sources/stunned_01_02_raw.png",
+      "source_rect": [
+        0,
+        0,
+        800,
+        1024
+      ],
+      "source_sha256": "3a08954c5e1e0d8b87dba3d97a03f1c7c178de7e7b584d395087c401b2bef0c3",
+      "source_bbox": [
+        48,
+        40,
+        762,
+        980
+      ],
+      "source_effective_height": 940,
+      "source_effective_width": 714,
+      "source_root": [
+        440,
+        964
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        147.30434782608697,
+        120.73043478260871
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        442.5,
+        521.0
+      ],
+      "grip_canvas": [
+        220.41304347826087,
+        206.80869565217392
+      ],
+      "hands_source": [
+        [
+          409,
+          520
+        ],
+        [
+          476,
+          522
+        ]
+      ],
+      "hands_canvas": [
+        [
+          214.87826086956522,
+          206.64347826086959
+        ],
+        [
+          225.94782608695652,
+          206.97391304347826
+        ]
+      ],
+      "weapon_angle_degrees": -42,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          142,
+          963
+        ],
+        "far": [
+          711,
+          956
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          170.76521739130436,
+          279.83478260869566
+        ],
+        "far": [
+          264.7739130434783,
+          278.67826086956524
+        ]
+      },
+      "support_foot": "both",
+      "frame": 1,
+      "duration_ms": 260,
+      "start_ms": 0,
+      "phase": "slump_left",
+      "event": "stun_loop_start",
+      "loop_next": 2,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/stunned_01_02_raw.png",
+      "source_rect": [
+        800,
+        0,
+        1536,
+        1024
+      ],
+      "source_sha256": "3a08954c5e1e0d8b87dba3d97a03f1c7c178de7e7b584d395087c401b2bef0c3",
+      "source_bbox": [
+        881,
+        75,
+        1532,
+        980
+      ],
+      "source_effective_height": 905,
+      "source_effective_width": 651,
+      "source_root": [
+        1260,
+        965
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        11.826086956521749,
+        120.56521739130434
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        1273.5,
+        539.0
+      ],
+      "grip_canvas": [
+        222.23043478260868,
+        209.61739130434782
+      ],
+      "hands_source": [
+        [
+          1243,
+          536
+        ],
+        [
+          1304,
+          542
+        ]
+      ],
+      "hands_canvas": [
+        [
+          217.19130434782608,
+          209.12173913043478
+        ],
+        [
+          227.2695652173913,
+          210.11304347826086
+        ]
+      ],
+      "weapon_angle_degrees": -37,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          943,
+          964
+        ],
+        "far": [
+          1460,
+          959
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          167.62608695652173,
+          279.8347826086956
+        ],
+        "far": [
+          253.04347826086956,
+          279.0086956521739
+        ]
+      },
+      "support_foot": "both",
+      "frame": 2,
+      "duration_ms": 280,
+      "start_ms": 260,
+      "phase": "wobble_forward",
+      "event": null,
+      "loop_next": 3,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/stunned_03_04_raw.png",
+      "source_rect": [
+        0,
+        0,
+        800,
+        1024
+      ],
+      "source_sha256": "9f9ba0a0fd7866773df2e5ab4edd20c3dc17164c05e239b9c137634064586961",
+      "source_bbox": [
+        68,
+        62,
+        780,
+        961
+      ],
+      "source_effective_height": 899,
+      "source_effective_width": 712,
+      "source_root": [
+        450,
+        961
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        145.6521739130435,
+        121.22608695652175
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        454.5,
+        525.5
+      ],
+      "grip_canvas": [
+        220.74347826086958,
+        208.04782608695655
+      ],
+      "hands_source": [
+        [
+          420,
+          526
+        ],
+        [
+          489,
+          525
+        ]
+      ],
+      "hands_canvas": [
+        [
+          215.04347826086956,
+          208.1304347826087
+        ],
+        [
+          226.4434782608696,
+          207.96521739130435
+        ]
+      ],
+      "weapon_angle_degrees": -40,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          145,
+          960
+        ],
+        "far": [
+          718,
+          955
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          169.60869565217394,
+          279.83478260869566
+        ],
+        "far": [
+          264.2782608695652,
+          279.0086956521739
+        ]
+      },
+      "support_foot": "both",
+      "frame": 3,
+      "duration_ms": 260,
+      "start_ms": 540,
+      "phase": "slump_center",
+      "event": null,
+      "loop_next": 4,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/stunned_03_04_raw.png",
+      "source_rect": [
+        800,
+        0,
+        1536,
+        1024
+      ],
+      "source_sha256": "9f9ba0a0fd7866773df2e5ab4edd20c3dc17164c05e239b9c137634064586961",
+      "source_bbox": [
+        818,
+        74,
+        1521,
+        961
+      ],
+      "source_effective_height": 887,
+      "source_effective_width": 703,
+      "source_root": [
+        1190,
+        962
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        23.391304347826093,
+        121.06086956521739
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        1201.5,
+        533.5
+      ],
+      "grip_canvas": [
+        221.9,
+        209.20434782608694
+      ],
+      "hands_source": [
+        [
+          1166,
+          531
+        ],
+        [
+          1237,
+          536
+        ]
+      ],
+      "hands_canvas": [
+        [
+          216.03478260869565,
+          208.7913043478261
+        ],
+        [
+          227.76521739130433,
+          209.61739130434782
+        ]
+      ],
+      "weapon_angle_degrees": -45,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          898,
+          960
+        ],
+        "far": [
+          1416,
+          954
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          171.75652173913042,
+          279.6695652173913
+        ],
+        "far": [
+          257.3391304347826,
+          278.6782608695652
+        ]
+      },
+      "support_foot": "both",
+      "frame": 4,
+      "duration_ms": 280,
+      "start_ms": 800,
+      "phase": "wobble_back",
+      "event": null,
+      "loop_next": 1,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    }
+  ],
+  "runtime_integrated": false,
+  "notes": [
+    "Four-pose planted-foot dizzy loop; no status FX or stars.",
+    "Runtime may exit to exact approved idle after stun duration; world motion remains controller-owned."
+  ],
+  "approval_basis": {
+    "message_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+    "scope": "Previously delivered current revision with no subsequent objection; run v4 excluded."
+  }
+}

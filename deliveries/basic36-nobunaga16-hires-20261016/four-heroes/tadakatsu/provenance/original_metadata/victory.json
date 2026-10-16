@@ -1,0 +1,433 @@
+{
+  "hero": "tadakatsu",
+  "action": "victory",
+  "revision": "r3_candidate_01",
+  "status": "accepted",
+  "loop": false,
+  "terminal_hold": true,
+  "terminal_event": "victory_hold",
+  "frame_count": 4,
+  "total_ms": 1140,
+  "standing_ruler_target_px": 163,
+  "standing_ruler_source_px": 740,
+  "body_scale": 0.22027027027027027,
+  "per_frame_bbox_normalization": false,
+  "preserve_original_png": true,
+  "body_resample": "once from original high-resolution source to final scale",
+  "world_motion": {
+    "mode": "in_place",
+    "driver": "runtime_controller",
+    "preview_displacement_not_baked": true
+  },
+  "preview_motion": {
+    "mode": "in_place"
+  },
+  "ordinary_action_fx": false,
+  "imagegen": "official image_gen.imagegen",
+  "identity_references": [
+    "../source/approved-original-master.png",
+    "../source/walk-01-02.png"
+  ],
+  "shared_idle": "../identity/registration.json",
+  "frames": [
+    {
+      "scale": 0.44054054054054054,
+      "render_origin": [
+        109.15945945945947,
+        112.13513513513513
+      ],
+      "root_source": [
+        297,
+        490
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "hands_canvas": [
+        [
+          248.37027027027028,
+          227.11621621621623
+        ],
+        [
+          290.22162162162164,
+          223.15135135135137
+        ]
+      ],
+      "weapon_grip_canvas": [
+        248.37027027027028,
+        227.11621621621623
+      ],
+      "weapon_angle_degrees": 84.58813084768298,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          175.24054054054056,
+          330.6432432432432
+        ],
+        "left": [
+          296.3891891891892,
+          325.7972972972973
+        ]
+      },
+      "frame": 1,
+      "phase": "approved_idle",
+      "event": "approved_idle",
+      "duration_ms": 100,
+      "start_ms": 0,
+      "reused_approved": true,
+      "source_file": "victory/source/idle-approved.png",
+      "source_sha256": "59da5eaaa3ea181c375ff4781f96d7d57725a149fcd4c629b87d79a0059a8d30",
+      "source_bbox": [
+        46,
+        29,
+        469,
+        502
+      ],
+      "source_effective_height": 473,
+      "source_effective_max_dimension": 473,
+      "standing_ruler_source_px": 370,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 2,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        127.66216216216216,
+        118.74324324324326
+      ],
+      "root_source": [
+        510,
+        950
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          502,
+          438
+        ]
+      ],
+      "hands_canvas": [
+        [
+          238.23783783783784,
+          215.22162162162164
+        ]
+      ],
+      "weapon_grip_canvas": [
+        238.23783783783784,
+        215.22162162162164
+      ],
+      "weapon_angle_degrees": 40,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          247,
+          949
+        ],
+        "left": [
+          708,
+          935
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          182.0689189189189,
+          327.77972972972975
+        ],
+        "left": [
+          283.6135135135135,
+          324.69594594594594
+        ]
+      },
+      "frame": 2,
+      "phase": "lift_chest_fist",
+      "event": "lift_chest_fist",
+      "duration_ms": 180,
+      "start_ms": 100,
+      "reused_approved": false,
+      "source_file": "victory/source/victory-01-02.png",
+      "source_sha256": "b7dd5b3ebeccff5f903d6e90980e416dfd4f174a9b0fe840a12d6fc8f6a467d4",
+      "source_bbox": [
+        32,
+        14,
+        799,
+        967
+      ],
+      "source_effective_height": 953,
+      "source_effective_max_dimension": 953,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 3,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        -37.54054054054052,
+        118.74324324324326
+      ],
+      "root_source": [
+        1260,
+        950
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          1253,
+          441
+        ]
+      ],
+      "hands_canvas": [
+        [
+          238.45810810810815,
+          215.88243243243244
+        ]
+      ],
+      "weapon_grip_canvas": [
+        238.45810810810815,
+        215.88243243243244
+      ],
+      "weapon_angle_degrees": 25,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          998,
+          952
+        ],
+        "left": [
+          1457,
+          937
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          182.28918918918922,
+          328.44054054054055
+        ],
+        "left": [
+          283.39324324324326,
+          325.1364864864865
+        ]
+      },
+      "frame": 3,
+      "phase": "raise_victory_fist",
+      "event": "raise_victory_fist",
+      "duration_ms": 160,
+      "start_ms": 280,
+      "reused_approved": false,
+      "source_file": "victory/source/victory-01-02.png",
+      "source_sha256": "b7dd5b3ebeccff5f903d6e90980e416dfd4f174a9b0fe840a12d6fc8f6a467d4",
+      "source_bbox": [
+        783,
+        14,
+        1529,
+        967
+      ],
+      "source_effective_height": 953,
+      "source_effective_max_dimension": 953,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 4,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        -34.23648648648651,
+        115.87972972972972
+      ],
+      "root_source": [
+        1245,
+        963
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          1210,
+          476
+        ]
+      ],
+      "hands_canvas": [
+        [
+          232.29054054054052,
+          220.72837837837835
+        ]
+      ],
+      "weapon_grip_canvas": [
+        232.29054054054052,
+        220.72837837837835
+      ],
+      "weapon_angle_degrees": 25,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          968,
+          960
+        ],
+        "left": [
+          1449,
+          933
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          178.9851351351351,
+          327.33918918918914
+        ],
+        "left": [
+          284.9351351351351,
+          321.3918918918919
+        ]
+      },
+      "frame": 4,
+      "phase": "victory_hold",
+      "event": "victory_hold",
+      "duration_ms": 700,
+      "start_ms": 440,
+      "reused_approved": false,
+      "source_file": "victory/source/victory-03-04.png",
+      "source_sha256": "afee8f9b1c7338cbd4e8f6a2ddcee1268e9cfb7286344d97c32986d5d6e7a413",
+      "source_bbox": [
+        793,
+        37,
+        1536,
+        983
+      ],
+      "source_effective_height": 946,
+      "source_effective_max_dimension": 946,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": null,
+      "fx": null
+    }
+  ],
+  "runtime_integrated": false,
+  "pre_acceptance_status": {
+    "status": "candidate_pending_user"
+  },
+  "approval": "accepted",
+  "approved": true,
+  "accepted": true,
+  "candidate": false,
+  "not_user_approved": false,
+  "acceptance_event_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+  "acceptance_record": "../acceptance.json"
+}

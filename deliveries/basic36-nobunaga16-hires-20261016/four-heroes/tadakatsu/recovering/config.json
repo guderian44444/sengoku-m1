@@ -1,0 +1,199 @@
+{
+  "loop": false,
+  "terminal_event": "return_to_idle",
+  "standing_ruler_source_px": 1050,
+  "frames": [
+    {
+      "file": "down-handoff.png",
+      "root": [
+        830,
+        971
+      ],
+      "hands": [],
+      "feet": {
+        "right": [
+          1360,
+          889
+        ],
+        "left": [
+          1450,
+          726
+        ]
+      },
+      "phase": "down_handoff",
+      "duration": 100,
+      "angle": 90,
+      "weapon_grip_canvas": [
+        210,
+        326
+      ],
+      "weapon_detached": true,
+      "body_offset": [
+        -60,
+        0
+      ],
+      "grounded": true,
+      "support": "back_hip_cape",
+      "event": "down_hold_or_death",
+      "reused_approved": true
+    },
+    {
+      "file": "recovering-01.png",
+      "root": [
+        830,
+        971
+      ],
+      "hands": [],
+      "feet": {
+        "right": [
+          1307,
+          974
+        ],
+        "left": [
+          1432,
+          842
+        ]
+      },
+      "phase": "push_up_from_ground",
+      "duration": 120,
+      "weapon_detached": true,
+      "weapon_grip_canvas": [
+        210,
+        326
+      ],
+      "angle": 90,
+      "body_offset": [
+        -60,
+        0
+      ],
+      "support": "left_palm_hips"
+    },
+    {
+      "file": "recovering-02.png",
+      "root": [
+        600,
+        1150
+      ],
+      "hands": [],
+      "feet": {
+        "right": [
+          319,
+          1142
+        ],
+        "left": [
+          796,
+          1131
+        ]
+      },
+      "phase": "draw_knees_under",
+      "duration": 130,
+      "weapon_detached": true,
+      "weapon_grip_canvas": [
+        210,
+        326
+      ],
+      "angle": 90,
+      "body_offset": [
+        -25,
+        0
+      ],
+      "support": "palm_knees"
+    },
+    {
+      "file": "recovering-03.png",
+      "root": [
+        640,
+        1360
+      ],
+      "hands": [
+        [
+          658,
+          1145
+        ]
+      ],
+      "feet": {
+        "right": [
+          904,
+          1360
+        ],
+        "left": [
+          241,
+          1348
+        ]
+      },
+      "phase": "kneel_retrieve_spear",
+      "duration": 150,
+      "angle": 86,
+      "body_offset": [
+        -10,
+        0
+      ],
+      "support": "left_knee_right_foot"
+    },
+    {
+      "file": "recovering-04-v2.png",
+      "root": [
+        650,
+        1363
+      ],
+      "hands": [
+        [
+          696,
+          689
+        ],
+        [
+          940,
+          668
+        ]
+      ],
+      "feet": {
+        "right": [
+          256,
+          1366
+        ],
+        "left": [
+          903,
+          1299
+        ]
+      },
+      "phase": "rise_with_spear",
+      "duration": 150,
+      "support": "both"
+    },
+    {
+      "file": "idle-approved.png",
+      "root": [
+        297,
+        490
+      ],
+      "hands": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "feet": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "phase": "recover_idle",
+      "duration": 220,
+      "scale": 0.44054054054054054,
+      "reused_approved": true,
+      "hand_radius": 15,
+      "support": "both",
+      "standing_ruler_source_px": 370,
+      "event": "recovering_complete"
+    }
+  ]
+}

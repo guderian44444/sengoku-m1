@@ -1,0 +1,293 @@
+{
+  "loop": true,
+  "description": "修版：保留兩contact，新增兩個窄身體下方passing。原後腿由後側前擺到支撐小腿旁，再向前伸入下一contact；一cycle左右各一步。",
+  "idle_start": null,
+  "idle_end": null,
+  "representative": 2,
+  "frames": [
+    {
+      "src": "contacts.png",
+      "side": 0,
+      "scale": 0.164,
+      "head": [
+        434,
+        30,
+        623,
+        222
+      ],
+      "hands": [
+        416,
+        376,
+        560,
+        458
+      ],
+      "grip": [
+        490,
+        420
+      ],
+      "feet": {
+        "near": [
+          82,
+          693
+        ],
+        "far": [
+          748,
+          915
+        ]
+      },
+      "origin": [
+        475,
+        921
+      ],
+      "angle": 117,
+      "duration_ms": 90,
+      "phase": "far_contact_near_trails",
+      "support": "far",
+      "world": [
+        0,
+        0
+      ],
+      "preview": [
+        0,
+        0
+      ],
+      "event": "far_step"
+    },
+    {
+      "src": "final_passing_near.png",
+      "side": 0,
+      "scale": 0.115,
+      "head": [
+        802,
+        151,
+        1071,
+        425
+      ],
+      "hands": [
+        776,
+        644,
+        981,
+        761
+      ],
+      "grip": [
+        881.391,
+        707.217
+      ],
+      "feet": {
+        "near": [
+          752,
+          1260
+        ],
+        "far": [
+          865,
+          1410
+        ]
+      },
+      "origin": [
+        802,
+        1424
+      ],
+      "angle": 119,
+      "duration_ms": 90,
+      "phase": "far_support_near_passes_under_hips",
+      "support": "far",
+      "world": [
+        37.527,
+        0.626
+      ],
+      "preview": [
+        0,
+        0
+      ]
+    },
+    {
+      "src": "low_flight.png",
+      "side": 0,
+      "scale": 0.164,
+      "head": [
+        454,
+        84,
+        642,
+        254
+      ],
+      "hands": [
+        472,
+        430,
+        594,
+        508
+      ],
+      "grip": [
+        535,
+        469
+      ],
+      "feet": {
+        "near": [
+          665,
+          875
+        ],
+        "far": [
+          146,
+          779
+        ]
+      },
+      "origin": [
+        473,
+        946
+      ],
+      "angle": 118,
+      "duration_ms": 60,
+      "phase": "short_flight_near_reaches",
+      "support": "air",
+      "world": [
+        56.3635,
+        0
+      ],
+      "preview": [
+        0,
+        0
+      ]
+    },
+    {
+      "src": "contacts.png",
+      "side": 1,
+      "scale": 0.164,
+      "head": [
+        1170,
+        43,
+        1357,
+        224
+      ],
+      "hands": [
+        1152,
+        386,
+        1293,
+        466
+      ],
+      "grip": [
+        1220,
+        429
+      ],
+      "feet": {
+        "near": [
+          1426,
+          918
+        ],
+        "far": [
+          922,
+          707
+        ]
+      },
+      "origin": [
+        1203,
+        925
+      ],
+      "angle": 117,
+      "duration_ms": 90,
+      "phase": "near_contact_far_trails",
+      "support": "near",
+      "world": [
+        75.2,
+        0.164
+      ],
+      "preview": [
+        0,
+        0
+      ],
+      "event": "near_step"
+    },
+    {
+      "src": "final_passing_far.png",
+      "side": 0,
+      "scale": 0.115,
+      "head": [
+        788,
+        155,
+        1055,
+        413
+      ],
+      "hands": [
+        762,
+        644,
+        963,
+        758
+      ],
+      "grip": [
+        859.243,
+        705.052
+      ],
+      "feet": {
+        "near": [
+          702,
+          1417
+        ],
+        "far": [
+          846,
+          1260
+        ]
+      },
+      "origin": [
+        774,
+        1426
+      ],
+      "angle": 119,
+      "duration_ms": 90,
+      "phase": "near_support_far_passes_under_hips",
+      "support": "near",
+      "world": [
+        120.052,
+        0.051
+      ],
+      "preview": [
+        0,
+        0
+      ]
+    },
+    {
+      "src": "low_flight.png",
+      "side": 1,
+      "scale": 0.164,
+      "head": [
+        1221,
+        92,
+        1415,
+        272
+      ],
+      "hands": [
+        1284,
+        435,
+        1402,
+        511
+      ],
+      "grip": [
+        1343,
+        475
+      ],
+      "feet": {
+        "near": [
+          971,
+          782
+        ],
+        "far": [
+          1457,
+          886
+        ]
+      },
+      "origin": [
+        1261,
+        956
+      ],
+      "angle": 118,
+      "duration_ms": 60,
+      "phase": "short_flight_far_reaches",
+      "support": "air",
+      "world": [
+        127.026,
+        0
+      ],
+      "preview": [
+        0,
+        0
+      ]
+    }
+  ]
+}

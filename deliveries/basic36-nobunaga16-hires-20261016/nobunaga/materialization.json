@@ -1,0 +1,93 @@
+{
+  "schema": "nobunaga-transparent-source-materialization-v1",
+  "source_art_unmodified": true,
+  "new_art_generated": false,
+  "runtime_site_git_modified": false,
+  "background_rgb": [
+    37,
+    39,
+    43
+  ],
+  "clips": {
+    "grab_hold": {
+      "frames": 9,
+      "mapping": "nobunaga_final_approved/grab_hold/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/grab_hold/frames-composite"
+    },
+    "grab_hit_1": {
+      "frames": 13,
+      "mapping": "nobunaga_final_approved/grab_hit_1/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/grab_hit_1/frames-composite"
+    },
+    "grab_hit_2": {
+      "frames": 13,
+      "mapping": "nobunaga_final_approved/grab_hit_2/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/grab_hit_2/frames-composite"
+    },
+    "grab_start": {
+      "frames": 12,
+      "mapping": "nobunaga_final_approved/grab_start/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/grab_start/frames-composite"
+    },
+    "throw_forward": {
+      "frames": 19,
+      "mapping": "nobunaga_final_approved/throw_forward/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/throw_forward/frames-composite"
+    },
+    "light_1": {
+      "frames": 16,
+      "mapping": "nobunaga_final_approved/light_1/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/light_1/frames-composite"
+    },
+    "light_2": {
+      "frames": 15,
+      "mapping": "nobunaga_final_approved/light_2/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/light_2/frames-composite"
+    },
+    "light_3": {
+      "frames": 15,
+      "mapping": "nobunaga_final_approved/light_3/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/light_3/frames-composite"
+    },
+    "heavy": {
+      "frames": 16,
+      "mapping": "nobunaga_final_approved/heavy/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/heavy/frames-composite"
+    },
+    "dash_heavy": {
+      "frames": 14,
+      "mapping": "nobunaga_final_approved/dash_heavy/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/dash_heavy/frames-composite"
+    },
+    "air_light": {
+      "frames": 16,
+      "mapping": "nobunaga_final_approved/air_light/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/air_light/frames-composite"
+    },
+    "air_heavy": {
+      "frames": 16,
+      "mapping": "nobunaga_final_approved/air_heavy/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/air_heavy/frames-composite"
+    },
+    "charge_ready": {
+      "frames": 9,
+      "mapping": "nobunaga_final_approved/charge_ready/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/charge_ready/frames-composite"
+    },
+    "charge_hold": {
+      "frames": 9,
+      "mapping": "nobunaga_final_approved/charge_hold/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/charge_hold/frames-composite"
+    },
+    "charge_release": {
+      "frames": 24,
+      "mapping": "nobunaga_final_approved/charge_release/source-mapping.json",
+      "frame_directory": "nobunaga_final_approved/charge_release/frames-composite"
+    }
+  },
+  "limitations": [
+    "RGB matte is lossless on approved BG at native size; RGBA resampling is not mathematically identical to original RGB resampling. Per-frame measured differences are provided.",
+    "Grab-start first8, forwarded recovery, and charge composites preserve original donor/template sources and rendering recipe; precomposing then resizing can differ from independently transformed layers.",
+    "No runtime weapon sockets, hitboxes, victim attachment or event contract is invented."
+  ]
+}

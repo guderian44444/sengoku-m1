@@ -1,0 +1,302 @@
+{
+  "loop": false,
+  "terminal_event": "return_to_idle",
+  "frames": [
+    {
+      "file": "idle-approved.png",
+      "root": [
+        297,
+        490
+      ],
+      "hands": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "feet": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "phase": "approved_idle",
+      "duration": 80,
+      "scale": 0.44054054054054054,
+      "reused_approved": true,
+      "hand_radius": 15,
+      "support": "both",
+      "standing_ruler_source_px": 370
+    },
+    {
+      "file": "jump-preload-takeoff-v2.png",
+      "component": 0,
+      "root": [
+        505,
+        942
+      ],
+      "hands": [
+        [
+          439,
+          616
+        ],
+        [
+          598,
+          636
+        ]
+      ],
+      "feet": {
+        "right": [
+          240,
+          940
+        ],
+        "left": [
+          682,
+          936
+        ]
+      },
+      "phase": "preload",
+      "event": "jump_deep_preload_chest_lean",
+      "grounded": true,
+      "support": "both",
+      "duration": 140,
+      "body_offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "file": "jump-takeoff-v3.png",
+      "component": 0,
+      "root": [
+        848,
+        950
+      ],
+      "hands": [
+        [
+          1025,
+          282
+        ],
+        [
+          1229,
+          291
+        ]
+      ],
+      "feet": {
+        "right": [
+          565,
+          960
+        ],
+        "left": [
+          818,
+          940
+        ]
+      },
+      "phase": "takeoff",
+      "event": "jump_triple_extension_takeoff",
+      "grounded": false,
+      "support": null,
+      "duration": 80,
+      "body_offset": [
+        0,
+        -8
+      ]
+    },
+    {
+      "file": "jump-03-04.png",
+      "component": 0,
+      "root": [
+        530,
+        950
+      ],
+      "hands": [
+        [
+          580,
+          415
+        ],
+        [
+          795,
+          416
+        ]
+      ],
+      "feet": {
+        "right": [
+          305,
+          837
+        ],
+        "left": [
+          650,
+          700
+        ]
+      },
+      "phase": "ascent",
+      "event": "jump_ascent",
+      "grounded": false,
+      "support": null,
+      "duration": 90,
+      "body_offset": [
+        0,
+        -45
+      ]
+    },
+    {
+      "file": "jump-03-04.png",
+      "component": 1,
+      "root": [
+        1240,
+        950
+      ],
+      "hands": [
+        [
+          1290,
+          413
+        ],
+        [
+          1476,
+          382
+        ]
+      ],
+      "feet": {
+        "right": [
+          1138,
+          782
+        ],
+        "left": [
+          1230,
+          772
+        ]
+      },
+      "phase": "apex",
+      "event": "jump_apex",
+      "grounded": false,
+      "support": null,
+      "duration": 100,
+      "body_offset": [
+        0,
+        -65
+      ]
+    },
+    {
+      "file": "jump-05-06.png",
+      "component": 0,
+      "root": [
+        470,
+        950
+      ],
+      "hands": [
+        [
+          535,
+          360
+        ],
+        [
+          700,
+          370
+        ]
+      ],
+      "feet": {
+        "right": [
+          460,
+          845
+        ],
+        "left": [
+          565,
+          865
+        ]
+      },
+      "phase": "descent",
+      "event": "jump_descent",
+      "grounded": false,
+      "support": null,
+      "duration": 90,
+      "body_offset": [
+        0,
+        -35
+      ]
+    },
+    {
+      "file": "jump-05-06.png",
+      "component": 1,
+      "root": [
+        1250,
+        935
+      ],
+      "hands": [
+        [
+          1308,
+          540
+        ],
+        [
+          1466,
+          528
+        ]
+      ],
+      "feet": {
+        "right": [
+          1030,
+          929
+        ],
+        "left": [
+          1422,
+          921
+        ]
+      },
+      "phase": "landing_compression",
+      "event": "jump_landing_compression",
+      "grounded": true,
+      "support": "both",
+      "duration": 120,
+      "body_offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "file": "idle-approved.png",
+      "root": [
+        297,
+        490
+      ],
+      "hands": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "feet": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "phase": "recover_idle",
+      "duration": 200,
+      "scale": 0.44054054054054054,
+      "reused_approved": true,
+      "hand_radius": 15,
+      "support": "both",
+      "event": "jump_complete",
+      "standing_ruler_source_px": 370
+    }
+  ],
+  "preview_motion": {
+    "mode": "vertical_jump_demo",
+    "runtime_vertical_arc_not_baked_into_world_delta": true
+  },
+  "revision": "r3_candidate_02_stronger_anticipation"
+}

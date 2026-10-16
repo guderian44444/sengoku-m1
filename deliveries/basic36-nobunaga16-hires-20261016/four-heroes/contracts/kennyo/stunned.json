@@ -1,0 +1,301 @@
+{
+  "schema": "sengoku.animation.frames.v1",
+  "character": "kennyo",
+  "action": "stunned",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 163,
+  "frame_count": 4,
+  "total_duration_ms": 800,
+  "loop": true,
+  "terminal_hold": false,
+  "runtime_tested": false,
+  "source_metadata": "kennyo/stunned/metadata.json",
+  "all_file_paths_relative_to": "final_git_bundle root",
+  "frames": [
+    {
+      "frame_index": 0,
+      "duration_ms": 200,
+      "start_ms": 0,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          235.16747639484976,
+          325.0
+        ],
+        "landmark_1": [
+          330.484,
+          325.0
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          281.5140429184549,
+          230.5579399141631
+        ],
+        [
+          274.5183347639485,
+          220.93884120171674
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        281.5140429184549,
+        230.5579399141631
+      ],
+      "weapon_angle_degrees": -36.02737338510355,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/stunned/body_01.png",
+        "weapon": "kennyo/stunned/weapon_01.png",
+        "hand_occlusion": "kennyo/stunned/hand_occlusion_01.png"
+      },
+      "composite": "kennyo/stunned/composite_01.png",
+      "events": [
+        "loop_start"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/stunned12-original.png",
+        "metadata_base": "kennyo/stunned"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 1,
+      "duration_ms": 200,
+      "start_ms": 200,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          237.26618884120168,
+          325.0
+        ],
+        "landmark_1": [
+          330.484,
+          325.0
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          278.0161888412017,
+          233.181330472103
+        ],
+        [
+          271.02048068669524,
+          225.31115879828326
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        278.0161888412017,
+        233.181330472103
+      ],
+      "weapon_angle_degrees": -41.6335393365703,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/stunned/body_02.png",
+        "weapon": "kennyo/stunned/weapon_02.png",
+        "hand_occlusion": "kennyo/stunned/hand_occlusion_02.png"
+      },
+      "composite": "kennyo/stunned/composite_02.png",
+      "events": [],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/stunned12-original.png",
+        "metadata_base": "kennyo/stunned"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 2,
+      "duration_ms": 200,
+      "start_ms": 400,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          230.7951587982832,
+          325.0
+        ],
+        "landmark_1": [
+          330.484,
+          325.0
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          282.3885064377682,
+          233.35622317596568
+        ],
+        [
+          275.39279828326175,
+          224.61158798283265
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        282.3885064377682,
+        233.35622317596568
+      ],
+      "weapon_angle_degrees": -38.65980825409027,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/stunned/body_03.png",
+        "weapon": "kennyo/stunned/weapon_03.png",
+        "hand_occlusion": "kennyo/stunned/hand_occlusion_03.png"
+      },
+      "composite": "kennyo/stunned/composite_03.png",
+      "events": [],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/stunned34-original.png",
+        "metadata_base": "kennyo/stunned"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 3,
+      "duration_ms": 200,
+      "start_ms": 600,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          229.39601716738196,
+          325.0
+        ],
+        "landmark_1": [
+          330.484,
+          325.0
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          278.0161888412017,
+          236.8540772532189
+        ],
+        [
+          269.2715536480687,
+          229.85836909871244
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        278.0161888412017,
+        236.8540772532189
+      ],
+      "weapon_angle_degrees": -51.34019174590985,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/stunned/body_04.png",
+        "weapon": "kennyo/stunned/weapon_04.png",
+        "hand_occlusion": "kennyo/stunned/hand_occlusion_04.png"
+      },
+      "composite": "kennyo/stunned/composite_04.png",
+      "events": [
+        "loop_end_to_1"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/stunned34-original.png",
+        "metadata_base": "kennyo/stunned"
+      },
+      "runtime_tested": false
+    }
+  ]
+}

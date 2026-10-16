@@ -1,0 +1,20 @@
+Final approved audit: 16 clips, 232 frames, 10,520 ms. All16 GIF SHA-256 hashes match; every selected review PNG quantizes pixel-exact to its approved GIF. The old delivery manifest top-level 248/10840 totals and candidate statuses are stale. Reverse is planted_v2,16x50ms.
+
+Materialized15 non-reverse clips:216 original-resolution transparent PNG masters. No review/game PNG was upscaled. All216 reconstruct the approved native/cleaned native/composited source pixel-exact on background RGB(37,39,43). This does not mean every RGBA resize is pixel-exact to the review, because original reviews often resized RGB or independently transformed body and weapon layers. Every measured difference is in the per-clip source-mapping and verification-summary.
+
+Source hazards resolved:
+- light_2 uses only candidate-f-selected-sources; earlier candidates are excluded.
+- light_3 uses only15 selected review.json measurement paths, not all25 files in frames-native.
+- heavy candidate-review-c uses matching parent native/review files; older candidate-review is excluded.
+- grab_start first8 use candidate-b corrected canonical-blade recipe; old native004/005 are not authoritative. Exact body/template render recipes and original-sized layers are included.
+- throw_forward native000..008 plus original-native grab_start recovery009..000; no review upscaling.
+
+Remaining integration gaps:
+- Most original melee/air/charge native sources were RGB. Transparency was derived from the same approved background cleanup and exact flat background key. Color-edge/alpha resampling differences are quantified, not hidden; arbitrary-background edge quality has not been visually signed off.
+- Grab-start first8 and corresponding forward recovery, plus charge-ready/hold, need the supplied separate-layer recipes to reproduce review pixels exactly. A single precomposed-native resize is close but not bit-exact.
+- Charge-release has existing review-sized actor/body/weapon/front-FX/back-FX001..023, copied unchanged, plus rebuilt original-scale native layers001..023. Frame000 has complete actor-composite, no FX, and no independent body/weapon separation. Existing native body donors and canonical blade are retained.
+- No dedicated hand-occlusion PNG tracks were found. Most swords/hands remain fused into actors. Some local canonical-steel templates and approved layer ordering are available, but they are not full per-frame socket/occlusion rigs.
+- Art landmarks, root/feet/scale transforms and terminal/FX timings are advisory. Runtime start/end events, hitboxes/hurtboxes, weapon sockets, victim attachment and world-scale contract must be preserved/verified by integration; this audit invents none.
+- Reverse master preparation is owned by the other worker; its final16 approved RGBA sources and current metadata are inventoried here without modification.
+
+Source visuals, runtime, site and Git were not changed by this audit/materialization task.

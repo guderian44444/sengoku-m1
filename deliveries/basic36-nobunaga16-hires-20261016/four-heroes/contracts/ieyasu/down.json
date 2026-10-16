@@ -1,0 +1,223 @@
+{
+  "schema": "sengoku.animation.frames.v1",
+  "character": "ieyasu",
+  "action": "down",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 152,
+  "frame_count": 2,
+  "total_duration_ms": 1030,
+  "loop": false,
+  "terminal_hold": true,
+  "runtime_tested": false,
+  "source_metadata": "ieyasu/down/metadata.json",
+  "all_file_paths_relative_to": "final_git_bundle root",
+  "frames": [
+    {
+      "frame_index": 0,
+      "duration_ms": 130,
+      "start_ms": 0,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          286.63768115942025,
+          278.12753623188405
+        ],
+        "far": [
+          285.536231884058,
+          247.8376811594203
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          197.31014492753621,
+          250.9217391304348
+        ],
+        [
+          202.7072463768116,
+          243.54202898550724
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        197.31014492753621,
+        250.9217391304348
+      ],
+      "weapon_angle_degrees": -110,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/down/body_01.png",
+        "weapon": "ieyasu/down/weapon_01.png",
+        "hand_occlusion": "ieyasu/down/hand_occlusion_01.png"
+      },
+      "composite": "ieyasu/down/composite_01.png",
+      "events": [
+        "down_contact",
+        "landing"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "native_body_original",
+            "path": "sources/down_impact_high_raw.png",
+            "sha256": "72435b4b16d51538715856d1b9f8a1b1c288df9f184e1a6329f51aec3cc9d2eb",
+            "source_rect": null,
+            "source_bbox": [
+              53,
+              333,
+              1497,
+              963
+            ],
+            "source_effective_height": 630,
+            "source_standing_ruler": 1380,
+            "source_root": [
+              785,
+              963
+            ],
+            "render_origin": [
+              133.53623188405797,
+              173.9304347826087
+            ],
+            "scale": 0.11014492753623188
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 1,
+      "duration_ms": 900,
+      "start_ms": 130,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          286.19710144927535,
+          278.7884057971014
+        ],
+        "far": [
+          286.85797101449276,
+          260.063768115942
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          200.61449275362318,
+          254.22608695652173
+        ],
+        [
+          209.09565217391304,
+          245.0840579710145
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        200.61449275362318,
+        254.22608695652173
+      ],
+      "weapon_angle_degrees": -110,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/down/body_02.png",
+        "weapon": "ieyasu/down/weapon_02.png",
+        "hand_occlusion": "ieyasu/down/hand_occlusion_02.png"
+      },
+      "composite": "ieyasu/down/composite_02.png",
+      "events": [
+        "hold_until_recovering",
+        "settle"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "native_body_original",
+            "path": "sources/down_hold_high_raw.png",
+            "sha256": "d40aeabfda005fcfdbdec3c3afec2106bfd8d771fa51faea532557edca09b7b3",
+            "source_rect": null,
+            "source_bbox": [
+              39,
+              289,
+              1509,
+              906
+            ],
+            "source_effective_height": 617,
+            "source_standing_ruler": 1380,
+            "source_root": [
+              790,
+              906
+            ],
+            "render_origin": [
+              132.9855072463768,
+              180.2086956521739
+            ],
+            "scale": 0.11014492753623188
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    }
+  ]
+}

@@ -1,0 +1,817 @@
+{
+  "schema": "sengoku.animation.frames.v1",
+  "character": "ieyasu",
+  "action": "jump",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 152,
+  "frame_count": 8,
+  "total_duration_ms": 980,
+  "loop": false,
+  "terminal_hold": false,
+  "runtime_tested": false,
+  "source_metadata": "ieyasu/jump/metadata.json",
+  "all_file_paths_relative_to": "final_git_bundle root",
+  "frames": [
+    {
+      "frame_index": 0,
+      "duration_ms": 80,
+      "start_ms": 0,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        224.08,
+        201.06
+      ],
+      "weapon_angle_degrees": -55,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/jump/body_01.png",
+        "weapon": "ieyasu/jump/weapon_01.png",
+        "hand_occlusion": "ieyasu/jump/hand_occlusion_01.png"
+      },
+      "composite": "ieyasu/jump/composite_01.png",
+      "events": [],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "exact_approved_idle",
+            "path": "approved_reference/actions/light_1/composite_00.png",
+            "sha256": "76c10684c21263aed9a5b1ae883358f2ba08ccd2ebd5d6e5ecfb6fc12d868dd9",
+            "export_translation_only": [
+              85,
+              35
+            ],
+            "source_is_preapproved_game_sprite": true
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 1,
+      "duration_ms": 120,
+      "start_ms": 80,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          168.61739130434785,
+          279.33913043478265
+        ],
+        "far": [
+          258.9913043478261,
+          278.3478260869565
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          218.34782608695653,
+          229.44347826086957
+        ],
+        [
+          228.9217391304348,
+          229.44347826086957
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        223.63478260869567,
+        229.44347826086957
+      ],
+      "weapon_angle_degrees": -45,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/jump/body_02.png",
+        "weapon": "ieyasu/jump/weapon_02.png",
+        "hand_occlusion": "ieyasu/jump/hand_occlusion_02.png"
+      },
+      "composite": "ieyasu/jump/composite_02.png",
+      "events": [],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "native_body_original",
+            "path": "sources/jump_01_02_raw.png",
+            "sha256": "d48b9849c52ed9c760e65764c3df38ec96299c45c2fc12d9a5183fa89dbbeb54",
+            "source_rect": [
+              0,
+              0,
+              800,
+              1024
+            ],
+            "source_bbox": [
+              76,
+              218,
+              762,
+              973
+            ],
+            "source_effective_height": 755,
+            "source_root": [
+              455,
+              960
+            ],
+            "render_origin": [
+              144.82608695652175,
+              121.3913043478261
+            ],
+            "scale": 0.16521739130434782
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 2,
+      "duration_ms": 80,
+      "start_ms": 200,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          170.2695652173913,
+          279.6695652173913
+        ],
+        "far": [
+          240.65217391304347,
+          278.3478260869565
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          217.68695652173912,
+          202.18260869565216
+        ],
+        [
+          228.26086956521738,
+          202.18260869565216
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        222.97391304347826,
+        202.18260869565216
+      ],
+      "weapon_angle_degrees": -55,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/jump/body_03.png",
+        "weapon": "ieyasu/jump/weapon_03.png",
+        "hand_occlusion": "ieyasu/jump/hand_occlusion_03.png"
+      },
+      "composite": "ieyasu/jump/composite_03.png",
+      "events": [
+        "jump_takeoff"
+      ],
+      "preview_displacement_px": [
+        0,
+        -18
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "native_body_original",
+            "path": "sources/jump_01_02_raw.png",
+            "sha256": "d48b9849c52ed9c760e65764c3df38ec96299c45c2fc12d9a5183fa89dbbeb54",
+            "source_rect": [
+              800,
+              0,
+              1536,
+              1024
+            ],
+            "source_bbox": [
+              867,
+              48,
+              1444,
+              973
+            ],
+            "source_effective_height": 925,
+            "source_root": [
+              1235,
+              960
+            ],
+            "render_origin": [
+              15.956521739130437,
+              121.3913043478261
+            ],
+            "scale": 0.16521739130434782
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 3,
+      "duration_ms": 180,
+      "start_ms": 280,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          185.63478260869567,
+          255.54782608695652
+        ],
+        "far": [
+          226.2782608695652,
+          243.6521739130435
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          214.7130434782609,
+          182.02608695652174
+        ],
+        [
+          227.76521739130436,
+          181.69565217391306
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        221.23913043478262,
+        181.8608695652174
+      ],
+      "weapon_angle_degrees": -55,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/jump/body_04.png",
+        "weapon": "ieyasu/jump/weapon_04.png",
+        "hand_occlusion": "ieyasu/jump/hand_occlusion_04.png"
+      },
+      "composite": "ieyasu/jump/composite_04.png",
+      "events": [],
+      "preview_displacement_px": [
+        0,
+        -54
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "native_body_original",
+            "path": "sources/jump_03_04_raw.png",
+            "sha256": "ede1fff52f5a8b2e54e488ca58547eb41cdb2d9855f6f350602188acdf558646",
+            "source_rect": [
+              0,
+              0,
+              800,
+              1024
+            ],
+            "source_bbox": [
+              129,
+              20,
+              698,
+              833
+            ],
+            "source_effective_height": 813,
+            "source_root": [
+              455,
+              960
+            ],
+            "render_origin": [
+              144.82608695652175,
+              121.3913043478261
+            ],
+            "scale": 0.16521739130434782
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 4,
+      "duration_ms": 120,
+      "start_ms": 460,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          161.51304347826087,
+          278.3478260869565
+        ],
+        "far": [
+          236.52173913043478,
+          282.64347826086953
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          215.70434782608694,
+          196.23478260869564
+        ],
+        [
+          228.26086956521738,
+          195.0782608695652
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        221.98260869565217,
+        195.65652173913043
+      ],
+      "weapon_angle_degrees": -55,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/jump/body_05.png",
+        "weapon": "ieyasu/jump/weapon_05.png",
+        "hand_occlusion": "ieyasu/jump/hand_occlusion_05.png"
+      },
+      "composite": "ieyasu/jump/composite_05.png",
+      "events": [],
+      "preview_displacement_px": [
+        0,
+        -27
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "native_body_original",
+            "path": "sources/jump_03_04_raw.png",
+            "sha256": "ede1fff52f5a8b2e54e488ca58547eb41cdb2d9855f6f350602188acdf558646",
+            "source_rect": [
+              800,
+              0,
+              1536,
+              1024
+            ],
+            "source_bbox": [
+              808,
+              69,
+              1436,
+              979
+            ],
+            "source_effective_height": 910,
+            "source_root": [
+              1220,
+              960
+            ],
+            "render_origin": [
+              18.434782608695656,
+              121.3913043478261
+            ],
+            "scale": 0.16521739130434782
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 5,
+      "duration_ms": 100,
+      "start_ms": 580,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          166.8,
+          279.83478260869566
+        ],
+        "far": [
+          261.96521739130435,
+          279.0086956521739
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          218.01739130434783,
+          226.1391304347826
+        ],
+        [
+          226.9391304347826,
+          225.64347826086959
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        222.47826086956525,
+        225.8913043478261
+      ],
+      "weapon_angle_degrees": -45,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/jump/body_06.png",
+        "weapon": "ieyasu/jump/weapon_06.png",
+        "hand_occlusion": "ieyasu/jump/hand_occlusion_06.png"
+      },
+      "composite": "ieyasu/jump/composite_06.png",
+      "events": [
+        "jump_landing",
+        "landing"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "native_body_original",
+            "path": "sources/jump_05_06_raw.png",
+            "sha256": "d3d9fec2607a1bde9eec65f1afd0d70b3ba9b9d67316b5414eb0330907eee89a",
+            "source_rect": [
+              0,
+              0,
+              800,
+              1024
+            ],
+            "source_bbox": [
+              55,
+              214,
+              784,
+              974
+            ],
+            "source_effective_height": 760,
+            "source_root": [
+              450,
+              961
+            ],
+            "render_origin": [
+              145.6521739130435,
+              121.22608695652175
+            ],
+            "scale": 0.16521739130434782
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 6,
+      "duration_ms": 120,
+      "start_ms": 680,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          169.77391304347825,
+          279.6695652173913
+        ],
+        "far": [
+          260.1478260869565,
+          279.17391304347825
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          214.05217391304348,
+          206.1478260869565
+        ],
+        [
+          225.45217391304348,
+          206.31304347826088
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        219.75217391304346,
+        206.2304347826087
+      ],
+      "weapon_angle_degrees": -55,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/jump/body_07.png",
+        "weapon": "ieyasu/jump/weapon_07.png",
+        "hand_occlusion": "ieyasu/jump/hand_occlusion_07.png"
+      },
+      "composite": "ieyasu/jump/composite_07.png",
+      "events": [
+        "settle"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "native_body_original",
+            "path": "sources/jump_05_06_raw.png",
+            "sha256": "d3d9fec2607a1bde9eec65f1afd0d70b3ba9b9d67316b5414eb0330907eee89a",
+            "source_rect": [
+              800,
+              0,
+              1536,
+              1024
+            ],
+            "source_bbox": [
+              800,
+              61,
+              1510,
+              974
+            ],
+            "source_effective_height": 913,
+            "source_root": [
+              1175,
+              961
+            ],
+            "render_origin": [
+              25.86956521739131,
+              121.22608695652175
+            ],
+            "scale": 0.16521739130434782
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 7,
+      "duration_ms": 180,
+      "start_ms": 800,
+      "canvas_size_px": [
+        480,
+        320
+      ],
+      "root_canvas_px": [
+        220,
+        280
+      ],
+      "feet_canvas_px": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "status": "not_explicitly_registered; runtime mapping must be confirmed",
+        "source_indices": {
+          "near": "near",
+          "far": "far"
+        }
+      },
+      "grips_canvas_px": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "grip_state": "see_frame_metadata",
+      "weapon_anchor_canvas_px": [
+        224.08,
+        201.06
+      ],
+      "weapon_angle_degrees": -55,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "ieyasu/jump/body_08.png",
+        "weapon": "ieyasu/jump/weapon_08.png",
+        "hand_occlusion": "ieyasu/jump/hand_occlusion_08.png"
+      },
+      "composite": "ieyasu/jump/composite_08.png",
+      "events": [
+        "jump_complete",
+        "settle"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "parts": [
+          {
+            "role": "exact_approved_idle",
+            "path": "approved_reference/actions/light_1/composite_00.png",
+            "sha256": "76c10684c21263aed9a5b1ae883358f2ba08ccd2ebd5d6e5ecfb6fc12d868dd9",
+            "export_translation_only": [
+              85,
+              35
+            ],
+            "source_is_preapproved_game_sprite": true
+          }
+        ],
+        "paths_base": "ieyasu"
+      },
+      "runtime_tested": false
+    }
+  ]
+}

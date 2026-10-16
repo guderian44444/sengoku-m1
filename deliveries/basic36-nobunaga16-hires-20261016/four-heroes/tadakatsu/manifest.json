@@ -1,0 +1,258 @@
+{
+  "schema": "sengoku.base-actions.integration.v1",
+  "character": "tadakatsu",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "accepted_action_count": 9,
+  "standing_ruler_px": 163,
+  "head_scale": 1,
+  "runtime_tested": false,
+  "runtime_integrated": false,
+  "site_modified": false,
+  "git_written": false,
+  "asset_root": ".",
+  "path_base": "All integration.* file paths below are relative to this character directory. Legacy metadata paths retain their original documented base.",
+  "actions": {
+    "walk": {
+      "frame_count": 8,
+      "total_duration_ms": 1120,
+      "loop": true,
+      "terminal_hold": false,
+      "terminal": {
+        "hold_last_frame": false,
+        "hold_frame_index": null,
+        "death_compatible_hold_frame_index": null,
+        "optional_hold_frame_index": null,
+        "automatic_recovery": false,
+        "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+      },
+      "metadata": "walk/metadata.json",
+      "frame_fields": "frames[].integration",
+      "asset_directory": "walk",
+      "source_directories": [
+        "source"
+      ],
+      "normal_preview_gif": "walk/normal.gif",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "status": "accepted",
+      "runtime_tested": false,
+      "standing_ruler_px": 163
+    },
+    "run": {
+      "frame_count": 8,
+      "total_duration_ms": 600,
+      "loop": true,
+      "terminal_hold": false,
+      "terminal": {
+        "hold_last_frame": false,
+        "hold_frame_index": null,
+        "death_compatible_hold_frame_index": null,
+        "optional_hold_frame_index": null,
+        "automatic_recovery": false,
+        "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+      },
+      "metadata": "run/metadata.json",
+      "frame_fields": "frames[].integration",
+      "asset_directory": "run",
+      "source_directories": [
+        "run/source"
+      ],
+      "normal_preview_gif": "run/normal.gif",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "status": "accepted",
+      "runtime_tested": false,
+      "standing_ruler_px": 163
+    },
+    "jump": {
+      "frame_count": 8,
+      "total_duration_ms": 900,
+      "loop": false,
+      "terminal_hold": false,
+      "terminal": {
+        "hold_last_frame": false,
+        "hold_frame_index": null,
+        "death_compatible_hold_frame_index": null,
+        "optional_hold_frame_index": null,
+        "automatic_recovery": false,
+        "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+      },
+      "metadata": "jump/metadata.json",
+      "frame_fields": "frames[].integration",
+      "asset_directory": "jump",
+      "source_directories": [
+        "jump/source"
+      ],
+      "normal_preview_gif": "jump/normal.gif",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "status": "accepted",
+      "runtime_tested": false,
+      "standing_ruler_px": 163
+    },
+    "hurt": {
+      "frame_count": 6,
+      "total_duration_ms": 620,
+      "loop": false,
+      "terminal_hold": false,
+      "terminal": {
+        "hold_last_frame": false,
+        "hold_frame_index": null,
+        "death_compatible_hold_frame_index": null,
+        "optional_hold_frame_index": null,
+        "automatic_recovery": false,
+        "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+      },
+      "metadata": "hurt/metadata.json",
+      "frame_fields": "frames[].integration",
+      "asset_directory": "hurt",
+      "source_directories": [
+        "hurt/source"
+      ],
+      "normal_preview_gif": "hurt/normal.gif",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "status": "accepted",
+      "runtime_tested": false,
+      "standing_ruler_px": 163
+    },
+    "stunned": {
+      "frame_count": 4,
+      "total_duration_ms": 800,
+      "loop": true,
+      "terminal_hold": false,
+      "terminal": {
+        "hold_last_frame": false,
+        "hold_frame_index": null,
+        "death_compatible_hold_frame_index": null,
+        "optional_hold_frame_index": null,
+        "automatic_recovery": false,
+        "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+      },
+      "metadata": "stunned/metadata.json",
+      "frame_fields": "frames[].integration",
+      "asset_directory": "stunned",
+      "source_directories": [
+        "stunned/source"
+      ],
+      "normal_preview_gif": "stunned/normal.gif",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "status": "accepted",
+      "runtime_tested": false,
+      "standing_ruler_px": 163
+    },
+    "launched": {
+      "frame_count": 5,
+      "total_duration_ms": 490,
+      "loop": false,
+      "terminal_hold": false,
+      "terminal": {
+        "hold_last_frame": false,
+        "hold_frame_index": null,
+        "death_compatible_hold_frame_index": null,
+        "optional_hold_frame_index": null,
+        "automatic_recovery": false,
+        "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+      },
+      "metadata": "launched/metadata.json",
+      "frame_fields": "frames[].integration",
+      "asset_directory": "launched",
+      "source_directories": [
+        "launched/source"
+      ],
+      "normal_preview_gif": "launched/normal.gif",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "status": "accepted",
+      "runtime_tested": false,
+      "standing_ruler_px": 163
+    },
+    "down": {
+      "frame_count": 4,
+      "total_duration_ms": 870,
+      "loop": false,
+      "terminal_hold": true,
+      "terminal": {
+        "hold_last_frame": true,
+        "hold_frame_index": 3,
+        "death_compatible_hold_frame_index": 3,
+        "optional_hold_frame_index": null,
+        "automatic_recovery": false,
+        "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+      },
+      "metadata": "down/metadata.json",
+      "frame_fields": "frames[].integration",
+      "asset_directory": "down",
+      "source_directories": [
+        "down/source"
+      ],
+      "normal_preview_gif": "down/normal.gif",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "status": "accepted",
+      "runtime_tested": false,
+      "standing_ruler_px": 163
+    },
+    "recovering": {
+      "frame_count": 6,
+      "total_duration_ms": 870,
+      "loop": false,
+      "terminal_hold": false,
+      "terminal": {
+        "hold_last_frame": false,
+        "hold_frame_index": null,
+        "death_compatible_hold_frame_index": null,
+        "optional_hold_frame_index": null,
+        "automatic_recovery": false,
+        "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+      },
+      "metadata": "recovering/metadata.json",
+      "frame_fields": "frames[].integration",
+      "asset_directory": "recovering",
+      "source_directories": [
+        "recovering/source"
+      ],
+      "normal_preview_gif": "recovering/normal.gif",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "status": "accepted",
+      "runtime_tested": false,
+      "standing_ruler_px": 163
+    },
+    "victory": {
+      "frame_count": 4,
+      "total_duration_ms": 1140,
+      "loop": false,
+      "terminal_hold": true,
+      "terminal": {
+        "hold_last_frame": true,
+        "hold_frame_index": 3,
+        "death_compatible_hold_frame_index": null,
+        "optional_hold_frame_index": null,
+        "automatic_recovery": false,
+        "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+      },
+      "metadata": "victory/metadata.json",
+      "frame_fields": "frames[].integration",
+      "asset_directory": "victory",
+      "source_directories": [
+        "victory/source"
+      ],
+      "normal_preview_gif": "victory/normal.gif",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "status": "accepted",
+      "runtime_tested": false,
+      "standing_ruler_px": 163
+    }
+  },
+  "registration": "registered-assets.json",
+  "portrait": "identity/portrait-approved-crop.png",
+  "accepted_record": "acceptance.json",
+  "qa": "QA.json",
+  "checksums": "SHA256SUMS",
+  "codex_notes": "CODEX_INTEGRATION.md",
+  "original_package_provenance": {
+    "file_name": "tadakatsu-r3-nine-base-actions-complete.zip",
+    "sha256": "8dac8395a671c6d44ba0cc81bc49a3cb94c6b2f91f9a1ddd86a68569c879a868"
+  },
+  "registration_metadata": "identity/registration.json",
+  "source_inventory": "source_inventory.json",
+  "total_frames": 53,
+  "raster_files_byte_identical": 377,
+  "verification_script": "verify_bundle.py",
+  "anatomical_left_right_mapping_required": false
+}

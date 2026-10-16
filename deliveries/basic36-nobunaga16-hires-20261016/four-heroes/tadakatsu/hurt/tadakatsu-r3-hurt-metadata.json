@@ -1,0 +1,1521 @@
+{
+  "hero": "tadakatsu",
+  "action": "hurt",
+  "revision": "r3_candidate_01",
+  "status": "accepted",
+  "loop": false,
+  "terminal_hold": false,
+  "terminal_event": "return_to_idle",
+  "frame_count": 6,
+  "total_ms": 620,
+  "standing_ruler_target_px": 163,
+  "standing_ruler_source_px": 740,
+  "body_scale": 0.22027027027027027,
+  "per_frame_bbox_normalization": false,
+  "preserve_original_png": true,
+  "body_resample": "once from original high-resolution source to final scale",
+  "world_motion": {
+    "mode": "in_place",
+    "driver": "runtime_controller",
+    "preview_displacement_not_baked": true
+  },
+  "preview_motion": {
+    "mode": "in_place"
+  },
+  "ordinary_action_fx": false,
+  "imagegen": "official image_gen.imagegen",
+  "identity_references": [
+    "../source/approved-original-master.png",
+    "../source/walk-01-02.png"
+  ],
+  "shared_idle": "../identity/registration.json",
+  "frames": [
+    {
+      "scale": 0.44054054054054054,
+      "render_origin": [
+        109.15945945945947,
+        112.13513513513513
+      ],
+      "root_source": [
+        297,
+        490
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "hands_canvas": [
+        [
+          248.37027027027028,
+          227.11621621621623
+        ],
+        [
+          290.22162162162164,
+          223.15135135135137
+        ]
+      ],
+      "weapon_grip_canvas": [
+        248.37027027027028,
+        227.11621621621623
+      ],
+      "weapon_angle_degrees": 84.58813084768298,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          175.24054054054056,
+          330.6432432432432
+        ],
+        "left": [
+          296.3891891891892,
+          325.7972972972973
+        ]
+      },
+      "frame": 1,
+      "phase": "approved_idle",
+      "event": "approved_idle",
+      "duration_ms": 80,
+      "start_ms": 0,
+      "reused_approved": true,
+      "source_file": "hurt/source/idle-approved.png",
+      "source_sha256": "59da5eaaa3ea181c375ff4781f96d7d57725a149fcd4c629b87d79a0059a8d30",
+      "source_bbox": [
+        46,
+        29,
+        469,
+        502
+      ],
+      "source_effective_height": 473,
+      "source_effective_max_dimension": 473,
+      "standing_ruler_source_px": 370.0,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 2,
+      "fx": null,
+      "source_component": 0,
+      "integration": {
+        "frame_index": 0,
+        "legacy_frame_index": 1,
+        "start_ms": 0,
+        "duration_ms": 80,
+        "end_ms": 80,
+        "phase": "approved_idle",
+        "events": [
+          "approved_idle",
+          "animation_start"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          240,
+          328
+        ],
+        "root_source_px": [
+          297,
+          490
+        ],
+        "root_source_status": "provided",
+        "feet_canvas_px": {
+          "near": [
+            175.24054054054056,
+            330.6432432432432
+          ],
+          "far": [
+            296.3891891891892,
+            325.7972972972973
+          ],
+          "left": [
+            296.3891891891892,
+            325.7972972972973
+          ],
+          "right": [
+            175.24054054054056,
+            330.6432432432432
+          ]
+        },
+        "foot_identity": {
+          "original_labels": [
+            "right",
+            "left"
+          ],
+          "anatomical_mapping": {
+            "near": "right",
+            "far": "left"
+          },
+          "left_right_mapping_status": "source_explicit",
+          "runtime_mapping_required": false
+        },
+        "source_foot_landmarks": {
+          "right": [
+            150,
+            496
+          ],
+          "left": [
+            425,
+            485
+          ]
+        },
+        "support_contacts": "both",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            248.37027027027028,
+            227.11621621621623
+          ],
+          [
+            290.22162162162164,
+            223.15135135135137
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          248.37027027027028,
+          227.11621621621623
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 84.58813084768298,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "hurt/body_01.png",
+          "weapon": "hurt/weapon_01.png",
+          "hand_occlusion": "hurt/hand_occlusion_01.png"
+        },
+        "composite": "hurt/composite_01.png",
+        "source": {
+          "path": "hurt/source/idle-approved.png",
+          "sha256": "59da5eaaa3ea181c375ff4781f96d7d57725a149fcd4c629b87d79a0059a8d30",
+          "native_canvas_px": [
+            512,
+            512
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": 0,
+          "component_bbox": [
+            46,
+            29,
+            469,
+            502
+          ],
+          "effective_figure_height_px": 473,
+          "effective_figure_long_axis_px": 473,
+          "reused_approved": true
+        },
+        "standing_ruler_target_px": 163,
+        "body_scale": 0.44054054054054054,
+        "standing_ruler_source_px": 370.0,
+        "world_root_offset_px": [
+          0,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 1,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "approved_idle",
+        "animation_start"
+      ]
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        132.06756756756755,
+        121.38648648648649
+      ],
+      "root_source": [
+        490,
+        938
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          562,
+          437
+        ],
+        [
+          710,
+          399
+        ]
+      ],
+      "hands_canvas": [
+        [
+          255.85945945945946,
+          217.6445945945946
+        ],
+        [
+          288.4594594594595,
+          209.2743243243243
+        ]
+      ],
+      "weapon_grip_canvas": [
+        255.85945945945946,
+        217.6445945945946
+      ],
+      "weapon_angle_degrees": 75.59997869320895,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          217,
+          933
+        ],
+        "left": [
+          710,
+          916
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          179.8662162162162,
+          326.89864864864865
+        ],
+        "left": [
+          288.4594594594595,
+          323.1540540540541
+        ]
+      },
+      "frame": 2,
+      "phase": "impact",
+      "event": "hurt_impact",
+      "duration_ms": 70,
+      "start_ms": 80,
+      "reused_approved": false,
+      "source_file": "hurt/source/hurt-01-02.png",
+      "source_sha256": "26d652d0578f888d158aa1e02e2316ae467cdee27054bb60da47da42a36d5000",
+      "source_bbox": [
+        23,
+        13,
+        821,
+        941
+      ],
+      "source_effective_height": 928,
+      "source_effective_max_dimension": 928,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 3,
+      "fx": null,
+      "source_component": 0,
+      "integration": {
+        "frame_index": 1,
+        "legacy_frame_index": 2,
+        "start_ms": 80,
+        "duration_ms": 70,
+        "end_ms": 150,
+        "phase": "impact",
+        "events": [
+          "hurt_impact",
+          "impact"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          240,
+          328
+        ],
+        "root_source_px": [
+          490,
+          938
+        ],
+        "root_source_status": "provided",
+        "feet_canvas_px": {
+          "near": [
+            179.8662162162162,
+            326.89864864864865
+          ],
+          "far": [
+            288.4594594594595,
+            323.1540540540541
+          ],
+          "left": [
+            288.4594594594595,
+            323.1540540540541
+          ],
+          "right": [
+            179.8662162162162,
+            326.89864864864865
+          ]
+        },
+        "foot_identity": {
+          "original_labels": [
+            "right",
+            "left"
+          ],
+          "anatomical_mapping": {
+            "near": "right",
+            "far": "left"
+          },
+          "left_right_mapping_status": "source_explicit",
+          "runtime_mapping_required": false
+        },
+        "source_foot_landmarks": {
+          "right": [
+            217,
+            933
+          ],
+          "left": [
+            710,
+            916
+          ]
+        },
+        "support_contacts": "both",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            255.85945945945946,
+            217.6445945945946
+          ],
+          [
+            288.4594594594595,
+            209.2743243243243
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          255.85945945945946,
+          217.6445945945946
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 75.59997869320895,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "hurt/body_02.png",
+          "weapon": "hurt/weapon_02.png",
+          "hand_occlusion": "hurt/hand_occlusion_02.png"
+        },
+        "composite": "hurt/composite_02.png",
+        "source": {
+          "path": "hurt/source/hurt-01-02.png",
+          "sha256": "26d652d0578f888d158aa1e02e2316ae467cdee27054bb60da47da42a36d5000",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": 0,
+          "component_bbox": [
+            23,
+            13,
+            821,
+            941
+          ],
+          "effective_figure_height_px": 928,
+          "effective_figure_long_axis_px": 928,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 163,
+        "body_scale": 0.22027027027027027,
+        "standing_ruler_source_px": 740.0,
+        "world_root_offset_px": [
+          0,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 2,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "hurt_impact",
+        "impact"
+      ]
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        -33.13513513513516,
+        116.98108108108107
+      ],
+      "root_source": [
+        1240,
+        958
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          1278,
+          429
+        ],
+        [
+          1432,
+          400
+        ]
+      ],
+      "hands_canvas": [
+        [
+          248.37027027027023,
+          211.47702702702702
+        ],
+        [
+          282.29189189189185,
+          205.0891891891892
+        ]
+      ],
+      "weapon_grip_canvas": [
+        248.37027027027023,
+        211.47702702702702
+      ],
+      "weapon_angle_degrees": 79.33542448254825,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          970,
+          953
+        ],
+        "left": [
+          1445,
+          941
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          180.527027027027,
+          326.89864864864865
+        ],
+        "left": [
+          285.15540540540536,
+          324.2554054054054
+        ]
+      },
+      "frame": 3,
+      "phase": "maximum_recoil",
+      "event": "hurt_maximum_recoil",
+      "duration_ms": 110,
+      "start_ms": 150,
+      "reused_approved": false,
+      "source_file": "hurt/source/hurt-01-02.png",
+      "source_sha256": "26d652d0578f888d158aa1e02e2316ae467cdee27054bb60da47da42a36d5000",
+      "source_bbox": [
+        841,
+        38,
+        1526,
+        963
+      ],
+      "source_effective_height": 925,
+      "source_effective_max_dimension": 925,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 4,
+      "fx": null,
+      "source_component": 1,
+      "integration": {
+        "frame_index": 2,
+        "legacy_frame_index": 3,
+        "start_ms": 150,
+        "duration_ms": 110,
+        "end_ms": 260,
+        "phase": "maximum_recoil",
+        "events": [
+          "hurt_maximum_recoil",
+          "maximum_recoil"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          240,
+          328
+        ],
+        "root_source_px": [
+          1240,
+          958
+        ],
+        "root_source_status": "provided",
+        "feet_canvas_px": {
+          "near": [
+            180.527027027027,
+            326.89864864864865
+          ],
+          "far": [
+            285.15540540540536,
+            324.2554054054054
+          ],
+          "left": [
+            285.15540540540536,
+            324.2554054054054
+          ],
+          "right": [
+            180.527027027027,
+            326.89864864864865
+          ]
+        },
+        "foot_identity": {
+          "original_labels": [
+            "right",
+            "left"
+          ],
+          "anatomical_mapping": {
+            "near": "right",
+            "far": "left"
+          },
+          "left_right_mapping_status": "source_explicit",
+          "runtime_mapping_required": false
+        },
+        "source_foot_landmarks": {
+          "right": [
+            970,
+            953
+          ],
+          "left": [
+            1445,
+            941
+          ]
+        },
+        "support_contacts": "both",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            248.37027027027023,
+            211.47702702702702
+          ],
+          [
+            282.29189189189185,
+            205.0891891891892
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          248.37027027027023,
+          211.47702702702702
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 79.33542448254825,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "hurt/body_03.png",
+          "weapon": "hurt/weapon_03.png",
+          "hand_occlusion": "hurt/hand_occlusion_03.png"
+        },
+        "composite": "hurt/composite_03.png",
+        "source": {
+          "path": "hurt/source/hurt-01-02.png",
+          "sha256": "26d652d0578f888d158aa1e02e2316ae467cdee27054bb60da47da42a36d5000",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": 1,
+          "component_bbox": [
+            841,
+            38,
+            1526,
+            963
+          ],
+          "effective_figure_height_px": 925,
+          "effective_figure_long_axis_px": 925,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 163,
+        "body_scale": 0.22027027027027027,
+        "standing_ruler_source_px": 740.0,
+        "world_root_offset_px": [
+          0,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 3,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "hurt_maximum_recoil",
+        "maximum_recoil"
+      ]
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        121.05405405405405,
+        119.62432432432433
+      ],
+      "root_source": [
+        540,
+        946
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          580,
+          480
+        ],
+        [
+          675,
+          495
+        ]
+      ],
+      "hands_canvas": [
+        [
+          248.8108108108108,
+          225.35405405405407
+        ],
+        [
+          269.73648648648646,
+          228.65810810810814
+        ]
+      ],
+      "weapon_grip_canvas": [
+        248.8108108108108,
+        225.35405405405407
+      ],
+      "weapon_angle_degrees": 98.9726266148964,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          215,
+          940
+        ],
+        "left": [
+          687,
+          927
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          168.41216216216216,
+          326.6783783783784
+        ],
+        "left": [
+          272.3797297297297,
+          323.8148648648649
+        ]
+      },
+      "frame": 4,
+      "phase": "brace",
+      "event": "hurt_brace",
+      "duration_ms": 110,
+      "start_ms": 260,
+      "reused_approved": false,
+      "source_file": "hurt/source/hurt-03-04.png",
+      "source_sha256": "601ea3df6032353d72b8f16516b48b64f78c7e709a5723b543222bfa36fe25b0",
+      "source_bbox": [
+        35,
+        115,
+        780,
+        948
+      ],
+      "source_effective_height": 833,
+      "source_effective_max_dimension": 833,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 5,
+      "fx": null,
+      "source_component": 0,
+      "integration": {
+        "frame_index": 3,
+        "legacy_frame_index": 4,
+        "start_ms": 260,
+        "duration_ms": 110,
+        "end_ms": 370,
+        "phase": "brace",
+        "events": [
+          "hurt_brace",
+          "brace"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          240,
+          328
+        ],
+        "root_source_px": [
+          540,
+          946
+        ],
+        "root_source_status": "provided",
+        "feet_canvas_px": {
+          "near": [
+            168.41216216216216,
+            326.6783783783784
+          ],
+          "far": [
+            272.3797297297297,
+            323.8148648648649
+          ],
+          "left": [
+            272.3797297297297,
+            323.8148648648649
+          ],
+          "right": [
+            168.41216216216216,
+            326.6783783783784
+          ]
+        },
+        "foot_identity": {
+          "original_labels": [
+            "right",
+            "left"
+          ],
+          "anatomical_mapping": {
+            "near": "right",
+            "far": "left"
+          },
+          "left_right_mapping_status": "source_explicit",
+          "runtime_mapping_required": false
+        },
+        "source_foot_landmarks": {
+          "right": [
+            215,
+            940
+          ],
+          "left": [
+            687,
+            927
+          ]
+        },
+        "support_contacts": "both",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            248.8108108108108,
+            225.35405405405407
+          ],
+          [
+            269.73648648648646,
+            228.65810810810814
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          248.8108108108108,
+          225.35405405405407
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 98.9726266148964,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "hurt/body_04.png",
+          "weapon": "hurt/weapon_04.png",
+          "hand_occlusion": "hurt/hand_occlusion_04.png"
+        },
+        "composite": "hurt/composite_04.png",
+        "source": {
+          "path": "hurt/source/hurt-03-04.png",
+          "sha256": "601ea3df6032353d72b8f16516b48b64f78c7e709a5723b543222bfa36fe25b0",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": 0,
+          "component_bbox": [
+            35,
+            115,
+            780,
+            948
+          ],
+          "effective_figure_height_px": 833,
+          "effective_figure_long_axis_px": 833,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 163,
+        "body_scale": 0.22027027027027027,
+        "standing_ruler_source_px": 740.0,
+        "world_root_offset_px": [
+          0,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 4,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "hurt_brace",
+        "brace"
+      ]
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        -35.33783783783781,
+        119.62432432432433
+      ],
+      "root_source": [
+        1250,
+        946
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          1348,
+          466
+        ],
+        [
+          1476,
+          464
+        ]
+      ],
+      "hands_canvas": [
+        [
+          261.58648648648654,
+          222.27027027027026
+        ],
+        [
+          289.7810810810811,
+          221.82972972972973
+        ]
+      ],
+      "weapon_grip_canvas": [
+        261.58648648648654,
+        222.27027027027026
+      ],
+      "weapon_angle_degrees": 89.10482628978893,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          1010,
+          941
+        ],
+        "left": [
+          1430,
+          930
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          187.13513513513516,
+          326.89864864864865
+        ],
+        "left": [
+          279.64864864864865,
+          324.4756756756757
+        ]
+      },
+      "frame": 5,
+      "phase": "recenter",
+      "event": "hurt_recenter",
+      "duration_ms": 100,
+      "start_ms": 370,
+      "reused_approved": false,
+      "source_file": "hurt/source/hurt-03-04.png",
+      "source_sha256": "601ea3df6032353d72b8f16516b48b64f78c7e709a5723b543222bfa36fe25b0",
+      "source_bbox": [
+        833,
+        64,
+        1532,
+        948
+      ],
+      "source_effective_height": 884,
+      "source_effective_max_dimension": 884,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 6,
+      "fx": null,
+      "source_component": 1,
+      "integration": {
+        "frame_index": 4,
+        "legacy_frame_index": 5,
+        "start_ms": 370,
+        "duration_ms": 100,
+        "end_ms": 470,
+        "phase": "recenter",
+        "events": [
+          "hurt_recenter",
+          "recenter"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          240,
+          328
+        ],
+        "root_source_px": [
+          1250,
+          946
+        ],
+        "root_source_status": "provided",
+        "feet_canvas_px": {
+          "near": [
+            187.13513513513516,
+            326.89864864864865
+          ],
+          "far": [
+            279.64864864864865,
+            324.4756756756757
+          ],
+          "left": [
+            279.64864864864865,
+            324.4756756756757
+          ],
+          "right": [
+            187.13513513513516,
+            326.89864864864865
+          ]
+        },
+        "foot_identity": {
+          "original_labels": [
+            "right",
+            "left"
+          ],
+          "anatomical_mapping": {
+            "near": "right",
+            "far": "left"
+          },
+          "left_right_mapping_status": "source_explicit",
+          "runtime_mapping_required": false
+        },
+        "source_foot_landmarks": {
+          "right": [
+            1010,
+            941
+          ],
+          "left": [
+            1430,
+            930
+          ]
+        },
+        "support_contacts": "both",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            261.58648648648654,
+            222.27027027027026
+          ],
+          [
+            289.7810810810811,
+            221.82972972972973
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          261.58648648648654,
+          222.27027027027026
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 89.10482628978893,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "hurt/body_05.png",
+          "weapon": "hurt/weapon_05.png",
+          "hand_occlusion": "hurt/hand_occlusion_05.png"
+        },
+        "composite": "hurt/composite_05.png",
+        "source": {
+          "path": "hurt/source/hurt-03-04.png",
+          "sha256": "601ea3df6032353d72b8f16516b48b64f78c7e709a5723b543222bfa36fe25b0",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": 1,
+          "component_bbox": [
+            833,
+            64,
+            1532,
+            948
+          ],
+          "effective_figure_height_px": 884,
+          "effective_figure_long_axis_px": 884,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 163,
+        "body_scale": 0.22027027027027027,
+        "standing_ruler_source_px": 740.0,
+        "world_root_offset_px": [
+          0,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 5,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "hurt_recenter",
+        "recenter"
+      ]
+    },
+    {
+      "scale": 0.44054054054054054,
+      "render_origin": [
+        109.15945945945947,
+        112.13513513513513
+      ],
+      "root_source": [
+        297,
+        490
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "hands_canvas": [
+        [
+          248.37027027027028,
+          227.11621621621623
+        ],
+        [
+          290.22162162162164,
+          223.15135135135137
+        ]
+      ],
+      "weapon_grip_canvas": [
+        248.37027027027028,
+        227.11621621621623
+      ],
+      "weapon_angle_degrees": 84.58813084768298,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          175.24054054054056,
+          330.6432432432432
+        ],
+        "left": [
+          296.3891891891892,
+          325.7972972972973
+        ]
+      },
+      "frame": 6,
+      "phase": "return_idle",
+      "event": "hurt_complete",
+      "duration_ms": 150,
+      "start_ms": 470,
+      "reused_approved": true,
+      "source_file": "hurt/source/idle-approved.png",
+      "source_sha256": "59da5eaaa3ea181c375ff4781f96d7d57725a149fcd4c629b87d79a0059a8d30",
+      "source_bbox": [
+        46,
+        29,
+        469,
+        502
+      ],
+      "source_effective_height": 473,
+      "source_effective_max_dimension": 473,
+      "standing_ruler_source_px": 370.0,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": null,
+      "fx": null,
+      "source_component": 0,
+      "integration": {
+        "frame_index": 5,
+        "legacy_frame_index": 6,
+        "start_ms": 470,
+        "duration_ms": 150,
+        "end_ms": 620,
+        "phase": "return_idle",
+        "events": [
+          "hurt_complete",
+          "return_idle",
+          "animation_complete"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          240,
+          328
+        ],
+        "root_source_px": [
+          297,
+          490
+        ],
+        "root_source_status": "provided",
+        "feet_canvas_px": {
+          "near": [
+            175.24054054054056,
+            330.6432432432432
+          ],
+          "far": [
+            296.3891891891892,
+            325.7972972972973
+          ],
+          "left": [
+            296.3891891891892,
+            325.7972972972973
+          ],
+          "right": [
+            175.24054054054056,
+            330.6432432432432
+          ]
+        },
+        "foot_identity": {
+          "original_labels": [
+            "right",
+            "left"
+          ],
+          "anatomical_mapping": {
+            "near": "right",
+            "far": "left"
+          },
+          "left_right_mapping_status": "source_explicit",
+          "runtime_mapping_required": false
+        },
+        "source_foot_landmarks": {
+          "right": [
+            150,
+            496
+          ],
+          "left": [
+            425,
+            485
+          ]
+        },
+        "support_contacts": "both",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            248.37027027027028,
+            227.11621621621623
+          ],
+          [
+            290.22162162162164,
+            223.15135135135137
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          248.37027027027028,
+          227.11621621621623
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 84.58813084768298,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "hurt/body_06.png",
+          "weapon": "hurt/weapon_06.png",
+          "hand_occlusion": "hurt/hand_occlusion_06.png"
+        },
+        "composite": "hurt/composite_06.png",
+        "source": {
+          "path": "hurt/source/idle-approved.png",
+          "sha256": "59da5eaaa3ea181c375ff4781f96d7d57725a149fcd4c629b87d79a0059a8d30",
+          "native_canvas_px": [
+            512,
+            512
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": 0,
+          "component_bbox": [
+            46,
+            29,
+            469,
+            502
+          ],
+          "effective_figure_height_px": 473,
+          "effective_figure_long_axis_px": 473,
+          "reused_approved": true
+        },
+        "standing_ruler_target_px": 163,
+        "body_scale": 0.44054054054054054,
+        "standing_ruler_source_px": 370.0,
+        "world_root_offset_px": [
+          0,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": null,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "hurt_complete",
+        "return_idle",
+        "animation_complete"
+      ]
+    }
+  ],
+  "runtime_integrated": false,
+  "pre_acceptance_status": {
+    "status": "candidate_pending_user"
+  },
+  "approval": "accepted",
+  "approved": true,
+  "accepted": true,
+  "candidate": false,
+  "not_user_approved": false,
+  "acceptance_event_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "acceptance_record": "../acceptance.json",
+  "schema_extension": "integration.v1",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "runtime_tested": false,
+  "integration": {
+    "schema": "sengoku.base-actions.frames.v1",
+    "path_base": "character root",
+    "frame_index_base": 0,
+    "coordinate_convention": "canvas pixels, x right/y down; source landmarks native pixels",
+    "standing_ruler_px": 163,
+    "no_per_frame_bbox_normalization": true,
+    "loop": false,
+    "loop_start_frame": null,
+    "loop_end_frame": null,
+    "terminal": {
+      "hold_last_frame": false,
+      "hold_frame_index": null,
+      "death_compatible_hold_frame_index": null,
+      "optional_hold_frame_index": null,
+      "automatic_recovery": false,
+      "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+    },
+    "world_motion_ownership": "runtime controller; exported track is authored reference, not a validated engine simulation",
+    "pose_offsets_baked": true,
+    "preview_world_separate": true,
+    "duration_ms": 620,
+    "runtime_tested": false,
+    "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+  }
+}

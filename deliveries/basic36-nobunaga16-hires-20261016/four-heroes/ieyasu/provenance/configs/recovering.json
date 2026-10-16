@@ -1,0 +1,178 @@
+{
+  "action": "recovering",
+  "loop": false,
+  "representative": 2,
+  "notes": [
+    "Starts pixel-exact down hold; rolls with bracing palm, one-knee leverage, rising stance, ends pixel-exact approved idle.",
+    "Temporary offhand sword retention during planted near-palm push; both hands resume guard.",
+    "Native standing-equivalent ruler1380 for seated full-body original;920 for kneeling/rising pair. Never per-pose bbox normalization.",
+    "Runtime world delta remains zero; no FX."
+  ],
+  "frames": [
+    {
+      "source": "down_hold_high_raw.png",
+      "source_standing_ruler": 1380,
+      "root": [
+        790,
+        906
+      ],
+      "hands": [
+        [
+          614,
+          672
+        ],
+        [
+          691,
+          589
+        ]
+      ],
+      "grip": [
+        614,
+        672
+      ],
+      "sheath_anchor": [
+        780,
+        790
+      ],
+      "feet": {
+        "near": [
+          1391,
+          895
+        ],
+        "far": [
+          1397,
+          725
+        ]
+      },
+      "duration": 100,
+      "phase": "down_hold_start",
+      "event": "recover_start",
+      "support": "back_left_hip",
+      "angle": -110,
+      "sheath_angle": 125
+    },
+    {
+      "source": "recovering_push_high_raw.png",
+      "source_standing_ruler": 1380,
+      "root": [
+        800,
+        970
+      ],
+      "hands": [
+        [
+          850,
+          620
+        ],
+        [
+          135,
+          879
+        ]
+      ],
+      "grip": [
+        850,
+        620
+      ],
+      "sheath_anchor": [
+        770,
+        755
+      ],
+      "feet": {
+        "near": [
+          1135,
+          921
+        ],
+        "far": [
+          1438,
+          929
+        ]
+      },
+      "duration": 200,
+      "phase": "roll_palm_push",
+      "event": "palm_weight_bearing",
+      "support": "near_palm_hip_far_foot",
+      "angle": -95,
+      "sheath_angle": 100
+    },
+    {
+      "source": "recovering_kneel_rise_raw.png",
+      "component": 0,
+      "root": [
+        440,
+        953
+      ],
+      "hands": [
+        [
+          582,
+          629
+        ],
+        [
+          378,
+          681
+        ]
+      ],
+      "grip": [
+        582,
+        629
+      ],
+      "sheath_anchor": [
+        487,
+        694
+      ],
+      "feet": {
+        "near": [
+          99,
+          936
+        ],
+        "far": [
+          735,
+          947
+        ]
+      },
+      "duration": 190,
+      "phase": "one_knee_leverage",
+      "event": "near_knee_grounded",
+      "support": "near_knee_far_foot",
+      "angle": -75,
+      "sheath_angle": 80
+    },
+    {
+      "source": "recovering_kneel_rise_raw.png",
+      "component": 1,
+      "root": [
+        1190,
+        961
+      ],
+      "hands": [
+        [
+          1203,
+          484
+        ],
+        [
+          1273,
+          502
+        ]
+      ],
+      "feet": {
+        "near": [
+          900,
+          950
+        ],
+        "far": [
+          1459,
+          953
+        ]
+      },
+      "duration": 180,
+      "phase": "rise_to_guard",
+      "event": "both_feet_planted",
+      "support": "both",
+      "angle": -55
+    },
+    {
+      "idle": true,
+      "duration": 200,
+      "phase": "approved_idle",
+      "event": "recovery_complete"
+    }
+  ]
+}

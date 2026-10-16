@@ -1,0 +1,439 @@
+{
+  "schema": "sengoku.animation.frames.v1",
+  "character": "tadakatsu",
+  "action": "victory",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 163,
+  "frame_count": 4,
+  "total_duration_ms": 1140,
+  "loop": false,
+  "terminal_hold": true,
+  "runtime_tested": false,
+  "source_metadata": "tadakatsu/victory/metadata.json",
+  "all_file_paths_relative_to": "final_git_bundle root",
+  "frames": [
+    {
+      "frame_index": 0,
+      "duration_ms": 100,
+      "start_ms": 0,
+      "canvas_size_px": [
+        560,
+        360
+      ],
+      "root_canvas_px": [
+        240,
+        328
+      ],
+      "feet_canvas_px": {
+        "near": [
+          175.24054054054056,
+          330.6432432432432
+        ],
+        "far": [
+          296.3891891891892,
+          325.7972972972973
+        ],
+        "left": [
+          296.3891891891892,
+          325.7972972972973
+        ],
+        "right": [
+          175.24054054054056,
+          330.6432432432432
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "right",
+          "left"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          248.37027027027028,
+          227.11621621621623
+        ],
+        [
+          290.22162162162164,
+          223.15135135135137
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        248.37027027027028,
+        227.11621621621623
+      ],
+      "weapon_angle_degrees": 84.58813084768298,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/victory/body_01.png",
+        "weapon": "tadakatsu/victory/weapon_01.png",
+        "hand_occlusion": "tadakatsu/victory/hand_occlusion_01.png"
+      },
+      "composite": "tadakatsu/victory/composite_01.png",
+      "events": [
+        "approved_idle",
+        "animation_start"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "victory/source/idle-approved.png",
+        "sha256": "59da5eaaa3ea181c375ff4781f96d7d57725a149fcd4c629b87d79a0059a8d30",
+        "native_canvas_px": [
+          512,
+          512
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 0,
+        "component_bbox": [
+          46,
+          29,
+          469,
+          502
+        ],
+        "effective_figure_height_px": 473,
+        "effective_figure_long_axis_px": 473,
+        "reused_approved": true
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 1,
+      "duration_ms": 180,
+      "start_ms": 100,
+      "canvas_size_px": [
+        560,
+        360
+      ],
+      "root_canvas_px": [
+        240,
+        328
+      ],
+      "feet_canvas_px": {
+        "near": [
+          182.0689189189189,
+          327.77972972972975
+        ],
+        "far": [
+          283.6135135135135,
+          324.69594594594594
+        ],
+        "left": [
+          283.6135135135135,
+          324.69594594594594
+        ],
+        "right": [
+          182.0689189189189,
+          327.77972972972975
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "right",
+          "left"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          238.23783783783784,
+          215.22162162162164
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        238.23783783783784,
+        215.22162162162164
+      ],
+      "weapon_angle_degrees": 40,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/victory/body_02.png",
+        "weapon": "tadakatsu/victory/weapon_02.png",
+        "hand_occlusion": "tadakatsu/victory/hand_occlusion_02.png"
+      },
+      "composite": "tadakatsu/victory/composite_02.png",
+      "events": [
+        "lift_chest_fist"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "victory/source/victory-01-02.png",
+        "sha256": "b7dd5b3ebeccff5f903d6e90980e416dfd4f174a9b0fe840a12d6fc8f6a467d4",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 0,
+        "component_bbox": [
+          32,
+          14,
+          799,
+          967
+        ],
+        "effective_figure_height_px": 953,
+        "effective_figure_long_axis_px": 953,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 2,
+      "duration_ms": 160,
+      "start_ms": 280,
+      "canvas_size_px": [
+        560,
+        360
+      ],
+      "root_canvas_px": [
+        240,
+        328
+      ],
+      "feet_canvas_px": {
+        "near": [
+          182.28918918918922,
+          328.44054054054055
+        ],
+        "far": [
+          283.39324324324326,
+          325.1364864864865
+        ],
+        "left": [
+          283.39324324324326,
+          325.1364864864865
+        ],
+        "right": [
+          182.28918918918922,
+          328.44054054054055
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "right",
+          "left"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          238.45810810810815,
+          215.88243243243244
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        238.45810810810815,
+        215.88243243243244
+      ],
+      "weapon_angle_degrees": 25,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/victory/body_03.png",
+        "weapon": "tadakatsu/victory/weapon_03.png",
+        "hand_occlusion": "tadakatsu/victory/hand_occlusion_03.png"
+      },
+      "composite": "tadakatsu/victory/composite_03.png",
+      "events": [
+        "raise_victory_fist"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "victory/source/victory-01-02.png",
+        "sha256": "b7dd5b3ebeccff5f903d6e90980e416dfd4f174a9b0fe840a12d6fc8f6a467d4",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 1,
+        "component_bbox": [
+          783,
+          14,
+          1529,
+          967
+        ],
+        "effective_figure_height_px": 953,
+        "effective_figure_long_axis_px": 953,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 3,
+      "duration_ms": 700,
+      "start_ms": 440,
+      "canvas_size_px": [
+        560,
+        360
+      ],
+      "root_canvas_px": [
+        240,
+        328
+      ],
+      "feet_canvas_px": {
+        "near": [
+          178.9851351351351,
+          327.33918918918914
+        ],
+        "far": [
+          284.9351351351351,
+          321.3918918918919
+        ],
+        "left": [
+          284.9351351351351,
+          321.3918918918919
+        ],
+        "right": [
+          178.9851351351351,
+          327.33918918918914
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "right",
+          "left"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          232.29054054054052,
+          220.72837837837835
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        232.29054054054052,
+        220.72837837837835
+      ],
+      "weapon_angle_degrees": 25,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/victory/body_04.png",
+        "weapon": "tadakatsu/victory/weapon_04.png",
+        "hand_occlusion": "tadakatsu/victory/hand_occlusion_04.png"
+      },
+      "composite": "tadakatsu/victory/composite_04.png",
+      "events": [
+        "victory_hold",
+        "animation_complete"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "victory/source/victory-03-04.png",
+        "sha256": "afee8f9b1c7338cbd4e8f6a2ddcee1268e9cfb7286344d97c32986d5d6e7a413",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 1,
+        "component_bbox": [
+          793,
+          37,
+          1536,
+          983
+        ],
+        "effective_figure_height_px": 946,
+        "effective_figure_long_axis_px": 946,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    }
+  ]
+}

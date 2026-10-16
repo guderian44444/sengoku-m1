@@ -1,0 +1,73 @@
+{
+  "actions": [
+    {
+      "action": "walk",
+      "frame_count": 8,
+      "layers_recompose_exactly": true,
+      "all_final_alpha_boundaries_clear": true,
+      "all_new_sources_above600px": true
+    },
+    {
+      "action": "run",
+      "frame_count": 8,
+      "layers_recompose_exactly": true,
+      "all_final_alpha_boundaries_clear": true,
+      "all_new_sources_above600px": true
+    },
+    {
+      "action": "jump",
+      "frame_count": 8,
+      "layers_recompose_exactly": true,
+      "all_final_alpha_boundaries_clear": true,
+      "all_new_sources_above600px": true
+    },
+    {
+      "action": "hurt",
+      "frame_count": 6,
+      "layers_recompose_exactly": true,
+      "all_final_alpha_boundaries_clear": true,
+      "all_new_sources_above600px": true
+    },
+    {
+      "action": "stunned",
+      "frame_count": 4,
+      "layers_recompose_exactly": true,
+      "all_final_alpha_boundaries_clear": true,
+      "all_new_sources_above600px": true
+    },
+    {
+      "action": "launched",
+      "frame_count": 5,
+      "layers_recompose_exactly": true,
+      "all_final_alpha_boundaries_clear": true,
+      "all_new_sources_above600px": true
+    },
+    {
+      "action": "down",
+      "frame_count": 4,
+      "layers_recompose_exactly": true,
+      "all_final_alpha_boundaries_clear": true,
+      "all_new_sources_above600px": true
+    },
+    {
+      "action": "recovering",
+      "frame_count": 6,
+      "layers_recompose_exactly": true,
+      "all_final_alpha_boundaries_clear": true,
+      "all_new_sources_above600px": true
+    },
+    {
+      "action": "victory",
+      "frame_count": 4,
+      "layers_recompose_exactly": true,
+      "all_final_alpha_boundaries_clear": true,
+      "all_new_sources_above600px": true
+    }
+  ],
+  "total_frames": 53,
+  "handoff_launched_to_down": "pixel_exact",
+  "handoff_down_to_recovering": "pixel_exact",
+  "no_optical_flow": true,
+  "constant_anatomical_ruler": true,
+  "per_frame_bbox_normalization": false
+}

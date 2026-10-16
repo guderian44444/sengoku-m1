@@ -1,0 +1,140 @@
+{
+  "loop": false,
+  "terminal_hold": true,
+  "terminal_event": "down_hold_or_death",
+  "standing_ruler_source_px": 1050,
+  "frames": [
+    {
+      "file": "descending-handoff.png",
+      "root": [
+        830,
+        1030
+      ],
+      "hands": [
+        [
+          600,
+          495
+        ]
+      ],
+      "feet": {
+        "right": [
+          1275,
+          835
+        ],
+        "left": [
+          1440,
+          606
+        ]
+      },
+      "phase": "descending_handoff",
+      "duration": 80,
+      "angle": 77,
+      "body_offset": [
+        -60,
+        -20
+      ],
+      "grounded": false,
+      "support": null,
+      "event": "down_enter"
+    },
+    {
+      "file": "down-01.png",
+      "root": [
+        830,
+        943
+      ],
+      "hands": [],
+      "feet": {
+        "right": [
+          1418,
+          854
+        ],
+        "left": [
+          1440,
+          672
+        ]
+      },
+      "phase": "ground_impact",
+      "duration": 80,
+      "angle": 85,
+      "weapon_grip_canvas": [
+        185,
+        285
+      ],
+      "weapon_detached": true,
+      "body_offset": [
+        -60,
+        0
+      ],
+      "grounded": true,
+      "support": "back_hip_cape",
+      "event": "weapon_release"
+    },
+    {
+      "file": "down-02.png",
+      "root": [
+        830,
+        893
+      ],
+      "hands": [],
+      "feet": {
+        "right": [
+          1450,
+          834
+        ],
+        "left": [
+          1433,
+          681
+        ]
+      },
+      "phase": "settle_roll",
+      "duration": 110,
+      "angle": 90,
+      "weapon_grip_canvas": [
+        210,
+        326
+      ],
+      "weapon_detached": true,
+      "body_offset": [
+        -60,
+        0
+      ],
+      "grounded": true,
+      "support": "back_hip_cape",
+      "event": "down_settle"
+    },
+    {
+      "file": "down-03.png",
+      "root": [
+        830,
+        971
+      ],
+      "hands": [],
+      "feet": {
+        "right": [
+          1360,
+          889
+        ],
+        "left": [
+          1450,
+          726
+        ]
+      },
+      "phase": "down_hold",
+      "duration": 600,
+      "angle": 90,
+      "weapon_grip_canvas": [
+        210,
+        326
+      ],
+      "weapon_detached": true,
+      "body_offset": [
+        -60,
+        0
+      ],
+      "grounded": true,
+      "support": "back_hip_cape",
+      "event": "down_hold_or_death"
+    }
+  ]
+}

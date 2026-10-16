@@ -1,0 +1,263 @@
+{
+  "hero": "ieyasu06",
+  "revision": "down_candidate_01",
+  "action": "down",
+  "approval": "accepted",
+  "loop": false,
+  "frame_count": 2,
+  "total_ms": 1030,
+  "standing_ruler_source_px": 920,
+  "standing_ruler_target_px": 152,
+  "new_source_standing_rulers": [
+    1380
+  ],
+  "scale_basis": "declared native standing-equivalent drawing scale, never per-frame bbox height",
+  "per_frame_bbox_height_normalization": false,
+  "original_png_preserved": true,
+  "body_final_downsample_only": true,
+  "image_generation_tool": "official image_gen.imagegen",
+  "direct_approved_references": [
+    "ieyasu06_newspec_20261015/reference/identity06.png",
+    "ieyasu06_newspec_20261015/actions/light_1_source.png"
+  ],
+  "layers": [
+    "body",
+    "weapon",
+    "sheath",
+    "hand_occlusion"
+  ],
+  "ordinary_action_fx": false,
+  "world_motion": {
+    "mode": "runtime_controller",
+    "per_frame_delta": [
+      0,
+      0
+    ],
+    "preview_motion_not_baked": true
+  },
+  "shared_idle": "../idle/registration.json",
+  "frames": [
+    {
+      "source_file": "../sources/down_impact_high_raw.png",
+      "source_rect": null,
+      "source_sha256": "72435b4b16d51538715856d1b9f8a1b1c288df9f184e1a6329f51aec3cc9d2eb",
+      "source_bbox": [
+        53,
+        333,
+        1497,
+        963
+      ],
+      "source_effective_height": 630,
+      "source_effective_width": 1444,
+      "source_standing_ruler": 1380,
+      "source_root": [
+        785,
+        963
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        133.53623188405797,
+        173.9304347826087
+      ],
+      "scale": 0.11014492753623188,
+      "grip_source": [
+        579,
+        699
+      ],
+      "grip_canvas": [
+        197.31014492753621,
+        250.9217391304348
+      ],
+      "hands_source": [
+        [
+          579,
+          699
+        ],
+        [
+          628,
+          632
+        ]
+      ],
+      "hands_canvas": [
+        [
+          197.31014492753621,
+          250.9217391304348
+        ],
+        [
+          202.7072463768116,
+          243.54202898550724
+        ]
+      ],
+      "weapon_angle_degrees": -110,
+      "sheath_angle_degrees": 125,
+      "feet_source": {
+        "near": [
+          1390,
+          946
+        ],
+        "far": [
+          1380,
+          671
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          286.63768115942025,
+          278.12753623188405
+        ],
+        "far": [
+          285.536231884058,
+          247.8376811594203
+        ]
+      },
+      "support_foot": "back_left_hip",
+      "frame": 1,
+      "duration_ms": 130,
+      "start_ms": 0,
+      "phase": "ground_impact",
+      "event": "down_contact",
+      "loop_next": 2,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/down_hold_high_raw.png",
+      "source_rect": null,
+      "source_sha256": "d40aeabfda005fcfdbdec3c3afec2106bfd8d771fa51faea532557edca09b7b3",
+      "source_bbox": [
+        39,
+        289,
+        1509,
+        906
+      ],
+      "source_effective_height": 617,
+      "source_effective_width": 1470,
+      "source_standing_ruler": 1380,
+      "source_root": [
+        790,
+        906
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        132.9855072463768,
+        180.2086956521739
+      ],
+      "scale": 0.11014492753623188,
+      "grip_source": [
+        614,
+        672
+      ],
+      "grip_canvas": [
+        200.61449275362318,
+        254.22608695652173
+      ],
+      "hands_source": [
+        [
+          614,
+          672
+        ],
+        [
+          691,
+          589
+        ]
+      ],
+      "hands_canvas": [
+        [
+          200.61449275362318,
+          254.22608695652173
+        ],
+        [
+          209.09565217391304,
+          245.0840579710145
+        ]
+      ],
+      "weapon_angle_degrees": -110,
+      "sheath_angle_degrees": 125,
+      "feet_source": {
+        "near": [
+          1391,
+          895
+        ],
+        "far": [
+          1397,
+          725
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          286.19710144927535,
+          278.7884057971014
+        ],
+        "far": [
+          286.85797101449276,
+          260.063768115942
+        ]
+      },
+      "support_foot": "back_left_hip",
+      "frame": 2,
+      "duration_ms": 900,
+      "start_ms": 130,
+      "phase": "down_hold",
+      "event": "hold_until_recovering",
+      "loop_next": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    }
+  ],
+  "runtime_integrated": false,
+  "notes": [
+    "Grounded impact then held knockdown state; runtime holds final pose until recovery input/timer.",
+    "Single-figure originals at declared1380px native standing-equivalent ruler, target152px; no bbox normalization.",
+    "Near hand retains sword low across front, far hand rests near abdomen; no FX."
+  ],
+  "approval_basis": {
+    "message_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+    "scope": "Previously delivered current revision with no subsequent objection; run v4 excluded."
+  }
+}
