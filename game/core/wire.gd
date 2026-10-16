@@ -1,5 +1,7 @@
 extends RefCounted
 
+const CampaignMusic = preload("res://core/campaign_music.gd")
+
 const Stage03 = preload("res://core/stage03_encounter.gd")
 const Battle = preload("res://core/battle.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
@@ -142,7 +144,7 @@ static func _valid_stage(stage: Variant) -> bool:
 	var prototype: bool = stage.get("prototype",false)
 	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),1 if prototype else 6,4 if prototype else 8) or not _integer(stage.get("index"),0,stage.total - 1): return false
 	if not _choice(stage.get("theme"),["bamboo","ridge","village","road","outpost","gate","camp","courtyard","command","chamber","supply_road","riverbank","granary","switchback","marune_gate","supply_court"]): return false
-	if not _choice(stage.get("weather"),["clear","rain","storm","mist","indoor"]) or not _choice(stage.get("music"),["bamboo","siege","town","castle","boss"]): return false
+	if not _choice(stage.get("weather"),["clear","rain","storm","mist","indoor"]) or not _choice(stage.get("music"),["bamboo","siege","town","castle","boss"] + CampaignMusic.KEYS): return false
 	if not _choice(stage.get("civilians"),["none","villagers","vendors","porters"]): return false
 	if not _number(stage.get("width"),2000,4800) or not _integer(stage.get("wave_total"),1 if prototype else 2,1 if prototype else 3): return false
 	if not _integer(stage.get("checkpoint_total"),1 if prototype else 2,1 if prototype else 4) or not _integer(stage.get("checkpoint"),0,stage.checkpoint_total-1): return false

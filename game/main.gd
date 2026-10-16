@@ -1140,8 +1140,9 @@ func _activate() -> void:
 	_victory_subtitle = ""
 	active = true
 	paused = false
-	audio.play_music()
+	if sim.state.has("stage"): audio.stop_music()
 	audio.sync_stage_music(sim.state)
+	audio.play_music()
 	last_event = -1
 	local_frame = 0
 	remote_frame = -1
@@ -1624,7 +1625,7 @@ func _update_view() -> void:
 	hud.size = Vector2(448, 75)
 	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	audio.sync_encounter(sim.state if active else {})
-	if active and sim.state.get("phase","") == "playing": audio.sync_stage_music(sim.state)
+	if active: audio.sync_stage_music(sim.state)
 	exit_button.visible = active and sim.state.get("phase","") == "won" and sim.state.get("victory_looting",false) and not menu.visible
 	var x := 480.0
 	var living_x: Array[float] = []

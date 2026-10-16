@@ -100,6 +100,11 @@ func run():
 	app._physics_process(0)
 	await capture(app,"08-prototype-victory.png")
 	assert("第三關" in app.end_label.text)
+	assert(app.audio._music_key in ["victory_jingle","victory_loop"])
+	if not output.is_empty():
+		await create_timer(7.5).timeout
+		assert(app.audio._music_key == "victory_loop" and app.audio._music_player.playing)
+		print("CAMPAIGN MUSIC NATIVE: victory jingle naturally completed and bright loop is playing")
 	if not output.is_empty():
 		var file := FileAccess.open(output.path_join("review.json"),FileAccess.WRITE)
 		assert(file != null)

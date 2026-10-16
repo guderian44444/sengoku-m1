@@ -1,0 +1,97 @@
+{
+  "source_library": {
+    "archive_sha256": "a6dfcb0ec0e0aceeff7cd5e6fd07251ee5d1f5d962a16ca89f40af00038c174b",
+    "library_file_id": "libfile_ea1f7fdf9c148191a413032658c27edb",
+    "file_id": "file_00000000b03481f79c38f127d039567c",
+    "version": "1",
+    "ogg_files": 12,
+    "hashes_verified": true,
+    "official_terms_checked": "https://peritune.com/about/",
+    "terms_checked_date": "2026-10-16",
+    "auditory_review": "pending game listening; no claim of audition"
+  },
+  "asset_hashes_verified": 12,
+  "stage03_files_unchanged_from_earlier_pack": 6,
+  "unique_works": 11,
+  "scene_count": 17,
+  "campaign_music_checks": 136,
+  "loop_boundary_checks": "Two accelerated end-of-loop crossings for each of eleven loop files; not two full-length listening passes",
+  "test_results": [
+    {
+      "name": "campaign_music",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 21.892
+    },
+    {
+      "name": "stage03_yoshimoto",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 1.092
+    },
+    {
+      "name": "stage03_yoshimoto_view",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 24.035
+    },
+    {
+      "name": "stage2_route_v29",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 25.518
+    },
+    {
+      "name": "music_v21",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 4.972
+    },
+    {
+      "name": "audio_v20",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 14.599
+    },
+    {
+      "name": "wire",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 1.083
+    },
+    {
+      "name": "music_integration_v14",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 28.613
+    }
+  ],
+  "subjective_listening": "pending",
+  "export_and_hardware_balance": "pending",
+  "fallback_tests": [
+    "Missing campaign OGG selects legacy WAV",
+    "Missing victory OGG stops battle main and outgoing tail",
+    "Missing victory manifest entry also stops battle"
+  ],
+  "latest_campaign_test_started_at": "2026-10-16T09:58:09.597Z",
+  "native_main_driver": "WASAPI",
+  "native_main_exit_code": 0,
+  "native_victory_completion_without_seek": true,
+  "native_export_warning": "Existing direct image loading warns about export; release export not validated"
+}
