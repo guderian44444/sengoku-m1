@@ -1,0 +1,331 @@
+{
+  "schema_version": "ieyasu-final-v1",
+  "hero": "ieyasu06",
+  "approval": "accepted",
+  "approval_basis": {
+    "message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+    "quote": "動作都OK了，把後續都處理好就上GIT",
+    "scope": "All nine latest Ieyasu base actions, including run_v5 and victory_v2. Visual asset acceptance; not evidence of runtime testing."
+  },
+  "action_count": 9,
+  "frame_count": 50,
+  "canvas": [
+    480,
+    320
+  ],
+  "root": [
+    220,
+    280
+  ],
+  "standing_ruler_px": 152,
+  "layers": [
+    "body",
+    "weapon",
+    "hand_occlusion"
+  ],
+  "body_includes_scabbard": true,
+  "current_run_revision": "run_v5",
+  "current_victory_revision": "victory_v2",
+  "idle": "idle/registration.json",
+  "portrait": "portrait/portrait.png",
+  "portrait_provenance": "portrait/provenance.json",
+  "actions": [
+    {
+      "action": "walk",
+      "revision_folder": "walk",
+      "approval": "accepted",
+      "approval_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "frame_count": 8,
+      "total_ms": 1080,
+      "metadata": "walk/metadata.json",
+      "preview_files": [
+        "walk/previews/idle-walk-comparison.gif",
+        "walk/previews/idle-walk-comparison.png",
+        "walk/previews/idle-walk-idle.gif",
+        "walk/previews/normal.gif",
+        "walk/previews/slow.gif",
+        "walk/previews/world-preview.gif"
+      ],
+      "delivered_library_artifacts": [
+        {
+          "file_name": "Ieyasu06_Walk_normal.gif",
+          "library_file_id": "libfile_8e838b88ff588191a9e04522bdff0a19",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Walk_idle-walk-comparison.gif",
+          "library_file_id": "libfile_3e65b15fe148819194fbe84539d062d4",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Walk_idle-walk-comparison.png",
+          "library_file_id": "libfile_7d8f343bd1b88191b145791c0e1696fa",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Walk_world-preview.gif",
+          "library_file_id": "libfile_2682d5315374819198983a956e49e207",
+          "version": 0
+        }
+      ],
+      "runtime_integrated": false
+    },
+    {
+      "action": "hurt",
+      "revision_folder": "hurt",
+      "approval": "accepted",
+      "approval_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "frame_count": 6,
+      "total_ms": 710,
+      "metadata": "hurt/metadata.json",
+      "preview_files": [
+        "hurt/previews/idle-comparison.gif",
+        "hurt/previews/idle-comparison.png",
+        "hurt/previews/normal.gif",
+        "hurt/previews/slow.gif"
+      ],
+      "delivered_library_artifacts": [
+        {
+          "file_name": "Ieyasu06_Hurt_normal.gif",
+          "library_file_id": "libfile_12368b2d2498819195ecf33ca801a96e",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Hurt_idle-comparison.gif",
+          "library_file_id": "libfile_93bfa2abaa908191af809b73ce415d09",
+          "version": 0
+        }
+      ],
+      "runtime_integrated": false
+    },
+    {
+      "action": "stunned",
+      "revision_folder": "stunned",
+      "approval": "accepted",
+      "approval_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "frame_count": 4,
+      "total_ms": 1080,
+      "metadata": "stunned/metadata.json",
+      "preview_files": [
+        "stunned/previews/idle-comparison.gif",
+        "stunned/previews/idle-comparison.png",
+        "stunned/previews/normal.gif",
+        "stunned/previews/slow.gif"
+      ],
+      "delivered_library_artifacts": [
+        {
+          "file_name": "Ieyasu06_Stunned_normal.gif",
+          "library_file_id": "libfile_6c67b5d25f508191bb1951a4dfddc92e",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Stunned_idle-comparison.gif",
+          "library_file_id": "libfile_37d75d6c3f0481919e1aa28e5bcca111",
+          "version": 0
+        }
+      ],
+      "runtime_integrated": false
+    },
+    {
+      "action": "jump",
+      "revision_folder": "jump",
+      "approval": "accepted",
+      "approval_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "frame_count": 8,
+      "total_ms": 980,
+      "metadata": "jump/metadata.json",
+      "preview_files": [
+        "jump/previews/idle-comparison.gif",
+        "jump/previews/idle-comparison.png",
+        "jump/previews/normal.gif",
+        "jump/previews/slow.gif"
+      ],
+      "delivered_library_artifacts": [
+        {
+          "file_name": "Ieyasu06_Jump_normal.gif",
+          "library_file_id": "libfile_b400376668948191a179788011d76ea9",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Jump_idle-comparison.gif",
+          "library_file_id": "libfile_9e2e21d97fa88191b401c216f9ecb00b",
+          "version": 0
+        }
+      ],
+      "runtime_integrated": false
+    },
+    {
+      "action": "launched",
+      "revision_folder": "launched",
+      "approval": "accepted",
+      "approval_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "frame_count": 5,
+      "total_ms": 540,
+      "metadata": "launched/metadata.json",
+      "preview_files": [
+        "launched/previews/idle-comparison.gif",
+        "launched/previews/idle-comparison.png",
+        "launched/previews/normal.gif",
+        "launched/previews/slow.gif"
+      ],
+      "delivered_library_artifacts": [
+        {
+          "file_name": "Ieyasu06_Launched_normal.gif",
+          "library_file_id": "libfile_f5d0f0f4b3708191b767ddf16d7ce6ca",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Launched_idle-comparison.gif",
+          "library_file_id": "libfile_9244e73ea1c08191ade0de5e6622f3df",
+          "version": 0
+        }
+      ],
+      "runtime_integrated": false
+    },
+    {
+      "action": "down",
+      "revision_folder": "down",
+      "approval": "accepted",
+      "approval_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "frame_count": 2,
+      "total_ms": 1030,
+      "metadata": "down/metadata.json",
+      "preview_files": [
+        "down/previews/idle-comparison.gif",
+        "down/previews/idle-comparison.png",
+        "down/previews/normal.gif",
+        "down/previews/slow.gif"
+      ],
+      "delivered_library_artifacts": [
+        {
+          "file_name": "ieyasu-down-grounded-candidate.gif",
+          "library_file_id": "libfile_8547d817d8488191923359d973faf889",
+          "version": 0
+        },
+        {
+          "file_name": "ieyasu-down-approved-idle-comparison.gif",
+          "library_file_id": "libfile_627cd93fa8408191bb899acea13b7483",
+          "version": 0
+        }
+      ],
+      "runtime_integrated": false
+    },
+    {
+      "action": "recovering",
+      "revision_folder": "recovering",
+      "approval": "accepted",
+      "approval_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "frame_count": 5,
+      "total_ms": 870,
+      "metadata": "recovering/metadata.json",
+      "preview_files": [
+        "recovering/previews/idle-comparison.gif",
+        "recovering/previews/idle-comparison.png",
+        "recovering/previews/normal.gif",
+        "recovering/previews/slow.gif"
+      ],
+      "delivered_library_artifacts": [
+        {
+          "file_name": "ieyasu-recovering-candidate.gif",
+          "library_file_id": "libfile_6b8ae5c1932c81918a6599717b64dd77",
+          "version": 0
+        },
+        {
+          "file_name": "ieyasu-recovering-approved-idle-comparison.gif",
+          "library_file_id": "libfile_d5c167dff7d081919512981dea21c2d3",
+          "version": 0
+        }
+      ],
+      "runtime_integrated": false
+    },
+    {
+      "action": "victory",
+      "revision_folder": "victory_v2",
+      "approval": "accepted",
+      "approval_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "frame_count": 6,
+      "total_ms": 1300,
+      "metadata": "victory_v2/metadata.json",
+      "preview_files": [
+        "victory_v2/previews/idle-comparison.gif",
+        "victory_v2/previews/idle-comparison.png",
+        "victory_v2/previews/normal.gif",
+        "victory_v2/previews/slow.gif"
+      ],
+      "delivered_library_artifacts": [
+        {
+          "file_name": "ieyasu-victory-v2-one-hand-sword-shout.gif",
+          "library_file_id": "libfile_c8e005f5dda881919e86eecd5209e9ed",
+          "version": 0
+        },
+        {
+          "file_name": "ieyasu-victory-v2-idle-size-comparison.gif",
+          "library_file_id": "libfile_b1d200c420208191a86efd063678d125",
+          "version": 0
+        },
+        {
+          "file_name": "ieyasu-victory-v2-numbered-size-review.png",
+          "library_file_id": "libfile_163142f140ec819192a6a4701f356f1c",
+          "version": 0
+        }
+      ],
+      "runtime_integrated": false
+    },
+    {
+      "action": "run",
+      "revision_folder": "run_v5",
+      "approval": "accepted",
+      "approval_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+      "frame_count": 6,
+      "total_ms": 500,
+      "metadata": "run_v5/metadata.json",
+      "preview_files": [
+        "run_v5/previews/idle-comparison.gif",
+        "run_v5/previews/idle-comparison.png",
+        "run_v5/previews/normal.gif",
+        "run_v5/previews/numbered-pose-strip.png",
+        "run_v5/previews/slow-once.gif"
+      ],
+      "delivered_library_artifacts": [
+        {
+          "file_name": "Ieyasu06_Run_v5_normal.gif",
+          "library_file_id": "libfile_154515864d288191bfcd6ffe18c7da01",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Run_v5_idle-comparison.gif",
+          "library_file_id": "libfile_6d559ff6ecc08191b47fb359accb1d38",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Run_v5_numbered-pose-strip.png",
+          "library_file_id": "libfile_0006dd3f0a80819187ac9f494e5da624",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Run_v5_protected_editable_masks.png",
+          "library_file_id": "libfile_c243160e0e24819185193aa44d17c74d",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Run_v5_metadata.json",
+          "library_file_id": "libfile_74f6835275408191b0f0764e5011c645",
+          "version": 0
+        },
+        {
+          "file_name": "Ieyasu06_Run_v5_QA.json",
+          "library_file_id": "libfile_a944872059688191a5710c3c7f3be145",
+          "version": 0
+        }
+      ],
+      "runtime_integrated": false
+    }
+  ],
+  "source_manifest": "source_manifest.json",
+  "qa": "QA.json",
+  "integrity_manifest": "SHA256SUMS",
+  "runtime_integrated": false,
+  "runtime_validation": "not_run",
+  "historical_data_policy": "provenance and unselected sources are evidence only, not selectable actions",
+  "original_assets_mutated": false
+}

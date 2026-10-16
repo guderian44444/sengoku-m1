@@ -1,0 +1,207 @@
+{
+  "action": "victory_v2",
+  "runtime_action": "victory",
+  "loop": false,
+  "representative": 3,
+  "notes": [
+    "Replaces user-rejected fist victory. Same near hand raises approved sword overhead with open-mouth shout; free far hand naturally clenched. No sound added.",
+    "Four1024x1536 body originals guided by a shared anatomy ruler. All4 use one common1240px native standing-equivalent calibration, never per-frame or raised-arm bbox normalization.",
+    "Crown-to-sole excluding raised hand remains approximately1210-1260sourcepx; measured crown game variation recorded in QA.",
+    "Exact approved idle at both ends; all raw originals retained.",
+    "Return uses the identical preparation body pose in reverse. Newly generated lower pose retained but excluded because crown/body was about4.8px taller at fixed scale. Selected new-frame crown variation is1.47gamepx."
+  ],
+  "frames": [
+    {
+      "idle": true,
+      "duration": 100,
+      "phase": "approved_idle",
+      "event": "victory_start"
+    },
+    {
+      "source": "victory_v2_prepare_raw.png",
+      "source_standing_ruler": 1240,
+      "root": [
+        510,
+        1410
+      ],
+      "hands": [
+        [
+          488,
+          533
+        ],
+        [
+          749,
+          835
+        ]
+      ],
+      "grip": [
+        488,
+        533
+      ],
+      "sheath_anchor": [
+        550,
+        795
+      ],
+      "feet": {
+        "near": [
+          115,
+          1404
+        ],
+        "far": [
+          928,
+          1402
+        ]
+      },
+      "duration": 150,
+      "phase": "single_hand_sword_lift",
+      "event": null,
+      "angle": -22,
+      "sheath_angle": 65,
+      "head_crown_source": [
+        398,
+        175
+      ]
+    },
+    {
+      "source": "victory_v2_raise_raw.png",
+      "source_standing_ruler": 1240,
+      "root": [
+        510,
+        1415
+      ],
+      "hands": [
+        [
+          361,
+          131
+        ],
+        [
+          673,
+          770
+        ]
+      ],
+      "grip": [
+        361,
+        131
+      ],
+      "sheath_anchor": [
+        560,
+        800
+      ],
+      "feet": {
+        "near": [
+          115,
+          1409
+        ],
+        "far": [
+          928,
+          1407
+        ]
+      },
+      "duration": 170,
+      "phase": "single_hand_sword_up",
+      "event": null,
+      "angle": -5,
+      "sheath_angle": 65,
+      "head_crown_source": [
+        416,
+        192
+      ]
+    },
+    {
+      "source": "victory_v2_shout_raw.png",
+      "source_standing_ruler": 1240,
+      "root": [
+        510,
+        1434
+      ],
+      "hands": [
+        [
+          370,
+          83
+        ],
+        [
+          849,
+          849
+        ]
+      ],
+      "grip": [
+        370,
+        83
+      ],
+      "sheath_anchor": [
+        580,
+        805
+      ],
+      "feet": {
+        "near": [
+          115,
+          1428
+        ],
+        "far": [
+          928,
+          1426
+        ]
+      },
+      "duration": 500,
+      "phase": "overhead_sword_shout",
+      "event": "victory_shout_pose_no_audio",
+      "angle": 0,
+      "sheath_angle": 65,
+      "head_crown_source": [
+        393,
+        204
+      ]
+    },
+    {
+      "source": "victory_v2_prepare_raw.png",
+      "source_standing_ruler": 1240,
+      "root": [
+        510,
+        1410
+      ],
+      "hands": [
+        [
+          488,
+          533
+        ],
+        [
+          749,
+          835
+        ]
+      ],
+      "grip": [
+        488,
+        533
+      ],
+      "sheath_anchor": [
+        550,
+        795
+      ],
+      "feet": {
+        "near": [
+          115,
+          1404
+        ],
+        "far": [
+          928,
+          1402
+        ]
+      },
+      "duration": 180,
+      "phase": "sword_lower_to_chest",
+      "event": null,
+      "angle": -30,
+      "sheath_angle": 65,
+      "head_crown_source": [
+        398,
+        175
+      ]
+    },
+    {
+      "idle": true,
+      "duration": 200,
+      "phase": "approved_idle",
+      "event": "victory_complete"
+    }
+  ]
+}

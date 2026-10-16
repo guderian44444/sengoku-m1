@@ -1,0 +1,821 @@
+{
+  "hero": "ieyasu06",
+  "revision": "jump_candidate_01",
+  "action": "jump",
+  "approval": "accepted",
+  "loop": false,
+  "frame_count": 8,
+  "total_ms": 980,
+  "standing_ruler_source_px": 920,
+  "standing_ruler_target_px": 152,
+  "one_constant_new_body_scale": 0.16521739130434782,
+  "per_frame_bbox_height_normalization": false,
+  "original_png_preserved": true,
+  "body_final_downsample_only": true,
+  "image_generation_tool": "official image_gen.imagegen",
+  "direct_approved_references": [
+    "ieyasu06_newspec_20261015/reference/identity06.png",
+    "ieyasu06_newspec_20261015/actions/light_1_source.png"
+  ],
+  "layers": [
+    "body",
+    "weapon",
+    "sheath",
+    "hand_occlusion"
+  ],
+  "ordinary_action_fx": false,
+  "world_motion": {
+    "mode": "runtime_controller",
+    "per_frame_delta": [
+      0,
+      0
+    ],
+    "preview_motion_not_baked": true
+  },
+  "shared_idle": "../idle/registration.json",
+  "frames": [
+    {
+      "source_file": "../idle/composite.png",
+      "approved_exact_idle": true,
+      "source_effective_height": 416,
+      "root_canvas": [
+        220,
+        280
+      ],
+      "grip_canvas": [
+        224.08,
+        201.06
+      ],
+      "hands_canvas": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_canvas": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ]
+      },
+      "support_foot": "both",
+      "scale": 0.36538461538461536,
+      "frame": 1,
+      "duration_ms": 80,
+      "start_ms": 0,
+      "phase": "approved_idle_entry",
+      "event": null,
+      "loop_next": 2,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/jump_01_02_raw.png",
+      "source_rect": [
+        0,
+        0,
+        800,
+        1024
+      ],
+      "source_sha256": "d48b9849c52ed9c760e65764c3df38ec96299c45c2fc12d9a5183fa89dbbeb54",
+      "source_bbox": [
+        76,
+        218,
+        762,
+        973
+      ],
+      "source_effective_height": 755,
+      "source_effective_width": 686,
+      "source_root": [
+        455,
+        960
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        144.82608695652175,
+        121.3913043478261
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        477.0,
+        654.0
+      ],
+      "grip_canvas": [
+        223.63478260869567,
+        229.44347826086957
+      ],
+      "hands_source": [
+        [
+          445,
+          654
+        ],
+        [
+          509,
+          654
+        ]
+      ],
+      "hands_canvas": [
+        [
+          218.34782608695653,
+          229.44347826086957
+        ],
+        [
+          228.9217391304348,
+          229.44347826086957
+        ]
+      ],
+      "weapon_angle_degrees": -45,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          144,
+          956
+        ],
+        "far": [
+          691,
+          950
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          168.61739130434785,
+          279.33913043478265
+        ],
+        "far": [
+          258.9913043478261,
+          278.3478260869565
+        ]
+      },
+      "support_foot": "both",
+      "frame": 2,
+      "duration_ms": 120,
+      "start_ms": 80,
+      "phase": "anticipation_squat",
+      "event": null,
+      "loop_next": 3,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/jump_01_02_raw.png",
+      "source_rect": [
+        800,
+        0,
+        1536,
+        1024
+      ],
+      "source_sha256": "d48b9849c52ed9c760e65764c3df38ec96299c45c2fc12d9a5183fa89dbbeb54",
+      "source_bbox": [
+        867,
+        48,
+        1444,
+        973
+      ],
+      "source_effective_height": 925,
+      "source_effective_width": 577,
+      "source_root": [
+        1235,
+        960
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        15.956521739130437,
+        121.3913043478261
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        1253.0,
+        489.0
+      ],
+      "grip_canvas": [
+        222.97391304347826,
+        202.18260869565216
+      ],
+      "hands_source": [
+        [
+          1221,
+          489
+        ],
+        [
+          1285,
+          489
+        ]
+      ],
+      "hands_canvas": [
+        [
+          217.68695652173912,
+          202.18260869565216
+        ],
+        [
+          228.26086956521738,
+          202.18260869565216
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          934,
+          958
+        ],
+        "far": [
+          1360,
+          950
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          170.2695652173913,
+          279.6695652173913
+        ],
+        "far": [
+          240.65217391304347,
+          278.3478260869565
+        ]
+      },
+      "support_foot": "none",
+      "frame": 3,
+      "duration_ms": 80,
+      "start_ms": 200,
+      "phase": "takeoff",
+      "event": "jump_takeoff",
+      "loop_next": 4,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        -18
+      ],
+      "grounded": false,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/jump_03_04_raw.png",
+      "source_rect": [
+        0,
+        0,
+        800,
+        1024
+      ],
+      "source_sha256": "ede1fff52f5a8b2e54e488ca58547eb41cdb2d9855f6f350602188acdf558646",
+      "source_bbox": [
+        129,
+        20,
+        698,
+        833
+      ],
+      "source_effective_height": 813,
+      "source_effective_width": 569,
+      "source_root": [
+        455,
+        960
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        144.82608695652175,
+        121.3913043478261
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        462.5,
+        366.0
+      ],
+      "grip_canvas": [
+        221.23913043478262,
+        181.8608695652174
+      ],
+      "hands_source": [
+        [
+          423,
+          367
+        ],
+        [
+          502,
+          365
+        ]
+      ],
+      "hands_canvas": [
+        [
+          214.7130434782609,
+          182.02608695652174
+        ],
+        [
+          227.76521739130436,
+          181.69565217391306
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          247,
+          812
+        ],
+        "far": [
+          493,
+          740
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          185.63478260869567,
+          255.54782608695652
+        ],
+        "far": [
+          226.2782608695652,
+          243.6521739130435
+        ]
+      },
+      "support_foot": "none",
+      "frame": 4,
+      "duration_ms": 180,
+      "start_ms": 280,
+      "phase": "air_apex",
+      "event": null,
+      "loop_next": 5,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        -54
+      ],
+      "grounded": false,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/jump_03_04_raw.png",
+      "source_rect": [
+        800,
+        0,
+        1536,
+        1024
+      ],
+      "source_sha256": "ede1fff52f5a8b2e54e488ca58547eb41cdb2d9855f6f350602188acdf558646",
+      "source_bbox": [
+        808,
+        69,
+        1436,
+        979
+      ],
+      "source_effective_height": 910,
+      "source_effective_width": 628,
+      "source_root": [
+        1220,
+        960
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        18.434782608695656,
+        121.3913043478261
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        1232.0,
+        449.5
+      ],
+      "grip_canvas": [
+        221.98260869565217,
+        195.65652173913043
+      ],
+      "hands_source": [
+        [
+          1194,
+          453
+        ],
+        [
+          1270,
+          446
+        ]
+      ],
+      "hands_canvas": [
+        [
+          215.70434782608694,
+          196.23478260869564
+        ],
+        [
+          228.26086956521738,
+          195.0782608695652
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          866,
+          950
+        ],
+        "far": [
+          1320,
+          976
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          161.51304347826087,
+          278.3478260869565
+        ],
+        "far": [
+          236.52173913043478,
+          282.64347826086953
+        ]
+      },
+      "support_foot": "none",
+      "frame": 5,
+      "duration_ms": 120,
+      "start_ms": 460,
+      "phase": "air_descent",
+      "event": null,
+      "loop_next": 6,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        -27
+      ],
+      "grounded": false,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/jump_05_06_raw.png",
+      "source_rect": [
+        0,
+        0,
+        800,
+        1024
+      ],
+      "source_sha256": "d3d9fec2607a1bde9eec65f1afd0d70b3ba9b9d67316b5414eb0330907eee89a",
+      "source_bbox": [
+        55,
+        214,
+        784,
+        974
+      ],
+      "source_effective_height": 760,
+      "source_effective_width": 729,
+      "source_root": [
+        450,
+        961
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        145.6521739130435,
+        121.22608695652175
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        465.0,
+        633.5
+      ],
+      "grip_canvas": [
+        222.47826086956525,
+        225.8913043478261
+      ],
+      "hands_source": [
+        [
+          438,
+          635
+        ],
+        [
+          492,
+          632
+        ]
+      ],
+      "hands_canvas": [
+        [
+          218.01739130434783,
+          226.1391304347826
+        ],
+        [
+          226.9391304347826,
+          225.64347826086959
+        ]
+      ],
+      "weapon_angle_degrees": -45,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          128,
+          960
+        ],
+        "far": [
+          704,
+          955
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          166.8,
+          279.83478260869566
+        ],
+        "far": [
+          261.96521739130435,
+          279.0086956521739
+        ]
+      },
+      "support_foot": "both",
+      "frame": 6,
+      "duration_ms": 100,
+      "start_ms": 580,
+      "phase": "landing_compress",
+      "event": "jump_landing",
+      "loop_next": 7,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/jump_05_06_raw.png",
+      "source_rect": [
+        800,
+        0,
+        1536,
+        1024
+      ],
+      "source_sha256": "d3d9fec2607a1bde9eec65f1afd0d70b3ba9b9d67316b5414eb0330907eee89a",
+      "source_bbox": [
+        800,
+        61,
+        1510,
+        974
+      ],
+      "source_effective_height": 913,
+      "source_effective_width": 710,
+      "source_root": [
+        1175,
+        961
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        25.86956521739131,
+        121.22608695652175
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        1173.5,
+        514.5
+      ],
+      "grip_canvas": [
+        219.75217391304346,
+        206.2304347826087
+      ],
+      "hands_source": [
+        [
+          1139,
+          514
+        ],
+        [
+          1208,
+          515
+        ]
+      ],
+      "hands_canvas": [
+        [
+          214.05217391304348,
+          206.1478260869565
+        ],
+        [
+          225.45217391304348,
+          206.31304347826088
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          871,
+          959
+        ],
+        "far": [
+          1418,
+          956
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          169.77391304347825,
+          279.6695652173913
+        ],
+        "far": [
+          260.1478260869565,
+          279.17391304347825
+        ]
+      },
+      "support_foot": "both",
+      "frame": 7,
+      "duration_ms": 120,
+      "start_ms": 680,
+      "phase": "landing_recover",
+      "event": null,
+      "loop_next": 8,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../idle/composite.png",
+      "approved_exact_idle": true,
+      "source_effective_height": 416,
+      "root_canvas": [
+        220,
+        280
+      ],
+      "grip_canvas": [
+        224.08,
+        201.06
+      ],
+      "hands_canvas": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_canvas": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ]
+      },
+      "support_foot": "both",
+      "scale": 0.36538461538461536,
+      "frame": 8,
+      "duration_ms": 180,
+      "start_ms": 800,
+      "phase": "approved_idle_return",
+      "event": "jump_complete",
+      "loop_next": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    }
+  ],
+  "runtime_integrated": false,
+  "notes": [
+    "Vertical jump with anticipation, takeoff, apex, descent, landing and recovery to exact approved idle.",
+    "Vertical arc is preview-only; runtime physics controls height and collision. No FX."
+  ],
+  "approval_basis": {
+    "message_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+    "scope": "Previously delivered current revision with no subsequent objection; run v4 excluded."
+  }
+}

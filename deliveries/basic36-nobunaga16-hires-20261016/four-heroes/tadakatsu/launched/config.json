@@ -1,0 +1,193 @@
+{
+  "loop": false,
+  "terminal_event": "transition_to_down",
+  "standing_ruler_source_px": 1050,
+  "frames": [
+    {
+      "file": "idle-approved.png",
+      "root": [
+        297,
+        490
+      ],
+      "hands": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "feet": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "phase": "approved_idle",
+      "duration": 70,
+      "scale": 0.44054054054054054,
+      "standing_ruler_source_px": 370,
+      "reused_approved": true,
+      "hand_radius": 15,
+      "support": "both"
+    },
+    {
+      "file": "launched-01.png",
+      "root": [
+        570,
+        1450
+      ],
+      "hands": [
+        [
+          500,
+          548
+        ]
+      ],
+      "feet": {
+        "right": [
+          790,
+          1157
+        ],
+        "left": [
+          965,
+          969
+        ]
+      },
+      "phase": "lifted_back",
+      "event": "launched_lifted_back",
+      "grounded": false,
+      "support": null,
+      "duration": 90,
+      "angle": 82,
+      "body_offset": [
+        -10,
+        -12
+      ],
+      "preview_displacement": [
+        -10,
+        -12
+      ]
+    },
+    {
+      "file": "launched-02.png",
+      "root": [
+        590,
+        1450
+      ],
+      "hands": [
+        [
+          415,
+          641
+        ]
+      ],
+      "feet": {
+        "right": [
+          800,
+          1295
+        ],
+        "left": [
+          938,
+          1054
+        ]
+      },
+      "phase": "air_recoil",
+      "event": "launched_air_recoil",
+      "grounded": false,
+      "support": null,
+      "duration": 100,
+      "angle": 75,
+      "body_offset": [
+        -25,
+        -40
+      ],
+      "preview_displacement": [
+        -25,
+        -40
+      ]
+    },
+    {
+      "file": "launched-03.png",
+      "root": [
+        830,
+        1100
+      ],
+      "hands": [
+        [
+          586,
+          408
+        ]
+      ],
+      "feet": {
+        "right": [
+          1250,
+          809
+        ],
+        "left": [
+          1383,
+          570
+        ]
+      },
+      "phase": "air_tumble",
+      "event": "launched_air_tumble",
+      "grounded": false,
+      "support": null,
+      "duration": 110,
+      "angle": 64,
+      "body_offset": [
+        -45,
+        -65
+      ],
+      "preview_displacement": [
+        -45,
+        -65
+      ]
+    },
+    {
+      "file": "launched-04.png",
+      "root": [
+        830,
+        1030
+      ],
+      "hands": [
+        [
+          600,
+          495
+        ]
+      ],
+      "feet": {
+        "right": [
+          1275,
+          835
+        ],
+        "left": [
+          1440,
+          606
+        ]
+      },
+      "phase": "descending_to_down",
+      "event": "launched_descending_to_down",
+      "grounded": false,
+      "support": null,
+      "duration": 120,
+      "angle": 77,
+      "body_offset": [
+        -60,
+        -20
+      ],
+      "preview_displacement": [
+        -60,
+        -20
+      ]
+    }
+  ],
+  "preview_motion": {
+    "mode": "knockback_arc_demo",
+    "displacement_not_runtime_world_motion": true
+  }
+}

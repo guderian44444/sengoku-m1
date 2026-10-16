@@ -1,0 +1,11 @@
+Charge release final visible-layer partition
+24 frames, native actor separated from native FX back/front. Approved master art is unchanged.
+The semantic source is layers-native/actor, not frames-composite with FX. Frame000 is the approved no-FX hold endpoint.
+Use layers-visible-manifest.json. It includes source/native-layer provenance, source-exact recomposition, hand/grip advisory centroid, authored blade base/yaw, measured known-layer tip/angle, and native_layer_based=true.
+Known coverage gap: all24 weapon masks guarantee canonical exposed steel only. Body-donor hilt/guard remain partly fused with body/hand layers. Hidden body/weapon pixels have not been filled. These are exact visible-source partitions, not independently movable or complete swap-ready rigs.
+Semantic QA inspected all24 cropped overlays, including foreshortened008/016 and highguards022/023. Source pixels are preserved.
+Rebuild order from repository/workspace root:
+1. python nobunaga_final_approved/charge_release/repair_semantic_layers.py
+2. python nobunaga_final_approved/grab_start/finalize_semantic_masks.py
+3. python nobunaga_final_approved/charge_release/finalize_semantic_metadata.py
+Step1 also repairs grab_start; step2 is required to finalize frame009 and metadata. Do not replace these authored-source masks using the generic PCA detector.

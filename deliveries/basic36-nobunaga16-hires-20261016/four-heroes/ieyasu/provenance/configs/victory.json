@@ -1,0 +1,177 @@
+{
+  "action": "victory",
+  "loop": false,
+  "representative": 3,
+  "notes": [
+    "Grounded restrained victory salute: chest rises, free far fist lifts then settles back to exact approved idle.",
+    "Near hand keeps weapon at hip during salute; no FX.",
+    "Four newly drawn native poses at constant152/920 scale; exact approved idle at both ends."
+  ],
+  "frames": [
+    {
+      "idle": true,
+      "duration": 100,
+      "phase": "approved_idle",
+      "event": "victory_start"
+    },
+    {
+      "source": "victory_01_02_raw.png",
+      "component": 0,
+      "root": [
+        420,
+        957
+      ],
+      "hands": [
+        [
+          352,
+          548
+        ],
+        [
+          661,
+          211
+        ]
+      ],
+      "grip": [
+        352,
+        548
+      ],
+      "sheath_anchor": [
+        425,
+        563
+      ],
+      "feet": {
+        "near": [
+          133,
+          949
+        ],
+        "far": [
+          704,
+          941
+        ]
+      },
+      "duration": 150,
+      "phase": "chest_lift_fist_raise",
+      "angle": -20,
+      "sheath_angle": 65
+    },
+    {
+      "source": "victory_01_02_raw.png",
+      "component": 1,
+      "root": [
+        1180,
+        956
+      ],
+      "hands": [
+        [
+          1069,
+          549
+        ],
+        [
+          1299,
+          131
+        ]
+      ],
+      "grip": [
+        1069,
+        549
+      ],
+      "sheath_anchor": [
+        1149,
+        554
+      ],
+      "feet": {
+        "near": [
+          866,
+          949
+        ],
+        "far": [
+          1433,
+          939
+        ]
+      },
+      "duration": 170,
+      "phase": "salute_peak",
+      "angle": -12,
+      "sheath_angle": 65
+    },
+    {
+      "source": "victory_03_04_raw.png",
+      "component": 0,
+      "root": [
+        400,
+        976
+      ],
+      "hands": [
+        [
+          340,
+          517
+        ],
+        [
+          573,
+          118
+        ]
+      ],
+      "grip": [
+        340,
+        517
+      ],
+      "sheath_anchor": [
+        422,
+        550
+      ],
+      "feet": {
+        "near": [
+          92,
+          964
+        ],
+        "far": [
+          706,
+          956
+        ]
+      },
+      "duration": 500,
+      "phase": "proud_hold",
+      "event": "victory_salute",
+      "angle": -15,
+      "sheath_angle": 65
+    },
+    {
+      "source": "victory_03_04_raw.png",
+      "component": 1,
+      "root": [
+        1170,
+        974
+      ],
+      "hands": [
+        [
+          1187,
+          506
+        ],
+        [
+          1277,
+          516
+        ]
+      ],
+      "feet": {
+        "near": [
+          861,
+          968
+        ],
+        "far": [
+          1458,
+          956
+        ]
+      },
+      "duration": 180,
+      "phase": "settle_guard",
+      "angle": -50,
+      "sheath_angle": 65
+    },
+    {
+      "idle": true,
+      "duration": 200,
+      "phase": "approved_idle",
+      "event": "victory_complete"
+    }
+  ]
+}

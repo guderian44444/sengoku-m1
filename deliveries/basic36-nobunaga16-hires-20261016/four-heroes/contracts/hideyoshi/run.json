@@ -1,0 +1,595 @@
+{
+  "schema": "sengoku.animation.frames.v1",
+  "character": "hideyoshi",
+  "action": "run",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 150,
+  "frame_count": 6,
+  "total_duration_ms": 480,
+  "loop": true,
+  "terminal_hold": false,
+  "runtime_tested": false,
+  "source_metadata": "hideyoshi/run/metadata.json",
+  "all_file_paths_relative_to": "final_git_bundle root",
+  "frames": [
+    {
+      "frame_index": 0,
+      "duration_ms": 90,
+      "start_ms": 0,
+      "canvas_size_px": [
+        520,
+        380
+      ],
+      "root_canvas_px": [
+        220,
+        333
+      ],
+      "feet_canvas_px": {
+        "near": [
+          155.548,
+          295.608
+        ],
+        "far": [
+          264.772,
+          332.016
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": null,
+        "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+        "runtime_mapping_required": true
+      },
+      "grips_canvas_px": [
+        [
+          222.46,
+          250.836
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        222.46,
+        250.836
+      ],
+      "weapon_angle_degrees": 117,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "hideyoshi/run/frames/body_00.png",
+        "weapon": "hideyoshi/run/frames/weapon_00.png",
+        "hand_occlusion": "hideyoshi/run/frames/hand_occlusion_00.png"
+      },
+      "composite": "hideyoshi/run/frames/composite_00.png",
+      "events": [
+        "far_step",
+        "far_contact_near_trails",
+        "loop_start",
+        "foot_contact"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "run/source/contacts.png",
+        "sha256": "c880e5a93df78794023344bcf82af2d35ff4534807e02333b55c9b7b5eb9059b",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": null,
+        "component_bbox": [
+          24,
+          31,
+          842,
+          922
+        ],
+        "effective_figure_height_px": 891,
+        "effective_figure_long_axis_px": 891,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 1,
+      "duration_ms": 90,
+      "start_ms": 90,
+      "canvas_size_px": [
+        520,
+        380
+      ],
+      "root_canvas_px": [
+        220,
+        333
+      ],
+      "feet_canvas_px": {
+        "near": [
+          214.25,
+          314.14
+        ],
+        "far": [
+          227.245,
+          331.39
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": null,
+        "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+        "runtime_mapping_required": true
+      },
+      "grips_canvas_px": [
+        [
+          229.13,
+          250.57
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        229.13,
+        250.57
+      ],
+      "weapon_angle_degrees": 119,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "hideyoshi/run/frames/body_01.png",
+        "weapon": "hideyoshi/run/frames/weapon_01.png",
+        "hand_occlusion": "hideyoshi/run/frames/hand_occlusion_01.png"
+      },
+      "composite": "hideyoshi/run/frames/composite_01.png",
+      "events": [
+        "far_support_near_passes_under_hips",
+        "leg_passing"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        37.527,
+        0.626
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "run/source/final_passing_near.png",
+        "sha256": "62ce0ea08c91fb435fb19207f6f40b9f1b642e1b4543f9130d6a540c78c9d74e",
+        "native_canvas_px": [
+          1400,
+          1600
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": null,
+        "component_bbox": [
+          265,
+          152,
+          1148,
+          1434
+        ],
+        "effective_figure_height_px": 1282,
+        "effective_figure_long_axis_px": 1282,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 2,
+      "duration_ms": 60,
+      "start_ms": 180,
+      "canvas_size_px": [
+        520,
+        380
+      ],
+      "root_canvas_px": [
+        220,
+        333
+      ],
+      "feet_canvas_px": {
+        "near": [
+          251.488,
+          321.356
+        ],
+        "far": [
+          166.372,
+          305.612
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": null,
+        "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+        "runtime_mapping_required": true
+      },
+      "grips_canvas_px": [
+        [
+          230.168,
+          254.772
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        230.168,
+        254.772
+      ],
+      "weapon_angle_degrees": 118,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "hideyoshi/run/frames/body_02.png",
+        "weapon": "hideyoshi/run/frames/weapon_02.png",
+        "hand_occlusion": "hideyoshi/run/frames/hand_occlusion_02.png"
+      },
+      "composite": "hideyoshi/run/frames/composite_02.png",
+      "events": [
+        "short_flight_near_reaches"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        56.3635,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "run/source/low_flight.png",
+        "sha256": "56913d9726b32ad475385847b1952ea491cef00034e96b05eb4b60d5670dc245",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": null,
+        "component_bbox": [
+          101,
+          87,
+          731,
+          898
+        ],
+        "effective_figure_height_px": 811,
+        "effective_figure_long_axis_px": 811,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 3,
+      "duration_ms": 90,
+      "start_ms": 240,
+      "canvas_size_px": [
+        520,
+        380
+      ],
+      "root_canvas_px": [
+        220,
+        333
+      ],
+      "feet_canvas_px": {
+        "near": [
+          256.572,
+          331.852
+        ],
+        "far": [
+          173.916,
+          297.248
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": null,
+        "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+        "runtime_mapping_required": true
+      },
+      "grips_canvas_px": [
+        [
+          222.788,
+          251.656
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        222.788,
+        251.656
+      ],
+      "weapon_angle_degrees": 117,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "hideyoshi/run/frames/body_03.png",
+        "weapon": "hideyoshi/run/frames/weapon_03.png",
+        "hand_occlusion": "hideyoshi/run/frames/hand_occlusion_03.png"
+      },
+      "composite": "hideyoshi/run/frames/composite_03.png",
+      "events": [
+        "near_step",
+        "near_contact_far_trails",
+        "foot_contact"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        75.2,
+        0.164
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "run/source/contacts.png",
+        "sha256": "c880e5a93df78794023344bcf82af2d35ff4534807e02333b55c9b7b5eb9059b",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": null,
+        "component_bbox": [
+          841,
+          42,
+          1512,
+          927
+        ],
+        "effective_figure_height_px": 885,
+        "effective_figure_long_axis_px": 885,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 4,
+      "duration_ms": 90,
+      "start_ms": 330,
+      "canvas_size_px": [
+        520,
+        380
+      ],
+      "root_canvas_px": [
+        220,
+        333
+      ],
+      "feet_canvas_px": {
+        "near": [
+          211.72,
+          331.965
+        ],
+        "far": [
+          228.28,
+          313.91
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": null,
+        "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+        "runtime_mapping_required": true
+      },
+      "grips_canvas_px": [
+        [
+          229.803,
+          250.091
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        229.803,
+        250.091
+      ],
+      "weapon_angle_degrees": 119,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "hideyoshi/run/frames/body_04.png",
+        "weapon": "hideyoshi/run/frames/weapon_04.png",
+        "hand_occlusion": "hideyoshi/run/frames/hand_occlusion_04.png"
+      },
+      "composite": "hideyoshi/run/frames/composite_04.png",
+      "events": [
+        "near_support_far_passes_under_hips",
+        "leg_passing"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        120.052,
+        0.051
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "run/source/final_passing_far.png",
+        "sha256": "4c6af894a86869a370b91bd8ba572e4fae1bb00bd90ef465aecc98bd756f24a2",
+        "native_canvas_px": [
+          1400,
+          1600
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": null,
+        "component_bbox": [
+          320,
+          152,
+          1112,
+          1427
+        ],
+        "effective_figure_height_px": 1275,
+        "effective_figure_long_axis_px": 1275,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 5,
+      "duration_ms": 60,
+      "start_ms": 420,
+      "canvas_size_px": [
+        520,
+        380
+      ],
+      "root_canvas_px": [
+        220,
+        333
+      ],
+      "feet_canvas_px": {
+        "near": [
+          172.44,
+          304.464
+        ],
+        "far": [
+          252.144,
+          321.52
+        ],
+        "left": null,
+        "right": null
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": null,
+        "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+        "runtime_mapping_required": true
+      },
+      "grips_canvas_px": [
+        [
+          233.448,
+          254.116
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        233.448,
+        254.116
+      ],
+      "weapon_angle_degrees": 118,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "hideyoshi/run/frames/body_05.png",
+        "weapon": "hideyoshi/run/frames/weapon_05.png",
+        "hand_occlusion": "hideyoshi/run/frames/hand_occlusion_05.png"
+      },
+      "composite": "hideyoshi/run/frames/composite_05.png",
+      "events": [
+        "short_flight_far_reaches",
+        "loop_end"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        127.026,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "run/source/low_flight.png",
+        "sha256": "56913d9726b32ad475385847b1952ea491cef00034e96b05eb4b60d5670dc245",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": null,
+        "component_bbox": [
+          923,
+          93,
+          1528,
+          907
+        ],
+        "effective_figure_height_px": 814,
+        "effective_figure_long_axis_px": 814,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    }
+  ]
+}

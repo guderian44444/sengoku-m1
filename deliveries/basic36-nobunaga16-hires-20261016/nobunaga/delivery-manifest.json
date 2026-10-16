@@ -1,0 +1,1074 @@
+{
+  "schema": "nobunaga-approved-art-delivery-v1",
+  "version": "2026-10-16-approved-visible-layers",
+  "approval": {
+    "message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+    "quote": "動作都OK了，把後續都處理好就上GIT",
+    "scope": "all16; provided by parent"
+  },
+  "scope": "16 approved clips, immutable approved animation images; current-appearance layer extraction and art metadata",
+  "total_clips": 16,
+  "total_frames": 232,
+  "total_duration_ms": 10520,
+  "runtime_ready": false,
+  "weapon_swap_ready": false,
+  "coordinate_contract": {
+    "native": "pixel coordinates, x right, y down, top-left origin; native canvas may vary per frame",
+    "layer_transforms": "identity (same frame canvas); preserve all approved pixels; never normalize bbox heights",
+    "preview": "per-frame scale/offset below describes art presentation only; legacy fields named world are preview/render-space, NOT gameplay world",
+    "runtime_world_displacement": null,
+    "runtime_world_displacement_policy": "Not supplied or changed. Existing engine motion/events must be retained and verified separately. Do not copy preview offsets into gameplay motion.",
+    "angles": "clockwise degrees from image +x, base to visible blade tip; advisory curved-blade chord"
+  },
+  "fixed_standing_ruler": {
+    "reference": "light_2/frames-composite/000.png",
+    "native_body_height_px": 914,
+    "measurement": "inherited manual standing hair-to-sole estimate, approx +/-5 px; excludes blade/cape; never remeasure crouch/rotation to resize",
+    "legacy_game_example_scale": 0.18,
+    "legacy_game_reference_height_px": 164.52,
+    "policy": "Preserve each approved source/anatomical registration and per-frame review transform. No new per-frame or per-clip bbox normalization introduced."
+  },
+  "verified": {
+    "approved_gif_hashes_match": true,
+    "approved_gif_timing_match": true,
+    "native_source_art_not_redrawn": true,
+    "layer_recomposition": "see validation-final.json",
+    "original_runtime_site_git_modified": false
+  },
+  "unverified_runtime": [
+    "weapon sockets/rig calibration",
+    "collision/hitbox/hurtbox",
+    "victim attachment and gameplay grab/release events",
+    "world-space displacement, facing/mirroring",
+    "engine state transitions and recovery/landing trigger wiring"
+  ],
+  "clips": [
+    {
+      "key": "light_1",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 16,
+      "duration_ms": 600,
+      "durations_ms": [
+        50,
+        40,
+        40,
+        40,
+        40,
+        50,
+        40,
+        40,
+        20,
+        20,
+        30,
+        30,
+        30,
+        30,
+        50,
+        50
+      ],
+      "approved_preview": {
+        "path": "light_1/preview-approved.gif",
+        "sha256": "711c98727e191e020d6c248be1fdf63adf387e860cf4bd18f1c8d881c50f6d1c",
+        "bytes": 2152551
+      },
+      "preview_only": true,
+      "native_masters": "light_1/frames-composite",
+      "representative": {
+        "path": "representatives/light_1.png",
+        "sha256": "4717952d3d9f89aea4556e45b09aa976968e4f4a0acdeccb436d77b3f211eb33",
+        "bytes": 321934,
+        "frame": 8
+      },
+      "frames_manifest": "light_1/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": false,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 16,
+          "time_ms": 600,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        },
+        {
+          "name": "visual_landing",
+          "frame": 9,
+          "time_ms": 360,
+          "scope": "art-review marker only",
+          "basis": "approved step/jump artwork or authored boot-height curve; advisory landing marker",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {
+        "fast_frames": [
+          8,
+          9
+        ],
+        "fast_total_ms": 40
+      },
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "light_1/delivery-frames.json"
+    },
+    {
+      "key": "light_2",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 15,
+      "duration_ms": 600,
+      "durations_ms": [
+        40,
+        20,
+        40,
+        40,
+        60,
+        60,
+        60,
+        30,
+        20,
+        20,
+        20,
+        20,
+        20,
+        40,
+        110
+      ],
+      "approved_preview": {
+        "path": "light_2/preview-approved.gif",
+        "sha256": "f2b6a9ddc01cc6a18dbac39b8772be2ec4520bb0e426f85eb097b12603c813c8",
+        "bytes": 1901116
+      },
+      "preview_only": true,
+      "native_masters": "light_2/frames-composite",
+      "representative": {
+        "path": "representatives/light_2.png",
+        "sha256": "8aeffd5e5e8224efa3ce09be42afd35532f04b6fb88690df325ca80063ebfeba",
+        "bytes": 303961,
+        "frame": 7
+      },
+      "frames_manifest": "light_2/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": false,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 15,
+          "time_ms": 600,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        },
+        {
+          "name": "visual_landing",
+          "frame": 7,
+          "time_ms": 320,
+          "scope": "art-review marker only",
+          "basis": "approved step/jump artwork or authored boot-height curve; advisory landing marker",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "light_2/delivery-frames.json"
+    },
+    {
+      "key": "light_3",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 15,
+      "duration_ms": 720,
+      "durations_ms": [
+        70,
+        50,
+        60,
+        60,
+        50,
+        40,
+        20,
+        20,
+        30,
+        40,
+        50,
+        50,
+        50,
+        50,
+        80
+      ],
+      "approved_preview": {
+        "path": "light_3/preview-approved.gif",
+        "sha256": "440ab2888ebb5ddb7adc13f5cae3ec87e3e338a11a19c5d0f32a8a702ea5bee2",
+        "bytes": 2219376
+      },
+      "preview_only": true,
+      "native_masters": "light_3/frames-composite",
+      "representative": {
+        "path": "representatives/light_3.png",
+        "sha256": "fa28a12f6b2bbf76fb58994d6ef7f26ef35f2193d05bceb9e37adabd935c385c",
+        "bytes": 345835,
+        "frame": 7
+      },
+      "frames_manifest": "light_3/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": false,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 15,
+          "time_ms": 720,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "light_3/delivery-frames.json"
+    },
+    {
+      "key": "heavy",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 16,
+      "duration_ms": 960,
+      "durations_ms": [
+        70,
+        60,
+        60,
+        70,
+        100,
+        140,
+        30,
+        20,
+        20,
+        20,
+        20,
+        50,
+        60,
+        70,
+        70,
+        100
+      ],
+      "approved_preview": {
+        "path": "heavy/preview-approved.gif",
+        "sha256": "b5b62355033545850a2a91bf8e713c1d2913dfd5644b4f1fbf15bcee86f63144",
+        "bytes": 2195262
+      },
+      "preview_only": true,
+      "native_masters": "heavy/frames-composite",
+      "representative": {
+        "path": "representatives/heavy.png",
+        "sha256": "2e43e9e2803f8661c9079864add1265c635e19ad658c877249d6702625174ef4",
+        "bytes": 318372,
+        "frame": 8
+      },
+      "frames_manifest": "heavy/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": true,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 16,
+          "time_ms": 960,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "heavy/delivery-frames.json"
+    },
+    {
+      "key": "charge_ready",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 9,
+      "duration_ms": 360,
+      "durations_ms": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "approved_preview": {
+        "path": "charge_ready/preview-approved.gif",
+        "sha256": "f00f2f9040927814e693bfcd245f8a8a86cb732583605ea826f0e0e9d8d9b1e4",
+        "bytes": 1105164
+      },
+      "preview_only": true,
+      "native_masters": "charge_ready/frames-composite",
+      "representative": {
+        "path": "representatives/charge_ready.png",
+        "sha256": "863625328a976f6ba25ae76454e8cc2620e6df9bf489cacfe98a0ebdd4b378d7",
+        "bytes": 296271,
+        "frame": 4
+      },
+      "frames_manifest": "charge_ready/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": false,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 9,
+          "time_ms": 360,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "charge_ready/delivery-frames.json"
+    },
+    {
+      "key": "charge_hold",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 9,
+      "duration_ms": 520,
+      "durations_ms": [
+        40,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "approved_preview": {
+        "path": "charge_hold/preview-approved.gif",
+        "sha256": "29dfdc207a25c107bfc7dc3bdea32962c1314cf03f80c21461cfda3e122d9a0a",
+        "bytes": 1025638
+      },
+      "preview_only": true,
+      "native_masters": "charge_hold/frames-composite",
+      "representative": {
+        "path": "representatives/charge_hold.png",
+        "sha256": "fe9780705f283bdaf6546fc1374c4c48575e2f0510fbb2bf77c4b63ce7d075fa",
+        "bytes": 261148,
+        "frame": 4
+      },
+      "frames_manifest": "charge_hold/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": true,
+        "first_last_approved_review_pixels_identical": true,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "loop_boundary",
+          "frame": 9,
+          "time_ms": 520,
+          "scope": "art-review marker only",
+          "basis": "approved review endpoints equal",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "charge_hold/delivery-frames.json"
+    },
+    {
+      "key": "dash_heavy",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 14,
+      "duration_ms": 600,
+      "durations_ms": [
+        50,
+        50,
+        40,
+        40,
+        80,
+        30,
+        20,
+        20,
+        30,
+        30,
+        30,
+        40,
+        40,
+        100
+      ],
+      "approved_preview": {
+        "path": "dash_heavy/preview-approved.gif",
+        "sha256": "1837870ee8f01e5cd39100f5d3aeeda3dfed92aeef924e7cd3f6b426c5ee448e",
+        "bytes": 1862612
+      },
+      "preview_only": true,
+      "native_masters": "dash_heavy/frames-composite",
+      "representative": {
+        "path": "representatives/dash_heavy.png",
+        "sha256": "2e0aab006f62842d195b65cd21ca8b0934d6bc1a002887f90dda7c091088a037",
+        "bytes": 289667,
+        "frame": 7
+      },
+      "frames_manifest": "dash_heavy/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": true,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 14,
+          "time_ms": 600,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {
+        "terminal_frames": [
+          6,
+          7
+        ],
+        "terminal_duration_ms": 40
+      },
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "dash_heavy/delivery-frames.json"
+    },
+    {
+      "key": "grab_hold",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 9,
+      "duration_ms": 520,
+      "durations_ms": [
+        40,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "approved_preview": {
+        "path": "grab_hold/preview-approved.gif",
+        "sha256": "7dbd7d9ae6683b383ea9b8d7fa8142d4bbacb32a2bc40726c411688cf0b4cecf",
+        "bytes": 1403855
+      },
+      "preview_only": true,
+      "native_masters": "grab_hold/frames-composite",
+      "representative": {
+        "path": "representatives/grab_hold.png",
+        "sha256": "b86e2e71177840f75e0abb9dfee42589bef3a767bb04b4a17a9614da8383dd7b",
+        "bytes": 371379,
+        "frame": 4
+      },
+      "frames_manifest": "grab_hold/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": true,
+        "first_last_approved_review_pixels_identical": true,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "loop_boundary",
+          "frame": 9,
+          "time_ms": 520,
+          "scope": "art-review marker only",
+          "basis": "approved review endpoints equal",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "grab_hold/delivery-frames.json"
+    },
+    {
+      "key": "grab_hit_1",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 13,
+      "duration_ms": 440,
+      "durations_ms": [
+        40,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        40,
+        40,
+        40,
+        40
+      ],
+      "approved_preview": {
+        "path": "grab_hit_1/preview-approved.gif",
+        "sha256": "f4ba5109ec607d09ee4e4d67cce990c57a19cd7b7c96dbea464e915b25549713",
+        "bytes": 2063509
+      },
+      "preview_only": true,
+      "native_masters": "grab_hit_1/frames-composite",
+      "representative": {
+        "path": "representatives/grab_hit_1.png",
+        "sha256": "87fa13d530fc61731c8124377db7e4527577a2496562c5f664118a44161ec711",
+        "bytes": 373132,
+        "frame": 6
+      },
+      "frames_manifest": "grab_hit_1/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": true,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 13,
+          "time_ms": 440,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "grab_hit_1/delivery-frames.json"
+    },
+    {
+      "key": "grab_hit_2",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 13,
+      "duration_ms": 440,
+      "durations_ms": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        20,
+        20,
+        20,
+        20,
+        40,
+        40,
+        40,
+        40
+      ],
+      "approved_preview": {
+        "path": "grab_hit_2/preview-approved.gif",
+        "sha256": "334dcac30b16ac68933bf7f72010aace666e031666a87f57d13989e44160a0af",
+        "bytes": 2063509
+      },
+      "preview_only": true,
+      "native_masters": "grab_hit_2/frames-composite",
+      "representative": {
+        "path": "representatives/grab_hit_2.png",
+        "sha256": "87fa13d530fc61731c8124377db7e4527577a2496562c5f664118a44161ec711",
+        "bytes": 373132,
+        "frame": 6
+      },
+      "frames_manifest": "grab_hit_2/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": true,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 13,
+          "time_ms": 440,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "grab_hit_2/delivery-frames.json"
+    },
+    {
+      "key": "air_light",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 16,
+      "duration_ms": 640,
+      "durations_ms": [
+        50,
+        40,
+        40,
+        50,
+        50,
+        40,
+        20,
+        20,
+        20,
+        20,
+        30,
+        40,
+        40,
+        60,
+        60,
+        60
+      ],
+      "approved_preview": {
+        "path": "air_light/preview-approved.gif",
+        "sha256": "4978d49b65f2529bc7ddffd0db4677495d46c68e81574ba38aae322440d0526f",
+        "bytes": 2123286
+      },
+      "preview_only": true,
+      "native_masters": "air_light/frames-composite",
+      "representative": {
+        "path": "representatives/air_light.png",
+        "sha256": "0197b62ca845078468f29abb03789cfbee53e8afe06585b66ff6f5e6c887ddd0",
+        "bytes": 308331,
+        "frame": 8
+      },
+      "frames_manifest": "air_light/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": true,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 16,
+          "time_ms": 640,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        },
+        {
+          "name": "visual_landing",
+          "frame": 13,
+          "time_ms": 460,
+          "scope": "art-review marker only",
+          "basis": "approved step/jump artwork or authored boot-height curve; advisory landing marker",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {
+        "terminal_frames": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "air_light/delivery-frames.json"
+    },
+    {
+      "key": "grab_start",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 12,
+      "duration_ms": 400,
+      "durations_ms": [
+        30,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        30,
+        40,
+        40,
+        50,
+        90
+      ],
+      "approved_preview": {
+        "path": "grab_start/preview-approved.gif",
+        "sha256": "d4ecb3115212e8d0290d23d1f3cd7a83f2f0e1cf3bd755c8f29006cede25f354",
+        "bytes": 1826573
+      },
+      "preview_only": true,
+      "native_masters": "grab_start/frames-composite",
+      "representative": {
+        "path": "representatives/grab_start.png",
+        "sha256": "6f4a24fe06158da98f3f5fd494c99026d274ac855bc53c45fa9540dee9868f9b",
+        "bytes": 362939,
+        "frame": 6
+      },
+      "frames_manifest": "grab_start/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": false,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 12,
+          "time_ms": 400,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "grab_start/delivery-frames.json"
+    },
+    {
+      "key": "charge_release",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 24,
+      "duration_ms": 1400,
+      "durations_ms": [
+        80,
+        120,
+        80,
+        60,
+        60,
+        50,
+        50,
+        40,
+        30,
+        30,
+        60,
+        50,
+        50,
+        40,
+        40,
+        30,
+        30,
+        20,
+        40,
+        40,
+        50,
+        50,
+        120,
+        180
+      ],
+      "approved_preview": {
+        "path": "charge_release/preview-approved.gif",
+        "sha256": "6668b0355a867beff5ab75975a5c7754545ef10df6df6eda3a09ca835fbaf91c",
+        "bytes": 6572441
+      },
+      "preview_only": true,
+      "native_masters": "charge_release/frames-composite",
+      "representative": {
+        "path": "representatives/charge_release.png",
+        "sha256": "2d9f99d49021fe5e4639280a7d89431433070560049b519018ab9b9630b5ff27",
+        "bytes": 715798,
+        "frame": 14
+      },
+      "frames_manifest": "charge_release/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": false,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 24,
+          "time_ms": 1400,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        },
+        {
+          "name": "visual_fx_compression",
+          "frame": 19,
+          "time_ms": 960,
+          "scope": "art-review marker only",
+          "basis": "original authored FX stage",
+          "runtime_wired": false
+        },
+        {
+          "name": "visual_fx_outward_impulse",
+          "frame": 20,
+          "time_ms": 1000,
+          "scope": "art-review marker only",
+          "basis": "original authored FX stage",
+          "runtime_wired": false
+        },
+        {
+          "name": "visual_fx_residual",
+          "frame": 22,
+          "time_ms": 1100,
+          "scope": "art-review marker only",
+          "basis": "original authored FX stage",
+          "runtime_wired": false
+        },
+        {
+          "name": "visual_fx_clear",
+          "frame": 23,
+          "time_ms": 1220,
+          "scope": "art-review marker only",
+          "basis": "original authored FX stage",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {
+        "compression_ms": 40,
+        "outward_burst_ms": 100
+      },
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "charge_release/delivery-frames.json"
+    },
+    {
+      "key": "throw_forward",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 19,
+      "duration_ms": 680,
+      "durations_ms": [
+        40,
+        50,
+        50,
+        50,
+        50,
+        30,
+        30,
+        30,
+        30,
+        40,
+        40,
+        20,
+        20,
+        20,
+        20,
+        40,
+        40,
+        40,
+        40
+      ],
+      "approved_preview": {
+        "path": "throw_forward/preview-approved.gif",
+        "sha256": "38b7b6530a9109ef77618421bc59fc144dd3d16d6b7809dd454ca804b306342b",
+        "bytes": 2864578
+      },
+      "preview_only": true,
+      "native_masters": "throw_forward/frames-composite",
+      "representative": {
+        "path": "representatives/throw_forward.png",
+        "sha256": "889ae60d355e3e3e0650048e233cc2d9a32000142875f5ede62be6a1b411ecfb",
+        "bytes": 350829,
+        "frame": 9
+      },
+      "frames_manifest": "throw_forward/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": false,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 19,
+          "time_ms": 680,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        },
+        {
+          "name": "recovery_to_sword_guard_start",
+          "frame": 9,
+          "time_ms": 360,
+          "scope": "art-review marker only",
+          "basis": "approved reuse_grab_start recovery sequence",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "throw_forward/delivery-frames.json"
+    },
+    {
+      "key": "air_heavy",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 16,
+      "duration_ms": 840,
+      "durations_ms": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        70,
+        70,
+        50,
+        30,
+        20,
+        20,
+        60,
+        70,
+        50,
+        50,
+        50
+      ],
+      "approved_preview": {
+        "path": "air_heavy/preview-approved.gif",
+        "sha256": "07e6cf8b048c25a4a0805bf62d7c9ab93ee0376ef9c6b4b08c288fa4d5396bf0",
+        "bytes": 2096776
+      },
+      "preview_only": true,
+      "native_masters": "air_heavy/frames-composite",
+      "representative": {
+        "path": "representatives/air_heavy.png",
+        "sha256": "43405c355aee85afc3b00f5b266f08cd23944dc9aca1b8df2c6383c733d7563a",
+        "bytes": 275025,
+        "frame": 8
+      },
+      "frames_manifest": "air_heavy/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": true,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 16,
+          "time_ms": 840,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        },
+        {
+          "name": "visual_landing",
+          "frame": 11,
+          "time_ms": 560,
+          "scope": "art-review marker only",
+          "basis": "approved step/jump artwork or authored boot-height curve; advisory landing marker",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {
+        "terminal_frames": [
+          9,
+          10
+        ]
+      },
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "air_heavy/delivery-frames.json"
+    },
+    {
+      "key": "throw_reverse",
+      "status": "approved artwork; layered extraction and metadata",
+      "frame_count": 16,
+      "duration_ms": 800,
+      "durations_ms": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "approved_preview": {
+        "path": "throw_reverse/preview-approved.gif",
+        "sha256": "eb9e66deb33d9784ffbd90ad30c9a28162326f6404ab536c135c86de84e3c9ec",
+        "bytes": 2361583
+      },
+      "preview_only": true,
+      "native_masters": "throw_reverse/frames-composite",
+      "representative": {
+        "path": "representatives/throw_reverse.png",
+        "sha256": "4f8d1677f7775175d011d67eda3e407d183b3c17ae92d58e9279a91e91194e2b",
+        "bytes": 332403,
+        "frame": 7
+      },
+      "frames_manifest": "throw_reverse/delivery-frames.json",
+      "loop_contract": {
+        "intended_hold_loop": false,
+        "first_last_approved_review_pixels_identical": false,
+        "gif_loops_for_review_only": true,
+        "do_not_infer_attack_last_to_first_is_state_transition": true
+      },
+      "art_events": [
+        {
+          "name": "clip_end_recovery_boundary",
+          "frame": 16,
+          "time_ms": 800,
+          "scope": "art-review marker only",
+          "basis": "approved timing; engine next-state contract must remain existing",
+          "runtime_wired": false
+        },
+        {
+          "name": "visual_left_hand_release",
+          "frame": 7,
+          "time_ms": 350,
+          "scope": "art-review marker only",
+          "basis": "approved sequence release midpoint",
+          "runtime_wired": false
+        },
+        {
+          "name": "recovery_to_sword_guard_start",
+          "frame": 9,
+          "time_ms": 450,
+          "scope": "art-review marker only",
+          "basis": "approved recovery sequence",
+          "runtime_wired": false
+        }
+      ],
+      "existing_art_markers_preserved": {},
+      "layers_scope": "current approved appearance, visible-pixel ownership; hidden underlaps incomplete",
+      "grip_metadata_missing_frames": [],
+      "coordinate_manifest": "throw_reverse/delivery-frames.json"
+    }
+  ],
+  "hidden_fill_audit": {
+    "play_frames": 232,
+    "unique_actor_masters": 165,
+    "meaning": "upper bound of unique actors needing underlap review, not count of required redraws",
+    "per_frame_file": "weapon-swap-gaps.json",
+    "approved_composites_unchanged": true,
+    "new_weapon_work_policy": "Add hidden-fill alternatives only where a selected replacement weapon exposes missing body/weapon pixels; do not alter approved master or extend clipped approved art."
+  }
+}

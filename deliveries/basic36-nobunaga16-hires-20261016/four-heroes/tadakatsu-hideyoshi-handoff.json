@@ -1,0 +1,51 @@
+{
+  "tadakatsu": {
+    "character": "tadakatsu",
+    "entry": "/workspace/scratch/98b7ec868bfb/four_hero_base_20261015/final_git_bundle/tadakatsu/integration_manifest.json",
+    "frames": 53,
+    "files": 460,
+    "raster_files_unchanged": 377,
+    "largest_file_bytes": 2354623,
+    "metadata_corrections": [
+      {
+        "action": "hurt",
+        "frame_index": 0,
+        "field": "standing_ruler_source_px",
+        "old": 740,
+        "new": 370.0,
+        "basis": "Exact existing scale = 163 / source ruler. Corrected metadata only; reused approved idle uses370."
+      },
+      {
+        "action": "hurt",
+        "frame_index": 5,
+        "field": "standing_ruler_source_px",
+        "old": 740,
+        "new": 370.0,
+        "basis": "Exact existing scale = 163 / source ruler. Corrected metadata only; reused approved idle uses370."
+      }
+    ],
+    "sha256_manifest": "19376f960d7609a3c2bdba9ec14e85f68993477e8e47d9c4eb0f4f450ea0c151",
+    "runtime_tested": false,
+    "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+    "integration_manifest_sha256": "76500454f5e86fa120f15ef7891a817b4a6f5019c7ea019ff05b98703e6c71ec",
+    "left_right_mapping_runtime_required": false,
+    "validation_command": "python tadakatsu/verify_bundle.py",
+    "validation_result": "passed; file and asset checks only; no engine test"
+  },
+  "hideyoshi": {
+    "character": "hideyoshi",
+    "entry": "/workspace/scratch/98b7ec868bfb/four_hero_base_20261015/final_git_bundle/hideyoshi/integration_manifest.json",
+    "frames": 56,
+    "files": 514,
+    "raster_files_unchanged": 435,
+    "largest_file_bytes": 2307624,
+    "metadata_corrections": [],
+    "sha256_manifest": "68277ce658e1cf27129920effab26ae13f27db3ae8ce86a86dfdb6dfc6c4ee0e",
+    "runtime_tested": false,
+    "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+    "integration_manifest_sha256": "fb15a2110bc5d5a53611bbcd1e9f1e9331110062201fdf7af0075a93e10f5b3b",
+    "left_right_mapping_runtime_required": true,
+    "validation_command": "python hideyoshi/verify_bundle.py",
+    "validation_result": "passed; file and asset checks only; no engine test"
+  }
+}

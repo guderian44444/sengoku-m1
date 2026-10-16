@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "character": "kennyo03",
+  "action": "walk",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 163,
+  "frame_count": 8,
+  "total_duration_ms": 880,
+  "loop": true,
+  "loop_range": [
+    1,
+    8
+  ],
+  "terminal_hold": false,
+  "death_uses_last_frame": false,
+  "world_motion_mode": "engine_velocity",
+  "runtime_tested": false,
+  "frames": [
+    {
+      "frame": 1,
+      "duration_ms": 110,
+      "start_ms": 0,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          305.16971830985915,
+          229.38098591549294
+        ],
+        [
+          291.8542253521127,
+          205.96408450704226
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -29.623748751173817,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_01.png",
+        "weapon": "weapon_01.png",
+        "hand_occlusion": "hand_occlusion_01.png"
+      },
+      "composite_file": "composite_01.png",
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "near_heel_contact",
+        "loop_start"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": true,
+      "loop_end": false,
+      "source": "source/near-contact-cross-v11.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false
+    },
+    {
+      "frame": 2,
+      "duration_ms": 110,
+      "start_ms": 110,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          305.97323943661974,
+          232.13591549295774
+        ],
+        [
+          291.8542253521127,
+          208.4894366197183
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -30.840892289706968,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_02.png",
+        "weapon": "weapon_02.png",
+        "hand_occlusion": "hand_occlusion_02.png"
+      },
+      "composite_file": "composite_02.png",
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "near_weight_accept"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/near-load-cross-v11.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false
+    },
+    {
+      "frame": 3,
+      "duration_ms": 110,
+      "start_ms": 220,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          306.3176056338028,
+          236.0387323943662
+        ],
+        [
+          288.7549295774648,
+          211.2443661971831
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -35.3112134396332,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_03.png",
+        "weapon": "weapon_03.png",
+        "hand_occlusion": "hand_occlusion_03.png"
+      },
+      "composite_file": "composite_03.png",
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "far_passing"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/far-pass-hand-fixed-v2.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false
+    },
+    {
+      "frame": 4,
+      "duration_ms": 110,
+      "start_ms": 330,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          306.6619718309859,
+          235.46478873239437
+        ],
+        [
+          291.7394366197183,
+          212.50704225352115
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -33.02386755579674,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_04.png",
+        "weapon": "weapon_04.png",
+        "hand_occlusion": "hand_occlusion_04.png"
+      },
+      "composite_file": "composite_04.png",
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "far_reach"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/far-reach.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false
+    },
+    {
+      "frame": 5,
+      "duration_ms": 110,
+      "start_ms": 440,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          297.4788732394366,
+          226.8556338028169
+        ],
+        [
+          289.443661971831,
+          211.9330985915493
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -28.300755766006407,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_05.png",
+        "weapon": "weapon_05.png",
+        "hand_occlusion": "hand_occlusion_05.png"
+      },
+      "composite_file": "composite_05.png",
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "far_heel_contact"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/far-contact.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false
+    },
+    {
+      "frame": 6,
+      "duration_ms": 110,
+      "start_ms": 550,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          297.4788732394366,
+          225.13380281690144
+        ],
+        [
+          286.0,
+          206.76760563380282
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -32.00538320808344,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_06.png",
+        "weapon": "weapon_06.png",
+        "hand_occlusion": "hand_occlusion_06.png"
+      },
+      "composite_file": "composite_06.png",
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "far_weight_accept"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/far-load.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false
+    },
+    {
+      "frame": 7,
+      "duration_ms": 110,
+      "start_ms": 660,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          289.443661971831,
+          219.96830985915494
+        ],
+        [
+          276.8169014084507,
+          202.17605633802816
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -35.36246188706903,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_07.png",
+        "weapon": "weapon_07.png",
+        "hand_occlusion": "hand_occlusion_07.png"
+      },
+      "composite_file": "composite_07.png",
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "near_passing"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/near-pass.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false
+    },
+    {
+      "frame": 8,
+      "duration_ms": 110,
+      "start_ms": 770,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          304.9401408450704,
+          229.49577464788734
+        ],
+        [
+          291.7394366197183,
+          206.07887323943663
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -29.411064324813864,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_08.png",
+        "weapon": "weapon_08.png",
+        "hand_occlusion": "hand_occlusion_08.png"
+      },
+      "composite_file": "composite_08.png",
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "near_reach",
+        "loop_end_to_1"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": true,
+      "source": "source/near-reach-cross-v11.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false
+    }
+  ]
+}

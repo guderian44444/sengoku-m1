@@ -1,0 +1,228 @@
+{
+  "loop": false,
+  "description": "從倒地末格側撐、半跪、雙腿起身，再回到核准戰鬥idle。單手保留持刀，另一手用於支撐；不帶FX。",
+  "idle_start": null,
+  "idle_end": 180,
+  "representative": 2,
+  "world_mode": "inherit current position; state-local root translation zero",
+  "frames": [
+    {
+      "src": "down_final.png",
+      "side": 0,
+      "scale": 0.12,
+      "head": [
+        75,
+        302,
+        329,
+        480
+      ],
+      "hands": [
+        574,
+        484,
+        746,
+        601
+      ],
+      "grip": [
+        660,
+        543
+      ],
+      "feet": {
+        "near": [
+          1215,
+          898
+        ],
+        "far": [
+          1436,
+          672
+        ]
+      },
+      "origin": [
+        790,
+        906
+      ],
+      "angle": 55,
+      "duration_ms": 100,
+      "phase": "down_entry",
+      "support": "back_hips_near_heel",
+      "world": [
+        0,
+        0
+      ],
+      "event": null
+    },
+    {
+      "src": "source_0.png",
+      "side": 0,
+      "scale": 0.125,
+      "head": [
+        279,
+        161,
+        532,
+        434
+      ],
+      "hands": [
+        674,
+        505,
+        791,
+        596
+      ],
+      "grip": [
+        734,
+        551
+      ],
+      "grip_hand": "one_hand",
+      "feet": {
+        "near": [
+          1308,
+          851
+        ],
+        "far": [
+          1435,
+          843
+        ]
+      },
+      "origin": [
+        770,
+        865
+      ],
+      "angle": 50,
+      "duration_ms": 160,
+      "phase": "side_support_push",
+      "support": "free_hand_hip_feet",
+      "world": [
+        0,
+        0
+      ]
+    },
+    {
+      "src": "source_1.png",
+      "side": 0,
+      "scale": 0.115,
+      "head": [
+        856,
+        32,
+        1125,
+        326
+      ],
+      "hands": [
+        672,
+        440,
+        782,
+        535
+      ],
+      "grip": [
+        728,
+        487
+      ],
+      "grip_hand": "one_hand",
+      "feet": {
+        "near": [
+          353,
+          862
+        ],
+        "far": [
+          1055,
+          930
+        ]
+      },
+      "origin": [
+        800,
+        940
+      ],
+      "angle": 60,
+      "duration_ms": 170,
+      "phase": "half_kneel",
+      "support": "knee_front_foot_free_hand",
+      "world": [
+        0,
+        0
+      ]
+    },
+    {
+      "src": "source_2.png",
+      "side": 0,
+      "scale": 0.164,
+      "head": [
+        510,
+        71,
+        702,
+        281
+      ],
+      "hands": [
+        481,
+        418,
+        607,
+        535
+      ],
+      "grip": [
+        548,
+        475
+      ],
+      "feet": {
+        "near": [
+          128,
+          900
+        ],
+        "far": [
+          646,
+          923
+        ]
+      },
+      "origin": [
+        387,
+        923
+      ],
+      "angle": 120,
+      "duration_ms": 160,
+      "phase": "rise_from_crouch",
+      "support": "both",
+      "world": [
+        0,
+        0
+      ]
+    },
+    {
+      "src": "source_2.png",
+      "side": 1,
+      "scale": 0.164,
+      "head": [
+        1058,
+        40,
+        1249,
+        228
+      ],
+      "hands": [
+        1049,
+        392,
+        1179,
+        484
+      ],
+      "grip": [
+        1115,
+        438
+      ],
+      "feet": {
+        "near": [
+          927,
+          938
+        ],
+        "far": [
+          1375,
+          950
+        ]
+      },
+      "origin": [
+        1151,
+        950
+      ],
+      "angle": 120,
+      "duration_ms": 130,
+      "phase": "regain_combat_ready",
+      "support": "both",
+      "world": [
+        0,
+        0
+      ]
+    }
+  ]
+}

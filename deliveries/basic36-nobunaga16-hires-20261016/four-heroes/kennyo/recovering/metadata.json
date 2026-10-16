@@ -1,0 +1,525 @@
+{
+  "character": "kennyo03",
+  "action": "recovering",
+  "candidate": false,
+  "approved": true,
+  "frames": [
+    {
+      "source": "../down/source/rest-original.png",
+      "source_effective_bbox": [
+        11,
+        274,
+        1526,
+        814
+      ],
+      "uniform_scale": 0.1147887323943662,
+      "source_anatomical_standing_ruler_px": 1420,
+      "root": [
+        286,
+        325
+      ],
+      "feet": [
+        [
+          366.3521126760563,
+          314.66901408450707
+        ],
+        [
+          344.5422535211268,
+          299.1725352112676
+        ]
+      ],
+      "grips": [],
+      "weapon_released": true,
+      "weapon_ground_anchor": [
+        350,
+        310
+      ],
+      "weapon_angle_degrees": 90,
+      "frame": 1,
+      "duration_ms": 80,
+      "start_ms": 0,
+      "preview_displacement": [
+        -155,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "world_motion_mode": "inherit down position; no teleport",
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "events": [
+        "entry_down_hold"
+      ],
+      "coordinate_space": "root-local canvas pixels; preview displacement applied only by viewer; world displacement belongs to engine",
+      "feet_root_local": [
+        [
+          366.3521126760563,
+          314.66901408450707
+        ],
+        [
+          344.5422535211268,
+          299.1725352112676
+        ]
+      ],
+      "grips_root_local": []
+    },
+    {
+      "source": "source/side-push.png",
+      "source_effective_bbox": [
+        20,
+        133,
+        1506,
+        899
+      ],
+      "uniform_scale": 0.1147887323943662,
+      "source_anatomical_standing_ruler_px": 1420,
+      "root": [
+        286,
+        325
+      ],
+      "feet": [
+        [
+          366.3521126760563,
+          323.2781690140845
+        ],
+        [
+          349.1338028169014,
+          308.3556338028169
+        ]
+      ],
+      "grips": [],
+      "weapon_anchor": [
+        350,
+        310
+      ],
+      "weapon_angle_degrees": 90,
+      "weapon_released": true,
+      "weapon_grip_distance_from_head_px": 147,
+      "frame": 2,
+      "duration_ms": 180,
+      "start_ms": 80,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        -155,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "world_motion_mode": "inherit down position; no teleport",
+      "events": [
+        "push_on_palm"
+      ],
+      "coordinate_space": "root-local canvas pixels; preview displacement applied only by viewer; world displacement belongs to engine",
+      "feet_root_local": [
+        [
+          366.3521126760563,
+          323.2781690140845
+        ],
+        [
+          349.1338028169014,
+          308.3556338028169
+        ]
+      ],
+      "grips_root_local": []
+    },
+    {
+      "source": "source/kneel-reach.png",
+      "source_effective_bbox": [
+        59,
+        389,
+        1049,
+        1383
+      ],
+      "uniform_scale": 0.1147887323943662,
+      "source_anatomical_standing_ruler_px": 1420,
+      "root": [
+        286,
+        325
+      ],
+      "feet": [
+        [
+          240.0845070422535,
+          318.11267605633805
+        ],
+        [
+          330.7676056338028,
+          323.8521126760563
+        ]
+      ],
+      "grips": [
+        [
+          291.7394366197183,
+          313.5211267605634
+        ]
+      ],
+      "weapon_anchor": [
+        350,
+        310
+      ],
+      "weapon_angle_degrees": 87,
+      "weapon_released": false,
+      "weapon_grip_distance_from_head_px": 205,
+      "frame": 3,
+      "duration_ms": 120,
+      "start_ms": 260,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        -155,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "world_motion_mode": "inherit down position; no teleport",
+      "events": [
+        "kneel_pickup"
+      ],
+      "coordinate_space": "root-local canvas pixels; preview displacement applied only by viewer; world displacement belongs to engine",
+      "feet_root_local": [
+        [
+          240.0845070422535,
+          318.11267605633805
+        ],
+        [
+          330.7676056338028,
+          323.8521126760563
+        ]
+      ],
+      "grips_root_local": [
+        [
+          291.7394366197183,
+          313.5211267605634
+        ]
+      ]
+    },
+    {
+      "source": "source/kneel-reach.png",
+      "source_effective_bbox": [
+        59,
+        389,
+        1049,
+        1383
+      ],
+      "uniform_scale": 0.1147887323943662,
+      "source_anatomical_standing_ruler_px": 1420,
+      "root": [
+        286,
+        325
+      ],
+      "feet": [
+        [
+          240.0845070422535,
+          318.11267605633805
+        ],
+        [
+          330.7676056338028,
+          323.8521126760563
+        ]
+      ],
+      "grips": [
+        [
+          291.7394366197183,
+          313.5211267605634
+        ]
+      ],
+      "weapon_anchor": [
+        291.7394366197183,
+        313.5211267605634
+      ],
+      "weapon_angle_degrees": 45,
+      "weapon_released": false,
+      "weapon_grip_distance_from_head_px": 205,
+      "frame": 4,
+      "duration_ms": 110,
+      "start_ms": 380,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        -155,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "world_motion_mode": "inherit down position; no teleport",
+      "events": [
+        "lift_staff_from_floor"
+      ],
+      "coordinate_space": "root-local canvas pixels; preview displacement applied only by viewer; world displacement belongs to engine",
+      "feet_root_local": [
+        [
+          240.0845070422535,
+          318.11267605633805
+        ],
+        [
+          330.7676056338028,
+          323.8521126760563
+        ]
+      ],
+      "grips_root_local": [
+        [
+          291.7394366197183,
+          313.5211267605634
+        ]
+      ]
+    },
+    {
+      "source": "source/rise-grip.png",
+      "source_effective_bbox": [
+        80,
+        78,
+        957,
+        1445
+      ],
+      "uniform_scale": 0.1147887323943662,
+      "source_anatomical_standing_ruler_px": 1420,
+      "root": [
+        286,
+        325
+      ],
+      "feet": [
+        [
+          240.0845070422535,
+          315.8169014084507
+        ],
+        [
+          319.86267605633805,
+          324.42605633802816
+        ]
+      ],
+      "grips": [
+        [
+          274.5211267605634,
+          244.07394366197184
+        ]
+      ],
+      "weapon_anchor": [
+        274.5211267605634,
+        244.07394366197184
+      ],
+      "weapon_angle_degrees": 0,
+      "weapon_released": false,
+      "weapon_grip_distance_from_head_px": 147,
+      "frame": 5,
+      "duration_ms": 140,
+      "start_ms": 490,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        -155,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "world_motion_mode": "inherit down position; no teleport",
+      "events": [
+        "rise_adjust_grip"
+      ],
+      "coordinate_space": "root-local canvas pixels; preview displacement applied only by viewer; world displacement belongs to engine",
+      "feet_root_local": [
+        [
+          240.0845070422535,
+          315.8169014084507
+        ],
+        [
+          319.86267605633805,
+          324.42605633802816
+        ]
+      ],
+      "grips_root_local": [
+        [
+          274.5211267605634,
+          244.07394366197184
+        ]
+      ]
+    },
+    {
+      "source": "source/rise-guard.png",
+      "source_effective_bbox": [
+        65,
+        58,
+        989,
+        1431
+      ],
+      "uniform_scale": 0.1147887323943662,
+      "source_anatomical_standing_ruler_px": 1420,
+      "root": [
+        286,
+        325
+      ],
+      "feet": [
+        [
+          240.0845070422535,
+          324.42605633802816
+        ],
+        [
+          323.306338028169,
+          325.0
+        ]
+      ],
+      "grips": [
+        [
+          286.0,
+          229.15140845070422
+        ],
+        [
+          282.556338028169,
+          213.08098591549296
+        ]
+      ],
+      "weapon_anchor": [
+        286.0,
+        229.15140845070422
+      ],
+      "weapon_angle_degrees": -12.094757077012074,
+      "weapon_released": false,
+      "weapon_grip_distance_from_head_px": 147,
+      "frame": 6,
+      "duration_ms": 140,
+      "start_ms": 630,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        -155,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "world_motion_mode": "inherit down position; no teleport",
+      "events": [
+        "rise_to_guard"
+      ],
+      "coordinate_space": "root-local canvas pixels; preview displacement applied only by viewer; world displacement belongs to engine",
+      "feet_root_local": [
+        [
+          240.0845070422535,
+          324.42605633802816
+        ],
+        [
+          323.306338028169,
+          325.0
+        ]
+      ],
+      "grips_root_local": [
+        [
+          286.0,
+          229.15140845070422
+        ],
+        [
+          282.556338028169,
+          213.08098591549296
+        ]
+      ]
+    },
+    {
+      "source": "registered combat idle",
+      "root": [
+        286,
+        325
+      ],
+      "feet": [
+        [
+          226.351,
+          326.011
+        ],
+        [
+          330.484,
+          325
+        ]
+      ],
+      "grips": [
+        [
+          286,
+          227.607
+        ],
+        [
+          278.923,
+          216.149
+        ]
+      ],
+      "weapon_angle_degrees": -31.7014,
+      "frame": 7,
+      "duration_ms": 180,
+      "start_ms": 770,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        -155,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "world_motion_mode": "inherit down position; no teleport",
+      "events": [
+        "settled_registered_idle"
+      ],
+      "coordinate_space": "root-local canvas pixels; preview displacement applied only by viewer; world displacement belongs to engine",
+      "feet_root_local": [
+        [
+          226.351,
+          326.011
+        ],
+        [
+          330.484,
+          325
+        ]
+      ],
+      "grips_root_local": [
+        [
+          286,
+          227.607
+        ],
+        [
+          278.923,
+          216.149
+        ]
+      ]
+    }
+  ],
+  "frame_count": 7,
+  "total_duration_ms": 950,
+  "loop": false,
+  "standing_ruler_px": 163,
+  "fx": false,
+  "root_local_layers": true,
+  "no_optical_flow": true,
+  "metadata_notes": "Legacy *_preview anchor fields are root-local canvas coordinates before preview displacement.",
+  "status": "accepted",
+  "acceptance_message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "runtime_tested": false
+}

@@ -1,0 +1,1667 @@
+{
+  "character": "hideyoshi",
+  "action": "walk",
+  "status": "accepted",
+  "version": "walk_v1_original_direct_hi_res",
+  "duration_ms": 960,
+  "frame_count": 8,
+  "loop": true,
+  "canvas": [
+    520,
+    300
+  ],
+  "standing_ruler_px": 150,
+  "head_scale": 0.95,
+  "approved_idle": "../idle/composite_00.png",
+  "ordinary_action_fx": null,
+  "source_generation": "official image_gen; direct original identity and full approved mother sheet for every call; no generated sprite used as generation input",
+  "new_detail_disclosure": "High-resolution redraw adds cloth folds, armor linework and walk-pose detail only; identity, costume and accessories locked to approved originals.",
+  "source_info": {
+    "pair_0.png": {
+      "sha256": "7ce85d1aa4733e10331d45e16913a71b9170278ce5ef2d965c67ecd041dec611",
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    "pair_1.png": {
+      "sha256": "9c263077740e3116771a87ef3d4e8e83a5e58b8c9fce1e50732c8ccbdb22aac2",
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    "cross_3.png": {
+      "sha256": "5cf1ccd0f14bbba0380cbf40e140c895fd69a09c51817334c6fe5131f0b67b54",
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    "cross_2.png": {
+      "sha256": "02b0ebc3ffcd0987b158988c7954fe129c197879e11f2a3c16e6a1bfb10e7a24",
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    "pair_3.png": {
+      "sha256": "00d59e56df8bac3f3955cd42a496350c95f9dc709bba762a8f17c4604d121ce4",
+      "size": [
+        1536,
+        1024
+      ]
+    }
+  },
+  "layers": [
+    "body",
+    "weapon",
+    "hand_occlusion"
+  ],
+  "frame_path": "frames/{layer}_{index:02}.png",
+  "world_motion": {
+    "mode": "sampled root track separate from body sprites",
+    "cycle_displacement_px": 118.518,
+    "track_units": "game pixels; x right, y down",
+    "support_intervals": [
+      {
+        "frames": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "foot": "far"
+      },
+      {
+        "frames": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "foot": "near"
+      }
+    ],
+    "preview_resets_world_each_cycle": true
+  },
+  "frames": [
+    {
+      "index": 0,
+      "duration_ms": 120,
+      "phase": "far_heel_contact",
+      "source": "pair_0.png",
+      "source_rect": [
+        132,
+        15,
+        745,
+        968
+      ],
+      "source_figure_height_px": 953,
+      "body_calibration_scale": 0.158,
+      "calibration_basis": "same-direction head and shoulder/torso landmarks; not bounding-box height",
+      "head_scale": 0.95,
+      "head_rect_source": [
+        326,
+        15,
+        526,
+        213
+      ],
+      "root_canvas": [
+        220,
+        253
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "pelvis_canvas": [
+        220.0,
+        191.38
+      ],
+      "feet_canvas": {
+        "near": [
+          185.556,
+          249.366
+        ],
+        "far": [
+          238.486,
+          253.0
+        ]
+      },
+      "support_foot": "far",
+      "grip_canvas": [
+        220.632,
+        172.894
+      ],
+      "grip_source": [
+        469,
+        453
+      ],
+      "weapon_angle_deg": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "reference/sword_uchigatana.png",
+      "weapon_scale": 0.145,
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "world_root_translation": [
+        0.0,
+        0
+      ],
+      "preview_translation": [
+        0,
+        0
+      ],
+      "loop": true,
+      "integration": {
+        "frame_index": 0,
+        "legacy_frame_index": 0,
+        "start_ms": 0,
+        "duration_ms": 120,
+        "end_ms": 120,
+        "phase": "far_heel_contact",
+        "events": [
+          "far_heel_contact",
+          "loop_start",
+          "foot_contact"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          220,
+          253
+        ],
+        "root_source_px": [
+          465.0,
+          960.0
+        ],
+        "root_source_status": "derived inverse of preserved uniform source-to-canvas transform using recorded grip; precision limited by rounded original canvas landmarks",
+        "feet_canvas_px": {
+          "near": [
+            185.556,
+            249.366
+          ],
+          "far": [
+            238.486,
+            253.0
+          ],
+          "left": null,
+          "right": null
+        },
+        "foot_identity": {
+          "original_labels": [
+            "near",
+            "far"
+          ],
+          "anatomical_mapping": null,
+          "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+          "runtime_mapping_required": true
+        },
+        "source_foot_landmarks": null,
+        "support_contacts": "far",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            220.632,
+            172.894
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          220.632,
+          172.894
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 120,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "walk/frames/body_00.png",
+          "weapon": "walk/frames/weapon_00.png",
+          "hand_occlusion": "walk/frames/hand_occlusion_00.png"
+        },
+        "composite": "walk/frames/composite_00.png",
+        "source": {
+          "path": "walk/source/pair_0.png",
+          "sha256": "7ce85d1aa4733e10331d45e16913a71b9170278ce5ef2d965c67ecd041dec611",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": null,
+          "component_bbox": [
+            132,
+            15,
+            745,
+            968
+          ],
+          "effective_figure_height_px": 953,
+          "effective_figure_long_axis_px": 953,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 150,
+        "body_scale": 0.158,
+        "standing_ruler_source_px": null,
+        "world_root_offset_px": [
+          0.0,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 1,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "far_heel_contact",
+        "loop_start",
+        "foot_contact"
+      ],
+      "start_ms": 0
+    },
+    {
+      "index": 1,
+      "duration_ms": 120,
+      "phase": "far_down_near_toe_off",
+      "source": "pair_0.png",
+      "source_rect": [
+        891,
+        32,
+        1386,
+        978
+      ],
+      "source_figure_height_px": 946,
+      "body_calibration_scale": 0.158,
+      "calibration_basis": "same-direction head and shoulder/torso landmarks; not bounding-box height",
+      "head_scale": 0.95,
+      "head_rect_source": [
+        1089,
+        32,
+        1279,
+        231
+      ],
+      "root_canvas": [
+        220,
+        253
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "pelvis_canvas": [
+        220.0,
+        192.17
+      ],
+      "feet_canvas": {
+        "near": [
+          186.82,
+          247.786
+        ],
+        "far": [
+          236.748,
+          253.0
+        ]
+      },
+      "support_foot": "far",
+      "grip_canvas": [
+        223.476,
+        173.842
+      ],
+      "grip_source": [
+        1209,
+        470
+      ],
+      "weapon_angle_deg": 116,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "reference/sword_uchigatana.png",
+      "weapon_scale": 0.145,
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "world_root_translation": [
+        1.738,
+        0
+      ],
+      "preview_translation": [
+        0,
+        0
+      ],
+      "loop": true,
+      "integration": {
+        "frame_index": 1,
+        "legacy_frame_index": 1,
+        "start_ms": 120,
+        "duration_ms": 120,
+        "end_ms": 240,
+        "phase": "far_down_near_toe_off",
+        "events": [
+          "far_down_near_toe_off"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          220,
+          253
+        ],
+        "root_source_px": [
+          1187.0,
+          971.0
+        ],
+        "root_source_status": "derived inverse of preserved uniform source-to-canvas transform using recorded grip; precision limited by rounded original canvas landmarks",
+        "feet_canvas_px": {
+          "near": [
+            186.82,
+            247.786
+          ],
+          "far": [
+            236.748,
+            253.0
+          ],
+          "left": null,
+          "right": null
+        },
+        "foot_identity": {
+          "original_labels": [
+            "near",
+            "far"
+          ],
+          "anatomical_mapping": null,
+          "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+          "runtime_mapping_required": true
+        },
+        "source_foot_landmarks": null,
+        "support_contacts": "far",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            223.476,
+            173.842
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          223.476,
+          173.842
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 116,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "walk/frames/body_01.png",
+          "weapon": "walk/frames/weapon_01.png",
+          "hand_occlusion": "walk/frames/hand_occlusion_01.png"
+        },
+        "composite": "walk/frames/composite_01.png",
+        "source": {
+          "path": "walk/source/pair_0.png",
+          "sha256": "7ce85d1aa4733e10331d45e16913a71b9170278ce5ef2d965c67ecd041dec611",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": null,
+          "component_bbox": [
+            891,
+            32,
+            1386,
+            978
+          ],
+          "effective_figure_height_px": 946,
+          "effective_figure_long_axis_px": 946,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 150,
+        "body_scale": 0.158,
+        "standing_ruler_source_px": null,
+        "world_root_offset_px": [
+          1.738,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 2,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "far_down_near_toe_off"
+      ],
+      "start_ms": 120
+    },
+    {
+      "index": 2,
+      "duration_ms": 120,
+      "phase": "far_support_near_passing",
+      "source": "pair_1.png",
+      "source_rect": [
+        234,
+        46,
+        646,
+        956
+      ],
+      "source_figure_height_px": 910,
+      "body_calibration_scale": 0.165,
+      "calibration_basis": "same-direction head and shoulder/torso landmarks; not bounding-box height",
+      "head_scale": 0.95,
+      "head_rect_source": [
+        364,
+        46,
+        554,
+        238
+      ],
+      "root_canvas": [
+        220,
+        253
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "pelvis_canvas": [
+        220.0,
+        192.775
+      ],
+      "feet_canvas": {
+        "near": [
+          194.26,
+          243.595
+        ],
+        "far": [
+          225.94,
+          253.0
+        ]
+      },
+      "support_foot": "far",
+      "grip_canvas": [
+        221.65,
+        170.995
+      ],
+      "grip_source": [
+        503,
+        449
+      ],
+      "weapon_angle_deg": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "reference/sword_uchigatana.png",
+      "weapon_scale": 0.145,
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "world_root_translation": [
+        12.546,
+        0
+      ],
+      "preview_translation": [
+        0,
+        0
+      ],
+      "loop": true,
+      "integration": {
+        "frame_index": 2,
+        "legacy_frame_index": 2,
+        "start_ms": 240,
+        "duration_ms": 120,
+        "end_ms": 360,
+        "phase": "far_support_near_passing",
+        "events": [
+          "far_support_near_passing",
+          "leg_passing"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          220,
+          253
+        ],
+        "root_source_px": [
+          493.0,
+          946.0
+        ],
+        "root_source_status": "derived inverse of preserved uniform source-to-canvas transform using recorded grip; precision limited by rounded original canvas landmarks",
+        "feet_canvas_px": {
+          "near": [
+            194.26,
+            243.595
+          ],
+          "far": [
+            225.94,
+            253.0
+          ],
+          "left": null,
+          "right": null
+        },
+        "foot_identity": {
+          "original_labels": [
+            "near",
+            "far"
+          ],
+          "anatomical_mapping": null,
+          "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+          "runtime_mapping_required": true
+        },
+        "source_foot_landmarks": null,
+        "support_contacts": "far",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            221.65,
+            170.995
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          221.65,
+          170.995
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 120,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "walk/frames/body_02.png",
+          "weapon": "walk/frames/weapon_02.png",
+          "hand_occlusion": "walk/frames/hand_occlusion_02.png"
+        },
+        "composite": "walk/frames/composite_02.png",
+        "source": {
+          "path": "walk/source/pair_1.png",
+          "sha256": "9c263077740e3116771a87ef3d4e8e83a5e58b8c9fce1e50732c8ccbdb22aac2",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": null,
+          "component_bbox": [
+            234,
+            46,
+            646,
+            956
+          ],
+          "effective_figure_height_px": 910,
+          "effective_figure_long_axis_px": 910,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 150,
+        "body_scale": 0.165,
+        "standing_ruler_source_px": null,
+        "world_root_offset_px": [
+          12.546,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 3,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "far_support_near_passing",
+        "leg_passing"
+      ],
+      "start_ms": 240
+    },
+    {
+      "index": 3,
+      "duration_ms": 120,
+      "phase": "near_reach_far_toe_push",
+      "source": "cross_3.png",
+      "source_rect": [
+        858,
+        53,
+        1439,
+        922
+      ],
+      "source_figure_height_px": 869,
+      "body_calibration_scale": 0.165,
+      "calibration_basis": "same-direction head and shoulder/torso landmarks; not bounding-box height",
+      "head_scale": 0.95,
+      "head_rect_source": [
+        1009,
+        39,
+        1203,
+        230
+      ],
+      "root_canvas": [
+        220,
+        253
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "pelvis_canvas": [
+        220.0,
+        194.26
+      ],
+      "feet_canvas": {
+        "near": [
+          252.175,
+          252.01
+        ],
+        "far": [
+          192.61,
+          253.0
+        ]
+      },
+      "support_foot": "far",
+      "grip_canvas": [
+        220.825,
+        173.635
+      ],
+      "grip_source": [
+        1122,
+        435
+      ],
+      "weapon_angle_deg": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "reference/sword_uchigatana.png",
+      "weapon_scale": 0.145,
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "world_root_translation": [
+        45.876,
+        0
+      ],
+      "preview_translation": [
+        0,
+        0
+      ],
+      "loop": true,
+      "integration": {
+        "frame_index": 3,
+        "legacy_frame_index": 3,
+        "start_ms": 360,
+        "duration_ms": 120,
+        "end_ms": 480,
+        "phase": "near_reach_far_toe_push",
+        "events": [
+          "near_reach_far_toe_push"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          220,
+          253
+        ],
+        "root_source_px": [
+          1117.0,
+          916.0
+        ],
+        "root_source_status": "derived inverse of preserved uniform source-to-canvas transform using recorded grip; precision limited by rounded original canvas landmarks",
+        "feet_canvas_px": {
+          "near": [
+            252.175,
+            252.01
+          ],
+          "far": [
+            192.61,
+            253.0
+          ],
+          "left": null,
+          "right": null
+        },
+        "foot_identity": {
+          "original_labels": [
+            "near",
+            "far"
+          ],
+          "anatomical_mapping": null,
+          "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+          "runtime_mapping_required": true
+        },
+        "source_foot_landmarks": null,
+        "support_contacts": "far",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            220.825,
+            173.635
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          220.825,
+          173.635
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 120,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "walk/frames/body_03.png",
+          "weapon": "walk/frames/weapon_03.png",
+          "hand_occlusion": "walk/frames/hand_occlusion_03.png"
+        },
+        "composite": "walk/frames/composite_03.png",
+        "source": {
+          "path": "walk/source/cross_3.png",
+          "sha256": "5cf1ccd0f14bbba0380cbf40e140c895fd69a09c51817334c6fe5131f0b67b54",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": null,
+          "component_bbox": [
+            858,
+            53,
+            1439,
+            922
+          ],
+          "effective_figure_height_px": 869,
+          "effective_figure_long_axis_px": 869,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 150,
+        "body_scale": 0.165,
+        "standing_ruler_source_px": null,
+        "world_root_offset_px": [
+          45.876,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 4,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "near_reach_far_toe_push"
+      ],
+      "start_ms": 360
+    },
+    {
+      "index": 4,
+      "duration_ms": 120,
+      "phase": "near_heel_contact",
+      "source": "cross_2.png",
+      "source_rect": [
+        149,
+        15,
+        794,
+        943
+      ],
+      "source_figure_height_px": 928,
+      "body_calibration_scale": 0.162,
+      "calibration_basis": "same-direction head and shoulder/torso landmarks; not bounding-box height",
+      "head_scale": 0.95,
+      "head_rect_source": [
+        357,
+        15,
+        556,
+        214
+      ],
+      "root_canvas": [
+        220,
+        253
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "pelvis_canvas": [
+        220.0,
+        192.898
+      ],
+      "feet_canvas": {
+        "near": [
+          239.602,
+          253.0
+        ],
+        "far": [
+          201.046,
+          247.006
+        ]
+      },
+      "support_foot": "near",
+      "grip_canvas": [
+        218.866,
+        169.732
+      ],
+      "grip_source": [
+        503,
+        421
+      ],
+      "weapon_angle_deg": 123,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "reference/sword_uchigatana.png",
+      "weapon_scale": 0.145,
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "world_root_translation": [
+        57.876,
+        0
+      ],
+      "preview_translation": [
+        0,
+        0
+      ],
+      "loop": true,
+      "integration": {
+        "frame_index": 4,
+        "legacy_frame_index": 4,
+        "start_ms": 480,
+        "duration_ms": 120,
+        "end_ms": 600,
+        "phase": "near_heel_contact",
+        "events": [
+          "near_heel_contact",
+          "foot_contact"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          220,
+          253
+        ],
+        "root_source_px": [
+          510.0,
+          935.0
+        ],
+        "root_source_status": "derived inverse of preserved uniform source-to-canvas transform using recorded grip; precision limited by rounded original canvas landmarks",
+        "feet_canvas_px": {
+          "near": [
+            239.602,
+            253.0
+          ],
+          "far": [
+            201.046,
+            247.006
+          ],
+          "left": null,
+          "right": null
+        },
+        "foot_identity": {
+          "original_labels": [
+            "near",
+            "far"
+          ],
+          "anatomical_mapping": null,
+          "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+          "runtime_mapping_required": true
+        },
+        "source_foot_landmarks": null,
+        "support_contacts": "near",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            218.866,
+            169.732
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          218.866,
+          169.732
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 123,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "walk/frames/body_04.png",
+          "weapon": "walk/frames/weapon_04.png",
+          "hand_occlusion": "walk/frames/hand_occlusion_04.png"
+        },
+        "composite": "walk/frames/composite_04.png",
+        "source": {
+          "path": "walk/source/cross_2.png",
+          "sha256": "02b0ebc3ffcd0987b158988c7954fe129c197879e11f2a3c16e6a1bfb10e7a24",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": null,
+          "component_bbox": [
+            149,
+            15,
+            794,
+            943
+          ],
+          "effective_figure_height_px": 928,
+          "effective_figure_long_axis_px": 928,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 150,
+        "body_scale": 0.162,
+        "standing_ruler_source_px": null,
+        "world_root_offset_px": [
+          57.876,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 5,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "near_heel_contact",
+        "foot_contact"
+      ],
+      "start_ms": 480
+    },
+    {
+      "index": 5,
+      "duration_ms": 120,
+      "phase": "near_down_far_toe_off",
+      "source": "cross_2.png",
+      "source_rect": [
+        879,
+        16,
+        1335,
+        963
+      ],
+      "source_figure_height_px": 947,
+      "body_calibration_scale": 0.162,
+      "calibration_basis": "same-direction head and shoulder/torso landmarks; not bounding-box height",
+      "head_scale": 0.95,
+      "head_rect_source": [
+        1032,
+        16,
+        1228,
+        215
+      ],
+      "root_canvas": [
+        220,
+        253
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "pelvis_canvas": [
+        220.0,
+        190.468
+      ],
+      "feet_canvas": {
+        "near": [
+          226.318,
+          253.0
+        ],
+        "far": [
+          192.946,
+          243.928
+        ]
+      },
+      "support_foot": "near",
+      "grip_canvas": [
+        219.838,
+        168.922
+      ],
+      "grip_source": [
+        1178,
+        435
+      ],
+      "weapon_angle_deg": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "reference/sword_uchigatana.png",
+      "weapon_scale": 0.145,
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "world_root_translation": [
+        71.16,
+        0
+      ],
+      "preview_translation": [
+        0,
+        0
+      ],
+      "loop": true,
+      "integration": {
+        "frame_index": 5,
+        "legacy_frame_index": 5,
+        "start_ms": 600,
+        "duration_ms": 120,
+        "end_ms": 720,
+        "phase": "near_down_far_toe_off",
+        "events": [
+          "near_down_far_toe_off"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          220,
+          253
+        ],
+        "root_source_px": [
+          1179.0,
+          954.0
+        ],
+        "root_source_status": "derived inverse of preserved uniform source-to-canvas transform using recorded grip; precision limited by rounded original canvas landmarks",
+        "feet_canvas_px": {
+          "near": [
+            226.318,
+            253.0
+          ],
+          "far": [
+            192.946,
+            243.928
+          ],
+          "left": null,
+          "right": null
+        },
+        "foot_identity": {
+          "original_labels": [
+            "near",
+            "far"
+          ],
+          "anatomical_mapping": null,
+          "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+          "runtime_mapping_required": true
+        },
+        "source_foot_landmarks": null,
+        "support_contacts": "near",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            219.838,
+            168.922
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          219.838,
+          168.922
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 120,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "walk/frames/body_05.png",
+          "weapon": "walk/frames/weapon_05.png",
+          "hand_occlusion": "walk/frames/hand_occlusion_05.png"
+        },
+        "composite": "walk/frames/composite_05.png",
+        "source": {
+          "path": "walk/source/cross_2.png",
+          "sha256": "02b0ebc3ffcd0987b158988c7954fe129c197879e11f2a3c16e6a1bfb10e7a24",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": null,
+          "component_bbox": [
+            879,
+            16,
+            1335,
+            963
+          ],
+          "effective_figure_height_px": 947,
+          "effective_figure_long_axis_px": 947,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 150,
+        "body_scale": 0.162,
+        "standing_ruler_source_px": null,
+        "world_root_offset_px": [
+          71.16,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 6,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "near_down_far_toe_off"
+      ],
+      "start_ms": 600
+    },
+    {
+      "index": 6,
+      "duration_ms": 120,
+      "phase": "near_support_far_passing",
+      "source": "pair_3.png",
+      "source_rect": [
+        149,
+        26,
+        728,
+        957
+      ],
+      "source_figure_height_px": 931,
+      "body_calibration_scale": 0.165,
+      "calibration_basis": "same-direction head and shoulder/torso landmarks; not bounding-box height",
+      "head_scale": 0.95,
+      "head_rect_source": [
+        340,
+        26,
+        536,
+        220
+      ],
+      "root_canvas": [
+        220,
+        253
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "pelvis_canvas": [
+        220.0,
+        188.485
+      ],
+      "feet_canvas": {
+        "near": [
+          200.365,
+          253.0
+        ],
+        "far": [
+          245.41,
+          244.09
+        ]
+      },
+      "support_foot": "near",
+      "grip_canvas": [
+        221.815,
+        168.52
+      ],
+      "grip_source": [
+        456,
+        435
+      ],
+      "weapon_angle_deg": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "reference/sword_uchigatana.png",
+      "weapon_scale": 0.145,
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "world_root_translation": [
+        97.113,
+        0
+      ],
+      "preview_translation": [
+        0,
+        0
+      ],
+      "loop": true,
+      "integration": {
+        "frame_index": 6,
+        "legacy_frame_index": 6,
+        "start_ms": 720,
+        "duration_ms": 120,
+        "end_ms": 840,
+        "phase": "near_support_far_passing",
+        "events": [
+          "near_support_far_passing",
+          "leg_passing"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          220,
+          253
+        ],
+        "root_source_px": [
+          445.0,
+          947.0
+        ],
+        "root_source_status": "derived inverse of preserved uniform source-to-canvas transform using recorded grip; precision limited by rounded original canvas landmarks",
+        "feet_canvas_px": {
+          "near": [
+            200.365,
+            253.0
+          ],
+          "far": [
+            245.41,
+            244.09
+          ],
+          "left": null,
+          "right": null
+        },
+        "foot_identity": {
+          "original_labels": [
+            "near",
+            "far"
+          ],
+          "anatomical_mapping": null,
+          "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+          "runtime_mapping_required": true
+        },
+        "source_foot_landmarks": null,
+        "support_contacts": "near",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            221.815,
+            168.52
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          221.815,
+          168.52
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 120,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "walk/frames/body_06.png",
+          "weapon": "walk/frames/weapon_06.png",
+          "hand_occlusion": "walk/frames/hand_occlusion_06.png"
+        },
+        "composite": "walk/frames/composite_06.png",
+        "source": {
+          "path": "walk/source/pair_3.png",
+          "sha256": "00d59e56df8bac3f3955cd42a496350c95f9dc709bba762a8f17c4604d121ce4",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": null,
+          "component_bbox": [
+            149,
+            26,
+            728,
+            957
+          ],
+          "effective_figure_height_px": 931,
+          "effective_figure_long_axis_px": 931,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 150,
+        "body_scale": 0.165,
+        "standing_ruler_source_px": null,
+        "world_root_offset_px": [
+          97.113,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 7,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "near_support_far_passing",
+        "leg_passing"
+      ],
+      "start_ms": 720
+    },
+    {
+      "index": 7,
+      "duration_ms": 120,
+      "phase": "far_reach_near_toe_push",
+      "source": "pair_3.png",
+      "source_rect": [
+        836,
+        26,
+        1456,
+        958
+      ],
+      "source_figure_height_px": 932,
+      "body_calibration_scale": 0.165,
+      "calibration_basis": "same-direction head and shoulder/torso landmarks; not bounding-box height",
+      "head_scale": 0.95,
+      "head_rect_source": [
+        1009,
+        30,
+        1207,
+        228
+      ],
+      "root_canvas": [
+        220,
+        253
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "pelvis_canvas": [
+        220.0,
+        192.61
+      ],
+      "feet_canvas": {
+        "near": [
+          190.96,
+          253.0
+        ],
+        "far": [
+          249.37,
+          253.33
+        ]
+      },
+      "support_foot": "near",
+      "grip_canvas": [
+        223.795,
+        170.335
+      ],
+      "grip_source": [
+        1148,
+        439
+      ],
+      "weapon_angle_deg": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "reference/sword_uchigatana.png",
+      "weapon_scale": 0.145,
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "world_root_translation": [
+        106.518,
+        0
+      ],
+      "preview_translation": [
+        0,
+        0
+      ],
+      "loop": true,
+      "integration": {
+        "frame_index": 7,
+        "legacy_frame_index": 7,
+        "start_ms": 840,
+        "duration_ms": 120,
+        "end_ms": 960,
+        "phase": "far_reach_near_toe_push",
+        "events": [
+          "far_reach_near_toe_push",
+          "loop_end"
+        ],
+        "event_semantics": "Animation tags only; gameplay dispatch, cancellation and contact deduplication require runtime implementation.",
+        "root_canvas_px": [
+          220,
+          253
+        ],
+        "root_source_px": [
+          1125.0,
+          940.0
+        ],
+        "root_source_status": "derived inverse of preserved uniform source-to-canvas transform using recorded grip; precision limited by rounded original canvas landmarks",
+        "feet_canvas_px": {
+          "near": [
+            190.96,
+            253.0
+          ],
+          "far": [
+            249.37,
+            253.33
+          ],
+          "left": null,
+          "right": null
+        },
+        "foot_identity": {
+          "original_labels": [
+            "near",
+            "far"
+          ],
+          "anatomical_mapping": null,
+          "left_right_mapping_status": "unresolved_do_not_infer_by_screen_x",
+          "runtime_mapping_required": true
+        },
+        "source_foot_landmarks": null,
+        "support_contacts": "near",
+        "grounded": true,
+        "grips_canvas_px": [
+          [
+            223.795,
+            170.335
+          ]
+        ],
+        "weapon_anchor_canvas_px": [
+          223.795,
+          170.335
+        ],
+        "grip_state": "held",
+        "weapon_angle_deg": 120,
+        "weapon_angle_convention": "0 up, clockwise positive",
+        "weapon_visible": true,
+        "layer_order": [
+          "body",
+          "weapon",
+          "hand_occlusion"
+        ],
+        "layers": {
+          "body": "walk/frames/body_07.png",
+          "weapon": "walk/frames/weapon_07.png",
+          "hand_occlusion": "walk/frames/hand_occlusion_07.png"
+        },
+        "composite": "walk/frames/composite_07.png",
+        "source": {
+          "path": "walk/source/pair_3.png",
+          "sha256": "00d59e56df8bac3f3955cd42a496350c95f9dc709bba762a8f17c4604d121ce4",
+          "native_canvas_px": [
+            1536,
+            1024
+          ],
+          "original_png_preserved": true,
+          "landmark_coordinate_space": "original native source canvas",
+          "component_index": null,
+          "component_bbox": [
+            836,
+            26,
+            1456,
+            958
+          ],
+          "effective_figure_height_px": 932,
+          "effective_figure_long_axis_px": 932,
+          "reused_approved": false
+        },
+        "standing_ruler_target_px": 150,
+        "body_scale": 0.165,
+        "standing_ruler_source_px": null,
+        "world_root_offset_px": [
+          106.518,
+          0
+        ],
+        "preview_offset_px": [
+          0,
+          0
+        ],
+        "pose_offset_already_baked_px": [
+          0,
+          0
+        ],
+        "world_motion_not_baked_into_png": true,
+        "preview_motion_not_runtime_motion": true,
+        "next_frame_index": 0,
+        "fx": null,
+        "grip_identity_note": "Uses recorded source grip anchor(s); anatomical hand-specific IK has not been tested."
+      },
+      "events": [
+        "far_reach_near_toe_push",
+        "loop_end"
+      ],
+      "start_ms": 840
+    }
+  ],
+  "quality_notes": [
+    "Not integrated in game runtime.",
+    "Eight original-resolution generated whole-body poses, not skeletal rig.",
+    "Candidate gait needs final user approval; feet and crossing leg identity inspected.",
+    "Head95 applied locally at neck anchor; all final game-size body frames downsampled directly from source only once."
+  ],
+  "pre_acceptance_status": {
+    "status": "candidate_pending_user_review"
+  },
+  "approval": "accepted",
+  "approved": true,
+  "accepted": true,
+  "candidate": false,
+  "not_user_approved": false,
+  "acceptance_event_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "acceptance_record": "../acceptance.json",
+  "schema_extension": "integration.v1",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "runtime_tested": false,
+  "runtime_integrated": false,
+  "integration": {
+    "schema": "sengoku.base-actions.frames.v1",
+    "path_base": "character root",
+    "frame_index_base": 0,
+    "coordinate_convention": "canvas pixels, x right/y down; source landmarks native pixels",
+    "standing_ruler_px": 150,
+    "no_per_frame_bbox_normalization": true,
+    "loop": true,
+    "loop_start_frame": 0,
+    "loop_end_frame": 7,
+    "terminal": {
+      "hold_last_frame": false,
+      "hold_frame_index": null,
+      "death_compatible_hold_frame_index": null,
+      "optional_hold_frame_index": null,
+      "automatic_recovery": false,
+      "completion_transition": "runtime state machine decides; no automatic replay for non-loop actions"
+    },
+    "world_motion_ownership": "runtime controller; exported track is authored reference, not a validated engine simulation",
+    "pose_offsets_baked": false,
+    "preview_world_separate": true,
+    "duration_ms": 960,
+    "runtime_tested": false,
+    "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+  }
+}

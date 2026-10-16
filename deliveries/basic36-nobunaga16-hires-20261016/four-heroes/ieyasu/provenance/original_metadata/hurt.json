@@ -1,0 +1,601 @@
+{
+  "hero": "ieyasu06",
+  "revision": "hurt_candidate_01",
+  "action": "hurt",
+  "approval": "accepted",
+  "loop": false,
+  "frame_count": 6,
+  "total_ms": 710,
+  "standing_ruler_source_px": 920,
+  "standing_ruler_target_px": 152,
+  "one_constant_new_body_scale": 0.16521739130434782,
+  "per_frame_bbox_height_normalization": false,
+  "original_png_preserved": true,
+  "body_final_downsample_only": true,
+  "image_generation_tool": "official image_gen.imagegen",
+  "direct_approved_references": [
+    "ieyasu06_newspec_20261015/reference/identity06.png",
+    "ieyasu06_newspec_20261015/actions/light_1_source.png"
+  ],
+  "layers": [
+    "body",
+    "weapon",
+    "sheath",
+    "hand_occlusion"
+  ],
+  "ordinary_action_fx": false,
+  "world_motion": {
+    "mode": "runtime_controller",
+    "per_frame_delta": [
+      0,
+      0
+    ],
+    "preview_motion_not_baked": true
+  },
+  "shared_idle": "../idle/registration.json",
+  "frames": [
+    {
+      "source_file": "../idle/composite.png",
+      "approved_exact_idle": true,
+      "source_effective_height": 416,
+      "root_canvas": [
+        220,
+        280
+      ],
+      "grip_canvas": [
+        224.08,
+        201.06
+      ],
+      "hands_canvas": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_canvas": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ]
+      },
+      "support_foot": "both",
+      "scale": 0.36538461538461536,
+      "frame": 1,
+      "duration_ms": 80,
+      "start_ms": 0,
+      "phase": "approved_idle_entry",
+      "event": null,
+      "loop_next": 2,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/hurt_01_02_raw.png",
+      "source_rect": [
+        0,
+        0,
+        816,
+        1024
+      ],
+      "source_sha256": "3d9d160adc56523a64191f89b4be5a824b6c50945abd1354374086912cc59b09",
+      "source_bbox": [
+        46,
+        56,
+        810,
+        954
+      ],
+      "source_effective_height": 898,
+      "source_effective_width": 764,
+      "source_root": [
+        450,
+        951
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        145.6521739130435,
+        122.87826086956522
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        479.0,
+        452.0
+      ],
+      "grip_canvas": [
+        224.7913043478261,
+        197.55652173913043
+      ],
+      "hands_source": [
+        [
+          448,
+          454
+        ],
+        [
+          510,
+          450
+        ]
+      ],
+      "hands_canvas": [
+        [
+          219.66956521739132,
+          197.88695652173914
+        ],
+        [
+          229.91304347826087,
+          197.22608695652173
+        ]
+      ],
+      "weapon_angle_degrees": -62,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          133,
+          949
+        ],
+        "far": [
+          708,
+          940
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          167.62608695652176,
+          279.6695652173913
+        ],
+        "far": [
+          262.62608695652176,
+          278.18260869565216
+        ]
+      },
+      "support_foot": "both",
+      "frame": 2,
+      "duration_ms": 90,
+      "start_ms": 80,
+      "phase": "hit_compress",
+      "event": "hurt_start",
+      "loop_next": 3,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/hurt_01_02_raw.png",
+      "source_rect": [
+        816,
+        0,
+        1536,
+        1024
+      ],
+      "source_sha256": "3d9d160adc56523a64191f89b4be5a824b6c50945abd1354374086912cc59b09",
+      "source_bbox": [
+        823,
+        78,
+        1521,
+        948
+      ],
+      "source_effective_height": 870,
+      "source_effective_width": 698,
+      "source_root": [
+        1215,
+        947
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        19.260869565217405,
+        123.5391304347826
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        1243.0,
+        385.0
+      ],
+      "grip_canvas": [
+        224.62608695652173,
+        187.1478260869565
+      ],
+      "hands_source": [
+        [
+          1211,
+          394
+        ],
+        [
+          1275,
+          376
+        ]
+      ],
+      "hands_canvas": [
+        [
+          219.33913043478262,
+          188.63478260869564
+        ],
+        [
+          229.91304347826087,
+          185.66086956521738
+        ]
+      ],
+      "weapon_angle_degrees": -70,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          893,
+          938
+        ],
+        "far": [
+          1434,
+          940
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          166.8,
+          278.5130434782609
+        ],
+        "far": [
+          256.18260869565216,
+          278.8434782608696
+        ]
+      },
+      "support_foot": "both",
+      "frame": 3,
+      "duration_ms": 120,
+      "start_ms": 170,
+      "phase": "peak_recoil",
+      "event": null,
+      "loop_next": 4,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/hurt_03_04_raw.png",
+      "source_rect": [
+        0,
+        0,
+        816,
+        1024
+      ],
+      "source_sha256": "df30b0439d2dfdc4431e290b909111873b3e18a72284937cc773d6e3156670b6",
+      "source_bbox": [
+        58,
+        51,
+        816,
+        973
+      ],
+      "source_effective_height": 922,
+      "source_effective_width": 758,
+      "source_root": [
+        470,
+        968
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        142.34782608695653,
+        120.0695652173913
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        498.0,
+        463.5
+      ],
+      "grip_canvas": [
+        224.62608695652176,
+        196.6478260869565
+      ],
+      "hands_source": [
+        [
+          451,
+          467
+        ],
+        [
+          545,
+          460
+        ]
+      ],
+      "hands_canvas": [
+        [
+          216.8608695652174,
+          197.22608695652173
+        ],
+        [
+          232.3913043478261,
+          196.0695652173913
+        ]
+      ],
+      "weapon_angle_degrees": -62,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          143,
+          968
+        ],
+        "far": [
+          720,
+          962
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          165.97391304347826,
+          280.0
+        ],
+        "far": [
+          261.30434782608694,
+          279.0086956521739
+        ]
+      },
+      "support_foot": "both",
+      "frame": 4,
+      "duration_ms": 120,
+      "start_ms": 290,
+      "phase": "recover_balance",
+      "event": null,
+      "loop_next": 5,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/hurt_03_04_raw.png",
+      "source_rect": [
+        816,
+        0,
+        1536,
+        1024
+      ],
+      "source_sha256": "df30b0439d2dfdc4431e290b909111873b3e18a72284937cc773d6e3156670b6",
+      "source_bbox": [
+        816,
+        51,
+        1516,
+        972
+      ],
+      "source_effective_height": 921,
+      "source_effective_width": 700,
+      "source_root": [
+        1195,
+        969
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        22.565217391304373,
+        119.90434782608696
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        1198.5,
+        493.0
+      ],
+      "grip_canvas": [
+        220.57826086956524,
+        201.35652173913041
+      ],
+      "hands_source": [
+        [
+          1164,
+          493
+        ],
+        [
+          1233,
+          493
+        ]
+      ],
+      "hands_canvas": [
+        [
+          214.87826086956522,
+          201.35652173913041
+        ],
+        [
+          226.27826086956523,
+          201.35652173913041
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          892,
+          968
+        ],
+        "far": [
+          1436,
+          966
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          169.9391304347826,
+          279.83478260869566
+        ],
+        "far": [
+          259.81739130434784,
+          279.5043478260869
+        ]
+      },
+      "support_foot": "both",
+      "frame": 5,
+      "duration_ms": 120,
+      "start_ms": 410,
+      "phase": "settle_guard",
+      "event": null,
+      "loop_next": 6,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../idle/composite.png",
+      "approved_exact_idle": true,
+      "source_effective_height": 416,
+      "root_canvas": [
+        220,
+        280
+      ],
+      "grip_canvas": [
+        224.08,
+        201.06
+      ],
+      "hands_canvas": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_canvas": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ]
+      },
+      "support_foot": "both",
+      "scale": 0.36538461538461536,
+      "frame": 6,
+      "duration_ms": 180,
+      "start_ms": 530,
+      "phase": "approved_idle_return",
+      "event": "hurt_complete",
+      "loop_next": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    }
+  ],
+  "runtime_integrated": false,
+  "notes": [
+    "One hit reaction returns to exact approved idle. Preview GIF repeats for review; action itself is non-looping.",
+    "Knockback remains runtime-controlled; no displacement baked into RGBA."
+  ],
+  "approval_basis": {
+    "message_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+    "scope": "Previously delivered current revision with no subsequent objection; run v4 excluded."
+  }
+}

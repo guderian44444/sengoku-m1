@@ -1,0 +1,1938 @@
+{
+  "key": "charge_release",
+  "frames": [
+    {
+      "frame": 0,
+      "duration_ms": 80,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/000.png",
+        "sha256": "430ae3b10167bbae8369edf49cbc8c11bf340cdf7d266c00441f806211efae2a",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/000.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 134,
+        "mean_absolute_channel_difference": 0.2173985,
+        "different_pixel_count": 114099,
+        "compared_pixel_count": 2880000
+      },
+      "layer_completeness": {
+        "actor": "nobunaga_final_approved/charge_release/frames-composite/000.png",
+        "separate_body_weapon": false,
+        "fx_front": "known empty",
+        "fx_back": "known empty"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "body_rgb": "nobunaga_impact_v4/charge_hold_squat/layers/body-008.png",
+        "body_scale": 0.58,
+        "body_offset": [
+          520,
+          462,
+          1359,
+          1092
+        ],
+        "body_resampling": "LANCZOS",
+        "weapon_template": "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png",
+        "weapon_template_to_review_inverse_affine": [
+          1.724049316168213,
+          -0.01748029324078814,
+          -1654.5971773877131,
+          0.01748029324078814,
+          1.724049316168213,
+          -1434.4032154894667
+        ],
+        "weapon_resampling": "BICUBIC",
+        "layer_order": [
+          "body",
+          "weapon"
+        ],
+        "output_canvas": [
+          2400,
+          1200
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ]
+      }
+    },
+    {
+      "frame": 1,
+      "duration_ms": 120,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/001.png",
+        "sha256": "0338f6ac670ccc95cde0c5217bf62a2a7003a88a099013443c89064d4ba248a1",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/001.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 136,
+        "mean_absolute_channel_difference": 0.44406539,
+        "different_pixel_count": 159686,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/001.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/001.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/001.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/001.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/001.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/001.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/001.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/001.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 2,
+      "duration_ms": 80,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/002.png",
+        "sha256": "4fcd3957a593abc8536b0bf6d8a4f1c12f5b3b040a0397639db90a998d350574",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/002.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 103,
+        "mean_absolute_channel_difference": 0.60660972,
+        "different_pixel_count": 374354,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/002.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/002.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/002.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/002.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/002.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/002.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/002.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/002.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 3,
+      "duration_ms": 60,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/003.png",
+        "sha256": "9e364741c8a86cce98c83473fcb882cf63862e28bc3bd0265687e14f81059dba",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/003.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 245,
+        "mean_absolute_channel_difference": 0.586725,
+        "different_pixel_count": 373667,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/003.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/003.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/003.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/003.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/003.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/003.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/003.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/003.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 4,
+      "duration_ms": 60,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/004.png",
+        "sha256": "dc65a87e1240091029ecf767e428a6884845d96aa15b1642739a5006155a29d5",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/004.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 139,
+        "mean_absolute_channel_difference": 0.61223553,
+        "different_pixel_count": 420199,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/004.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/004.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/004.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/004.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/004.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/004.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/004.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/004.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 5,
+      "duration_ms": 50,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/005.png",
+        "sha256": "eb5350fd96d9c064072de6de7d7c7ef3fab3ca452805491e9401c5145d906832",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/005.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 97,
+        "mean_absolute_channel_difference": 0.55494444,
+        "different_pixel_count": 396741,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/005.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/005.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/005.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/005.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/005.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/005.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/005.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/005.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 6,
+      "duration_ms": 50,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/006.png",
+        "sha256": "69c7759aec4ab293d8a36f4c6039b99e72407a8e1a358a979ad2671dc0493705",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/006.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 102,
+        "mean_absolute_channel_difference": 0.71537106,
+        "different_pixel_count": 387088,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/006.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/006.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/006.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/006.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/006.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/006.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/006.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/006.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 7,
+      "duration_ms": 40,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/007.png",
+        "sha256": "f77d9419b902371a03fee9bdca45edd4664550dc0848a253e2804a02d8587508",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/007.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 194,
+        "mean_absolute_channel_difference": 0.48306424,
+        "different_pixel_count": 400981,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/007.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/007.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/007.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/007.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/007.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/007.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/007.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/007.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 8,
+      "duration_ms": 30,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/008.png",
+        "sha256": "a1758e189fc7d4607724a49d58166839e75c257f2af061fa14fc045c8777ef07",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/008.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 154,
+        "mean_absolute_channel_difference": 0.66006007,
+        "different_pixel_count": 415068,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/008.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/008.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/008.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/008.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/008.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/008.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/008.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/008.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 9,
+      "duration_ms": 30,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/009.png",
+        "sha256": "39de278e1d5378c6caad3ae4e372b2e0b50604ec2a7b839ee1581d2157440bfa",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/009.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 106,
+        "mean_absolute_channel_difference": 0.60661644,
+        "different_pixel_count": 388671,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/009.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/009.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/009.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/009.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/009.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/009.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/009.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/009.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 10,
+      "duration_ms": 60,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/010.png",
+        "sha256": "244da7ac7d65aff8d798cd1fb682f2dfab86fc7ed2a6c17f99a81823617fee83",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/010.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 104,
+        "mean_absolute_channel_difference": 0.75297639,
+        "different_pixel_count": 385406,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/010.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/010.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/010.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/010.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/010.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/010.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/010.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/010.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 11,
+      "duration_ms": 50,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/011.png",
+        "sha256": "9e364741c8a86cce98c83473fcb882cf63862e28bc3bd0265687e14f81059dba",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/011.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 245,
+        "mean_absolute_channel_difference": 0.586725,
+        "different_pixel_count": 373667,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/011.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/011.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/011.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/011.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/011.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/011.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/011.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/011.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 12,
+      "duration_ms": 50,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/012.png",
+        "sha256": "dc65a87e1240091029ecf767e428a6884845d96aa15b1642739a5006155a29d5",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/012.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 139,
+        "mean_absolute_channel_difference": 0.61223553,
+        "different_pixel_count": 420199,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/012.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/012.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/012.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/012.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/012.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/012.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/012.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/012.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 13,
+      "duration_ms": 40,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/013.png",
+        "sha256": "eb5350fd96d9c064072de6de7d7c7ef3fab3ca452805491e9401c5145d906832",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/013.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 97,
+        "mean_absolute_channel_difference": 0.55494444,
+        "different_pixel_count": 396741,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/013.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/013.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/013.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/013.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/013.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/013.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/013.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/013.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 14,
+      "duration_ms": 40,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/014.png",
+        "sha256": "69c7759aec4ab293d8a36f4c6039b99e72407a8e1a358a979ad2671dc0493705",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/014.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 102,
+        "mean_absolute_channel_difference": 0.71537106,
+        "different_pixel_count": 387088,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/014.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/014.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/014.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/014.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/014.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/014.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/014.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/014.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 15,
+      "duration_ms": 30,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/015.png",
+        "sha256": "f77d9419b902371a03fee9bdca45edd4664550dc0848a253e2804a02d8587508",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/015.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 194,
+        "mean_absolute_channel_difference": 0.48306424,
+        "different_pixel_count": 400981,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/015.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/015.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/015.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/015.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/015.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/015.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/015.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/015.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 16,
+      "duration_ms": 30,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/016.png",
+        "sha256": "a1758e189fc7d4607724a49d58166839e75c257f2af061fa14fc045c8777ef07",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/016.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 154,
+        "mean_absolute_channel_difference": 0.66006007,
+        "different_pixel_count": 415068,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/016.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/016.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/016.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/016.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/016.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/016.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/016.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/016.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 17,
+      "duration_ms": 20,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/017.png",
+        "sha256": "39de278e1d5378c6caad3ae4e372b2e0b50604ec2a7b839ee1581d2157440bfa",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/017.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 106,
+        "mean_absolute_channel_difference": 0.60661644,
+        "different_pixel_count": 388671,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/017.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/017.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/017.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/017.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/017.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/017.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/017.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/017.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 18,
+      "duration_ms": 40,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/018.png",
+        "sha256": "244da7ac7d65aff8d798cd1fb682f2dfab86fc7ed2a6c17f99a81823617fee83",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/018.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 104,
+        "mean_absolute_channel_difference": 0.75297639,
+        "different_pixel_count": 385406,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/018.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/018.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/018.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/018.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/018.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/018.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/018.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/018.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 19,
+      "duration_ms": 40,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/019.png",
+        "sha256": "ee44684f028157b5f06b5640086e09a074026f6fa4cd558b48279aa3c6e4e41c",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/019.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 136,
+        "mean_absolute_channel_difference": 0.70780012,
+        "different_pixel_count": 235268,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/019.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/019.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/019.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/019.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/019.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/019.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/019.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/019.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 20,
+      "duration_ms": 50,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/020.png",
+        "sha256": "1c7bb4665a5d7e9d4dc3c0a02527a5fe8e8dcf45b984b8f6513eca40578eeca2",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/020.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 106,
+        "mean_absolute_channel_difference": 0.72351991,
+        "different_pixel_count": 370650,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/020.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/020.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/020.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/020.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/020.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/020.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/020.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/020.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 21,
+      "duration_ms": 50,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/021.png",
+        "sha256": "cd5f05fae235cf6b4d186336ed6481af8d0b2ce237645caca7964313caa98265",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/021.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 152,
+        "mean_absolute_channel_difference": 0.60002569,
+        "different_pixel_count": 445148,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/021.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/021.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/021.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/021.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/021.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/021.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/021.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/021.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 22,
+      "duration_ms": 120,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/022.png",
+        "sha256": "610ca978cabc22f221f2c839f7e9eaf8f6c0d248c7ce5409c962ee11e72de14e",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/022.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 159,
+        "mean_absolute_channel_difference": 0.43824317,
+        "different_pixel_count": 288635,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/022.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/022.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/022.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/022.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/022.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/022.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/022.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/022.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    },
+    {
+      "frame": 23,
+      "duration_ms": 180,
+      "output": {
+        "path": "nobunaga_final_approved/charge_release/frames-composite/023.png",
+        "sha256": "1f657cac49e04752ee090287eb6831ed0b0eaeef69acf3d0d6939915ed3f1d3e",
+        "dimensions": [
+          4000,
+          1800
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_release_hires_range150/frames-composited/023.png"
+      ],
+      "source_to_review": {
+        "scale": 0.58,
+        "offset": [
+          -50,
+          150
+        ],
+        "mapping_status": "independently rendered native versus review; exact review actor uses preserved original layers"
+      },
+      "method_note": "Native transparent full composition reconstructed using approved build definitions and full native sources; review layers retained separately byte-for-byte.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 7200000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 159,
+        "mean_absolute_channel_difference": 0.37686655,
+        "different_pixel_count": 133982,
+        "compared_pixel_count": 2880000
+      },
+      "layers": {
+        "actor": "nobunaga_final_approved/charge_release/layers-native/actor/023.png",
+        "body": "nobunaga_final_approved/charge_release/layers-native/body/023.png",
+        "weapon": "nobunaga_final_approved/charge_release/layers-native/weapon/023.png",
+        "fx_back": "nobunaga_final_approved/charge_release/layers-native/fx_back/023.png",
+        "fx_front": "nobunaga_final_approved/charge_release/layers-native/fx_front/023.png"
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 2880000
+      },
+      "approved_layer_render_recipe": {
+        "layers_in_order": [
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_back/023.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/actor/023.png",
+          "nobunaga_impact_v4/charge_release_hires_range150/layers/fx_front/023.png"
+        ],
+        "background_rgb": [
+          37,
+          39,
+          43
+        ],
+        "canvas": [
+          2400,
+          1200
+        ],
+        "independent_weapon_and_body_available": true,
+        "warning": "Existing review layers are not original native masters. Native rebuilt layers are in layers-native."
+      }
+    }
+  ],
+  "approved_preview": {
+    "key": "charge_release",
+    "gif_path": "nobunaga_impact_v4/charge_release_hires_range150/normal.gif",
+    "gif_sha256": "6668b0355a867beff5ab75975a5c7754545ef10df6df6eda3a09ca835fbaf91c",
+    "expected_sha256": "6668b0355a867beff5ab75975a5c7754545ef10df6df6eda3a09ca835fbaf91c",
+    "sha256_match": true,
+    "frames": 24,
+    "duration_ms": 1400,
+    "durations_ms": [
+      80,
+      120,
+      80,
+      60,
+      60,
+      50,
+      50,
+      40,
+      30,
+      30,
+      60,
+      50,
+      50,
+      40,
+      40,
+      30,
+      30,
+      20,
+      40,
+      40,
+      50,
+      50,
+      120,
+      180
+    ],
+    "review_directory": "nobunaga_impact_v4/charge_release_hires_range150/frames-review",
+    "quantized_review_pixels_equal_gif_by_frame": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "any_difference_bounds": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "background_rgb": [
+    37,
+    39,
+    43
+  ],
+  "warning": "Advisory art mapping, not runtime hitboxes, weapon sockets or world-space events."
+}

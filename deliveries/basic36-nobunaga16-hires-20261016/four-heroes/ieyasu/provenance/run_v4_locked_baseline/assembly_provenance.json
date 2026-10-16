@@ -1,0 +1,54 @@
+{
+  "method": "High-resolution part assembly permitted by user. Each source part sampled directly once to game pixels. Native assembled previews are never the game downsample input.",
+  "fixed_upper": {
+    "source": "../sources/run_v2_contacts_raw.png",
+    "component": 0,
+    "standing_equivalent": 920,
+    "scale": 0.16521739130434782,
+    "mask": "qa/fixed_upper_native.png"
+  },
+  "waist_patch": [
+    {
+      "frame": 3,
+      "source": "../sources/run_v4_flight_near_seam_raw.png",
+      "source_sha256": "5b01f336dd88c360da64743206cc5fa70c3010c60cb554c9a69742cd9112a5cb",
+      "source_canvas": [
+        1254,
+        1254
+      ],
+      "generation_target_canvas": [
+        1536,
+        1536
+      ],
+      "render_scale": 0.1349143610013175,
+      "render_origin": [
+        127.47826086956522,
+        123.20869565217393
+      ],
+      "bounded_mask": "qa/seam_patch_mask_03_game.png",
+      "coverage": "Waist-to-trouser junction only, fixed original upper composited again above it."
+    },
+    {
+      "frame": 6,
+      "source": "../sources/run_v4_flight_far_seam_raw.png",
+      "source_sha256": "bcf1f881e9bb0baef0b0c781cb2a16e32256a2f190cca67b30c6575f934f494b",
+      "source_canvas": [
+        1254,
+        1254
+      ],
+      "generation_target_canvas": [
+        1536,
+        1536
+      ],
+      "render_scale": 0.1349143610013175,
+      "render_origin": [
+        127.47826086956522,
+        123.20869565217393
+      ],
+      "bounded_mask": "qa/seam_patch_mask_06_game.png",
+      "coverage": "Waist-to-trouser junction only, fixed original upper composited again above it."
+    }
+  ],
+  "no_optical_flow": true,
+  "body_above_waist_and_below_patch_unchanged": true
+}

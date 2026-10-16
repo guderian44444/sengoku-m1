@@ -1,0 +1,521 @@
+{
+  "schema": "sengoku.animation.frames.v1",
+  "character": "kennyo",
+  "action": "jump",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 163,
+  "frame_count": 7,
+  "total_duration_ms": 830,
+  "loop": false,
+  "terminal_hold": false,
+  "runtime_tested": false,
+  "source_metadata": "kennyo/jump/metadata.json",
+  "all_file_paths_relative_to": "final_git_bundle root",
+  "frames": [
+    {
+      "frame_index": 0,
+      "duration_ms": 60,
+      "start_ms": 0,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          226.351,
+          326.011
+        ],
+        "landmark_1": [
+          330.484,
+          325
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          286,
+          227.607
+        ],
+        [
+          278.923,
+          216.149
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        286,
+        227.607
+      ],
+      "weapon_angle_degrees": -31.7014,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/jump/body_01.png",
+        "weapon": "kennyo/jump/weapon_01.png",
+        "hand_occlusion": "kennyo/jump/hand_occlusion_01.png"
+      },
+      "composite": "kennyo/jump/composite_01.png",
+      "events": [
+        "entry_idle"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "registered approved combat idle",
+        "metadata_base": "kennyo/jump"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 1,
+      "duration_ms": 180,
+      "start_ms": 60,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          224.2315789473684,
+          325.8578947368421
+        ],
+        "landmark_1": [
+          325.4631578947368,
+          321.5684210526316
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          289.4315789473684,
+          244.3578947368421
+        ],
+        [
+          279.9947368421052,
+          226.3421052631579
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        289.4315789473684,
+        244.3578947368421
+      ],
+      "weapon_angle_degrees": -27.645975363738707,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/jump/body_02.png",
+        "weapon": "kennyo/jump/weapon_02.png",
+        "hand_occlusion": "kennyo/jump/hand_occlusion_02.png"
+      },
+      "composite": "kennyo/jump/composite_02.png",
+      "events": [
+        "anticipation_crouch"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/jump12-original.png",
+        "metadata_base": "kennyo/jump"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 2,
+      "duration_ms": 90,
+      "start_ms": 240,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          227.66315789473683,
+          326.7157894736842
+        ],
+        "landmark_1": [
+          284.28421052631575,
+          311.2736842105263
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          282.56842105263155,
+          223.7684210526316
+        ],
+        [
+          275.7052631578947,
+          208.32631578947368
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        282.56842105263155,
+        223.7684210526316
+      ],
+      "weapon_angle_degrees": -23.962488974578164,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/jump/body_03.png",
+        "weapon": "kennyo/jump/weapon_03.png",
+        "hand_occlusion": "kennyo/jump/hand_occlusion_03.png"
+      },
+      "composite": "kennyo/jump/composite_03.png",
+      "events": [
+        "takeoff"
+      ],
+      "preview_displacement_px": [
+        0,
+        -12
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/jump12-original.png",
+        "metadata_base": "kennyo/jump"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 3,
+      "duration_ms": 130,
+      "start_ms": 330,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          275.7052631578947,
+          282.10526315789474
+        ],
+        "landmark_1": [
+          288.5736842105263,
+          290.3410526315789
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          268.8421052631579,
+          216.90526315789475
+        ],
+        [
+          265.41052631578947,
+          196.31578947368422
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        268.8421052631579,
+        216.90526315789475
+      ],
+      "weapon_angle_degrees": -9.462322208025695,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/jump/body_04.png",
+        "weapon": "kennyo/jump/weapon_04.png",
+        "hand_occlusion": "kennyo/jump/hand_occlusion_04.png"
+      },
+      "composite": "kennyo/jump/composite_04.png",
+      "events": [
+        "apex"
+      ],
+      "preview_displacement_px": [
+        0,
+        -55
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/jump34-original.png",
+        "metadata_base": "kennyo/jump"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 4,
+      "duration_ms": 100,
+      "start_ms": 460,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          238.81578947368422,
+          329.2894736842105
+        ],
+        "landmark_1": [
+          322.0315789473684,
+          320.7105263157895
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          285.1421052631579,
+          242.6421052631579
+        ],
+        [
+          276.9063157894737,
+          222.05263157894737
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        285.1421052631579,
+        242.6421052631579
+      ],
+      "weapon_angle_degrees": -21.80140948635173,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/jump/body_05.png",
+        "weapon": "kennyo/jump/weapon_05.png",
+        "hand_occlusion": "kennyo/jump/hand_occlusion_05.png"
+      },
+      "composite": "kennyo/jump/composite_05.png",
+      "events": [
+        "descending"
+      ],
+      "preview_displacement_px": [
+        0,
+        -30
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/jump34-original.png",
+        "metadata_base": "kennyo/jump"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 5,
+      "duration_ms": 110,
+      "start_ms": 560,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          224.2315789473684,
+          325.8578947368421
+        ],
+        "landmark_1": [
+          325.4631578947368,
+          321.5684210526316
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          289.4315789473684,
+          244.3578947368421
+        ],
+        [
+          279.9947368421052,
+          226.3421052631579
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        289.4315789473684,
+        244.3578947368421
+      ],
+      "weapon_angle_degrees": -27.645975363738707,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/jump/body_06.png",
+        "weapon": "kennyo/jump/weapon_06.png",
+        "hand_occlusion": "kennyo/jump/hand_occlusion_06.png"
+      },
+      "composite": "kennyo/jump/composite_06.png",
+      "events": [
+        "landing"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/jump12-original.png",
+        "metadata_base": "kennyo/jump"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 6,
+      "duration_ms": 160,
+      "start_ms": 670,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          226.351,
+          326.011
+        ],
+        "landmark_1": [
+          330.484,
+          325
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          286,
+          227.607
+        ],
+        [
+          278.923,
+          216.149
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        286,
+        227.607
+      ],
+      "weapon_angle_degrees": -31.7014,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/jump/body_07.png",
+        "weapon": "kennyo/jump/weapon_07.png",
+        "hand_occlusion": "kennyo/jump/hand_occlusion_07.png"
+      },
+      "composite": "kennyo/jump/composite_07.png",
+      "events": [
+        "settled_to_idle"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "registered approved combat idle",
+        "metadata_base": "kennyo/jump"
+      },
+      "runtime_tested": false
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "hero": "tadakatsu",
+  "action": "stunned",
+  "revision": "r3_candidate_01",
+  "status": "accepted",
+  "loop": true,
+  "terminal_hold": false,
+  "terminal_event": null,
+  "frame_count": 4,
+  "total_ms": 800,
+  "standing_ruler_target_px": 163,
+  "standing_ruler_source_px": 740,
+  "body_scale": 0.22027027027027027,
+  "per_frame_bbox_normalization": false,
+  "preserve_original_png": true,
+  "body_resample": "once from original high-resolution source to final scale",
+  "world_motion": {
+    "mode": "in_place",
+    "driver": "runtime_controller",
+    "preview_displacement_not_baked": true
+  },
+  "preview_motion": {
+    "mode": "in_place"
+  },
+  "ordinary_action_fx": false,
+  "imagegen": "official image_gen.imagegen",
+  "identity_references": [
+    "../source/approved-original-master.png",
+    "../source/walk-01-02.png"
+  ],
+  "shared_idle": "../identity/registration.json",
+  "frames": [
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        125.45945945945947,
+        113.67702702702704
+      ],
+      "root_source": [
+        520,
+        973
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          530,
+          454
+        ]
+      ],
+      "hands_canvas": [
+        [
+          242.2027027027027,
+          213.67972972972973
+        ]
+      ],
+      "weapon_grip_canvas": [
+        242.2027027027027,
+        213.67972972972973
+      ],
+      "weapon_angle_degrees": 95,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          260,
+          968
+        ],
+        "left": [
+          675,
+          954
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          182.72972972972974,
+          326.89864864864865
+        ],
+        "left": [
+          274.1418918918919,
+          323.8148648648649
+        ]
+      },
+      "frame": 1,
+      "phase": "bow_center",
+      "event": "stunned_bow_center",
+      "duration_ms": 180,
+      "start_ms": 0,
+      "reused_approved": false,
+      "source_file": "stunned/source/stunned-01-02.png",
+      "source_sha256": "d3272b7c46dbfae020897a371cb7b2075e7649c39bd88bf3af78ac328af4ea71",
+      "source_bbox": [
+        41,
+        3,
+        769,
+        976
+      ],
+      "source_effective_height": 973,
+      "source_effective_max_dimension": 973,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 2,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        -37.54054054054052,
+        114.33783783783784
+      ],
+      "root_source": [
+        1260,
+        970
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          1280,
+          468
+        ]
+      ],
+      "hands_canvas": [
+        [
+          244.40540540540542,
+          217.42432432432435
+        ]
+      ],
+      "weapon_grip_canvas": [
+        244.40540540540542,
+        217.42432432432435
+      ],
+      "weapon_angle_degrees": 95,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          997,
+          964
+        ],
+        "left": [
+          1427,
+          954
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          182.06891891891894,
+          326.6783783783784
+        ],
+        "left": [
+          276.78513513513514,
+          324.4756756756757
+        ]
+      },
+      "frame": 2,
+      "phase": "sway_back",
+      "event": "stunned_sway_back",
+      "duration_ms": 220,
+      "start_ms": 180,
+      "reused_approved": false,
+      "source_file": "stunned/source/stunned-01-02.png",
+      "source_sha256": "d3272b7c46dbfae020897a371cb7b2075e7649c39bd88bf3af78ac328af4ea71",
+      "source_bbox": [
+        817,
+        32,
+        1523,
+        974
+      ],
+      "source_effective_height": 942,
+      "source_effective_max_dimension": 942,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 3,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        121.05405405405405,
+        119.84459459459458
+      ],
+      "root_source": [
+        540,
+        945
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          550,
+          477
+        ]
+      ],
+      "hands_canvas": [
+        [
+          242.2027027027027,
+          224.91351351351352
+        ]
+      ],
+      "weapon_grip_canvas": [
+        242.2027027027027,
+        224.91351351351352
+      ],
+      "weapon_angle_degrees": 95,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          280,
+          938
+        ],
+        "left": [
+          715,
+          923
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          182.72972972972974,
+          326.4581081081081
+        ],
+        "left": [
+          278.5472972972973,
+          323.15405405405403
+        ]
+      },
+      "frame": 3,
+      "phase": "sway_center",
+      "event": "stunned_sway_center",
+      "duration_ms": 180,
+      "start_ms": 400,
+      "reused_approved": false,
+      "source_file": "stunned/source/stunned-03-04.png",
+      "source_sha256": "fc9aee9edd1cb92ae969fbf0efbf0a04d8c2738f39c63fb05a5b9fc382c528ff",
+      "source_bbox": [
+        45,
+        28,
+        817,
+        946
+      ],
+      "source_effective_height": 918,
+      "source_effective_max_dimension": 918,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 4,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        -43.70810810810809,
+        119.40405405405406
+      ],
+      "root_source": [
+        1288,
+        947
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          1308,
+          477
+        ]
+      ],
+      "hands_canvas": [
+        [
+          244.40540540540542,
+          224.47297297297297
+        ]
+      ],
+      "weapon_grip_canvas": [
+        244.40540540540542,
+        224.47297297297297
+      ],
+      "weapon_angle_degrees": 95,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          1044,
+          940
+        ],
+        "left": [
+          1446,
+          927
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          186.25405405405408,
+          326.45810810810815
+        ],
+        "left": [
+          274.80270270270273,
+          323.5945945945946
+        ]
+      },
+      "frame": 4,
+      "phase": "sway_forward",
+      "event": "stunned_sway_forward",
+      "duration_ms": 220,
+      "start_ms": 580,
+      "reused_approved": false,
+      "source_file": "stunned/source/stunned-03-04.png",
+      "source_sha256": "fc9aee9edd1cb92ae969fbf0efbf0a04d8c2738f39c63fb05a5b9fc382c528ff",
+      "source_bbox": [
+        810,
+        33,
+        1528,
+        950
+      ],
+      "source_effective_height": 917,
+      "source_effective_max_dimension": 917,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 1,
+      "fx": null
+    }
+  ],
+  "runtime_integrated": false,
+  "pre_acceptance_status": {
+    "status": "candidate_pending_user"
+  },
+  "approval": "accepted",
+  "approved": true,
+  "accepted": true,
+  "candidate": false,
+  "not_user_approved": false,
+  "acceptance_event_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+  "acceptance_record": "../acceptance.json"
+}
