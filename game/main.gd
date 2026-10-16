@@ -296,6 +296,7 @@ func _build_ui() -> void:
 	ui.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.theme = Typography.theme()
+	ui.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	layer.add_child(ui)
 	combat_hud = CombatHUD.new()
 	ui.add_child(combat_hud)
@@ -369,7 +370,7 @@ func _menu_page(key: String, at: Vector2, width: float, heading: String = "") ->
 	paper.name = key.capitalize() + "Paper"
 	paper.position = at - Vector2(18, 14)
 	paper.size.x = width + 36
-	paper.add_theme_stylebox_override("panel", MenuTheme.panel(MenuTheme.BUTTON.darkened(0.25) if key in ["title","main"] else MenuTheme.PAPER))
+	paper.add_theme_stylebox_override("panel", MenuTheme.panel(Color.TRANSPARENT,Color.TRANSPARENT) if key in ["title","main"] else MenuTheme.panel(MenuTheme.PAPER))
 	menu.add_child(paper)
 	var page := VBoxContainer.new()
 	page.name = key.capitalize()
@@ -414,7 +415,7 @@ func _build_menu(ui: Control) -> void:
 	menu_caption.add_theme_color_override("font_color", Typography.GOLD)
 	var title_page := _menu_page("title", Vector2(380, 446), 520)
 	_button("啟 程 ・ 按 下 開 始", func(): _open_login(false), "Start", title_page)
-	_menu_label(title_page, "Enter ／ ×・A ／ Options 開始", 18)
+	_menu_label(title_page, "Enter ／ ×・A ／ Options 開始", 18).add_theme_color_override("font_color",Typography.PAPER)
 	var main_page := _menu_page("main", Vector2(430, 324), 420)
 	_button("一 人 出 陣", func(): _open_login(false), "Solo", main_page)
 	_button("二 人 共 鬥", func(): _open_login(true), "LocalCoop", main_page)
@@ -1061,6 +1062,9 @@ func _button(text: String, callback: Callable, node_name: String, parent: Node =
 	button.name = node_name
 	button.text = text
 	button.custom_minimum_size.y = 44
+	if parent != null and parent.name in ["Title","Main"]:
+		button.add_theme_font_size_override("font_size",26)
+		button.custom_minimum_size.y = 54
 	button.pressed.connect(callback)
 	(parent if parent != null else menu_panel).add_child(button)
 	return button
