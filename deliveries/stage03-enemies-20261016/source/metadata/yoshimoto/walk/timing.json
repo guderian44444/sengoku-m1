@@ -1,0 +1,76 @@
+{
+  "action": "walk",
+  "frame_count": 4,
+  "duration_ms": 720,
+  "frame_ms": [
+    180,
+    180,
+    180,
+    180
+  ],
+  "loop": true,
+  "hold_last": false,
+  "canvas": [
+    640,
+    560
+  ],
+  "root_px": [
+    200,
+    480
+  ],
+  "weapon_composited": true,
+  "world_motion": [
+    0,
+    0
+  ],
+  "frames": [
+    {
+      "file": "00.png",
+      "source": "replacement-source.png",
+      "sheet_scale": 0.3,
+      "translation": [
+        -4,
+        145
+      ],
+      "calibration": "hat-to-waist torso measurement; leading sole to y480"
+    },
+    {
+      "file": "01.png",
+      "sheet_scale": 0.56,
+      "source_anchor": [
+        340,
+        600
+      ],
+      "translation": [
+        10,
+        144
+      ]
+    },
+    {
+      "file": "02.png",
+      "sheet_scale": 0.56,
+      "source_anchor": [
+        340,
+        575
+      ],
+      "translation": [
+        10,
+        158
+      ]
+    },
+    {
+      "file": "03.png",
+      "sheet_scale": 0.56,
+      "source_anchor": [
+        340,
+        590
+      ],
+      "translation": [
+        10,
+        150
+      ]
+    }
+  ],
+  "qa_status": "repaired_leg_exchange_reviewed",
+  "qa_note": "Walk contact 00 replaced with near-leg-leading pose; original opposite contact 02 retained. Parent verified opposite leg overlap. Fixed torso calibration 0.30, not bbox rescale. Retreat reverses repaired cycle."
+}

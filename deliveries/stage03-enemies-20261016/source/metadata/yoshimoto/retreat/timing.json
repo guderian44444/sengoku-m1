@@ -1,0 +1,35 @@
+{
+  "action": "retreat",
+  "frame_count": 4,
+  "duration_ms": 600,
+  "frame_ms": [
+    150,
+    150,
+    150,
+    150
+  ],
+  "loop": true,
+  "root_px": [
+    200,
+    480
+  ],
+  "world_motion": "engine controlled negative facing direction",
+  "source": "reversed walk cycle, no mirrored identity",
+  "weapon_composited": true,
+  "frames": [
+    {
+      "file": "00.png"
+    },
+    {
+      "file": "01.png"
+    },
+    {
+      "file": "02.png"
+    },
+    {
+      "file": "03.png"
+    }
+  ],
+  "qa_status": "repaired_leg_exchange_reviewed",
+  "qa_note": "Walk contact 00 replaced with near-leg-leading pose; original opposite contact 02 retained. Parent verified opposite leg overlap. Fixed torso calibration 0.30, not bbox rescale. Retreat reverses repaired cycle."
+}
