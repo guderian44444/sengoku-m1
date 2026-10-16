@@ -1,0 +1,1381 @@
+[
+  {
+    "id": "sword_swing_01",
+    "seconds": 0.24319,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -23.79,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_2.wav"
+    ],
+    "modifications": "v2: v1 swing shortened to 76%, 50ms tail taper, peak reduced by 5dB; no renormalization to hit level",
+    "revision": "v2"
+  },
+  {
+    "id": "sword_hit_flesh_01",
+    "seconds": 0.32,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -17.71,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_000.ogg",
+      "impact/Audio/impactSoft_heavy_000.ogg"
+    ],
+    "modifications": "v2: trimmed source Foley leading silence; punch attack foreground + short soft-body layer + 35ms bandpassed transient; capped 320ms; same -3dBFS ceiling",
+    "revision": "v2"
+  },
+  {
+    "id": "sword_hit_armor_01",
+    "seconds": 1.054,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -26.86,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-01.wav",
+      "impact/Audio/impactPunch_heavy_000.ogg"
+    ],
+    "modifications": "Real metal clash layered with body impact; generic armor interpretation, not historical armor recording"
+  },
+  {
+    "id": "bow_release_01",
+    "seconds": 0.34848,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -23.22,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/Bow.wav"
+    ],
+    "modifications": "Bow release slight pitch variation and air layer; launch only"
+  },
+  {
+    "id": "arrow_hit_body_01",
+    "seconds": 0.43502,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -19.89,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_000.ogg"
+    ],
+    "modifications": "Designed short projectile/body impact, not recorded arrow strike"
+  },
+  {
+    "id": "arrow_hit_wood_01",
+    "seconds": 0.25846,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -21.34,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_000.ogg"
+    ],
+    "modifications": "Wood impact shortened via resample, transient air"
+  },
+  {
+    "id": "staff_swing_01",
+    "seconds": 0.54377,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -18.6,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_000.ogg",
+      "impact/Audio/impactPunch_heavy_000.ogg"
+    ],
+    "modifications": "v2 owner-requested exact role exchange, bit-identical to v1 staff_hit_01",
+    "revision": "v2",
+    "remapped_from_v1": "staff_hit_01"
+  },
+  {
+    "id": "staff_hit_01",
+    "seconds": 0.4,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -17.39,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_2.wav"
+    ],
+    "modifications": "v2 owner-requested exact role exchange, bit-identical to v1 staff_swing_01",
+    "revision": "v2",
+    "remapped_from_v1": "staff_swing_01"
+  },
+  {
+    "id": "body_collision_01",
+    "seconds": 0.54377,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -19.1,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactSoft_heavy_000.ogg",
+      "impact/Audio/impactPunch_heavy_000.ogg"
+    ],
+    "modifications": "Soft body+punch+low-frequency slam; no gain-only enhancement"
+  },
+  {
+    "id": "sword_swing_02",
+    "seconds": 0.437,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -23.2,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_3.wav"
+    ],
+    "modifications": "v2: v1 swing shortened to 76%, 50ms tail taper, peak reduced by 5dB; no renormalization to hit level",
+    "revision": "v2"
+  },
+  {
+    "id": "sword_hit_flesh_02",
+    "seconds": 0.32,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -18.3,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_001.ogg",
+      "impact/Audio/impactSoft_heavy_001.ogg"
+    ],
+    "modifications": "v2: trimmed source Foley leading silence; punch attack foreground + short soft-body layer + 35ms bandpassed transient; capped 320ms; same -3dBFS ceiling",
+    "revision": "v2"
+  },
+  {
+    "id": "sword_hit_armor_02",
+    "seconds": 0.95477,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -24.83,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-02.wav",
+      "impact/Audio/impactPunch_heavy_001.ogg"
+    ],
+    "modifications": "Real metal clash layered with body impact; generic armor interpretation, not historical armor recording"
+  },
+  {
+    "id": "bow_release_02",
+    "seconds": 0.34,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -23.18,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/Bow.wav"
+    ],
+    "modifications": "Bow release slight pitch variation and air layer; launch only"
+  },
+  {
+    "id": "arrow_hit_body_02",
+    "seconds": 0.371,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -18.91,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_001.ogg"
+    ],
+    "modifications": "Designed short projectile/body impact, not recorded arrow strike"
+  },
+  {
+    "id": "arrow_hit_wood_02",
+    "seconds": 0.25846,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -21.36,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_001.ogg"
+    ],
+    "modifications": "Wood impact shortened via resample, transient air"
+  },
+  {
+    "id": "staff_swing_02",
+    "seconds": 0.46375,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -18.8,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_001.ogg",
+      "impact/Audio/impactPunch_heavy_001.ogg"
+    ],
+    "modifications": "v2 owner-requested exact role exchange, bit-identical to v1 staff_hit_02",
+    "revision": "v2",
+    "remapped_from_v1": "staff_hit_02"
+  },
+  {
+    "id": "staff_hit_02",
+    "seconds": 0.73719,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -18.7,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_3.wav"
+    ],
+    "modifications": "v2 owner-requested exact role exchange, bit-identical to v1 staff_swing_02",
+    "revision": "v2",
+    "remapped_from_v1": "staff_swing_02"
+  },
+  {
+    "id": "body_collision_02",
+    "seconds": 0.56915,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -18.09,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactSoft_heavy_001.ogg",
+      "impact/Audio/impactPunch_heavy_001.ogg"
+    ],
+    "modifications": "Soft body+punch+low-frequency slam; no gain-only enhancement"
+  },
+  {
+    "id": "sword_swing_03",
+    "seconds": 0.26146,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -22.93,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_4.wav"
+    ],
+    "modifications": "v2: v1 swing shortened to 76%, 50ms tail taper, peak reduced by 5dB; no renormalization to hit level",
+    "revision": "v2"
+  },
+  {
+    "id": "sword_hit_flesh_03",
+    "seconds": 0.32,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -18.45,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_002.ogg",
+      "impact/Audio/impactSoft_heavy_002.ogg"
+    ],
+    "modifications": "v2: trimmed source Foley leading silence; punch attack foreground + short soft-body layer + 35ms bandpassed transient; capped 320ms; same -3dBFS ceiling",
+    "revision": "v2"
+  },
+  {
+    "id": "sword_hit_armor_03",
+    "seconds": 0.7651,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -24.28,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-03.wav",
+      "impact/Audio/impactPunch_heavy_002.ogg"
+    ],
+    "modifications": "Real metal clash layered with body impact; generic armor interpretation, not historical armor recording"
+  },
+  {
+    "id": "bow_release_03",
+    "seconds": 0.3319,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -23.15,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/Bow.wav"
+    ],
+    "modifications": "Bow release slight pitch variation and air layer; launch only"
+  },
+  {
+    "id": "arrow_hit_body_03",
+    "seconds": 0.33106,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -18.99,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_002.ogg"
+    ],
+    "modifications": "Designed short projectile/body impact, not recorded arrow strike"
+  },
+  {
+    "id": "arrow_hit_wood_03",
+    "seconds": 0.25846,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -20.75,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_002.ogg"
+    ],
+    "modifications": "Wood impact shortened via resample, transient air"
+  },
+  {
+    "id": "staff_swing_03",
+    "seconds": 0.41381,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -16.56,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_002.ogg",
+      "impact/Audio/impactPunch_heavy_002.ogg"
+    ],
+    "modifications": "v2 owner-requested exact role exchange, bit-identical to v1 staff_hit_03",
+    "revision": "v2",
+    "remapped_from_v1": "staff_hit_03"
+  },
+  {
+    "id": "staff_hit_03",
+    "seconds": 0.44108,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -18.0,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_4.wav"
+    ],
+    "modifications": "v2 owner-requested exact role exchange, bit-identical to v1 staff_swing_03",
+    "revision": "v2",
+    "remapped_from_v1": "staff_swing_03"
+  },
+  {
+    "id": "body_collision_03",
+    "seconds": 0.56942,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -17.63,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactSoft_heavy_002.ogg",
+      "impact/Audio/impactPunch_heavy_002.ogg"
+    ],
+    "modifications": "Soft body+punch+low-frequency slam; no gain-only enhancement"
+  },
+  {
+    "id": "charge_start",
+    "seconds": 1.5,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -7,
+    "rms_dbfs": -26.78,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactSoft_heavy_000.ogg",
+      "impact/Audio/impactWood_heavy_000.ogg"
+    ],
+    "modifications": "v2: lowpassed soft/wood Foley thumps + growing low band air; no oscillator, pitched drone or pitch sweep",
+    "revision": "v2"
+  },
+  {
+    "id": "charge_hold_loop",
+    "seconds": 1.98,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -12,
+    "rms_dbfs": -25.61,
+    "loop": true,
+    "source_files": [
+      "impact/Audio/impactSoft_heavy_000.ogg",
+      "impact/Audio/impactWood_heavy_000.ogg"
+    ],
+    "modifications": "v2: subdued irregular Foley resonance and low air; no tone; 20ms runtime overlap crossfade recommended",
+    "revision": "v2"
+  },
+  {
+    "id": "charge_release",
+    "seconds": 0.54096,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -22.13,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_3.wav",
+      "impact/Audio/impactSoft_heavy_000.ogg",
+      "impact/Audio/impactWood_heavy_000.ogg"
+    ],
+    "modifications": "v2: natural swish + lowpassed impact release, no synthetic tone",
+    "revision": "v2"
+  },
+  {
+    "id": "spin_swing_loop",
+    "seconds": 1.98,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -7,
+    "rms_dbfs": -26.76,
+    "loop": true,
+    "source_files": [
+      "battle/battle_sound_effects/swish_3.wav"
+    ],
+    "modifications": "v2: source swish pulses + quiet low air, removed v1 tonal charge bed; crossfade 20ms",
+    "revision": "v2"
+  },
+  {
+    "id": "spin_finish",
+    "seconds": 0.65,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -12.66,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_000.ogg",
+      "impact/Audio/impactPunch_heavy_000.ogg"
+    ],
+    "modifications": "Synthesized final air sweep+processed staff impact; only trigger hit layer if actual collision"
+  },
+  {
+    "id": "spear_thrust_01",
+    "seconds": 0.1381875,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -9,
+    "rms_dbfs": -27.54206464287888,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_2.wav"
+    ],
+    "modifications": "Short focused swish for spear thrust",
+    "revision": "v3"
+  },
+  {
+    "id": "polearm_sweep_01",
+    "seconds": 0.2601041666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -26.68958713456194,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_2.wav"
+    ],
+    "modifications": "Lower broad polearm/naginata swing",
+    "revision": "v3"
+  },
+  {
+    "id": "spear_hit_flesh_01",
+    "seconds": 0.4480625,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -20.9023572193235,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_000.ogg"
+    ],
+    "modifications": "Designed piercing-body hit from punch Foley and noise",
+    "revision": "v3"
+  },
+  {
+    "id": "polearm_hit_flesh_01",
+    "seconds": 0.5152708333333333,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -17.996821515273133,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_000.ogg",
+      "impact/Audio/impactSoft_heavy_000.ogg"
+    ],
+    "modifications": "Heavy blade/body Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "staff_hit_armor_01",
+    "seconds": 1.026875,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -29.248984611088105,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_000.ogg",
+      "weapons/sfx/sword-knife-clash-01.wav"
+    ],
+    "modifications": "Wood and metal impact",
+    "revision": "v3"
+  },
+  {
+    "id": "knife_throw_01",
+    "seconds": 0.11054166666666666,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -10,
+    "rms_dbfs": -28.55591321554959,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_2.wav"
+    ],
+    "modifications": "Fast throw swish",
+    "revision": "v3"
+  },
+  {
+    "id": "knife_hit_flesh_01",
+    "seconds": 0.355375,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -21.38186039798704,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_000.ogg"
+    ],
+    "modifications": "Short knife/body impact interpretation",
+    "revision": "v3"
+  },
+  {
+    "id": "knife_hit_armor_01",
+    "seconds": 0.7899166666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -6,
+    "rms_dbfs": -34.083072791881484,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-01.wav"
+    ],
+    "modifications": "Light metallic strike",
+    "revision": "v3"
+  },
+  {
+    "id": "punch_hit_01",
+    "seconds": 0.5152708333333333,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -19.61904345234007,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_000.ogg",
+      "impact/Audio/impactSoft_heavy_000.ogg"
+    ],
+    "modifications": "Fist impact Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "headbutt_hit_01",
+    "seconds": 0.5725416666666666,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -20.295990350281556,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_000.ogg",
+      "impact/Audio/impactWood_heavy_000.ogg"
+    ],
+    "modifications": "Heavy headbutt interpretation",
+    "revision": "v3"
+  },
+  {
+    "id": "knee_hit_01",
+    "seconds": 0.5152708333333333,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -18.25529896845478,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_000.ogg",
+      "impact/Audio/impactSoft_heavy_000.ogg"
+    ],
+    "modifications": "Knee/body blunt impact",
+    "revision": "v3"
+  },
+  {
+    "id": "throw_swing_01",
+    "seconds": 0.3070625,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -9,
+    "rms_dbfs": -27.704631432795857,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_2.wav"
+    ],
+    "modifications": "Body throw release swish",
+    "revision": "v3"
+  },
+  {
+    "id": "body_land_01",
+    "seconds": 0.6344583333333333,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -18.078004437875958,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactSoft_heavy_000.ogg",
+      "impact/Audio/impactPunch_heavy_000.ogg",
+      "impact/Audio/impactWood_heavy_000.ogg"
+    ],
+    "modifications": "Heavy landing body and floor Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "shield_block_01",
+    "seconds": 1.026875,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -30.248984611088105,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-01.wav",
+      "impact/Audio/impactWood_heavy_000.ogg"
+    ],
+    "modifications": "Shield block interpretation",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_hit_body_01",
+    "seconds": 0.3680625,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -20.45104407296284,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_000.ogg"
+    ],
+    "modifications": "Designed bullet/body impact, not firearm recording",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_hit_armor_01",
+    "seconds": 0.6845833333333333,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -31.69960310676281,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-01.wav"
+    ],
+    "modifications": "Designed bullet/metal impact",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_player_shot_01",
+    "seconds": 0.8,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -23.649701091845937,
+    "loop": false,
+    "source_files": [],
+    "modifications": "Original filtered-noise crack+low boom+smoke tail; designed musket interpretation, no actual gun recording",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_enemy_shot_01",
+    "seconds": 0.7142916666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -29.97503431668216,
+    "loop": false,
+    "source_files": [],
+    "modifications": "Original same shot family, faster envelope and -8dBFS ceiling; distinct enemy profile",
+    "revision": "v3"
+  },
+  {
+    "id": "spear_thrust_02",
+    "seconds": 0.338375,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -9,
+    "rms_dbfs": -26.42148096362506,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_3.wav"
+    ],
+    "modifications": "Short focused swish for spear thrust",
+    "revision": "v3"
+  },
+  {
+    "id": "polearm_sweep_02",
+    "seconds": 0.6369375,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -25.428384919005474,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_3.wav"
+    ],
+    "modifications": "Lower broad polearm/naginata swing",
+    "revision": "v3"
+  },
+  {
+    "id": "spear_hit_flesh_02",
+    "seconds": 0.3751875,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -19.824025312173113,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_001.ogg"
+    ],
+    "modifications": "Designed piercing-body hit from punch Foley and noise",
+    "revision": "v3"
+  },
+  {
+    "id": "polearm_hit_flesh_02",
+    "seconds": 0.5691458333333334,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -18.597093977310184,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_001.ogg",
+      "impact/Audio/impactSoft_heavy_001.ogg"
+    ],
+    "modifications": "Heavy blade/body Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "staff_hit_armor_02",
+    "seconds": 1.0438541666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -29.220076758319525,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_001.ogg",
+      "weapons/sfx/sword-knife-clash-02.wav"
+    ],
+    "modifications": "Wood and metal impact",
+    "revision": "v3"
+  },
+  {
+    "id": "knife_throw_02",
+    "seconds": 0.27070833333333333,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -10,
+    "rms_dbfs": -27.313799622800076,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_3.wav"
+    ],
+    "modifications": "Fast throw swish",
+    "revision": "v3"
+  },
+  {
+    "id": "knife_hit_flesh_02",
+    "seconds": 0.2975625,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -20.62801940969837,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_001.ogg"
+    ],
+    "modifications": "Short knife/body impact interpretation",
+    "revision": "v3"
+  },
+  {
+    "id": "knife_hit_armor_02",
+    "seconds": 0.8029791666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -6,
+    "rms_dbfs": -32.16577139493593,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-02.wav"
+    ],
+    "modifications": "Light metallic strike",
+    "revision": "v3"
+  },
+  {
+    "id": "punch_hit_02",
+    "seconds": 0.5691458333333334,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -20.27853535605139,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_001.ogg",
+      "impact/Audio/impactSoft_heavy_001.ogg"
+    ],
+    "modifications": "Fist impact Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "headbutt_hit_02",
+    "seconds": 0.47941666666666666,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -19.955782198028473,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_001.ogg",
+      "impact/Audio/impactWood_heavy_001.ogg"
+    ],
+    "modifications": "Heavy headbutt interpretation",
+    "revision": "v3"
+  },
+  {
+    "id": "knee_hit_02",
+    "seconds": 0.5691458333333334,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -17.92829717802727,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_001.ogg",
+      "impact/Audio/impactSoft_heavy_001.ogg"
+    ],
+    "modifications": "Knee/body blunt impact",
+    "revision": "v3"
+  },
+  {
+    "id": "throw_swing_02",
+    "seconds": 0.7519583333333333,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -9,
+    "rms_dbfs": -26.458744405120363,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_3.wav"
+    ],
+    "modifications": "Body throw release swish",
+    "revision": "v3"
+  },
+  {
+    "id": "body_land_02",
+    "seconds": 0.7114375,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -19.34475398366888,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactSoft_heavy_001.ogg",
+      "impact/Audio/impactPunch_heavy_001.ogg",
+      "impact/Audio/impactWood_heavy_001.ogg"
+    ],
+    "modifications": "Heavy landing body and floor Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "shield_block_02",
+    "seconds": 1.0438541666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -30.220076758319525,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-02.wav",
+      "impact/Audio/impactWood_heavy_001.ogg"
+    ],
+    "modifications": "Shield block interpretation",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_hit_body_02",
+    "seconds": 0.3081875,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -19.848040840567666,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_001.ogg"
+    ],
+    "modifications": "Designed bullet/body impact, not firearm recording",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_hit_armor_02",
+    "seconds": 0.6959166666666666,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -29.82329550696653,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-02.wav"
+    ],
+    "modifications": "Designed bullet/metal impact",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_player_shot_02",
+    "seconds": 0.8,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -23.778081668433956,
+    "loop": false,
+    "source_files": [],
+    "modifications": "Original filtered-noise crack+low boom+smoke tail; designed musket interpretation, no actual gun recording",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_enemy_shot_02",
+    "seconds": 0.7142916666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -30.348108756293417,
+    "loop": false,
+    "source_files": [],
+    "modifications": "Original same shot family, faster envelope and -8dBFS ceiling; distinct enemy profile",
+    "revision": "v3"
+  },
+  {
+    "id": "spear_thrust_03",
+    "seconds": 0.1928125,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -9,
+    "rms_dbfs": -26.34297976655126,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_4.wav"
+    ],
+    "modifications": "Short focused swish for spear thrust",
+    "revision": "v3"
+  },
+  {
+    "id": "polearm_sweep_03",
+    "seconds": 0.3629583333333333,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -25.643685790127698,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_4.wav"
+    ],
+    "modifications": "Lower broad polearm/naginata swing",
+    "revision": "v3"
+  },
+  {
+    "id": "spear_hit_flesh_03",
+    "seconds": 0.3340208333333333,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -18.92744481887666,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_002.ogg"
+    ],
+    "modifications": "Designed piercing-body hit from punch Foley and noise",
+    "revision": "v3"
+  },
+  {
+    "id": "polearm_hit_flesh_03",
+    "seconds": 0.5694166666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -18.352450889254015,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_002.ogg",
+      "impact/Audio/impactSoft_heavy_002.ogg"
+    ],
+    "modifications": "Heavy blade/body Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "staff_hit_armor_03",
+    "seconds": 0.7901041666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -26.813115827981264,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactWood_heavy_002.ogg",
+      "weapons/sfx/sword-knife-clash-03.wav"
+    ],
+    "modifications": "Wood and metal impact",
+    "revision": "v3"
+  },
+  {
+    "id": "knife_throw_03",
+    "seconds": 0.15425,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -10,
+    "rms_dbfs": -27.32327540450496,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_4.wav"
+    ],
+    "modifications": "Fast throw swish",
+    "revision": "v3"
+  },
+  {
+    "id": "knife_hit_flesh_03",
+    "seconds": 0.2649166666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -19.507053495168428,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_002.ogg"
+    ],
+    "modifications": "Short knife/body impact interpretation",
+    "revision": "v3"
+  },
+  {
+    "id": "knife_hit_armor_03",
+    "seconds": 0.6077916666666666,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -6,
+    "rms_dbfs": -29.56093843757511,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-03.wav"
+    ],
+    "modifications": "Light metallic strike",
+    "revision": "v3"
+  },
+  {
+    "id": "punch_hit_03",
+    "seconds": 0.5694166666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -19.72061340543087,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_002.ogg",
+      "impact/Audio/impactSoft_heavy_002.ogg"
+    ],
+    "modifications": "Fist impact Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "headbutt_hit_03",
+    "seconds": 0.4267916666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -19.002564366152207,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_002.ogg",
+      "impact/Audio/impactWood_heavy_002.ogg"
+    ],
+    "modifications": "Heavy headbutt interpretation",
+    "revision": "v3"
+  },
+  {
+    "id": "knee_hit_03",
+    "seconds": 0.5694166666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -18.550938558701716,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_002.ogg",
+      "impact/Audio/impactSoft_heavy_002.ogg"
+    ],
+    "modifications": "Knee/body blunt impact",
+    "revision": "v3"
+  },
+  {
+    "id": "throw_swing_03",
+    "seconds": 0.4284791666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -9,
+    "rms_dbfs": -26.715050008034314,
+    "loop": false,
+    "source_files": [
+      "battle/battle_sound_effects/swish_4.wav"
+    ],
+    "modifications": "Body throw release swish",
+    "revision": "v3"
+  },
+  {
+    "id": "body_land_03",
+    "seconds": 0.7117708333333334,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -4,
+    "rms_dbfs": -19.20917355766232,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactSoft_heavy_002.ogg",
+      "impact/Audio/impactPunch_heavy_002.ogg",
+      "impact/Audio/impactWood_heavy_002.ogg"
+    ],
+    "modifications": "Heavy landing body and floor Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "shield_block_03",
+    "seconds": 0.7901041666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -27.813115827981264,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-03.wav",
+      "impact/Audio/impactWood_heavy_002.ogg"
+    ],
+    "modifications": "Shield block interpretation",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_hit_body_03",
+    "seconds": 0.274375,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -18.718695262533195,
+    "loop": false,
+    "source_files": [
+      "impact/Audio/impactPunch_heavy_002.ogg"
+    ],
+    "modifications": "Designed bullet/body impact, not firearm recording",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_hit_armor_03",
+    "seconds": 0.52675,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -5,
+    "rms_dbfs": -27.718206888267787,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-03.wav"
+    ],
+    "modifications": "Designed bullet/metal impact",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_player_shot_03",
+    "seconds": 0.8,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3,
+    "rms_dbfs": -23.47295099501548,
+    "loop": false,
+    "source_files": [],
+    "modifications": "Original filtered-noise crack+low boom+smoke tail; designed musket interpretation, no actual gun recording",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_enemy_shot_03",
+    "seconds": 0.7142916666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -29.707865426804855,
+    "loop": false,
+    "source_files": [],
+    "modifications": "Original same shot family, faster envelope and -8dBFS ceiling; distinct enemy profile",
+    "revision": "v3"
+  },
+  {
+    "id": "sword_draw",
+    "seconds": 0.31797916666666665,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -25.3457042106869,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/seax-unsheathe-03.wav"
+    ],
+    "modifications": "Edited source Foley; game event interpretation. Reload is 1.5s mechanical placeholder, not historically authentic reload",
+    "revision": "v3"
+  },
+  {
+    "id": "sword_sheathe",
+    "seconds": 0.8300625,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -10,
+    "rms_dbfs": -31.163883037922705,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/seax-sheathe-03.wav"
+    ],
+    "modifications": "Edited source Foley; game event interpretation. Reload is 1.5s mechanical placeholder, not historically authentic reload",
+    "revision": "v3"
+  },
+  {
+    "id": "grab_contact",
+    "seconds": 1.3557291666666667,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -10,
+    "rms_dbfs": -29.600255187492163,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/quiver-leather-squeeze-06.wav"
+    ],
+    "modifications": "Edited source Foley; game event interpretation. Reload is 1.5s mechanical placeholder, not historically authentic reload",
+    "revision": "v3"
+  },
+  {
+    "id": "musket_reload",
+    "seconds": 1.5,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -11,
+    "rms_dbfs": -38.41537357079999,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sheath-buckle-01.wav"
+    ],
+    "modifications": "Edited source Foley; game event interpretation. Reload is 1.5s mechanical placeholder, not historically authentic reload",
+    "revision": "v3"
+  },
+  {
+    "id": "element_fire_hit",
+    "seconds": 0.45,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -26.842066240696383,
+    "loop": false,
+    "source_files": [],
+    "modifications": "Original designed elemental layer; noise synthesis",
+    "revision": "v3"
+  },
+  {
+    "id": "element_fire_loop",
+    "seconds": 1.98,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -14,
+    "rms_dbfs": -28.7661677637082,
+    "loop": true,
+    "source_files": [],
+    "modifications": "Original designed elemental loop candidate; runtime 20ms overlap crossfade; no subjective seamless-loop validation",
+    "revision": "v3"
+  },
+  {
+    "id": "element_ice_hit",
+    "seconds": 0.43895833333333334,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -33.061362768722596,
+    "loop": false,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-03.wav"
+    ],
+    "modifications": "Original designed elemental layer; noise synthesis and pitched metal Foley",
+    "revision": "v3"
+  },
+  {
+    "id": "element_ice_loop",
+    "seconds": 1.98,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -14,
+    "rms_dbfs": -39.74092475166146,
+    "loop": true,
+    "source_files": [
+      "weapons/sfx/sword-knife-clash-03.wav"
+    ],
+    "modifications": "Original designed elemental loop candidate; runtime 20ms overlap crossfade; no subjective seamless-loop validation",
+    "revision": "v3"
+  },
+  {
+    "id": "element_wind_hit",
+    "seconds": 0.5,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -21.5380227396853,
+    "loop": false,
+    "source_files": [],
+    "modifications": "Original designed elemental layer; noise synthesis",
+    "revision": "v3"
+  },
+  {
+    "id": "element_wind_loop",
+    "seconds": 1.98,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -14,
+    "rms_dbfs": -26.503473608634266,
+    "loop": true,
+    "source_files": [],
+    "modifications": "Original designed elemental loop candidate; runtime 20ms overlap crossfade; no subjective seamless-loop validation",
+    "revision": "v3"
+  },
+  {
+    "id": "element_lightning_hit",
+    "seconds": 0.3,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -8,
+    "rms_dbfs": -25.10855637625385,
+    "loop": false,
+    "source_files": [],
+    "modifications": "Original designed elemental layer; noise synthesis",
+    "revision": "v3"
+  },
+  {
+    "id": "element_lightning_loop",
+    "seconds": 1.98,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -14,
+    "rms_dbfs": -38.02395664916671,
+    "loop": true,
+    "source_files": [],
+    "modifications": "Original designed elemental loop candidate; runtime 20ms overlap crossfade; no subjective seamless-loop validation",
+    "revision": "v3"
+  }
+]
