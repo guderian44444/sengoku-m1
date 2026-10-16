@@ -1,6 +1,8 @@
 extends Node
 
 const CampaignMusic = preload("res://core/campaign_music.gd")
+const TITLE_ROOT := "res://audio/title-amenoshita-v1/"
+const TITLE_KEYS := ["title_intro", "title_loop"]
 
 const SAMPLE_RATE := 22050
 const VOICE_COUNT := 6
@@ -59,6 +61,10 @@ var _campaign_scores: Dictionary = {}
 var _music_target_gain := db_to_linear(MUSIC_VOLUME_DB)
 var _music_fade_seconds := MUSIC_FADE_SECONDS
 var _music_key := "legacy"
+var _title_intro_seen := false
+var _title_switch_at := -1.0
+var _title_crossfade_seconds := 0.1
+var _title_linear_crossfade := false
 var _alarm_player: AudioStreamPlayer
 var _music_active := false
 var _music_paused := false
@@ -129,6 +135,12 @@ func _ready() -> void:
 		var scores: Variant = JSON.parse_string(FileAccess.get_file_as_string(score_path))
 		if scores is Dictionary:
 			for row in scores.get("assets", []): _campaign_scores[str(row.id)] = row
+	var title_path := TITLE_ROOT + "title_music_handoff.json"
+	if FileAccess.file_exists(title_path):
+		var title: Variant = JSON.parse_string(FileAccess.get_file_as_string(title_path))
+		if title is Dictionary:
+			_title_switch_at = float(title.get("loop_first_start_seconds", -1.0))
+			_title_crossfade_seconds = float(title.get("intro_to_loop_crossfade_seconds", 0.1))
 	_music_player = AudioStreamPlayer.new()
 	_music_player.bus = CATEGORY_BUSES.music
 	_music_player.volume_db = MUSIC_VOLUME_DB
@@ -186,6 +198,17 @@ func _apply_volume(category: String) -> void:
 
 func _load_music(key: String) -> AudioStream:
 	if _music_streams.has(key): return _music_streams[key]
+	if key in TITLE_KEYS:
+		var title_path := TITLE_ROOT + key + ".ogg"
+		if not FileAccess.file_exists(title_path): return null
+		var title := AudioStreamOggVorbis.load_from_file(title_path)
+		if title == null: return null
+		title.loop = key == "title_loop"
+		title.loop_offset = 0.0
+		title.beat_count = 0
+		if key == "title_intro" and _title_switch_at < 0: _title_switch_at = maxf(0.0, title.get_length() - _title_crossfade_seconds)
+		_music_streams[key] = title
+		return title
 	if _campaign_scores.has(key):
 		var row: Dictionary = _campaign_scores[key]
 		var ogg_path := CampaignMusic.ROOT + str(row.file).get_file()
@@ -256,6 +279,7 @@ func _change_music(key: String, gain: float, fade: float) -> void:
 		fade = MUSIC_FADE_SECONDS
 		_music_target_gain = gain
 		if stream == null or key == _music_key: return
+	_title_linear_crossfade = _music_active and _music_key == "title_intro" and key == "title_loop"
 	_music_key = key
 	_music_fade_seconds = fade
 	if key == "victory_jingle":
@@ -279,22 +303,37 @@ func _change_music(key: String, gain: float, fade: float) -> void:
 	_music_fade = 0.0
 
 func _music_finished(player: AudioStreamPlayer) -> void:
-	if player == _music_player and _music_active and _music_key == "victory_jingle":
-		_change_music("victory_loop",.65,.25)
+	if player != _music_player or not _music_active: return
+	if _music_key == "victory_jingle": _change_music("victory_loop",.65,.25)
+	elif _music_key == "title_intro": _change_music("title_loop",1.0,_title_crossfade_seconds)
 
 func _process(delta: float) -> void:
 	if not _music_active or _music_paused: return
+	if _music_key == "title_intro" and _music_player.playing and _music_player.get_playback_position() >= _title_switch_at:
+		_change_music("title_loop",1.0,_title_crossfade_seconds)
 	# Recover an interrupted stream without restarting healthy loops or same-score areas.
-	if not _music_player.playing and _music_player.stream != null and _music_key != "victory_jingle": _music_player.play()
+	if not _music_player.playing and _music_player.stream != null and _music_key not in ["victory_jingle", "title_intro"]: _music_player.play()
 	if _music_fade >= 1.0:
 		_music_player.volume_linear = move_toward(_music_player.volume_linear,_music_target_gain,delta * 2.0)
 		return
 	_music_fade = minf(1.0, _music_fade + delta / _music_fade_seconds)
-	_music_player.volume_linear = _music_target_gain * sin(_music_fade * PI * 0.5)
-	_music_tail.volume_linear = _music_tail_gain * cos(_music_fade * PI * 0.5)
+	_music_player.volume_linear = _music_target_gain * (_music_fade if _title_linear_crossfade else sin(_music_fade * PI * 0.5))
+	_music_tail.volume_linear = _music_tail_gain * (1.0 - _music_fade if _title_linear_crossfade else cos(_music_fade * PI * 0.5))
 	if _music_fade >= 1.0:
 		_music_tail.stop()
 		_music_tail.stream = null
+
+func is_title_music() -> bool:
+	return _music_active and _music_key in TITLE_KEYS
+
+func play_title_music() -> void:
+	if is_title_music(): return
+	var key := "title_loop" if _title_intro_seen else "title_intro"
+	if key == "title_intro" and _load_music(key) == null: key = "title_loop"
+	_title_intro_seen = true
+	# The supplied OGG files already contain gain 0.65 and the intro fade-in.
+	_change_music(key,1.0,0.6)
+	play_music()
 
 func play_music() -> void:
 	if _music_player == null or _music_player.stream == null: return
@@ -313,6 +352,7 @@ func stop_music() -> void:
 		_music_tail.stream = null
 	_music_active = false
 	_music_fade = 1.0
+	_title_linear_crossfade = false
 	_music_key = "legacy"
 	_music_target_gain = db_to_linear(MUSIC_VOLUME_DB)
 	_music_fade_seconds = MUSIC_FADE_SECONDS

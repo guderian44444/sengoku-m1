@@ -24,8 +24,8 @@ func run() -> void:
 	await process_frame
 	app.set_physics_process(false)
 	var music: AudioStreamPlayer = app.audio._music_player
-	check(music.playing and not music.stream_paused and app.audio._music_key == "legacy", "Title screen starts its looping theme")
-	check(is_equal_approx(music.volume_db, -19.0), "Battle music stays below character voices")
+	check(music.playing and not music.stream_paused and app.audio._music_key == "title_intro", "Title screen starts the approved one-shot intro")
+	check(is_equal_approx(music.volume_linear, 1.0), "Title files retain their supplied gain without a second attenuation")
 	var title_playback := music.get_stream_playback()
 	app._show_menu_page("main")
 	app._open_options()
@@ -64,7 +64,7 @@ func run() -> void:
 	check(app.paused and music.playing and not music.stream_paused, "Controller disconnect pauses combat while music continues")
 	app._leave_to_menu()
 	music = app.audio._music_player
-	check(music.playing and not music.stream_paused and app.menu.visible and app.menu_screen == "main" and app.audio._music_key == "legacy", "Leaving an encounter restores the main menu and title theme")
+	check(music.playing and not music.stream_paused and app.menu.visible and app.menu_screen == "main" and app.audio._music_key == "title_loop", "Leaving an encounter restores the menu loop without replaying intro")
 	app._start_local_coop()
 	music = app.audio._music_player
 	check(music.playing and not music.stream_paused, "Two-player battle starts its score")
@@ -89,7 +89,7 @@ func run() -> void:
 	app._start_solo()
 	app._fail("test disconnect")
 	music = app.audio._music_player
-	check(music.playing and not music.stream_paused and app.menu.visible and app.menu_screen == "main" and app.audio._music_key == "legacy", "Connection failure restores the main menu and title theme")
+	check(music.playing and not music.stream_paused and app.menu.visible and app.menu_screen == "main" and app.audio._music_key == "title_loop", "Connection failure restores the menu loop without replaying intro")
 	app._close_network()
 	check(not app.audio._music_player.playing and not app.audio._music_tail.playing, "Direct network cleanup still stops both music players")
 	app.queue_free()
