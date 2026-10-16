@@ -119,6 +119,7 @@ def make_clip(ffmpeg, job):
         if not reason:
             gain = min(2.5, .80 / max(before["peak"], .001))
             final_filter = f"atempo={tempo:.6f},volume={gain:.6f},alimiter=limit=0.85:level=false"
+            if short: final_filter += ",apad=whole_dur=0.30"  # WSOLA can undershoot the predicted minimum by a few milliseconds.
             candidate = CACHE / f"{key}-{fingerprint}-{attempt}-final.wav"
             convert(ffmpeg, trimmed, candidate, final_filter)
             after = metrics(candidate)

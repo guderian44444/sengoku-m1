@@ -108,10 +108,16 @@ func voices(app: App) -> void:
 			check(pool.size()==(3 if event in ["attack","heavy","hurt","victory"] else 1),"Complete voice pool: "+hero+"/"+event)
 			for key in pool:
 				check(audio._speech_streams.has(key) and audio.speech_manifest.clips[key].actor==hero,"Voice belongs to this actor: "+key)
-				if hero=="nobunaga": check(key.begins_with("nobunaga_v38_"),"Every Nobunaga event uses the repaired performance")
+				if hero in ["nobunaga","ieyasu","mitsuhide"]:
+					check(key.begins_with(hero+"_v38_"),"Every mature male event uses the repaired performance")
+				if hero=="oichi" and (event=="heavy" or event=="attack" and not key.ends_with("_0")):
+					check(key.begins_with("oichi_v38_"),"Oichi's specified attacks use the forceful replacement")
+				if key.contains("_v38_"):
+					var clip: Dictionary = audio.speech_manifest.clips[key]
+					check(FileAccess.get_sha256(clip.file)==clip.sha256 and absf(audio._speech_streams[key].get_length()-float(clip.seconds))<.005,"Decoder loads the current replacement recording")
 			audio.stop_speech()
 			audio.play_character(hero,event,1,true)
-			check(audio.last_spoken in pool and audio._speech_players.hero1.playing and audio._speech_players.hero1.pitch_scale==1.0,"Actual 2P speech uses natural pitch: "+hero+"/"+event)
+			check(audio.last_spoken in pool and audio._speech_players.hero1.playing and audio._speech_players.hero1.pitch_scale==1.0,"Actual 2P speech uses normal playback speed: "+hero+"/"+event)
 		for combo in [1,2,3]:
 			audio.stop_speech()
 			audio.last_spoken=""
