@@ -47,6 +47,7 @@ var _music_player: AudioStreamPlayer
 var _music_tail: AudioStreamPlayer
 var _music_streams: Dictionary = {}
 var _music_key := "legacy"
+var _alarm_player: AudioStreamPlayer
 var _music_active := false
 var _music_paused := false
 var _music_fade := 1.0
@@ -104,6 +105,11 @@ func _ready() -> void:
 	_music_tail.bus = CATEGORY_BUSES.music
 	add_child(_music_tail)
 	_music_player.stream = _load_music("legacy")
+	_alarm_player = AudioStreamPlayer.new()
+	_alarm_player.bus = CATEGORY_BUSES.sfx
+	_alarm_player.volume_db = -24.0
+	_alarm_player.stream = _alarm_placeholder()
+	add_child(_alarm_player)
 
 func _restore_volumes() -> void:
 	var config := ConfigFile.new()
@@ -151,6 +157,33 @@ func _load_music(key: String) -> AudioStreamWAV:
 	music.loop_end = music.data.size() / (4 if music.stereo else 2)
 	_music_streams[key] = music
 	return music
+
+static func alarm_should_ring(world: Dictionary) -> bool:
+	return world.get("phase", "") == "playing" and world.get("encounter", {}).get("ringing", false)
+
+func sync_encounter(world: Dictionary) -> void:
+	if _alarm_player == null: return
+	if alarm_should_ring(world):
+		if not _alarm_player.playing: _alarm_player.play()
+		_alarm_player.stream_paused = _music_paused
+	else: _alarm_player.stop()
+
+func _alarm_placeholder() -> AudioStreamWAV:
+	# shortcut: synthesized bell loop validates lifecycle; replace with the P0 bell recording.
+	var rate := 22050
+	var bytes := PackedByteArray()
+	bytes.resize(rate * 2)
+	for index in range(rate):
+		var t := float(index % (rate / 2)) / rate
+		var sample := (sin(TAU * 660 * t) + .4 * sin(TAU * 1040 * t)) * exp(-12 * t) * minf(1,t * 400) * .35
+		bytes.encode_s16(index * 2, roundi(sample * 32767))
+	var stream := AudioStreamWAV.new()
+	stream.format = AudioStreamWAV.FORMAT_16_BITS
+	stream.mix_rate = rate
+	stream.data = bytes
+	stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	stream.loop_end = rate
+	return stream
 
 func sync_stage_music(world: Dictionary) -> void:
 	var stage: Variant = world.get("stage", {})
@@ -202,6 +235,7 @@ func play_music() -> void:
 	set_music_paused(false)
 
 func stop_music() -> void:
+	if _alarm_player != null: _alarm_player.stop()
 	if _music_player != null: _music_player.stop()
 	if _music_tail != null:
 		_music_tail.stop()
@@ -216,6 +250,7 @@ func stop_music() -> void:
 
 func set_music_paused(paused: bool) -> void:
 	_music_paused = paused
+	if _alarm_player != null: _alarm_player.stream_paused = paused
 	if _music_player != null: _music_player.stream_paused = paused
 	if _music_tail != null: _music_tail.stream_paused = paused
 

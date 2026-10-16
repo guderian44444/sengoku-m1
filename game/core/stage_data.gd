@@ -1,5 +1,7 @@
 extends RefCounted
 
+const Stage03 = preload("res://core/stage03_encounter.gd")
+
 const PATH := "res://data/stage-01.json"
 
 static func first() -> Dictionary:
@@ -10,16 +12,17 @@ static func available() -> Array:
 	for id in range(1,25):
 		if FileAccess.file_exists("res://data/stage-%02d.json" % id):
 			var data := chapter(id)
-			result.append({"id":id,"title":str(data.title)})
+			if not data.get("prototype", false): result.append({"id":id,"title":str(data.title)})
 	return result
 
 static func chapter(id: int) -> Dictionary:
 	assert(id >= 1 and id <= 24)
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/stage-%02d.json" % id))
 	assert(int(data.id) == id)
-	assert(data.segments.size() >= 6 and data.segments.size() <= 8)
+	var prototype: bool = id == 3 and data.get("prototype", false) == true
+	assert(data.segments.size() == 1 if prototype else (data.segments.size() >= 6 and data.segments.size() <= 8))
 	for region in data.segments:
-		assert(region.width >= 2000 and region.encounters.size() >= 2)
+		assert(region.width >= 2000 and (region.encounters.size() == 1 if prototype else region.encounters.size() >= 2))
 		if region.has("challenge"):
 			var challenge: Dictionary = region.challenge
 			assert(challenge.kind == "reclaim", "Unknown stage challenge")
@@ -29,6 +32,10 @@ static func chapter(id: int) -> Dictionary:
 		var start := 0.0
 		for encounter in region.encounters:
 			assert(encounter.end >= start + 1000 and encounter.end <= region.width)
+			if prototype:
+				assert(Stage03.valid_spec(encounter, float(region.width)))
+				start = float(encounter.end)
+				continue
 			assert(encounter.waves.size() >= 2 and encounter.waves.size() <= 3)
 			for wave in encounter.waves:
 				assert(not wave.is_empty() and wave.size() <= 16)

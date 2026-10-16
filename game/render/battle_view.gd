@@ -67,6 +67,7 @@ func _draw() -> void:
 	_update_motion()
 	_draw_landscape()
 	_draw_scenery()
+	_draw_alarm()
 	_draw_wet_zones()
 	for effect in state.get("effects", []):
 		if effect.get("type", "") in ["warning", "slam", "shockwave", "arrow_target", "fire_patch"]:
@@ -834,12 +835,58 @@ func _draw_npc(person: Dictionary) -> void:
 			var load_pos := origin + Vector2(-float(person.face) * height * .16,-height * .44)
 			_draw_art_frame(load_frame,load_pos,height * .28,1,0,Color.WHITE,float(load_frame.body_height))
 
+# shortcut: geometric alarm art is a readable placeholder until the P0 camp assets arrive.
+func _draw_alarm() -> void:
+	if not state.has("encounter"): return
+	var encounter: Dictionary = state.encounter
+	var floor_pos := Vector2(float(encounter.bell_x) - camera_x, float(encounter.bell_y))
+	var top := floor_pos - Vector2(0, float(encounter.bell_height))
+	var supports: Array = state.props.filter(func(p): return p.id in encounter.support_ids)
+	var remaining: int = supports.filter(func(p): return not p.broken).size()
+	for prop in supports:
+		if not prop.broken: draw_line(Vector2(float(prop.x) - camera_x, float(prop.y) - float(encounter.bell_height)), top - Vector2(0, 30), Color("785239"), 12, true)
+	var fall := clampf((int(state.tick) - int(encounter.stopped_tick)) / 36.0, 0.0, 1.0) if remaining == 0 else 0.0
+	top = top.lerp(floor_pos - Vector2(0, 36), fall * fall)
+	var swing := sin(float(state.tick) * .16) * .18 if encounter.ringing else 0.0
+	var tilt := .22 if remaining < supports.size() else 0.0
+	draw_set_transform(top, swing + tilt + fall * .9)
+	draw_line(Vector2(0,-30), Vector2.ZERO, Color("ad9975"), 4, true)
+	draw_colored_polygon(PackedVector2Array([Vector2(-26,4),Vector2(26,4),Vector2(40,64),Vector2(-40,64)]), Color("b59c52"))
+	draw_arc(Vector2(0,64),40,0,PI,16,Color("382c19"),5,true)
+	draw_line(Vector2(0,30), Vector2(0,78), Color("382c19"), 5, true)
+	draw_set_transform(Vector2.ZERO)
+	Typography.draw_label(self, top + Vector2(-75,-42), "警鐘（占位）", 18, GOLD)
+	var entry := Vector2(minf(1220, float(state.stage.encounter_end) - camera_x - 45), 385)
+	Typography.draw_label(self, entry - Vector2(110,15), "援軍入口 ←", 18, RED)
+
+func _draw_alarm_pillar(prop: Dictionary, origin: Vector2, hit_gain: float) -> void:
+	if _shadow_pass:
+		_draw_actor_shadow(origin, 120, 0, 30)
+		return
+	if prop.broken:
+		for offset in [-22,0,20]: draw_line(origin + Vector2(offset,-5), origin + Vector2(offset + 28,-17), Color("76533b"), 9, true)
+		return
+	var height: float = float(state.encounter.bell_height)
+	var tint := Color("94704b").lerp(Color(1.7,1.45,1.1),hit_gain)
+	draw_rect(Rect2(origin - Vector2(20,height), Vector2(40,height)), tint)
+	draw_rect(Rect2(origin - Vector2(20,height), Vector2(40,height)), INK, false, 3)
+	for fraction in [.3,.7]: draw_line(origin - Vector2(23,height * fraction), origin + Vector2(23,-height * fraction), Color("3e3b34"),8)
+	var ratio := float(prop.hp) / float(prop.max_hp)
+	if ratio < .67: draw_polyline(PackedVector2Array([origin + Vector2(-13,-height * .65),origin + Vector2(11,-height * .5),origin + Vector2(-8,-height * .36)]), INK, 4, true)
+	if ratio < .34: draw_line(origin + Vector2(-18,-height * .32),origin + Vector2(18,-height * .4),INK,6,true)
+	draw_rect(Rect2(origin + Vector2(-30,10),Vector2(60,6)),INK)
+	draw_rect(Rect2(origin + Vector2(-30,10),Vector2(60 * ratio,6)),GOLD)
+	Typography.draw_label(self,origin + Vector2(-28,36),"支柱",16,GOLD)
+
 func _draw_prop(prop: Dictionary) -> void:
 	var origin := Vector2(float(prop.x) - camera_x,float(prop.y))
 	if origin.x < -240 or origin.x > 1520: return
 	var hit_age := int(state.get("tick",0)) - int(prop.get("hit_tick",-100))
 	var hit_gain := maxf(0.0,1.0 - hit_age / 12.0) if hit_age >= 0 else 0.0
 	origin.x += sin(hit_age * 1.8) * hit_gain * 5.0
+	if prop.kind == "bell_pillar":
+		_draw_alarm_pillar(prop, origin, hit_gain)
+		return
 	var hd := _stage_art.prop(str(prop.kind),bool(prop.get("broken",false)))
 	if not hd.is_empty():
 		var height: float = hd.display_height

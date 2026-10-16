@@ -1623,6 +1623,7 @@ func _update_view() -> void:
 	hud.position = Vector2(416, 15)
 	hud.size = Vector2(448, 75)
 	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	audio.sync_encounter(sim.state if active else {})
 	if active and sim.state.get("phase","") == "playing": audio.sync_stage_music(sim.state)
 	exit_button.visible = active and sim.state.get("phase","") == "won" and sim.state.get("victory_looting",false) and not menu.visible
 	var x := 480.0
@@ -1652,6 +1653,10 @@ func _update_view() -> void:
 		var objective := "GO → 全員向右前進" if stage.go else ""
 		if not stage.go and not sim.state.fighters.any(func(f): return f.team == 1 and f.hp > 0) and sim.state.props.any(func(p): return p.get("mandatory",false) and not p.broken): objective = "擊破拒馬／柵欄，打通出口"
 		hud.text = "%02d/%02d　%s\n據點 %d/%d　%s" % [stage.index + 1,stage.total,stage.name,int(stage.get("checkpoint", 0)) + 1,int(stage.get("checkpoint_total", 2)),objective]
+	if sim.state.has("encounter"):
+		var e: Dictionary = sim.state.encounter
+		var remaining: int = Battle.Stage03Encounter.supports_left(sim.state)
+		hud.text = "鐘區原型・占位素材\n支柱 %d/%d　%s" % [e.support_ids.size() - remaining,e.support_ids.size(),"全部擊破停止援軍" if e.ringing else "警鐘已停・清除餘兵"]
 	if training_active:
 		var player: Dictionary = sim.state.fighters[0]
 		var stats: Dictionary = sim.state.training

@@ -1,0 +1,75 @@
+{
+  "id": 3,
+  "title": "今川本陣・鐘區原型",
+  "prototype": true,
+  "faction": "imagawa",
+  "year": 1560,
+  "target_minutes": [
+    2,
+    5
+  ],
+  "historical_note": "機制原型：僅完成前營警鐘，後續障礙、陣形與帳內 Boss 尚未開放。數值與兩根支柱是可調測試預設，非使用者最終確認。",
+  "segments": [
+    {
+      "name": "前營警鐘（占位素材）",
+      "theme": "camp",
+      "weather": "rain",
+      "music": "siege",
+      "width": 2400,
+      "civilians": "none",
+      "props": [
+        [
+          "crate",
+          380,
+          570,
+          "rice"
+        ],
+        [
+          "basket",
+          690,
+          395,
+          "fish"
+        ]
+      ],
+      "encounters": [
+        {
+          "end": 2400,
+          "mode": "alarm",
+          "population": {
+            "solo": 6,
+            "coop": 9,
+            "delay_ticks": 240,
+            "admit_ticks": 45,
+            "kinds": [
+              "shield_spear",
+              "soldier",
+              "archer"
+            ],
+            "entry_side": 1,
+            "entry_lanes": [
+              395,
+              490,
+              575
+            ]
+          },
+          "alarm": {
+            "hp": 160,
+            "supports": [
+              [
+                900,
+                410
+              ],
+              [
+                1120,
+                560
+              ]
+            ],
+            "x": 1010,
+            "y": 485,
+            "height": 255
+          }
+        }
+      ]
+    }
+  ]
+}

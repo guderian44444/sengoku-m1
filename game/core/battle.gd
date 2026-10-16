@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Stage03Encounter = preload("res://core/stage03_encounter.gd")
 const StageData = preload("res://core/stage_data.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
 const Equipment = preload("res://core/equipment.gd")
@@ -138,6 +139,8 @@ func reset_campaign(difficulty: String = "normal", player_count: int = 1, hero_i
 
 
 func _enter_segment(index: int) -> void:
+	Stage03Encounter.cancel(self)
+	state.erase("encounter")
 	var spec: Dictionary = _campaign.segments[index]
 	var party := []
 	for old in state.fighters:
@@ -160,6 +163,7 @@ func _enter_segment(index: int) -> void:
 		"phase":"combat", "go":false, "wave_total":2, "next_wave_tick":-1, "entered_tick":state.tick, "clear_tick":-1,
 		"checkpoint":0,"checkpoint_total":spec.encounters.size(),"encounter_start":0.0,"encounter_end":float(spec.encounters[0].end),"food_drops":0,
 		"next_reinforce_tick":-1,"reinforcement_queue":0,"reinforcement_calls":0}
+	if _campaign.get("prototype", false): state.stage.prototype = true
 	state.civilian_spawn_enabled = spec.civilians != "none"
 	state.civilian_flee_tick = -1
 	if spec.has("challenge"):
@@ -181,12 +185,18 @@ func _enter_segment(index: int) -> void:
 
 
 func _start_checkpoint(index: int) -> void:
+	Stage03Encounter.cancel(self)
+	if state.has("encounter"):
+		var epoch: int = state.encounter.epoch
+		state.fighters = state.fighters.filter(func(f): return f.get("encounter_epoch", -1) != epoch)
+		state.props = state.props.filter(func(p): return p.get("encounter_epoch", -1) != epoch)
+	state.erase("encounter")
 	var region: Dictionary = _campaign.segments[int(state.stage.index)]
 	var encounter: Dictionary = region.encounters[index]
 	state.stage.checkpoint = index
 	state.stage.encounter_start = 0.0 if index == 0 else float(region.encounters[index - 1].end)
 	state.stage.encounter_end = float(encounter.end)
-	state.stage.wave_total = encounter.waves.size()
+	state.stage.wave_total = 1 if encounter.get("mode", "") == "alarm" else encounter.waves.size()
 	state.stage.phase = "combat"
 	state.stage.go = false
 	state.stage.clear_tick = -1
@@ -194,7 +204,8 @@ func _start_checkpoint(index: int) -> void:
 	state.stage.reinforcement_queue = 0
 	state.wave = 1
 	_revive_exhausted_party()
-	_spawn_segment_wave()
+	if encounter.get("mode", "") == "alarm": Stage03Encounter.begin(self, encounter)
+	else: _spawn_segment_wave()
 
 
 func _revive_exhausted_party() -> void:
@@ -324,6 +335,11 @@ func _tick_segment() -> void:
 	if state.fighters.any(func(f): return f.team == 0 and f.hp <= 0 and f.respawn_ticks > 0): return
 	if living_party.is_empty():
 		state.phase = "lost"
+		Stage03Encounter.cancel(self)
+		return
+	if state.has("encounter"):
+		Stage03Encounter.tick(self)
+		if state.encounter.phase == "complete": _finish_stage_checkpoint(living_party)
 		return
 	var boss_alive: bool = state.fighters.any(func(f):return f.get("stage_boss",false) and f.hp > 0)
 	if boss_alive and state.stage.next_reinforce_tick >= 0:
@@ -352,6 +368,10 @@ func _tick_segment() -> void:
 			state.wave += 1
 			_spawn_segment_wave()
 		return
+	_finish_stage_checkpoint(living_party)
+
+
+func _finish_stage_checkpoint(living_party: Array) -> void:
 	if state.props.any(func(p): return p.get("mandatory",false) and not p.broken and p.x < state.stage.encounter_end): return
 	if state.stage.clear_tick < 0: state.stage.clear_tick = state.tick
 	if state.tick - state.stage.clear_tick < 45: return
@@ -461,6 +481,7 @@ func step(inputs: Array) -> void:
 			_event("boss_intro", 0.0, 0.0, state.intro.actor, 0, {"name": state.intro.name, "line_key": state.intro.line_key})
 		state.intro.remaining_ticks -= 1
 	if state.phase != "playing":
+		Stage03Encounter.cancel(self)
 		if state.phase == "won" and state.get("victory_looting",false):
 			state.tick += 1
 			for fighter in state.fighters:
@@ -1841,6 +1862,7 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 			target.death_ticks = int(death.ticks)
 			target.death_voice = str(death.line_key)
 		_event("defeat", target.x, target.y, actor, target.id)
+		Stage03Encounter.enemy_defeated(self, target)
 		if target.team == 1 and target.kind != "boss" and target.id % 2 == 0 and not state.has("stage") and not state.has("training"):
 			_add_drop("food", target.x, target.y)
 	return true

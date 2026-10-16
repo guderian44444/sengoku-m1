@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Stage03 = preload("res://core/stage03_encounter.gd")
 const Battle = preload("res://core/battle.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
 const Equipment = preload("res://core/equipment.gd")
@@ -8,9 +9,9 @@ const Achievements = preload("res://core/achievements.gd")
 const ACTIONS := ["victory", "idle", "light", "charge", "heavy", "charged", "throw", "special", "windup", "hurt", "down", "defeated", "holding", "grabbed", "thrown", "stunned", "rising", "ground_slam", "low_sweep", "dash_strike", "dash_heavy", "air_light", "air_heavy", "upper_heavy", "charged_upper", "charged_slam", "mixed_finisher", "mixed_rising", "retreat", "pulled", "frozen", "spear_thrust", "spear_sweep", "spear_butt", "flag_poke", "flag_sweep", "flag_slam", "commander_cut", "commander_rise", "commander_dash", "boss_sweep", "boss_smash", "boss_chain", "bow_shot", "gun_shot", "guard", "recovering", "launched"]
 const KINDS := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu", "soldier", "flag", "commander", "archer", "gunner", "boss", "dummy"]
 const EFFECTS := ["projectile", "slash", "warning", "slam", "hit", "poison", "shield_hit", "shockwave", "chain", "fire_hit", "ice_hit", "shatter", "fire_wave", "ice_wave", "guard", "guard_break", "damage", "landing", "debris", "arrow_target", "arrow_impact", "wind_hit", "earth_hit", "blade_hit", "wind_wave", "earth_wave", "blade_wave","fire_patch"]
-const EVENTS := ["hit", "heavy_hit", "special", "pickup", "food_pickup", "armor_pickup", "armor_break", "extra_life", "revive", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_hit", "prop_break", "swing", "weapon_swing", "boss_intro","achievement","weapon_break","inventory_full","challenge_complete","challenge_failed"]
+const EVENTS := ["hit", "heavy_hit", "special", "pickup", "food_pickup", "armor_pickup", "armor_break", "extra_life", "revive", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_hit", "prop_break", "swing", "weapon_swing", "boss_intro","achievement","weapon_break","inventory_full","challenge_complete","challenge_failed","encounter_phase"]
 const ARRAY_LIMITS := {"fighters": 64, "drops": 64, "effects": 256, "events": 128, "props": 32, "wet_zones": 16}
-const PROP_KINDS := ["stall","cart","jar","basket","crate","large_crate","barricade","fence","planter","stone_lantern","lantern","rice_bales","screen","cabinet"]
+const PROP_KINDS := ["bell_pillar","stall","cart","jar","basket","crate","large_crate","barricade","fence","planter","stone_lantern","lantern","rice_bales","screen","cabinet"]
 const FOODS := ["","rice","fish","dango","peach"]
 const FIGHTER_RANGES := {
 	"id": [1, 1000000000], "team": [0, 1], "player_index": [-1, 1],
@@ -81,7 +82,11 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if prop.drop == "talisman" and not _choice(prop.get("talisman_id"),Battle.TALISMANS.keys()): return false
 		if prop.has("food_id") and not _choice(prop.food_id,FOODS): return false
 		if prop.has("mandatory") and not prop.mandatory is bool: return false
+		if prop.has("encounter_epoch") and not _integer(prop.encounter_epoch,1): return false
 		if prop.has("hit_tick") and not _integer(prop.hit_tick,0): return false
+	if world.props.any(func(p): return p.kind == "bell_pillar") and not world.has("encounter"): return false
+	if world.has("encounter") and not Stage03.valid_state(world): return false
+	if world.get("stage",{}).get("prototype",false) and not world.has("encounter"): return false
 	for zone in world.wet_zones:
 		if not _position(zone) or not _number(zone.get("width"), 1.0, 10000.0) or not _number(zone.get("depth"), 1.0, 10000.0): return false
 	for effect in world.effects:
@@ -102,6 +107,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		for field in ["actor_faction", "target_faction"]:
 			if event.has(field) and not _choice(event[field], ["heroes"] + Battle.FACTIONS.keys()): return false
 		if event.has("amount") and not _integer(event.amount, 0, 1000000): return false
+		if event.type == "encounter_phase" and (not _choice(event.get("phase"),Stage03.PHASES) or not _integer(event.get("encounter_epoch"),1)): return false
 		if event.type == "damage" and not event.has("amount"): return false
 		if event.type == "challenge_complete" and not _integer(event.get("amount"),1,10000): return false
 		if event.type == "food_pickup" and (not _choice(event.get("food_id"),FOODS) or not _integer(event.get("heal"),1,120)): return false
@@ -129,12 +135,14 @@ static func _valid_challenge(cart: Variant, stage: Dictionary) -> bool:
 
 static func _valid_stage(stage: Variant) -> bool:
 	if not stage is Dictionary: return false
-	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),6,8) or not _integer(stage.get("index"),0,stage.total - 1): return false
+	if stage.has("prototype") and (not stage.prototype is bool or stage.get("id") != 3): return false
+	var prototype: bool = stage.get("prototype",false)
+	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),1 if prototype else 6,1 if prototype else 8) or not _integer(stage.get("index"),0,stage.total - 1): return false
 	if not _choice(stage.get("theme"),["bamboo","ridge","village","road","outpost","gate","camp","courtyard","command","chamber","supply_road","riverbank","granary","switchback","marune_gate","supply_court"]): return false
 	if not _choice(stage.get("weather"),["clear","rain","storm","mist","indoor"]) or not _choice(stage.get("music"),["bamboo","siege","town","castle","boss"]): return false
 	if not _choice(stage.get("civilians"),["none","villagers","vendors","porters"]): return false
-	if not _number(stage.get("width"),2000,4800) or not _integer(stage.get("wave_total"),2,3): return false
-	if not _integer(stage.get("checkpoint_total"),2,4) or not _integer(stage.get("checkpoint"),0,stage.checkpoint_total-1): return false
+	if not _number(stage.get("width"),2000,4800) or not _integer(stage.get("wave_total"),1 if prototype else 2,1 if prototype else 3): return false
+	if not _integer(stage.get("checkpoint_total"),1 if prototype else 2,1 if prototype else 4) or not _integer(stage.get("checkpoint"),0,stage.checkpoint_total-1): return false
 	if not _number(stage.get("encounter_start"),0,stage.width) or not _number(stage.get("encounter_end"),stage.encounter_start+1000,stage.width): return false
 	if not _choice(stage.get("phase"),["combat","exit"]) or not stage.get("go") is bool or stage.go != (stage.phase == "exit"): return false
 	for field in ["next_wave_tick","entered_tick","clear_tick","next_reinforce_tick"]:
@@ -193,6 +201,8 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 	if fighter.has("shattered_tick") and not _integer(fighter.shattered_tick, -1): return false
 	if fighter.has("pickup_flash_tick") and not _integer(fighter.pickup_flash_tick,-1000): return false
 	if fighter.has("extra_life_tick") and not _integer(fighter.extra_life_tick,-1000): return false
+	if fighter.has("encounter_epoch") and not _integer(fighter.encounter_epoch,1): return false
+	if fighter.has("replacement_queued") and not fighter.replacement_queued is bool: return false
 	if fighter.has("entering") and not fighter.entering is bool: return false
 	if fighter.has("entry_x") and not _number(fighter.entry_x): return false
 	if fighter.has("attack_variant") and not _integer(fighter.attack_variant, 0, 3): return false
