@@ -1,0 +1,61 @@
+{
+  "test_results": [
+    {
+      "name": "title_music",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 28.254
+    },
+    {
+      "name": "campaign_music",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 20.693
+    },
+    {
+      "name": "music_integration_v14",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 13.701
+    },
+    {
+      "name": "music_v35",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 9.251
+    },
+    {
+      "name": "ui_flow_v34",
+      "ok": true,
+      "exitCode": 0,
+      "timedOut": false,
+      "stoppedOnScriptError": false,
+      "seconds": 13.967
+    }
+  ],
+  "checks": {
+    "title_music": 39,
+    "campaign_music": 136,
+    "music_integration_v14": 22
+  },
+  "native_driver": "WASAPI",
+  "native_exit_code": 0,
+  "native_checks": 40,
+  "native_intro_handoff_without_seek": true,
+  "native_loop_position_after_wait_seconds": 0.5137,
+  "source_hashes_verified": 6,
+  "native_loop_boundaries": "Two accelerated seek-near-end crossings; not full-length listening",
+  "limitations": [
+    "No subjective listening or war-drum timbre acceptance",
+    "Frame/mixer driven transition, not sample-accurate scheduling",
+    "No exported release or physical-controller acceptance"
+  ]
+}

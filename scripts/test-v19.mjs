@@ -23,7 +23,7 @@ const tests = [
 	'weapon_audio_v38',
 	'combat_tuning_v37',
 	'stage03_integration', 'stage03_playthrough',
-	'campaign_music', 'music_integration_v14', 'stage03_alarm', 'stage03_alarm_view', 'stage03_objectives', 'stage03_tent', 'stage03_tent_view', 'stage03_yoshimoto', 'stage03_yoshimoto_view',
+	'title_music', 'campaign_music', 'music_integration_v14', 'stage03_alarm', 'stage03_alarm_view', 'stage03_objectives', 'stage03_tent', 'stage03_tent_view', 'stage03_yoshimoto', 'stage03_yoshimoto_view',
 	'delivery_v36', 'variable_frames_v36',
   'music_v35', 'stage_music_v18', 'stick_sprint_v35', 'victory_integration_v15',
   'runtime_v34', 'balance_v34', 'grounding_v34', 'enemy_smooth_v34',
