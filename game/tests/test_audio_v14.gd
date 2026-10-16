@@ -18,7 +18,7 @@ func run() -> void:
 	var audio := Audio.new()
 	root.add_child(audio)
 	await process_frame
-	check(audio.speech_manifest.version in ["0.14","0.15"],"Original voice takes load, including a newer installed revision")
+	check(audio.speech_manifest.version in ["0.14","0.15","0.27","0.30","0.31"],"Original voice takes load, including a newer installed revision")
 	var legacy: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://audio/v14/manifest.json"))
 	for actor in ["oichi","boss_mori"]:
 		var events := ["attack","heavy","hurt"] if actor == "oichi" else ["attack","special"]

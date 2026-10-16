@@ -1,0 +1,84 @@
+{
+  "character": "井伊直盛",
+  "action": "walk",
+  "frames": [
+    {
+      "file": "01.png",
+      "duration_ms": 180,
+      "root": [
+        70,
+        500
+      ],
+      "source_scale": 0.75,
+      "source_anchor": [
+        55,
+        494
+      ],
+      "event": "near_contact"
+    },
+    {
+      "file": "02.png",
+      "duration_ms": 180,
+      "root": [
+        70,
+        500
+      ],
+      "source_scale": 0.455,
+      "source_anchor": [
+        130,
+        758
+      ],
+      "event": "far_passing"
+    },
+    {
+      "file": "03.png",
+      "duration_ms": 180,
+      "root": [
+        70,
+        500
+      ],
+      "source_scale": 0.395,
+      "source_anchor": [
+        245,
+        1017
+      ],
+      "event": "far_contact"
+    },
+    {
+      "file": "04.png",
+      "duration_ms": 180,
+      "root": [
+        70,
+        500
+      ],
+      "source_scale": 0.455,
+      "source_anchor": [
+        1070,
+        735
+      ],
+      "event": "near_passing"
+    }
+  ],
+  "duration_ms": 720,
+  "loop": true,
+  "end": "loop_to_frame1",
+  "world_root_motion": [
+    0,
+    0
+  ],
+  "preview_root_motion": [
+    0,
+    0
+  ],
+  "weapon": "fixed_spear_composite",
+  "scale_policy": "Fixed source-scale calibration using helmet torso dimensions; no pose bbox normalization",
+  "qa": "No gross missing limbs or detached weapon; fixed source scale, mild painted frame differences remain",
+  "alpha_cleanup": {
+    "method": "RGB-only nearest alpha>=160 interior color extension to semitransparent pixels; alpha unchanged from raw-alpha backup",
+    "raw_backup": "raw_alpha when available; generator sources always retained"
+  },
+  "canvas": [
+    680,
+    550
+  ]
+}

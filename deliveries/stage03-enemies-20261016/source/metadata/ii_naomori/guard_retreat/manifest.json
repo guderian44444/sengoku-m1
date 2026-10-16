@@ -1,0 +1,90 @@
+{
+  "character": "井伊直盛",
+  "action": "guard_retreat",
+  "frames": [
+    {
+      "file": "01.png",
+      "duration_ms": 100,
+      "root": [
+        70,
+        500
+      ],
+      "source_anchor": [
+        30,
+        957
+      ],
+      "scale": 1.0
+    },
+    {
+      "file": "02.png",
+      "duration_ms": 90,
+      "root": [
+        70,
+        500
+      ],
+      "source_anchor": [
+        421,
+        946
+      ],
+      "scale": 1.0
+    },
+    {
+      "file": "03.png",
+      "duration_ms": 100,
+      "root": [
+        70,
+        500
+      ],
+      "source_anchor": [
+        844,
+        939
+      ],
+      "scale": 1.0
+    },
+    {
+      "file": "04.png",
+      "duration_ms": 170,
+      "root": [
+        70,
+        500
+      ],
+      "source_anchor": [
+        1212,
+        954
+      ],
+      "scale": 1.0
+    }
+  ],
+  "duration_ms": 460,
+  "loop": false,
+  "end": "return_to_idle",
+  "root_motion_world": [
+    0,
+    0
+  ],
+  "preview_motion_separate": true,
+  "weapon": "fixed_spear_composite",
+  "qa": "No gross missing limbs or detached weapon; fixed source scale, mild painted frame differences remain",
+  "events": {
+    "block_active_frames": [
+      2,
+      3
+    ]
+  },
+  "alpha_cleanup": {
+    "method": "RGB-only nearest alpha>=160 interior color extension to semitransparent pixels; alpha unchanged from raw-alpha backup",
+    "raw_backup": "raw_alpha when available; generator sources always retained"
+  },
+  "canvas": [
+    680,
+    550
+  ],
+  "world_root_motion": [
+    0,
+    0
+  ],
+  "preview_root_motion": [
+    0,
+    0
+  ]
+}

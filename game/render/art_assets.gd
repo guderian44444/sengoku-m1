@@ -1,6 +1,7 @@
 extends RefCounted
 
 const FrameAnimation = preload("res://render/frame_animation.gd")
+const LayeredHeroSource = preload("res://render/layered_hero_source.gd")
 
 # shortcut: portable projects load raw PNGs; include these files when producing a game export.
 const ROOT := "res://assets/v03/"
@@ -63,6 +64,7 @@ var weather_frames: Array = []
 var scenery_frames: Array = []
 var villager_frames: Array = []
 var day_frame: Dictionary = {}
+var stage2_equipment: Dictionary = {}
 
 func _init() -> void:
 	for hero in ["nobunaga", "oichi"]:
@@ -88,6 +90,8 @@ func _init() -> void:
 	_load_combat_atlases("res://assets/v16/", "v16")
 	_load_combat_atlases("res://assets/v17/", "v17")
 	_load_combat_atlases("res://assets/v19/enemies/", "v19")
+	_load_combat_atlases("res://assets/v31/enemies/", "v31")
+	_load_oda_troops()
 	_load_layered_heroes()
 	weather_frames = _load_grid(ROOT + "castle-road-weather-v03.png", 1, 3)
 	scenery_frames = _load_grid(ROOT + "scenery-sprites-v03.png", 4, 2, true)
@@ -110,50 +114,100 @@ func hero_frame(hero: String, pose: int) -> Dictionary:
 	return heroes[hero][clampi(pose, 0, 8)]
 
 
+func _load_oda_troops() -> void:
+	var folder := "res://assets/v32/enemies/"
+	var spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(folder+"registration.json"))
+	var texture := ImageTexture.create_from_image(Image.load_from_file(folder+str(spec.equipment_file)))
+	var shield: Array = spec.shield_region
+	stage2_equipment.shield = {"texture":texture,"region":Rect2(shield[0],shield[1],shield[2],shield[3]),"anchor":Vector2(shield[2]*.5,shield[3]*.3),"body_height":float(shield[3])}
+	for key in enemy_clips.keys():
+		if not str(key).begins_with("imagawa:") or str(key).contains(":boss:") or str(key).contains(":matsui:"): continue
+		var oda_key := str(key).replace("imagawa:","oda:")
+		var frames: Array = enemy_clips[key].duplicate(true)
+		if spec.shield_grips.has(oda_key):
+			for index in range(frames.size()):
+				var grip: Array = spec.shield_grips[oda_key][index]
+				frames[index].shield_anchor = Vector2(grip[0],grip[1])-frames[index].source_region.position+frames[index].frame_padding-frames[index].anchor
+		if spec.flag_cloth.has(oda_key):
+			var cloth: Array = spec.banner_region
+			for index in range(frames.size()):
+				var frame: Dictionary = frames[index]
+				var mask: Dictionary = spec.flag_cloth[oda_key][index]
+				var polygon := PackedVector2Array()
+				var uvs := PackedVector2Array()
+				for point in mask.polygon: polygon.append(Vector2(point[0],point[1])-frame.source_region.position+frame.frame_padding)
+				for uv in mask.uv: uvs.append((Vector2(cloth[0],cloth[1])+Vector2(uv[0],uv[1])*Vector2(cloth[2],cloth[3]))/texture.get_size())
+				frame.overlays = [{"texture":texture,"region":Rect2(Vector2.ZERO,texture.get_size()),"anchor":frame.anchor,"body_height":frame.body_height,"clip_polygon":polygon,"uv_polygon":uvs}]
+		enemy_clips[oda_key] = frames
+
+
 func _load_layered_heroes() -> void:
-	for hero in ["nobunaga","oichi","tadakatsu"]:
-		var folder: String = "res://assets/v22/" + str(hero) + "/"
+	for hero in ["nobunaga","oichi","tadakatsu","hideyoshi"]:
+		var folder: String = LayeredHeroSource.folder(str(hero))
 		if not FileAccess.file_exists(folder + "registration.json"): continue
 		var registration: Variant = JSON.parse_string(FileAccess.get_file_as_string(folder + "registration.json"))
 		if not registration is Dictionary or not registration.get("clips") is Dictionary: continue
-		var images := {}
-		for clip in registration.clips:
-			var frames := []
-			for spec in registration.clips[clip].frames:
-				var filename: String = folder + str(spec.file)
-				if not images.has(filename): images[filename] = Image.load_from_file(filename)
-				var source: Image = images[filename]
-				if source == null: continue
-				var r: Array = spec.rect
-				var rect := Rect2i(int(r[0]),int(r[1]),int(r[2]),int(r[3]))
-				assert(Rect2i(Vector2i.ZERO,source.get_size()).encloses(rect),"v22 crop outside source")
-				var isolated := Image.create(rect.size.x + 4,rect.size.y + 4,false,Image.FORMAT_RGBA8)
-				isolated.blit_rect(source,rect,Vector2i(2,2))
-				var anchor := Vector2(spec.foot[0],spec.foot[1]) + Vector2(2,2)
-				var hand := Vector2(spec.hand[0],spec.hand[1]) + Vector2(2,2) - anchor
-				var frame := {"texture":ImageTexture.create_from_image(isolated),"region":Rect2(Vector2.ZERO,Vector2(isolated.get_size())),"anchor":anchor,
-					"support_point":anchor,"body_height":float(spec.body_height),"source":"v22","planted":false,"layered_weapon":true,
-					"weapon_hand":hand,"hand_offset":hand,"weapon_angle":float(spec.get("weapon_angle",0)),"weapon_grounded":bool(spec.get("weapon_grounded",false)),
-					"weapon_behind":bool(spec.get("weapon_behind",false)),"weapon_visible":bool(spec.get("weapon_visible",true))}
-				if spec.get("second_hand",[]).size() == 2:
-					frame.second_hand = Vector2(spec.second_hand[0],spec.second_hand[1]) + Vector2(2,2) - anchor
-				if spec.get("hand_occluder",[]).size() == 4:
-					var oc: Array = spec.hand_occluder
-					frame.hand_occluder = Rect2(float(oc[0])+2,float(oc[1])+2,float(oc[2]),float(oc[3]))
-				if spec.has("hand_occluders"):
-					frame.hand_occluders = []
-					for oc in spec.hand_occluders:
-						frame.hand_occluders.append(Rect2(float(oc[0])+2,float(oc[1])+2,float(oc[2]),float(oc[3])))
-				if spec.has("clip_polygon"):
-					var polygon := PackedVector2Array()
-					for point in spec.clip_polygon: polygon.append(Vector2(point[0]+2,point[1]+2))
-					frame.clip_polygon = polygon
-				frames.append(frame)
-			assert(frames.size() == 6,"Every v22 motion has six genuinely drawn poses")
-			if not animations.has(hero): animations[hero] = {}
-			animations[hero]["v22_" + str(clip)] = frames
-		for alias in registration.get("aliases",{}):
-			animations[hero]["v22_" + str(alias)] = animations[hero]["v22_" + str(registration.aliases[alias])]
+		load_layered_hero_registration(str(hero),folder,registration)
+
+# Explicit test/review entry point: loading a draft affects only this ArtAssets
+# instance. It never activates a runtime manifest or copies/changes source art.
+func load_layered_hero_registration(hero: String, folder: String, registration: Dictionary) -> void:
+	var source_version := str(registration.get("version","v22"))
+	var images := {}
+	for clip in registration.clips:
+		var frames := []
+		for spec in registration.clips[clip].frames:
+			var filename: String = folder + str(spec.file)
+			if not images.has(filename): images[filename] = Image.load_from_file(filename)
+			var source: Image = images[filename]
+			if source == null: continue
+			var r: Array = spec.rect
+			var rect := Rect2i(int(r[0]),int(r[1]),int(r[2]),int(r[3]))
+			assert(Rect2i(Vector2i.ZERO,source.get_size()).encloses(rect),"Layered hero crop outside source")
+			var isolated := Image.create(rect.size.x + 4,rect.size.y + 4,false,Image.FORMAT_RGBA8)
+			isolated.blit_rect(source,rect,Vector2i(2,2))
+			var anchor := Vector2(spec.foot[0],spec.foot[1]) + Vector2(2,2)
+			var hand := Vector2(spec.hand[0],spec.hand[1]) + Vector2(2,2) - anchor
+			var frame := {"texture":ImageTexture.create_from_image(isolated),"region":Rect2(Vector2.ZERO,Vector2(isolated.get_size())),"anchor":anchor,
+				"opaque_bounds":Rect2(isolated.get_used_rect()),
+				"support_point":anchor,"body_height":float(spec.body_height),"source":"v22","planted":false,"layered_weapon":true,
+				"source_version":source_version,"source_file":filename,"source_rect":rect,
+				"weapon_hand":hand,"hand_offset":hand,"weapon_angle":float(spec.get("weapon_angle",0)),"weapon_grounded":bool(spec.get("weapon_grounded",false)),
+				"weapon_behind":bool(spec.get("weapon_behind",false)),"weapon_visible":bool(spec.get("weapon_visible",true))}
+			if spec.has("main_weapon_state"):
+				frame.weapon_mode = str(spec.main_weapon_state)
+				frame.weapon_flip_x = bool(registration.get("weapon_flip_x",false))
+				frame.weapon_grip_offsets = spec.get("weapon_grip_offsets",{})
+				frame.hilt_geometry = registration.get("hilt_geometry",{})
+				frame.scabbard_angle = float(spec.get("scabbard_direction_deg",135))
+				if spec.get("scabbard_mouth",[]).size() == 2: frame.scabbard_mouth = Vector2(spec.scabbard_mouth[0],spec.scabbard_mouth[1]) + Vector2(2,2) - anchor
+				if spec.get("two_handed",false): frame.second_hand = Vector2(spec.left_hand[0],spec.left_hand[1]) + Vector2(2,2) - anchor
+				if spec.has("hand_foreground_file"):
+					var foreground_file: String = folder + str(spec.hand_foreground_file)
+					if not images.has(foreground_file): images[foreground_file] = Image.load_from_file(foreground_file)
+					assert(images[foreground_file] != null,"Missing authored hand foreground")
+					var foreground := Image.create(rect.size.x+4,rect.size.y+4,false,Image.FORMAT_RGBA8)
+					foreground.blit_rect(images[foreground_file],rect,Vector2i(2,2))
+					frame.hand_foreground = ImageTexture.create_from_image(foreground)
+			if spec.get("second_hand",[]).size() == 2:
+				frame.second_hand = Vector2(spec.second_hand[0],spec.second_hand[1]) + Vector2(2,2) - anchor
+			if spec.get("hand_occluder",[]).size() == 4:
+				var oc: Array = spec.hand_occluder
+				frame.hand_occluder = Rect2(float(oc[0])+2,float(oc[1])+2,float(oc[2]),float(oc[3]))
+			if spec.has("hand_occluders"):
+				frame.hand_occluders = []
+				for oc in spec.hand_occluders:
+					frame.hand_occluders.append(Rect2(float(oc[0])+2,float(oc[1])+2,float(oc[2]),float(oc[3])))
+			if spec.has("clip_polygon"):
+				var polygon := PackedVector2Array()
+				for point in spec.clip_polygon: polygon.append(Vector2(point[0]+2,point[1]+2))
+				frame.clip_polygon = polygon
+			frames.append(frame)
+		assert(frames.size() == 6,"Every layered hero motion has six genuinely drawn poses")
+		if not animations.has(hero): animations[hero] = {}
+		animations[hero]["v22_" + str(clip)] = frames
+	for alias in registration.get("aliases",{}):
+		animations[hero]["v22_" + str(alias)] = animations[hero]["v22_" + str(registration.aliases[alias])]
 
 func has_animation(hero: String) -> bool:
 	return animations.has(hero)
@@ -234,7 +288,7 @@ func _load_combat_atlases(asset_root: String = COMBAT_ROOT, version: String = "v
 			regions[int(key)] = Rect2i(region[0], region[1], region[2], region[3])
 		var frame_files := {}
 		for index in spec.get("frame_files",{}): frame_files[int(index)] = asset_root + str(spec.frame_files[index])
-		var frames := _load_grid(asset_root + str(spec.get("file",str(actor) + ".png")), columns, rows, true, regions, frame_files, version in ["v16", "v17", "v19"])
+		var frames := _load_grid(asset_root + str(spec.get("file",str(actor) + ".png")), columns, rows, true, regions, frame_files, version in ["v16", "v17", "v19", "v31"])
 		if frames.size() != count: continue
 		var hero := str(spec.get("hero", str(actor).trim_suffix("-air").trim_suffix("-advanced")))
 		var target := str(spec.get("target", "hero" if animations.has(hero) else "enemy"))

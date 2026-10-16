@@ -1,0 +1,124 @@
+{
+  "generator": "builtin imagegen",
+  "assets": [
+    {
+      "name": "matchlock_muzzle_flash",
+      "file": "matchlock_muzzle_flash.png",
+      "texture": "res://vfx/v2/art/matchlock_muzzle_flash.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "frames": 1,
+      "origin": [
+        0.125,
+        0.5
+      ],
+      "origin_px": [
+        128,
+        512
+      ],
+      "direction": "right",
+      "alpha_centroid_px": [
+        563.453,
+        517.611
+      ],
+      "alpha_bbox": [
+        104,
+        372,
+        940,
+        661
+      ],
+      "gutter_min_px": 84,
+      "alpha_zero_fraction": 0.8701772689819336,
+      "alpha_partial_fraction": 0.1298227310180664,
+      "alpha_opaque_fraction": 0.0,
+      "sha256": "72b9b1678914395a7967d1129575ed94d577de81a8d2c88a37bc6fc198eaa5cf",
+      "source_file": "source/matchlock_muzzle_flash_generated.png",
+      "source_sha256": "07a0d755b269ede925aa3978781f8fbc2e7cfa4840532c1c6bbeea56dd1f3eb1",
+      "layout": {
+        "crop": [
+          70,
+          390,
+          1230,
+          960
+        ],
+        "resize": [
+          844,
+          300
+        ],
+        "paste": [
+          96,
+          361
+        ],
+        "source_muzzle_origin": [
+          114,
+          677
+        ],
+        "note": "Layout crop and scaling only; source alpha retained without masking, thresholding or recoloring. Crop excludes stray near-zero-alpha specks outside the effect region."
+      }
+    },
+    {
+      "name": "matchlock_smoke",
+      "file": "matchlock_smoke.png",
+      "texture": "res://vfx/v2/art/matchlock_smoke.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "frames": 1,
+      "origin": [
+        0.125,
+        0.5
+      ],
+      "origin_px": [
+        128,
+        512
+      ],
+      "direction": "right",
+      "alpha_centroid_px": [
+        639.489,
+        478.689
+      ],
+      "alpha_bbox": [
+        112,
+        146,
+        941,
+        722
+      ],
+      "gutter_min_px": 83,
+      "alpha_zero_fraction": 0.7825946807861328,
+      "alpha_partial_fraction": 0.2174053192138672,
+      "alpha_opaque_fraction": 0.0,
+      "sha256": "92467379e4fc247e2db5a769c614b0536bc3f2d61d3ad5b379dd64086ca11924",
+      "source_file": "source/matchlock_smoke_generated.png",
+      "source_sha256": "239438b58717d273481f41cc7d3d7ae692a0d7f853d3436d93bb35b6c2fcb9b5",
+      "layout": {
+        "crop": [
+          20,
+          180,
+          1240,
+          1140
+        ],
+        "resize": [
+          830,
+          576
+        ],
+        "paste": [
+          111,
+          146
+        ],
+        "source_muzzle_origin": [
+          45,
+          790
+        ],
+        "note": "Layout crop and scaling only; source alpha retained without masking, thresholding or recoloring. Crop excludes stray near-zero-alpha specks outside the effect region."
+      }
+    }
+  ],
+  "usage": {
+    "hero_enemy": "Shared bases; separate recipe intensity, size, spark count, smoke duration.",
+    "smoke": "Normal alpha blend, recommended maximum recipe alpha 0.60-0.72, drift upward and right.",
+    "flash": "Short ignition burst, additive or alpha blend; no automatic firing."
+  }
+}

@@ -6,6 +6,7 @@ const PAPER := Color("fff0c8")
 const GOLD := Color("f7cf73")
 const INK := Color("1a090b")
 static var _font: FontVariation
+static var _body_font: FontVariation
 static var _theme: Theme
 
 static func font() -> Font:
@@ -22,6 +23,13 @@ static func font() -> Font:
 		_font.variation_opentype = {TextServerManager.get_primary_interface().name_to_tag("wght"): 850.0}
 	return _font
 
+static func body_font() -> Font:
+	if _body_font == null:
+		_body_font = FontVariation.new()
+		_body_font.base_font = font().base_font
+		_body_font.variation_opentype = {TextServerManager.get_primary_interface().name_to_tag("wght"):600.0}
+	return _body_font
+
 static func draw_label(canvas: CanvasItem, at: Vector2, text: String, size: int = 24, color: Color = PAPER, width: float = -1, alignment: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT) -> void:
 	var edge := Color(INK, color.a)
 	canvas.draw_string_outline(font(), at + Vector2(1, 2), text, alignment, width, size, 3 if size >= 22 else 2, edge)
@@ -30,12 +38,12 @@ static func draw_label(canvas: CanvasItem, at: Vector2, text: String, size: int 
 static func theme() -> Theme:
 	if _theme != null: return _theme
 	_theme = Theme.new()
-	_theme.default_font = font()
+	_theme.default_font = body_font()
 	_theme.default_font_size = 24
 	for type in ["Label", "Button", "OptionButton", "CheckButton", "CheckBox", "LineEdit", "PopupMenu", "RichTextLabel"]:
 		_theme.set_color("font_color", type, PAPER)
 		_theme.set_color("font_outline_color", type, INK)
-		_theme.set_constant("outline_size", type, 3)
+		_theme.set_constant("outline_size", type, 1)
 	for type in ["Button", "OptionButton", "CheckButton", "CheckBox"]:
 		_theme.set_color("font_hover_color", type, Color.WHITE)
 		_theme.set_color("font_focus_color", type, GOLD)
@@ -57,6 +65,11 @@ static func theme() -> Theme:
 	_theme.set_color("font_shadow_color", "Label", Color("10060ab3"))
 	_theme.set_constant("shadow_offset_x", "Label", 1)
 	_theme.set_constant("shadow_offset_y", "Label", 2)
+	_theme.set_stylebox("panel","ItemList",_panel(Color("141316"),Color("665039")))
+	_theme.set_stylebox("selected","ItemList",_panel(Color("493625"),GOLD))
+	_theme.set_stylebox("selected_focus","ItemList",_panel(Color("493625"),GOLD))
+	_theme.set_color("font_color","ItemList",PAPER)
+	_theme.set_color("font_selected_color","ItemList",GOLD)
 	return _theme
 
 static func _panel(fill: Color, border: Color) -> StyleBoxFlat:
@@ -65,4 +78,8 @@ static func _panel(fill: Color, border: Color) -> StyleBoxFlat:
 	style.border_color = border
 	style.set_border_width_all(1)
 	style.set_content_margin_all(9)
+	style.corner_radius_top_left = 3
+	style.corner_radius_top_right = 3
+	style.corner_radius_bottom_left = 3
+	style.corner_radius_bottom_right = 3
 	return style

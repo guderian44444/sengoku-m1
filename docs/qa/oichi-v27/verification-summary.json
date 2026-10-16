@@ -1,0 +1,731 @@
+{
+  "production_id": "oichi-original-approved-20261013",
+  "base_commit": "5f69da850aa44c97ea8f89b6aff85f7942433897",
+  "publication": "Evidence snapshot captured before publication. See this branch commit and draft PR for current publication state; main was not modified.",
+  "registration_sha256": "319f1e544911742e0d49a721815a16206c0bd315d73f23ed8d232da45060b821",
+  "registered_frames": 156,
+  "unique_drawn_poses": 155,
+  "active_source_count": 28,
+  "shared_boundary": [
+    "down/6",
+    "recovering/1"
+  ],
+  "native_tests": {
+    "started_at_utc": "2026-10-13T00:36:28.122483+00:00",
+    "production_id": "oichi-original-approved-20261013",
+    "technical_version": "v27",
+    "registered_frame_count": 156,
+    "unique_drawn_pose_count": 155,
+    "source_count": 28,
+    "shared_drawn_poses": [
+      {
+        "rgba_sha256": "f2a91f40e26d72d14187a98e11d67188a63cb8f2d1ae421a172364f972863aee",
+        "source_file": "down.png",
+        "frames": [
+          "down/6",
+          "recovering/1"
+        ]
+      }
+    ],
+    "expected_registration_sha256": "319f1e544911742e0d49a721815a16206c0bd315d73f23ed8d232da45060b821",
+    "registration_sha256": "319f1e544911742e0d49a721815a16206c0bd315d73f23ed8d232da45060b821",
+    "supplemental_test_sha256": "7db9254853d9220d9f2a2fa33e25cb0173ccfb3325321eb40b4861eebc6639e5",
+    "pose_anchors_sha256": "8b591995a99d0f7e08121fc66b992e8e0682ad0cac13d5c28e0a9c5fc8d94bc5",
+    "engine": "Linux Godot 4.6.3.stable.official.7d41c59c4",
+    "required_platform_not_tested": "Windows Godot 4.7.2",
+    "steps": [
+      {
+        "name": "registration-check",
+        "command": [
+          "python3",
+          "scripts/register-oichi-v27.py",
+          "--check"
+        ],
+        "ok": true,
+        "exit_code": 0,
+        "timed_out": false,
+        "seconds": 9.447,
+        "log": "registration-check.log"
+      },
+      {
+        "name": "builder-tests",
+        "command": [
+          "python3",
+          "scripts/test-oichi-v27.py"
+        ],
+        "ok": true,
+        "exit_code": 0,
+        "timed_out": false,
+        "seconds": 24.709,
+        "log": "builder-tests.log"
+      },
+      {
+        "name": "color-tests",
+        "command": [
+          "python3",
+          "scripts/test-oichi-colors-v27.py"
+        ],
+        "ok": true,
+        "exit_code": 0,
+        "timed_out": false,
+        "seconds": 0.473,
+        "log": "color-tests.log"
+      },
+      {
+        "name": "native-eight-suite",
+        "command": [
+          "node",
+          "scripts/test-v19.mjs",
+          "--only=oichi_pipeline_v27,oichi_layers_v27,hero_layers_v22,weapon_render_v22,projectile_v22,frame_animation,animation_timing_v11,weapon_expansion_v24"
+        ],
+        "ok": true,
+        "exit_code": 0,
+        "timed_out": false,
+        "seconds": 123.528,
+        "log": "native-eight-suite.log"
+      },
+      {
+        "name": "all-oichi-bows",
+        "command": [
+          "/usr/local/bin/godot",
+          "--path",
+          "/workspace/scratch/98b7ec868bfb/sengoku_weapon_expansion_20261012/game",
+          "--headless",
+          "--log-file",
+          "/workspace/scratch/98b7ec868bfb/oichi_original_full_20261013/qa/final-test/all-oichi-bows-engine.log",
+          "--script",
+          "/workspace/scratch/98b7ec868bfb/oichi_original_full_20261013/qa/test_all_oichi_bows.gd"
+        ],
+        "ok": true,
+        "exit_code": 0,
+        "timed_out": false,
+        "seconds": 29.561,
+        "log": "all-oichi-bows.log"
+      },
+      {
+        "name": "protected-assets",
+        "command": [
+          "python3",
+          "/workspace/scratch/98b7ec868bfb/oichi_original_full_20261013/qa/verify_protected_assets.py",
+          "--out",
+          "/workspace/scratch/98b7ec868bfb/oichi_original_full_20261013/qa/final-test/protected-assets-verified.json"
+        ],
+        "ok": true,
+        "exit_code": 0,
+        "timed_out": false,
+        "seconds": 0.265,
+        "log": "protected-assets.log"
+      }
+    ],
+    "limits": [
+      "Eight selected native suites only; 58 other suites excluded.",
+      "Native headless engine tests, not display-enabled gameplay capture.",
+      "No actual gameplay feel, physical controller, Windows 4.7.2 or GUI visual acceptance in this run.",
+      "Color unit tests exercise audit logic; art material audit and visual dispositions are separate.",
+      "Grading provenance is retained but raw-to-final deterministic grading reproduction belongs to the separate grading verification."
+    ],
+    "code_changes_performed": false,
+    "commit_or_push_performed": false,
+    "native_results": [
+      {
+        "name": "oichi_pipeline_v27",
+        "ok": true,
+        "exitCode": 0,
+        "timedOut": false,
+        "stoppedOnScriptError": false,
+        "seconds": 0.577
+      },
+      {
+        "name": "oichi_layers_v27",
+        "ok": true,
+        "exitCode": 0,
+        "timedOut": false,
+        "stoppedOnScriptError": false,
+        "seconds": 31.182
+      },
+      {
+        "name": "weapon_expansion_v24",
+        "ok": true,
+        "exitCode": 0,
+        "timedOut": false,
+        "stoppedOnScriptError": false,
+        "seconds": 1.089
+      },
+      {
+        "name": "weapon_render_v22",
+        "ok": true,
+        "exitCode": 0,
+        "timedOut": false,
+        "stoppedOnScriptError": false,
+        "seconds": 0.726
+      },
+      {
+        "name": "hero_layers_v22",
+        "ok": true,
+        "exitCode": 0,
+        "timedOut": false,
+        "stoppedOnScriptError": false,
+        "seconds": 29.44
+      },
+      {
+        "name": "projectile_v22",
+        "ok": true,
+        "exitCode": 0,
+        "timedOut": false,
+        "stoppedOnScriptError": false,
+        "seconds": 30.356
+      },
+      {
+        "name": "frame_animation",
+        "ok": true,
+        "exitCode": 0,
+        "timedOut": false,
+        "stoppedOnScriptError": false,
+        "seconds": 0.348
+      },
+      {
+        "name": "animation_timing_v11",
+        "ok": true,
+        "exitCode": 0,
+        "timedOut": false,
+        "stoppedOnScriptError": false,
+        "seconds": 29.704
+      }
+    ],
+    "native_selected": [
+      "oichi_pipeline_v27",
+      "oichi_layers_v27",
+      "weapon_expansion_v24",
+      "weapon_render_v22",
+      "hero_layers_v22",
+      "projectile_v22",
+      "frame_animation",
+      "animation_timing_v11"
+    ],
+    "native_excluded_count": 58,
+    "protected_assets": {
+      "ok": true,
+      "protected_file_count": 229,
+      "registered_weapon_count": 48,
+      "missing": [],
+      "changed": [],
+      "added_under_protected_folders": []
+    },
+    "tested_content_unchanged": true,
+    "changed_tested_files": [],
+    "ok": true,
+    "finished_at_utc": "2026-10-13T00:39:36.153709+00:00",
+    "builder_unit_tests": 20,
+    "color_unit_tests": 7,
+    "supplemental_bow_geometry": {
+      "checks": 31674,
+      "frames": 156,
+      "bow_facing_cases": 4992,
+      "bow_count": 16,
+      "facings": 2
+    },
+    "oichi_layers_checks": 1404
+  },
+  "grading_reproduction": {
+    "production_id": "oichi-original-approved-20261013",
+    "registration_sha256": "319f1e544911742e0d49a721815a16206c0bd315d73f23ed8d232da45060b821",
+    "implementation_sha256": "296be843b806e296cd70da6b8be0795844edbe6828054ead3483734ea73c5b8f",
+    "source_count": 28,
+    "all_reproduced": true,
+    "all_native_alpha_exact": true,
+    "sources": [
+      {
+        "file": "idle.png",
+        "raw_sha256": "7b35dcc2f7d07878577a8084ec8613e65ce4ac522ec22f3aad94b0a9e5cf761c",
+        "graded_sha256": "a35f015c45c13d8454d2a5b938fec7fe896214dc816564795b39f310cc1f5d68",
+        "raw_rgba_sha256": "3188952c2341937bf4118b03e46e1e66f58241785e1f717a3157bae50c19739b",
+        "graded_rgba_sha256": "a4db7aa9c427f19823e84479ac2431c4ca359a2f1b294f100f4d857d2ac51abf",
+        "alpha_sha256": "bad40d79b3416ae2d85b2addc28bea1018ce80d23e563e3eb09fc6a4f22a8906",
+        "profile_sha256": "eb61ebee4f8d2ec35be06627f37da9476b95e82ecf0d7a7368f8016dd60c765c",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "walk.png",
+        "raw_sha256": "2bc7e5178b29b5689db28d1864d0a133f586f7ad0640f560ef892a3f4255f334",
+        "graded_sha256": "8d8f0a5ea5cbd44cf78e7d63a4ee8b86ca492669d3ee545b7c11bb73542539ec",
+        "raw_rgba_sha256": "1e9f64f1311e7eb55ca4448ccc0e466c574e14a195846af12c54c6cc1414096e",
+        "graded_rgba_sha256": "db917776d5e3aa9b1f53a4b96af16ccfffd68f4f794cc780bb7bbfbcd420e2cc",
+        "alpha_sha256": "f8b02f1cf053478b0a67572db3f564f0767b3a9021a4260b5c9da649ea9b2710",
+        "profile_sha256": "3ac2116ef1c48888d8bf3c4a388b1b2580d04e62b001273e02bf541e8a1508e3",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "run.png",
+        "raw_sha256": "55cb5d8e6a3130b3bb686b5afac45ffa793b1246e7b19ac5704e17b7880403ea",
+        "graded_sha256": "afba3d87c0f7dd0afcabe10539d6b5581a7d379611cc18277f1c82687fea75c2",
+        "raw_rgba_sha256": "5e095aefde730617e29dcc9377c181c426108a6216b28eacad21dc624f80446e",
+        "graded_rgba_sha256": "13577792ec36e80b25d152916e8d81698491b78adba4697a873d63335de31174",
+        "alpha_sha256": "7301b9b365da5649e97255a6d39fdfa3e9df5c652cece4c5b4d515085750f551",
+        "profile_sha256": "b5292b10a97acdac6381a420031b77c43628c5664ad1f07dd47d7165bad85b49",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "run-opposite.png",
+        "raw_sha256": "b0528ffaa2384d1d0a59a8189f4c0c4774dbc7257bdb9580ab97f54b5241e88d",
+        "graded_sha256": "14ccb724b3dff68e0fb5753716311f1f1115fccbf6137d7eff06f04fef50ede9",
+        "raw_rgba_sha256": "d61c000824d06ee5c8d9f081d4824a4bd99f42290b6bdbbc13bec5f23564fb14",
+        "graded_rgba_sha256": "eda1c981b2298f472ff7021d67460cd4fe7d1e69bc8a1c445453ead0232c7fed",
+        "alpha_sha256": "39495df49bcc3613efbb400e9bb3ad192e4354ab4312802b9d7b7f7355f65820",
+        "profile_sha256": "7b94024b640f98268962ca3c1817d1b804e1920bfada8b469524a6d54672a82c",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "run-opposite-mixed.png",
+        "raw_sha256": "c75a853986817ed8ffb560296de383a3294a8afc709741e44c8d1a3af1b3d10a",
+        "graded_sha256": "d86e7efc87a6ea2b253d3b205ba5056f7714cba898550b62b5b71b56c54693bd",
+        "raw_rgba_sha256": "8fe74f9b6380f7ce6472a8de8251e340af5e513d54a8997a963e424a06d8c75c",
+        "graded_rgba_sha256": "2730f3cd23296c8e4421917946e6086c47e37e75ec9c991bce0bc4cf16df8216",
+        "alpha_sha256": "233cf1b0e76b9dfdfd7a485a0cfa6d46ae239c1ab8aad81a419875e2f720600d",
+        "profile_sha256": "9c7b08dc80603ae0f341f25b0e89c1a8127a7aeb9309150fc71ad7df477a72a8",
+        "dimensions": [
+          2172,
+          724
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "light1.png",
+        "raw_sha256": "b1d181d7f187f31e54463796c2fa4ed272fa45c0ebcc78be7b749595890eb697",
+        "graded_sha256": "361d0da892411be0e58f57168417479ef7139de548978380e3f46e6177c66f2f",
+        "raw_rgba_sha256": "f9e1a0a866a50f55565773bf3c01b7c27bb1ec2aebfe1067e1a68df3586a4b31",
+        "graded_rgba_sha256": "747127673b311654c7fd9e755ae99127bf6c88d05a82cf64ce14b0f5d8e31623",
+        "alpha_sha256": "b5bc59cec8b80d78b1a01fdf54083f740c2d99517572915e84131efb6b420d1e",
+        "profile_sha256": "846a9ecb495063d28db6dba2accc94f9482f904ef95dd42a0b48ae8016fc64d4",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "light2.png",
+        "raw_sha256": "7882b541aacfe870ccc82e4c358486d86206b893e8bf4a946ba0015ec0fb4370",
+        "graded_sha256": "e9dd1a33428fa8aecdbadbdea9b4d8e598d737388a221727f9c89e9b3bf98b2d",
+        "raw_rgba_sha256": "2b1d67fd2fd80af738870ebfbe548e9a8579fd8a61a2c545b717e1a0050ad97c",
+        "graded_rgba_sha256": "8049a50ed728183a4dd9136f35bf1ae2e51f0c8e46891a9b25b3c34de8758d35",
+        "alpha_sha256": "d00fa798c6caa037e0f7ceb35a20e99f67d1e2b84a75459bb42cf11e4df802a9",
+        "profile_sha256": "280c620b4bb3a35b0143c723e5dc0902b790659c8e8ea6775f075d1008b6ff95",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "light3.png",
+        "raw_sha256": "cdaa8dd9fe8df40f8e4fa4db0223b8df9d5e4642de8baf3279b2de3f7bec8845",
+        "graded_sha256": "d3c6383df71396bb95ac8745fa09acc7650080bc6561cdaab5413a51cdab2217",
+        "raw_rgba_sha256": "9172ad81a873f15fa415897e826bb5fd0f2434b54fd05b687b21fd8b48c2255c",
+        "graded_rgba_sha256": "04c34271abe5cb1ebf92812ed5bd5c5a7475a4704ffa7cccd9d86d68d863b91f",
+        "alpha_sha256": "fab215b273a8cd48498b4225cf57d8011a7e47155ebdf4029fbaff2439b1f88b",
+        "profile_sha256": "bb81e2391533fa6728bdb5625a898a21c141cf7b5ef9439e9f6b09a7120af17a",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "heavy1.png",
+        "raw_sha256": "6cc0e7af95a95a9c466d25fdab3b63a94f6eebfd981c3d3f05b5a2b181a5685e",
+        "graded_sha256": "d8102b768508547298e0b8c40caaf5c562682d0959c967c71baec881d90fb8b5",
+        "raw_rgba_sha256": "9510e372c60c9879798f84965175537b423017bb1108afa5b3bb6e5e7f7f40bc",
+        "graded_rgba_sha256": "724ab288b02df24ad0bd80ee398fed2d07a96848a239a5d7518022df0aaea1db",
+        "alpha_sha256": "35b68554529902e6b2490dfabb8d1819c450530bffb89861a86ec99863f7585e",
+        "profile_sha256": "6093678508a557fb4c5d6eb23e3a21a3053efecf49317f569693eb00ab43002c",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "heavy2.png",
+        "raw_sha256": "a73f53e7d2c5b949e219e829262fde3ac991457fb1f07cb0aaafe92a59a0da05",
+        "graded_sha256": "674f701ab6f10c61cf052bea9774f38f09001aa7f6bfee2683535b4c4d227d02",
+        "raw_rgba_sha256": "0c6a8fc8e9ffb346f603fc526427034fbb5040fd29f74fa2aeb350dddd7dfd5d",
+        "graded_rgba_sha256": "810997e0fa6f96a2bb4af27b4fd680c42770604a029fb1886da25d86815a4fe7",
+        "alpha_sha256": "43e85bbee62f1e86da37c8ec08612eb76b14dd711d5508cd7f505ada6f5dbe51",
+        "profile_sha256": "69cad1995b0341fd25b6685b256b7abd20980ed24f6b4902e6532008fc41ffcd",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "charged_upper.png",
+        "raw_sha256": "7733c88d8003cdc4be5f1c2cef79996dab92b8b5ad0aba16b60e3a68cd51880a",
+        "graded_sha256": "79ed12597252f9a2447a3783851e4c1b3d93cc51d526fd492501c5a4328056d4",
+        "raw_rgba_sha256": "dde9085678a87e13be7b4bfb3ef0adeed710885bf43f5772d52f107f111822fa",
+        "graded_rgba_sha256": "3f2a67ca63c1c84fb292274d9f1dbf59d1d386c26df22cf98e8b3fa37b9d8113",
+        "alpha_sha256": "379a33e8dad3eab77604786e8dc2586efd03312cd6655dbd494b892e2b95cff2",
+        "profile_sha256": "0d14635dcf8074461184763035f03c98d9da340b6d2ecf30093feafa0c2941cb",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "charged_slam.png",
+        "raw_sha256": "b926d10e9dbe5001a0020c97b826a14711d9d70d37a681c5a76e275543466fc2",
+        "graded_sha256": "6efc68453268da4c708124d0a05c1fc447335034f6a558fc750316c290f72778",
+        "raw_rgba_sha256": "9361926fc0860be2e39ee23ff6f39e61a3a242ba72f016e024a423a5e9560116",
+        "graded_rgba_sha256": "dc5d6887786e32bc1ed8f3484f942de8464ed1f26eb469378bc0a22bb2d966d9",
+        "alpha_sha256": "a08ed4b540e978394aa098b9caea8b4c2dfc61213d34dba9aeb20872731ece05",
+        "profile_sha256": "6c53798156d49bfe246dbe297db515f9721a6b82059680b02e2569969325f608",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "air_heavy.png",
+        "raw_sha256": "fb3bc7c53dd4fe859bb10b1d1e9e011085afc4276fe345e20b503f2abf03c86e",
+        "graded_sha256": "7d282df54305a61552f30d2a0f7def10e78406c6a5c486b63032609e9233dac0",
+        "raw_rgba_sha256": "b5c11192c7b5fa3f3a803d8d09412ae7a30b0cb4dc04538adb42b3a96f5c5191",
+        "graded_rgba_sha256": "16cfe5e874f2d18435bf8b7c43786b8927245280ec7c7f20aa87aa4e2ea2cfb6",
+        "alpha_sha256": "ca9d1fef96e9549234e6fcc640980640c11197b2c83ad532e384d5bc2e2131bf",
+        "profile_sha256": "08b7190d8624a1d2745c1ad9b2e6ad4962682d0e02e75b8666c1b75f9d2ae42c",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "air_light.png",
+        "raw_sha256": "c92ccbe4a8cfbb7b6bd4524e80d5a6c9d94a8b6cf664b8ff9180672c2ecd8184",
+        "graded_sha256": "97f0919ed8768f93107074cd3c65eb233aac0134cdf8b854ffb8c07e41a655a5",
+        "raw_rgba_sha256": "2b6bf3586f57e0d149193bfcef6e1b30b60576600c658f264723ab2525abf49a",
+        "graded_rgba_sha256": "2c7880e17c8c27daaaa72c446f691ee22fbc8b533e3f4669011a2f1a9abd8905",
+        "alpha_sha256": "83c0b95623753bd21ebbe0a15ad41828fe436172732896533a8e20e2d2420131",
+        "profile_sha256": "93648524a191021ad8146ed14fd7e1df49b2f7d7bd0b25a2414b7625e3db3904",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "rising.png",
+        "raw_sha256": "a09cffc9e3c8c48eb43c9df06c63869a714856401c4265424726ec313f7e3501",
+        "graded_sha256": "daa3d44dcf7b7370d00cd914a1f36df9ab0a365f29036eeffc507ea04c84e5c9",
+        "raw_rgba_sha256": "5bd19152bc3ee4e09095a378aa7de6f4567f9127fe087e8e97023b0e18414c85",
+        "graded_rgba_sha256": "e6e4faa072a786ce0edc367385dfcfa645de46190674f717f2a8b00b5c7c3663",
+        "alpha_sha256": "80787917c886f1c8baeae63d05aacfea388eed5cd1db13bc0a4d56e3a4acd5db",
+        "profile_sha256": "cf6a428bc317ae136ad011ad6be78357cbfb9ff0e19a1c352451bfe92da363ee",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "low_sweep.png",
+        "raw_sha256": "105a8d846d20ecd76ed6567c37a49ca3434bc50ae5f6a9c9d13de2c0ab25cc03",
+        "graded_sha256": "369df8ed26fcae68c97e6744970a225314e386d3b86b0e1c9b607bbe2b096fc5",
+        "raw_rgba_sha256": "969e524032e8722a211142d2936f5e0c81aaa3e68717f05a6cc379bbf4cebc65",
+        "graded_rgba_sha256": "ebf481736da8492aa1f34449158c0faab3b034600fe3502da3c26d41bad28d9d",
+        "alpha_sha256": "b05d4a6e431d36535e0534fc017e7c44fc7f755688d569d17fd7cf19a95f1e18",
+        "profile_sha256": "1c5d6290e8366901510916bf375e37afdd24e3389b74e597fbf865db4bfd2795",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "dash_heavy.png",
+        "raw_sha256": "9cb4ad369aae07501d1cc34fe093af6878a3bc978dd6be84b28fd0ac2a9f2293",
+        "graded_sha256": "0f80940e567c69d10eddd5a3d1359f59c141e3dd50825fed5894a6cff1418ad9",
+        "raw_rgba_sha256": "b15924efc8c100a723eb6f332ee1d69ce563e0a856b79b0cbbb9a71bf0a84db3",
+        "graded_rgba_sha256": "be3dba584f3baf2d0071063c6c764a21b7cbdcf14a7cc2622affce33a13152c1",
+        "alpha_sha256": "f8a4fee7e443f897fab35102ca9340983b3d8c3dcf962e5ac31f143d705a570d",
+        "profile_sha256": "23808ecf2de3d4dc45f5733c74b16b84a2813e6c530ce3f2fbaf1fb57a0c880e",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "dash_strike.png",
+        "raw_sha256": "b17ad6027e30d47787a7ceaf2917bf494665f43e1d53818381724c8c2abd981f",
+        "graded_sha256": "1073193ab4cb5b57bb9e7cc726a163f8b8240698a0342bb8567034eff61cf377",
+        "raw_rgba_sha256": "6b18b3357e7f9939ac707de2fc9d0c72f88aa13c2d52327e58cd0d6c89735cc7",
+        "graded_rgba_sha256": "13ea4a1df34e5f6800ab245a8cd0f2902c5972084f4b898f1400a4f55167990e",
+        "alpha_sha256": "80239a62702a71aa13c5f59bb6fdde9d93935b14227205097d07b5a29eb80e5a",
+        "profile_sha256": "10f336a4ba2eeaf3303086691fafbffeb2a5ba20cf2c686c46fd220a14ea927c",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "jump.png",
+        "raw_sha256": "8bd9e564966d37ba737c8b5becaef0412cba353fb5c3bac4644ec8a909c23556",
+        "graded_sha256": "0de43007d540ca835713cc33719ac78e689c8e8d98b0aa7f8f7adef1d1d9c88c",
+        "raw_rgba_sha256": "d2c38858bb775a13a18f1a9e6f123ebee660f6d61a5bcf7b9871aff03e834fce",
+        "graded_rgba_sha256": "2c9eef89765593627ea99c5b215ff1cb05ba8b9b7c3c7ef5709d88651660e21c",
+        "alpha_sha256": "78b4dd376a6a2585b79fbfafff3f2ec275d3f255a5b0f9db51d0c0a10c3ae3f8",
+        "profile_sha256": "3b17550505cf9bf621b686b5e53fe743c7560aed031d71f414e38f6728f25b09",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "hurt.png",
+        "raw_sha256": "511f3bd43e1cf599819050b77b0334392694f2945e7e46057f611f99f430fed3",
+        "graded_sha256": "33dae8165ca576ea080995ce395ce2a4df1cede012c0ea39fec14bde8c95799c",
+        "raw_rgba_sha256": "335aa221b51e355d3e0b0f0e114d9e64630139535e9ac5e8ff7e3cf26b813f3a",
+        "graded_rgba_sha256": "af8decddcac06c0aa9112698687a9fd3d42524ad26824e554e69263f401d32f4",
+        "alpha_sha256": "66d0ab39a9b53cca9fea480377751d6e09ea6e518dc14987bde691a9832b8f11",
+        "profile_sha256": "a02944f30f15903fad565ec062c498fad3957c43282e4d14362e84d045d5b5a3",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "down.png",
+        "raw_sha256": "d62b0fbad05f10716ff1d54f61ef831690e3fdc644d83cc47d801eea68ca7407",
+        "graded_sha256": "2733a7ec26d905a66743ff509d9151ee842831927d8a09de779632d7b9853ec3",
+        "raw_rgba_sha256": "31e63e28d6116bbe0ae739911f570ea4e490470a99fe9107ec148c95d594b878",
+        "graded_rgba_sha256": "7c78a4a5a5edb0ca0cd5cc4cb31af3c50b759d2c3837648988a2661e79806cc7",
+        "alpha_sha256": "68b1f68648d58951c97ee94d22643377a499f3bb9855f4b97d8fd2b5b0c9dfb6",
+        "profile_sha256": "6244ca4952073df845bd6fcca90945a11bbfee816cd7209e8114bffbe7496c6f",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "recovering.png",
+        "raw_sha256": "2915e6bcc082106cf1f14fefa4153d2debece0c0df464ae1edde4c98015dfa92",
+        "graded_sha256": "d908d5bbfd66eb70c55e32d759b5d77ba1d034a4868ad276240b7bd0b205a949",
+        "raw_rgba_sha256": "d0ccba2223bd3a8d33ce5b98651fe5c14e8d4f22a057aecf65df2c4f8df02d11",
+        "graded_rgba_sha256": "ca04839806910c55a6fb70213e88a5557bb17ebc54b3121ea10de65e8d1bf474",
+        "alpha_sha256": "004501e407af60a53cbee9e19102cb0db9907a2ff3c8da65622053461dcd4cc0",
+        "profile_sha256": "5810d2c29cc9cf5bf5de7d1711a7eeb2df13294f5aebd7f02c92e9a4cd176e0c",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "launched.png",
+        "raw_sha256": "b44aa4306830ce82b7859e68679d6ce0e9d75a3eb867986cf261c89f0aff02a8",
+        "graded_sha256": "71b69d20437f8a5abb2bc5f7208cdc7a48a82f95b527bee8de3b1eb41dc9e435",
+        "raw_rgba_sha256": "0018f9eb9c484947ca4b96af70287c65e64f15e124657fc9d9835a47b5e48d1d",
+        "graded_rgba_sha256": "edc317081d082dc39a04906e0dd85d4f88dea46a449e465fa242e2f2b409afd9",
+        "alpha_sha256": "e9334be1f82668b25306fc028c0cf0a216fae1a3f8185d6a9905e54a1810a3a6",
+        "profile_sha256": "e859aea89f9e04ea150035649441e747688d96052c725a5e4b8c21f4276f4fee",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "stunned.png",
+        "raw_sha256": "cef53262e6cb6748f4177a7fbd1efbe8fc2a12b009de8d9d895b8c4c45a60af3",
+        "graded_sha256": "176f5dcf9507bfb4a9d05fc584e275f273c414db0bc44c7fc0091fb25cb31ea8",
+        "raw_rgba_sha256": "65c6cb879888f89c7071fd55102d6e2b47093d054666e26c0dea79d8720dd303",
+        "graded_rgba_sha256": "c60df69e1108c18944c2e0c99181147e8c845746e0e11778a3881dd4d3c26905",
+        "alpha_sha256": "506bd4e29c7930f24e5eefdd93a48a2763b7aab0b4d64c4f2b49b3b4c8907d0c",
+        "profile_sha256": "68adf4d8e76ed009be80016e6d7497aa45e9b0aa4cbcfdbb1128c6811caf62f4",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "guard.png",
+        "raw_sha256": "7e880fd1fca733908c6b75857b706e481c584cb481d441024114456c7b78c529",
+        "graded_sha256": "c7024baf3ed67c6f256756d377d4950a27d32ba519483d06329238b6027930e2",
+        "raw_rgba_sha256": "e7337a405da83f8a8974962198b5d1d50c6566c9e743e86560a8dadfd3f99fd6",
+        "graded_rgba_sha256": "5effaae765c04008923498fe794f62b01002b8520cda2688f3f110b255af809a",
+        "alpha_sha256": "749999038b8a31f01422a5df36a5e7f2eca0aac4b8742c41e247066e28851658",
+        "profile_sha256": "7a9f632ec180a436d0d278b4124cad557df51785a1b1a83c329dd9084bd1baeb",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "throw.png",
+        "raw_sha256": "dab1687868ad1880521c54d26b9d46c8e80f8a7c8bbca1959acd5e607c3e5f0d",
+        "graded_sha256": "eea6a7c642b33fa86042a876a4ed36ec3f361cb2be21e772ddf951c11f260691",
+        "raw_rgba_sha256": "a8c4f30c0cf612e5f7dde394d9ae0ded0df4f1c8a787e55245bc8ac62accca6c",
+        "graded_rgba_sha256": "26cd4910805e5f9b16366e3e7c8153eaf9b457102e50b95f65b9b8c76004adf0",
+        "alpha_sha256": "63db40736454881d131a0c9058aee193aeab44cea13082fa2562890e5ace9021",
+        "profile_sha256": "b51aff2b89b9ac1a96735299937573d0e46711c0b1102ea63662af36b386eea4",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "special.png",
+        "raw_sha256": "a9f4f4b68b8d5ebf4d9f23a8ba3e3a46a584423cc371933e2441f171f7c16842",
+        "graded_sha256": "86a82a330463e8de05d3bb07bc4415477dcbb08af0b450e0c790f3e5e21f1732",
+        "raw_rgba_sha256": "5f76580f7c2d0a30306a8e7ac460376bc4522751b0f7796ae2387d0b30de902f",
+        "graded_rgba_sha256": "dcc2efb82b43365ab12395f90b7ee77510eb8c85d9dcbe9e5ec6267566f52359",
+        "alpha_sha256": "ef39b4db9683b8127bd8b1bfcbe01a3600a7395028938e62637913d1194f34c0",
+        "profile_sha256": "009400a8f08024c6a081a4ab938c8e4d1248b07a81bbfa6acaa9e413856603a8",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      },
+      {
+        "file": "victory.png",
+        "raw_sha256": "2d8cfa01c30c9f73f4d587cb0c4cbc227eb99aa768c092f87e3a775cf195d74e",
+        "graded_sha256": "2f372ee6e420d90f4e612fb0d57e0e34e196b80137b563829041c5ca1e532dca",
+        "raw_rgba_sha256": "a37e26ebef93177570e949ca6b2083c632d2df128857d9bd264877c0c54bc015",
+        "graded_rgba_sha256": "84148f34e99298668b9f4646ff113ed72693d4a2e9a12c7c6c2c383c0e1b44c1",
+        "alpha_sha256": "ca746ddbfcf18608be572ef1a186b44246e3518fd0970fe9b8f200b016d1b267",
+        "profile_sha256": "b7aa7320519fa6687f26441e0897e69b17058734eb47ea31e3f4a53835b73394",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "reproduced_rgba_exact": true,
+        "native_alpha_exact": true,
+        "geometry_dimensions_exact": true
+      }
+    ]
+  },
+  "material_audit": {
+    "clips": 26,
+    "frames": 156,
+    "material_samples": 624,
+    "outlier_material_frames": 104,
+    "insufficient_material_frames": 0,
+    "coverage_complete": true,
+    "missing_clips": [],
+    "noncanonical_clips": []
+  },
+  "material_limits": "104 retained chroma/hair diagnostics, not an all-color pass. All skin/white/red median and highlight L checks inside unchanged limits.",
+  "composite_clearance": {
+    "148": {
+      "canvas": [
+        420,
+        390
+      ],
+      "origin": [
+        210,
+        340
+      ],
+      "cropped_composite_frames": []
+    },
+    "240": {
+      "canvas": [
+        640,
+        640
+      ],
+      "origin": [
+        320,
+        540
+      ],
+      "cropped_composite_frames": []
+    }
+  },
+  "previews": "Offline composites, not gameplay captures. 52s fixed-cadence montage.",
+  "remaining_acceptance": [
+    "Display-enabled native gameplay visual pass",
+    "Windows Godot 4.7.2",
+    "Physical controller and live action feel",
+    "Perfect contact for every alternate bow has not been visually proven"
+  ],
+  "remote_main_at_publication_review": "966cf8c3d48a4579554bc046a5961870faaaafa8",
+  "newer_main_integration_tested": false
+}

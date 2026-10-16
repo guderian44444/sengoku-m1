@@ -169,7 +169,7 @@ static func primary_enemy_sample(fighter: Dictionary, count: int) -> Dictionary:
 
 static func enemy_v14_sample(fighter: Dictionary, locomotion_tick: float, idle_tick: float, clips: Dictionary) -> Dictionary:
 	var faction := str(fighter.get("faction","mori"))
-	if faction not in ["mori", "imagawa"]: return {}
+	if faction not in ["mori", "imagawa", "oda"]: return {}
 	var action := str(fighter.get("action","idle"))
 	var clip := action
 	var tick := float(fighter.get("action_tick",0))
@@ -481,17 +481,20 @@ static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictiona
 	elif action == "light": clip = "light%d" % clampi(int(fighter.get("combo",1)),1,3)
 	elif action == "heavy": clip = "heavy%d" % clampi(int(fighter.get("heavy_combo",1)),1,2)
 	elif action in ["defeated","dead"]: clip = "down"
-	elif action in ["frozen","pulled","grabbed"]: clip = "hurt"
+	elif action == "dash_heavy" and fighter.get("kind","") == "hideyoshi": clip = "heavy1"
+	elif action == "charged" and fighter.get("kind","") == "hideyoshi": clip = ["light1","light2","heavy1"][mini(2,floori(tick/22.0))]
+	elif action in ["frozen","pulled","grabbed"]: clip = action if fighter.get("kind","") == "hideyoshi" and sheets.has("v22_"+action) else "hurt"
 	elif action == "thrown": clip = "launched"
 	elif action == "counter_cut": clip = "light2"
-	elif action == "upper_heavy": clip = "charged_upper"
-	elif action == "ground_slam": clip = "charged_slam"
+	elif action == "upper_heavy": clip = "upper_heavy" if fighter.get("kind","") == "hideyoshi" and sheets.has("v22_upper_heavy") else "charged_upper"
+	elif action == "ground_slam": clip = "ground_slam" if fighter.get("kind","") == "hideyoshi" and sheets.has("v22_ground_slam") else "charged_slam"
 	elif action == "holding": clip = "holding" if sheets.has("v22_holding") else "throw"
 	elif action == "charge":
 		clip = "charge_slam" if int(fighter.get("charge_direction",0)) > 0 else ("charge_upper" if int(fighter.get("charge_direction",0)) < 0 else "charge")
 		if not sheets.has("v22_"+clip): clip = "charged_slam" if int(fighter.get("charge_direction",0)) > 0 else ("charged_upper" if int(fighter.get("charge_direction",0)) < 0 else "heavy2")
 	elif action == "charged" and not sheets.has("v22_charged"): clip = "heavy2"
-	if action in ["mixed_finisher","mixed_rising"]:
+	if action == "special" and fighter.get("kind","") == "hideyoshi": clip = "special_%d" % mini(3,1+floori(tick/70.0))
+	if action in ["mixed_finisher","mixed_rising"] and not sheets.has("v22_"+action):
 		clip = ("light2" if fighter.get("kind","") == "oichi" else "light3") if tick < 22 else ("charged_upper" if action == "mixed_rising" else "charged_slam")
 	var sheet := "v22_" + clip
 	if not sheets.has(sheet): return {}
@@ -514,8 +517,12 @@ static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictiona
 	elif clip == "victory":
 		duration = Battle.VICTORY_TICKS
 		frame = mini(count-1,floori(tick*count/duration))
-	elif action in ["charge","holding"]: frame = mini(count/2-1,floori(tick/6.0))
-	elif action == "guard": frame = 4 if fighter.get("guard_hit_tick",0)>0 else mini(2,floori(tick/4.0))
+	elif action in ["charge","holding"]: frame = mini(count-1 if fighter.get("kind","") == "hideyoshi" else count/2-1,floori(tick/6.0))
+	elif action == "guard": frame = 4 if fighter.get("guard_hit_tick",0)>0 else mini(count-1 if fighter.get("kind","") == "hideyoshi" else 2,floori(tick/4.0))
+	elif action == "special" and fighter.get("kind","") == "hideyoshi":
+		frame = _attack_frame(fposmod(tick,70),35,70,count)
+		duration = Battle.SPECIAL_TICKS
+		released = fposmod(tick,70) >= 35
 	elif action == "special":
 		var pulses: Array = Battle.SPECIAL_HIT_TICKS.get(str(fighter.get("kind","nobunaga")),Battle.SPECIAL_HIT_TICKS.nobunaga)
 		var pulse := 0
@@ -529,15 +536,22 @@ static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictiona
 		released = tick >= hit
 	else:
 		var timing: Array = {"light":[6,19],"heavy":[14,36],"charged":[14,36],"throw":[0,24],"rising":[6,24],"upper_heavy":[12,36],"low_sweep":[9,28],"ground_slam":[14,42],"charged_upper":[22,56],"charged_slam":[28,72],"air_light":[6,20],"air_heavy":[12,38],"dash_strike":[10,30],"dash_heavy":[12,34],"counter_cut":[5,24],"mixed_finisher":[5,26],"mixed_rising":[5,26]}.get(action,[14,36])
+		if fighter.get("kind","") == "hideyoshi":
+			if action == "throw": timing = [12,36]
+			elif action in ["mixed_finisher","mixed_rising"]: timing = [14,48]
 		var local_tick := tick
-		if action in ["mixed_finisher","mixed_rising"]:
+		if fighter.get("kind","") == "hideyoshi" and action == "charged":
+			local_tick = fposmod(tick,22)
+			timing = [12,22]
+		if action in ["mixed_finisher","mixed_rising"] and fighter.get("kind","") != "hideyoshi":
 			if tick < 22: timing = [9,22]
 			else: local_tick -= 22
 		if action == "charged" and fighter.get("kind","") == "tadakatsu": timing = [5,36]
 		frame = _attack_frame(local_tick,timing[0],timing[1],count) if timing[0] > 0 else mini(count-1,floori(local_tick*count/timing[1]))
 		duration = timing[1]
+		if fighter.get("kind","") == "hideyoshi" and action == "charged": duration = 66
 		released = local_tick >= timing[0]
-	return {"source":"v22","hero":fighter.get("kind",""),"clip":clip,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released}
+	return {"source":"v22","source_version":sheets[sheet][frame].get("source_version","v22"),"hero":fighter.get("kind",""),"clip":clip,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released}
 
 static func hero_v11_sample(fighter: Dictionary, distance: float, height: float, counts: Dictionary) -> Dictionary:
 	var sample := hero_v10_sample(fighter, distance, height)

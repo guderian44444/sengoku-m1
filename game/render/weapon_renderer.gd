@@ -18,29 +18,14 @@ func _init() -> void:
 static func equipped_id(fighter: Dictionary) -> String:
 	var hero := str(fighter.get("kind","nobunaga"))
 	var id := str(fighter.get("weapon_id",Weapons.default_for(hero)))
-	return id if Weapons.compatible(hero,id) else Weapons.default_for(hero)
+	return id if id == "" or Weapons.compatible(hero,id) else Weapons.default_for(hero)
 
 func geometry(fighter: Dictionary, frame: Dictionary, height: float) -> Dictionary:
-	if not frame.get("layered_weapon",false) or not frame.get("weapon_visible",true): return {}
-	var id := equipped_id(fighter)
-	if not items.has(id) or not textures.has(id): return {}
-	var spec: Dictionary = items[id]
-	var family: String = Weapons.item(id).family
-	var body_scale := height / maxf(1,float(frame.get("body_height",height)))
-	var world_length: float = float(spec.get("world_length",LENGTHS[family])) * height / (148.0 if fighter.get("kind") == "oichi" else 155.0)
-	var scale := world_length / float(spec.length)
-	var hand: Vector2 = frame.get("weapon_hand",Vector2.ZERO)
-	var angle := deg_to_rad(float(frame.get("weapon_angle",0)))
-	var grip := Vector2(spec.grip[0],spec.grip[1])
-	var top := Vector2(spec.tip_top[0],spec.tip_top[1])
-	var bottom := Vector2(spec.tip_bottom[0],spec.tip_bottom[1])
-	# A ground strike slides the authored hand along the shaft; the spear keeps
-	# its real length and the palm stays at the same drawn pixel.
-	if family == "spear" and frame.get("weapon_grounded",false) and absf(cos(angle)) > .5:
-		grip.y = bottom.y + (hand.y * body_scale / scale + (bottom.x - grip.x) * sin(angle)) / cos(angle)
-	return {"id":id,"family":family,"scale":scale,"hand":hand * body_scale,"angle":angle,"grip":grip,
-		"top":hand * body_scale + ((top - grip) * scale).rotated(angle),
-		"bottom":hand * body_scale + ((bottom - grip) * scale).rotated(angle),"body_scale":body_scale}
+	return Weapons.pose(fighter,frame,height)
+
+static func pose_transform(pose: Dictionary, origin: Vector2, face: float, rotation: float) -> Transform2D:
+	var hand: Vector2 = pose.hand
+	return Transform2D(rotation + float(pose.angle) * face,Vector2(face*float(pose.get("blade_side",1)),1) * float(pose.scale),0.0,origin + (hand * Vector2(face,1)).rotated(rotation))
 
 func sweep_trail(fighter: Dictionary, current: Dictionary, previous: Dictionary, height: float) -> PackedVector2Array:
 	var now := geometry(fighter,current,height)
@@ -62,10 +47,9 @@ func draw_weapon(canvas: CanvasItem, fighter: Dictionary, frame: Dictionary, ori
 	var pose := geometry(fighter,frame,height)
 	if pose.is_empty(): return
 	var texture: Texture2D = textures[pose.id]
-	var hand: Vector2 = pose.hand
-	var position := origin + (hand * Vector2(face,1)).rotated(rotation)
-	canvas.draw_set_transform(position,rotation + float(pose.angle) * face,Vector2(face,1) * float(pose.scale))
-	canvas.draw_texture(texture,-Vector2(pose.grip),tint)
+	canvas.draw_set_transform_matrix(pose_transform(pose,origin,face,rotation))
+	var region := weapon_region(pose,frame,texture.get_size())
+	if region.has_area(): canvas.draw_texture_rect_region(texture,Rect2(region.position-Vector2(pose.grip),region.size),region,tint)
 	if pose.family == "bow":
 		canvas.draw_set_transform(origin,rotation,Vector2(face,1))
 		var color := Color(.9,.87,.74,tint.a * .86)
@@ -77,7 +61,38 @@ func draw_weapon(canvas: CanvasItem, fighter: Dictionary, frame: Dictionary, ori
 			canvas.draw_line(pose.top,pose.bottom,color,.9,true)
 	canvas.draw_set_transform(Vector2.ZERO)
 
+static func weapon_region(pose: Dictionary, frame: Dictionary, size: Vector2) -> Rect2:
+	var top := 0.0
+	var mode := str(frame.get("weapon_mode","drawn"))
+	if mode == "sheathed": top = float(pose.guard.y)-5
+	elif mode in ["sheathed_transition","drawing","resheathing"] and frame.has("scabbard_mouth"):
+		top = ((frame.scabbard_mouth*float(pose.body_scale)-Vector2(pose.hand)).rotated(-float(pose.angle))/float(pose.scale)).y + float(pose.grip.y)
+	return Rect2(Vector2(0,clampf(top,0,size.y)),Vector2(size.x,maxf(0,size.y-maxf(0,top))))
+
+func draw_shadow(canvas: CanvasItem, fighter: Dictionary, frame: Dictionary, _origin: Vector2, height: float, face: float, rotation: float, projection: Transform2D, tint: Color) -> void:
+	var pose := geometry(fighter,frame,height)
+	if pose.is_empty(): return
+	var shadow := Color(0,0,0,tint.a)
+	canvas.draw_set_transform_matrix(projection * pose_transform(pose,Vector2.ZERO,face,rotation))
+	var region := weapon_region(pose,frame,textures[pose.id].get_size())
+	if region.has_area(): canvas.draw_texture_rect_region(textures[pose.id],Rect2(region.position-Vector2(pose.grip),region.size),region,shadow)
+	if pose.family == "bow":
+		canvas.draw_set_transform_matrix(projection * Transform2D(rotation,Vector2(face,1),0.0,Vector2.ZERO))
+		if frame.has("second_hand") and not bool(frame.get("weapon_behind",false)):
+			var hand: Vector2 = frame.second_hand * float(pose.body_scale)
+			canvas.draw_line(pose.top,hand,shadow,1.1,true)
+			canvas.draw_line(hand,pose.bottom,shadow,1.1,true)
+		else:
+			canvas.draw_line(pose.top,pose.bottom,shadow,0.9,true)
+	canvas.draw_set_transform(Vector2.ZERO)
+
 func draw_hand_occlusion(canvas: CanvasItem, frame: Dictionary, origin: Vector2, height: float, face: float, rotation: float, tint: Color) -> void:
+	if frame.has("hand_foreground"):
+		var factor := height / float(frame.body_height)
+		canvas.draw_set_transform(origin,rotation,Vector2(face,1))
+		canvas.draw_texture_rect_region(frame.hand_foreground,Rect2(-Vector2(frame.anchor)*factor,frame.region.size*factor),frame.region,tint)
+		canvas.draw_set_transform(Vector2.ZERO)
+		return
 	if not frame.get("layered_weapon",false) or not frame.get("weapon_visible",true): return
 	var regions: Array = frame.get("hand_occluders",[])
 	if regions.is_empty() and frame.has("hand_occluder"): regions = [frame.hand_occluder]
@@ -93,7 +108,7 @@ func draw_hand_occlusion(canvas: CanvasItem, frame: Dictionary, origin: Vector2,
 	canvas.draw_set_transform(Vector2.ZERO)
 
 func draw_drop(canvas: CanvasItem, drop: Dictionary, position: Vector2, clock: float) -> bool:
-	var id := str(drop.get("weapon_id",""))
+	var id := Weapons.art_id(str(drop.get("weapon_id","")))
 	if not textures.has(id): return false
 	var texture: Texture2D = textures[id]
 	var spec: Dictionary = items[id]

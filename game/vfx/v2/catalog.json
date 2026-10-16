@@ -1,0 +1,1082 @@
+{
+  "schema_version": 2,
+  "authoring": "Single original RGBA base per effect. Runtime procedural motion; NOT a flipbook.",
+  "effects": {
+    "fire_arc": {
+      "texture": "res://vfx/art/fire_arc.png",
+      "cell": [
+        1254,
+        1254
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "animation_source": "procedural_single_base",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.518,
+      "duration_ticks": 24,
+      "loop": false,
+      "world_size": 280,
+      "motion": "turbulence",
+      "blend": "straight_alpha",
+      "sha256": "534eb334aac068c97d94c57f556ee61db34712151af74dd8a0bfc40631469563",
+      "family": "fire"
+    },
+    "fire_ring": {
+      "texture": "res://vfx/art/fire_ring.png",
+      "cell": [
+        1254,
+        1254
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "animation_source": "procedural_single_base",
+      "pivot": [
+        0.5,
+        0.518
+      ],
+      "split_depth": true,
+      "seam": 0.518,
+      "duration_ticks": 600,
+      "loop": true,
+      "world_size": 280,
+      "motion": "ellipse_flow",
+      "blend": "straight_alpha",
+      "sha256": "b626b115fd7fa89551d062b78112fde5c0558dd7ca618ea8259aaa4e42d008dc",
+      "flow_center": [
+        0.5,
+        0.518
+      ],
+      "flow_radius": [
+        0.46,
+        0.18
+      ],
+      "flow_radians_per_second": 0.6,
+      "render_padding": 0.4,
+      "family": "fire"
+    },
+    "fire_wave": {
+      "texture": "res://vfx/art/fire_wave.png",
+      "cell": [
+        1254,
+        1254
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "animation_source": "procedural_single_base",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.518,
+      "duration_ticks": 36,
+      "loop": false,
+      "world_size": 280,
+      "motion": "turbulence",
+      "blend": "straight_alpha",
+      "sha256": "a750096bed31ffb20a28d695b2fbd67b10a5be888387cf14cacbc9bf19f47a90",
+      "family": "fire"
+    },
+    "fire_burn": {
+      "texture": "res://vfx/art/fire_burn.png",
+      "cell": [
+        1254,
+        1254
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "animation_source": "procedural_single_base",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.518,
+      "duration_ticks": 24,
+      "loop": true,
+      "world_size": 280,
+      "motion": "turbulence",
+      "blend": "straight_alpha",
+      "sha256": "ef9c97cb8d106774f74fa5e1b51bfae9bad91d3673b82402d85debcd622f1d03",
+      "family": "fire"
+    },
+    "blue_white_wave": {
+      "texture": "res://vfx/art/blue_white_wave.png",
+      "cell": [
+        1254,
+        1254
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "animation_source": "procedural_single_base",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.518,
+      "duration_ticks": 36,
+      "loop": false,
+      "world_size": 280,
+      "motion": "turbulence",
+      "blend": "straight_alpha",
+      "sha256": "317bfb962e45ccf77f10b65d721f205a07373d64556a3fb127aee6c894fe212f",
+      "family": "blade"
+    },
+    "blade_arc": {
+      "texture": "res://vfx/art/blade_arc.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.5,
+      "duration_ticks": 20,
+      "loop": false,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "blade_arc_base.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, centered on 1024x1024 transparent canvas. Alpha preserved; no threshold, background removal or effect painting.",
+      "origin": "top-left texture pixel origin; pivot normalized from top-left",
+      "direction": "right-facing curved slash; mirror X for left",
+      "loop_note": "One-shot only. No authored animation frames or seamless loop. Runtime motion is procedural demonstration.",
+      "sha256": "6af1be94548ffd21f811bbf9486a4fd923af15c6c0207683f650b9cd27149146",
+      "motion": "turbulence",
+      "family": "blade"
+    },
+    "blade_ring": {
+      "texture": "res://vfx/art/blade_ring.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "pivot": [
+        0.5,
+        0.5335
+      ],
+      "split_depth": true,
+      "seam": 0.5335,
+      "duration_ticks": 600,
+      "loop": true,
+      "world_size": 420,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "blade_ring_base_v2.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, centered on 1024x1024 transparent canvas. Alpha preserved; no threshold, background removal or effect painting.",
+      "origin": "top-left texture pixel origin; pivot normalized from top-left",
+      "direction": "horizontal ellipse, no travel",
+      "loop_note": "One-shot only. No authored animation frames or seamless loop. Runtime motion is procedural demonstration.",
+      "sha256": "c1335ffa3390f9bf3554fd11a037901c376b5635a798f4c06241f04e021e2e45",
+      "motion": "ellipse_flow",
+      "flow_center": [
+        0.5,
+        0.5335
+      ],
+      "flow_radius": [
+        0.36,
+        0.14
+      ],
+      "flow_radians_per_second": 0.45,
+      "family": "blade"
+    },
+    "blade_wave": {
+      "texture": "res://vfx/art/blade_wave.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "pivot": [
+        0.5,
+        0.8
+      ],
+      "split_depth": false,
+      "seam": 0.5,
+      "duration_ticks": 32,
+      "loop": false,
+      "world_size": 340,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "blade_wave_base.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, centered on 1024x1024 transparent canvas. Alpha preserved; no threshold, background removal or effect painting.",
+      "origin": "top-left texture pixel origin; pivot normalized from top-left",
+      "direction": "rises upward and may travel right; mirror X for left",
+      "loop_note": "One-shot only. No authored animation frames or seamless loop. Runtime motion is procedural demonstration.",
+      "sha256": "38cdc3233bca5e9823826e03b8663171d56c6563c7ea09792d0dcd0d8443f29a",
+      "motion": "turbulence",
+      "family": "blade"
+    },
+    "blade_hit": {
+      "texture": "res://vfx/art/blade_hit.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "pivot": [
+        0.5,
+        0.548
+      ],
+      "split_depth": false,
+      "seam": 0.5,
+      "duration_ticks": 14,
+      "loop": false,
+      "world_size": 190,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "blade_hit_base.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, centered on 1024x1024 transparent canvas. Alpha preserved; no threshold, background removal or effect painting.",
+      "origin": "top-left texture pixel origin; pivot normalized from top-left",
+      "direction": "radial impact centered on bright core",
+      "loop_note": "One-shot only. No authored animation frames or seamless loop. Runtime motion is procedural demonstration.",
+      "sha256": "9b7e1b76f680ef32b96fe89b7540bc6d04ef2fb5a7c7e0cfdcc3b19be69b69b9",
+      "motion": "turbulence",
+      "family": "blade"
+    },
+    "ice_arc": {
+      "texture": "res://vfx/art/ice_arc.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.5,
+      "duration_ticks": 20,
+      "loop": false,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "ice_arc_source.png",
+      "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. No alpha removal, no effect painting.",
+      "sha256": "c71975100dad27a60708b2e22ba337ee1c4070eb98f30c98cf75a97fd600e1c4",
+      "motion": "",
+      "family": "ice"
+    },
+    "ice_ring": {
+      "texture": "res://vfx/art/ice_ring.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": true,
+      "seam": 0.5,
+      "duration_ticks": 600,
+      "loop": true,
+      "world_size": 420,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "ice_ring_source.png",
+      "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. No alpha removal, no effect painting.",
+      "sha256": "ef194f492f5ce2780f7955df0b0c1687e372599927b803fe6860bd5b30c3e850",
+      "motion": "",
+      "flow_center": [
+        0.5,
+        0.5
+      ],
+      "flow_radius": [
+        0.36,
+        0.14
+      ],
+      "flow_radians_per_second": 0.45,
+      "family": "ice"
+    },
+    "ice_wave": {
+      "texture": "res://vfx/art/ice_wave.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.5,
+      "duration_ticks": 28,
+      "loop": false,
+      "world_size": 300,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "ice_wave_source.png",
+      "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. No alpha removal, no effect painting.",
+      "sha256": "aa2a6308a97fa858e4c184e394a934de923393b41be594a65126fe68999115b3",
+      "motion": "",
+      "family": "ice"
+    },
+    "ice_shatter": {
+      "texture": "res://vfx/art/ice_shatter.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.5,
+      "duration_ticks": 16,
+      "loop": false,
+      "world_size": 150,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "ice_shatter_source.png",
+      "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. No alpha removal, no effect painting.",
+      "sha256": "89f39d1fb239226ba267bc30aa375bce69d3244be348171dc4962721fcca6914",
+      "motion": "",
+      "family": "ice"
+    },
+    "wind_arc": {
+      "texture": "res://vfx/v2/art/wind_arc.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "seam": 0.5,
+      "split_depth": false,
+      "flow_center": [
+        0.5,
+        0.5
+      ],
+      "flow_radius": [
+        0.35,
+        0.35
+      ],
+      "render_padding": 0.3,
+      "duration_ticks": 24,
+      "loop": false,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "wind_arc_source.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Alpha retained; no thresholding, background removal, paint, or recoloring.",
+      "alpha_bounds_px": [
+        64,
+        70,
+        960,
+        960
+      ],
+      "origin": "top-left; normalized pivot/seam/flow_center in final 1024 texture coordinates",
+      "limitations": "One generated base, not an authored frame sequence or seamless loop. Flow radius is a visual centerline estimate, not alpha bounds. Ring depth split is a planar approximation. render_padding=.3 is a runtime starting value; elliptical UV warp must be validated against full alpha support, including faint dust. Clamp outside original UV; never repeat texture.",
+      "family": "wind",
+      "sha256": "52b0776b40a3626b4d79a9f3181b2772ec3e1e9b852ca0b32570ff4f6ad91803",
+      "motion": "turbulence"
+    },
+    "wind_ring": {
+      "texture": "res://vfx/v2/art/wind_ring.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.51
+      ],
+      "seam": 0.51,
+      "split_depth": true,
+      "flow_center": [
+        0.5,
+        0.51
+      ],
+      "flow_radius": [
+        0.39,
+        0.17
+      ],
+      "render_padding": 0.65,
+      "duration_ticks": 600,
+      "loop": true,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "wind_ring_source.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Alpha retained; no thresholding, background removal, paint, or recoloring.",
+      "alpha_bounds_px": [
+        64,
+        78,
+        950,
+        950
+      ],
+      "origin": "top-left; normalized pivot/seam/flow_center in final 1024 texture coordinates",
+      "limitations": "One generated base, not an authored frame sequence or seamless loop. Flow radius is a visual centerline estimate, not alpha bounds. Ring depth split is a planar approximation. render_padding=.3 is a runtime starting value; elliptical UV warp must be validated against full alpha support, including faint dust. Clamp outside original UV; never repeat texture.",
+      "family": "wind",
+      "sha256": "248d8d0ff9a5aee347248b80fed2fbf66c046c1213531afd85abe19aea304f9d",
+      "motion": "ellipse_flow",
+      "flow_radians_per_second": 0.6
+    },
+    "wind_wave": {
+      "texture": "res://vfx/v2/art/wind_wave.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "seam": 0.5,
+      "split_depth": false,
+      "flow_center": [
+        0.5,
+        0.5
+      ],
+      "flow_radius": [
+        0.35,
+        0.35
+      ],
+      "render_padding": 0.3,
+      "duration_ticks": 24,
+      "loop": false,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "wind_wave_source.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Alpha retained; no thresholding, background removal, paint, or recoloring.",
+      "alpha_bounds_px": [
+        64,
+        78,
+        960,
+        960
+      ],
+      "origin": "top-left; normalized pivot/seam/flow_center in final 1024 texture coordinates",
+      "limitations": "One generated base, not an authored frame sequence or seamless loop. Flow radius is a visual centerline estimate, not alpha bounds. Ring depth split is a planar approximation. render_padding=.3 is a runtime starting value; elliptical UV warp must be validated against full alpha support, including faint dust. Clamp outside original UV; never repeat texture.",
+      "family": "wind",
+      "sha256": "20c13afa46010db9f15f373f4b097359c6d4b1626dc49199cd5c816d4c84a9ff",
+      "motion": "turbulence"
+    },
+    "wind_hit": {
+      "texture": "res://vfx/v2/art/wind_hit.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "seam": 0.5,
+      "split_depth": false,
+      "flow_center": [
+        0.5,
+        0.5
+      ],
+      "flow_radius": [
+        0.35,
+        0.35
+      ],
+      "render_padding": 0.3,
+      "duration_ticks": 24,
+      "loop": false,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "source_art": "wind_hit_source.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Alpha retained; no thresholding, background removal, paint, or recoloring.",
+      "alpha_bounds_px": [
+        64,
+        70,
+        960,
+        960
+      ],
+      "origin": "top-left; normalized pivot/seam/flow_center in final 1024 texture coordinates",
+      "limitations": "One generated base, not an authored frame sequence or seamless loop. Flow radius is a visual centerline estimate, not alpha bounds. Ring depth split is a planar approximation. render_padding=.3 is a runtime starting value; elliptical UV warp must be validated against full alpha support, including faint dust. Clamp outside original UV; never repeat texture.",
+      "family": "wind",
+      "sha256": "38427688038e0cf22109119a22e5d1ea2452300a3c7b0a1e5c461859042551d1",
+      "motion": "turbulence"
+    },
+    "lightning_arc": {
+      "texture": "res://vfx/v2/art/lightning_arc.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.5,
+      "duration_ticks": 24,
+      "loop": false,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "optional_blend": "add_with_reduced_intensity_after_scene_QA",
+      "source_art": "lightning_arc_source.png",
+      "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. Original generated alpha preserved; no effect painting or background removal.",
+      "bounds_px": [
+        64,
+        64,
+        960,
+        960
+      ],
+      "visible_bounds_alpha16_px": [
+        106,
+        99,
+        893,
+        926
+      ],
+      "transparent_gutter_px": 64,
+      "render_padding": 0.3,
+      "limitations": [
+        "One generated authored frame only, not a hand-animated flipbook.",
+        "Violet-blue halo is baked into source; isolate motion with mesh, UV flow and localized sparks.",
+        "Do not use high-frequency full-screen flashes; use small localized low-amplitude intensity changes.",
+        "Runtime distortion and elliptical UV rotation require overscan validation; texture gutter alone is not sufficient."
+      ],
+      "flow_center": [
+        0.5,
+        0.5
+      ],
+      "flow_radius": [
+        0.4,
+        0.4
+      ],
+      "family": "lightning",
+      "sha256": "0159231d200a9b776f68fd1012130f0a3b0e8ec6e17fbbfa09b7e849acc5521d",
+      "motion": "turbulence"
+    },
+    "lightning_ring": {
+      "texture": "res://vfx/v2/art/lightning_ring.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": true,
+      "seam": 0.5,
+      "duration_ticks": 600,
+      "loop": true,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "optional_blend": "add_with_reduced_intensity_after_scene_QA",
+      "source_art": "lightning_ring_source.png",
+      "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. Original generated alpha preserved; no effect painting or background removal.",
+      "bounds_px": [
+        64,
+        79,
+        958,
+        942
+      ],
+      "visible_bounds_alpha16_px": [
+        107,
+        358,
+        918,
+        675
+      ],
+      "transparent_gutter_px": 64,
+      "render_padding": 0.6,
+      "limitations": [
+        "One generated authored frame only, not a hand-animated flipbook.",
+        "Violet-blue halo is baked into source; isolate motion with mesh, UV flow and localized sparks.",
+        "Do not use high-frequency full-screen flashes; use small localized low-amplitude intensity changes.",
+        "Runtime distortion and elliptical UV rotation require overscan validation; texture gutter alone is not sufficient."
+      ],
+      "flow_center": [
+        0.5,
+        0.5
+      ],
+      "flow_radius": [
+        0.36,
+        0.125
+      ],
+      "ringmetric": {
+        "ellipse_center_uv": [
+          0.5,
+          0.5
+        ],
+        "ellipse_radius_uv": [
+          0.36,
+          0.125
+        ],
+        "basis": "Visual centerline estimate after layout, excluding branching sparks; validate during scene integration.",
+        "seam_uv_y": 0.5,
+        "front_half": "y >= 0.5",
+        "back_half": "y < 0.5"
+      },
+      "overscan_note": "0.30 is initial render expansion for integrator QA, not proof of arbitrary full rotations. Keep ellipse-aware ring flow; full UV-plane rotation can clip or distort thin ellipse. Prefer mesh phase flow or larger padded render quad.",
+      "family": "lightning",
+      "sha256": "2aaf9a821c678b3251460f6b5c22087c3a54303f25ab1903ed874fd015cac78a",
+      "motion": "ellipse_flow",
+      "flow_radians_per_second": 0.6
+    },
+    "lightning_wave": {
+      "texture": "res://vfx/v2/art/lightning_wave.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.5,
+      "duration_ticks": 24,
+      "loop": false,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "optional_blend": "add_with_reduced_intensity_after_scene_QA",
+      "source_art": "lightning_wave_source.png",
+      "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. Original generated alpha preserved; no effect painting or background removal.",
+      "bounds_px": [
+        64,
+        79,
+        950,
+        960
+      ],
+      "visible_bounds_alpha16_px": [
+        94,
+        230,
+        940,
+        809
+      ],
+      "transparent_gutter_px": 64,
+      "render_padding": 0.3,
+      "limitations": [
+        "One generated authored frame only, not a hand-animated flipbook.",
+        "Violet-blue halo is baked into source; isolate motion with mesh, UV flow and localized sparks.",
+        "Do not use high-frequency full-screen flashes; use small localized low-amplitude intensity changes.",
+        "Runtime distortion and elliptical UV rotation require overscan validation; texture gutter alone is not sufficient."
+      ],
+      "flow_center": [
+        0.5,
+        0.5
+      ],
+      "flow_radius": [
+        0.4,
+        0.4
+      ],
+      "family": "lightning",
+      "sha256": "1baa1f9e1d0715cbfab17ec19ba57cce75a142b9325659abd9667938b8ed29aa",
+      "motion": "turbulence"
+    },
+    "lightning_hit": {
+      "texture": "res://vfx/v2/art/lightning_hit.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "split_depth": false,
+      "seam": 0.5,
+      "duration_ticks": 24,
+      "loop": false,
+      "world_size": 280,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "optional_blend": "add_with_reduced_intensity_after_scene_QA",
+      "source_art": "lightning_hit_source.png",
+      "layout_operation": "Uniform Lanczos fit source within 896x896, centered on 1024x1024 transparent canvas. Original generated alpha preserved; no effect painting or background removal.",
+      "bounds_px": [
+        64,
+        75,
+        960,
+        960
+      ],
+      "visible_bounds_alpha16_px": [
+        125,
+        134,
+        912,
+        874
+      ],
+      "transparent_gutter_px": 64,
+      "render_padding": 0.3,
+      "limitations": [
+        "One generated authored frame only, not a hand-animated flipbook.",
+        "Violet-blue halo is baked into source; isolate motion with mesh, UV flow and localized sparks.",
+        "Do not use high-frequency full-screen flashes; use small localized low-amplitude intensity changes.",
+        "Runtime distortion and elliptical UV rotation require overscan validation; texture gutter alone is not sufficient."
+      ],
+      "flow_center": [
+        0.5,
+        0.5
+      ],
+      "flow_radius": [
+        0.4,
+        0.4
+      ],
+      "family": "lightning",
+      "sha256": "672dbd9809d2e3698bd086cc8fc387c2f4ea52626bcff31280ee9577839850f5",
+      "motion": "turbulence"
+    },
+    "matchlock_muzzle_flash": {
+      "texture": "res://vfx/v2/art/matchlock_muzzle_flash.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.125,
+        0.5
+      ],
+      "split_depth": false,
+      "duration_ticks": 24,
+      "loop": false,
+      "world_size": 200,
+      "motion": "",
+      "family": "matchlock",
+      "blend": "straight_alpha",
+      "sha256": "72b9b1678914395a7967d1129575ed94d577de81a8d2c88a37bc6fc198eaa5cf",
+      "animation_source": "single_generated_base_plus_procedural_envelope",
+      "layout_source": "sources/matchlock/layout_alpha_hash.json"
+    },
+    "matchlock_smoke": {
+      "texture": "res://vfx/v2/art/matchlock_smoke.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.125,
+        0.5
+      ],
+      "split_depth": false,
+      "duration_ticks": 24,
+      "loop": false,
+      "world_size": 200,
+      "motion": "",
+      "family": "matchlock",
+      "blend": "straight_alpha",
+      "sha256": "92467379e4fc247e2db5a769c614b0536bc3f2d61d3ad5b379dd64086ca11924",
+      "animation_source": "single_generated_base_plus_procedural_envelope",
+      "layout_source": "sources/matchlock/layout_alpha_hash.json"
+    },
+    "neutral_slash_arc": {
+      "texture": "res://vfx/v2/art/neutral_slash_arc.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "seam": 0.5,
+      "split_depth": false,
+      "render_padding": 0.3,
+      "duration_ticks": 24,
+      "ticks_per_second": 60,
+      "loop": false,
+      "world_size": 180,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "recommended_opacity": 0.55,
+      "source_art": "sources/neutral_slash_arc.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+      "alpha_bounds_px": [
+        237,
+        231,
+        801,
+        800
+      ],
+      "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+      "placement_note": "hand-to-tip rotation; neutral blade path, not an energy projectile",
+      "recommended_visible_aspect_ratio_range": [
+        0.8,
+        1.25
+      ],
+      "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow.",
+      "family": "neutral",
+      "sha256": "ee793da62eac561097a81b3add59211118f1a9e1a80142e7652b15d1e831d11c",
+      "motion": ""
+    },
+    "neutral_thrust_cone": {
+      "texture": "res://vfx/v2/art/neutral_thrust_cone.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.834,
+        0.516
+      ],
+      "seam": 0.5,
+      "split_depth": false,
+      "render_padding": 0.3,
+      "duration_ticks": 24,
+      "ticks_per_second": 60,
+      "loop": false,
+      "world_size": 180,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "recommended_opacity": 0.45,
+      "source_art": "sources/neutral_thrust_cone.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+      "alpha_bounds_px": [
+        200,
+        362,
+        901,
+        724
+      ],
+      "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+      "placement_note": "rightmost tip attaches to spear tip; cone opens toward left",
+      "recommended_visible_aspect_ratio_range": [
+        1.5,
+        3.5
+      ],
+      "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow.",
+      "family": "neutral",
+      "sha256": "04880bb528ec96c111f36d557da11622b364c74992944b18a09d3bbc439e6a49",
+      "motion": ""
+    },
+    "neutral_trail_strip": {
+      "texture": "res://vfx/v2/art/neutral_trail_strip.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.802,
+        0.504
+      ],
+      "seam": 0.5,
+      "split_depth": false,
+      "render_padding": 0.3,
+      "duration_ticks": 24,
+      "ticks_per_second": 60,
+      "loop": false,
+      "world_size": 180,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "recommended_opacity": 0.45,
+      "source_art": "sources/neutral_trail_strip.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+      "alpha_bounds_px": [
+        180,
+        499,
+        881,
+        598
+      ],
+      "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+      "placement_note": "right head follows projectile; tail fades left; velocity determines angle",
+      "recommended_visible_aspect_ratio_range": [
+        8,
+        24
+      ],
+      "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow.",
+      "family": "neutral",
+      "sha256": "9f7ba60982033053305e7099b39c9bad75f0150740a3c82347625c3f94b70697",
+      "motion": ""
+    },
+    "neutral_hit_burst": {
+      "texture": "res://vfx/v2/art/neutral_hit_burst.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "seam": 0.5,
+      "split_depth": false,
+      "render_padding": 0.3,
+      "duration_ticks": 24,
+      "ticks_per_second": 60,
+      "loop": false,
+      "world_size": 180,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "recommended_opacity": 0.65,
+      "source_art": "sources/neutral_hit_burst.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+      "alpha_bounds_px": [
+        256,
+        228,
+        897,
+        780
+      ],
+      "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+      "placement_note": "impact center; compact short physical scratch burst",
+      "recommended_visible_aspect_ratio_range": [
+        0.8,
+        1.2
+      ],
+      "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow.",
+      "family": "neutral",
+      "sha256": "0eb29d5d731e31bf3fc33e0de267ee472fec2bd2367a73b18f7182350cf91136",
+      "motion": ""
+    },
+    "neutral_dust": {
+      "texture": "res://vfx/v2/art/neutral_dust.png",
+      "cell": [
+        1024,
+        1024
+      ],
+      "columns": 1,
+      "rows": 1,
+      "row": 0,
+      "frames": 1,
+      "frame_count": 1,
+      "pivot": [
+        0.5,
+        0.766
+      ],
+      "seam": 0.5,
+      "split_depth": false,
+      "render_padding": 0.3,
+      "duration_ticks": 24,
+      "ticks_per_second": 60,
+      "loop": false,
+      "world_size": 180,
+      "animation_source": "single_generated_texture_plus_runtime_procedural_motion",
+      "blend": "straight_alpha",
+      "recommended_opacity": 0.35,
+      "source_art": "sources/neutral_dust.png",
+      "layout_operation": "Uniform Lanczos fit complete source within 896x896, center on transparent 1024x1024. Preserve generated alpha without threshold, painting, or background removal.",
+      "alpha_bounds_px": [
+        129,
+        124,
+        893,
+        891
+      ],
+      "origin": "top-left texture coordinates; pivot normalized to final 1024 image",
+      "placement_note": "bottom ground contact; small upward dust puff",
+      "recommended_visible_aspect_ratio_range": [
+        1.3,
+        2.5
+      ],
+      "limitations": "Single authored base, not frame-by-frame animation. Visible aspect ratio guidance refers to occupied mark, not square texture dimensions. Pivots are visually measured on generated art. Clamp UV; alpha-mix only, no additive glow.",
+      "family": "neutral",
+      "sha256": "862670013fd66a7bb1c6dc9651af84213f39c8cb5dd3ac948d445669f7feb0b9",
+      "motion": ""
+    }
+  }
+}

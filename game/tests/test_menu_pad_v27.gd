@@ -37,35 +37,38 @@ func run() -> void:
 	for device in [0,3,7]:
 		app._show_menu_page("title")
 		button(device,JOY_BUTTON_A)
-		check(app.menu_screen == "main","Pad %d confirms the title once" % device)
+		check(app.menu_screen == "players","Pad %d confirms title into player login once" % device)
 		app._show_menu_page("main")
 		var focus := root.gui_get_focus_owner()
 		button(device,JOY_BUTTON_DPAD_DOWN)
 		check(root.gui_get_focus_owner() != focus,"Pad %d moves menu focus" % device)
 		app.menu_pages.main.get_node("Solo").grab_focus()
 		button(device,JOY_BUTTON_A)
-		check(app.menu_screen == "select","Pad %d opens character selection" % device)
-		app.heroes.grab_focus()
+		check(app.menu_screen == "players","Pad %d opens player login" % device)
+		app.players_continue.grab_focus()
+		button(device,JOY_BUTTON_A)
+		check(app.menu_screen == "roster","Pad %d proceeds from login to hero choice" % device)
+		app.roster_choices[0].grab_focus()
 		button(device,JOY_BUTTON_A)
 		await process_frame
-		check(app.heroes.get_popup().visible,"Pad %d opens an option list" % device)
+		check(app.roster_choices[0].get_popup().visible,"Pad %d opens an option list" % device)
 		button(device,JOY_BUTTON_B)
 		await process_frame
-		check(not app.heroes.get_popup().visible and app.menu_screen == "select","Pad %d closes only the option list" % device)
+		check(not app.roster_choices[0].get_popup().visible and app.menu_screen == "roster","Pad %d closes only the option list" % device)
 		app._request_confirmation(func(): confirmed += 1,"Test confirmation")
 		await process_frame
 		button(device,JOY_BUTTON_A)
-		check(app.menu_screen == "select" and confirmed == 0,"Pad %d defaults to Cancel" % device)
+		check(app.menu_screen == "roster" and confirmed == 0,"Pad %d defaults to Cancel" % device)
 		app._request_confirmation(func(): confirmed += 1,"Test confirmation")
 		await process_frame
 		button(device,JOY_BUTTON_DPAD_DOWN)
 		check(root.gui_get_focus_owner() == app.menu_pages.confirm.get_node("Confirm"),"Pad %d moves focus to Confirm" % device)
 		button(device,JOY_BUTTON_A)
-		check(app.menu_screen == "select" and confirmed == 1,"Pad %d can choose and activate Confirm exactly once" % device)
+		check(app.menu_screen == "roster" and confirmed == 1,"Pad %d can choose and activate Confirm exactly once" % device)
 		confirmed = 0
 		await process_frame
 		button(device,JOY_BUTTON_B)
-		check(app.menu_screen == "main","Pad %d retains Back" % device)
+		check(app.menu_screen == "players","Pad %d returns to login with Back" % device)
 	app._show_menu_page("title")
 	for down in [true,false]:
 		var event := InputEventKey.new()
@@ -74,10 +77,20 @@ func run() -> void:
 		event.pressed = down
 		Input.parse_input_event(event)
 		Input.flush_buffered_events()
-	check(app.menu_screen == "main","Keyboard Enter still confirms")
+	check(app.menu_screen == "players","Keyboard Enter still confirms into login")
 	app._start_solo()
 	app.paused = true
 	app._show_menu_page("pause")
+	var row: Dictionary = app.profiles.character(0,"nobunaga")
+	var equipment = preload("res://core/equipment.gd")
+	for id in ["sword_nagamitsu","war"]: equipment.pack(row,equipment.add(row,id),true)
+	app.profiles.records[app.profiles.selected[0]].data.characters["0:nobunaga"] = row
+	app._open_collection(0)
+	button(3,JOY_BUTTON_RIGHT_SHOULDER)
+	check(app.collection.categories.current_tab == 1 and app.collection.listed.size() == 1 and app.collection.listed[0].category == "刀","Shoulder button filters actual carried items to swords")
+	button(3,JOY_BUTTON_LEFT_SHOULDER)
+	check(app.collection.categories.current_tab == 0 and app.collection.listed.size() == 2,"Left shoulder returns to both carried categories")
+	app._menu_back()
 	app.menu_pages.pause.get_node("Leave").grab_focus()
 	button(3,JOY_BUTTON_A)
 	check(app.active and app.menu_screen == "confirm","Leaving a battle still requires confirmation")

@@ -4,6 +4,7 @@ const Battle = preload("res://core/battle.gd")
 const View = preload("res://render/battle_view.gd")
 const HUD = preload("res://render/combat_hud.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
+const LayeredHeroSource = preload("res://render/layered_hero_source.gd")
 const HEROES := ["nobunaga","oichi","tadakatsu"]
 const ACTIONS := ["idle","walk","run","jump","light1","light2","light3","heavy1","heavy2","charge","charge_upper","charge_slam","charged","charged_upper","charged_slam","dash_heavy","dash_strike","rising","low_sweep","air_light","air_heavy","upper_heavy","ground_slam","mixed_finisher","mixed_rising","counter_cut","holding","throw","hurt","guard","grabbed","pulled","stunned","frozen","launched","down","recovering","defeated","victory","special"]
 const TIMINGS := {"light":[6,19],"heavy":[14,36],"charged":[14,36],"rising":[6,24],"low_sweep":[9,28],"dash_strike":[10,30],"dash_heavy":[12,34],"air_light":[6,20],"air_heavy":[12,38],"upper_heavy":[12,36],"charged_upper":[22,56],"ground_slam":[14,42],"charged_slam":[28,72],"counter_cut":[5,24]}
@@ -117,7 +118,7 @@ func run() -> void:
 		var sheets: Dictionary = view._art.animations.get(hero,{})
 		check(sheets.has("v22_idle"),hero + " v22 registration loads into runtime art")
 		var portrait := HUD.portrait_spec(hero)
-		check(str(portrait.file).begins_with("res://assets/v22/" + hero + "/"),hero + " HUD uses the same new character artwork")
+		check(str(portrait.file).begins_with(LayeredHeroSource.folder(hero)),hero + " HUD uses the same active character artwork")
 		for sheet in sheets:
 			if not str(sheet).begins_with("v22_"): continue
 			check(sheets[sheet].size() == 6,hero + " " + sheet + " retains six drawn poses")
@@ -178,7 +179,7 @@ func run() -> void:
 			var frame: Dictionary = view._art.animation_frame(hero,sample)
 			if index == 0: original_texture = frame.texture
 			check(frame.texture == original_texture,hero + " changing equipment keeps exactly the same body drawing")
-			check(view._weapons.geometry(actor,frame,148 if hero == "oichi" else 155).get("id") == actor.weapon_id,hero + " renders the selected weapon and mirror")
+			check(view._weapons.geometry(actor,frame,148 if hero == "oichi" else 155).get("id") == Weapons.art_id(actor.weapon_id),hero + " renders the selected weapon and mirror")
 			view.cards.append(actor)
 			view.samples[actor.id] = sample
 		view.state = {"tick":120,"phase":"playing","fighters":view.cards}

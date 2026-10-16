@@ -4,6 +4,8 @@ class VirtualPads:
 	extends "res://main.gd"
 	func _connected_pads() -> Array[int]: return [3, 7]
 	func _stop_rumble() -> void: pass
+	# This fixture verifies audio after the user has confirmed the mode change.
+	func _confirm_end(_action: Callable, _message: String) -> bool: return false
 
 var checks := 0
 var failures := 0
@@ -29,6 +31,7 @@ func run() -> void:
 	app._open_options()
 	check(music.playing and not music.stream_paused and music.get_stream_playback() == title_playback, "Main menu and audio options preserve the title theme without restarting it")
 	app._menu_back()
+	app.session = "solo"
 	app._start_training()
 	music = app.audio._music_player
 	check(music.playing and not music.stream_paused, "Training starts the battle score")
@@ -75,13 +78,13 @@ func run() -> void:
 	check(music.playing and not music.stream_paused, "Solo battle starts its score")
 	app.sim.state.phase = "won"
 	app._physics_process(1.0 / 60.0)
-	check(music.playing and not music.stream_paused, "Victory keeps the score playing beneath the result voice")
+	check(app.audio._music_key == "victory_jingle" and app.audio._music_player.playing and not music.playing, "Victory stops battle music and starts its one-shot celebration beneath the result voice")
 	app.sim.state.phase = "lost"
 	app.terminal_voice_played = false
 	app._physics_process(1.0 / 60.0)
-	check(music.playing and not music.stream_paused, "Defeat keeps the score playing beneath the result screen")
+	check(not app.audio._music_player.playing and not app.audio._music_tail.playing, "Defeat stops both campaign scores")
 	app._start_art_demo()
-	check(not music.playing, "Art demonstration does not inherit battle music")
+	check(not app.audio._music_player.playing and not app.audio._music_tail.playing, "Art demonstration does not inherit battle music")
 	app._leave_to_menu()
 	app._start_solo()
 	app._fail("test disconnect")

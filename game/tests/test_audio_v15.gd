@@ -133,7 +133,7 @@ func run() -> void:
 				heard.append(previous)
 			heard.sort()
 			check(heard == range(count),"Each random bag covers every take: " + kind)
-	check(take_count == 79,"The 24 combat categories and the new healing category have 79 real PCM takes")
+	check(take_count == 109,"The thirty-five combat, healing and environment categories have 109 real PCM takes")
 	var orders := []
 	for seed_value in [71,903]:
 		audio._rng.seed = seed_value
@@ -158,7 +158,7 @@ func run() -> void:
 	check(audio.speech_playing(),"The victory queue also respects boss introductions")
 	audio.stop_speech()
 	if "--require-v15" in OS.get_cmdline_user_args():
-		check(audio.speech_manifest.version == "0.15","The final build loads the v15 manifest")
+		check(audio.speech_manifest.version in ["0.15","0.27","0.30","0.31"],"The final build loads v15 or a complete later voice revision")
 	if audio.speech_manifest.version == "0.15":
 		var short_count := 0
 		var victory_count := 0

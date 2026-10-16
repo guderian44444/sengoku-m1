@@ -1,0 +1,1671 @@
+{
+  "shield": {
+    "name": "盾兵",
+    "scale": 0.7,
+    "root": [
+      260,
+      285
+    ],
+    "actions": {
+      "idle": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/idle/01.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/idle/02.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/idle/03.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/idle/04.png"
+          }
+        ]
+      },
+      "walk": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/walk/01.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/walk/02.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/walk/03.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/walk/04.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/walk/05.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/walk/06.png"
+          }
+        ]
+      },
+      "attack": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/attack/01.png"
+          },
+          {
+            "duration_ms": 80,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/attack/02.png"
+          },
+          {
+            "duration_ms": 60,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/attack/03.png"
+          },
+          {
+            "duration_ms": 160,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/attack/04.png"
+          }
+        ]
+      },
+      "hurt": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 60,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/hurt/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/hurt/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/hurt/03.png"
+          },
+          {
+            "duration_ms": 140,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/hurt/04.png"
+          }
+        ]
+      },
+      "down": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/down/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/down/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/down/03.png"
+          },
+          {
+            "duration_ms": 700,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/down/04.png"
+          }
+        ]
+      },
+      "block": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/block/01.png"
+          },
+          {
+            "duration_ms": 120,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/block/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/block/03.png"
+          },
+          {
+            "duration_ms": 120,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/shield/block/04.png"
+          }
+        ]
+      }
+    }
+  },
+  "spear": {
+    "name": "槍兵",
+    "scale": 0.7,
+    "root": [
+      260,
+      285
+    ],
+    "actions": {
+      "idle": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/idle/01.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/idle/02.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/idle/03.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/idle/04.png"
+          }
+        ]
+      },
+      "walk": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/walk/01.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/walk/02.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/walk/03.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/walk/04.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/walk/05.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/walk/06.png"
+          }
+        ]
+      },
+      "attack": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/attack/01.png"
+          },
+          {
+            "duration_ms": 80,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/attack/02.png"
+          },
+          {
+            "duration_ms": 60,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/attack/03.png"
+          },
+          {
+            "duration_ms": 160,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/attack/04.png"
+          }
+        ]
+      },
+      "hurt": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 60,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/hurt/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/hurt/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/hurt/03.png"
+          },
+          {
+            "duration_ms": 140,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/hurt/04.png"
+          }
+        ]
+      },
+      "down": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/down/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/down/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/down/03.png"
+          },
+          {
+            "duration_ms": 700,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/spear/down/04.png"
+          }
+        ]
+      }
+    }
+  },
+  "archer": {
+    "name": "弓兵",
+    "scale": 0.7,
+    "root": [
+      260,
+      285
+    ],
+    "actions": {
+      "idle": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/idle/01.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/idle/02.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/idle/03.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/idle/04.png"
+          }
+        ]
+      },
+      "walk": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/walk/01.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/walk/02.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/walk/03.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/walk/04.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/walk/05.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/walk/06.png"
+          }
+        ]
+      },
+      "attack": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/attack/01.png"
+          },
+          {
+            "duration_ms": 80,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/attack/02.png"
+          },
+          {
+            "duration_ms": 60,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/attack/03.png"
+          },
+          {
+            "duration_ms": 160,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/attack/04.png"
+          }
+        ]
+      },
+      "hurt": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 60,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/hurt/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/hurt/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/hurt/03.png"
+          },
+          {
+            "duration_ms": 140,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/hurt/04.png"
+          }
+        ]
+      },
+      "down": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/down/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/down/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/down/03.png"
+          },
+          {
+            "duration_ms": 700,
+            "root": [
+              260,
+              285
+            ],
+            "package_path": "frames/archer/down/04.png"
+          }
+        ]
+      }
+    }
+  },
+  "ujinori": {
+    "name": "蒲原氏德",
+    "scale": 0.52,
+    "root": [
+      270,
+      480
+    ],
+    "actions": {
+      "idle": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 200,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/idle/01.png"
+          },
+          {
+            "duration_ms": 200,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/idle/02.png"
+          },
+          {
+            "duration_ms": 200,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/idle/03.png"
+          },
+          {
+            "duration_ms": 200,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/idle/04.png"
+          }
+        ]
+      },
+      "hurt": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 70,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/hurt/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/hurt/02.png"
+          },
+          {
+            "duration_ms": 150,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/hurt/03.png"
+          },
+          {
+            "duration_ms": 140,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/hurt/04.png"
+          }
+        ]
+      },
+      "down": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 70,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/down/01.png"
+          },
+          {
+            "duration_ms": 90,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/down/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/down/03.png"
+          },
+          {
+            "duration_ms": 120,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/down/04.png"
+          },
+          {
+            "duration_ms": 120,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/down/05.png"
+          },
+          {
+            "duration_ms": 300,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/down/06.png"
+          }
+        ]
+      },
+      "guard_retreat": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 130,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/guard_retreat/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/guard_retreat/02.png"
+          },
+          {
+            "duration_ms": 160,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/guard_retreat/03.png"
+          },
+          {
+            "duration_ms": 170,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/guard_retreat/04.png"
+          }
+        ]
+      },
+      "walk": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 160,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/walk/01.png"
+          },
+          {
+            "duration_ms": 160,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/walk/02.png"
+          },
+          {
+            "duration_ms": 160,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/walk/03.png"
+          },
+          {
+            "duration_ms": 160,
+            "root": [
+              270,
+              480
+            ],
+            "package_path": "frames/ujinori/walk/04.png"
+          }
+        ]
+      },
+      "slash": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 120,
+            "root": [
+              140,
+              480
+            ],
+            "package_path": "frames/ujinori/slash/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              140,
+              480
+            ],
+            "package_path": "frames/ujinori/slash/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              140,
+              480
+            ],
+            "package_path": "frames/ujinori/slash/03.png"
+          },
+          {
+            "duration_ms": 40,
+            "root": [
+              140,
+              480
+            ],
+            "package_path": "frames/ujinori/slash/04.png"
+          },
+          {
+            "duration_ms": 50,
+            "root": [
+              140,
+              480
+            ],
+            "package_path": "frames/ujinori/slash/05.png"
+          },
+          {
+            "duration_ms": 90,
+            "root": [
+              140,
+              480
+            ],
+            "package_path": "frames/ujinori/slash/06.png"
+          },
+          {
+            "duration_ms": 130,
+            "root": [
+              140,
+              480
+            ],
+            "package_path": "frames/ujinori/slash/07.png"
+          },
+          {
+            "duration_ms": 170,
+            "root": [
+              140,
+              480
+            ],
+            "package_path": "frames/ujinori/slash/08.png"
+          }
+        ]
+      }
+    }
+  },
+  "ii_naomori": {
+    "name": "井伊直盛",
+    "scale": 0.58,
+    "root": [
+      70,
+      500
+    ],
+    "actions": {
+      "idle": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/idle/01.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/idle/02.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/idle/03.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/idle/04.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/idle/05.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/idle/06.png"
+          }
+        ]
+      },
+      "walk": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/walk/01.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/walk/02.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/walk/03.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/walk/04.png"
+          }
+        ]
+      },
+      "thrust": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 120,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/thrust/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/thrust/02.png"
+          },
+          {
+            "duration_ms": 90,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/thrust/03.png"
+          },
+          {
+            "duration_ms": 40,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/thrust/04.png"
+          },
+          {
+            "duration_ms": 40,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/thrust/05.png"
+          },
+          {
+            "duration_ms": 90,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/thrust/06.png"
+          },
+          {
+            "duration_ms": 80,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/thrust/07.png"
+          },
+          {
+            "duration_ms": 140,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/thrust/08.png"
+          }
+        ]
+      },
+      "guard_retreat": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 100,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/guard_retreat/01.png"
+          },
+          {
+            "duration_ms": 90,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/guard_retreat/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/guard_retreat/03.png"
+          },
+          {
+            "duration_ms": 170,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/guard_retreat/04.png"
+          }
+        ]
+      },
+      "hurt": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 100,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/hurt/01.png"
+          },
+          {
+            "duration_ms": 70,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/hurt/02.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/hurt/03.png"
+          },
+          {
+            "duration_ms": 150,
+            "root": [
+              70,
+              500
+            ],
+            "package_path": "frames/ii_naomori/hurt/04.png"
+          }
+        ]
+      },
+      "down": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 100,
+            "root": [
+              150,
+              500
+            ],
+            "package_path": "frames/ii_naomori/down/01.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              150,
+              500
+            ],
+            "package_path": "frames/ii_naomori/down/02.png"
+          },
+          {
+            "duration_ms": 90,
+            "root": [
+              150,
+              500
+            ],
+            "package_path": "frames/ii_naomori/down/03.png"
+          },
+          {
+            "duration_ms": 90,
+            "root": [
+              150,
+              500
+            ],
+            "package_path": "frames/ii_naomori/down/04.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              150,
+              500
+            ],
+            "package_path": "frames/ii_naomori/down/05.png"
+          },
+          {
+            "duration_ms": 350,
+            "root": [
+              150,
+              500
+            ],
+            "package_path": "frames/ii_naomori/down/06.png"
+          }
+        ]
+      }
+    }
+  },
+  "yoshimoto": {
+    "name": "今川義元",
+    "scale": 0.62,
+    "root": [
+      200,
+      480
+    ],
+    "actions": {
+      "idle": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/idle/00.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/idle/01.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/idle/02.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/idle/03.png"
+          }
+        ]
+      },
+      "hurt": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 80,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/hurt/00.png"
+          },
+          {
+            "duration_ms": 90,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/hurt/01.png"
+          },
+          {
+            "duration_ms": 120,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/hurt/02.png"
+          },
+          {
+            "duration_ms": 170,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/hurt/03.png"
+          }
+        ]
+      },
+      "walk": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/walk/00.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/walk/01.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/walk/02.png"
+          },
+          {
+            "duration_ms": 180,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/walk/03.png"
+          }
+        ]
+      },
+      "block": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 130,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/block/00.png"
+          },
+          {
+            "duration_ms": 140,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/block/01.png"
+          },
+          {
+            "duration_ms": 220,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/block/02.png"
+          },
+          {
+            "duration_ms": 170,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/block/03.png"
+          }
+        ]
+      },
+      "bow_shot": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 180,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/bow_shot/00.png"
+          },
+          {
+            "duration_ms": 300,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/bow_shot/01.png"
+          },
+          {
+            "duration_ms": 80,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/bow_shot/02.png"
+          },
+          {
+            "duration_ms": 220,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/bow_shot/03.png"
+          }
+        ]
+      },
+      "down": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 110,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/down/00.png"
+          },
+          {
+            "duration_ms": 140,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/down/01.png"
+          },
+          {
+            "duration_ms": 120,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/down/02.png"
+          },
+          {
+            "duration_ms": 500,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/down/03.png"
+          }
+        ]
+      },
+      "naginata_slash": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 130,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/naginata_slash/00.png"
+          },
+          {
+            "duration_ms": 140,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/naginata_slash/01.png"
+          },
+          {
+            "duration_ms": 120,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/naginata_slash/02.png"
+          },
+          {
+            "duration_ms": 70,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/naginata_slash/03.png"
+          },
+          {
+            "duration_ms": 40,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/naginata_slash/04.png"
+          },
+          {
+            "duration_ms": 70,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/naginata_slash/05.png"
+          },
+          {
+            "duration_ms": 110,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/naginata_slash/06.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/naginata_slash/07.png"
+          },
+          {
+            "duration_ms": 220,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/naginata_slash/08.png"
+          }
+        ]
+      },
+      "sword_energy": {
+        "loop": false,
+        "frames": [
+          {
+            "duration_ms": 130,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/sword_energy/00.png"
+          },
+          {
+            "duration_ms": 140,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/sword_energy/01.png"
+          },
+          {
+            "duration_ms": 120,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/sword_energy/02.png"
+          },
+          {
+            "duration_ms": 70,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/sword_energy/03.png"
+          },
+          {
+            "duration_ms": 40,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/sword_energy/04.png"
+          },
+          {
+            "duration_ms": 70,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/sword_energy/05.png"
+          },
+          {
+            "duration_ms": 110,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/sword_energy/06.png"
+          },
+          {
+            "duration_ms": 100,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/sword_energy/07.png"
+          },
+          {
+            "duration_ms": 220,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/sword_energy/08.png"
+          }
+        ]
+      },
+      "retreat": {
+        "loop": true,
+        "frames": [
+          {
+            "duration_ms": 150,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/retreat/00.png"
+          },
+          {
+            "duration_ms": 150,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/retreat/01.png"
+          },
+          {
+            "duration_ms": 150,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/retreat/02.png"
+          },
+          {
+            "duration_ms": 150,
+            "root": [
+              200,
+              480
+            ],
+            "package_path": "frames/yoshimoto/retreat/03.png"
+          }
+        ]
+      }
+    }
+  }
+}

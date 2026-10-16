@@ -45,10 +45,11 @@ func run() -> void:
 	check(not app.hint.visible, "Battle does not reserve the old bottom operation strip")
 	check(app.hud.text.contains("01/07") and app.hud.text.contains("據點 1/2"), "Campaign HUD names the region and its checkpoint")
 	var player: Dictionary = app.sim.state.fighters[0]
+	app.sim.state.stage.encounter_end = 2400.0 # Ensure this camera fixture permits scrolling even when the first checkpoint fits one screen.
 	player.x = 900.0
 	var camera_before: float = app.view.camera_x
 	app._update_view()
-	check(app.view.camera_x > camera_before and app.view.camera_x <= camera_before + 10.0 and app.view.camera_x <= Battle.camera_left(app.sim.state), "Main smoothly approaches the authoritative camera without revealing a locked checkpoint")
+	check(app.view.camera_x > camera_before and app.view.camera_x <= camera_before + 10.0 and app.view.camera_x <= Battle.camera_left(app.sim.state), "Main smoothly approaches the authoritative camera without revealing a locked checkpoint: before=%.1f after=%.1f target=%.1f party=%s" % [camera_before,app.view.camera_x,Battle.camera_left(app.sim.state),app.sim.state.fighters.filter(func(f): return f.team == 0).map(func(f): return f.x)])
 	app.session = "local"
 	app.sim.reset_campaign("normal", 2, ["nobunaga", "oichi"])
 	app._update_view()

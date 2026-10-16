@@ -46,7 +46,7 @@ static func stats(id: String) -> String:
 	var item: Dictionary = Weapons.item(id)
 	if item.is_empty(): return "尚無遊戲能力資料"
 	var element := str(item.get("element",""))
-	return "階位　%d\n傷害加成　%s\n攻擊距離加成　%s\n擊退加成　%s\n元素　%s" % [int(item.tier),signed_value(item.damage_bonus),signed_value(item.reach_bonus),signed_value(item.knockback),{"":"無","fire":"火","ice":"冰","earth":"地","blade":"刃"}.get(element,element)]
+	return "階位　%d\n傷害加成　%s\n攻速　%d%%\n攻擊距離加成　%s\n擊退加成　%s\n耐久上限　%s\n特殊能力　%s\n元素　%s" % [int(item.tier),signed_value(item.damage_bonus),roundi(float(item.get("attack_speed",1.0))*100),signed_value(item.reach_bonus),signed_value(item.knockback),"∞" if id.begins_with("practice_") else str(int(item.get("durability",180))),str(item.get("special","無")),{"":"無","fire":"火","ice":"冰","earth":"地","blade":"刃"}.get(element,element)]
 
 func history(id: String) -> String:
 	var info := entry(id)

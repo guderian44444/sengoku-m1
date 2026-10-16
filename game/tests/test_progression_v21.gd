@@ -1,6 +1,7 @@
 extends SceneTree
 
 const Battle = preload("res://core/battle.gd")
+const Equipment = preload("res://core/equipment.gd")
 var checks := 0
 var failures := 0
 
@@ -150,7 +151,8 @@ func _test_coop() -> void:
 	second.x = battle.state.stage.encounter_end - 100.0
 	second.action = "idle"
 	battle._tick_segment()
-	check(battle.state.stage.checkpoint == 1 and first.hp == 0, "An exhausted partner does not block the survivor from advancing through GO")
+	check(battle.state.stage.checkpoint == 1 and first.hp == first.max_hp and first.lives == 1, "Survivor advancing through GO grants the exhausted partner one life")
+	kill_player(battle,first)
 	first.score = 9950
 	first.next_life_score = 10000
 	battle._award_score(first.id, 50)
@@ -169,8 +171,9 @@ func _test_region_stats() -> void:
 		player.weapon = 1
 		player.armor = 1
 		player.rage = 47
-		player.shield_points = 63
-		player.shield_kind = "iron"
+		var charm := Equipment.add(player,"iron")
+		Equipment.instance(player,charm).durability = 63
+		Equipment.equip(player,charm)
 		if index == 1:
 			player.hp = 0
 			player.respawn_ticks = 38
@@ -245,16 +248,17 @@ func _test_score() -> void:
 	awards._award_score(player.id, -10)
 	check(player.score == 35000 and player.lives == 6, "Unknown owners, enemies and nonpositive awards cannot affect player progression")
 
-func give_talisman(battle: QuietBattle, player: Dictionary, key: String) -> void:
+func give_talisman(battle: QuietBattle, player: Dictionary, key: String, equip: bool = true) -> void:
 	battle._add_drop("talisman", player.x, player.y)
 	battle.state.drops[-1].talisman_id = key
 	battle._pickup(player)
+	if equip and battle.state.drops.is_empty(): Equipment.equip(player,int(player.inventory[-1].uid))
 
 func _test_talismans() -> void:
-	for key in Battle.TALISMANS:
+	for key in ["vajra","iron","mirror"]:
 		var battle := arena()
 		var player: Dictionary = battle.state.fighters[0]
-		var capacity: int = Battle.TALISMANS[key].shield
+		var capacity: int = Battle.TALISMANS[key].durability
 		check(capacity == {"vajra":40,"iron":75,"mirror":110}[key], key + " has the specified 40/75/110-point capacity")
 		battle.state.tick = 12
 		give_talisman(battle, player, key)
@@ -271,13 +275,15 @@ func _test_talismans() -> void:
 	var battle := arena()
 	var player: Dictionary = battle.state.fighters[0]
 	give_talisman(battle, player, "mirror")
-	give_talisman(battle, player, "vajra")
-	check(player.shield_points == 110 and player.shield_kind == "mirror" and battle.state.drops.size() == 1, "A weaker talisman stays on the floor and cannot replace stronger remaining protection")
+	give_talisman(battle, player, "vajra",false)
+	check(player.shield_points == 110 and player.shield_kind == "mirror" and battle.state.drops.is_empty() and player.inventory.size() == 2, "A weaker talisman enters the bag without replacing equipped protection")
 	battle.state.drops.clear()
-	give_talisman(battle, player, "mirror")
-	check(player.shield_points == 110 and battle.state.drops.size() == 1, "An equal full talisman is not wasted")
+	give_talisman(battle, player, "mirror",false)
+	check(player.shield_points == 110 and battle.state.drops.size() == 1, "A third talisman stays on the floor when the bag is full")
 	battle.state.drops.clear()
-	player.shield_points = 25
+	Equipment.instance(player,int(player.treasure_uid)).durability = 25
+	Equipment.sync(player)
+	Equipment.remove(player,int(player.inventory[-1].uid))
 	give_talisman(battle, player, "iron")
 	check(player.shield_points == 75 and player.shield_kind == "iron" and battle.state.drops.is_empty(), "A stronger remaining shield replaces depleted protection")
 	player.armor = 1

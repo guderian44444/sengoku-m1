@@ -1,0 +1,88 @@
+{
+  "action": "bow_shot",
+  "frame_count": 4,
+  "duration_ms": 780,
+  "frame_ms": [
+    180,
+    300,
+    80,
+    220
+  ],
+  "loop": false,
+  "hold_last": false,
+  "canvas": [
+    640,
+    560
+  ],
+  "root_px": [
+    200,
+    480
+  ],
+  "weapon_composited": true,
+  "world_motion": [
+    0,
+    0
+  ],
+  "frames": [
+    {
+      "file": "00.png",
+      "sheet_scale": 0.62,
+      "source_anchor": [
+        205,
+        595
+      ],
+      "translation": [
+        73,
+        111
+      ]
+    },
+    {
+      "file": "01.png",
+      "sheet_scale": 0.62,
+      "source_anchor": [
+        145,
+        595
+      ],
+      "translation": [
+        110,
+        111
+      ]
+    },
+    {
+      "file": "02.png",
+      "sheet_scale": 0.62,
+      "source_anchor": [
+        165,
+        570
+      ],
+      "translation": [
+        98,
+        127
+      ]
+    },
+    {
+      "file": "03.png",
+      "sheet_scale": 0.62,
+      "source_anchor": [
+        195,
+        580
+      ],
+      "translation": [
+        79,
+        120
+      ]
+    }
+  ],
+  "projectile_event": {
+    "time_ms": 480,
+    "direction": [
+      1,
+      0
+    ],
+    "origin_px": [
+      460,
+      240
+    ],
+    "type": "arrow"
+  }
+}

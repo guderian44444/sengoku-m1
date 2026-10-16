@@ -1,0 +1,563 @@
+{
+  "version": "v31",
+  "actors": {
+    "cross_spear": {
+      "file": "cross_spear.png",
+      "target": "enemy_clip",
+      "kind": "boss",
+      "key": "oda:cross_spear:poses",
+      "columns": 6,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          206.0,
+          654
+        ],
+        [
+          648.0,
+          650
+        ],
+        [
+          1044.0,
+          651
+        ],
+        [
+          346.5,
+          686
+        ],
+        [
+          1508.0,
+          687
+        ],
+        [
+          754,
+          949
+        ]
+      ],
+      "body_height": 545,
+      "body_heights": [
+        545,
+        545,
+        545,
+        758,
+        758,
+        500
+      ],
+      "regions": {
+        "0": [
+          12,
+          10,
+          417,
+          647
+        ],
+        "1": [
+          444,
+          18,
+          426,
+          635
+        ],
+        "2": [
+          849,
+          17,
+          393,
+          637
+        ],
+        "3": [
+          22,
+          120,
+          1202,
+          569
+        ],
+        "4": [
+          1186,
+          116,
+          978,
+          574
+        ],
+        "5": [
+          494,
+          809,
+          620,
+          166
+        ]
+      },
+      "frame_files": {
+        "0": "cross_spear.png",
+        "1": "cross_spear.png",
+        "2": "cross_spear.png",
+        "3": "cross_spear-attacks.png",
+        "4": "cross_spear-attacks.png",
+        "5": "cross_spear-reactions.png"
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": {
+        "cross_spear.png": "20bcb5e121c1b97297d161cd00569cc560c55ebe3c26fd964ab4418e3b62ac10",
+        "cross_spear-reactions.png": "8f07a966abefdf49b633989ed7de09e8a563ccf6747f8f3d7815ffcd4fc0e095",
+        "cross_spear-attacks.png": "efb21b312139708eb429c2f1477329acd7861fd20e40b681f913d38680cb2706"
+      },
+      "scale_policy": "standing anatomical height; attack ruler follows measured face-height ratio, not crouched bounding box"
+    },
+    "cross_spear-reactions": {
+      "file": "cross_spear-reactions.png",
+      "target": "enemy_clip",
+      "kind": "boss",
+      "key": "oda:cross_spear:reactions",
+      "columns": 6,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          293,
+          565
+        ],
+        [
+          739,
+          561
+        ],
+        [
+          1227,
+          560
+        ],
+        [
+          227,
+          949
+        ],
+        [
+          754,
+          949
+        ],
+        [
+          1293,
+          977
+        ]
+      ],
+      "body_height": 500,
+      "regions": {
+        "0": [
+          26,
+          11,
+          502,
+          561
+        ],
+        "1": [
+          543,
+          36,
+          509,
+          532
+        ],
+        "2": [
+          1033,
+          56,
+          492,
+          514
+        ],
+        "3": [
+          6,
+          718,
+          552,
+          245
+        ],
+        "4": [
+          494,
+          809,
+          620,
+          166
+        ],
+        "5": [
+          1101,
+          548,
+          424,
+          442
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": {
+        "cross_spear-reactions.png": "8f07a966abefdf49b633989ed7de09e8a563ccf6747f8f3d7815ffcd4fc0e095"
+      },
+      "poses": [
+        "hurt_recoil",
+        "hurt_fold",
+        "kneeling",
+        "falling",
+        "prone",
+        "rising"
+      ],
+      "scale_policy": "fixed anatomical ruler through hurt, fall, prone and rising; never normalize crouch bounds"
+    },
+    "short_yari": {
+      "file": "short_yari.png",
+      "target": "enemy_clip",
+      "kind": "boss",
+      "key": "oda:short_yari:poses",
+      "columns": 6,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          222.0,
+          654
+        ],
+        [
+          648.0,
+          651
+        ],
+        [
+          1052.0,
+          652
+        ],
+        [
+          390.5,
+          670
+        ],
+        [
+          1504.5,
+          677
+        ],
+        [
+          795,
+          930
+        ]
+      ],
+      "body_height": 505,
+      "body_heights": [
+        505,
+        505,
+        505,
+        719,
+        719,
+        490
+      ],
+      "regions": {
+        "0": [
+          47,
+          39,
+          379,
+          618
+        ],
+        "1": [
+          477,
+          51,
+          376,
+          603
+        ],
+        "2": [
+          880,
+          55,
+          363,
+          600
+        ],
+        "3": [
+          46,
+          83,
+          1101,
+          590
+        ],
+        "4": [
+          1141,
+          97,
+          1010,
+          583
+        ],
+        "5": [
+          541,
+          814,
+          601,
+          127
+        ]
+      },
+      "frame_files": {
+        "0": "short_yari.png",
+        "1": "short_yari.png",
+        "2": "short_yari.png",
+        "3": "short_yari-attacks.png",
+        "4": "short_yari-attacks.png",
+        "5": "short_yari-reactions.png"
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": {
+        "short_yari.png": "3c8b663def0cc18dba086252476b2a27dbc1d855b698c3b6cf1463610f6ddce3",
+        "short_yari-attacks.png": "9ee3f544dc8ef3c7783ec5d9ef23a149bb5931e608ceccf44da823ca3162e2f2",
+        "short_yari-reactions.png": "703d409442d82317a60b4b2e268c8e7bad71f995f64b11491b5e5646e6cef5e3"
+      },
+      "scale_policy": "standing anatomical height; attack ruler follows measured face-height ratio, not crouched bounding box"
+    },
+    "short_yari-reactions": {
+      "file": "short_yari-reactions.png",
+      "target": "enemy_clip",
+      "kind": "boss",
+      "key": "oda:short_yari:reactions",
+      "columns": 6,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          280,
+          593
+        ],
+        [
+          780,
+          587
+        ],
+        [
+          1230,
+          594
+        ],
+        [
+          241,
+          941
+        ],
+        [
+          795,
+          930
+        ],
+        [
+          1290,
+          968
+        ]
+      ],
+      "body_height": 490,
+      "regions": {
+        "0": [
+          43,
+          27,
+          522,
+          574
+        ],
+        "1": [
+          564,
+          70,
+          534,
+          523
+        ],
+        "2": [
+          1047,
+          158,
+          479,
+          446
+        ],
+        "3": [
+          7,
+          744,
+          590,
+          220
+        ],
+        "4": [
+          541,
+          814,
+          601,
+          127
+        ],
+        "5": [
+          1134,
+          648,
+          383,
+          343
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": {
+        "short_yari-reactions.png": "703d409442d82317a60b4b2e268c8e7bad71f995f64b11491b5e5646e6cef5e3"
+      },
+      "poses": [
+        "hurt_recoil",
+        "hurt_fold",
+        "kneeling",
+        "falling",
+        "prone",
+        "rising"
+      ],
+      "scale_policy": "fixed anatomical ruler through hurt, fall, prone and rising; never normalize crouch bounds"
+    },
+    "long_yari": {
+      "file": "long_yari.png",
+      "target": "enemy_clip",
+      "kind": "boss",
+      "key": "oda:long_yari:poses",
+      "columns": 6,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          207.5,
+          673
+        ],
+        [
+          626.0,
+          666
+        ],
+        [
+          1021.0,
+          673
+        ],
+        [
+          358.5,
+          700
+        ],
+        [
+          1443.5,
+          700
+        ],
+        [
+          800,
+          959
+        ]
+      ],
+      "body_height": 515,
+      "body_heights": [
+        515,
+        515,
+        515,
+        687,
+        687,
+        490
+      ],
+      "regions": {
+        "0": [
+          9,
+          11,
+          414,
+          665
+        ],
+        "1": [
+          437,
+          7,
+          380,
+          662
+        ],
+        "2": [
+          834,
+          34,
+          386,
+          642
+        ],
+        "3": [
+          45,
+          160,
+          1067,
+          543
+        ],
+        "4": [
+          1131,
+          165,
+          827,
+          538
+        ],
+        "5": [
+          553,
+          845,
+          635,
+          126
+        ]
+      },
+      "frame_files": {
+        "0": "long_yari.png",
+        "1": "long_yari.png",
+        "2": "long_yari.png",
+        "3": "long_yari-attacks.png",
+        "4": "long_yari-attacks.png",
+        "5": "long_yari-reactions.png"
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": {
+        "long_yari.png": "d71ef6bff0bcb11d1cb349050e7a35eb6de671b4ed46242a63b4528eef48dac3",
+        "long_yari-reactions.png": "b44f9481b0c601db4ea6462eff5324b79801215f06cf73ee3d4155db0009540b",
+        "long_yari-attacks.png": "30d865b7e56d0969eab5e01b160543b38539a105b2b1f3e5f2fdaee1f030bfc5"
+      },
+      "scale_policy": "standing anatomical height; attack ruler follows measured face-height ratio, not crouched bounding box"
+    },
+    "long_yari-reactions": {
+      "file": "long_yari-reactions.png",
+      "target": "enemy_clip",
+      "kind": "boss",
+      "key": "oda:long_yari:reactions",
+      "columns": 6,
+      "rows": 1,
+      "feet_global": true,
+      "feet": [
+        [
+          260,
+          592
+        ],
+        [
+          772,
+          587
+        ],
+        [
+          1227,
+          590
+        ],
+        [
+          248,
+          967
+        ],
+        [
+          800,
+          959
+        ],
+        [
+          1270,
+          976
+        ]
+      ],
+      "body_height": 490,
+      "regions": {
+        "0": [
+          18,
+          12,
+          520,
+          588
+        ],
+        "1": [
+          547,
+          55,
+          549,
+          539
+        ],
+        "2": [
+          1049,
+          21,
+          463,
+          579
+        ],
+        "3": [
+          2,
+          774,
+          643,
+          212
+        ],
+        "4": [
+          553,
+          845,
+          635,
+          126
+        ],
+        "5": [
+          1090,
+          562,
+          430,
+          436
+        ]
+      },
+      "component_clip": true,
+      "component_alpha_threshold": 0.25,
+      "sha256": {
+        "long_yari-reactions.png": "b44f9481b0c601db4ea6462eff5324b79801215f06cf73ee3d4155db0009540b"
+      },
+      "poses": [
+        "hurt_recoil",
+        "hurt_fold",
+        "kneeling",
+        "falling",
+        "prone",
+        "rising"
+      ],
+      "scale_policy": "fixed anatomical ruler through hurt, fall, prone and rising; never normalize crouch bounds"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "source_commit": "05d5d8c4faf4444aea5a800079dcca1e2907e107",
+  "reason": "Keep procedural ArrayMesh alive until the owning canvas redraws; add explicit integration hash validation without changing the frozen original-source manifest.",
+  "files": {
+    "game/vfx/vfx_player.gd": {
+      "source_sha256": "6dcd388f3dc0e158fea6a82ebfcc983acff0e1c98e702c22d784b29c42fbe4ef",
+      "runtime_sha256": "c49bec9fee7873d4158b53ea7db54c87de0cb9f6ef9a8f78734bf7ca25803e70"
+    },
+    "game/vfx/demo/special_demo.gd": {
+      "source_sha256": "3d5769859c68a12b8c3afcf954131a24d2b2fcb3bcdb72fbb1b45e9dbb419789",
+      "runtime_sha256": "3cd0c63bb4eb755167dd958c07e62248068cdd830f484cc2b4a386f6c2d55490"
+    },
+    "game/vfx/demo/standalone_demo.gd": {
+      "source_sha256": "b03f108bf157cfc7e500a121e745c97b0d29732981c95015e47e957936e776d9",
+      "runtime_sha256": "c57ee00f40a73c059bd37d7cfe5157a804416d16aa9c3a3f34d739f153969a49"
+    },
+    "game/vfx/demo/vfx_demo.gd": {
+      "source_sha256": "fa695ce241c39a3fab0aa3662df47cba00417825c8bd360826528fbb2b3c776a",
+      "runtime_sha256": "eeffb2805eaf22692c1996286cbca0170f388211ce3b9615083cbea54eaa3663"
+    },
+    "game/vfx/v2/demo/element_demo.gd": {
+      "source_sha256": "689a546c6fa55f62e696cd30d72730c722d76caec86e86a8110bbca77008d8a1",
+      "runtime_sha256": "b8731e78b4c93f8dea3f2acd2be71bad0f5a9d9dbb5ade8c9098b19a54165e43"
+    },
+    "game/vfx/v2/demo/matchlock_demo.gd": {
+      "source_sha256": "b4a42ef608532a80f0746367cbb8a2c095183cf1bb346e6e5d468bfd8237d48d",
+      "runtime_sha256": "955d1471fd6ced280c98af9b22c431fdc1af2ed6477fc5d8d57257ead28993d6"
+    },
+    "game/vfx/v2/demo/neutral_demo.gd": {
+      "source_sha256": "5d30b1dbed1c792ac1cb7828909b2c835f77a50209c26d22f3dd827eabd902e1",
+      "runtime_sha256": "edf9579441d49af6f28456e9390a2d4f5c6798509249b1553e2fe04b92b44152"
+    },
+    "scripts/vfx/verify_v2.py": {
+      "source_sha256": "8693a79835df208c473dd187d1c9c08d396b3b504d7c6832566287e859a069a0",
+      "runtime_sha256": "7c90c3029d517408ed73c3e9f642f32a580e96f59da512dc20e0961986a08bc5"
+    }
+  }
+}

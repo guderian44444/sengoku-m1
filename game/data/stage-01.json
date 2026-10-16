@@ -2,40 +2,40 @@
   "id":1,"title":"桶狹間竹林・高根山前哨","faction":"imagawa","year":1560,
   "target_minutes":[18,25],"historical_note":"演義關卡，以戰鬥節奏與區域辨識優先；七個長場景各含兩個清場據點。",
   "segments":[
-    {"name":"竹林伏擊","theme":"bamboo","weather":"mist","music":"bamboo","width":2267,"civilians":"none",
+    {"name":"竹林伏擊","theme":"bamboo","weather":"mist","music":"s01_bamboo_approach","width":2267,"civilians":"none",
      "encounters":[
        {"end":1133,"waves":[["soldier","soldier","flag","soldier","soldier","flag"],["soldier","archer","soldier","soldier","archer","soldier"]]},
        {"end":2267,"waves":[["soldier","archer","soldier","flag","soldier","archer","soldier","flag"],["commander","soldier","archer","soldier","commander","soldier","archer","soldier"]]}],
      "props":[["jar",347,555,""],["crate",747,395,"fish"],["basket",1353,575,""],["cart",1780,405,"",false,"vajra"],["jar",2040,555,"peach"]]},
-    {"name":"高根山暴雨山道","theme":"ridge","weather":"storm","music":"siege","width":2400,"civilians":"none",
+    {"name":"高根山暴雨山道","theme":"ridge","weather":"storm","music":"s01_outpost_battle","width":2400,"civilians":"none",
      "encounters":[
        {"end":1200,"waves":[["soldier","archer","flag","soldier","soldier","archer","flag","soldier"],["soldier","archer","soldier","soldier","archer","soldier"]]},
        {"end":2400,"waves":[["archer","soldier","flag","soldier","archer","soldier","flag","soldier"],["soldier","archer","boss","soldier","archer","soldier"]],"boss":{"name":"瀨名氏俊","line":"山道兩側，合圍！一個都別放過！","final":false}}],
-     "props":[["crate",433,560,"rice"],["cart",813,405,""],["basket",1340,565,""],["barricade",1900,420,"",true],["barricade",1900,550,"",true],["jar",2180,560,""]]},
-    {"name":"山腳市集","theme":"village","weather":"rain","music":"town","width":2533,"civilians":"vendors",
+     "props":[["crate",433,560,"rice"],["cart",813,405,"",false,"wind"],["basket",1340,565,""],["barricade",1900,420,"",true],["barricade",1900,550,"",true],["jar",2180,560,""]]},
+    {"name":"山腳市集","theme":"village","weather":"rain","music":"s01_outpost_battle","width":2533,"civilians":"vendors",
      "encounters":[
        {"end":1267,"waves":[["soldier","flag","archer","soldier","flag","archer"],["commander","soldier","soldier","gunner","commander","soldier","soldier","gunner"],["soldier","archer","soldier","soldier","archer","soldier"]]},
        {"end":2533,"waves":[["soldier","gunner","flag","soldier","soldier","gunner","flag","soldier"],["commander","soldier","archer","soldier","commander","soldier","archer","soldier"]]}],
      "props":[["stall",427,580,""],["cart",793,395,"fish"],["basket",1073,555,""],["stall",1507,400,""],["large_crate",1787,555,"fish"],["cart",2147,410,"",false,"iron"],["jar",2313,575,""]]},
-    {"name":"前哨寨門攻防","theme":"gate","weather":"rain","music":"castle","width":2400,"civilians":"none",
+    {"name":"前哨寨門攻防","theme":"gate","weather":"rain","music":"s01_outpost_battle","width":2400,"civilians":"none",
      "encounters":[
        {"end":1200,"waves":[["soldier","flag","archer","soldier","soldier","flag","archer","soldier"],["commander","soldier","gunner","soldier","commander","soldier","gunner","soldier"]]},
        {"end":2400,"waves":[["soldier","archer","flag","soldier","soldier","archer","flag","soldier"],["commander","gunner","soldier","commander","gunner","soldier"],["soldier","archer","boss","soldier","archer","soldier"]],"boss":{"name":"鵜殿長照","line":"守住寨門！今川軍，隨我迎敵！","final":false}}],
-     "props":[["jar",380,565,"peach"],["barricade",913,420,"",true],["barricade",913,550,"",true],["large_crate",1353,395,""],["jar",1593,565,""],["fence",1940,420,"",true],["fence",1940,550,"",true]]},
-    {"name":"夕照兵糧營","theme":"camp","weather":"clear","music":"castle","width":2400,"civilians":"porters",
+     "props":[["jar",380,565,"peach"],["barricade",913,420,"",true],["barricade",913,550,"",true],["large_crate",1353,395,"",false,"war"],["jar",1593,565,""],["fence",1940,420,"",true],["fence",1940,550,"",true]]},
+    {"name":"夕照兵糧營","theme":"camp","weather":"clear","music":"s01_outpost_battle","width":2400,"civilians":"porters",
      "encounters":[
        {"end":1200,"waves":[["soldier","flag","archer","soldier","soldier","flag","archer","soldier"],["commander","soldier","gunner","soldier","commander","soldier","gunner","soldier"]]},
        {"end":2400,"waves":[["soldier","gunner","soldier","flag","soldier","gunner","soldier","flag"],["commander","archer","soldier","soldier","commander","archer","soldier","soldier"],["soldier","gunner","flag","soldier","gunner","flag"]]}],
      "props":[["cart",407,565,""],["large_crate",667,405,"fish"],["crate",960,565,""],["large_crate",1513,420,""],["cart",1793,565,""],["basket",2067,390,"dango"],["jar",2227,575,""]]},
-    {"name":"池石指揮庭園","theme":"courtyard","weather":"clear","music":"bamboo","width":2267,"civilians":"none",
+    {"name":"池石指揮庭園","theme":"courtyard","weather":"clear","music":"s01_outpost_battle","width":2267,"civilians":"none",
      "encounters":[
        {"end":1133,"waves":[["soldier","archer","commander","soldier","archer","commander"],["soldier","gunner","flag","soldier","soldier","gunner","flag","soldier"]]},
        {"end":2267,"waves":[["commander","archer","soldier","soldier","commander","archer","soldier","soldier"],["soldier","flag","boss","soldier","flag","soldier"]],"boss":{"name":"井伊直盛","line":"井伊直盛在此！踏過這座庭園，先勝過我！","final":false}}],
      "props":[["planter",387,395,"",false,"mirror"],["stone_lantern",773,565,""],["jar",953,405,"peach"],["planter",1433,565,""],["stone_lantern",1787,390,""],["basket",2027,555,""]]},
-    {"name":"前哨陣內室決戰","theme":"chamber","weather":"indoor","music":"castle","width":2133,"civilians":"none",
+    {"name":"前哨陣內室決戰","theme":"chamber","weather":"indoor","music":"s01_outpost_battle","width":2133,"civilians":"none",
      "encounters":[
        {"end":1067,"waves":[["commander","soldier","flag","gunner","commander","soldier","flag","gunner"],["soldier","archer","commander","soldier","archer","commander"]]},
        {"end":2133,"waves":[["commander","soldier","gunner","commander","soldier","gunner"],["boss","soldier"]],"boss":{"name":"松井宗信","line":"松井宗信在此！援軍接應，隨我殺退敵軍！","final":true}}],
-     "props":[["screen",393,410,""],["cabinet",627,565,"fish"],["screen",840,420,"",true],["screen",840,550,"",true],["jar",967,565,""],["cabinet",1467,395,""],["screen",1660,565,""],["jar",1913,575,""]]}
+     "props":[["screen",393,410,""],["cabinet",627,565,"fish"],["screen",840,420,"",true],["screen",840,550,"",true],["jar",967,565,""],["cabinet",1467,395,"",false,"moon"],["screen",1660,565,""],["jar",1913,575,""]]}
   ]
 }

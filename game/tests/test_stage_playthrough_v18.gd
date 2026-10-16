@@ -4,9 +4,10 @@ const Battle = preload("res://core/battle.gd")
 const Wire = preload("res://core/wire.gd")
 
 func _initialize() -> void:
+	var chapter := 2 if "--stage2" in OS.get_cmdline_user_args() else 1
 	for hero in ["nobunaga","oichi","tadakatsu"]:
 		var battle := Battle.new()
-		battle.reset_campaign("normal",1,[hero])
+		battle.reset_campaign("normal",1,[hero],chapter)
 		# Refill endurance HP without inflating the player-based boss health ratio.
 		var endurance_damage := 0
 		var segments := []
@@ -86,5 +87,5 @@ func _initialize() -> void:
 			push_error("Real attacks must finish all sections for " + hero + "; stuck at " + str(battle.state.stage.index) + "/" + str(battle.state.wave))
 			quit(1)
 			return
-		print("STAGE PLAYTHROUGH PASS ",hero," ",JSON.stringify({"ticks":battle.state.tick,"segments":segments,"remaining_hp":battle.state.fighters[0].hp,"endurance_damage":endurance_damage,"waited_prone_ticks":waited_prone_ticks,"avoided_getup_ticks":avoided_getup_ticks,"acceptance":"synthetic controls refill player HP each tick while preserving production max HP and boss ratios; not a difficulty or human timing measurement"}))
+		print("STAGE PLAYTHROUGH PASS ",hero," ",JSON.stringify({"chapter":chapter,"ticks":battle.state.tick,"segments":segments,"remaining_hp":battle.state.fighters[0].hp,"endurance_damage":endurance_damage,"waited_prone_ticks":waited_prone_ticks,"avoided_getup_ticks":avoided_getup_ticks,"acceptance":"synthetic controls refill player HP each tick while preserving production max HP and boss ratios; not a difficulty or human timing measurement"}))
 	quit()

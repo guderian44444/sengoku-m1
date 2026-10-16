@@ -1,0 +1,750 @@
+[
+  {
+    "character": "imagawa_shield",
+    "action": "idle",
+    "canvas": [
+      640,
+      320
+    ],
+    "anatomical_standing_height_px": 220,
+    "root": [
+      260,
+      285
+    ],
+    "loop": true,
+    "hold_final": false,
+    "event_frames": {},
+    "frames": [
+      {
+        "file": "01.png",
+        "duration_ms": 180,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          38,
+          30,
+          227,
+          261
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          144,
+          66
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "02.png",
+        "duration_ms": 180,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          284,
+          29,
+          484,
+          262
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          137,
+          64
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "03.png",
+        "duration_ms": 180,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          536,
+          28,
+          729,
+          262
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          140,
+          63
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "04.png",
+        "duration_ms": 180,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          792,
+          30,
+          976,
+          262
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          147,
+          65
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      }
+    ],
+    "weapon": "baked composite; no replacement",
+    "status": "assembled_preview_pending_full_QA"
+  },
+  {
+    "character": "imagawa_shield",
+    "action": "walk",
+    "canvas": [
+      640,
+      320
+    ],
+    "anatomical_standing_height_px": 220,
+    "root": [
+      260,
+      285
+    ],
+    "loop": true,
+    "hold_final": false,
+    "event_frames": {},
+    "frames": [
+      {
+        "file": "01.png",
+        "duration_ms": 130,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          69,
+          25,
+          474,
+          482
+        ],
+        "uniform_source_scale": 0.4782608695652174,
+        "translation": [
+          150,
+          65
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "02.png",
+        "duration_ms": 130,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          603,
+          25,
+          974,
+          489
+        ],
+        "uniform_source_scale": 0.4782608695652174,
+        "translation": [
+          171,
+          62
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "03.png",
+        "duration_ms": 130,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          1088,
+          25,
+          1486,
+          483
+        ],
+        "uniform_source_scale": 0.4782608695652174,
+        "translation": [
+          156,
+          65
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "04.png",
+        "duration_ms": 130,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          115,
+          521,
+          487,
+          986
+        ],
+        "uniform_source_scale": 0.4782608695652174,
+        "translation": [
+          170,
+          62
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "05.png",
+        "duration_ms": 130,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          590,
+          521,
+          966,
+          983
+        ],
+        "uniform_source_scale": 0.4782608695652174,
+        "translation": [
+          169,
+          63
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "06.png",
+        "duration_ms": 130,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          1102,
+          521,
+          1506,
+          977
+        ],
+        "uniform_source_scale": 0.4782608695652174,
+        "translation": [
+          156,
+          66
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      }
+    ],
+    "weapon": "baked composite; no replacement",
+    "status": "assembled_preview_pending_full_QA"
+  },
+  {
+    "character": "imagawa_shield",
+    "action": "attack",
+    "canvas": [
+      640,
+      320
+    ],
+    "anatomical_standing_height_px": 220,
+    "root": [
+      260,
+      285
+    ],
+    "loop": false,
+    "hold_final": false,
+    "event_frames": {
+      "hit": 3
+    },
+    "frames": [
+      {
+        "file": "01.png",
+        "duration_ms": 180,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          18,
+          535,
+          222,
+          750
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          134,
+          81
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "02.png",
+        "duration_ms": 80,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          236,
+          542,
+          512,
+          751
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          126,
+          87
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "03.png",
+        "duration_ms": 60,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          471,
+          543,
+          812,
+          752
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          128,
+          87
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "04.png",
+        "duration_ms": 160,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          818,
+          532,
+          999,
+          752
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          146,
+          76
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      }
+    ],
+    "weapon": "baked composite; no replacement",
+    "status": "assembled_preview_pending_full_QA"
+  },
+  {
+    "character": "imagawa_shield",
+    "action": "hurt",
+    "canvas": [
+      640,
+      320
+    ],
+    "anatomical_standing_height_px": 220,
+    "root": [
+      260,
+      285
+    ],
+    "loop": false,
+    "hold_final": false,
+    "event_frames": {},
+    "frames": [
+      {
+        "file": "01.png",
+        "duration_ms": 60,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          38,
+          772,
+          225,
+          1007
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          142,
+          62
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "02.png",
+        "duration_ms": 100,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          305,
+          789,
+          500,
+          1007
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          112,
+          78
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "03.png",
+        "duration_ms": 100,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          531,
+          791,
+          739,
+          1005
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          141,
+          82
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "04.png",
+        "duration_ms": 140,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          800,
+          778,
+          983,
+          1008
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          138,
+          67
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      }
+    ],
+    "weapon": "baked composite; no replacement",
+    "status": "assembled_preview_pending_full_QA"
+  },
+  {
+    "character": "imagawa_shield",
+    "action": "down",
+    "canvas": [
+      640,
+      320
+    ],
+    "anatomical_standing_height_px": 220,
+    "root": [
+      260,
+      285
+    ],
+    "loop": false,
+    "hold_final": true,
+    "event_frames": {
+      "grounded": 4
+    },
+    "frames": [
+      {
+        "file": "01.png",
+        "duration_ms": 100,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          22,
+          1045,
+          227,
+          1224
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          175,
+          115
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "02.png",
+        "duration_ms": 100,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          265,
+          1051,
+          496,
+          1212
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          164,
+          132
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "03.png",
+        "duration_ms": 100,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          511,
+          1113,
+          754,
+          1221
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          159,
+          182
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "04.png",
+        "duration_ms": 700,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          746,
+          1130,
+          1009,
+          1209
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          151,
+          209
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      }
+    ],
+    "weapon": "baked composite; no replacement",
+    "status": "assembled_preview_pending_full_QA"
+  },
+  {
+    "character": "imagawa_shield",
+    "action": "block",
+    "canvas": [
+      640,
+      320
+    ],
+    "anatomical_standing_height_px": 220,
+    "root": [
+      260,
+      285
+    ],
+    "loop": false,
+    "hold_final": false,
+    "event_frames": {},
+    "frames": [
+      {
+        "file": "01.png",
+        "duration_ms": 100,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          22,
+          1267,
+          243,
+          1503
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          124,
+          61
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "02.png",
+        "duration_ms": 120,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          284,
+          1261,
+          484,
+          1501
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          129,
+          57
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "03.png",
+        "duration_ms": 100,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          531,
+          1273,
+          754,
+          1502
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          114,
+          68
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      },
+      {
+        "file": "04.png",
+        "duration_ms": 120,
+        "root": [
+          260,
+          285
+        ],
+        "source_box": [
+          786,
+          1264,
+          991,
+          1504
+        ],
+        "uniform_source_scale": 0.9401709401709402,
+        "translation": [
+          127,
+          57
+        ],
+        "preview_world_displacement": [
+          0,
+          0
+        ],
+        "world_motion": "runtime-owned"
+      }
+    ],
+    "weapon": "baked composite; no replacement",
+    "status": "assembled_preview_pending_full_QA"
+  }
+]

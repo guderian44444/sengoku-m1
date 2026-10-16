@@ -12,8 +12,13 @@ const CollectionPanel = preload("res://ui/collection_panel.gd")
 const WeaponArchive = preload("res://core/weapon_encyclopedia.gd")
 const Stages = preload("res://core/stage_data.gd")
 const SaveProfile = preload("res://core/save_profile.gd")
+const PlayerStore = preload("res://core/player_store.gd")
+const Equipment = preload("res://core/equipment.gd")
+const Achievements = preload("res://core/achievements.gd")
+const CharacterSelect = preload("res://ui/character_select_panel.gd")
+const MenuFrame = preload("res://ui/menu_frame.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
-const BUILD := "sengoku-m1-0.27.0"
+const BUILD := "sengoku-m1-0.31.0"
 const DEFAULT_PORT := 27860
 const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "光秀", "tadakatsu": "忠勝"}
@@ -114,9 +119,7 @@ var demo_capture_dir := ""
 var demo_capture_next := 0
 var demo_capture_busy := false
 var demo_facing_left := false
-var profiles = SaveProfile.new()
-var weapon_choices: Array[OptionButton] = []
-var weapon_rows: Array[HBoxContainer] = []
+var profiles = PlayerStore.new()
 var _saved_profile_signature := ""
 var exit_button: Button
 var confirmation_text: Label
@@ -124,6 +127,21 @@ var confirmation_action: Callable
 var confirmation_return := ""
 var confirmation_paused := false
 var ending_confirmed := false
+var character_panel: Control
+var player_setup_choices: Array[OptionButton] = []
+var player_name_input: LineEdit
+var player_notice: Label
+var players_return := "main"
+var achievements_return := "select"
+var achievements_title: Label
+var achievements_list: ItemList
+var achievement_banner: Label
+var _achievement_messages: Array[String] = []
+var _achievement_message_time := 0.0
+var login_flow := false
+var player_mode_choice: OptionButton
+var players_continue: Button
+var roster_choices: Array[OptionButton] = []
 
 func _ready() -> void:
 	_actions()
@@ -279,6 +297,12 @@ func _build_ui() -> void:
 	end_label.add_theme_color_override("font_color", Typography.GOLD)
 	end_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(end_label)
+	achievement_banner = _menu_label(ui,"",21)
+	achievement_banner.position = Vector2(330,125)
+	achievement_banner.size = Vector2(620,70)
+	achievement_banner.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	achievement_banner.add_theme_color_override("font_color",Typography.GOLD)
+	achievement_banner.hide()
 	exit_button = _button("退出",_leave_to_menu,"VictoryExit",ui)
 	exit_button.position = Vector2(1140,120)
 	exit_button.size = Vector2(116,42)
@@ -308,6 +332,7 @@ func _menu_label(parent: Node, text: String, font_size: int = 24) -> Label:
 	var label := Label.new()
 	label.text = text
 	label.add_theme_font_size_override("font_size", font_size)
+	if font_size >= 30: label.add_theme_font_override("font",Typography.font())
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	parent.add_child(label)
 	return label
@@ -356,73 +381,41 @@ func _build_menu(ui: Control) -> void:
 	menu_caption.size.x = 800
 	menu_caption.add_theme_color_override("font_color", Typography.GOLD)
 	var title_page := _menu_page("title", Vector2(380, 437), 520)
-	_button("按下開始   PRESS START", func(): _show_menu_page("main"), "Start", title_page)
+	_button("按下開始   PRESS START", func(): _open_login(false), "Start", title_page)
 	_menu_label(title_page, "ENTER  ／  START", 17)
-	var main_page := _menu_page("main", Vector2(430, 358), 420)
-	_button("一 人 出 陣", func(): _open_selection(false), "Solo", main_page)
-	_button("二 人 共 鬥", func(): _open_selection(true), "LocalCoop", main_page)
+	var main_page := _menu_page("main", Vector2(430, 318), 420)
+	_button("一 人 出 陣", func(): _open_login(false), "Solo", main_page)
+	_button("二 人 共 鬥", func(): _open_login(true), "LocalCoop", main_page)
+	_button("玩 家 設 定", _open_players, "Players", main_page)
 	_button("遊 戲 設 定", _open_options, "Options", main_page)
 	_button("離 開 遊 戲", _request_quit, "Quit", main_page)
-	var select_page := _menu_page("select", Vector2(320, 35), 640, "選 擇 武 將")
-	select_page.add_theme_constant_override("separation",8)
-	var first_row := HBoxContainer.new()
-	select_page.add_child(first_row)
-	_menu_label(first_row, "一番隊　", 25)
-	heroes = OptionButton.new()
-	for label in ["織田信長｜炎刀", "阿市｜短針・長弓", "豐臣秀吉｜短槍", "德川家康｜太刀", "明智光秀｜拔刀", "本多忠勝｜長槍"]: heroes.add_item(label)
-	heroes.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	first_row.add_child(heroes)
-	partner_row = HBoxContainer.new()
-	select_page.add_child(partner_row)
-	_menu_label(partner_row, "二番隊　", 25)
-	partner_heroes = OptionButton.new()
-	for hero in HEROES: partner_heroes.add_item(HERO_NAMES[hero])
-	partner_heroes.selected = 1
-	partner_heroes.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	partner_row.add_child(partner_heroes)
-	for slot in range(2):
-		var row := HBoxContainer.new()
-		select_page.add_child(row)
-		_menu_label(row,"%dP 武器　" % (slot + 1),20)
-		var choice := OptionButton.new()
-		choice.name = "Weapon%d" % slot
-		choice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		row.add_child(choice)
-		_button("圖鑑", func(): _open_weapon_encyclopedia(slot), "Encyclopedia%d" % slot, row)
-		_button("裝備", func(): _open_collection(slot), "Collection%d" % slot, row)
-		weapon_rows.append(row)
-		weapon_choices.append(choice)
-		choice.item_selected.connect(func(index: int):
-			var hero: String = HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
-			var id: String = str(choice.get_item_metadata(index))
-			if profiles.equip(slot,hero,id):
-				if active and session in ["solo","local"] and not training_active:
-					for fighter in sim.state.fighters:
-						if fighter.team == 0 and fighter.player_index == slot and fighter.kind == hero and id in fighter.owned_weapons: fighter.weapon_id = id
-				status.text = "武器裝備已保存。" if profiles.save() == OK else "裝備已套用，但存檔失敗。" + profiles.warning
-		)
-	heroes.item_selected.connect(func(_index): _refresh_loadouts())
-	partner_heroes.item_selected.connect(func(_index): _refresh_loadouts())
-	var difficulty_row := HBoxContainer.new()
-	select_page.add_child(difficulty_row)
-	_menu_label(difficulty_row, "難　度　", 25)
-	difficulties = OptionButton.new()
-	for label in ["故事", "標準", "挑戰"]: difficulties.add_item(label)
-	difficulties.selected = 1
-	difficulties.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	difficulty_row.add_child(difficulties)
-	var chapter_row := HBoxContainer.new()
-	select_page.add_child(chapter_row)
-	_menu_label(chapter_row,"大　關　",25)
-	chapter_choice = OptionButton.new()
-	chapter_choice.name = "Chapter"
-	chapter_choice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	chapter_row.add_child(chapter_choice)
-	_refresh_chapters()
-	_button("出　陣", func():
+	character_panel = CharacterSelect.new()
+	character_panel.name = "CharacterSelect"
+	menu.add_child(character_panel)
+	menu_pages["select"] = character_panel
+	heroes = character_panel.heroes
+	partner_heroes = character_panel.partner_heroes
+	partner_row = character_panel.partner_row
+	difficulties = character_panel.difficulties
+	chapter_choice = character_panel.chapter_choice
+	character_panel.closed.connect(_menu_back)
+	character_panel.changed.connect(_refresh_loadouts)
+	character_panel.begin_requested.connect(func():
 		if selection_coop: _start_local_coop()
-		else: _start_solo(), "Begin", select_page)
-	_button("返　回", _menu_back, "Back", select_page)
+		else: _start_solo())
+	character_panel.players_requested.connect(_open_players)
+	character_panel.management_requested.connect(_open_collection)
+	character_panel.equipment_requested.connect(_open_collection)
+	character_panel.achievements_requested.connect(_open_achievements)
+	character_panel.item_requested.connect(_equip_inventory)
+	character_panel.treasure_removed.connect(_unequip_treasure)
+	for slot in range(2):
+		character_panel.player_choices[slot].item_selected.connect(func(index):
+			_change_player(slot,str(character_panel.player_choices[slot].get_item_metadata(index))))
+	_build_players_page()
+	_build_roster_page()
+	_build_achievements_page()
+	_refresh_chapters()
 	var options := _menu_page("options", Vector2(310, 100), 660, "遊 戲 設 定")
 	for category in ["music", "sfx", "voice"]:
 		var row := HBoxContainer.new()
@@ -461,7 +454,7 @@ func _build_menu(ui: Control) -> void:
 	collections.name = "Collections"
 	pause_page.add_child(collections)
 	for slot in range(2):
-		_button("%dP 裝備與收藏" % (slot + 1),func(): _open_collection(slot),"Collection%d" % slot,collections).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		_button("%dP 行囊" % (slot + 1),func(): _open_collection(slot),"Collection%d" % slot,collections).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_button("保 存 人 物", func(): _save_characters(true), "SaveCharacters", pause_page)
 	_button("返 回 主 畫 面", _leave_to_menu, "Leave", pause_page)
 	var confirm_page := _menu_page("confirm",Vector2(390,225),500,"確認操作")
@@ -525,11 +518,19 @@ func _build_menu(ui: Control) -> void:
 	menu.add_child(collection)
 	menu_pages["collection"] = collection
 	collection.closed.connect(_menu_back)
-	collection.equip_requested.connect(_equip_from_encyclopedia)
+	collection.equip_requested.connect(func(uid: String): _equip_inventory(encyclopedia_slot,int(uid)))
+	collection.sell_requested.connect(_request_sale)
+	collection.pack_requested.connect(_pack_item)
+	collection.discard_requested.connect(_request_discard)
+	collection.unequip_requested.connect(func(treasure: bool):
+		if treasure: _unequip_treasure(encyclopedia_slot)
+		else: _equip_inventory(encyclopedia_slot,0))
 	collection.details_requested.connect(func(id: String):
 		_open_weapon_encyclopedia(encyclopedia_slot,"collection")
-		encyclopedia.select_weapon(id)
+		var row: Dictionary = profiles.character(encyclopedia_slot,_equipment_hero(encyclopedia_slot))
+		encyclopedia.select_weapon(str(Equipment.instance(row,int(id)).get("item_id","")))
 	)
+	menu.add_child(MenuFrame.new())
 	_show_menu_page("title")
 
 func _show_menu_page(page: String) -> void:
@@ -541,8 +542,8 @@ func _show_menu_page(page: String) -> void:
 	menu_shade.color.a = 0.72 if active or page not in ["main", "title"] else 0.18
 	menu_logo.visible = page in ["title", "main"]
 	menu_caption.visible = menu_logo.visible
-	engineer_entry.visible = page not in ["engineering", "encyclopedia", "collection", "confirm"]
-	status.visible = page not in ["encyclopedia", "collection", "confirm"]
+	engineer_entry.visible = page in ["title","main","options","pause"]
+	status.visible = page not in ["select","players","roster","achievements","encyclopedia", "collection", "confirm"]
 	combat_hud.visible = active
 	hud.visible = active
 	end_label.visible = active
@@ -558,6 +559,7 @@ func _show_menu_page(page: String) -> void:
 			break
 
 func _open_selection(coop: bool) -> void:
+	equipment_in_battle = false
 	selection_coop = coop
 	partner_row.visible = coop
 	_refresh_loadouts()
@@ -566,6 +568,7 @@ func _open_selection(coop: bool) -> void:
 	if profiles.warning == "" and int(chapter_choice.get_item_metadata(chapter_choice.selected)) != int(profiles.data.get("chapter",1)):
 		status.text = "記錄中的第%d大關尚未開放；目前可重玩已開放大關，人物與收藏保留。" % int(profiles.data.chapter)
 	_show_menu_page("select")
+	character_panel.notice.text = status.text
 
 func _refresh_chapters() -> void:
 	chapter_choice.clear()
@@ -575,20 +578,14 @@ func _refresh_chapters() -> void:
 		if int(chapter.id) > unlocked: continue
 		chapter_choice.add_item("第%d大關　%s" % [int(chapter.id),str(chapter.title)])
 		chapter_choice.set_item_metadata(chapter_choice.item_count - 1,int(chapter.id))
-		if int(chapter.id) == saved: chapter_choice.selected = chapter_choice.item_count - 1
+		if int(chapter.id) <= saved: chapter_choice.selected = chapter_choice.item_count - 1
 
 func _refresh_loadouts() -> void:
-	for slot in range(weapon_choices.size()):
-		weapon_rows[slot].visible = slot == 0 or selection_coop
-		var hero: String = HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
-		var row: Dictionary = profiles.character(slot,hero)
-		var choice := weapon_choices[slot]
-		choice.clear()
-		for id in row.owned_weapons:
-			var weapon: Dictionary = Weapons.item(id)
-			choice.add_item("%s　階%d" % [weapon.name,weapon.tier])
-			choice.set_item_metadata(choice.item_count - 1,id)
-			if id == row.weapon_id: choice.selected = choice.item_count - 1
+	_refresh_player_choices()
+	var slot := int(character_panel.active_slot)
+	var hero: String = HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
+	character_panel.configure(selection_coop,profiles.character(slot,hero),profiles.name_for(slot))
+	character_panel.notice.text = status.text if is_instance_valid(status) else ""
 
 func _equipment_hero(slot: int) -> String:
 	if equipment_in_battle:
@@ -596,10 +593,250 @@ func _equipment_hero(slot: int) -> String:
 			if fighter.team == 0 and int(fighter.player_index) == slot: return str(fighter.kind)
 	return HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
 
+func _build_players_page() -> void:
+	var page := _menu_page("players",Vector2(270,75),740,"玩 家 登 入")
+	_menu_label(page,"選擇本機玩家存檔，或新增玩家。每位玩家的收藏與進度獨立。",20)
+	player_mode_choice = OptionButton.new()
+	player_mode_choice.add_item("一人出陣")
+	player_mode_choice.add_item("二人共鬥")
+	page.add_child(player_mode_choice)
+	player_mode_choice.item_selected.connect(func(index):
+		selection_coop = index == 1
+		player_setup_choices[1].get_parent().visible = selection_coop)
+	for slot in range(2):
+		var line := HBoxContainer.new()
+		page.add_child(line)
+		_menu_label(line,"%dP 存檔　" % (slot+1),22)
+		var choice := OptionButton.new()
+		choice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		line.add_child(choice)
+		player_setup_choices.append(choice)
+		choice.item_selected.connect(func(index): _change_player(slot,str(choice.get_item_metadata(index))))
+	player_name_input = LineEdit.new()
+	player_name_input.placeholder_text = "新玩家名稱（1–20 字）"
+	player_name_input.max_length = 20
+	page.add_child(player_name_input)
+	_button("新 增 玩 家",_add_player,"AddPlayer",page)
+	player_notice = _menu_label(page,"",18)
+	player_notice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_menu_label(page,"進度保存在這台電腦；更換玩家不會覆寫其他人的存檔。",17)
+	players_continue = _button("登入・選擇角色",_open_roster,"Continue",page)
+	_button("返　回",_menu_back,"Back",page)
+
+func _open_login(coop: bool) -> void:
+	login_flow = true
+	selection_coop = coop
+	players_return = "main"
+	player_mode_choice.selected = 1 if coop else 0
+	player_mode_choice.show()
+	players_continue.show()
+	player_setup_choices[1].get_parent().visible = coop
+	_refresh_player_choices()
+	player_notice.text = profiles.warning
+	_show_menu_page("players")
+
+func _build_roster_page() -> void:
+	var page := _menu_page("roster",Vector2(270,180),740,"選 擇 武 將")
+	_menu_label(page,"選定角色後，查看能力並準備出戰行囊。",22)
+	for slot in range(2):
+		var choice := OptionButton.new()
+		choice.name = "Hero%d" % slot
+		for hero in HEROES: choice.add_item(HERO_NAMES[hero])
+		page.add_child(choice)
+		roster_choices.append(choice)
+	_button("查看角色狀態・出戰準備",func():
+		heroes.selected = roster_choices[0].selected
+		partner_heroes.selected = roster_choices[1].selected
+		character_panel.active_slot = 0
+		_open_selection(selection_coop),"Continue",page)
+	_button("返回登入",func(): _open_login(selection_coop),"Back",page)
+
+func _open_roster() -> void:
+	if selection_coop and profiles.selected[0] == profiles.selected[1]:
+		player_notice.text = "雙人共鬥請登入兩個不同的玩家存檔。"
+		return
+	roster_choices[0].selected = heroes.selected
+	roster_choices[1].selected = partner_heroes.selected
+	roster_choices[1].visible = selection_coop
+	_show_menu_page("roster")
+
+func _refresh_player_choices() -> void:
+	if not is_instance_valid(character_panel): return
+	for slot in range(2):
+		var controls: Array = [character_panel.player_choices[slot]]
+		if player_setup_choices.size() == 2: controls.append(player_setup_choices[slot])
+		for choice in controls:
+			choice.clear()
+			var selected_index := 0
+			for id in profiles.records:
+				choice.add_item(str(profiles.records[id].data.get("name","玩家")))
+				choice.set_item_metadata(choice.item_count-1,id)
+				if id == profiles.selected[slot]: selected_index = choice.item_count-1
+			choice.select(selected_index)
+			# Rebuild the hidden button's text so switching players cannot draw the old name.
+			choice.text = ""
+			choice.text = profiles.name_for(slot)
+			choice.disabled = active
+
+func _open_players() -> void:
+	login_flow = false
+	player_mode_choice.hide()
+	players_continue.hide()
+	player_setup_choices[1].get_parent().show()
+	players_return = menu_screen
+	_refresh_player_choices()
+	player_notice.text = profiles.warning
+	_show_menu_page("players")
+
+func _change_player(slot: int, id: String) -> void:
+	if active: return
+	var err: Error = profiles.select_player(slot,id)
+	player_notice.text = "玩家已切換。" if err == OK else "玩家設定保存失敗 (%d)。" % err
+	_refresh_loadouts()
+	_refresh_chapters()
+
+func _add_player() -> void:
+	var id: String = profiles.add_player(player_name_input.text)
+	if id == "":
+		player_notice.text = "未新增：請使用不同的 1–20 字名稱；也請確認本機存檔可寫入。"
+		return
+	player_name_input.clear()
+	_change_player(0 if login_flow else int(character_panel.active_slot),id)
+	player_notice.text = "已建立玩家與獨立的本機存檔。"
+
+func _build_achievements_page() -> void:
+	var page := _menu_page("achievements",Vector2(65,25),1150)
+	achievements_title = _menu_label(page,"成就帳",30)
+	achievements_list = ItemList.new()
+	achievements_list.custom_minimum_size.y = 535
+	achievements_list.add_theme_font_size_override("font_size",21)
+	achievements_list.add_theme_constant_override("v_separation",14)
+	page.add_child(achievements_list)
+	_menu_label(page,"特殊表現另有 1% 掉寶機會；同場每項一次，獎勵間隔 20 秒。",18)
+	_button("返　回",_menu_back,"Back",page)
+
+func _open_achievements(slot: int) -> void:
+	achievements_return = menu_screen
+	var hero: String = HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
+	var row: Dictionary = profiles.character(slot,hero)
+	achievements_title.text = "%s・%s　成就 %d / 30" % [profiles.name_for(slot),HERO_NAMES[hero],row.achievements.size()]
+	achievements_list.clear()
+	for rule in Achievements.RULES: achievements_list.add_item(("◆ 已達成　" if rule[0] in row.achievements else "◇ 未達成　") + str(rule[1]) + "　｜　" + str(rule[2]))
+	_show_menu_page("achievements")
+
+func _equip_inventory(slot: int, uid: int) -> void:
+	if not _prepare_inventory_save(): return
+	if menu_screen == "select": equipment_in_battle = false
+	encyclopedia_slot = slot
+	var hero := _equipment_hero(slot)
+	var profile = profiles.records[profiles.selected[slot]]
+	var previous: Dictionary = profile.data.duplicate(true)
+	if equipment_in_battle and uid != 0 and uid not in profiles.character(slot,hero).bag_uids: return
+	if not profiles.equip_instance(slot,hero,uid): return
+	_finish_inventory_change(slot,hero,previous,"裝備已保存，能力已更新。")
+
+func _unequip_treasure(slot: int) -> void:
+	if not _prepare_inventory_save(): return
+	var hero := _equipment_hero(slot)
+	var profile = profiles.records[profiles.selected[slot]]
+	var previous: Dictionary = profile.data.duplicate(true)
+	profiles.unequip_treasure(slot,hero)
+	_finish_inventory_change(slot,hero,previous,"已卸下護身符。")
+
+func _pack_item(id: String) -> void:
+	if active or not _prepare_inventory_save(): return
+	var hero := _equipment_hero(encyclopedia_slot)
+	var profile = profiles.records[profiles.selected[encyclopedia_slot]]
+	var previous: Dictionary = profile.data.duplicate(true)
+	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
+	var carry: bool = int(id) not in row.bag_uids
+	if not profiles.pack(encyclopedia_slot,hero,int(id),carry):
+		collection.notice.text = "無法放入：最多兩把武器、兩個護符；白板是常備武器，不佔行囊。"
+		return
+	_finish_inventory_change(encyclopedia_slot,hero,previous,"已放入出戰行囊。" if carry else "已移回倉庫。")
+
+func _request_discard(id: String) -> void:
+	if not equipment_in_battle: return
+	var row: Dictionary = profiles.character(encyclopedia_slot,_equipment_hero(encyclopedia_slot))
+	var item := Equipment.instance(row,int(id))
+	if item.is_empty() or int(id) not in row.bag_uids: return
+	_request_confirmation(_discard_item.bind(int(id)),"丟棄 %s？\n物品會永久消失，不能再撿回來。" % Equipment.catalog(item.item_id).name)
+
+func _discard_item(uid: int) -> void:
+	if not equipment_in_battle or not _prepare_inventory_save(): return
+	var hero := _equipment_hero(encyclopedia_slot)
+	var profile = profiles.records[profiles.selected[encyclopedia_slot]]
+	var previous: Dictionary = profile.data.duplicate(true)
+	if not profiles.discard(encyclopedia_slot,hero,uid): return
+	_finish_inventory_change(encyclopedia_slot,hero,previous,"物品已丟棄並消失，行囊空位已釋出。")
+
+func _finish_inventory_change(slot: int, hero: String, previous: Dictionary, message: String) -> void:
+	if profiles.save_player(slot) != OK:
+		profiles.records[profiles.selected[slot]].data = previous
+		message = "操作未完成，已保留原裝備與物品。" + profiles.warning
+	else:
+		if equipment_in_battle:
+			var row: Dictionary = profiles.character(slot,hero)
+			for fighter in sim.state.fighters:
+				if fighter.team != 0 or int(fighter.player_index) != slot: continue
+				for field in ["next_item_uid","weapon_uid","treasure_uid","gold","achievements","bag_uids"]: fighter[field] = row[field].duplicate(true) if row[field] is Array else row[field]
+				fighter.inventory = row.inventory.filter(func(item): return int(item.uid) in row.bag_uids).duplicate(true)
+				fighter.storage_reserve = row.inventory.size() - fighter.inventory.size()
+				Equipment.sync(fighter)
+			sim.cancel_input(slot)
+	status.text = message
+	_refresh_loadouts()
+	_refresh_collection()
+	collection.notice.text = message
+	var row: Dictionary = profiles.character(slot,hero)
+	encyclopedia.equipped = str(row.weapon_id)
+	encyclopedia.owned = row.owned_weapons.duplicate()
+	if menu_screen == "encyclopedia": encyclopedia.refresh_list()
+
+func _request_sale(id: String) -> void:
+	if equipment_in_battle: return
+	var row: Dictionary = profiles.character(encyclopedia_slot,_equipment_hero(encyclopedia_slot))
+	var item := Equipment.instance(row,int(id))
+	if item.is_empty() or int(id) in [int(row.weapon_uid),int(row.treasure_uid)]: return
+	_request_confirmation(_sell_item.bind(int(id)),"出售 %s（耐久 %d）獲得 %d 文？" % [Equipment.catalog(item.item_id).name,int(item.durability),Equipment.sale_price(item)])
+
+func _sell_item(uid: int) -> void:
+	if equipment_in_battle: return
+	if not _prepare_inventory_save(): return
+	var hero := _equipment_hero(encyclopedia_slot)
+	var profile = profiles.records[profiles.selected[encyclopedia_slot]]
+	var previous: Dictionary = profile.data.duplicate(true)
+	var price: int = profiles.sell(encyclopedia_slot,hero,uid)
+	if price <= 0: return
+	_finish_inventory_change(encyclopedia_slot,hero,previous,"已出售，獲得 %d 文。" % price)
+
+func _prepare_inventory_save() -> bool:
+	if not profiles.migration_pending or profiles.save() == OK: return true
+	status.text = "舊人物轉入尚未保存，操作已取消。" + profiles.warning
+	character_panel.notice.text = status.text
+	collection.notice.text = status.text
+	return false
+
+func _update_achievement_banner(delta: float) -> void:
+	if not is_instance_valid(achievement_banner): return
+	if not active:
+		_achievement_messages.clear()
+		_achievement_message_time = 0
+		achievement_banner.hide()
+		return
+	if paused: return
+	_achievement_message_time -= delta
+	if _achievement_message_time <= 0:
+		if _achievement_messages.is_empty(): achievement_banner.hide()
+		else:
+			achievement_banner.text = _achievement_messages.pop_front()
+			achievement_banner.show()
+			_achievement_message_time = 3.2
+
 func _open_collection(slot: int) -> void:
 	collection_return = menu_screen
-	equipment_in_battle = menu_screen == "pause"
-	if equipment_in_battle: _save_characters()
+	equipment_in_battle = active
+	if equipment_in_battle and _save_characters() != OK: return
 	encyclopedia_slot = slot
 	_refresh_collection()
 	_show_menu_page("collection")
@@ -609,13 +846,18 @@ func _refresh_collection() -> void:
 	var hero := _equipment_hero(encyclopedia_slot)
 	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
 	var items := []
-	for id in row.owned_weapons:
-		var weapon: Dictionary = Weapons.item(id)
-		items.append({"id":id,"name":"%s　階%d" % [str(weapon.name),int(weapon.tier)],"category":"武器／" + {"sword":"刀","spear":"槍","bow":"弓"}[weapon.family],
-			"description":WeaponArchive.stats(id) + "\n\n" + encyclopedia.archive.history(id),"image":"res://assets/v22/weapons/%s.png" % id,"can_equip":Weapons.compatible(hero,id),"has_details":true,"slot":"武器"})
-	collection.configure("%dP %s　｜　總積分 %d　生命追加 +%d" % [encyclopedia_slot + 1,HERO_NAMES[hero],int(row.score),int(row.max_hp_bonus)],items,[row.weapon_id])
+	for item in row.inventory:
+		if equipment_in_battle and int(item.uid) not in row.bag_uids: continue
+		var spec := Equipment.catalog(str(item.item_id))
+		var treasure: bool = Equipment.TREASURES.has(item.item_id)
+		var packed: bool = int(item.uid) in row.bag_uids
+		var practice := Equipment.is_practice(item.item_id)
+		items.append({"id":str(item.uid),"name":"%s　%s　#%d" % [spec.name,"耐久 ∞・常備" if practice else "%d/%d" % [int(item.durability),int(spec.durability)],int(item.uid)],"category":"護符" if treasure else {"sword":"刀","spear":"槍","bow":"弓"}[spec.family],"description":spec.description if treasure else WeaponArchive.stats(item.item_id) + "\n\n" + str(spec.history),"image":"res://assets/v21/treasures/%s.png" % spec.image if treasure else "res://assets/v22/weapons/%s.png" % Weapons.art_id(item.item_id),"can_equip":packed and (treasure or Weapons.compatible(hero,item.item_id)),"can_pack":not practice and (treasure or Weapons.compatible(hero,item.item_id)),"packed":packed,"has_details":not treasure and int(spec.tier) > 0,"slot":"護符" if treasure else "武器","price":Equipment.sale_price(item)})
+	collection.configure("%s・%s　%d 文" % [profiles.name_for(encyclopedia_slot),HERO_NAMES[hero],int(row.gold)],items,[str(row.weapon_uid),str(row.treasure_uid)],equipment_in_battle)
+	collection.notice.text = "武器 %d / 2、護符 %d / 2（含裝備中）　｜　L1/R1 換頁　｜　%s" % [Equipment.bag_count(row,false),Equipment.bag_count(row,true),"丟棄須確認，物品會消失。" if equipment_in_battle else "倉庫 %d / %d；出戰後僅能使用行囊。" % [row.inventory.size(),Equipment.CAPACITY]]
 
 func _open_weapon_encyclopedia(slot: int, return_page: String = "select") -> void:
+	if equipment_in_battle: return
 	encyclopedia_return = return_page
 	if return_page != "collection": equipment_in_battle = false
 	encyclopedia_slot = slot
@@ -625,21 +867,11 @@ func _open_weapon_encyclopedia(slot: int, return_page: String = "select") -> voi
 	_show_menu_page("encyclopedia")
 
 func _equip_from_encyclopedia(id: String) -> void:
-	var hero := _equipment_hero(encyclopedia_slot)
-	if not profiles.equip(encyclopedia_slot,hero,id): return
-	if equipment_in_battle:
-		for fighter in sim.state.fighters:
-			if fighter.team == 0 and int(fighter.player_index) == encyclopedia_slot: fighter.weapon_id = id
-		sim.cancel_input(encyclopedia_slot)
-	status.text = "" if profiles.save() == OK else "存檔失敗。" + profiles.warning
-	_refresh_loadouts()
-	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
-	encyclopedia.equipped = str(row.weapon_id)
-	encyclopedia.owned = row.owned_weapons.duplicate()
-	encyclopedia.refresh_list()
-	if status.text != "": encyclopedia.game_text.text += "\n\n" + status.text
-	_refresh_collection()
-	collection.notice.text = status.text
+	var row: Dictionary = profiles.character(encyclopedia_slot,_equipment_hero(encyclopedia_slot))
+	for item in row.inventory:
+		if item.item_id == id:
+			_equip_inventory(encyclopedia_slot,int(item.uid))
+			return
 
 func _load_characters() -> void:
 	if testing or session not in ["solo","local"]: return
@@ -651,7 +883,7 @@ func _load_characters() -> void:
 func _save_characters(manual: bool = false) -> Error:
 	if not active or testing or training_active or demo_active or session not in ["solo","local"]: return OK
 	for fighter in sim.state.fighters: profiles.capture(fighter)
-	if sim.state.has("stage"): profiles.capture_chapter(int(sim.state.stage.id),sim.state.phase == "won")
+	if sim.state.has("stage"): profiles.capture_chapter(int(sim.state.stage.id),sim.state.phase == "won",2 if session == "local" else 1)
 	var signature := JSON.stringify(profiles.data)
 	if not manual and signature == _saved_profile_signature: return OK
 	var err: Error = profiles.save()
@@ -686,11 +918,15 @@ func _menu_back() -> void:
 	if menu_screen == "encyclopedia":
 		_show_menu_page(encyclopedia_return)
 		if encyclopedia_return == "collection": collection.item_list.grab_focus()
-		else: weapon_rows[encyclopedia_slot].get_node("Encyclopedia%d" % encyclopedia_slot).grab_focus()
+		else: heroes.grab_focus()
 	elif menu_screen == "collection":
 		_show_menu_page(collection_return)
 		if collection_return == "pause": menu_pages.pause.get_node("Collections/Collection%d" % encyclopedia_slot).grab_focus()
-		else: weapon_rows[encyclopedia_slot].get_node("Collection%d" % encyclopedia_slot).grab_focus()
+		else: heroes.grab_focus()
+	elif menu_screen == "players": _show_menu_page(players_return)
+	elif menu_screen == "select": _open_roster()
+	elif menu_screen == "roster": _open_login(selection_coop)
+	elif menu_screen == "achievements": _show_menu_page(achievements_return)
 	elif menu_screen == "options": _show_menu_page(options_return)
 	elif menu_screen == "pause": _resume()
 	elif menu_screen == "main": _show_menu_page("title")
@@ -710,7 +946,7 @@ func _build_controls(ui: Control) -> void:
 	text.add_theme_constant_override("line_separation", 5)
 	controls_dialog.add_child(text)
 	var guide: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://controls-v11.json"))
-	text.text = "[b]畫面與進軍[/b]\nF11 全螢幕／視窗 · Esc / Options 開啟選單 · F1 關閉本表\n畫面上方：肖像、體力、氣力、命數與積分。每人三條命（含目前），每 10000 分加一命。滿氣 U / R1 必殺。\n每區兩個據點；擊破敵人與路障後，看到 GO → 就一起向右前進。\n食物回復體力，護符提供 40／75／110 點抵傷；走近按 E / L1 拾取。護符光芒消失表示用盡。\n倒地死亡後約 2 秒再起、3 秒保護；三命用盡即出局。雙人需各接一支搖桿。\n\n[b]六主角操作表[/b]\n" + BATTLE_HINT + "\nU 滿怒必殺 · E 拾取 · 同方向雙點按住衝刺（上下走位保持快跑）\n一般受擊 +1% 氣力；紅血（低於25%體力）受擊 +5%\n按住左右連打：出招時停止前進，停打恢復；新按左右＋J：突進技\n先衝刺再按 K：立即衝刺重手，朝面前攻擊；不進入蓄力\n\n[b]練習場[/b]\n" + TRAINING_HINT + "\n\n"
+	text.text = "[b]畫面與進軍[/b]\nF11 全螢幕／視窗 · Esc / Options 開啟選單 · F1 關閉本表\n畫面上方：肖像、體力、氣力、命數與積分。每人三條命（含目前），每 10000 分加一命。滿氣 U / R1 必殺。\n每區兩個據點；擊破敵人與路障後，看到 GO → 就一起向右前進。\n食物回復體力；護身符分定值吸收與百分比減傷，頭上 BUFF 圖示消失表示損壞。走近按 E / L1 拾取。\n武器每次命中扣 1 耐久，耗盡後改用無限耐久白板；拾取不自動裝備。選角右側換裝，出戰準備最多兩武器、兩護符；暫停只開行囊。\n倒地死亡後約 2 秒再起、3 秒保護；三命用盡即出局。雙人需各接一支搖桿。\n\n[b]六主角操作表[/b]\n" + BATTLE_HINT + "\nU 滿怒必殺 · E 拾取 · 同方向雙點按住衝刺（上下走位保持快跑）\n一般受擊 +1% 氣力；紅血（低於25%體力）受擊 +5%\n按住左右連打：出招時停止前進，停打恢復；新按左右＋J：突進技\n先衝刺再按 K：立即衝刺重手，朝面前攻擊；不進入蓄力\n\n[b]練習場[/b]\n" + TRAINING_HINT + "\n\n"
 	for row in guide.rows:
 		text.text += "[color=#ffd581][b]%s[/b][/color]\n" % row.input
 		for hero in HEROES:
@@ -795,8 +1031,13 @@ func _start_solo() -> void:
 
 func _start_local_coop() -> void:
 	if _confirm_end(_start_local_coop,"重新開始雙人戰鬥？"): return
+	if profiles.selected[0] == profiles.selected[1]:
+		status.text = "雙人共鬥請選擇兩個不同的玩家存檔。"
+		character_panel.notice.text = status.text
+		return
 	if _connected_pads().size() < 2:
 		status.text = "雙搖桿合作需要兩支搖桿。請接上兩支，再按雙搖桿合作。"
+		character_panel.notice.text = status.text
 		return
 	if not _close_network(): return
 	_choices()
@@ -899,8 +1140,9 @@ func _activate() -> void:
 	_victory_subtitle = ""
 	active = true
 	paused = false
-	audio.play_music()
+	if sim.state.has("stage"): audio.stop_music()
 	audio.sync_stage_music(sim.state)
+	audio.play_music()
 	last_event = -1
 	local_frame = 0
 	remote_frame = -1
@@ -979,7 +1221,7 @@ func hello(build: String, fingerprint: String, hero: String) -> void:
 		return
 	remote_id = sender
 	waiting_peer_since = 0
-	sim.reset_campaign(difficulty, 2, [selected_hero, hero])
+	sim.reset_campaign(difficulty, 2, [selected_hero, hero],selected_chapter)
 	_activate()
 	begin_client.rpc_id(sender, sim.get_state(), difficulty)
 
@@ -1215,6 +1457,9 @@ func _set_game_focus(focused: bool) -> void:
 
 func _physics_process(_delta: float) -> void:
 	app_ticks += 1
+	view._fx.set_paused(not active or paused or menu.visible or controls_dialog.visible)
+	if not active and view._fx.last_tick >= 0: view._fx.reset_scene()
+	_update_achievement_banner(_delta)
 	if demo_active:
 		if not menu.visible: art_demo.step(_delta)
 		_update_art_demo()
@@ -1296,6 +1541,9 @@ func _physics_process(_delta: float) -> void:
 		if sim.state.phase == "lost": end_label.text += "\n按 Esc 返回選單／重新開始"
 
 func _events(events: Array) -> void:
+	view.state = sim.state
+	view._fx.muted = testing or not smoke.is_empty()
+	view._fx.sync(sim.state,view)
 	var pulses := {}
 	for event in events:
 		if not event is Dictionary: continue
@@ -1303,11 +1551,17 @@ func _events(events: Array) -> void:
 		if event_id <= last_event: continue
 		last_event = event_id
 		_collect_rumble(event, pulses)
+		if event.type == "achievement": _achievement_messages.append("%dP  %s\n%s%s" % [int(sim._fighter(int(event.actor)).get("player_index",0))+1,str(event.name),str(event.description),"　・　獲得戰利品！" if event.get("loot",false) else ""])
+		elif event.type == "weapon_break": _achievement_messages.append(str(event.name) + " 損壞！改用無限耐久白板，可開行囊換裝。")
+		elif event.type == "inventory_full": _achievement_messages.append("行囊該類已滿（或倉庫達上限）；可確認丟棄後拾取，地上物品保留。")
+		elif event.type == "challenge_complete": _achievement_messages.append("糧車奪回・每名玩家 +%d 金" % int(event.amount))
+		elif event.type == "challenge_failed": _achievement_messages.append("糧車損毀・仍可繼續進軍")
 		if event.get("type", "") == "boss_intro" and session == "host" and remote_id != 0:
 			pending_intro_actor = int(event.actor)
 			receive_boss_voice.rpc_id(remote_id, int(event.actor), str(event.line_key))
 		if smoke.is_empty() and not testing:
 			var voiced: Dictionary = event.duplicate()
+			voiced.shared_sfx = view._fx.accept_event(event,sim.state,view)
 			for fighter in sim.state.fighters:
 				if fighter.id == event.get("actor", 0): voiced.actor_slot = fighter.player_index
 				if fighter.id == event.get("target", 0): voiced.target_slot = fighter.player_index
@@ -1362,12 +1616,16 @@ func boss_voice_finished(actor: int) -> void:
 
 func _update_view() -> void:
 	view.state = sim.state
+	view._fx.muted = testing or not smoke.is_empty()
+	view._fx.sync(sim.state,view)
+	view._fx.sound.set_voice_duck(audio.speech_playing())
 	combat_hud.show()
 	combat_hud.sync(sim.state)
 	hud.position = Vector2(416, 15)
 	hud.size = Vector2(448, 75)
 	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	if active and sim.state.get("phase","") == "playing": audio.sync_stage_music(sim.state)
+	audio.sync_encounter(sim.state if active else {})
+	if active: audio.sync_stage_music(sim.state)
 	exit_button.visible = active and sim.state.get("phase","") == "won" and sim.state.get("victory_looting",false) and not menu.visible
 	var x := 480.0
 	var living_x: Array[float] = []
@@ -1396,6 +1654,20 @@ func _update_view() -> void:
 		var objective := "GO → 全員向右前進" if stage.go else ""
 		if not stage.go and not sim.state.fighters.any(func(f): return f.team == 1 and f.hp > 0) and sim.state.props.any(func(p): return p.get("mandatory",false) and not p.broken): objective = "擊破拒馬／柵欄，打通出口"
 		hud.text = "%02d/%02d　%s\n據點 %d/%d　%s" % [stage.index + 1,stage.total,stage.name,int(stage.get("checkpoint", 0)) + 1,int(stage.get("checkpoint_total", 2)),objective]
+	if sim.state.has("encounter"):
+		var e: Dictionary = sim.state.encounter
+		if e.kind == "alarm":
+			var remaining: int = Battle.Stage03Encounter.supports_left(sim.state)
+			hud.text = "鐘區原型・占位素材\n支柱 %d/%d　%s" % [e.support_ids.size() - remaining,e.support_ids.size(),"全部擊破停止援軍" if e.ringing else "警鐘已停・清除餘兵"]
+		elif e.kind == "barriers":
+			var remaining: int = Battle.Stage03Encounter.Objectives.barriers_left(sim.state)
+			hud.text = "木障區原型・占位素材\n木障 %d/%d　%s" % [e.barrier_ids.size()-remaining,e.barrier_ids.size(),"逐層擊破・無法繞行" if remaining > 0 else "GO → 全員向右前進"]
+		elif e.kind == "formation":
+			hud.text = "錯落陣形原型・占位素材\n" + ("陣形已突破・前往帳門 →" if e.breached else "趁缺口突破帳門 →")
+		else:
+			if e.phase == "yoshimoto": hud.text = "今川義元・弓箭／刀氣占位\n近身薙刀・看準格擋後收招"
+			elif e.phase == "complete": hud.text = "義元擊破・第三關完成"
+			else: hud.text = "帳內雙將原型・A/B 占位\n" + ("擊破兩名小王・雜兵持續增援" if e.phase == "active" else ("義元即將入陣" if e.phase == "awaiting_yoshimoto" else "遭遇已中止"))
 	if training_active:
 		var player: Dictionary = sim.state.fighters[0]
 		var stats: Dictionary = sim.state.training
@@ -1407,6 +1679,10 @@ func _update_view() -> void:
 		elif player.action == "down": move_name = "倒地"
 		elif player.get("sprinting", false): move_name = "衝刺・撞開"
 		if player.action == "charged" and player.kind not in ["nobunaga", "oichi"]: move_name = "滿蓄重擊"
+		if player.kind == "hideyoshi":
+			if player.action == "heavy": move_name = "上挑劍氣・擊飛" if player.heavy_combo == 2 else "下劈劍氣"
+			elif player.action == "charged": move_name = "踏步三連斬・第三刀擊倒"
+			elif player.action == "charged_slam": move_name = "葫蘆扇震地"
 		if player.kind == "tadakatsu":
 			if player.action == "charged": move_name = "長槍突進"
 			elif player.action == "charged_slam": move_name = "槍底震地・全周衝擊波"
@@ -1436,10 +1712,16 @@ func _input(event: InputEvent) -> void:
 		return
 	if controls_dialog.visible: return
 	if menu.visible:
+		if menu_screen == "collection" and event is InputEventJoypadButton and event.pressed and event.button_index in [JOY_BUTTON_LEFT_SHOULDER,JOY_BUTTON_RIGHT_SHOULDER]:
+			var direction := -1 if event.button_index == JOY_BUTTON_LEFT_SHOULDER else 1
+			collection.categories.current_tab = posmod(collection.categories.current_tab+direction,collection.categories.tab_count)
+			collection.item_list.grab_focus()
+			get_viewport().set_input_as_handled()
+			return
 		var back: bool = (event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_ESCAPE) or (event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_B)
 		var start: bool = event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_START
 		if back or start:
-			if start and menu_screen == "title": _show_menu_page("main")
+			if start and menu_screen == "title": _open_login(false)
 			elif start and menu_screen == "pause": _resume()
 			elif back: _menu_back()
 			get_viewport().set_input_as_handled()

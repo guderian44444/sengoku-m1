@@ -1,0 +1,59 @@
+{
+  "status": "ready_for_full_compilation",
+  "reviewed_clips": [
+    "heavy1",
+    "heavy2",
+    "charged_upper",
+    "charged_slam",
+    "air_heavy",
+    "dash_heavy",
+    "guard",
+    "special"
+  ],
+  "reviewed_frames": 48,
+  "runtime_anchor_sha256": "058658606232a16f03f08adb5f2acd9dc040a3b27d4a8359c431c3bf392eab8f",
+  "source_bindings": {
+    "heavy1": "d8102b768508547298e0b8c40caaf5c562682d0959c967c71baec881d90fb8b5",
+    "heavy2": "674f701ab6f10c61cf052bea9774f38f09001aa7f6bfee2683535b4c4d227d02",
+    "charged_upper": "79ed12597252f9a2447a3783851e4c1b3d93cc51d526fd492501c5a4328056d4",
+    "charged_slam": "6efc68453268da4c708124d0a05c1fc447335034f6a558fc750316c290f72778",
+    "air_heavy": "7d282df54305a61552f30d2a0f7def10e78406c6a5c486b63032609e9233dac0",
+    "dash_heavy": "0f80940e567c69d10eddd5a3d1359f59c141e3dd50825fed5894a6cff1418ad9",
+    "guard": "c7024baf3ed67c6f256756d377d4950a27d32ba519483d06329238b6027930e2",
+    "special": "86a82a330463e8de05d3bb07bc4415477dcbb08af0b450e0c790f3e5e21f1732"
+  },
+  "validation": "Current register-oichi-v27.py build(..., allow_partial=True) passed native dimensions, alpha, all source hashes, component isolation, hand occupancy, occluder regions, frame uniqueness and schema requirements.",
+  "visual_review": [
+    "Inspected all eight full-draft 230px overlay sheets and all eight independent 148px full-bow overlays.",
+    "Bow grips and drawn strings align with the intended palms; right-hand draw metadata is only present during draw phases.",
+    "Guard and dash bash use awase bow curved centerline alignment through both rigid fists, without string-draw metadata.",
+    "Charged slam angles were adjusted to keep visible bow tips above the ground plane.",
+    "Planted roots were refined to visible outsole baselines. Air archery frames1\u20135 use virtual roots below the airborne feet.",
+    "One shared anatomical ruler is used per sheet; rulers were selected from skull/neck, torso and unfolded leg segments, not alpha bounding boxes."
+  ],
+  "uncertainty": [
+    "Standing-equivalent anatomical rulers remain approximately \u00b15%.",
+    "Hand positions and rectangles are manually estimated, approximately 5\u201312 source pixels depending on occlusion/open fingers.",
+    "Rigid two-hand alignment is optimized for bow_awase_yumi; other catalog bows have different limb curves and may show small second-hand offsets.",
+    "The fixed preview canvas clips upper bow tips at 230px, while 148px previews retain full bows. This is a preview viewport limitation rather than cropped source art."
+  ],
+  "metadata_changes_after_full_draft_review": {
+    "charged_slam_angles": [
+      15,
+      0,
+      10,
+      45,
+      52,
+      20
+    ],
+    "refined_planted_foot_baselines": true,
+    "air_heavy_virtual_support_frames": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "pixel_changes": false
+}
