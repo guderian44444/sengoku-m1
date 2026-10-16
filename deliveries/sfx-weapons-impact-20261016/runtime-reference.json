@@ -1,0 +1,513 @@
+{
+  "reference_commit": "30fdac0349fb39bd769061318a497446a9ff0114",
+  "source_files": [
+    {
+      "path": "game/main.gd",
+      "sha256": "8a340d1a0ffdc6e06a7c456308ed18e05d6bec7d68a07ae53b8a16068c0b6d71",
+      "local_working_copy_differs": false
+    },
+    {
+      "path": "game/core/battle.gd",
+      "sha256": "e4de9b97b4c0d1f992bfdd534f6b1f6d1061415d03e4f2db95ea98a286af399b",
+      "local_working_copy_differs": true
+    },
+    {
+      "path": "game/core/weapon_catalog.gd",
+      "sha256": "b14d104c56fc572977e726152741c8b41c34c1f2ad4e6717fe37b11e530c8fbb",
+      "local_working_copy_differs": false
+    },
+    {
+      "path": "game/render/combat_audio.gd",
+      "sha256": "dec0dfa5250667c2376b546898f575e03bfadf49209ef1d71600b55e8cafb479",
+      "local_working_copy_differs": true
+    },
+    {
+      "path": "game/render/shared_combat_vfx.gd",
+      "sha256": "b51b22f96e9b482a4160c227009bfa206c8e4b414791329db47be6aaaba5ee5c",
+      "local_working_copy_differs": true
+    },
+    {
+      "path": "game/audio/v38/weapons/manifest.json",
+      "sha256": "8215ca38e78b70acc01f143e479eeb0aeb1ef0df8a13c07797b81343b4e2b65e",
+      "local_working_copy_differs": false
+    },
+    {
+      "path": "game/vfx/v2/effect_recipes.json",
+      "sha256": "75eb0dd47ea3fb91cd861746e63d1417f534ce39590bca4a4e9d5eb177d4e9f3",
+      "local_working_copy_differs": false
+    },
+    {
+      "path": "game/vfx/v2/audio/effect_audio_controller.gd",
+      "sha256": "453669d56bc4b315355936fc3df310e2a2a9e1312a3c7255d054e41356190cc1",
+      "local_working_copy_differs": false
+    },
+    {
+      "path": "game/vfx/v2/audio/manifest.json",
+      "sha256": "d996eef5c7eb4041cd61f614d48e5c761f4050fe999d893065cdc79db7de99c8",
+      "local_working_copy_differs": false
+    }
+  ],
+  "local_main_at_intake": "f553400c8b61e3e2dd70e601542cd4689e914e3a",
+  "local_changes_included": false,
+  "note": "Reference uses remote main, not the dirty root checkout. Reviewed local diffs affect speech merging/combat visual tuning; audio routing described here matches the pinned base.",
+  "combat_audio": {
+    "bus": "SFX",
+    "players": 6,
+    "required_variants_per_sampled_cue": 5,
+    "root": "res://audio/v38/weapons/",
+    "sampled_cues": {
+      "sword_whoosh": {
+        "gain_db": -17,
+        "gain_linear": 0.14125375446227545,
+        "files": [
+          "res://audio/v38/weapons/sword_whoosh_0.wav",
+          "res://audio/v38/weapons/sword_whoosh_1.wav",
+          "res://audio/v38/weapons/sword_whoosh_2.wav",
+          "res://audio/v38/weapons/sword_whoosh_3.wav",
+          "res://audio/v38/weapons/sword_whoosh_4.wav"
+        ]
+      },
+      "sword_heavy_whoosh": {
+        "gain_db": -15,
+        "gain_linear": 0.1778279410038923,
+        "files": [
+          "res://audio/v38/weapons/sword_heavy_whoosh_0.wav",
+          "res://audio/v38/weapons/sword_heavy_whoosh_1.wav",
+          "res://audio/v38/weapons/sword_heavy_whoosh_2.wav",
+          "res://audio/v38/weapons/sword_heavy_whoosh_3.wav",
+          "res://audio/v38/weapons/sword_heavy_whoosh_4.wav"
+        ]
+      },
+      "hit": {
+        "gain_db": -17,
+        "gain_linear": 0.14125375446227545,
+        "files": [
+          "res://audio/v38/weapons/hit_0.wav",
+          "res://audio/v38/weapons/hit_1.wav",
+          "res://audio/v38/weapons/hit_2.wav",
+          "res://audio/v38/weapons/hit_3.wav",
+          "res://audio/v38/weapons/hit_4.wav"
+        ]
+      },
+      "heavy_hit": {
+        "gain_db": -13,
+        "gain_linear": 0.22387211385683395,
+        "files": [
+          "res://audio/v38/weapons/heavy_hit_0.wav",
+          "res://audio/v38/weapons/heavy_hit_1.wav",
+          "res://audio/v38/weapons/heavy_hit_2.wav",
+          "res://audio/v38/weapons/heavy_hit_3.wav",
+          "res://audio/v38/weapons/heavy_hit_4.wav"
+        ]
+      },
+      "spear_wind": {
+        "gain_db": -17,
+        "gain_linear": 0.14125375446227545,
+        "files": [
+          "res://audio/v38/weapons/spear_wind_0.wav",
+          "res://audio/v38/weapons/spear_wind_1.wav",
+          "res://audio/v38/weapons/spear_wind_2.wav",
+          "res://audio/v38/weapons/spear_wind_3.wav",
+          "res://audio/v38/weapons/spear_wind_4.wav"
+        ]
+      },
+      "spear_hit": {
+        "gain_db": -17,
+        "gain_linear": 0.14125375446227545,
+        "files": [
+          "res://audio/v38/weapons/spear_hit_0.wav",
+          "res://audio/v38/weapons/spear_hit_1.wav",
+          "res://audio/v38/weapons/spear_hit_2.wav",
+          "res://audio/v38/weapons/spear_hit_3.wav",
+          "res://audio/v38/weapons/spear_hit_4.wav"
+        ]
+      },
+      "spear_heavy_hit": {
+        "gain_db": -13,
+        "gain_linear": 0.22387211385683395,
+        "files": [
+          "res://audio/v38/weapons/spear_heavy_hit_0.wav",
+          "res://audio/v38/weapons/spear_heavy_hit_1.wav",
+          "res://audio/v38/weapons/spear_heavy_hit_2.wav",
+          "res://audio/v38/weapons/spear_heavy_hit_3.wav",
+          "res://audio/v38/weapons/spear_heavy_hit_4.wav"
+        ]
+      },
+      "blunt_whoosh": {
+        "gain_db": -17,
+        "gain_linear": 0.14125375446227545,
+        "files": [
+          "res://audio/v38/weapons/blunt_whoosh_0.wav",
+          "res://audio/v38/weapons/blunt_whoosh_1.wav",
+          "res://audio/v38/weapons/blunt_whoosh_2.wav",
+          "res://audio/v38/weapons/blunt_whoosh_3.wav",
+          "res://audio/v38/weapons/blunt_whoosh_4.wav"
+        ]
+      },
+      "blunt_hit": {
+        "gain_db": -17,
+        "gain_linear": 0.14125375446227545,
+        "files": [
+          "res://audio/v38/weapons/blunt_hit_0.wav",
+          "res://audio/v38/weapons/blunt_hit_1.wav",
+          "res://audio/v38/weapons/blunt_hit_2.wav",
+          "res://audio/v38/weapons/blunt_hit_3.wav",
+          "res://audio/v38/weapons/blunt_hit_4.wav"
+        ]
+      },
+      "blunt_heavy_hit": {
+        "gain_db": -13,
+        "gain_linear": 0.22387211385683395,
+        "files": [
+          "res://audio/v38/weapons/blunt_heavy_hit_0.wav",
+          "res://audio/v38/weapons/blunt_heavy_hit_1.wav",
+          "res://audio/v38/weapons/blunt_heavy_hit_2.wav",
+          "res://audio/v38/weapons/blunt_heavy_hit_3.wav",
+          "res://audio/v38/weapons/blunt_heavy_hit_4.wav"
+        ]
+      },
+      "bow_release": {
+        "gain_db": -15,
+        "gain_linear": 0.1778279410038923,
+        "files": [
+          "res://audio/v38/weapons/bow_release_0.wav",
+          "res://audio/v38/weapons/bow_release_1.wav",
+          "res://audio/v38/weapons/bow_release_2.wav",
+          "res://audio/v38/weapons/bow_release_3.wav",
+          "res://audio/v38/weapons/bow_release_4.wav"
+        ]
+      },
+      "bow_heavy_release": {
+        "gain_db": -14,
+        "gain_linear": 0.19952623149688797,
+        "files": [
+          "res://audio/v38/weapons/bow_heavy_release_0.wav",
+          "res://audio/v38/weapons/bow_heavy_release_1.wav",
+          "res://audio/v38/weapons/bow_heavy_release_2.wav",
+          "res://audio/v38/weapons/bow_heavy_release_3.wav",
+          "res://audio/v38/weapons/bow_heavy_release_4.wav"
+        ]
+      },
+      "arrow_hit": {
+        "gain_db": -17,
+        "gain_linear": 0.14125375446227545,
+        "files": [
+          "res://audio/v38/weapons/arrow_hit_0.wav",
+          "res://audio/v38/weapons/arrow_hit_1.wav",
+          "res://audio/v38/weapons/arrow_hit_2.wav",
+          "res://audio/v38/weapons/arrow_hit_3.wav",
+          "res://audio/v38/weapons/arrow_hit_4.wav"
+        ]
+      },
+      "shield_hit": {
+        "gain_db": -16,
+        "gain_linear": 0.15848931924611134,
+        "files": [
+          "res://audio/v38/weapons/shield_hit_0.wav",
+          "res://audio/v38/weapons/shield_hit_1.wav",
+          "res://audio/v38/weapons/shield_hit_2.wav",
+          "res://audio/v38/weapons/shield_hit_3.wav",
+          "res://audio/v38/weapons/shield_hit_4.wav"
+        ]
+      },
+      "guard_break": {
+        "gain_db": -14,
+        "gain_linear": 0.19952623149688797,
+        "files": [
+          "res://audio/v38/weapons/guard_break_0.wav",
+          "res://audio/v38/weapons/guard_break_1.wav",
+          "res://audio/v38/weapons/guard_break_2.wav",
+          "res://audio/v38/weapons/guard_break_3.wav",
+          "res://audio/v38/weapons/guard_break_4.wav"
+        ]
+      },
+      "guard": {
+        "gain_db": -16,
+        "gain_linear": 0.15848931924611134,
+        "files": [
+          "res://audio/v38/weapons/shield_hit_0.wav",
+          "res://audio/v38/weapons/shield_hit_1.wav",
+          "res://audio/v38/weapons/shield_hit_2.wav",
+          "res://audio/v38/weapons/shield_hit_3.wav",
+          "res://audio/v38/weapons/shield_hit_4.wav"
+        ]
+      },
+      "kick_whoosh": {
+        "gain_db": -17,
+        "gain_linear": 0.14125375446227545,
+        "files": [
+          "res://audio/v38/weapons/blunt_whoosh_0.wav",
+          "res://audio/v38/weapons/blunt_whoosh_1.wav",
+          "res://audio/v38/weapons/blunt_whoosh_2.wav",
+          "res://audio/v38/weapons/blunt_whoosh_3.wav",
+          "res://audio/v38/weapons/blunt_whoosh_4.wav"
+        ]
+      }
+    },
+    "synth_event_keys": [
+      "hit",
+      "heavy_hit",
+      "special",
+      "pickup",
+      "food_pickup",
+      "defeat",
+      "shield_hit",
+      "grab",
+      "bow_release",
+      "gunshot",
+      "shatter",
+      "sword_whoosh",
+      "spear_wind",
+      "landing",
+      "splash",
+      "guard",
+      "guard_break",
+      "prop_break",
+      "arrow_hit",
+      "bullet_hit",
+      "needle_hit",
+      "blunt_hit",
+      "kick_whoosh",
+      "needle_whoosh",
+      "chain_swing",
+      "ceramic_hit",
+      "ceramic_break",
+      "box_hit",
+      "box_break",
+      "wood_hit",
+      "wood_break",
+      "stone_hit",
+      "stone_break",
+      "wicker_hit",
+      "wicker_break"
+    ],
+    "synth_asset_path": null,
+    "stage3": {
+      "sword_air": "res://audio/stage3/sword_air.wav",
+      "bell_fall": "res://audio/stage3/bell_fall.wav",
+      "alarm": "res://audio/stage3/alarm.wav"
+    }
+  },
+  "vfx_audio": {
+    "bus": "SFX (Master fallback)",
+    "players": 12,
+    "per_instance": 5,
+    "root": "res://vfx/v2/audio/",
+    "assets": {
+      "blade_activate": {
+        "wav": "wav/blade_activate.wav",
+        "ogg": "ogg/blade_activate.ogg",
+        "loop": false
+      },
+      "blade_charge_loop": {
+        "wav": "wav/blade_charge_loop.wav",
+        "ogg": "ogg/blade_charge_loop.ogg",
+        "loop": true
+      },
+      "blade_release": {
+        "wav": "wav/blade_release.wav",
+        "ogg": "ogg/blade_release.ogg",
+        "loop": false
+      },
+      "blade_hit": {
+        "wav": "wav/blade_hit.wav",
+        "ogg": "ogg/blade_hit.ogg",
+        "loop": false
+      },
+      "blade_dissipate": {
+        "wav": "wav/blade_dissipate.wav",
+        "ogg": "ogg/blade_dissipate.ogg",
+        "loop": false
+      },
+      "fire_activate": {
+        "wav": "wav/fire_activate.wav",
+        "ogg": "ogg/fire_activate.ogg",
+        "loop": false
+      },
+      "fire_charge_loop": {
+        "wav": "wav/fire_charge_loop.wav",
+        "ogg": "ogg/fire_charge_loop.ogg",
+        "loop": true
+      },
+      "fire_release": {
+        "wav": "wav/fire_release.wav",
+        "ogg": "ogg/fire_release.ogg",
+        "loop": false
+      },
+      "fire_hit": {
+        "wav": "wav/fire_hit.wav",
+        "ogg": "ogg/fire_hit.ogg",
+        "loop": false
+      },
+      "fire_dissipate": {
+        "wav": "wav/fire_dissipate.wav",
+        "ogg": "ogg/fire_dissipate.ogg",
+        "loop": false
+      },
+      "ice_activate": {
+        "wav": "wav/ice_activate.wav",
+        "ogg": "ogg/ice_activate.ogg",
+        "loop": false
+      },
+      "ice_charge_loop": {
+        "wav": "wav/ice_charge_loop.wav",
+        "ogg": "ogg/ice_charge_loop.ogg",
+        "loop": true
+      },
+      "ice_release": {
+        "wav": "wav/ice_release.wav",
+        "ogg": "ogg/ice_release.ogg",
+        "loop": false
+      },
+      "ice_hit": {
+        "wav": "wav/ice_hit.wav",
+        "ogg": "ogg/ice_hit.ogg",
+        "loop": false
+      },
+      "ice_dissipate": {
+        "wav": "wav/ice_dissipate.wav",
+        "ogg": "ogg/ice_dissipate.ogg",
+        "loop": false
+      },
+      "wind_activate": {
+        "wav": "wav/wind_activate.wav",
+        "ogg": "ogg/wind_activate.ogg",
+        "loop": false
+      },
+      "wind_charge_loop": {
+        "wav": "wav/wind_charge_loop.wav",
+        "ogg": "ogg/wind_charge_loop.ogg",
+        "loop": true
+      },
+      "wind_release": {
+        "wav": "wav/wind_release.wav",
+        "ogg": "ogg/wind_release.ogg",
+        "loop": false
+      },
+      "wind_hit": {
+        "wav": "wav/wind_hit.wav",
+        "ogg": "ogg/wind_hit.ogg",
+        "loop": false
+      },
+      "wind_dissipate": {
+        "wav": "wav/wind_dissipate.wav",
+        "ogg": "ogg/wind_dissipate.ogg",
+        "loop": false
+      },
+      "lightning_activate": {
+        "wav": "wav/lightning_activate.wav",
+        "ogg": "ogg/lightning_activate.ogg",
+        "loop": false
+      },
+      "lightning_charge_loop": {
+        "wav": "wav/lightning_charge_loop.wav",
+        "ogg": "ogg/lightning_charge_loop.ogg",
+        "loop": true
+      },
+      "lightning_release": {
+        "wav": "wav/lightning_release.wav",
+        "ogg": "ogg/lightning_release.ogg",
+        "loop": false
+      },
+      "lightning_hit": {
+        "wav": "wav/lightning_hit.wav",
+        "ogg": "ogg/lightning_hit.ogg",
+        "loop": false
+      },
+      "lightning_dissipate": {
+        "wav": "wav/lightning_dissipate.wav",
+        "ogg": "ogg/lightning_dissipate.ogg",
+        "loop": false
+      },
+      "hero_matchlock_shot_0": {
+        "wav": "wav/hero_matchlock_shot_0.wav",
+        "ogg": "ogg/hero_matchlock_shot_0.ogg",
+        "loop": false
+      },
+      "hero_matchlock_shot_1": {
+        "wav": "wav/hero_matchlock_shot_1.wav",
+        "ogg": "ogg/hero_matchlock_shot_1.ogg",
+        "loop": false
+      },
+      "hero_matchlock_shot_2": {
+        "wav": "wav/hero_matchlock_shot_2.wav",
+        "ogg": "ogg/hero_matchlock_shot_2.ogg",
+        "loop": false
+      },
+      "hero_matchlock_shot_3": {
+        "wav": "wav/hero_matchlock_shot_3.wav",
+        "ogg": "ogg/hero_matchlock_shot_3.ogg",
+        "loop": false
+      },
+      "enemy_matchlock_shot_0": {
+        "wav": "wav/enemy_matchlock_shot_0.wav",
+        "ogg": "ogg/enemy_matchlock_shot_0.ogg",
+        "loop": false
+      },
+      "enemy_matchlock_shot_1": {
+        "wav": "wav/enemy_matchlock_shot_1.wav",
+        "ogg": "ogg/enemy_matchlock_shot_1.ogg",
+        "loop": false
+      },
+      "enemy_matchlock_shot_2": {
+        "wav": "wav/enemy_matchlock_shot_2.wav",
+        "ogg": "ogg/enemy_matchlock_shot_2.ogg",
+        "loop": false
+      },
+      "enemy_matchlock_shot_3": {
+        "wav": "wav/enemy_matchlock_shot_3.wav",
+        "ogg": "ogg/enemy_matchlock_shot_3.ogg",
+        "loop": false
+      },
+      "neutral_slash_arc": {
+        "wav": "wav/neutral_slash_arc.wav",
+        "ogg": "ogg/neutral_slash_arc.ogg",
+        "loop": false
+      },
+      "thrust_cone": {
+        "wav": "wav/thrust_cone.wav",
+        "ogg": "ogg/thrust_cone.ogg",
+        "loop": false
+      },
+      "arrow_trail": {
+        "wav": "wav/arrow_trail.wav",
+        "ogg": "ogg/arrow_trail.ogg",
+        "loop": false
+      },
+      "throwing_blade_trail": {
+        "wav": "wav/throwing_blade_trail.wav",
+        "ogg": "ogg/throwing_blade_trail.ogg",
+        "loop": false
+      },
+      "blunt_impact": {
+        "wav": "wav/blunt_impact.wav",
+        "ogg": "ogg/blunt_impact.ogg",
+        "loop": false
+      },
+      "guard_sparks": {
+        "wav": "wav/guard_sparks.wav",
+        "ogg": "ogg/guard_sparks.ogg",
+        "loop": false
+      },
+      "slash_hit": {
+        "wav": "wav/slash_hit.wav",
+        "ogg": "ogg/slash_hit.ogg",
+        "loop": false
+      },
+      "dash_dust": {
+        "wav": "wav/dash_dust.wav",
+        "ogg": "ogg/dash_dust.ogg",
+        "loop": false
+      }
+    },
+    "loop_gain_db": "-24 + lerp(-8,0,progress)",
+    "oneshot_gain_db": "-18 + lerp(-2,0,progress)",
+    "modifiers_db": {
+      "enemy_matchlock": -3,
+      "layered": -6,
+      "voice_duck": -6,
+      "distance": "0 to -12",
+      "intensity": "20*log10(max(.001,intensity))"
+    }
+  }
+}
