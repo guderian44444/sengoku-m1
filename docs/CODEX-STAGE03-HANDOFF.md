@@ -17,8 +17,8 @@
 
 | 包內 ID | 新外觀／固定武器 | M4 定位 | 接入注意 |
 |---|---|---|---|
-| `shield` | 盾兵，盾／槍已合成 | `kind=shield_spear` | 6 組26格；不要再疊現有盾與槍裝備。 |
-| `spear` | 槍兵，固定槍 | `kind=soldier` 的第三關槍兵定位 | 5 組22格；先核對實際 AI 招式與近戰判定，不能只改 renderer 名稱。 |
+| `shield` | 盾兵，盾／槍已合成 | `role=shield_spear`；底層 kind 經 ENEMY_ROLES 正規化 | 6 組26格；不能直接用 kind=shield_spear 找角色。不要再疊現有盾與槍裝備。 |
+| `spear` | 槍兵，固定槍 | 第三關 `kind=soldier`，排除 `role=shield_spear` | 5 組22格；先核對實際 AI 招式與近戰判定，不能只改 renderer 名稱。 |
 | `archer` | 弓兵，固定弓 | `kind=archer` | 5 組22格；人物放箭事件接既有獨立投射物。 |
 | `ii_naomori` | 井伊直盛，固定槍 | 建議帳內 `lieutenant_slot=1`／A | 6 組32格；現行 A 仍為 `naginata` 占位，含 thrust／sweep／counter，並非每招都有對應新素材。 |
 | `ujinori` | 蒲原氏德，固定刀 | 建議帳內 `lieutenant_slot=2`／B | 6 組30格；現行 B 的 dual_swords／double／counter／thrust 與單刀 slash 不完全對應，需後續核對動作選單。 |
