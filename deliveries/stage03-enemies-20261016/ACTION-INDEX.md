@@ -50,7 +50,7 @@
 | [`ujinori/down`](source/metadata/ujinori/down/manifest.json) | 6 | 70, 90, 100, 120, 120, 300 | 800 | `[660, 510]`／`[270, 480]` | 末格保持 | land_frame=3；末格保持 |
 | [`ujinori/guard_retreat`](source/metadata/ujinori/guard_retreat/manifest.json) | 4 | 130, 100, 160, 170 | 560 | `[660, 510]`／`[270, 480]` | 單次後由 runtime 銜接 | 未另標事件；依 runtime 狀態銜接 |
 | [`ujinori/walk`](source/metadata/ujinori/walk/manifest.json) | 4 | 160, 160, 160, 160 | 640 | `[660, 510]`／`[270, 480]` | 循環 | loop_seam=[4, 1] |
-| [`ujinori/slash`](source/metadata/ujinori/slash/manifest.json) | 8 | 120, 100, 100, 40, 50, 90, 130, 170 | 800 | `[660, 510]`／`[140, 480]` | 單次後由 runtime 銜接 | 來源另指 slash/timing.json，但包內缺此檔；播放資料在總 manifest，命中事件待補 |
+| [`ujinori/slash`](source/metadata/ujinori/slash/timing.json) | 8 | 120, 100, 100, 40, 50, 90, 130, 170 | 800 | `[660, 510]`／`[140, 480]` | 單次後由 runtime 銜接 | 原始timing修補已驗證，8格／800ms一致；世界位移與命中由runtime接入校正 |
 
 ## 井伊直盛 `ii_naomori`
 

@@ -1,9 +1,11 @@
 {
-  "status": "PASS_WITH_DOCUMENTED_SOURCE_GAPS",
+  "status": "PASS",
   "zip_bytes": 33121939,
   "zip_sha256": "5ec1811cc96b41de19e290545711e98489ed7e2d2adcea7659fb456bbc6894a1",
-  "unchanged_extracted_files": 223,
-  "verified_source_sha256_entries": 222,
+  "verified_extracted_files": 226,
+  "original_archive_files": 223,
+  "verified_source_sha256_entries": 225,
+  "original_archive_sha256_entries": 222,
   "characters": {
     "shield": {
       "actions": 6,
@@ -30,18 +32,17 @@
       "playback_frames": 46
     }
   },
+  "source_metadata_references": {
+    "frames": 586,
+    "timing": 6
+  },
   "actions": 37,
   "playback_frames": 178,
   "unique_png_sha256": 163,
   "all_frames_rgba_with_clear_canvas_border": true,
   "approved_video_matches_package": true,
   "runtime_integrated": false,
-  "missing_source_references": [
-    {
-      "action": "ujinori/slash",
-      "reference": "slash/timing.json"
-    }
-  ],
+  "missing_source_references": [],
   "not_in_package": [
     "arrow flight PNG",
     "sword-energy projectile PNG",

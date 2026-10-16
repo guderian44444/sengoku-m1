@@ -69,7 +69,7 @@
 | 義元 retreat `loop=true` | 反序重用walk；循環只在既有短退狀態內，AI時間／距離上限仍生效。 |
 | 義元 sword_energy外部FX事件 | 包內只有角色施放動作與事件；箭飛行圖、劍氣投射物圖另缺，可沿用既有原型繪製後再驗收正式效果。 |
 
-蒲原 slash 的原 metadata 指向 `slash/timing.json`，包內缺此檔。8格、逐格時長、800ms總長與最終root可從總manifest取得，但精確命中／特效／socket事件不能假稱已齊全。盾block的有效窗口、井伊thrust命中點、義元近斬權威對時等也需要接入方核對，原資料沒有的欄位不得自行填成已驗收值。
+蒲原slash時序缺檔已套用製作者最小修補：補回原始`metadata/ujinori/slash/timing.json`，六份清單以`../slash/timing.json`正確引用。8格／800ms、主manifest及所有PNG／影片不變；586筆來源frame引用與六份timing引用已核對存在。原始timing仍明載世界位移／命中由接入方處理，這是正常runtime接線工作，不是缺檔待辦。盾block的有效窗口、井伊thrust命中點、義元近斬權威對時等也需要接入方核對，原資料沒有的欄位不得自行填成已驗收值。
 
 ## 完整性盤點與驗收工作
 

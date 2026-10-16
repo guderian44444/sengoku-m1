@@ -2475,12 +2475,24 @@
           ]
         },
         "slash": {
-          "metadata_path": "metadata/ujinori/slash/manifest.json",
+          "metadata_path": "metadata/ujinori/slash/timing.json",
           "metadata_action_descriptor": {
-            "frame_count": 8,
+            "character": "蒲原氏德",
+            "action": "katana_slash",
+            "status": "review_sample",
+            "reference": "stage03_art_v1/named-boss-lineup-v2.png:rightmost",
             "duration_ms": 800,
-            "loop": false,
-            "metadata": "slash/timing.json"
+            "canvas": [
+              660,
+              510
+            ],
+            "registration": "translation_only_rear_sole",
+            "notes": [
+              "No optical-flow interpolation",
+              "Weapon remains composited with body in this review sample; separation not yet completed",
+              "Ground registration preserves pose height; no bbox-based per-frame scaling",
+              "World displacement and hit events await integration; preview is in-place"
+            ]
           },
           "durations_ms": [
             120,
@@ -2573,7 +2585,72 @@
           "loop": false,
           "hold_last": false,
           "event_fields": {},
-          "source_frame_annotations": []
+          "source_frame_annotations": [
+            {
+              "frame": 1,
+              "preview_anchor": [
+                140,
+                480
+              ],
+              "world_displacement": null
+            },
+            {
+              "frame": 2,
+              "preview_anchor": [
+                140,
+                480
+              ],
+              "world_displacement": null
+            },
+            {
+              "frame": 3,
+              "preview_anchor": [
+                140,
+                480
+              ],
+              "world_displacement": null
+            },
+            {
+              "frame": 4,
+              "preview_anchor": [
+                140,
+                480
+              ],
+              "world_displacement": null
+            },
+            {
+              "frame": 5,
+              "preview_anchor": [
+                140,
+                480
+              ],
+              "world_displacement": null
+            },
+            {
+              "frame": 6,
+              "preview_anchor": [
+                140,
+                480
+              ],
+              "world_displacement": null
+            },
+            {
+              "frame": 7,
+              "preview_anchor": [
+                140,
+                480
+              ],
+              "world_displacement": null
+            },
+            {
+              "frame": 8,
+              "preview_anchor": [
+                140,
+                480
+              ],
+              "world_displacement": null
+            }
+          ]
         }
       }
     },
@@ -4197,10 +4274,5 @@
       }
     }
   },
-  "missing_source_references": [
-    {
-      "action": "ujinori/slash",
-      "reference": "slash/timing.json"
-    }
-  ]
+  "missing_source_references": []
 }

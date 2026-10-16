@@ -498,7 +498,7 @@
       "frame_count": 8,
       "duration_ms": 800,
       "loop": false,
-      "metadata": "slash/timing.json"
+      "metadata": "../slash/timing.json"
     }
   },
   "complete": [
@@ -524,5 +524,6 @@
     "No Git upload or runtime changes",
     "v2: for alpha 1..15 RGB replaced with nearest alpha>=64 pixel, alpha unchanged; zero-alpha RGB zeroed. Prevents low-alpha red/green source noise from becoming visible under faulty exporters."
   ],
-  "version": "v3-walk-local-leg-edits"
+  "version": "v3-walk-local-leg-edits",
+  "metadata_path_base": "this_manifest_directory"
 }
