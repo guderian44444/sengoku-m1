@@ -1,11 +1,13 @@
 extends RefCounted
 
 # Chapter-three objectives opt in; ordinary chapters keep their existing wave rules.
+const Objectives = preload("res://core/stage03_objectives.gd")
 const KINDS := ["soldier", "archer", "shield_spear", "fire_archer", "raider"]
 const PHASES := ["active", "draining", "complete", "cancelled"]
 const ACTOR_LIMIT := 48
 
 static func valid_spec(spec: Dictionary, width: float) -> bool:
+	if spec.get("mode", "") in ["barriers", "formation"]: return Objectives.valid_spec(spec, width)
 	if spec.get("mode", "") != "alarm" or not spec.get("population") is Dictionary or not spec.get("alarm") is Dictionary: return false
 	var population: Dictionary = spec.population
 	for key in ["solo", "coop"]:
@@ -26,6 +28,9 @@ static func valid_spec(spec: Dictionary, width: float) -> bool:
 	return _number(alarm.get("x"), 100, width - 100) and _number(alarm.get("y"), 360, 600) and _number(alarm.get("height"), 120, 360)
 
 static func begin(sim, spec: Dictionary) -> void:
+	if spec.get("mode", "") in ["barriers", "formation"]:
+		Objectives.begin(sim, spec)
+		return
 	var world: Dictionary = sim.state
 	var population: Dictionary = spec.population
 	var alarm: Dictionary = spec.alarm
@@ -61,6 +66,9 @@ static func enemy_defeated(sim, fighter: Dictionary) -> void:
 	var world: Dictionary = sim.state
 	if not world.has("encounter") or world.phase != "playing": return
 	var encounter: Dictionary = world.encounter
+	if encounter.kind != "alarm":
+		Objectives.enemy_defeated(sim, fighter)
+		return
 	if encounter.phase != "active" or not encounter.ringing or supports_left(world) == 0: return
 	if fighter.team != 1 or fighter.hp > 0 or fighter.kind == "boss" or fighter.get("replacement_queued", false): return
 	if int(fighter.get("encounter_epoch", -1)) != encounter.epoch: return
@@ -75,6 +83,9 @@ static func tick(sim) -> void:
 		cancel(sim)
 		return
 	if encounter.phase in ["complete", "cancelled"]: return
+	if encounter.kind != "alarm":
+		Objectives.tick(sim)
+		return
 	if encounter.phase == "active" and supports_left(world) == 0:
 		encounter.tickets.clear()
 		encounter.ringing = false
@@ -100,12 +111,12 @@ static func tick(sim) -> void:
 static func cancel(sim) -> void:
 	if not sim.state.has("encounter"): return
 	var encounter: Dictionary = sim.state.encounter
-	encounter.tickets.clear()
-	encounter.ringing = false
-	if encounter.stopped_tick < 0: encounter.stopped_tick = sim.state.tick
+	if encounter.has("tickets"): encounter.tickets.clear()
+	if encounter.has("ringing"): encounter.ringing = false
+	if encounter.get("stopped_tick", 0) < 0: encounter.stopped_tick = sim.state.tick
 	if encounter.phase not in ["complete", "cancelled"]:
 		encounter.phase = "cancelled"
-		sim._event("encounter_phase", encounter.bell_x, encounter.bell_y, 0, 0, {"phase":"cancelled", "encounter_epoch":encounter.epoch})
+		sim._event("encounter_phase", encounter.get("bell_x", 0.0), encounter.get("bell_y", 0.0), 0, 0, {"phase":"cancelled", "encounter_epoch":encounter.epoch})
 
 static func _spawn(sim) -> void:
 	var world: Dictionary = sim.state
@@ -134,6 +145,7 @@ static func _spawn(sim) -> void:
 static func valid_state(world: Dictionary) -> bool:
 	var encounter: Variant = world.get("encounter")
 	if not encounter is Dictionary or not world.has("stage") or world.stage.id != 3 or not world.stage.get("prototype", false): return false
+	if encounter.get("kind") in ["barriers", "formation"]: return Objectives.valid_state(world)
 	if encounter.get("kind") != "alarm" or encounter.get("phase") not in PHASES: return false
 	if not _integer(encounter.get("epoch"), 1, 1000000000) or not _integer(encounter.get("target"), 1, 16): return false
 	if not _integer(encounter.get("delay_ticks"), 1, 1800) or not _integer(encounter.get("admit_ticks"), 1, 600): return false

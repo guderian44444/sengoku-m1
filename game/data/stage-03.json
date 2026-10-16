@@ -1,14 +1,14 @@
 {
   "id": 3,
-  "title": "今川本陣・鐘區原型",
+  "title": "今川本陣・三段機制原型",
   "prototype": true,
   "faction": "imagawa",
   "year": 1560,
   "target_minutes": [
-    2,
-    5
+    5,
+    10
   ],
-  "historical_note": "機制原型：僅完成前營警鐘，後續障礙、陣形與帳內 Boss 尚未開放。數值與兩根支柱是可調測試預設，非使用者最終確認。",
+  "historical_note": "機制原型：前營警鐘、多層必拆木障、錯落陣形與走位補缺；帳內雙小王與義元尚未開放。所有數值均為可調測試預設。",
   "segments": [
     {
       "name": "前營警鐘（占位素材）",
@@ -67,6 +67,120 @@
             "x": 1010,
             "y": 485,
             "height": 255
+          }
+        }
+      ]
+    },
+    {
+      "name": "層層木障（占位素材）",
+      "theme": "gate",
+      "weather": "rain",
+      "music": "siege",
+      "width": 2600,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "end": 2600,
+          "mode": "barriers",
+          "barriers": {
+            "layers": [
+              [
+                780,
+                180
+              ],
+              [
+                1360,
+                210
+              ],
+              [
+                1960,
+                240
+              ]
+            ],
+            "width": 86,
+            "depth": 300
+          }
+        }
+      ]
+    },
+    {
+      "name": "帳前錯落陣形（占位素材）",
+      "theme": "camp",
+      "weather": "rain",
+      "music": "siege",
+      "width": 3000,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "end": 3000,
+          "mode": "formation",
+          "population": {
+            "solo": 6,
+            "coop": 9,
+            "delay_ticks": 240,
+            "admit_ticks": 45
+          },
+          "formation": {
+            "gap_ticks": 90,
+            "breach_x": 2350,
+            "slots": [
+              [
+                0,
+                "shield_spear",
+                1010,
+                395
+              ],
+              [
+                0,
+                "soldier",
+                1075,
+                490
+              ],
+              [
+                0,
+                "shield_spear",
+                980,
+                580
+              ],
+              [
+                1,
+                "soldier",
+                1320,
+                425
+              ],
+              [
+                1,
+                "archer",
+                1580,
+                530
+              ],
+              [
+                1,
+                "shield_spear",
+                1410,
+                575
+              ],
+              [
+                1,
+                "soldier",
+                1660,
+                385
+              ],
+              [
+                1,
+                "archer",
+                1810,
+                470
+              ],
+              [
+                1,
+                "archer",
+                1730,
+                590
+              ]
+            ]
           }
         }
       ]

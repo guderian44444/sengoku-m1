@@ -68,6 +68,7 @@ func _draw() -> void:
 	_draw_landscape()
 	_draw_scenery()
 	_draw_alarm()
+	_draw_formation_goal()
 	_draw_wet_zones()
 	for effect in state.get("effects", []):
 		if effect.get("type", "") in ["warning", "slam", "shockwave", "arrow_target", "fire_patch"]:
@@ -837,7 +838,7 @@ func _draw_npc(person: Dictionary) -> void:
 
 # shortcut: geometric alarm art is a readable placeholder until the P0 camp assets arrive.
 func _draw_alarm() -> void:
-	if not state.has("encounter"): return
+	if not state.has("encounter") or state.encounter.kind != "alarm": return
 	var encounter: Dictionary = state.encounter
 	var floor_pos := Vector2(float(encounter.bell_x) - camera_x, float(encounter.bell_y))
 	var top := floor_pos - Vector2(0, float(encounter.bell_height))
@@ -878,12 +879,45 @@ func _draw_alarm_pillar(prop: Dictionary, origin: Vector2, hit_gain: float) -> v
 	draw_rect(Rect2(origin + Vector2(-30,10),Vector2(60 * ratio,6)),GOLD)
 	Typography.draw_label(self,origin + Vector2(-28,36),"支柱",16,GOLD)
 
+func _draw_camp_barrier(prop: Dictionary, origin: Vector2, hit_gain: float) -> void:
+	if _shadow_pass: return
+	var tint := Color("98714a").lerp(Color(1.7,1.45,1.1),hit_gain)
+	for lane in range(365,606,48):
+		var at := Vector2(origin.x,float(lane))
+		if prop.broken:
+			draw_line(at + Vector2(-28,-8),at + Vector2(25,3),tint,9,true)
+			continue
+		for side in [-1,1]: draw_line(at + Vector2(side * 32,8),at + Vector2(side * 26,-44),tint,9,true)
+		draw_line(at + Vector2(-36,-25),at + Vector2(36,-25),tint,9,true)
+		draw_line(at + Vector2(-32,-8),at + Vector2(32,-35),Color("62482f"),6,true)
+		if float(prop.hp) < float(prop.max_hp) * .5: draw_line(at + Vector2(-8,-30),at + Vector2(10,-15),INK,4,true)
+	if not prop.broken:
+		draw_rect(Rect2(origin.x-38,320,76,6),INK)
+		draw_rect(Rect2(origin.x-38,320,76 * float(prop.hp)/float(prop.max_hp),6),GOLD)
+		Typography.draw_label(self,Vector2(origin.x-65,307),"必拆木障（占位）",17,GOLD)
+
+func _draw_formation_goal() -> void:
+	if state.get("encounter",{}).get("kind","") != "formation": return
+	var x := float(state.encounter.breach_x) - camera_x
+	draw_line(Vector2(x,365),Vector2(x,610),GOLD,4,true)
+	Typography.draw_label(self,Vector2(x-120,325),"突破此處・帳內待製作",20,GOLD)
+	for slot in state.encounter.slots:
+		if slot.rank != 0 or state.encounter.breached: continue
+		var occupants: Array = state.fighters.filter(func(f):return f.id == slot.occupant and f.hp > 0)
+		if occupants.is_empty() or Vector2(float(occupants[0].x)-slot.x,float(occupants[0].y)-slot.y).length() > 45:
+			var at := Vector2(float(slot.x)-camera_x,float(slot.y))
+			draw_arc(at,32,0,TAU,24,GOLD,3,true)
+			Typography.draw_label(self,at + Vector2(-20,30),"缺口",17,GOLD)
+
 func _draw_prop(prop: Dictionary) -> void:
 	var origin := Vector2(float(prop.x) - camera_x,float(prop.y))
 	if origin.x < -240 or origin.x > 1520: return
 	var hit_age := int(state.get("tick",0)) - int(prop.get("hit_tick",-100))
 	var hit_gain := maxf(0.0,1.0 - hit_age / 12.0) if hit_age >= 0 else 0.0
 	origin.x += sin(hit_age * 1.8) * hit_gain * 5.0
+	if prop.get("stage03_barrier",false):
+		_draw_camp_barrier(prop,origin,hit_gain)
+		return
 	if prop.kind == "bell_pillar":
 		_draw_alarm_pillar(prop, origin, hit_gain)
 		return
@@ -1569,6 +1603,9 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 		var bar := origin - Vector2(27, z + height + 6)
 		draw_rect(Rect2(bar,Vector2(54,9)),INK)
 		draw_rect(Rect2(bar,Vector2(54 * clampf(float(fighter.hp) / maxf(1,float(fighter.get("max_hp",100))),0,1),9)),RED)
+		if fighter.has("formation_slot"):
+			var role_label := "盾槍" if fighter.get("role","") == "shield_spear" else ("弓" if kind == "archer" else "槍")
+			Typography.draw_label(self,bar+Vector2(58,8),role_label,14,GOLD)
 		if fighter.get("stage_boss",false) and fighter.get("faction","") != "oda":
 			Typography.draw_label(self,bar-Vector2(21,7),str(fighter.get("display_name","")),18,Typography.GOLD)
 	return true

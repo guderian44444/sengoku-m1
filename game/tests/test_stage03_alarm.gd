@@ -135,7 +135,7 @@ func _test_supports() -> void:
 	check(Wire.valid_snapshot(sim.get_state()),"stopped alarm snapshot validates")
 	for f in enemies(sim): kill(sim,f)
 	for tick in range(60): sim.step([])
-	check(sim.state.phase == "won" and sim.state.encounter.phase == "complete","prototype clears after remaining enemies")
+	check(sim.state.phase == "playing" and sim.state.stage.go and sim.state.encounter.phase == "complete","alarm clears to next scene after remaining enemies")
 	check(sim.state.encounter.spawned_count == before and Wire.valid_snapshot(sim.get_state()),"terminal state cannot replenish")
 
 func _test_cancel() -> void:

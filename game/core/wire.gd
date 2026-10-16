@@ -82,10 +82,12 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if prop.drop == "talisman" and not _choice(prop.get("talisman_id"),Battle.TALISMANS.keys()): return false
 		if prop.has("food_id") and not _choice(prop.food_id,FOODS): return false
 		if prop.has("mandatory") and not prop.mandatory is bool: return false
+		if prop.has("stage03_barrier") and not prop.stage03_barrier is bool: return false
 		if prop.has("encounter_epoch") and not _integer(prop.encounter_epoch,1): return false
 		if prop.has("hit_tick") and not _integer(prop.hit_tick,0): return false
 	if world.props.any(func(p): return p.kind == "bell_pillar") and not world.has("encounter"): return false
 	if world.has("encounter") and not Stage03.valid_state(world): return false
+	if world.props.any(func(p):return p.get("stage03_barrier",false)) and world.get("encounter",{}).get("kind", "") != "barriers": return false
 	if world.get("stage",{}).get("prototype",false) and not world.has("encounter"): return false
 	for zone in world.wet_zones:
 		if not _position(zone) or not _number(zone.get("width"), 1.0, 10000.0) or not _number(zone.get("depth"), 1.0, 10000.0): return false
@@ -137,7 +139,7 @@ static func _valid_stage(stage: Variant) -> bool:
 	if not stage is Dictionary: return false
 	if stage.has("prototype") and (not stage.prototype is bool or stage.get("id") != 3): return false
 	var prototype: bool = stage.get("prototype",false)
-	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),1 if prototype else 6,1 if prototype else 8) or not _integer(stage.get("index"),0,stage.total - 1): return false
+	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),1 if prototype else 6,3 if prototype else 8) or not _integer(stage.get("index"),0,stage.total - 1): return false
 	if not _choice(stage.get("theme"),["bamboo","ridge","village","road","outpost","gate","camp","courtyard","command","chamber","supply_road","riverbank","granary","switchback","marune_gate","supply_court"]): return false
 	if not _choice(stage.get("weather"),["clear","rain","storm","mist","indoor"]) or not _choice(stage.get("music"),["bamboo","siege","town","castle","boss"]): return false
 	if not _choice(stage.get("civilians"),["none","villagers","vendors","porters"]): return false
@@ -201,6 +203,8 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 	if fighter.has("shattered_tick") and not _integer(fighter.shattered_tick, -1): return false
 	if fighter.has("pickup_flash_tick") and not _integer(fighter.pickup_flash_tick,-1000): return false
 	if fighter.has("extra_life_tick") and not _integer(fighter.extra_life_tick,-1000): return false
+	if fighter.has("formation_slot") and not _integer(fighter.formation_slot,1,16): return false
+	if fighter.has("formation_moving") and not fighter.formation_moving is bool: return false
 	if fighter.has("encounter_epoch") and not _integer(fighter.encounter_epoch,1): return false
 	if fighter.has("replacement_queued") and not fighter.replacement_queued is bool: return false
 	if fighter.has("entering") and not fighter.entering is bool: return false

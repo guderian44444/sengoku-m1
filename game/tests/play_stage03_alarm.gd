@@ -9,13 +9,13 @@ class App extends Main:
 		return OK
 
 	func _start_solo() -> void:
-		if _confirm_end(_start_solo, "重新開始警鐘區原型？"): return
+		if _confirm_end(_start_solo, "重新開始第三關原型？"): return
 		if not _close_network(): return
 		session = "solo"
 		_start_alarm(1)
 
 	func _start_local_coop() -> void:
-		if _confirm_end(_start_local_coop, "重新開始雙人警鐘區原型？"): return
+		if _confirm_end(_start_local_coop, "重新開始雙人第三關原型？"): return
 		if not _close_network(): return
 		session = "local"
 		_start_alarm(2)
@@ -28,7 +28,7 @@ class App extends Main:
 
 	func _physics_process(delta: float) -> void:
 		super._physics_process(delta)
-		if active and sim.state.get("stage",{}).get("prototype",false) and sim.state.phase == "won": end_label.text = "警鐘區原型完成！"
+		if active and sim.state.get("stage",{}).get("prototype",false) and sim.state.phase == "won": end_label.text = "三段機制原型完成・帳內待製作"
 
 func _initialize() -> void:
 	run.call_deferred()
