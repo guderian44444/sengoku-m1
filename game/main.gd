@@ -1661,8 +1661,10 @@ func _update_view() -> void:
 		elif e.kind == "barriers":
 			var remaining: int = Battle.Stage03Encounter.Objectives.barriers_left(sim.state)
 			hud.text = "木障區原型・占位素材\n木障 %d/%d　%s" % [e.barrier_ids.size()-remaining,e.barrier_ids.size(),"逐層擊破・無法繞行" if remaining > 0 else "GO → 全員向右前進"]
+		elif e.kind == "formation":
+			hud.text = "錯落陣形原型・占位素材\n" + ("陣形已突破・前往帳門 →" if e.breached else "趁缺口突破帳門 →")
 		else:
-			hud.text = "錯落陣形原型・占位素材\n" + ("陣形已突破・近戰迎擊 →" if e.breached else "趁缺口突破帳門 →")
+			hud.text = "帳內雙將原型・A/B 占位\n" + ("擊破兩名小王・雜兵持續增援" if e.phase == "active" else ("雙將已倒・義元階段待接" if e.phase == "awaiting_yoshimoto" else "遭遇已中止"))
 	if training_active:
 		var player: Dictionary = sim.state.fighters[0]
 		var stats: Dictionary = sim.state.training

@@ -20,7 +20,7 @@ static func chapter(id: int) -> Dictionary:
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/stage-%02d.json" % id))
 	assert(int(data.id) == id)
 	var prototype: bool = id == 3 and data.get("prototype", false) == true
-	assert((data.segments.size() >= 1 and data.segments.size() <= 3) if prototype else (data.segments.size() >= 6 and data.segments.size() <= 8))
+	assert((data.segments.size() >= 1 and data.segments.size() <= 4) if prototype else (data.segments.size() >= 6 and data.segments.size() <= 8))
 	for region in data.segments:
 		assert(region.width >= 2000 and (region.encounters.size() == 1 if prototype else region.encounters.size() >= 2))
 		if region.has("challenge"):

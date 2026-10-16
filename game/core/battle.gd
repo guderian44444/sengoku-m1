@@ -196,7 +196,7 @@ func _start_checkpoint(index: int) -> void:
 	state.stage.checkpoint = index
 	state.stage.encounter_start = 0.0 if index == 0 else float(region.encounters[index - 1].end)
 	state.stage.encounter_end = float(encounter.end)
-	state.stage.wave_total = 1 if encounter.get("mode", "") in ["alarm", "barriers", "formation"] else encounter.waves.size()
+	state.stage.wave_total = 1 if encounter.get("mode", "") in ["alarm", "barriers", "formation", "lieutenants"] else encounter.waves.size()
 	state.stage.phase = "combat"
 	state.stage.go = false
 	state.stage.clear_tick = -1
@@ -204,7 +204,7 @@ func _start_checkpoint(index: int) -> void:
 	state.stage.reinforcement_queue = 0
 	state.wave = 1
 	_revive_exhausted_party()
-	if encounter.get("mode", "") in ["alarm", "barriers", "formation"]: Stage03Encounter.begin(self, encounter)
+	if encounter.get("mode", "") in ["alarm", "barriers", "formation", "lieutenants"]: Stage03Encounter.begin(self, encounter)
 	else: _spawn_segment_wave()
 
 
@@ -1317,6 +1317,7 @@ func _enemy_input(fighter: Dictionary) -> void:
 			distance = delta.length_squared()
 			target = player
 	if target.is_empty(): return
+	target = Stage03Encounter.Tent.target_for(self, fighter, target)
 	var chasing_cart := false
 	if fighter.get("role","") in ["raider","fire_archer"] and state.has("challenge") and state.challenge.status == "active":
 		var cart: Dictionary = state.challenge
@@ -1335,6 +1336,7 @@ func _enemy_input(fighter: Dictionary) -> void:
 		elif blocked:
 			_move_fighter(fighter,0.0,2.4 if fighter.y < 480.0 else -2.4)
 		return
+	if Stage03Encounter.Tent.steer(self, fighter, target): return
 	if Stage03Encounter.Objectives.steer(self, fighter, target): return
 	fighter.move_dx = 0
 	fighter.move_dy = 0

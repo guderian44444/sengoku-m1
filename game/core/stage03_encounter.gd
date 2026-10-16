@@ -1,12 +1,14 @@
 extends RefCounted
 
 # Chapter-three objectives opt in; ordinary chapters keep their existing wave rules.
+const Tent = preload("res://core/stage03_tent.gd")
 const Objectives = preload("res://core/stage03_objectives.gd")
 const KINDS := ["soldier", "archer", "shield_spear", "fire_archer", "raider"]
-const PHASES := ["active", "draining", "complete", "cancelled"]
+const PHASES := ["active", "draining", "complete", "cancelled", "awaiting_yoshimoto"]
 const ACTOR_LIMIT := 48
 
 static func valid_spec(spec: Dictionary, width: float) -> bool:
+	if spec.get("mode", "") == "lieutenants": return Tent.valid_spec(spec, width)
 	if spec.get("mode", "") in ["barriers", "formation"]: return Objectives.valid_spec(spec, width)
 	if spec.get("mode", "") != "alarm" or not spec.get("population") is Dictionary or not spec.get("alarm") is Dictionary: return false
 	var population: Dictionary = spec.population
@@ -28,6 +30,9 @@ static func valid_spec(spec: Dictionary, width: float) -> bool:
 	return _number(alarm.get("x"), 100, width - 100) and _number(alarm.get("y"), 360, 600) and _number(alarm.get("height"), 120, 360)
 
 static func begin(sim, spec: Dictionary) -> void:
+	if spec.get("mode", "") == "lieutenants":
+		Tent.begin(sim, spec)
+		return
 	if spec.get("mode", "") in ["barriers", "formation"]:
 		Objectives.begin(sim, spec)
 		return
@@ -54,6 +59,7 @@ static func begin(sim, spec: Dictionary) -> void:
 
 static func population(world: Dictionary) -> int:
 	if not world.has("encounter"): return 0
+	if world.encounter.kind == "lieutenants": return Tent.population(world)
 	var epoch: int = world.encounter.epoch
 	return world.fighters.filter(func(f): return f.team == 1 and f.hp > 0 and int(f.get("encounter_epoch", -1)) == epoch).size()
 
@@ -66,6 +72,9 @@ static func enemy_defeated(sim, fighter: Dictionary) -> void:
 	var world: Dictionary = sim.state
 	if not world.has("encounter") or world.phase != "playing": return
 	var encounter: Dictionary = world.encounter
+	if encounter.kind == "lieutenants":
+		Tent.enemy_defeated(sim, fighter)
+		return
 	if encounter.kind != "alarm":
 		Objectives.enemy_defeated(sim, fighter)
 		return
@@ -83,6 +92,9 @@ static func tick(sim) -> void:
 		cancel(sim)
 		return
 	if encounter.phase in ["complete", "cancelled"]: return
+	if encounter.kind == "lieutenants":
+		Tent.tick(sim)
+		return
 	if encounter.kind != "alarm":
 		Objectives.tick(sim)
 		return
@@ -145,6 +157,7 @@ static func _spawn(sim) -> void:
 static func valid_state(world: Dictionary) -> bool:
 	var encounter: Variant = world.get("encounter")
 	if not encounter is Dictionary or not world.has("stage") or world.stage.id != 3 or not world.stage.get("prototype", false): return false
+	if encounter.get("kind") == "lieutenants": return Tent.valid_state(world)
 	if encounter.get("kind") in ["barriers", "formation"]: return Objectives.valid_state(world)
 	if encounter.get("kind") != "alarm" or encounter.get("phase") not in PHASES: return false
 	if not _integer(encounter.get("epoch"), 1, 1000000000) or not _integer(encounter.get("target"), 1, 16): return false

@@ -900,7 +900,12 @@ func _draw_formation_goal() -> void:
 	if state.get("encounter",{}).get("kind","") != "formation": return
 	var x := float(state.encounter.breach_x) - camera_x
 	draw_line(Vector2(x,365),Vector2(x,610),GOLD,4,true)
-	Typography.draw_label(self,Vector2(x-120,325),"突破此處・帳內待製作",20,GOLD)
+	Typography.draw_label(self,Vector2(x-120,325),"突破防線・前往帳門 →",20,GOLD)
+	var door := Vector2(float(state.stage.encounter_end)-160-camera_x,485)
+	draw_rect(Rect2(door-Vector2(85,230),Vector2(170,310)),Color("433329"))
+	draw_colored_polygon(PackedVector2Array([door+Vector2(-85,-230),door+Vector2(0,-230),door+Vector2(-40,60),door+Vector2(-85,80)]),Color("8a5144"))
+	draw_colored_polygon(PackedVector2Array([door+Vector2(85,-230),door+Vector2(0,-230),door+Vector2(40,60),door+Vector2(85,80)]),Color("8a5144"))
+	Typography.draw_label(self,door+Vector2(-95,-245),"帳篷入口（占位） →",19,GOLD)
 	for slot in state.encounter.slots:
 		if slot.rank != 0 or state.encounter.breached: continue
 		var occupants: Array = state.fighters.filter(func(f):return f.id == slot.occupant and f.hp > 0)
@@ -1606,6 +1611,8 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 		if fighter.has("formation_slot"):
 			var role_label := "盾槍" if fighter.get("role","") == "shield_spear" else ("弓" if kind == "archer" else "槍")
 			Typography.draw_label(self,bar+Vector2(58,8),role_label,14,GOLD)
+		if fighter.has("lieutenant_slot"):
+			Typography.draw_label(self,bar+Vector2(-16,-10),"A・占位" if fighter.lieutenant_slot == 1 else "B・占位",18,Color("e3b45a") if fighter.lieutenant_slot == 1 else Color("71cad7"))
 		if fighter.get("stage_boss",false) and fighter.get("faction","") != "oda":
 			Typography.draw_label(self,bar-Vector2(21,7),str(fighter.get("display_name","")),18,Typography.GOLD)
 	return true

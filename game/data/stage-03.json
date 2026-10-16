@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "title": "今川本陣・三段機制原型",
+  "title": "今川本陣・帳內雙將原型",
   "prototype": true,
   "faction": "imagawa",
   "year": 1560,
@@ -8,7 +8,7 @@
     5,
     10
   ],
-  "historical_note": "機制原型：前營警鐘、多層必拆木障、錯落陣形與走位補缺；帳內雙小王與義元尚未開放。所有數值均為可調測試預設。",
+  "historical_note": "機制原型：警鐘、必拆木障、錯落陣形與帳內雙小王 A/B。義元尚待接入，人物均為可辨識占位，所有數值為可調預設。",
   "segments": [
     {
       "name": "前營警鐘（占位素材）",
@@ -182,6 +182,68 @@
               ]
             ]
           }
+        }
+      ]
+    },
+    {
+      "name": "帳內雙將（A/B 占位）",
+      "theme": "chamber",
+      "weather": "indoor",
+      "music": "boss",
+      "width": 2600,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "end": 2600,
+          "mode": "lieutenants",
+          "population": {
+            "solo": 4,
+            "coop": 6,
+            "delay_ticks": 240,
+            "admit_ticks": 45,
+            "kinds": [
+              "soldier",
+              "shield_spear",
+              "archer"
+            ]
+          },
+          "tactics": {
+            "separation": 260,
+            "retreat_ticks": 36,
+            "retreat_distance": 90,
+            "recover_ticks": 24,
+            "retreat_cooldown": 240,
+            "target_hold_ticks": 180
+          },
+          "leaders": [
+            {
+              "key": "A",
+              "label": "小王 A（占位）",
+              "variant": "naginata",
+              "x": 1020,
+              "y": 410,
+              "hp": 260,
+              "actions": [
+                "boss_thrust",
+                "boss_sweep",
+                "boss_counter"
+              ]
+            },
+            {
+              "key": "B",
+              "label": "小王 B（占位）",
+              "variant": "dual_swords",
+              "x": 1350,
+              "y": 560,
+              "hp": 240,
+              "actions": [
+                "boss_double",
+                "boss_counter",
+                "boss_thrust"
+              ]
+            }
+          ]
         }
       ]
     }

@@ -42,7 +42,7 @@ func front(sim) -> Array:
 
 func data_tests() -> void:
 	var data := Stages.chapter(3)
-	check(data.segments.size() == 3 and not Stages.available().any(func(s):return s.id == 3),"three scenes remain opt-in")
+	check(data.segments.size() == 4 and not Stages.available().any(func(s):return s.id == 3),"four prototype scenes remain opt-in")
 	for region in data.segments:
 		check(Encounter.valid_spec(region.encounters[0],region.width),"valid scene " + region.name)
 	var bad: Dictionary = data.segments[1].encounters[0].duplicate(true)
@@ -187,7 +187,7 @@ func wipe_and_cancel_tests() -> void:
 	Encounter.tick(coop)
 	check(coop.state.encounter.phase == "complete" and coop.state.encounter.tickets.is_empty() and Objective.population(coop.state) > 0,"breach completes with surviving enemies and cancels reservations")
 	for tick in range(50): coop.step([])
-	check(coop.state.phase == "won" and Wire.valid_snapshot(coop.get_state()),"M2 prototype ends beyond formation without killing every soldier")
+	check(coop.state.phase == "playing" and coop.state.stage.go and Wire.valid_snapshot(coop.get_state()),"formation opens tent passage without killing every soldier")
 	for mode in [1,2]:
 		for terminal in ["won","lost"]:
 			var cancelled = fresh(mode)

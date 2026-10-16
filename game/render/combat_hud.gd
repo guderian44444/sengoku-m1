@@ -22,6 +22,7 @@ const BOSS_RECT := Rect2(320, 673, 640, 35)
 var portraits: Dictionary = {}
 var players: Array[Dictionary] = []
 var boss: Dictionary = {}
+var leaders: Array[Dictionary] = []
 var _font: Font
 var _tick := 0
 
@@ -49,6 +50,13 @@ func sync(world: Dictionary) -> void:
 	_tick = int(world.get("tick",0))
 	players.clear()
 	boss = {}
+	leaders.clear()
+	if world.get("encounter",{}).get("kind", "") == "lieutenants":
+		for entry in world.encounter.leaders:
+			var found: Array = world.fighters.filter(func(f):return f.id == entry.id)
+			var leader: Dictionary = entry.duplicate()
+			leader.hp = maxi(0,int(found[0].hp)) if not found.is_empty() else 0
+			leaders.append(leader)
 	for fighter in world.get("fighters", []):
 		if int(fighter.get("team", 1)) == 0:
 			players.append(fighter)
@@ -103,7 +111,15 @@ func _draw() -> void:
 		_label(Vector2(text_x + 237, origin.y + 77), "甲%d" % fighter.get("armor", 0), 13, MUTED)
 		var item := Equipment.instance(fighter,int(fighter.get("weapon_uid",0)))
 		_label(Vector2(text_x, origin.y + 97), Weapons.name_for(fighter) + ("　耐 %d" % int(item.durability) if not item.is_empty() and not Equipment.is_practice(str(item.item_id)) else "　∞"), 15, GOLD)
-	if not boss.is_empty():
+	for index in range(leaders.size()):
+		var leader: Dictionary = leaders[index]
+		var panel := Rect2(16 + index * 640,660,608,48)
+		var tint := Color("e3b45a") if index == 0 else Color("71cad7")
+		draw_rect(panel,PANEL)
+		_label(panel.position + Vector2(10,19),leader.label + ("・已倒下" if leader.defeated else ""),16,tint)
+		_label(panel.position + Vector2(300,19),"%d / %d" % [leader.hp,leader.max_hp],14,Typography.PAPER,298,HORIZONTAL_ALIGNMENT_RIGHT)
+		_bar(Rect2(panel.position+Vector2(10,31),Vector2(588,8)),float(leader.hp)/leader.max_hp,tint if not leader.defeated else MUTED)
+	if leaders.is_empty() and not boss.is_empty():
 		draw_rect(BOSS_RECT, PANEL)
 		var name_text := str(boss.get("display_name", "陣營小王"))
 		_label(BOSS_RECT.position + Vector2(10, 16), name_text, 16, GOLD)
