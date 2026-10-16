@@ -27,7 +27,7 @@ const tests = [
 	'delivery_v36', 'variable_frames_v36',
   'music_v35', 'stage_music_v18', 'stick_sprint_v35', 'victory_integration_v15',
   'runtime_v34', 'balance_v34', 'grounding_v34', 'enemy_smooth_v34',
-  'ui_input_v34', 'ui_theme_v34', 'ui_panels_v34', 'ui_flow_v34', 'ui_language_v34', 'objective_scroll_v34', 'enemy_health_ui_v34', 'menu_pad_v27',
+  'ui_scroll02', 'ui_input_v34', 'ui_theme_v34', 'ui_panels_v34', 'ui_flow_v34', 'ui_language_v34', 'objective_scroll_v34', 'enemy_health_ui_v34', 'menu_pad_v27',
   'current_runtime_v33', 'combat_v33', 'inventory_v28', 'exit_save_v27', 'wire', 'local_coop_startup',
   'stage2_repair_v32', 'boss_reactions_v31', 'shadows_v29', 'menu_inventory_v28',
   'stage_art_v19', 'stage_movement_v19',
