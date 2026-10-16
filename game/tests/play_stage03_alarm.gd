@@ -24,11 +24,13 @@ class App extends Main:
 		selected_chapter = 3
 		local_slot = 0
 		sim.reset_campaign("normal",players,["nobunaga","oichi"],3)
+		for arg in OS.get_cmdline_user_args():
+			if arg.begins_with("--scene="): sim._enter_segment(clampi(int(arg.trim_prefix("--scene=")),0,3))
 		_activate()
 
 	func _physics_process(delta: float) -> void:
 		super._physics_process(delta)
-		if active and sim.state.get("stage",{}).get("prototype",false) and sim.state.phase == "won": end_label.text = "三段機制原型完成・帳內待製作"
+		if active and sim.state.get("stage",{}).get("prototype",false) and sim.state.phase == "won": end_label.text = "第三關機制原型突破！"
 
 func _initialize() -> void:
 	run.call_deferred()

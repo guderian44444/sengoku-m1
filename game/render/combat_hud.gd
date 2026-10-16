@@ -51,7 +51,7 @@ func sync(world: Dictionary) -> void:
 	players.clear()
 	boss = {}
 	leaders.clear()
-	if world.get("encounter",{}).get("kind", "") == "lieutenants":
+	if world.get("encounter",{}).get("kind", "") == "lieutenants" and world.encounter.phase in ["active","awaiting_yoshimoto"]:
 		for entry in world.encounter.leaders:
 			var found: Array = world.fighters.filter(func(f):return f.id == entry.id)
 			var leader: Dictionary = entry.duplicate()

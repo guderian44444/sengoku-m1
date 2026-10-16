@@ -1664,7 +1664,9 @@ func _update_view() -> void:
 		elif e.kind == "formation":
 			hud.text = "錯落陣形原型・占位素材\n" + ("陣形已突破・前往帳門 →" if e.breached else "趁缺口突破帳門 →")
 		else:
-			hud.text = "帳內雙將原型・A/B 占位\n" + ("擊破兩名小王・雜兵持續增援" if e.phase == "active" else ("雙將已倒・義元階段待接" if e.phase == "awaiting_yoshimoto" else "遭遇已中止"))
+			if e.phase == "yoshimoto": hud.text = "今川義元・弓箭／刀氣占位\n近身薙刀・看準格擋後收招"
+			elif e.phase == "complete": hud.text = "義元擊破・第三關完成"
+			else: hud.text = "帳內雙將原型・A/B 占位\n" + ("擊破兩名小王・雜兵持續增援" if e.phase == "active" else ("義元即將入陣" if e.phase == "awaiting_yoshimoto" else "遭遇已中止"))
 	if training_active:
 		var player: Dictionary = sim.state.fighters[0]
 		var stats: Dictionary = sim.state.training

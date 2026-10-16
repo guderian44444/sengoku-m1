@@ -94,7 +94,7 @@ func _draw() -> void:
 	_draw_demo_projectiles()
 	var live_origins: Dictionary = {}
 	for effect in state.get("effects", []):
-		if effect.get("type", "") == "projectile":
+		if effect.get("type", "") == "projectile" and not effect.get("yoshimoto_projectile",false):
 			var key := _projectile_key(effect)
 			live_origins[key] = _projectile_release_offset(effect)
 		_draw_effect(effect)
@@ -1567,7 +1567,13 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 	var kind := str(fighter.get("kind", ""))
 	if not _art.enemies.has(kind): return false
 	if shattered_defeat(fighter): return true
-	var sample := _fighter_animation(fighter)
+	var sample: Dictionary
+	if fighter.get("is_yoshimoto",false) and fighter.action in ["boss_arrow","boss_sword_wave"]:
+		var proxy := fighter.duplicate()
+		proxy.action = "idle" if fighter.action == "boss_arrow" else "boss_sweep"
+		sample = _fighter_animation(proxy)
+		sample.released = fighter.action_tick >= FrameAnimation.Battle.enemy_timing(fighter)[0]
+	else: sample = _fighter_animation(fighter)
 	var genuine_reaction: bool = sample.get("genuine_reaction",false) or sample.sheet == "enemy_reaction" or sample.source in ["v14","v19"]
 	var frame: Dictionary = _art.enemy_frame(kind,int(sample.cell),enemy_art_faction(fighter),str(sample.sheet))
 	if sample.source != "v14" and kind == "boss" and fighter.get("faction","mori") == "mori" and fighter.get("action", "") == "boss_chain" and int(sample.cell) == 6 and frame.has("hand_offset") and frame.has("clip_polygon"):
@@ -1599,6 +1605,22 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 	_fx.draw_status(self,fighter,origin-Vector2(0,z),height,false)
 	_draw_art_frame(frame, body_origin, height, face, rotation, tint, float(frame.body_height))
 	_draw_enemy_role(fighter,body_origin,height,face,down,frame,sample)
+	if fighter.get("is_yoshimoto",false) and fighter.action == "boss_arrow" and fighter.hp > 0:
+		var bow := body_origin + Vector2(face * 32,-height * .57)
+		draw_set_transform(bow,0,Vector2(face,1))
+		draw_arc(Vector2.ZERO,32,-1.35,1.35,24,Color("d8bb7d"),4,true)
+		draw_line(Vector2(7,-31),Vector2(7,31),Color("e4e0ce"),2,true)
+		draw_line(Vector2(-22,0),Vector2(48,0),Color("e4e0ce"),3,true)
+		draw_set_transform(Vector2.ZERO)
+		Typography.draw_label(self,bow+Vector2(-45,-45),"弓・占位",16,GOLD)
+	if fighter.get("is_yoshimoto",false) and fighter.action == "guard":
+		var guard_at := body_origin + Vector2(face*25,-height*.55)
+		draw_set_transform(guard_at,0,Vector2(face,1))
+		draw_arc(Vector2.ZERO,50,-1.2,1.2,24,GOLD,5,true)
+		draw_set_transform(Vector2.ZERO)
+		Typography.draw_label(self,guard_at+Vector2(-20,-62),"格擋",17,GOLD)
+	elif fighter.get("is_yoshimoto",false) and fighter.get("tactic","") == "recover" and state.tick < fighter.motion_until:
+		Typography.draw_label(self,body_origin-Vector2(24,height+22),"收招",17,Color("a3edf4"))
 	_draw_status(fighter, origin, height)
 	if FrameAnimation.Battle.ENEMY_TIMING.has(action) and not sample.released and int(fighter.get("freeze",0)) == 0:
 		var warning := origin - Vector2(0,z + height + 16)
@@ -2106,6 +2128,16 @@ func _draw_ground_effect(effect: Dictionary) -> void:
 
 func _draw_effect(effect: Dictionary) -> void:
 	var ground := Vector2(float(effect.get("x", 0)) - camera_x, float(effect.get("y", 460)))
+	if effect.get("yoshimoto_projectile",false):
+		var point := ground - Vector2(0,float(effect.z)+42)
+		var direction := Vector2(float(effect.vx),float(effect.get("vy",0))).normalized()
+		if effect.boss_wave:
+			draw_set_transform(point,direction.angle())
+			draw_arc(Vector2(-20,0),50,-1.15,1.15,24,Color("a3edf4"),9,true)
+			draw_arc(Vector2(-20,0),50,-1.15,1.15,24,Color("f1ffff"),3,true)
+			draw_set_transform(Vector2.ZERO)
+		else: _draw_arrow(point,direction,false,1.0)
+		return
 	if _fx.draw_wave(self,effect,ground): return
 	var p := ground - Vector2(0, 52)
 	if _fx.draw_impact(self,effect,p): return

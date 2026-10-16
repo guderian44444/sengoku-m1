@@ -56,7 +56,7 @@ func run():
 	app.sim._damage(app.sim._fighter(ids[1]),10000,app.sim.state.fighters[0].id,true,false,true)
 	Encounter.tick(app.sim)
 	app._update_view()
-	assert("義元階段待接" in app.hud.text)
+	assert("義元即將入陣" in app.hud.text)
 	assert(app.combat_hud.leaders.all(func(b):return b.defeated))
 	assert(Wire.valid_snapshot(app.sim.get_state()))
 	await capture(app,"04-awaiting-yoshimoto.png")
@@ -65,7 +65,8 @@ func run():
 			if f.team == 0: f.invuln = 5
 		app.sim.step([])
 	app._update_view()
-	assert(app.combat_hud.leaders.size() == 2 and app.combat_hud.leaders.all(func(b):return b.defeated and b.hp == 0))
+	assert(app.sim.state.encounter.leaders.all(func(b):return b.defeated))
+	assert(app.combat_hud.leaders.is_empty() and app.combat_hud.boss.get("is_yoshimoto",false))
 	if not output.is_empty():
 		var file := FileAccess.open(output.path_join("review.json"),FileAccess.WRITE)
 		assert(file != null)

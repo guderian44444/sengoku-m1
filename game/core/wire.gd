@@ -87,6 +87,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if prop.has("hit_tick") and not _integer(prop.hit_tick,0): return false
 	if world.props.any(func(p): return p.kind == "bell_pillar") and (not world.get("encounter") is Dictionary or world.encounter.get("kind", "") != "alarm"): return false
 	if world.has("encounter") and not Stage03.valid_state(world): return false
+	if world.fighters.any(func(f):return f.get("is_yoshimoto",false)) and world.get("encounter",{}).get("kind", "") != "lieutenants": return false
 	if world.props.any(func(p):return p.get("stage03_barrier",false)) and world.get("encounter",{}).get("kind", "") != "barriers": return false
 	if world.get("stage",{}).get("prototype",false) and not world.has("encounter"): return false
 	for zone in world.wet_zones:
@@ -203,6 +204,8 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 	if fighter.has("shattered_tick") and not _integer(fighter.shattered_tick, -1): return false
 	if fighter.has("pickup_flash_tick") and not _integer(fighter.pickup_flash_tick,-1000): return false
 	if fighter.has("extra_life_tick") and not _integer(fighter.extra_life_tick,-1000): return false
+	if fighter.has("is_yoshimoto") and not fighter.is_yoshimoto is bool: return false
+	if fighter.get("is_yoshimoto",false) and (fighter.team != 1 or fighter.kind != "boss"): return false
 	if fighter.has("lieutenant_slot") and not _integer(fighter.lieutenant_slot,1,2): return false
 	if fighter.has("formation_slot") and not _integer(fighter.formation_slot,1,16): return false
 	if fighter.has("formation_moving") and not fighter.formation_moving is bool: return false
@@ -301,6 +304,12 @@ static func _valid_effect(effect: Dictionary) -> bool:
 	if effect.has("action_tick") and not _integer(effect.action_tick, 0): return false
 	if effect.has("combo") and not _integer(effect.combo, 0, 3): return false
 	if effect.has("heavy_combo") and not _integer(effect.heavy_combo, 0, 2): return false
+	if effect.has("yoshimoto_projectile") and not effect.yoshimoto_projectile is bool: return false
+	if effect.has("boss_wave") and not effect.boss_wave is bool: return false
+	if effect.get("yoshimoto_projectile",false):
+		if effect.type != "projectile" or not effect.has("boss_wave") or effect.get("team") != 1: return false
+		if effect.get("weapon") != ("blade" if effect.boss_wave else "arrow") or effect.get("action") != ("boss_sword_wave" if effect.boss_wave else "boss_arrow"): return false
+		if not _number(effect.get("vx")) or absf(float(effect.vx)) < 1 or not _number(effect.get("vy")): return false
 	if effect.type == "projectile":
 		for field in ["z", "vx", "owner", "team", "damage", "poison", "face"]:
 			if not effect.has(field):

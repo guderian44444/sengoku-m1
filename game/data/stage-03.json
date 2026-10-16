@@ -1,6 +1,6 @@
 {
   "id": 3,
-  "title": "今川本陣・帳內雙將原型",
+  "title": "今川本陣・完整機制原型",
   "prototype": true,
   "faction": "imagawa",
   "year": 1560,
@@ -8,7 +8,7 @@
     5,
     10
   ],
-  "historical_note": "機制原型：警鐘、必拆木障、錯落陣形與帳內雙小王 A/B。義元尚待接入，人物均為可辨識占位，所有數值為可調預設。",
+  "historical_note": "可完成警鐘、木障、陣形、雙將、義元與過關的機制原型。義元外觀與弓動作沿用可辨識占位，所有數值皆為可調預設。",
   "segments": [
     {
       "name": "前營警鐘（占位素材）",
@@ -243,7 +243,24 @@
                 "boss_thrust"
               ]
             }
-          ]
+          ],
+          "yoshimoto": {
+            "hp": 600,
+            "x": 1650,
+            "y": 480,
+            "transition_ticks": 90,
+            "move_speed": 3.2,
+            "melee_enter": 380,
+            "ranged_enter": 560,
+            "ranged_cooldown": 240,
+            "guard_ticks": 18,
+            "guard_recover_ticks": 30,
+            "guard_cooldown": 240,
+            "motion_ticks": 30,
+            "motion_distance": 75,
+            "motion_cooldown": 120,
+            "motion_recover_ticks": 18
+          }
         }
       ]
     }

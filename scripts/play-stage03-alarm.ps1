@@ -1,4 +1,4 @@
-﻿param([switch]$Coop, [string]$GodotBin = "", [string]$ReviewDir = "")
+﻿param([switch]$Coop, [ValidateRange(0,3)][int]$StartScene = 0, [string]$GodotBin = "", [string]$ReviewDir = "")
 $ErrorActionPreference = 'Stop'
 $workspace = Split-Path -Parent $PSScriptRoot
 if (-not $GodotBin) { $GodotBin = $env:GODOT_BIN }
@@ -17,6 +17,7 @@ try {
     $env:XDG_CONFIG_HOME = Join-Path $sessionData 'xdg-config'
     $arguments = @('--path', (Join-Path $workspace 'game'), '--log-file', (Join-Path $sessionData 'play.log'), '--windowed', '--script', 'res://tests/play_stage03_alarm.gd', '--')
     if ($Coop) { $arguments += '--coop' }
+    if ($StartScene -gt 0) { $arguments += "--scene=$StartScene" }
     if ($ReviewDir) { $arguments += "--review-dir=$ReviewDir" }
     & $GodotBin @arguments
     if ($LASTEXITCODE -ne 0) { throw "Godot exited with $LASTEXITCODE; see $sessionData\play.log" }

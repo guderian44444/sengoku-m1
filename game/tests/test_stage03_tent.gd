@@ -89,8 +89,8 @@ func death_tests():
 		for tick in range(400):
 			sim.state.fighters[0].invuln = 5
 			sim.step([])
-		check(e.leaders.all(func(b):return b.defeated) and sim.state.fighters.filter(func(f):return f.kind == "boss").is_empty(),"dead leaders stay dead after corpse cleanup")
-		check(e.phase == "awaiting_yoshimoto" and Wire.valid_snapshot(sim.get_state()),"tombstones validate without boss bodies")
+		check(e.leaders.all(func(b):return b.defeated) and sim.state.fighters.filter(func(f):return f.kind == "boss" and not f.get("is_yoshimoto",false)).is_empty(),"dead leaders stay dead after corpse cleanup")
+		check(e.phase == "yoshimoto" and e.yoshimoto_id not in ids and Wire.valid_snapshot(sim.get_state()),"leader tombstones persist through independent Yoshimoto phase")
 	var same = fresh(2)
 	kill(same,boss(same,0))
 	kill(same,boss(same,1))

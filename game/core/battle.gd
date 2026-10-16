@@ -75,7 +75,7 @@ const ENEMY_TIMING := {
 	"bow_shot": [30, 62], "gun_shot": [44, 90],
 	"boss_thrust": [34, 70], "boss_dash": [34, 76], "boss_volley": [52, 112], "boss_counter": [46, 84],
 	"boss_double": [26, 78], "boss_hook": [26, 92], "boss_earth": [54, 100],
-	"boss_grab_throw": [26, 92],
+	"boss_grab_throw": [26, 92], "boss_arrow": [42, 88], "boss_sword_wave": [50, 100],
 }
 const DIFFICULTIES := {
 	"easy": {"enemy_hp": 0.75, "enemy_damage": 0.65, "player_hp": 140},
@@ -331,6 +331,7 @@ func _place_enemy(fighter: Dictionary) -> void:
 func _tick_segment() -> void:
 	state.fighters = state.fighters.filter(func(f):return f.team == 0 or f.hp > 0 or state.tick - f.damage_tick < maxi(240,int(f.get("death_ticks",0)) + 120))
 	if not state.intro.is_empty() and _fighter(state.intro.actor).is_empty(): state.intro = {}
+	if Stage03Encounter.Tent.finish_victory(self): return
 	var living_party: Array = state.fighters.filter(func(f): return f.team == 0 and f.hp > 0)
 	if state.fighters.any(func(f): return f.team == 0 and f.hp <= 0 and f.respawn_ticks > 0): return
 	if living_party.is_empty():
@@ -509,6 +510,7 @@ func step(inputs: Array) -> void:
 				if fighter.team == 0 and fighter.hp > 0:
 					_tick_victory(fighter)
 		return
+	if Stage03Encounter.Tent.transition_step(self): return
 	state.tick += 1
 	_sync_grabs()
 	_tick_effects()
@@ -791,6 +793,7 @@ static func character_stats(row: Dictionary, difficulty: String = "normal") -> D
 
 static func enemy_timing(fighter: Dictionary) -> Array:
 	var timing: Array = ENEMY_TIMING.get(fighter.action, [30, 60])
+	if fighter.get("is_yoshimoto",false) and fighter.action in ["boss_arrow","boss_sword_wave"]: return timing
 	if fighter.kind != "boss": return timing
 	var speed: float = BOSS_PROFILES.get(fighter.get("boss_variant", ""), BOSS_PROFILES.kusarigama).speed
 	return [roundi(timing[0] / speed), roundi(timing[1] / speed)]
@@ -873,6 +876,7 @@ func _tick_fighter(fighter: Dictionary) -> void:
 	if fighter.hp <= 0:
 		return
 	fighter.action_tick += 1
+	if Stage03Encounter.Tent.Yoshimoto.tick_action(self,fighter): return
 	if fighter.airborne_lock: return
 	if ENEMY_TIMING.has(fighter.action):
 		_tick_enemy_attack(fighter)
@@ -1429,6 +1433,7 @@ func _tick_enemy_attack(fighter: Dictionary) -> void:
 		_move_fighter(fighter,fighter.face * 4.8 * ENEMY_SPEED,0.0,true)
 	if fighter.action_tick == int(timing[0]):
 		match action:
+			"boss_arrow", "boss_sword_wave": Stage03Encounter.Tent.Yoshimoto.release(self,fighter)
 			"bow_shot", "gun_shot":
 				_projectile(fighter, maxi(1, int((16 if action == "gun_shot" else 10) * _difficulty.enemy_damage)), 0, false, "bullet" if action == "gun_shot" else "arrow", 1100.0 if action == "gun_shot" else 900.0)
 			"spear_thrust": _enemy_melee(fighter, 205.0, 26.0, 12)
@@ -1760,7 +1765,7 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 		_effect("guard_break",target.x,target.y,20,{"target":target.id,"face":target.face})
 		_event("guard_break",target.x,target.y,actor,target.id)
 	# A replay-stable 25% parry window; recovery, rear attacks and charged moves cannot trigger it.
-	var boss_guard: bool = reaction and target.kind == "boss" and target.action == "idle" and target.counter_ticks == 0 and target.freeze == 0 and target.stun == 0 and not target.airborne_lock and not attacker.is_empty() and attacker.team == 0 and attack_action in ["light", "heavy", "dash_heavy", "rising", "low_sweep", "dash_strike", "air_light"] and (state.tick * 17 + target.id * 13 + actor * 7) % 100 < 25
+	var boss_guard: bool = reaction and target.kind == "boss" and not target.get("is_yoshimoto",false) and target.action == "idle" and target.counter_ticks == 0 and target.freeze == 0 and target.stun == 0 and not target.airborne_lock and not attacker.is_empty() and attacker.team == 0 and attack_action in ["light", "heavy", "dash_heavy", "rising", "low_sweep", "dash_strike", "air_light"] and (state.tick * 17 + target.id * 13 + actor * 7) % 100 < 25
 	if reaction and (boss_guard or target.action in ["guard", "boss_counter"]) and is_finite(source_x) and (source_x - target.x) * target.face > 0.0 and absf(source_y - target.y) <= 100.0 and (boss_guard or target.action == "guard" or target.action_tick < enemy_timing(target)[0] - 8):
 		if boss_guard or (not heavy and not (strong_hit and not attacker.is_empty() and (attacker.kind == "boss" or attacker.action in ["heavy", "charged", "charged_upper", "upper_heavy", "air_heavy", "counter_cut"]))):
 			if boss_guard:

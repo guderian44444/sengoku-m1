@@ -1,7 +1,8 @@
 extends RefCounted
 
+const Yoshimoto = preload("res://core/stage03_yoshimoto.gd")
 const Rules = preload("res://core/stage03_objectives.gd")
-const PHASES := ["active","awaiting_yoshimoto","cancelled"]
+const PHASES := ["active","awaiting_yoshimoto","yoshimoto","complete","cancelled"]
 const VARIANTS := ["naginata","dual_swords"]
 const ATTACKS := ["boss_thrust","boss_sweep","boss_counter","boss_double"]
 
@@ -27,14 +28,15 @@ static func valid_spec(spec: Dictionary, width: float) -> bool:
 		if not b.get("actions") is Array or b.actions.is_empty() or b.actions.size() > 4: return false
 		for action in b.actions:
 			if action not in ATTACKS: return false
-	return Vector2(spec.leaders[0].x-spec.leaders[1].x,spec.leaders[0].y-spec.leaders[1].y).length() >= 200
+	return Vector2(spec.leaders[0].x-spec.leaders[1].x,spec.leaders[0].y-spec.leaders[1].y).length() >= 200 and Yoshimoto.valid_spec(spec.get("yoshimoto"),width)
 
 static func begin(sim, spec: Dictionary) -> void:
 	var p: Dictionary = spec.population
 	var party: Array = sim.state.fighters.filter(func(f):return f.team == 0)
 	var e := {"kind":"lieutenants","phase":"active","epoch":int(sim._next_id),"leaders":[],"target":int(p.solo if party.size() == 1 else p.coop),
 		"tickets":[],"delay_ticks":int(p.delay_ticks),"admit_ticks":int(p.admit_ticks),"next_admit_tick":int(sim.state.tick),
-		"kinds":p.kinds.duplicate(),"spawned_count":0,"tactics":spec.tactics.duplicate(true),"transition_tick":-1}
+		"kinds":p.kinds.duplicate(),"spawned_count":0,"tactics":spec.tactics.duplicate(true),"transition_tick":-1,
+		"yoshi_spec":spec.yoshimoto.duplicate(true),"yoshimoto_id":0,"yoshimoto_max_hp":0,"yoshimoto_defeated":false}
 	# JSON settings become integer ticks in the authoritative runtime state.
 	for key in ["retreat_ticks","recover_ticks","retreat_cooldown","target_hold_ticks"]: e.tactics[key] = int(e.tactics[key])
 	sim.state.encounter = e
@@ -70,7 +72,13 @@ static func population(world: Dictionary) -> int:
 
 static func enemy_defeated(sim, fighter: Dictionary) -> void:
 	var e: Dictionary = sim.state.encounter
-	if e.phase != "active" or fighter.team != 1 or fighter.hp > 0 or fighter.get("encounter_epoch",-1) != e.epoch: return
+	if e.phase not in ["active","yoshimoto"] or fighter.team != 1 or fighter.hp > 0 or fighter.get("encounter_epoch",-1) != e.epoch: return
+	if fighter.get("is_yoshimoto",false):
+		e.yoshimoto_defeated = true
+		e.tickets.clear()
+		e.phase = "complete"
+		phase_event(sim,"complete")
+		return
 	if fighter.kind == "boss":
 		for leader in e.leaders:
 			if leader.id == fighter.id: leader.defeated = true
@@ -82,10 +90,18 @@ static func enemy_defeated(sim, fighter: Dictionary) -> void:
 
 static func tick(sim) -> void:
 	var e: Dictionary = sim.state.encounter
-	if e.phase != "active": return
-	if e.leaders.all(func(b):return b.defeated):
+	if e.phase == "awaiting_yoshimoto":
+		if sim.state.tick - e.transition_tick >= e.yoshi_spec.transition_ticks:
+			Yoshimoto.spawn(sim)
+			for index in range(e.target - population(sim.state)):
+				e.tickets.append({"id":int(sim._next_id),"epoch":int(e.epoch),"due_tick":int(sim.state.tick) + int(e.delay_ticks)})
+				sim._next_id += 1
+		return
+	if e.phase not in ["active","yoshimoto"]: return
+	if e.phase == "active" and e.leaders.all(func(b):return b.defeated):
 		e.tickets.clear()
 		e.phase = "awaiting_yoshimoto"
+		sim.state.effects.clear()
 		e.transition_tick = int(sim.state.tick)
 		phase_event(sim,"awaiting_yoshimoto")
 		return
@@ -98,6 +114,22 @@ static func tick(sim) -> void:
 	e.tickets.pop_front()
 	spawn_minion(sim)
 	e.next_admit_tick = int(sim.state.tick) + int(e.admit_ticks)
+
+static func transition_step(sim) -> bool:
+	if sim.state.get("encounter",{}).get("kind","") != "lieutenants" or sim.state.encounter.phase != "awaiting_yoshimoto": return false
+	# Keep the short introduction safe; persistent actors/HP remain intact.
+	sim.state.tick += 1
+	for f in sim.state.fighters:
+		if f.hp <= 0: sim._tick_motion(f)
+	tick(sim)
+	return true
+
+static func finish_victory(sim) -> bool:
+	if sim.state.get("encounter",{}).get("kind","") != "lieutenants" or not sim.state.encounter.get("yoshimoto_defeated",false): return false
+	if sim.state.encounter.phase != "complete": return false
+	sim.state.encounter.tickets.clear()
+	sim.state.phase = "won"
+	return true
 
 static func spawn_minion(sim) -> void:
 	var e: Dictionary = sim.state.encounter
@@ -124,9 +156,10 @@ static func target_for(sim, fighter: Dictionary, fallback: Dictionary) -> Dictio
 	if sim.state.get("encounter",{}).get("kind","") != "lieutenants": return fallback
 	var e: Dictionary = sim.state.encounter
 	if fighter.get("encounter_epoch",-1) != e.epoch: return fallback
+	if fighter.get("is_yoshimoto",false): return Yoshimoto.target_for(sim,fighter,fallback)
 	var held: Dictionary = sim._fighter(int(fighter.get("ai_target_id",0)))
-	if not held.is_empty() and held.team == 0 and held.hp > 0 and sim.state.tick < fighter.ai_target_until: return held
-	var party: Array = sim.state.fighters.filter(func(f):return f.team == 0 and f.hp > 0)
+	if not held.is_empty() and Yoshimoto.can_target(held) and sim.state.tick < fighter.ai_target_until: return held
+	var party: Array = sim.state.fighters.filter(func(f):return Yoshimoto.can_target(f))
 	if party.is_empty(): return fallback
 	var slot: int = int(fighter.get("lieutenant_slot",fighter.id % 2 + 1)) - 1
 	var preferred: Array = party.filter(func(f):return f.player_index == slot)
@@ -136,7 +169,9 @@ static func target_for(sim, fighter: Dictionary, fallback: Dictionary) -> Dictio
 	return chosen
 
 static func steer(sim, fighter: Dictionary, target: Dictionary) -> bool:
-	if sim.state.get("encounter",{}).get("kind","") != "lieutenants" or not fighter.has("lieutenant_slot"): return false
+	if sim.state.get("encounter",{}).get("kind","") != "lieutenants": return false
+	if fighter.get("is_yoshimoto",false): return Yoshimoto.steer(sim,fighter,target)
+	if not fighter.has("lieutenant_slot"): return false
 	if sim.state.encounter.phase != "active": return false
 	fighter.move_dx = 0
 	fighter.move_dy = 0
@@ -192,7 +227,7 @@ static func phase_event(sim, phase: String) -> void:
 static func valid_state(world: Dictionary) -> bool:
 	var e: Dictionary = world.encounter
 	if e.get("phase") not in PHASES or not Rules.integer(e.get("epoch"),1,1000000000): return false
-	if world.phase != "playing" and e.phase == "active": return false
+	if world.phase != "playing" and e.phase in ["active","yoshimoto","awaiting_yoshimoto"]: return false
 	if not Rules.integer(e.get("target"),1,12) or not Rules.integer(e.get("delay_ticks"),1,1800) or not Rules.integer(e.get("admit_ticks"),1,600): return false
 	if not Rules.integer(e.get("next_admit_tick"),0,1000000000) or not Rules.integer(e.get("spawned_count"),e.target,1000000000) or not Rules.integer(e.get("transition_tick"),-1,1000000000): return false
 	if not e.get("tactics") is Dictionary or not e.get("leaders") is Array or e.leaders.size() != 2: return false
@@ -213,17 +248,33 @@ static func valid_state(world: Dictionary) -> bool:
 			if not b.defeated: return false
 		elif found.size() != 1 or found[0].kind != "boss" or found[0].get("lieutenant_slot",0) != index+1 or found[0].max_hp != b.max_hp or (found[0].hp <= 0) != b.defeated: return false
 		ids[b.id] = true
+	if not Yoshimoto.valid_spec(e.get("yoshi_spec"),world.stage.width): return false
+	if not Rules.integer(e.get("yoshimoto_id"),0,1000000000) or not Rules.integer(e.get("yoshimoto_max_hp"),0,1000000) or not e.get("yoshimoto_defeated") is bool: return false
+	if e.yoshimoto_id == 0:
+		if e.yoshimoto_max_hp != 0 or e.yoshimoto_defeated or e.phase in ["yoshimoto","complete"]: return false
+	else:
+		if ids.has(e.yoshimoto_id) or e.yoshimoto_max_hp < 1 or e.phase in ["active","awaiting_yoshimoto"]: return false
+		var found: Array = world.fighters.filter(func(f):return f.id == e.yoshimoto_id)
+		if found.is_empty():
+			if not e.yoshimoto_defeated: return false
+		elif found.size() != 1 or not Yoshimoto.valid_fighter(found[0],e) or (found[0].hp <= 0) != e.yoshimoto_defeated: return false
+		ids[e.yoshimoto_id] = true
+	if (e.phase == "complete") != e.yoshimoto_defeated and e.phase != "cancelled": return false
 	var both: bool = e.leaders.all(func(b):return b.defeated)
 	if e.phase == "active" and (both or e.transition_tick != -1): return false
-	if e.phase == "awaiting_yoshimoto" and (not both or e.transition_tick < 0): return false
+	if e.phase in ["awaiting_yoshimoto","yoshimoto","complete"] and (not both or e.transition_tick < 0): return false
 	var player_ids: Array = world.fighters.filter(func(f):return f.team == 0).map(func(f):return f.id)
 	for f in world.fighters:
 		if f.team != 1: continue
 		if f.get("encounter_epoch",-1) != e.epoch or not f.get("replacement_queued") is bool: return false
 		if not Rules.integer(f.get("ai_target_id"),0,1000000000) or not Rules.integer(f.get("ai_target_until"),0,1000000000): return false
 		if f.ai_target_id != 0 and f.ai_target_id not in player_ids: return false
+		if f.get("is_yoshimoto",false) and f.id != e.yoshimoto_id: return false
 		if f.kind != "boss":
 			if f.get("role",f.kind) not in Rules.KINDS or f.has("lieutenant_slot"): return false
+			continue
+		if f.id == e.yoshimoto_id:
+			if not Yoshimoto.valid_fighter(f,e): return false
 			continue
 		if not ids.has(f.id) or not Rules.integer(f.get("lieutenant_slot"),1,2) or f.get("tactic") not in ["approach","retreat","recover"]: return false
 		for key in ["tactic_until","retreat_ready_tick"]:
@@ -232,7 +283,7 @@ static func valid_state(world: Dictionary) -> bool:
 			if not Rules.number(f.get(key),-10000,10000): return false
 		for key in ["retreat_dx","retreat_dy"]:
 			if not Rules.number(f.get(key),-1,1): return false
-	if not e.get("tickets") is Array or e.tickets.size() > e.target or (e.phase != "active" and not e.tickets.is_empty()): return false
+	if not e.get("tickets") is Array or e.tickets.size() > e.target or (e.phase not in ["active","yoshimoto"] and not e.tickets.is_empty()): return false
 	var tickets := {}
 	for ticket in e.tickets:
 		if not ticket is Dictionary or ticket.size() != 3 or not Rules.integer(ticket.get("id"),1,1000000000) or tickets.has(ticket.id) or ids.has(ticket.id): return false

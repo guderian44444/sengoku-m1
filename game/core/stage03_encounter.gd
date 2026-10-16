@@ -4,7 +4,7 @@ extends RefCounted
 const Tent = preload("res://core/stage03_tent.gd")
 const Objectives = preload("res://core/stage03_objectives.gd")
 const KINDS := ["soldier", "archer", "shield_spear", "fire_archer", "raider"]
-const PHASES := ["active", "draining", "complete", "cancelled", "awaiting_yoshimoto"]
+const PHASES := ["active", "draining", "complete", "cancelled", "awaiting_yoshimoto", "yoshimoto"]
 const ACTOR_LIMIT := 48
 
 static func valid_spec(spec: Dictionary, width: float) -> bool:
