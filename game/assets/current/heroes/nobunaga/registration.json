@@ -1,0 +1,2451 @@
+{
+  "version": "current",
+  "hero": "nobunaga",
+  "angle_convention": "tip up 0 degrees, clockwise positive, source facing right",
+  "clips": {
+    "idle": {
+      "frames": [
+        {
+          "file": "idle.png",
+          "rect": [
+            44,
+            4,
+            434,
+            499
+          ],
+          "foot": [
+            251,
+            497
+          ],
+          "body_height": 445,
+          "hand": [
+            214,
+            76
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            195,
+            54,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "idle.png",
+          "rect": [
+            531,
+            4,
+            462,
+            499
+          ],
+          "foot": [
+            276,
+            497
+          ],
+          "body_height": 445,
+          "hand": [
+            239,
+            76
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            220,
+            54,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "idle.png",
+          "rect": [
+            1055,
+            4,
+            447,
+            499
+          ],
+          "foot": [
+            264,
+            497
+          ],
+          "body_height": 445,
+          "hand": [
+            225,
+            76
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            206,
+            54,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "idle.png",
+          "rect": [
+            36,
+            516,
+            442,
+            498
+          ],
+          "foot": [
+            259,
+            496
+          ],
+          "body_height": 445,
+          "hand": [
+            226,
+            76
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            207,
+            54,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "idle.png",
+          "rect": [
+            573,
+            517,
+            418,
+            497
+          ],
+          "foot": [
+            234,
+            495
+          ],
+          "body_height": 445,
+          "hand": [
+            200,
+            75
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            181,
+            53,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "idle.png",
+          "rect": [
+            1074,
+            516,
+            426,
+            498
+          ],
+          "foot": [
+            245,
+            496
+          ],
+          "body_height": 445,
+          "hand": [
+            211,
+            76
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            192,
+            54,
+            38,
+            44
+          ]
+        }
+      ],
+      "source_sha256": "5b36199a09e48ff3c5aba1af10d2d7ca479d1c640358c7d6e39ce082bbe25958"
+    },
+    "walk": {
+      "frames": [
+        {
+          "file": "walk.png",
+          "rect": [
+            43,
+            14,
+            460,
+            478
+          ],
+          "foot": [
+            247,
+            476
+          ],
+          "body_height": 435,
+          "hand": [
+            217,
+            73
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            198,
+            51,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "walk.png",
+          "rect": [
+            603,
+            13,
+            287,
+            485
+          ],
+          "foot": [
+            177,
+            483
+          ],
+          "body_height": 435,
+          "hand": [
+            144,
+            69
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            125,
+            47,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "walk.png",
+          "rect": [
+            1080,
+            11,
+            319,
+            487
+          ],
+          "foot": [
+            195,
+            485
+          ],
+          "body_height": 435,
+          "hand": [
+            179,
+            76
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            160,
+            54,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "walk.png",
+          "rect": [
+            39,
+            522,
+            465,
+            474
+          ],
+          "foot": [
+            251,
+            472
+          ],
+          "body_height": 435,
+          "hand": [
+            211,
+            70
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            192,
+            48,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "walk.png",
+          "rect": [
+            600,
+            522,
+            310,
+            483
+          ],
+          "foot": [
+            180,
+            481
+          ],
+          "body_height": 435,
+          "hand": [
+            150,
+            70
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            131,
+            48,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "walk.png",
+          "rect": [
+            1093,
+            522,
+            343,
+            480
+          ],
+          "foot": [
+            182,
+            478
+          ],
+          "body_height": 435,
+          "hand": [
+            166,
+            70
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            147,
+            48,
+            38,
+            44
+          ]
+        }
+      ],
+      "source_sha256": "757a598228b8d86cc772329562e0fccbfa2ffa17ce8e9b59fff9ffafbcd2f4b4"
+    },
+    "run": {
+      "frames": [
+        {
+          "file": "run.png",
+          "rect": [
+            44,
+            55,
+            441,
+            411
+          ],
+          "foot": [
+            246,
+            409
+          ],
+          "body_height": 405,
+          "hand": [
+            260,
+            72
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            241,
+            50,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "run.png",
+          "rect": [
+            608,
+            54,
+            298,
+            418
+          ],
+          "foot": [
+            181,
+            416
+          ],
+          "body_height": 405,
+          "hand": [
+            187,
+            71
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            168,
+            49,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "run.png",
+          "rect": [
+            1094,
+            50,
+            384,
+            392
+          ],
+          "foot": [
+            256,
+            390
+          ],
+          "body_height": 405,
+          "hand": [
+            276,
+            78
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            257,
+            56,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "run.png",
+          "rect": [
+            42,
+            560,
+            469,
+            403
+          ],
+          "foot": [
+            248,
+            401
+          ],
+          "body_height": 405,
+          "hand": [
+            266,
+            74
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            247,
+            52,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "run.png",
+          "rect": [
+            613,
+            557,
+            293,
+            418
+          ],
+          "foot": [
+            176,
+            416
+          ],
+          "body_height": 405,
+          "hand": [
+            185,
+            78
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            166,
+            56,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "run.png",
+          "rect": [
+            1083,
+            553,
+            405,
+            399
+          ],
+          "foot": [
+            267,
+            397
+          ],
+          "body_height": 405,
+          "hand": [
+            294,
+            80
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            275,
+            58,
+            38,
+            44
+          ]
+        }
+      ],
+      "source_sha256": "17d7634faade798034ae4892e3267f9254bf55de78bfe2db43139646240a7518"
+    },
+    "jump": {
+      "frames": [
+        {
+          "file": "jump.png",
+          "rect": [
+            79,
+            135,
+            376,
+            347
+          ],
+          "foot": [
+            226,
+            345
+          ],
+          "body_height": 410,
+          "hand": [
+            256,
+            70
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            237,
+            48,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "jump.png",
+          "rect": [
+            578,
+            46,
+            350,
+            437
+          ],
+          "foot": [
+            212,
+            435
+          ],
+          "body_height": 410,
+          "hand": [
+            242,
+            65
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            223,
+            43,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "jump.png",
+          "rect": [
+            1047,
+            12,
+            379,
+            471
+          ],
+          "foot": [
+            258,
+            469
+          ],
+          "body_height": 410,
+          "hand": [
+            265,
+            61
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            246,
+            39,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "jump.png",
+          "rect": [
+            73,
+            519,
+            357,
+            326
+          ],
+          "foot": [
+            232,
+            324
+          ],
+          "body_height": 410,
+          "hand": [
+            241,
+            66
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            222,
+            44,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "jump.png",
+          "rect": [
+            561,
+            522,
+            381,
+            450
+          ],
+          "foot": [
+            254,
+            448
+          ],
+          "body_height": 410,
+          "hand": [
+            269,
+            71
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            250,
+            49,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "jump.png",
+          "rect": [
+            1065,
+            614,
+            404,
+            381
+          ],
+          "foot": [
+            265,
+            379
+          ],
+          "body_height": 410,
+          "hand": [
+            287,
+            95
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            268,
+            73,
+            38,
+            44
+          ]
+        }
+      ],
+      "source_sha256": "f83d98219e05e5566375f277384c8573d6e38b336945c7d4a701c9513176322b"
+    },
+    "victory": {
+      "frames": [
+        {
+          "file": "victory.png",
+          "rect": [
+            71,
+            42,
+            343,
+            448
+          ],
+          "foot": [
+            219,
+            446
+          ],
+          "body_height": 415,
+          "hand": [
+            162,
+            65
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            143,
+            43,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "victory.png",
+          "rect": [
+            547,
+            27,
+            385,
+            466
+          ],
+          "foot": [
+            248,
+            464
+          ],
+          "body_height": 395,
+          "hand": [
+            195,
+            16
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            176,
+            -6,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "victory.png",
+          "rect": [
+            1061,
+            9,
+            390,
+            484
+          ],
+          "foot": [
+            249,
+            482
+          ],
+          "body_height": 395,
+          "hand": [
+            192,
+            19
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            173,
+            -3,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "victory.png",
+          "rect": [
+            50,
+            508,
+            394,
+            495
+          ],
+          "foot": [
+            250,
+            493
+          ],
+          "body_height": 395,
+          "hand": [
+            176,
+            15
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            157,
+            -7,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "victory.png",
+          "rect": [
+            545,
+            513,
+            425,
+            490
+          ],
+          "foot": [
+            265,
+            488
+          ],
+          "body_height": 395,
+          "hand": [
+            196,
+            19
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            177,
+            -3,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "victory.png",
+          "rect": [
+            1071,
+            514,
+            400,
+            490
+          ],
+          "foot": [
+            249,
+            488
+          ],
+          "body_height": 395,
+          "hand": [
+            170,
+            19
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            151,
+            -3,
+            38,
+            44
+          ]
+        }
+      ],
+      "source_sha256": "adbf5b5abc478ea495b3f7f0fa6939c1602b732e73f6d1ab9e5c3c8df5436a5f"
+    },
+    "hurt": {
+      "frames": [
+        {
+          "file": "hurt.png",
+          "rect": [
+            32,
+            22,
+            466,
+            483
+          ],
+          "foot": [
+            278,
+            481
+          ],
+          "body_height": 445,
+          "hand": [
+            164,
+            278
+          ],
+          "weapon_angle": 125,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            145,
+            256,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "hurt.png",
+          "rect": [
+            552,
+            42,
+            425,
+            463
+          ],
+          "foot": [
+            268,
+            461
+          ],
+          "body_height": 445,
+          "hand": [
+            164,
+            260
+          ],
+          "weapon_angle": 125,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            145,
+            238,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "hurt.png",
+          "rect": [
+            1064,
+            96,
+            416,
+            408
+          ],
+          "foot": [
+            246,
+            406
+          ],
+          "body_height": 445,
+          "hand": [
+            146,
+            239
+          ],
+          "weapon_angle": 125,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            127,
+            217,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "hurt.png",
+          "rect": [
+            31,
+            521,
+            475,
+            481
+          ],
+          "foot": [
+            274,
+            479
+          ],
+          "body_height": 445,
+          "hand": [
+            163,
+            254
+          ],
+          "weapon_angle": 225,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            144,
+            232,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "hurt.png",
+          "rect": [
+            570,
+            535,
+            407,
+            467
+          ],
+          "foot": [
+            245,
+            465
+          ],
+          "body_height": 445,
+          "hand": [
+            160,
+            273
+          ],
+          "weapon_angle": 125,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            141,
+            251,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "hurt.png",
+          "rect": [
+            1055,
+            527,
+            439,
+            475
+          ],
+          "foot": [
+            260,
+            473
+          ],
+          "body_height": 445,
+          "hand": [
+            372,
+            139
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            353,
+            117,
+            38,
+            44
+          ]
+        }
+      ],
+      "source_sha256": "99cf347e0957796863fc5c1dcc7661c46c01858f2e71830bbc9f7a05f88d5712"
+    },
+    "stunned": {
+      "frames": [
+        {
+          "file": "stunned.png",
+          "rect": [
+            67,
+            18,
+            387,
+            479
+          ],
+          "foot": [
+            223,
+            477
+          ],
+          "body_height": 445,
+          "hand": [
+            133,
+            262
+          ],
+          "weapon_angle": 140,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            114,
+            240,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "stunned.png",
+          "rect": [
+            551,
+            21,
+            428,
+            479
+          ],
+          "foot": [
+            249,
+            477
+          ],
+          "body_height": 445,
+          "hand": [
+            141,
+            261
+          ],
+          "weapon_angle": 140,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            122,
+            239,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "stunned.png",
+          "rect": [
+            1057,
+            64,
+            411,
+            435
+          ],
+          "foot": [
+            253,
+            433
+          ],
+          "body_height": 445,
+          "hand": [
+            136,
+            231
+          ],
+          "weapon_angle": 135,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            117,
+            209,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "stunned.png",
+          "rect": [
+            54,
+            536,
+            416,
+            462
+          ],
+          "foot": [
+            231,
+            460
+          ],
+          "body_height": 445,
+          "hand": [
+            100,
+            247
+          ],
+          "weapon_angle": 225,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            81,
+            225,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "stunned.png",
+          "rect": [
+            568,
+            546,
+            405,
+            453
+          ],
+          "foot": [
+            237,
+            451
+          ],
+          "body_height": 445,
+          "hand": [
+            131,
+            236
+          ],
+          "weapon_angle": 140,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            112,
+            214,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "stunned.png",
+          "rect": [
+            1089,
+            518,
+            403,
+            481
+          ],
+          "foot": [
+            221,
+            479
+          ],
+          "body_height": 445,
+          "hand": [
+            123,
+            261
+          ],
+          "weapon_angle": 140,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            104,
+            239,
+            38,
+            44
+          ]
+        }
+      ],
+      "source_sha256": "b958febf3cddf12aa4ee072d81144698675ff4df3f7bc98570a7b43a9a620ff0"
+    },
+    "down": {
+      "frames": [
+        {
+          "file": "down.png",
+          "rect": [
+            34,
+            166,
+            420,
+            376
+          ],
+          "foot": [
+            246,
+            374
+          ],
+          "body_height": 445,
+          "hand": [
+            175,
+            205
+          ],
+          "weapon_angle": 125,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            156,
+            183,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "down.png",
+          "rect": [
+            494,
+            216,
+            459,
+            297
+          ],
+          "foot": [
+            261,
+            295
+          ],
+          "body_height": 445,
+          "hand": [
+            165,
+            198
+          ],
+          "weapon_angle": 105,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            146,
+            176,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "down.png",
+          "rect": [
+            987,
+            268,
+            532,
+            268
+          ],
+          "foot": [
+            283,
+            266
+          ],
+          "body_height": 445,
+          "hand": [
+            241,
+            194
+          ],
+          "weapon_angle": 90,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            222,
+            172,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "down.png",
+          "rect": [
+            10,
+            716,
+            515,
+            207
+          ],
+          "foot": [
+            260,
+            205
+          ],
+          "body_height": 445,
+          "hand": [
+            248,
+            136
+          ],
+          "weapon_angle": 270,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            229,
+            114,
+            38,
+            44
+          ],
+          "clip_polygon": [
+            [
+              1.04,
+              136.51
+            ],
+            [
+              3.01,
+              113.23
+            ],
+            [
+              20.02,
+              67.65
+            ],
+            [
+              22.03,
+              64.6
+            ],
+            [
+              30.05,
+              55.47
+            ],
+            [
+              31.05,
+              54.45
+            ],
+            [
+              33.05,
+              53.43
+            ],
+            [
+              71.16,
+              35.03
+            ],
+            [
+              76.18,
+              33.99
+            ],
+            [
+              247.09,
+              -1.0
+            ],
+            [
+              254.31,
+              -0.98
+            ],
+            [
+              363.36,
+              1.15
+            ],
+            [
+              374.45,
+              2.27
+            ],
+            [
+              380.5,
+              4.35
+            ],
+            [
+              496.96,
+              54.53
+            ],
+            [
+              498.97,
+              55.55
+            ],
+            [
+              499.97,
+              56.56
+            ],
+            [
+              501.97,
+              60.61
+            ],
+            [
+              512.98,
+              126.36
+            ],
+            [
+              512.97,
+              133.43
+            ],
+            [
+              511.96,
+              136.47
+            ],
+            [
+              507.95,
+              143.55
+            ],
+            [
+              497.92,
+              153.68
+            ],
+            [
+              489.9,
+              157.75
+            ],
+            [
+              475.88,
+              160.83
+            ],
+            [
+              177.47,
+              206.58
+            ],
+            [
+              176.45,
+              206.57
+            ],
+            [
+              24.12,
+              159.86
+            ],
+            [
+              12.09,
+              153.74
+            ],
+            [
+              5.07,
+              147.65
+            ],
+            [
+              2.06,
+              141.57
+            ],
+            [
+              1.05,
+              137.53
+            ]
+          ]
+        },
+        {
+          "file": "down.png",
+          "rect": [
+            516,
+            758,
+            508,
+            174
+          ],
+          "foot": [
+            264,
+            172
+          ],
+          "body_height": 445,
+          "hand": [
+            245,
+            112
+          ],
+          "weapon_angle": 270,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            226,
+            90,
+            38,
+            44
+          ],
+          "clip_polygon": [
+            [
+              488.95,
+              127.57
+            ],
+            [
+              182.96,
+              173.2
+            ],
+            [
+              181.94,
+              173.18
+            ],
+            [
+              17.07,
+              139.65
+            ],
+            [
+              9.06,
+              135.59
+            ],
+            [
+              7.05,
+              133.56
+            ],
+            [
+              1.03,
+              120.41
+            ],
+            [
+              1.02,
+              117.37
+            ],
+            [
+              9.0,
+              75.9
+            ],
+            [
+              12.01,
+              68.82
+            ],
+            [
+              15.01,
+              64.77
+            ],
+            [
+              44.09,
+              29.28
+            ],
+            [
+              45.09,
+              28.26
+            ],
+            [
+              50.11,
+              25.21
+            ],
+            [
+              75.16,
+              20.04
+            ],
+            [
+              270.16,
+              -1.0
+            ],
+            [
+              278.45,
+              -0.97
+            ],
+            [
+              496.95,
+              41.45
+            ],
+            [
+              498.95,
+              42.47
+            ],
+            [
+              499.96,
+              43.49
+            ],
+            [
+              500.96,
+              46.52
+            ],
+            [
+              508.0,
+              84.0
+            ],
+            [
+              508.0,
+              87.03
+            ],
+            [
+              507.0,
+              96.15
+            ],
+            [
+              505.99,
+              100.2
+            ],
+            [
+              503.99,
+              106.28
+            ],
+            [
+              500.98,
+              112.35
+            ],
+            [
+              491.95,
+              125.54
+            ],
+            [
+              490.95,
+              126.55
+            ]
+          ]
+        },
+        {
+          "file": "down.png",
+          "rect": [
+            1030,
+            776,
+            499,
+            148
+          ],
+          "foot": [
+            260,
+            146
+          ],
+          "body_height": 445,
+          "hand": [
+            256,
+            93
+          ],
+          "weapon_angle": 270,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            237,
+            71,
+            38,
+            44
+          ]
+        }
+      ],
+      "source_sha256": "f07c85c4d98e74c78cbb8174ca1bec83030b3d0f0260011b05c9628b8188ce33"
+    },
+    "recovering": {
+      "frames": [
+        {
+          "file": "recovering.png",
+          "rect": [
+            16,
+            255,
+            542,
+            137
+          ],
+          "foot": [
+            269,
+            135
+          ],
+          "body_height": 445,
+          "hand": [
+            251,
+            24
+          ],
+          "weapon_angle": 270,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            232,
+            2,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "recovering.png",
+          "rect": [
+            579,
+            206,
+            435,
+            211
+          ],
+          "foot": [
+            221,
+            209
+          ],
+          "body_height": 445,
+          "hand": [
+            255,
+            127
+          ],
+          "weapon_angle": 130,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            236,
+            105,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "recovering.png",
+          "rect": [
+            1081,
+            143,
+            434,
+            272
+          ],
+          "foot": [
+            224,
+            270
+          ],
+          "body_height": 445,
+          "hand": [
+            199,
+            152
+          ],
+          "weapon_angle": 155,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            180,
+            130,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "recovering.png",
+          "rect": [
+            55,
+            567,
+            455,
+            377
+          ],
+          "foot": [
+            225,
+            375
+          ],
+          "body_height": 445,
+          "hand": [
+            213,
+            232
+          ],
+          "weapon_angle": 180,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            194,
+            210,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "recovering.png",
+          "rect": [
+            556,
+            540,
+            439,
+            433
+          ],
+          "foot": [
+            254,
+            431
+          ],
+          "body_height": 445,
+          "hand": [
+            244,
+            79
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            225,
+            57,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "recovering.png",
+          "rect": [
+            1051,
+            479,
+            462,
+            499
+          ],
+          "foot": [
+            274,
+            497
+          ],
+          "body_height": 445,
+          "hand": [
+            233,
+            77
+          ],
+          "weapon_angle": 0,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            214,
+            55,
+            38,
+            44
+          ]
+        }
+      ],
+      "source_sha256": "9156fe52129b081ab81c4b0beb00c11988fe54400ef3022aa4c44c570cd58af0"
+    },
+    "launched": {
+      "frames": [
+        {
+          "file": "launched.png",
+          "rect": [
+            17,
+            67,
+            427,
+            428
+          ],
+          "foot": [
+            263,
+            426
+          ],
+          "body_height": 445,
+          "hand": [
+            136,
+            241
+          ],
+          "weapon_angle": 170,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            117,
+            219,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "launched.png",
+          "rect": [
+            516,
+            123,
+            510,
+            350
+          ],
+          "foot": [
+            279,
+            348
+          ],
+          "body_height": 445,
+          "hand": [
+            176,
+            202
+          ],
+          "weapon_angle": 140,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            157,
+            180,
+            38,
+            44
+          ],
+          "clip_polygon": [
+            [
+              384.0,
+              349.23
+            ],
+            [
+              90.94,
+              326.18
+            ],
+            [
+              88.91,
+              325.16
+            ],
+            [
+              86.88,
+              323.13
+            ],
+            [
+              85.86,
+              321.1
+            ],
+            [
+              3.14,
+              105.08
+            ],
+            [
+              1.18,
+              94.98
+            ],
+            [
+              0.25,
+              78.81
+            ],
+            [
+              0.3,
+              65.68
+            ],
+            [
+              32.64,
+              22.14
+            ],
+            [
+              40.73,
+              14.04
+            ],
+            [
+              46.78,
+              10.98
+            ],
+            [
+              51.81,
+              9.95
+            ],
+            [
+              109.31,
+              0.52
+            ],
+            [
+              335.51,
+              -0.59
+            ],
+            [
+              338.55,
+              -0.57
+            ],
+            [
+              348.68,
+              4.52
+            ],
+            [
+              504.0,
+              168.9
+            ],
+            [
+              508.0,
+              173.95
+            ],
+            [
+              508.0,
+              179.01
+            ],
+            [
+              417.28,
+              336.94
+            ],
+            [
+              412.23,
+              342.01
+            ],
+            [
+              409.2,
+              344.04
+            ],
+            [
+              405.16,
+              346.08
+            ],
+            [
+              399.11,
+              348.13
+            ],
+            [
+              395.08,
+              349.16
+            ]
+          ]
+        },
+        {
+          "file": "launched.png",
+          "rect": [
+            1003,
+            141,
+            521,
+            286
+          ],
+          "foot": [
+            317,
+            284
+          ],
+          "body_height": 445,
+          "hand": [
+            155,
+            216
+          ],
+          "weapon_angle": 130,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            136,
+            194,
+            38,
+            44
+          ],
+          "clip_polygon": [
+            [
+              89.56,
+              20.26
+            ],
+            [
+              300.17,
+              -1.0
+            ],
+            [
+              303.23,
+              -0.99
+            ],
+            [
+              516.82,
+              80.97
+            ],
+            [
+              518.83,
+              83.0
+            ],
+            [
+              519.84,
+              87.04
+            ],
+            [
+              520.92,
+              216.67
+            ],
+            [
+              520.91,
+              222.74
+            ],
+            [
+              519.9,
+              225.78
+            ],
+            [
+              515.87,
+              231.87
+            ],
+            [
+              512.86,
+              234.91
+            ],
+            [
+              508.84,
+              237.96
+            ],
+            [
+              500.81,
+              242.04
+            ],
+            [
+              496.8,
+              243.08
+            ],
+            [
+              309.45,
+              285.97
+            ],
+            [
+              308.43,
+              285.97
+            ],
+            [
+              254.06,
+              275.85
+            ],
+            [
+              248.94,
+              274.81
+            ],
+            [
+              244.84,
+              273.77
+            ],
+            [
+              141.27,
+              232.25
+            ],
+            [
+              139.26,
+              231.22
+            ],
+            [
+              6.01,
+              137.72
+            ],
+            [
+              2.02,
+              127.63
+            ],
+            [
+              1.06,
+              107.43
+            ],
+            [
+              1.06,
+              106.42
+            ],
+            [
+              24.2,
+              60.92
+            ],
+            [
+              32.24,
+              52.81
+            ],
+            [
+              85.53,
+              22.3
+            ]
+          ]
+        },
+        {
+          "file": "launched.png",
+          "rect": [
+            40,
+            518,
+            412,
+            429
+          ],
+          "foot": [
+            245,
+            427
+          ],
+          "body_height": 445,
+          "hand": [
+            249,
+            258
+          ],
+          "weapon_angle": 60,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            230,
+            236,
+            38,
+            44
+          ]
+        },
+        {
+          "file": "launched.png",
+          "rect": [
+            494,
+            620,
+            533,
+            313
+          ],
+          "foot": [
+            306,
+            311
+          ],
+          "body_height": 445,
+          "hand": [
+            188,
+            145
+          ],
+          "weapon_angle": 270,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            169,
+            123,
+            38,
+            44
+          ],
+          "clip_polygon": [
+            [
+              246.92,
+              0.2
+            ],
+            [
+              253.02,
+              -0.84
+            ],
+            [
+              255.05,
+              -0.85
+            ],
+            [
+              498.42,
+              12.23
+            ],
+            [
+              500.43,
+              13.25
+            ],
+            [
+              501.44,
+              14.26
+            ],
+            [
+              503.48,
+              18.31
+            ],
+            [
+              504.5,
+              21.34
+            ],
+            [
+              530.97,
+              183.4
+            ],
+            [
+              530.97,
+              185.43
+            ],
+            [
+              529.96,
+              191.51
+            ],
+            [
+              528.95,
+              194.55
+            ],
+            [
+              527.94,
+              196.58
+            ],
+            [
+              525.94,
+              199.62
+            ],
+            [
+              522.92,
+              203.68
+            ],
+            [
+              516.9,
+              209.78
+            ],
+            [
+              512.88,
+              212.83
+            ],
+            [
+              507.86,
+              215.89
+            ],
+            [
+              475.71,
+              234.3
+            ],
+            [
+              473.69,
+              235.32
+            ],
+            [
+              275.42,
+              309.94
+            ],
+            [
+              269.32,
+              311.92
+            ],
+            [
+              262.2,
+              312.89
+            ],
+            [
+              261.19,
+              312.89
+            ],
+            [
+              257.11,
+              311.87
+            ],
+            [
+              15.04,
+              200.48
+            ],
+            [
+              12.03,
+              197.45
+            ],
+            [
+              0.0,
+              170.17
+            ],
+            [
+              -1.0,
+              164.11
+            ],
+            [
+              7.01,
+              124.72
+            ],
+            [
+              11.02,
+              116.63
+            ],
+            [
+              14.03,
+              112.59
+            ],
+            [
+              21.04,
+              103.49
+            ],
+            [
+              23.05,
+              101.46
+            ],
+            [
+              75.2,
+              63.92
+            ],
+            [
+              81.22,
+              60.86
+            ]
+          ]
+        },
+        {
+          "file": "launched.png",
+          "rect": [
+            1020,
+            739,
+            502,
+            198
+          ],
+          "foot": [
+            300,
+            196
+          ],
+          "body_height": 445,
+          "hand": [
+            246,
+            133
+          ],
+          "weapon_angle": 270,
+          "weapon_behind": false,
+          "weapon_visible": true,
+          "hand_occluder": [
+            227,
+            111,
+            38,
+            44
+          ],
+          "clip_polygon": [
+            [
+              52.22,
+              164.12
+            ],
+            [
+              6.02,
+              120.36
+            ],
+            [
+              1.01,
+              113.26
+            ],
+            [
+              1.0,
+              102.12
+            ],
+            [
+              2.08,
+              40.32
+            ],
+            [
+              3.09,
+              36.27
+            ],
+            [
+              8.13,
+              26.13
+            ],
+            [
+              10.14,
+              23.09
+            ],
+            [
+              14.16,
+              19.02
+            ],
+            [
+              17.18,
+              16.99
+            ],
+            [
+              23.2,
+              13.93
+            ],
+            [
+              26.21,
+              12.9
+            ],
+            [
+              70.41,
+              0.49
+            ],
+            [
+              73.42,
+              0.47
+            ],
+            [
+              334.36,
+              11.15
+            ],
+            [
+              497.96,
+              51.54
+            ],
+            [
+              500.97,
+              54.58
+            ],
+            [
+              501.97,
+              56.6
+            ],
+            [
+              501.99,
+              109.18
+            ],
+            [
+              500.99,
+              113.22
+            ],
+            [
+              498.99,
+              119.29
+            ],
+            [
+              494.98,
+              127.38
+            ],
+            [
+              491.97,
+              132.45
+            ],
+            [
+              466.86,
+              166.89
+            ],
+            [
+              465.86,
+              167.91
+            ],
+            [
+              460.84,
+              171.97
+            ],
+            [
+              456.83,
+              174.01
+            ],
+            [
+              236.19,
+              197.99
+            ],
+            [
+              222.81,
+              197.99
+            ],
+            [
+              106.55,
+              179.73
+            ],
+            [
+              58.24,
+              166.18
+            ]
+          ]
+        }
+      ],
+      "source_sha256": "544b36247e0e8f7b468ea4038c11e1f3db449a9d13a530931b5a686821cf7b45"
+    }
+  },
+  "aliases": {},
+  "portrait": {
+    "file": "idle.png",
+    "rect": [
+      255,
+      26,
+      110,
+      110
+    ]
+  },
+  "source_notes": "Built-in imagegen originals. Source geometry and alpha preserved; selected RGB materials color-calibrated in v23. Crop-local hand/foot/occluder coordinates. Height is upright anatomical ruler, not crouched bounding box.",
+  "color_consistency": {
+    "manifest": "../color-consistency.json",
+    "method": "material RGB only; original alpha and registration geometry unchanged",
+    "reference": "idle.png antique red lacquer / crimson cloak and antique gold trim; hue and saturation calibrated separately from black cloth/skin"
+  },
+  "dark_red_armor": {
+    "manifest": "../../v25/nobunaga-dark-red.json",
+    "reference": "idle.png unchanged dark-red armor",
+    "method": "Armor-only value adjustment; explicit cape protection; measured chest/shoulder/skirt/wrist/shin references",
+    "unchanged_clips": {
+      "idle": "5b36199a09e48ff3c5aba1af10d2d7ca479d1c640358c7d6e39ce082bbe25958",
+      "walk": "757a598228b8d86cc772329562e0fccbfa2ffa17ce8e9b59fff9ffafbcd2f4b4",
+      "victory": "adbf5b5abc478ea495b3f7f0fa6939c1602b732e73f6d1ab9e5c3c8df5436a5f",
+      "hurt": "99cf347e0957796863fc5c1dcc7661c46c01858f2e71830bbc9f7a05f88d5712",
+      "stunned": "b958febf3cddf12aa4ee072d81144698675ff4df3f7bc98570a7b43a9a620ff0",
+      "down": "f07c85c4d98e74c78cbb8174ca1bec83030b3d0f0260011b05c9628b8188ce33",
+      "recovering": "9156fe52129b081ab81c4b0beb00c11988fe54400ef3022aa4c44c570cd58af0",
+      "launched": "544b36247e0e8f7b468ea4038c11e1f3db449a9d13a530931b5a686821cf7b45"
+    }
+  },
+  "complete": true,
+  "origin": "v22/nobunaga",
+  "role": "current locomotion and reactions; no legacy attacks"
+}

@@ -57,6 +57,38 @@ func run() -> void:
 	for tick in range(30): app._physics_process(1.0 / 60)
 	check(not app.audio.speech_playing(), "Held terminal state never repeats either victory line")
 	check(app.sim.state.victory_looting and app.sim.state.fighters.all(func(f): return f.action == "idle"), "After both voices finish, winners can move to collect remaining loot")
+	app.sim.state.props.clear()
+	for slot in range(2): app.sim.state.fighters[slot].x = 600.0 + slot*300.0
+	app.view.state = app.sim.state
+	app.view._update_motion()
+	var walk_frames := [{},{}]
+	for tick in range(24):
+		app.sim.step([{"dx":-1,"stick_full":false},{"dx":1,"stick_full":false}])
+		app.view._update_motion()
+		for slot in range(2):
+			var sample: Dictionary = app.view._fighter_animation(app.sim.state.fighters[slot])
+			check(sample.clip == "walk","Post-victory movement selects walking instead of a frozen standing pose")
+			walk_frames[slot][sample.frame] = true
+	check(walk_frames.all(func(frames): return frames.size() > 1),"Both winners visibly animate their walking stride")
+	for tick in range(12):
+		app.sim.step([{"dx":-1,"stick_full":true},{"dx":1,"stick_full":true}])
+		app.view._update_motion()
+	for fighter in app.sim.state.fighters:
+		check(fighter.sprinting and app.view._fighter_animation(fighter).clip == "run","Full stick still triggers running after victory")
+	app.sim.step([{"buttons":app.Battle.JUMP|app.Battle.HEAVY|app.Battle.LIGHT},{"buttons":app.Battle.JUMP}])
+	app.view._update_motion()
+	for fighter in app.sim.state.fighters:
+		check(fighter.z > 0 and fighter.action == "idle" and app.view._fighter_animation(fighter).clip == "jump","Post-victory jump animates while combat attacks remain disabled")
+	for tick in range(60):
+		app.sim.step([{},{}])
+		app.view._update_motion()
+	for fighter in app.sim.state.fighters:
+		check(fighter.z == 0 and app.view._fighter_animation(fighter).clip == "idle","Stopping after victory returns to a grounded idle pose")
+	var looter: Dictionary = app.sim.state.fighters[0]
+	looter.hp = looter.max_hp-20
+	app.sim._add_drop("food",looter.x,looter.y)
+	app.sim.step([{"buttons":app.Battle.INTERACT},{}])
+	check(looter.hp == looter.max_hp,"Victory movement still allows collecting remaining loot")
 	app._leave_to_menu()
 	app._accept_confirmation()
 	app._start_local_coop()

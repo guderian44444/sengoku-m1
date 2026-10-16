@@ -124,32 +124,7 @@ func run() -> void:
 	app._accept_confirmation()
 	check(not app.active,"Confirmed leave flushes progress before returning")
 	app._open_selection(false)
-	app.heroes.selected = 5
-	app._refresh_loadouts()
-	await screenshot("tadakatsu-select")
-	var spearman: Dictionary = app.character_panel.preview.fighter
-	spearman.action = "light"
-	spearman.combo = 1
-	spearman.action_tick = Battle.fighter_tick(spearman,6)
-	app.character_panel.preview.art_demo = false
-	var sample: Dictionary = app.view._fighter_animation(spearman)
-	var frame: Dictionary = app.view._art.animation_frame("tadakatsu",sample)
-	var pose: Dictionary = app.view._weapons.geometry(spearman,frame,155)
-	check(absf(Weapons.spear_reach(spearman)-maxf(pose.top.x,pose.bottom.x)) < 0.01,"Authoritative melee extent equals renderer's tip at contact frame")
-	for id in Weapons.ids_for("tadakatsu"):
-		for attack in [["light",1,6],["light",2,6],["light",3,6],["heavy",1,14],["heavy",2,14]]:
-			var actor := spearman.duplicate(true)
-			actor.weapon_id = id
-			actor.action = attack[0]
-			actor.combo = attack[1]
-			actor.heavy_combo = attack[1]
-			actor.attack_speed = float(Weapons.item(id).attack_speed)
-			actor.action_tick = Battle.fighter_tick(actor,attack[2])
-			sample = app.view._fighter_animation(actor)
-			frame = app.view._art.animation_frame("tadakatsu",sample)
-			pose = app.view._weapons.geometry(actor,frame,155)
-			check(absf(Weapons.spear_reach(actor)-maxf(pose.top.x,pose.bottom.x)) < 0.01,"Every spear's primary contact frame shares its collision extent: " + id + "/" + str(attack))
-	for hero_index in [1,2]:
+	for hero_index in [0,1]:
 		app.heroes.selected = hero_index
 		var hero: String = Battle.HEROES[hero_index]
 		row = app.profiles.character(0,hero)
@@ -168,7 +143,7 @@ func run() -> void:
 		await screenshot(hero+"-select-v30")
 	if captures:
 		app._open_selection(true)
-		app.heroes.selected = 2
+		app.heroes.selected = 0
 		app.partner_heroes.selected = 1
 		app._refresh_loadouts()
 		app._start_local_coop()

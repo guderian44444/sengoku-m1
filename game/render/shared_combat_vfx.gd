@@ -4,6 +4,7 @@ const Emitter = preload("res://vfx/v2/effect_emitter.gd")
 const EffectAudio = preload("res://vfx/v2/audio/effect_audio_controller.gd")
 const Motion = preload("res://vfx/v2/weapon_motion.gd")
 const Battle = preload("res://core/battle.gd")
+const CombatAudio = preload("res://render/combat_audio.gd")
 static var shared_player
 static var shared_recipes: Dictionary = {}
 static var active_users := 0
@@ -32,11 +33,6 @@ func _ready() -> void:
 		emitter.player = shared_player
 		emitter.recipes = shared_recipes
 	if not sound.configure("res://vfx/v2/audio"): return
-	var legacy: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://vfx/audio/manifest.json"))
-	for hero in Battle.HEROES:
-		for cue in ["charge","release","final"]:
-			var key: String = legacy.actors[hero][cue]
-			sound.assets[hero+":"+cue] = {"wav":"../../audio/"+str(legacy.assets[key].wav)}
 	emitter.bind_audio(sound)
 	configured = true
 	active_users += 1
@@ -114,26 +110,19 @@ func accept_event(event: Dictionary, world: Dictionary, view) -> bool:
 		if candidate.id == event.get("actor",0): fighter = candidate; break
 	var type := str(event.get("type",""))
 	var recipe := ""
-	var context := {"simulation_tick":int(world.get("tick",0)),"silent":muted,"variant":int(event.id)%4,"face":fighter.get("face",1),"size_multiplier":.55}
+	var sampled := CombatAudio.sound_for_event(event) in CombatAudio.SAMPLED_CUES
+	var context := {"simulation_tick":int(world.get("tick",0)),"silent":muted or sampled,"variant":int(event.id)%4,"face":fighter.get("face",1),"size_multiplier":.55}
 	context.binding_actor = int(event.get("actor",0))
 	var position := Vector2(float(event.get("x",0)),float(event.get("y",0)))
-	if type == "special" and fighter.get("kind","") in Battle.HEROES:
-		specials[int(fighter.id)] = {"cast":id,"tick":int(fighter.action_tick)}
-		if not muted: sound.handle_cue(id,str(fighter.kind)+":charge","start",context)
-		events[id] = true
-		return true
-	if type in ["weapon_swing","bow_release"] and fighter.get("action","") == "special" and specials.has(int(fighter.get("id",0))):
-		var hits: Array = Battle.SPECIAL_HIT_TICKS[fighter.kind]
-		var cue := "final" if int(fighter.action_tick) >= int(hits[-1]) else "release"
-		if not muted: sound.handle_cue(specials[int(fighter.id)].cast,str(fighter.kind)+":"+cue,"start",context)
-		events[id] = true
-		return true
 	if type in ["weapon_swing","bow_release"] and charges.has(int(fighter.get("id",0))):
 		var cast: String = charges[int(fighter.id)]
+		if sampled:
+			sound.stop_instance(cast)
+			if emitter.instances.has(cast): emitter.instances[cast].context.silent = true
 		emitter.release(cast,int(world.get("tick",0)))
 		charges.erase(int(fighter.id))
-		events[id] = true
-		return true
+		events[id] = not sampled
+		return not sampled
 	if type == "gunshot":
 		recipe = "hero_matchlock" if fighter.get("team",1) == 0 else "enemy_matchlock"
 		context.merge({"confirmed_shot":true,"shot_event_id":id,"size_multiplier":.65})
@@ -151,6 +140,7 @@ func accept_event(event: Dictionary, world: Dictionary, view) -> bool:
 			position += Vector2(float(context.face)*(40 if int(fighter.team) == 1 else 105),-float(release.z)-(42 if int(fighter.team) == 1 else 96))+view._projectile_release_offset(release)
 		elif not fresh: context.audio_only = true
 	elif type == "weapon_swing":
+		if event.get("action","") == "boss_sword_wave": events[id] = false; return false
 		if event.get("weapon","") in ["blunt","kick","chain","needle"]: events[id] = false; return false
 		recipe = "thrust_cone" if event.get("weapon","") == "spear" else "neutral_slash_arc"
 		context.audio_only = true
@@ -166,8 +156,9 @@ func accept_event(event: Dictionary, world: Dictionary, view) -> bool:
 	if recipe.is_empty(): events[id] = false; return false
 	var accepted: bool = emitter.trigger(id,recipe,context)
 	if accepted and not context.get("audio_only",false): origins[id] = position
-	events[id] = accepted
-	return accepted
+	# Keep contact visuals; the weapon bank owns the single audible physical impact.
+	events[id] = accepted and not sampled
+	return events[id]
 
 func draw_world(canvas, camera_x: float) -> void:
 	if not configured: return
@@ -189,14 +180,6 @@ func draw_actor(canvas, fighter: Dictionary, origin: Vector2, height: float, sam
 	if action == "charge":
 		var ring := "blade_ring" if element == "neutral" else element+"_ring"
 		shared_player.draw_phase(canvas,ring,float(fighter.get("charge",0)),72,at-Vector2(0,height*.25),front,{"opacity":[[0,.2],[.5,.5],[1,.65]],"radius":[[0,.55],[.5,.8],[1,1]],"uv_radians_per_second":[[0,TAU*2/1.2],[1,TAU*2/1.2]]},{"face":face,"size":height*1.3,"particle_intensity":0})
-		return true
-	if action == "special":
-		var pulse := -1.0
-		for hit in Battle.SPECIAL_HIT_TICKS[fighter.kind]:
-			if float(fighter.action_tick) >= hit: pulse = hit
-		if pulse >= 0 and float(fighter.action_tick)-pulse < 24:
-			var ring := "blade_ring" if element == "neutral" else element+"_ring"
-			shared_player.draw_phase(canvas,ring,float(fighter.action_tick)-pulse,24,at-Vector2(0,height*.22),front,{"opacity":[[0,.7],[.5,.5],[1,0]],"scale":[[0,.55],[.4,1],[1,1.15]]},{"face":face,"size":height*1.6})
 		return true
 	if action not in ["light","heavy","charged","rising","low_sweep","dash_strike","dash_heavy","air_light","air_heavy","upper_heavy","charged_upper","ground_slam","charged_slam","mixed_finisher","mixed_rising","counter_cut"]: return false
 	if not front or not sample.get("released",false): return true

@@ -76,6 +76,7 @@ func _test_real_states() -> void:
 	_check(Wire.valid_snapshot(valid), "v14 fourth boss attack and grab-throw action validate")
 	for type in Wire.EVENTS:
 		valid.events = [{"type": type, "x": 500.0, "y": 450.0, "id": 1, "actor": 1, "target": 2}]
+		if type == "encounter_phase": valid.events[0].merge({"phase":"active","encounter_epoch":1})
 		if type == "damage": valid.events[0].amount = 20
 		if type == "challenge_complete": valid.events[0].amount = 300
 		if type == "food_pickup": valid.events[0].merge({"food_id":"rice", "heal":40})

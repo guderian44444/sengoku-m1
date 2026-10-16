@@ -17,16 +17,19 @@ const Equipment = preload("res://core/equipment.gd")
 const Achievements = preload("res://core/achievements.gd")
 const CharacterSelect = preload("res://ui/character_select_panel.gd")
 const MenuFrame = preload("res://ui/menu_frame.gd")
+const MenuInput = preload("res://ui/menu_input.gd")
+const ObjectiveScroll = preload("res://ui/objective_scroll.gd")
+const MenuTheme = preload("res://ui/sengoku_theme.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
-const BUILD := "sengoku-m1-0.31.0"
+const BUILD := "sengoku-m1-0.33.0"
 const DEFAULT_PORT := 27860
 const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
-const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "光秀", "tadakatsu": "忠勝"}
+const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "顯如", "tadakatsu": "忠勝"}
 const FACTION_NAMES := {"mori": "毛利", "imagawa": "今川", "oda": "織田", "saito": "齋藤", "miyoshi": "三好", "azai": "淺井", "asakura": "朝倉", "takeda": "武田", "ikko": "一向一揆", "akechi": "明智", "hashiba": "羽柴", "iga": "伊賀"}
 const DIFFICULTIES := ["easy", "normal", "hard"]
-const CONTROL_ACTIONS := ["move_left", "move_right", "move_up", "move_down", "light", "heavy", "jump", "grab", "special", "pickup", "guard"]
-const BATTLE_HINT := "WASD 移動／雙點衝刺   J 輕擊   K 重擊／蓄力   I 防禦   空白 跳躍   L 抓摔\n搖桿 □／X 輕擊 · ○／B 重擊 · ×／A 跳 · △／Y 按住抓人、放開摔 · R1 必殺 · L2 防禦 · Options 選單"
-const TRAINING_HINT := "WASD／雙點衝刺   J/K 輕重擊   I 防禦   空白 跳躍   L 抓摔   U 滿怒必殺   E 拾取\n1 木樁   2 肉盾   3 分波試戰   4 遠程兵   5 小王   R 重置   Tab 換人   F1 操作表"
+const CONTROL_ACTIONS := ["move_left", "move_right", "move_up", "move_down", "light", "heavy", "jump", "grab", "pickup"]
+const BATTLE_HINT := "WASD 移動／雙點衝刺   J 輕擊   K 重擊／蓄力後放開   空白 跳   L 擒拿   E 拾取\n左搖桿推滿 0.2 秒衝刺 · □／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 擒拿 · L1／LB 拾取 · Options 軍議"
+const TRAINING_HINT := "WASD／雙點衝刺 · 左搖桿推滿 0.2 秒衝刺   J 輕擊   K 重擊／蓄力   空白 跳   L 擒拿   E 拾取\n1 木樁   2 披甲武士   3 連陣   4 弓手   5 敵將   R 重演   Tab 換將   F1 秘卷"
 var sim = Battle.new()
 var view: Node2D
 var audio: Node
@@ -70,6 +73,7 @@ var menu_backdrop: TextureRect
 var menu_shade: ColorRect
 var menu_logo: TextureRect
 var menu_caption: Label
+var menu_footer: Label
 var engineer_entry: Button
 var volume_sliders: Dictionary = {}
 var _camera_scene := -1
@@ -87,6 +91,7 @@ var difficulties: OptionButton
 var factions: OptionButton
 var feedback_label: Label
 var controls_dialog: AcceptDialog
+var controls_shade: ColorRect
 var controls_was_paused := false
 var smoke := ""
 var smoke_terminal := false
@@ -142,6 +147,8 @@ var login_flow := false
 var player_mode_choice: OptionButton
 var players_continue: Button
 var roster_choices: Array[OptionButton] = []
+var menu_input: Node
+var objective_scroll: Control
 
 func _ready() -> void:
 	_actions()
@@ -153,11 +160,12 @@ func _ready() -> void:
 	sim.boss_intros = audio.speech_manifest.get("boss_intros", {}).duplicate(true)
 	sim.boss_intros.merge(audio.speech_manifest.get("stage_boss_intros",{}),true)
 	_build_ui()
+	_setup_menu_input()
 	multiplayer.peer_connected.connect(_peer_connected)
 	multiplayer.peer_disconnected.connect(_peer_disconnected)
 	multiplayer.connected_to_server.connect(_connected)
 	multiplayer.connection_failed.connect(func(): _fail("無法連線。請確認 IP、UDP 埠與防火牆。"))
-	multiplayer.server_disconnected.connect(func(): _fail("主機已斷線。此 M1 不保留中途進度，請重新開局。"))
+	multiplayer.server_disconnected.connect(func(): _fail("主機已斷線，中途戰況未保存。請重新集結出陣。"))
 	Input.joy_connection_changed.connect(_joy_changed)
 	get_window().focus_exited.connect(func(): _set_game_focus(false))
 	get_window().focus_entered.connect(func(): _set_game_focus(true))
@@ -214,16 +222,18 @@ func _ready() -> void:
 	if capture_menu and not capture_path.is_empty(): _capture.call_deferred()
 
 func _actions() -> void:
+	for retired in ["special","guard"]:
+		if InputMap.has_action(retired): InputMap.erase_action(retired)
 	var keys := {
 		"move_left": KEY_A, "move_right": KEY_D, "move_up": KEY_W, "move_down": KEY_S,
-		"light": KEY_J, "heavy": KEY_K, "jump": KEY_SPACE, "grab": KEY_L, "special": KEY_U, "pickup": KEY_E, "guard": KEY_I
+		"light": KEY_J, "heavy": KEY_K, "jump": KEY_SPACE, "grab": KEY_L, "pickup": KEY_E
 	}
 	for action in keys:
 		if not InputMap.has_action(action): InputMap.add_action(action, 0.24)
 		var key := InputEventKey.new()
 		key.physical_keycode = keys[action]
 		InputMap.action_add_event(action, key)
-	var buttons := {"light": JOY_BUTTON_X, "heavy": JOY_BUTTON_B, "jump": JOY_BUTTON_A, "grab": JOY_BUTTON_Y, "special": JOY_BUTTON_RIGHT_SHOULDER, "pickup": JOY_BUTTON_LEFT_SHOULDER, "move_left": JOY_BUTTON_DPAD_LEFT, "move_right": JOY_BUTTON_DPAD_RIGHT, "move_up": JOY_BUTTON_DPAD_UP, "move_down": JOY_BUTTON_DPAD_DOWN}
+	var buttons := {"light": JOY_BUTTON_X, "heavy": JOY_BUTTON_B, "jump": JOY_BUTTON_A, "pickup": JOY_BUTTON_LEFT_SHOULDER, "move_left": JOY_BUTTON_DPAD_LEFT, "move_right": JOY_BUTTON_DPAD_RIGHT, "move_up": JOY_BUTTON_DPAD_UP, "move_down": JOY_BUTTON_DPAD_DOWN}
 	for action in buttons:
 		var button := InputEventJoypadButton.new()
 		button.button_index = buttons[action]
@@ -233,15 +243,26 @@ func _actions() -> void:
 		button.device = -1
 		button.button_index = JOY_BUTTON_A if action == "ui_accept" else JOY_BUTTON_B
 		InputMap.action_add_event(action,button)
+	for action in ["ui_left", "ui_right", "ui_up", "ui_down"]:
+		var axis := InputEventJoypadMotion.new()
+		axis.device = -1
+		axis.axis = JOY_AXIS_LEFT_X if action in ["ui_left", "ui_right"] else JOY_AXIS_LEFT_Y
+		axis.axis_value = -1.0 if action in ["ui_left", "ui_up"] else 1.0
+		if not InputMap.action_has_event(action, axis): InputMap.action_add_event(action, axis)
 	for action in ["move_left", "move_right", "move_up", "move_down"]:
 		var axis := InputEventJoypadMotion.new()
 		axis.axis = JOY_AXIS_LEFT_X if action in ["move_left", "move_right"] else JOY_AXIS_LEFT_Y
 		axis.axis_value = -1.0 if action in ["move_left", "move_up"] else 1.0
 		InputMap.action_add_event(action, axis)
-	var guard_axis := InputEventJoypadMotion.new()
-	guard_axis.axis = JOY_AXIS_TRIGGER_LEFT
-	guard_axis.axis_value = 1.0
-	InputMap.action_add_event("guard", guard_axis)
+	var grab_axis := InputEventJoypadMotion.new()
+	grab_axis.axis = JOY_AXIS_TRIGGER_RIGHT
+	grab_axis.axis_value = 1.0
+	InputMap.action_add_event("grab",grab_axis)
+
+func _setup_menu_input() -> void:
+	menu_input = MenuInput.new()
+	add_child(menu_input)
+	menu_input.initialize(self)
 
 static func should_start_fullscreen(args: PackedStringArray, display_name: String, automated: bool) -> bool:
 	if automated or display_name == "headless": return false
@@ -283,8 +304,14 @@ func _build_ui() -> void:
 	hud.size = Vector2(448, 75)
 	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hud.add_theme_font_size_override("font_size", 18)
+	hud.add_theme_color_override("font_color", Typography.PAPER)
+	hud.add_theme_color_override("font_shadow_color", Typography.INK)
+	hud.add_theme_constant_override("shadow_offset_y", 2)
+	hud.add_theme_stylebox_override("normal", MenuTheme.panel(Color("241c16d9"), Color("98764388")))
 	hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(hud)
+	objective_scroll = ObjectiveScroll.new()
+	ui.add_child(objective_scroll)
 	hint = Label.new()
 	hint.text = BATTLE_HINT
 	hint.hide()
@@ -338,17 +365,22 @@ func _menu_label(parent: Node, text: String, font_size: int = 24) -> Label:
 	return label
 
 func _menu_page(key: String, at: Vector2, width: float, heading: String = "") -> VBoxContainer:
+	var paper := PanelContainer.new()
+	paper.name = key.capitalize() + "Paper"
+	paper.position = at - Vector2(18, 14)
+	paper.size.x = width + 36
+	paper.add_theme_stylebox_override("panel", MenuTheme.panel(MenuTheme.BUTTON.darkened(0.25) if key in ["title","main"] else MenuTheme.PAPER))
+	menu.add_child(paper)
 	var page := VBoxContainer.new()
 	page.name = key.capitalize()
-	page.position = at
-	page.size.x = width
-	page.add_theme_constant_override("separation", 12)
-	menu.add_child(page)
+	page.custom_minimum_size.x = width
+	page.add_theme_constant_override("separation", 10)
+	paper.add_child(page)
 	menu_pages[key] = page
 	if not heading.is_empty():
-		var label := _menu_label(page, heading, 38)
-		label.custom_minimum_size.y = 70
-		label.add_theme_color_override("font_color", Typography.GOLD)
+		var label := _menu_label(page, heading, 34)
+		label.custom_minimum_size.y = 52
+		label.add_theme_color_override("font_color", MenuTheme.VERMILION)
 	return page
 
 func _build_menu(ui: Control) -> void:
@@ -365,7 +397,7 @@ func _build_menu(ui: Control) -> void:
 	menu.add_child(menu_backdrop)
 	menu_shade = ColorRect.new()
 	menu_shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	menu_shade.color = Color(0.06, 0.025, 0.06, 0.25)
+	menu_shade.color = Color("1e1915")
 	menu_shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	menu.add_child(menu_shade)
 	menu_logo = TextureRect.new()
@@ -373,22 +405,22 @@ func _build_menu(ui: Control) -> void:
 	menu_logo.size = Vector2(840, 280)
 	menu_logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	menu_logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	menu_logo.texture = ImageTexture.create_from_image(Image.load_from_file("res://assets/v20/title/title-logo.png"))
+	menu_logo.texture = ImageTexture.create_from_image(Image.load_from_file("res://assets/current/ui/title-logo-v34.png"))
 	menu_logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	menu.add_child(menu_logo)
 	menu_caption = _menu_label(menu, "桶 狹 間 之 章", 25)
 	menu_caption.position = Vector2(240, 304)
 	menu_caption.size.x = 800
 	menu_caption.add_theme_color_override("font_color", Typography.GOLD)
-	var title_page := _menu_page("title", Vector2(380, 437), 520)
-	_button("按下開始   PRESS START", func(): _open_login(false), "Start", title_page)
-	_menu_label(title_page, "ENTER  ／  START", 17)
-	var main_page := _menu_page("main", Vector2(430, 318), 420)
+	var title_page := _menu_page("title", Vector2(380, 446), 520)
+	_button("啟 程 ・ 按 下 開 始", func(): _open_login(false), "Start", title_page)
+	_menu_label(title_page, "Enter ／ ×・A ／ Options 開始", 18)
+	var main_page := _menu_page("main", Vector2(430, 324), 420)
 	_button("一 人 出 陣", func(): _open_login(false), "Solo", main_page)
 	_button("二 人 共 鬥", func(): _open_login(true), "LocalCoop", main_page)
-	_button("玩 家 設 定", _open_players, "Players", main_page)
-	_button("遊 戲 設 定", _open_options, "Options", main_page)
-	_button("離 開 遊 戲", _request_quit, "Quit", main_page)
+	_button("武 者 名 簿", _open_players, "Players", main_page)
+	_button("聲 畫 調 校", _open_options, "Options", main_page)
+	_button("收 兵 離 營", _request_quit, "Quit", main_page)
 	character_panel = CharacterSelect.new()
 	character_panel.name = "CharacterSelect"
 	menu.add_child(character_panel)
@@ -416,7 +448,7 @@ func _build_menu(ui: Control) -> void:
 	_build_roster_page()
 	_build_achievements_page()
 	_refresh_chapters()
-	var options := _menu_page("options", Vector2(310, 100), 660, "遊 戲 設 定")
+	var options := _menu_page("options", Vector2(310, 100), 660, "聲 畫 調 校")
 	for category in ["music", "sfx", "voice"]:
 		var row := HBoxContainer.new()
 		row.add_theme_constant_override("separation", 16)
@@ -440,28 +472,29 @@ func _build_menu(ui: Control) -> void:
 		)
 		volume_sliders[category] = slider
 	fullscreen_button = _button("全螢幕 (F11)", _toggle_fullscreen, "Fullscreen", options)
-	_button("操 作 與 招 式", _show_controls, "Controls", options)
+	_button("合 戰 秘 卷", _show_controls, "Controls", options)
 	_button("返　回", _menu_back, "Back", options)
-	var pause_page := _menu_page("pause", Vector2(430, 50), 420, "暫 停")
+	var pause_page := _menu_page("pause", Vector2(430, 80), 420, "軍 議 ・ 暫 停")
 	pause_page.add_theme_constant_override("separation",8)
 	_button("繼 續 戰 鬥", _resume, "Resume", pause_page)
 	_button("重 新 出 陣", func():
 		if training_active: _reset_training()
 		elif session == "local": _start_local_coop()
 		else: _start_solo(), "Restart", pause_page)
-	_button("遊 戲 設 定", _open_options, "Options", pause_page)
+	_button("聲 畫 調 校", _open_options, "Options", pause_page)
 	var collections := HBoxContainer.new()
 	collections.name = "Collections"
 	pause_page.add_child(collections)
 	for slot in range(2):
 		_button("%dP 行囊" % (slot + 1),func(): _open_collection(slot),"Collection%d" % slot,collections).size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_button("保 存 人 物", func(): _save_characters(true), "SaveCharacters", pause_page)
-	_button("返 回 主 畫 面", _leave_to_menu, "Leave", pause_page)
-	var confirm_page := _menu_page("confirm",Vector2(390,225),500,"確認操作")
+	_button("記 錄 戰 報", func(): _save_characters(true), "SaveCharacters", pause_page)
+	_button("返 回 本 陣", _leave_to_menu, "Leave", pause_page)
+	var confirm_page := _menu_page("confirm",Vector2(390,225),500,"軍令確認")
 	confirmation_text = _menu_label(confirm_page,"",24)
+	confirmation_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_button("取消",_cancel_confirmation,"Cancel",confirm_page)
 	_button("確認",_accept_confirmation,"Confirm",confirm_page)
-	menu_panel = _menu_page("engineering", Vector2(260, 30), 760, "工 程 入 口")
+	menu_panel = _menu_page("engineering", Vector2(240, 70), 800, "演 武 場 ・ 連 線")
 	menu_panel.add_theme_font_size_override("font_size", 18)
 	menu_panel.add_theme_constant_override("separation", 7)
 	factions = OptionButton.new()
@@ -469,15 +502,16 @@ func _build_menu(ui: Control) -> void:
 	menu_panel.add_child(factions)
 	var tools_row := HBoxContainer.new()
 	menu_panel.add_child(tools_row)
-	_button("武將與難度設定", func(): _open_selection(false), "Selection", tools_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_button("逐招素材展示", _start_art_demo, "ArtDemo", tools_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_button("出陣支度", func(): _open_selection(false), "Selection", tools_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_button("武藝圖譜", _start_art_demo, "ArtDemo", tools_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var trials_row := HBoxContainer.new()
 	menu_panel.add_child(trials_row)
-	_button("練習場", _start_training, "Training", trials_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_button("演武場", _start_training, "Training", trials_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_button("陣營試戰", func(): _start_training("enemies"), "EnemyTraining", trials_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var network_row := HBoxContainer.new()
 	menu_panel.add_child(network_row)
 	address = LineEdit.new()
+	address.name = "HostAddress"
 	address.placeholder_text = "主機 IP"
 	address.text = "127.0.0.1"
 	address.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -487,7 +521,7 @@ func _build_menu(ui: Control) -> void:
 	port.max_value = 65535
 	port.value = DEFAULT_PORT
 	port.prefix = "UDP "
-	port.custom_minimum_size.x = 175
+	port.custom_minimum_size.x = 220
 	network_row.add_child(port)
 	var network_buttons := HBoxContainer.new()
 	menu_panel.add_child(network_buttons)
@@ -497,15 +531,16 @@ func _build_menu(ui: Control) -> void:
 	for ip in IP.get_local_addresses():
 		if ip.is_valid_ip_address() and "." in ip and not ip.begins_with("127.") and not ip.begins_with("169.254."): ips.append(ip)
 	_menu_label(menu_panel, "本機 IP：" + (", ".join(ips) if not ips.is_empty() else "未偵測"), 16)
-	feedback_label = _menu_label(menu_panel, "F1 操作表 · 區域網路 UDP 直連", 16)
+	feedback_label = _menu_label(menu_panel, "F1 合戰秘卷 · 區域網路 UDP 直連", 16)
 	_button("返　回", _menu_back, "Back")
 	status = _menu_label(menu, "", 18)
-	status.position = Vector2(190, 608)
+	status.position = Vector2(190, 614)
 	status.size = Vector2(900, 48)
 	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	engineer_entry = _button("工程入口", func(): _show_menu_page("engineering"), "EngineeringEntry", menu)
-	engineer_entry.position = Vector2(535, 666)
-	engineer_entry.size = Vector2(210, 36)
+	status.add_theme_color_override("font_color", Typography.PAPER)
+	engineer_entry = _button("演武・連線", func(): status.text = ""; _show_menu_page("engineering"), "EngineeringEntry", menu)
+	engineer_entry.position = Vector2(1050, 617)
+	engineer_entry.size = Vector2(190, 40)
 	engineer_entry.add_theme_font_size_override("font_size", 17)
 	encyclopedia = WeaponEncyclopedia.new()
 	encyclopedia.name = "WeaponEncyclopedia"
@@ -531,19 +566,41 @@ func _build_menu(ui: Control) -> void:
 		encyclopedia.select_weapon(str(Equipment.instance(row,int(id)).get("item_id","")))
 	)
 	menu.add_child(MenuFrame.new())
+	var footer_paper := Panel.new()
+	footer_paper.name = "NavigationBar"
+	footer_paper.position = Vector2(32, 668)
+	footer_paper.size = Vector2(1216, 38)
+	footer_paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	footer_paper.add_theme_stylebox_override("panel", MenuTheme.panel(Color("241c16")))
+	menu.add_child(footer_paper)
+	menu_footer = _menu_label(menu,"方向鍵／左搖桿 選擇　×／A 確認　○／B 返回　L1／R1 換欄　右搖桿 捲動",18)
+	menu_footer.name = "NavigationHint"
+	menu_footer.position = Vector2(36, 676)
+	menu_footer.size = Vector2(1208, 26)
+	menu_footer.add_theme_color_override("font_color", Typography.PAPER)
+	menu_footer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_show_menu_page("title")
 
 func _show_menu_page(page: String) -> void:
+	if is_instance_valid(objective_scroll): objective_scroll.hide()
+	if is_instance_valid(menu_input) and menu_input.keyboard.visible: menu_input.keyboard.finish(false)
 	menu_screen = page
 	exit_button.hide()
 	menu.show()
-	for key in menu_pages: menu_pages[key].visible = key == page
+	for key in menu_pages:
+		menu_pages[key].visible = key == page
+		if menu_pages[key].get_parent() is PanelContainer:
+			menu_pages[key].get_parent().visible = key == page
 	menu_backdrop.visible = not active
-	menu_shade.color.a = 0.72 if active or page not in ["main", "title"] else 0.18
+	menu_shade.color.a = 0.90 if active or page not in ["main", "title"] else 0.40
 	menu_logo.visible = page in ["title", "main"]
+	menu_logo.position = Vector2(300, 24) if page == "main" else Vector2(220, 40)
+	menu_logo.size = Vector2(680, 230) if page == "main" else Vector2(840, 280)
+	menu_caption.position.y = 250 if page == "main" else 328
 	menu_caption.visible = menu_logo.visible
 	engineer_entry.visible = page in ["title","main","options","pause"]
 	status.visible = page not in ["select","players","roster","achievements","encyclopedia", "collection", "confirm"]
+	menu_footer.text = "方向鍵／左搖桿 選擇　×／A 確認　○／B 返回　L1／R1 %s　右搖桿 捲動" % ("換分類" if page == "collection" else "換欄")
 	combat_hud.visible = active
 	hud.visible = active
 	end_label.visible = active
@@ -553,6 +610,10 @@ func _show_menu_page(page: String) -> void:
 		menu_pages.pause.get_node("SaveCharacters").visible = session in ["solo","local"] and not training_active
 		menu_pages.pause.get_node("Collections").visible = session in ["solo","local"] and not training_active and not demo_active
 		menu_pages.pause.get_node("Collections/Collection1").visible = session == "local"
+	if is_instance_valid(menu_input):
+		menu_input.reset()
+		menu_input.focus_first()
+		return
 	for control in menu_pages[page].find_children("*", "Control", true, false):
 		if control.is_visible_in_tree() and control.focus_mode == Control.FOCUS_ALL:
 			control.grab_focus()
@@ -564,9 +625,9 @@ func _open_selection(coop: bool) -> void:
 	partner_row.visible = coop
 	_refresh_loadouts()
 	_refresh_chapters()
-	status.text = profiles.warning if profiles.warning != "" else ("雙人合作請連接兩支搖桿。人物、裝備與大關自動保存。" if coop else "讀取人物、收藏與大關；出陣從大關起點開始，滿血三條命。")
+	status.text = profiles.warning if profiles.warning != "" else ("二人共鬥・需兩支搖桿　｜　戰報自動保存" if coop else "整裝出陣・自章首進軍　｜　體力全滿・三命在身")
 	if profiles.warning == "" and int(chapter_choice.get_item_metadata(chapter_choice.selected)) != int(profiles.data.get("chapter",1)):
-		status.text = "記錄中的第%d大關尚未開放；目前可重玩已開放大關，人物與收藏保留。" % int(profiles.data.chapter)
+		status.text = "第%d章尚未開放。可重征舊章，軍籍與藏品保留。" % int(profiles.data.chapter)
 	_show_menu_page("select")
 	character_panel.notice.text = status.text
 
@@ -576,7 +637,7 @@ func _refresh_chapters() -> void:
 	var unlocked := maxi(saved,int(profiles.data.get("completed_chapter",0)) + 1)
 	for chapter in Stages.available():
 		if int(chapter.id) > unlocked: continue
-		chapter_choice.add_item("第%d大關　%s" % [int(chapter.id),str(chapter.title)])
+		chapter_choice.add_item("第%d章　%s" % [int(chapter.id),str(chapter.title)])
 		chapter_choice.set_item_metadata(chapter_choice.item_count - 1,int(chapter.id))
 		if int(chapter.id) <= saved: chapter_choice.selected = chapter_choice.item_count - 1
 
@@ -594,8 +655,9 @@ func _equipment_hero(slot: int) -> String:
 	return HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
 
 func _build_players_page() -> void:
-	var page := _menu_page("players",Vector2(270,75),740,"玩 家 登 入")
-	_menu_label(page,"選擇本機玩家存檔，或新增玩家。每位玩家的收藏與進度獨立。",20)
+	var page := _menu_page("players",Vector2(230,60),820,"武 者 名 簿")
+	page.add_theme_constant_override("separation",8)
+	_menu_label(page,"定出陣之數，點名簿之將。",21)
 	player_mode_choice = OptionButton.new()
 	player_mode_choice.add_item("一人出陣")
 	player_mode_choice.add_item("二人共鬥")
@@ -606,21 +668,28 @@ func _build_players_page() -> void:
 	for slot in range(2):
 		var line := HBoxContainer.new()
 		page.add_child(line)
-		_menu_label(line,"%dP 存檔　" % (slot+1),22)
+		_menu_label(line,"%dP 名簿　" % (slot+1),22)
 		var choice := OptionButton.new()
 		choice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		line.add_child(choice)
 		player_setup_choices.append(choice)
 		choice.item_selected.connect(func(index): _change_player(slot,str(choice.get_item_metadata(index))))
+	var new_player := HBoxContainer.new()
+	new_player.add_theme_constant_override("separation",12)
+	page.add_child(new_player)
 	player_name_input = LineEdit.new()
-	player_name_input.placeholder_text = "新玩家名稱（1–20 字）"
+	player_name_input.name = "PlayerName"
+	player_name_input.placeholder_text = "武者名號（1–20 字）"
 	player_name_input.max_length = 20
-	page.add_child(player_name_input)
-	_button("新 增 玩 家",_add_player,"AddPlayer",page)
+	player_name_input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	new_player.add_child(player_name_input)
+	_button("登錄名號",_add_player,"AddPlayer",new_player)
+	_menu_label(page,"×／A 字盤　｜　鍵盤・中文輸入法可直接題名",18)
 	player_notice = _menu_label(page,"",18)
 	player_notice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_menu_label(page,"進度保存在這台電腦；更換玩家不會覆寫其他人的存檔。",17)
-	players_continue = _button("登入・選擇角色",_open_roster,"Continue",page)
+	player_notice.custom_minimum_size.y = 42
+	_menu_label(page,"名簿存於本機，各自保留軍籍與戰績。",17)
+	players_continue = _button("點將出陣",_open_roster,"Continue",page)
 	_button("返　回",_menu_back,"Back",page)
 
 func _open_login(coop: bool) -> void:
@@ -636,24 +705,26 @@ func _open_login(coop: bool) -> void:
 	_show_menu_page("players")
 
 func _build_roster_page() -> void:
-	var page := _menu_page("roster",Vector2(270,180),740,"選 擇 武 將")
-	_menu_label(page,"選定角色後，查看能力並準備出戰行囊。",22)
+	var page := _menu_page("roster",Vector2(270,150),740,"點 將 出 陣")
+	_menu_label(page,"名將應召，整備兵甲。",22)
 	for slot in range(2):
 		var choice := OptionButton.new()
 		choice.name = "Hero%d" % slot
-		for hero in HEROES: choice.add_item(HERO_NAMES[hero])
+		for hero in HEROES:
+			choice.add_item(("顯如" if hero == "mitsuhide" else HERO_NAMES[hero]) + ("・尚未應召" if hero not in Battle.PLAYABLE_HEROES else ""))
+			choice.set_item_disabled(choice.item_count-1,hero not in Battle.PLAYABLE_HEROES)
 		page.add_child(choice)
 		roster_choices.append(choice)
-	_button("查看角色狀態・出戰準備",func():
+	_button("出陣支度",func():
 		heroes.selected = roster_choices[0].selected
 		partner_heroes.selected = roster_choices[1].selected
 		character_panel.active_slot = 0
 		_open_selection(selection_coop),"Continue",page)
-	_button("返回登入",func(): _open_login(selection_coop),"Back",page)
+	_button("返回名簿",func(): _open_login(selection_coop),"Back",page)
 
 func _open_roster() -> void:
 	if selection_coop and profiles.selected[0] == profiles.selected[1]:
-		player_notice.text = "雙人共鬥請登入兩個不同的玩家存檔。"
+		player_notice.text = "二人共鬥，須由兩冊不同名簿應召。"
 		return
 	roster_choices[0].selected = heroes.selected
 	roster_choices[1].selected = partner_heroes.selected
@@ -669,7 +740,7 @@ func _refresh_player_choices() -> void:
 			choice.clear()
 			var selected_index := 0
 			for id in profiles.records:
-				choice.add_item(str(profiles.records[id].data.get("name","玩家")))
+				choice.add_item(str(profiles.records[id].data.get("name","武者")))
 				choice.set_item_metadata(choice.item_count-1,id)
 				if id == profiles.selected[slot]: selected_index = choice.item_count-1
 			choice.select(selected_index)
@@ -691,35 +762,35 @@ func _open_players() -> void:
 func _change_player(slot: int, id: String) -> void:
 	if active: return
 	var err: Error = profiles.select_player(slot,id)
-	player_notice.text = "玩家已切換。" if err == OK else "玩家設定保存失敗 (%d)。" % err
+	player_notice.text = "應召名簿已更換。" if err == OK else "名簿設定保存失敗 (%d)。" % err
 	_refresh_loadouts()
 	_refresh_chapters()
 
 func _add_player() -> void:
 	var id: String = profiles.add_player(player_name_input.text)
 	if id == "":
-		player_notice.text = "未新增：請使用不同的 1–20 字名稱；也請確認本機存檔可寫入。"
+		player_notice.text = "名號未登錄：須為 1–20 字且不重名；請確認本機存檔可寫入。"
 		return
 	player_name_input.clear()
 	_change_player(0 if login_flow else int(character_panel.active_slot),id)
-	player_notice.text = "已建立玩家與獨立的本機存檔。"
+	player_notice.text = "名號已入冊，軍籍獨立保存於本機。"
 
 func _build_achievements_page() -> void:
-	var page := _menu_page("achievements",Vector2(65,25),1150)
-	achievements_title = _menu_label(page,"成就帳",30)
+	var page := _menu_page("achievements",Vector2(65,40),1150)
+	achievements_title = _menu_label(page,"戰功簿",30)
 	achievements_list = ItemList.new()
-	achievements_list.custom_minimum_size.y = 535
+	achievements_list.custom_minimum_size.y = 460
 	achievements_list.add_theme_font_size_override("font_size",21)
 	achievements_list.add_theme_constant_override("v_separation",14)
 	page.add_child(achievements_list)
-	_menu_label(page,"特殊表現另有 1% 掉寶機會；同場每項一次，獎勵間隔 20 秒。",18)
+	_menu_label(page,"奇功賞賜：1% 獲寶　｜　每戰各功一次・賞賜間隔 20 秒",18)
 	_button("返　回",_menu_back,"Back",page)
 
 func _open_achievements(slot: int) -> void:
 	achievements_return = menu_screen
 	var hero: String = HEROES[heroes.selected if slot == 0 else partner_heroes.selected]
 	var row: Dictionary = profiles.character(slot,hero)
-	achievements_title.text = "%s・%s　成就 %d / 30" % [profiles.name_for(slot),HERO_NAMES[hero],row.achievements.size()]
+	achievements_title.text = "%s・%s　戰功 %d / 30" % [profiles.name_for(slot),HERO_NAMES[hero],row.achievements.size()]
 	achievements_list.clear()
 	for rule in Achievements.RULES: achievements_list.add_item(("◆ 已達成　" if rule[0] in row.achievements else "◇ 未達成　") + str(rule[1]) + "　｜　" + str(rule[2]))
 	_show_menu_page("achievements")
@@ -733,7 +804,7 @@ func _equip_inventory(slot: int, uid: int) -> void:
 	var previous: Dictionary = profile.data.duplicate(true)
 	if equipment_in_battle and uid != 0 and uid not in profiles.character(slot,hero).bag_uids: return
 	if not profiles.equip_instance(slot,hero,uid): return
-	_finish_inventory_change(slot,hero,previous,"裝備已保存，能力已更新。")
+	_finish_inventory_change(slot,hero,previous,"兵甲整備，已記入軍籍。")
 
 func _unequip_treasure(slot: int) -> void:
 	if not _prepare_inventory_save(): return
@@ -741,7 +812,7 @@ func _unequip_treasure(slot: int) -> void:
 	var profile = profiles.records[profiles.selected[slot]]
 	var previous: Dictionary = profile.data.duplicate(true)
 	profiles.unequip_treasure(slot,hero)
-	_finish_inventory_change(slot,hero,previous,"已卸下護身符。")
+	_finish_inventory_change(slot,hero,previous,"護符已卸下。")
 
 func _pack_item(id: String) -> void:
 	if active or not _prepare_inventory_save(): return
@@ -751,9 +822,9 @@ func _pack_item(id: String) -> void:
 	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
 	var carry: bool = int(id) not in row.bag_uids
 	if not profiles.pack(encyclopedia_slot,hero,int(id),carry):
-		collection.notice.text = "無法放入：最多兩把武器、兩個護符；白板是常備武器，不佔行囊。"
+		collection.notice.text = "行囊限兩把兵器、兩個護符；常備兵器不佔空位。"
 		return
-	_finish_inventory_change(encyclopedia_slot,hero,previous,"已放入出戰行囊。" if carry else "已移回倉庫。")
+	_finish_inventory_change(encyclopedia_slot,hero,previous,"已收入隨身行囊。" if carry else "已送回藏兵閣。")
 
 func _request_discard(id: String) -> void:
 	if not equipment_in_battle: return
@@ -812,7 +883,7 @@ func _sell_item(uid: int) -> void:
 
 func _prepare_inventory_save() -> bool:
 	if not profiles.migration_pending or profiles.save() == OK: return true
-	status.text = "舊人物轉入尚未保存，操作已取消。" + profiles.warning
+	status.text = "舊軍籍遷入尚未保存，操作已取消。" + profiles.warning
 	character_panel.notice.text = status.text
 	collection.notice.text = status.text
 	return false
@@ -854,7 +925,7 @@ func _refresh_collection() -> void:
 		var practice := Equipment.is_practice(item.item_id)
 		items.append({"id":str(item.uid),"name":"%s　%s　#%d" % [spec.name,"耐久 ∞・常備" if practice else "%d/%d" % [int(item.durability),int(spec.durability)],int(item.uid)],"category":"護符" if treasure else {"sword":"刀","spear":"槍","bow":"弓"}[spec.family],"description":spec.description if treasure else WeaponArchive.stats(item.item_id) + "\n\n" + str(spec.history),"image":"res://assets/v21/treasures/%s.png" % spec.image if treasure else "res://assets/v22/weapons/%s.png" % Weapons.art_id(item.item_id),"can_equip":packed and (treasure or Weapons.compatible(hero,item.item_id)),"can_pack":not practice and (treasure or Weapons.compatible(hero,item.item_id)),"packed":packed,"has_details":not treasure and int(spec.tier) > 0,"slot":"護符" if treasure else "武器","price":Equipment.sale_price(item)})
 	collection.configure("%s・%s　%d 文" % [profiles.name_for(encyclopedia_slot),HERO_NAMES[hero],int(row.gold)],items,[str(row.weapon_uid),str(row.treasure_uid)],equipment_in_battle)
-	collection.notice.text = "武器 %d / 2、護符 %d / 2（含裝備中）　｜　L1/R1 換頁　｜　%s" % [Equipment.bag_count(row,false),Equipment.bag_count(row,true),"丟棄須確認，物品會消失。" if equipment_in_battle else "倉庫 %d / %d；出戰後僅能使用行囊。" % [row.inventory.size(),Equipment.CAPACITY]]
+	collection.notice.text = "武器 %d / 2、護符 %d / 2（含裝備中）　｜　L1/R1 換分類　｜　%s" % [Equipment.bag_count(row,false),Equipment.bag_count(row,true),"丟棄須確認，物品會消失。" if equipment_in_battle else "倉庫 %d / %d；出戰後僅能使用行囊。" % [row.inventory.size(),Equipment.CAPACITY]]
 
 func _open_weapon_encyclopedia(slot: int, return_page: String = "select") -> void:
 	if equipment_in_battle: return
@@ -889,9 +960,9 @@ func _save_characters(manual: bool = false) -> Error:
 	var err: Error = profiles.save()
 	if err == OK:
 		_saved_profile_signature = signature
-		if manual: status.text = "人物、收藏裝備與大關已保存；再次出陣從大關起點開始。"
+		if manual: status.text = "軍籍、藏品與章程已保存。再度出陣，自章首進軍。"
 	else:
-		if profiles.warning == "": profiles.warning = "角色存檔失敗 (%d)，原存檔與備份保留。" % err
+		if profiles.warning == "": profiles.warning = "軍籍保存失敗 (%d)，原存檔與備份保留。" % err
 		if is_instance_valid(status): status.text = profiles.warning
 	return err
 
@@ -899,12 +970,12 @@ func _save_before_leaving() -> bool:
 	if _save_characters(true) == OK: return true
 	paused = true
 	_show_menu_page("pause")
-	status.text = "人物進度保存失敗，已取消離開。\n" + profiles.warning
+	status.text = "戰報保存失敗，已取消離開。\n" + profiles.warning
 	return false
 
 func _open_options() -> void:
 	options_return = menu_screen
-	status.text = "音量會自動保存；左右調整，確認返回。"
+	status.text = "←／→ 調整音量　｜　設定自動保存"
 	_show_menu_page("options")
 
 func _menu_back() -> void:
@@ -933,26 +1004,28 @@ func _menu_back() -> void:
 	elif menu_screen != "title": _show_menu_page("pause" if active else "main")
 
 func _build_controls(ui: Control) -> void:
+	controls_shade = ColorRect.new()
+	controls_shade.name = "ControlsShade"
+	controls_shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	controls_shade.color = Color(0.04, 0.025, 0.02, 0.86)
+	controls_shade.z_index = 40
+	controls_shade.hide()
+	ui.add_child(controls_shade)
 	controls_dialog = AcceptDialog.new()
-	controls_dialog.title = "吞食戰國 · 操作與 COMBO"
+	controls_dialog.title = "吞食戰國 · 合戰秘卷"
 	controls_dialog.theme = Typography.theme()
-	controls_dialog.ok_button_text = "回到遊戲"
+	controls_dialog.ok_button_text = "收卷"
 	controls_dialog.exclusive = true
 	ui.add_child(controls_dialog)
 	var text := RichTextLabel.new()
+	text.name = "ControlsText"
+	text.focus_mode = Control.FOCUS_ALL
 	text.bbcode_enabled = true
 	text.custom_minimum_size = Vector2(1000, 490)
 	text.add_theme_font_size_override("normal_font_size", 19)
 	text.add_theme_constant_override("line_separation", 5)
 	controls_dialog.add_child(text)
-	var guide: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://controls-v11.json"))
-	text.text = "[b]畫面與進軍[/b]\nF11 全螢幕／視窗 · Esc / Options 開啟選單 · F1 關閉本表\n畫面上方：肖像、體力、氣力、命數與積分。每人三條命（含目前），每 10000 分加一命。滿氣 U / R1 必殺。\n每區兩個據點；擊破敵人與路障後，看到 GO → 就一起向右前進。\n食物回復體力；護身符分定值吸收與百分比減傷，頭上 BUFF 圖示消失表示損壞。走近按 E / L1 拾取。\n武器每次命中扣 1 耐久，耗盡後改用無限耐久白板；拾取不自動裝備。選角右側換裝，出戰準備最多兩武器、兩護符；暫停只開行囊。\n倒地死亡後約 2 秒再起、3 秒保護；三命用盡即出局。雙人需各接一支搖桿。\n\n[b]六主角操作表[/b]\n" + BATTLE_HINT + "\nU 滿怒必殺 · E 拾取 · 同方向雙點按住衝刺（上下走位保持快跑）\n一般受擊 +1% 氣力；紅血（低於25%體力）受擊 +5%\n按住左右連打：出招時停止前進，停打恢復；新按左右＋J：突進技\n先衝刺再按 K：立即衝刺重手，朝面前攻擊；不進入蓄力\n\n[b]練習場[/b]\n" + TRAINING_HINT + "\n\n"
-	for row in guide.rows:
-		text.text += "[color=#ffd581][b]%s[/b][/color]\n" % row.input
-		for hero in HEROES:
-			text.text += "%s：%s\n" % [HERO_NAMES[hero], row.get(hero, row.note)]
-		text.text += "%s\n\n" % row.note
-	text.text += "[b]COMBO 練習[/b]\n" + "\n".join(guide.chains) + "\n\n" + guide.gamepad + "\n\n" + guide.training
+	text.text = "[b]信長・阿市　合戰之法[/b]\n" + BATTLE_HINT + "\n\n[b]連擊與奧義[/b]\nJ 連按三次：三連擊，末式擊飛。命中後可續招，未續招則收勢。\nK 點放：信長斬出劍氣，阿市射出單箭；可擊退，出招亦可被打斷。\n重手與蓄力皆可左右轉向，勁力不散。\n長按 K 蓄滿後放開：信長雙旋斬，阿市貫穿箭；阿市上＋放開為箭雨。\n跳＋J：近身揮打，威力與範圍＋20%。\n跳＋K：信長重落斬（＋30%），阿市近中遠三箭。\n擒敵後 J：兩擊後摔出；反推方向立即過肩摔。\n衝刺＋K：踏步撞進，破陣擊飛；盾兵可受擊，敵將可格擋。\n\n[b]兵甲與軍令[/b]\nE／L1 拾取。兵器命中耗損耐久，折損後改持常備兵器；軍議中可開行囊換裝。\n奉令清敵破障，全軍會合後向右進軍。三命在身，每 10000 戰績添一命。\nF11 全螢幕／視窗　｜　Esc／Options 軍議　｜　F1 合戰秘卷\n\n[b]演武之法[/b]\n" + TRAINING_HINT
 	controls_dialog.confirmed.connect(_close_controls)
 	controls_dialog.canceled.connect(_close_controls)
 	controls_dialog.window_input.connect(func(event: InputEvent):
@@ -965,15 +1038,21 @@ func _build_controls(ui: Control) -> void:
 	)
 
 func _show_controls() -> void:
+	if is_instance_valid(objective_scroll): objective_scroll.hide()
+	if is_instance_valid(menu_input): menu_input.reset()
 	controls_was_paused = paused
+	controls_shade.show()
 	_cancel_local_controls()
 	if active and session in ["solo", "local"]:
 		paused = true
 	controls_dialog.popup_centered(Vector2i(1040, 570))
 
 func _close_controls() -> void:
+	if is_instance_valid(menu_input): menu_input.reset()
+	var had_focus := _has_focus
 	controls_dialog.hide()
-	paused = controls_was_paused or not _has_focus or (session == "local" and (player_devices[0] < 0 or player_devices[1] < 0))
+	controls_shade.hide()
+	paused = controls_was_paused or not had_focus or (session == "local" and (player_devices[0] < 0 or player_devices[1] < 0))
 	_input_armed = false
 	_partner_input_armed = false
 
@@ -981,12 +1060,14 @@ func _button(text: String, callback: Callable, node_name: String, parent: Node =
 	var button := Button.new()
 	button.name = node_name
 	button.text = text
-	button.custom_minimum_size.y = 38
+	button.custom_minimum_size.y = 44
 	button.pressed.connect(callback)
 	(parent if parent != null else menu_panel).add_child(button)
 	return button
 
 func _choices() -> void:
+	if HEROES[heroes.selected] not in Battle.PLAYABLE_HEROES: heroes.selected = 0
+	if HEROES[partner_heroes.selected] not in Battle.PLAYABLE_HEROES: partner_heroes.selected = 1
 	selected_hero = HEROES[heroes.selected]
 	selected_chapter = int(chapter_choice.get_item_metadata(chapter_choice.selected))
 	difficulty = DIFFICULTIES[difficulties.selected]
@@ -1007,6 +1088,7 @@ func _close_network() -> bool:
 	demo_controls.hide()
 	hint.hide()
 	combat_hud.sync({})
+	objective_scroll.sync({}, false)
 	hud.text = ""
 	exit_button.hide()
 	hint.text = BATTLE_HINT
@@ -1032,7 +1114,7 @@ func _start_solo() -> void:
 func _start_local_coop() -> void:
 	if _confirm_end(_start_local_coop,"重新開始雙人戰鬥？"): return
 	if profiles.selected[0] == profiles.selected[1]:
-		status.text = "雙人共鬥請選擇兩個不同的玩家存檔。"
+		status.text = "二人共鬥，須由兩冊不同名簿應召。"
 		character_panel.notice.text = status.text
 		return
 	if _connected_pads().size() < 2:
@@ -1046,10 +1128,10 @@ func _start_local_coop() -> void:
 	sim.reset_campaign(difficulty, 2, [selected_hero, HEROES[partner_heroes.selected]],selected_chapter)
 	_load_characters()
 	_activate()
-	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · △／Y 按住抓人、放開摔 · R1／RB 必殺 · L2／LT 防禦 · Options 暫停"
+	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 抓技 · L1／LB 拾取 · Options 暫停"
 
 func _start_training(drill: String = "") -> void:
-	if _confirm_end(_start_training.bind(drill),"結束目前階段，進入練習場？"): return
+	if _confirm_end(_start_training.bind(drill),"收兵離陣，轉赴演武場？"): return
 	if drill != "": training_drill = drill
 	if not _close_network(): return
 	_choices()
@@ -1059,7 +1141,7 @@ func _start_training(drill: String = "") -> void:
 
 func _reset_training() -> void:
 	if not training_active: return
-	if _confirm_end(_reset_training,"重置目前練習？"): return
+	if _confirm_end(_reset_training,"重演此陣？"): return
 	audio.stop_speech()
 	sim.reset_training(selected_hero, training_drill, selected_faction)
 	_activate()
@@ -1068,18 +1150,18 @@ func _reset_training() -> void:
 
 func _switch_training_hero() -> void:
 	if not training_active: return
-	if _confirm_end(_switch_training_hero,"切換人物並重置練習？"): return
-	selected_hero = HEROES[(HEROES.find(selected_hero) + 1) % HEROES.size()]
+	if _confirm_end(_switch_training_hero,"換將並重演此陣？"): return
+	selected_hero = Battle.PLAYABLE_HEROES[(Battle.PLAYABLE_HEROES.find(selected_hero) + 1) % Battle.PLAYABLE_HEROES.size()]
 	heroes.selected = HEROES.find(selected_hero)
 	_reset_training()
 
 func _choose_training_drill(drill: String) -> void:
-	if _confirm_end(_choose_training_drill.bind(drill),"切換項目並重置練習？"): return
+	if _confirm_end(_choose_training_drill.bind(drill),"更換演武陣式，重新列陣？"): return
 	training_drill = drill
 	_reset_training()
 
 func _start_art_demo() -> void:
-	if _confirm_end(_start_art_demo,"結束目前階段，進入素材展示？"): return
+	if _confirm_end(_start_art_demo,"收兵離陣，翻閱武藝圖譜？"): return
 	if not _close_network(): return
 	art_demo = ArtDemo.new()
 	demo_active = true
@@ -1123,7 +1205,7 @@ func _update_art_demo() -> void:
 	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	view.art_demo = true
 	view.art_time = art_demo.elapsed
-	view.demo_pose = art_demo.pose()
+	view.demo_pose = -1
 	view.demo_progress = art_demo.progress()
 	view.weather = art_demo.weather()
 	view.camera_x = 0.0
@@ -1132,7 +1214,7 @@ func _update_art_demo() -> void:
 	demo_toggle.text = "暫停" if art_demo.running else "繼續循環"
 	demo_speed.text = "速度 0.5×" if art_demo.speed < 1.0 else "速度 1×"
 	var sample: Dictionary = view.animation_sample()
-	hud.text = "吞食戰國  M1 逐格動畫 v0.7    %02d / 10 · %s    %s\n信長／阿市    %s %d/%d 幀    空白暫停 · ← → 逐招 · [ ] 逐幀 · S 慢速 · F 轉向" % [art_demo.pose() + 1, ArtDemo.POSES[art_demo.pose()], ["晴天", "夕照", "雨夜"][art_demo.weather()], "待機" if sample.clip == "idle" else "動作", int(sample.frame) + 1, int(sample.count)]
+	hud.text = "武藝圖譜　%02d／10・%s　%s\n信長／阿市　%s %d／%d 幀　空白 暫停 · ← → 換招 · [ ] 逐幀 · S 慢放 · F 轉向" % [art_demo.pose() + 1, ArtDemo.POSES[art_demo.pose()], ["晴天", "夕照", "雨夜"][art_demo.weather()], "待機" if sample.clip == "idle" else "招式", int(sample.frame) + 1, int(sample.count)]
 
 func _activate() -> void:
 	terminal_voice_played = false
@@ -1140,8 +1222,9 @@ func _activate() -> void:
 	_victory_subtitle = ""
 	active = true
 	paused = false
-	audio.play_music()
+	if sim.state.has("stage"): audio.stop_music()
 	audio.sync_stage_music(sim.state)
+	audio.play_music()
 	last_event = -1
 	local_frame = 0
 	remote_frame = -1
@@ -1215,8 +1298,8 @@ func _connected() -> void:
 func hello(build: String, fingerprint: String, hero: String) -> void:
 	if session != "host" or remote_id != 0: return
 	var sender := multiplayer.get_remote_sender_id()
-	if build != BUILD or fingerprint != _fingerprint() or hero not in HEROES:
-		rejected.rpc_id(sender, "遊戲版本／內容不一致，請使用同一份 M1 原型。")
+	if build != BUILD or fingerprint != _fingerprint() or hero not in Battle.PLAYABLE_HEROES:
+		rejected.rpc_id(sender, "版本／內容不一致，請雙方使用同一版本。")
 		return
 	remote_id = sender
 	waiting_peer_since = 0
@@ -1298,7 +1381,7 @@ func _fail(message: String) -> void:
 		get_tree().quit(1)
 
 func _leave_to_menu() -> void:
-	if _confirm_end(_leave_to_menu,"結束目前階段，返回主選單？"): return
+	if _confirm_end(_leave_to_menu,"收兵返回本陣？"): return
 	if not _close_network(): return
 	paused = false
 	_show_menu_page("main")
@@ -1339,7 +1422,7 @@ func _accept_confirmation() -> void:
 
 func _request_quit() -> void:
 	if not ending_confirmed:
-		_request_confirmation(_request_quit,"離開遊戲？")
+		_request_confirmation(_request_quit,"收兵離營，結束遊戲？")
 		return
 	if _save_before_leaving(): get_tree().quit()
 
@@ -1383,20 +1466,21 @@ func _player_frame(slot: int) -> Dictionary:
 	# Poll each device directly: Godot's shared InputMap merges controllers together.
 	var device := player_devices[slot]
 	if device >= 0:
-		var pad_buttons := [JOY_BUTTON_X, JOY_BUTTON_B, JOY_BUTTON_A, JOY_BUTTON_Y, JOY_BUTTON_RIGHT_SHOULDER, JOY_BUTTON_LEFT_SHOULDER]
-		for i in range(pad_buttons.size()):
-			if Input.is_joy_button_pressed(device, pad_buttons[i]): frame.buttons |= 1 << i
-		if Input.get_joy_axis(device, JOY_AXIS_TRIGGER_LEFT) > 0.24: frame.buttons |= Battle.GUARD
+		var pad_buttons := {JOY_BUTTON_X:Battle.LIGHT,JOY_BUTTON_B:Battle.HEAVY,JOY_BUTTON_A:Battle.JUMP,JOY_BUTTON_LEFT_SHOULDER:Battle.INTERACT}
+		for button in pad_buttons:
+			if Input.is_joy_button_pressed(device,button): frame.buttons |= pad_buttons[button]
+		if Input.get_joy_axis(device, JOY_AXIS_TRIGGER_RIGHT) > 0.24: frame.buttons |= Battle.GRAB
 		var x := Input.get_joy_axis(device, JOY_AXIS_LEFT_X)
 		var y := Input.get_joy_axis(device, JOY_AXIS_LEFT_Y)
 		frame.dx = int(Input.is_joy_button_pressed(device, JOY_BUTTON_DPAD_RIGHT)) - int(Input.is_joy_button_pressed(device, JOY_BUTTON_DPAD_LEFT))
 		frame.dy = int(Input.is_joy_button_pressed(device, JOY_BUTTON_DPAD_DOWN)) - int(Input.is_joy_button_pressed(device, JOY_BUTTON_DPAD_UP))
 		if absf(x) > 0.24: frame.dx = int(signf(x))
 		if absf(y) > 0.24: frame.dy = int(signf(y))
+		if absf(x) > 0.24 or absf(y) > 0.24: frame.stick_full = Vector2(x,y).length() >= 0.9
 	if slot == local_slot:
-		for i in range(6):
-			if Input.is_physical_key_pressed([KEY_J, KEY_K, KEY_SPACE, KEY_L, KEY_U, KEY_E][i]): frame.buttons |= 1 << i
-		if Input.is_physical_key_pressed(KEY_I): frame.buttons |= Battle.GUARD
+		var keys := {KEY_J:Battle.LIGHT,KEY_K:Battle.HEAVY,KEY_SPACE:Battle.JUMP,KEY_L:Battle.GRAB,KEY_E:Battle.INTERACT}
+		for key in keys:
+			if Input.is_physical_key_pressed(key): frame.buttons |= keys[key]
 		frame.dx = clampi(frame.dx + int(Input.is_physical_key_pressed(KEY_D)) - int(Input.is_physical_key_pressed(KEY_A)), -1, 1)
 		frame.dy = clampi(frame.dy + int(Input.is_physical_key_pressed(KEY_S)) - int(Input.is_physical_key_pressed(KEY_W)), -1, 1)
 	return frame
@@ -1435,9 +1519,12 @@ func _keep_local_party_in_view() -> void:
 	sim._sync_grabs()
 
 func _set_game_focus(focused: bool) -> void:
+	if is_instance_valid(menu_input): menu_input.reset()
 	if testing or not smoke.is_empty(): return
 	# The F1 child window owns focus and pause until it closes.
-	if controls_dialog.visible: return
+	if controls_dialog.visible:
+		_has_focus = focused or controls_dialog.has_focus()
+		return
 	if menu.visible and menu_screen == "confirm":
 		_has_focus = focused
 		return
@@ -1535,7 +1622,7 @@ func _physics_process(_delta: float) -> void:
 						sim.cancel_input(fighter.player_index)
 		end_label.position = Vector2(200, 138)
 		end_label.add_theme_font_size_override("font_size", 26)
-		end_label.text = ("第一關突破！" if sim.state.has("stage") else "前哨突破！") if sim.state.phase == "won" else "此戰未竟"
+		end_label.text = "合戰大捷" if sim.state.phase == "won" else "此戰未竟"
 		if not _victory_subtitle.is_empty(): end_label.text += "\n" + _victory_subtitle
 		if sim.state.phase == "lost": end_label.text += "\n按 Esc 返回選單／重新開始"
 
@@ -1551,9 +1638,9 @@ func _events(events: Array) -> void:
 		last_event = event_id
 		_collect_rumble(event, pulses)
 		if event.type == "achievement": _achievement_messages.append("%dP  %s\n%s%s" % [int(sim._fighter(int(event.actor)).get("player_index",0))+1,str(event.name),str(event.description),"　・　獲得戰利品！" if event.get("loot",false) else ""])
-		elif event.type == "weapon_break": _achievement_messages.append(str(event.name) + " 損壞！改用無限耐久白板，可開行囊換裝。")
-		elif event.type == "inventory_full": _achievement_messages.append("行囊該類已滿（或倉庫達上限）；可確認丟棄後拾取，地上物品保留。")
-		elif event.type == "challenge_complete": _achievement_messages.append("糧車奪回・每名玩家 +%d 金" % int(event.amount))
+		elif event.type == "weapon_break": _achievement_messages.append(str(event.name) + " 已折・改持常備兵器")
+		elif event.type == "inventory_full": _achievement_messages.append("行囊或藏兵閣已滿，騰出空位後再拾取。地上物品保留。")
+		elif event.type == "challenge_complete": _achievement_messages.append("糧車奪回・每將獲賞 %d 金" % int(event.amount))
 		elif event.type == "challenge_failed": _achievement_messages.append("糧車損毀・仍可繼續進軍")
 		if event.get("type", "") == "boss_intro" and session == "host" and remote_id != 0:
 			pending_intro_actor = int(event.actor)
@@ -1623,7 +1710,8 @@ func _update_view() -> void:
 	hud.position = Vector2(416, 15)
 	hud.size = Vector2(448, 75)
 	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	if active and sim.state.get("phase","") == "playing": audio.sync_stage_music(sim.state)
+	audio.sync_encounter(sim.state if active else {})
+	if active: audio.sync_stage_music(sim.state)
 	exit_button.visible = active and sim.state.get("phase","") == "won" and sim.state.get("victory_looting",false) and not menu.visible
 	var x := 480.0
 	var living_x: Array[float] = []
@@ -1645,38 +1733,23 @@ func _update_view() -> void:
 	if sim.state.has("stage"):
 		view.camera_x = clampf(view.camera_x, 0.0, maxf(0.0, float(sim.state.stage.encounter_end) - 1280.0))
 	view.queue_redraw()
-	var mode := "單人" if session == "solo" else ("雙搖桿合作" if session == "local" else "IP 直連 · " + ("主機" if session == "host" else "客端"))
-	hud.text = "吞食戰國・%s" % mode
-	if sim.state.has("stage"):
-		var stage: Dictionary = sim.state.stage
-		var objective := "GO → 全員向右前進" if stage.go else ""
-		if not stage.go and not sim.state.fighters.any(func(f): return f.team == 1 and f.hp > 0) and sim.state.props.any(func(p): return p.get("mandatory",false) and not p.broken): objective = "擊破拒馬／柵欄，打通出口"
-		hud.text = "%02d/%02d　%s\n據點 %d/%d　%s" % [stage.index + 1,stage.total,stage.name,int(stage.get("checkpoint", 0)) + 1,int(stage.get("checkpoint_total", 2)),objective]
+	hud.visible = training_active
+	hud.text = ""
 	if training_active:
 		var player: Dictionary = sim.state.fighters[0]
 		var stats: Dictionary = sim.state.training
-		var move_name: String = {"idle": "待機", "light": "輕擊 %d/3" % player.combo, "charge": "蓄力完成・放開出招" if player.charge >= 35 else "蓄力 %d%%" % int(player.charge * 100.0 / 35.0), "heavy": "重擊 %d/2" % player.heavy_combo, "charged": "爆裂冰箭" if player.kind == "oichi" else "炎刃斷陣", "rising": "上揚飛針" if player.kind == "oichi" else "上挑", "low_sweep": "低位攻擊", "dash_strike": "踏步突進", "dash_heavy": "衝刺重擊", "air_light": "空中輕擊", "air_heavy": "空中重擊", "upper_heavy": "三段落矢" if player.kind == "oichi" else "挑空重擊", "charged_upper": "蓄力三段落矢" if player.kind == "oichi" else "蓄力升空技", "mixed_finisher": "混合連段終結", "ground_slam": "震地／落矢", "charged_slam": "霜華冰陣・前方120°" if player.kind == "oichi" else ("炎獄裂地・全周360°" if player.kind == "nobunaga" else "大範圍蓄力地陣"), "holding": "肉盾 %.1f秒・放開摔" % maxf(0.0, (180.0 - player.action_tick) / 60.0), "throw": "飛摔", "special": "必殺・全程無敵", "stunned": "暈眩", "pulled": "被鎖鏈拉近"}.get(player.action, player.action)
-		if player.action == "mixed_rising": move_name = "重轉輕追擊"
-		elif player.action == "guard": move_name = "防禦・受擊集怒"
-		elif player.action == "recovering": move_name = "起身中"
-		elif player.action == "launched": move_name = "被擊飛"
-		elif player.action == "down": move_name = "倒地"
-		elif player.get("sprinting", false): move_name = "衝刺・撞開"
-		if player.action == "charged" and player.kind not in ["nobunaga", "oichi"]: move_name = "滿蓄重擊"
-		if player.kind == "hideyoshi":
-			if player.action == "heavy": move_name = "上挑劍氣・擊飛" if player.heavy_combo == 2 else "下劈劍氣"
-			elif player.action == "charged": move_name = "踏步三連斬・第三刀擊倒"
-			elif player.action == "charged_slam": move_name = "葫蘆扇震地"
-		if player.kind == "tadakatsu":
-			if player.action == "charged": move_name = "長槍突進"
-			elif player.action == "charged_slam": move_name = "槍底震地・全周衝擊波"
-		var drill_name: String = {"dummy": "木樁練習", "shield": "肉盾演練", "enemies": FACTION_NAMES.get(selected_faction, selected_faction) + "軍試戰", "ranged": "弓箭／鐵砲撤退", "boss": "陣營小王"}.get(training_drill, training_drill)
+		var full_ms := float(Battle.CombatMoves.registration(str(player.kind)).clips.charge_ready.duration_ms)
+		var charge_percent := mini(100,roundi(float(player.charge)*1000/60/full_ms*100))
+		var move_name: String = {"idle":"衝刺" if player.get("sprinting",false) else "待機","light":"輕手 %d/3" % player.combo,"heavy":"單箭・擊退" if player.kind == "oichi" else "下斬劍氣・擊退","charged":"貫穿箭・擊退" if player.kind == "oichi" else "旋斬兩圈・擊飛","charge_rain":"朝天箭雨・範圍擊倒","grab_start":"抓取起手","holding":"抓住：輕手兩次，第三次摔／反推過肩摔","grab_hit_1":"膝擊一" if player.kind == "oichi" else "頭槌一","grab_hit_2":"膝擊二" if player.kind == "oichi" else "頭槌二","throw":"摔投","dash_heavy":"跑步重手","air_light":"空中輕手","air_heavy":"空中三箭" if player.kind == "oichi" else "重落地下斬","charge":"滿蓄・放開施放" if charge_percent >= 100 else "蓄力 %d%%" % charge_percent,"recovering":"起身中","launched":"被擊飛","down":"倒地"}.get(player.action,player.action)
+		var drill_name: String = {"dummy": "木樁演武", "shield": "破盾演武", "enemies": FACTION_NAMES.get(selected_faction, selected_faction) + "軍試戰", "ranged": "弓銃演武", "boss": "敵將試煉"}.get(training_drill, training_drill)
 		var living := 0
 		for enemy in sim.state.fighters:
 			if enemy.team == 1 and enemy.hp > 0: living += 1
-		hud.text = "%s・%s\n敵人 %d　命中 %d 次" % [drill_name,move_name,living,stats.hit_count]
+		hud.text = "%s・%s\n餘敵 %d　中敵 %d 次" % [drill_name,move_name,living,stats.hit_count]
 	var introduction: Dictionary = sim.state.get("intro", {})
-	if int(introduction.get("remaining_ticks", 0)) > 0 or audio.intro_playing():
+	var dialogue: bool = int(introduction.get("remaining_ticks", 0)) > 0 or audio.intro_playing()
+	objective_scroll.sync(sim.state, active and not paused and not menu.visible and not controls_dialog.visible and not training_active and not demo_active, dialogue)
+	if dialogue:
 		var key := str(introduction.get("line_key", ""))
 		end_label.position = Vector2(200,100)
 		end_label.add_theme_font_size_override("font_size", 23)
@@ -1685,6 +1758,9 @@ func _update_view() -> void:
 		end_label.text = ""
 
 func _input(event: InputEvent) -> void:
+	if is_instance_valid(menu_input) and menu_input.handle(event):
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F11:
 		_toggle_fullscreen()
 		get_viewport().set_input_as_handled()
@@ -1695,6 +1771,8 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 	if controls_dialog.visible: return
+	if is_instance_valid(menu_input) and menu_input.keyboard.visible: return
+	if is_instance_valid(menu_input) and menu_input.has_popup(): return
 	if menu.visible:
 		if menu_screen == "collection" and event is InputEventJoypadButton and event.pressed and event.button_index in [JOY_BUTTON_LEFT_SHOULDER,JOY_BUTTON_RIGHT_SHOULDER]:
 			var direction := -1 if event.button_index == JOY_BUTTON_LEFT_SHOULDER else 1
@@ -1723,7 +1801,7 @@ func _input(event: InputEvent) -> void:
 		elif event.physical_keycode in [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5]:
 			_choose_training_drill(["dummy", "shield", "enemies", "ranged", "boss"][event.physical_keycode - KEY_1])
 			get_viewport().set_input_as_handled()
-	if demo_active:
+	if demo_active and not menu.visible:
 		var handled := true
 		if event is InputEventKey and event.pressed and not event.echo:
 			match event.physical_keycode:
@@ -1760,6 +1838,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _joy_changed(device: int, connected: bool) -> void:
+	if is_instance_valid(menu_input): menu_input.reset()
 	var assigned := device in player_devices or player_devices[local_slot] < 0
 	if not connected and assigned and active:
 		_cancel_local_controls()
@@ -1772,7 +1851,7 @@ func _joy_changed(device: int, connected: bool) -> void:
 	_sync_devices()
 	if previous != player_devices:
 		_cancel_local_controls()
-	feedback_label.text = "搖桿已連接；△／Y 按住抓人、放開摔；支援震動。" if connected else "搖桿已拔除。雙人合作需兩支搖桿；未拔除的玩家保留原本席位。"
+	feedback_label.text = "搖桿已連接；R2／RT 抓人；支援震動。" if connected else "搖桿已拔除。雙人合作需兩支搖桿；未拔除的玩家保留原本席位。"
 
 func _capture() -> void:
 	await RenderingServer.frame_post_draw

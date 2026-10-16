@@ -140,7 +140,7 @@ static func bonus(row: Dictionary, field: String) -> float:
 	return float(TREASURES.get(str(charm.get("item_id","")),{}).get(field,0))
 
 static func damage_multiplier(row: Dictionary, action: String) -> float:
-	var field: String = {"heavy":"heavy_bonus","dash_heavy":"heavy_bonus","upper_heavy":"heavy_bonus","ground_slam":"heavy_bonus","charged":"charged_bonus","charged_upper":"charged_bonus","charged_slam":"charged_bonus","air_light":"air_bonus","air_heavy":"air_bonus","throw":"throw_bonus","special":"special_bonus"}.get(action,"")
+	var field: String = {"heavy":"heavy_bonus","dash_heavy":"heavy_bonus","upper_heavy":"heavy_bonus","ground_slam":"heavy_bonus","charged":"charged_bonus","charge_rain":"charged_bonus","charged_upper":"charged_bonus","charged_slam":"charged_bonus","air_light":"air_bonus","air_heavy":"air_bonus","throw":"throw_bonus","special":"special_bonus"}.get(action,"")
 	return 1.0 + bonus(row,field)
 
 static func reduction(row: Dictionary) -> float:

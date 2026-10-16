@@ -37,7 +37,7 @@ def build():
             'reduction': item.get('reduction',0), 'damage_bonus':0, 'move_bonus':0.0, 'reach_bonus':0.0,
             'price':item['price'], 'tier':item['tier'], 'image':item['image'], 'color':item['color'],
             'icons':item['icons'], 'history':source['note'], 'source':source['url'], **effects}
-        row['description'] = '；'.join(functions) + '。' + item['flavor'] + '\n' + ('容量用盡消失。' if item['mode']=='fixed' else '減傷率隨耐久比例降低，剩 20% 耐久損壞。') + '\n題材：' + source['note'] + '\n名稱與數值為遊戲創作。'
+        row['description'] = '；'.join(functions) + '。' + item['flavor'] + '\n' + ('護力耗盡，符消。' if item['mode']=='fixed' else '減傷隨耐久降低；耐久降至兩成時，符毀。')
         catalog[item['id']] = row
         doc.append('| %s | %s | %s | %s | %d | [%s](%s) |' % (item['name'],item['tier'],'；'.join(functions),item['flavor'],item['durability'],source['title'],source['url']))
     doc += ['\n## 功能結算\n', '重手含 heavy／dash_heavy／upper_heavy／ground_slam；蓄力含 charged／charged_upper／charged_slam；空中含 air_light／air_heavy。條件傷害只增強該次直接命中，不增強後續燃燒、中毒或環境傷害。必殺加成只對 special 的直接命中。成功防禦怒氣每次真的擋住一擊才給；擊殺怒氣每個敵人只給一次。食物加成按實際可回復生命封頂。抗性縮短新施加的異常時間，不給免疫。\n',

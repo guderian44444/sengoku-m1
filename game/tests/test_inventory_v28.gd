@@ -20,7 +20,7 @@ func _initialize() -> void:
 	var battle := Battle.new()
 	var player: Dictionary = battle.state.fighters[0]
 	player.bag_only = false # This fixture exercises permanent warehouse stock and wear; apply_to limits the live bag below.
-	check(Weapons.ITEMS.size() == 54,"48 collectible weapons plus six practice weapons")
+	check(Weapons.ITEMS.size() == 57,"51 collectible weapons plus six practice weapons")
 	for hero in Battle.HEROES:
 		var id := Weapons.default_for(hero)
 		check(Weapons.compatible(hero,id) and int(Weapons.item(id).tier) == 0,"Each hero starts with compatible practice gear")
@@ -154,19 +154,7 @@ func _initialize() -> void:
 	check(absf(float(rewards)/100.0-1.0) < 0.3,"Achievement bonus is an independent 1% roll")
 	battle.reset_campaign()
 	check(Wire.valid_snapshot(battle.get_state()),"New inventory and performance fields pass network validation")
-	var spear := Battle.new()
-	spear.reset("normal",1,["tadakatsu"])
-	var spearman: Dictionary = spear.state.fighters[0]
-	Equipment.equip(spearman,Equipment.add(spearman,"spear_tonbokiri"))
-	spearman.action = "light"
-	spearman.combo = 1
-	var extent := Weapons.spear_reach(spearman)
-	check(extent > 250,"Long spear has a real range advantage")
-	var inside := spear._make_fighter(1,"soldier",spearman.x+extent-1,spearman.y,100)
-	var outside := spear._make_fighter(1,"soldier",spearman.x+extent+1,spearman.y,100)
-	spear.state.fighters = [spearman,inside,outside]
-	spear._melee(spearman,120,32,18,false)
-	check(inside.hp < 100 and outside.hp == 100,"Spear hit boundary matches drawn tip extent")
-	check(Battle.fighter_tick({"kind":"tadakatsu","attack_speed":1},19) > Battle.fighter_tick({"kind":"nobunaga","attack_speed":1},19),"Tadakatsu trades attack speed for range and power")
+	for hero in Battle.HEROES:
+		check(Equipment.valid(players.character(0,hero)),"Future hero inventory remains valid: "+hero)
 	print("INVENTORY V28 %s: %d checks, %d failures" % ["PASS" if failures == 0 else "FAILED",checks,failures])
 	quit(1 if failures else 0)

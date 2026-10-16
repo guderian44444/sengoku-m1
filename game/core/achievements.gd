@@ -17,9 +17,9 @@ const RULES := [
 	["kills30","戰場先鋒","一場出陣擊殺 30 人","kills",30],
 	["kills60","六十人斬","一場出陣擊殺 60 人","kills",60],
 	["kills100","百人斬","一場出陣擊殺 100 人","kills",100],
-	["boss1","敵將討取","一場出陣擊敗 1 名小王","bosses",1],
-	["boss3","名將獵手","一場出陣擊敗 3 名小王","bosses",3],
-	["major1","大將首級","擊敗大王","majors",1],
+	["boss1","敵將討取","一場出陣擊敗 1 名敵將","bosses",1],
+	["boss3","名將獵手","一場出陣擊敗 3 名敵將","bosses",3],
+	["major1","大將首級","擊敗大將","majors",1],
 	["heavy5","重手壓陣","一場出陣重擊擊殺 5 人","heavy_kills",5],
 	["charge5","蓄勢必殺","一場出陣蓄力擊殺 5 人","charged_kills",5],
 	["air5","飛燕討取","一場出陣空中攻擊擊殺 5 人","air_kills",5],
@@ -68,7 +68,7 @@ static func damage(player: Dictionary, target: Dictionary, tick: int, action: St
 		if player.hp < player.max_hp * 0.25: increment(stats,"clutch_kills")
 		if target.kind == "boss": increment(stats,"majors" if target.get("stage_boss",false) else "bosses")
 		if action in ["heavy","dash_heavy","upper_heavy","ground_slam"]: increment(stats,"heavy_kills")
-		if action in ["charged","charged_upper","charged_slam"]: increment(stats,"charged_kills")
+		if action in ["charged","charge_rain","charged_upper","charged_slam"]: increment(stats,"charged_kills")
 		if action in ["air_light","air_heavy"]: increment(stats,"air_kills")
 		if action in ["throw","thrown"]: increment(stats,"throw_kills")
 		if action == "special": increment(stats,"special_kills")

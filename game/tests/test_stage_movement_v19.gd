@@ -58,7 +58,7 @@ func _initialize() -> void:
 					if not solid or battle.state.fighters.any(func(f):return f.get("entering",false)):
 						print("ENTRY DEBUG ",label," ",JSON.stringify(battle.state.fighters.filter(func(f):return f.get("entering",false)).map(func(f):return {"kind":f.kind,"x":f.x,"y":f.y,"goal":f.entry_x})))
 		_test_short_checkpoint_clear(players)
-	for hero in Battle.HERO_PROFILES:
+	for hero in Battle.PLAYABLE_HEROES:
 		for diagonal in [false,true]:
 			battle.reset("normal",1,[hero])
 			var player: Dictionary = battle.state.fighters[0]
@@ -78,7 +78,7 @@ func _initialize() -> void:
 
 func _test_short_checkpoint_clear(players: int) -> void:
 	var battle := Battle.new()
-	battle.reset_campaign("normal",players,["tadakatsu","oichi"])
+	battle.reset_campaign("normal",players,["nobunaga","oichi"])
 	battle._enter_segment(1)
 	# Match the reported cleared foreground; the inaccessible future barricades stay intact.
 	for prop in battle.state.props:

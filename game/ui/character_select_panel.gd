@@ -5,7 +5,7 @@ const Weapons = preload("res://core/weapon_catalog.gd")
 const Equipment = preload("res://core/equipment.gd")
 const Typography = preload("res://render/game_typography.gd")
 const Archive = preload("res://core/weapon_encyclopedia.gd")
-const NAMES := ["織田信長","阿市","豐臣秀吉","德川家康","明智光秀","本多忠勝"]
+const NAMES := ["織田信長","阿市","豐臣秀吉","德川家康","本願寺顯如","本多忠勝"]
 signal closed
 signal begin_requested
 signal equipment_requested(slot: int)
@@ -44,7 +44,7 @@ class Preview extends "res://render/battle_view.gd":
 		if not is_visible_in_tree() or fighter.is_empty(): return
 		art_demo = false
 		var frame: Dictionary = _art.animation_frame(str(fighter.kind),_fighter_animation(fighter))
-		var height := 148.0 if fighter.kind == "oichi" else 155.0
+		var height: float = Battle.CombatMoves.HEIGHTS[fighter.kind]
 		var factor := height / float(frame.body_height)
 		var visible: Rect2 = frame.get("opaque_bounds",Rect2(Vector2.ZERO,frame.region.size))
 		var bounds := Rect2((visible.position-Vector2(frame.anchor))*factor,visible.size*factor)
@@ -72,18 +72,22 @@ class Preview extends "res://render/battle_view.gd":
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	theme = Typography.theme()
+	var background := PanelContainer.new()
+	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	add_child(background)
 	var margin := MarginContainer.new()
-	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side in ["left","right","top","bottom"]: margin.add_theme_constant_override("margin_" + side,24)
-	add_child(margin)
+	margin.add_theme_constant_override("margin_bottom",64)
+	background.add_child(margin)
 	var page := VBoxContainer.new()
 	page.add_theme_constant_override("separation",8)
 	margin.add_child(page)
 	var heading := HBoxContainer.new()
 	page.add_child(heading)
-	_label(heading,"角 色 狀 態 ／ 出 戰 準 備",30).size_flags_horizontal = SIZE_EXPAND_FILL
-	_button(heading,"玩家設定",func(): players_requested.emit())
-	_button(heading,"返回",func(): closed.emit())
+	_label(heading,"出 陣 支 度　／　武 將 與 行 囊",28).size_flags_horizontal = SIZE_EXPAND_FILL
+	_button(heading,"武者名簿",func(): players_requested.emit())
+	_button(heading,"返回",func(): closed.emit()).name = "Back"
 	for slot in range(2):
 		var team := HBoxContainer.new()
 		page.add_child(team)
@@ -91,13 +95,18 @@ func _ready() -> void:
 		if slot == 1: partner_row = team
 		_label(team,"%dP" % (slot + 1),20).custom_minimum_size.x = 42
 		var owner := OptionButton.new()
+		owner.name = "Player%d" % slot
 		owner.add_theme_font_size_override("font_size",19)
 		owner.custom_minimum_size.x = 205
 		team.add_child(owner)
 		player_choices.append(owner)
 		var hero := OptionButton.new()
+		hero.name = "Hero%d" % slot
 		hero.add_theme_font_size_override("font_size",19)
-		for name in NAMES: hero.add_item(name)
+		for index in range(NAMES.size()):
+			var available: bool = Battle.HEROES[index] in Battle.PLAYABLE_HEROES
+			hero.add_item(("本願寺顯如" if Battle.HEROES[index] == "mitsuhide" else NAMES[index]) + ("" if available else "・尚未應召"))
+			hero.set_item_disabled(index,not available)
 		hero.size_flags_horizontal = SIZE_EXPAND_FILL
 		team.add_child(hero)
 		if slot == 0: heroes = hero
@@ -110,15 +119,17 @@ func _ready() -> void:
 	body.add_theme_constant_override("separation",18)
 	page.add_child(body)
 	var left := PanelContainer.new()
-	left.custom_minimum_size.x = 604
+	left.size_flags_horizontal = SIZE_EXPAND_FILL
 	body.add_child(left)
 	var character := VBoxContainer.new()
+	character.add_theme_constant_override("separation",10)
 	left.add_child(character)
 	var name_row := HBoxContainer.new()
 	character.add_child(name_row)
 	title = _label(name_row,"",27)
 	title.size_flags_horizontal = SIZE_EXPAND_FILL
 	slot_choice = OptionButton.new()
+	slot_choice.name = "ViewedPlayer"
 	slot_choice.add_theme_font_size_override("font_size",17)
 	name_row.add_child(slot_choice)
 	slot_choice.item_selected.connect(func(index): active_slot = index; changed.emit())
@@ -126,18 +137,27 @@ func _ready() -> void:
 	character_body.size_flags_vertical = SIZE_EXPAND_FILL
 	character.add_child(character_body)
 	var stage := Control.new()
-	stage.custom_minimum_size = Vector2(270,245)
+	stage.custom_minimum_size = Vector2(240,190)
+	stage.size_flags_vertical = SIZE_EXPAND_FILL
+	stage.clip_contents = true
 	character_body.add_child(stage)
 	preview = Preview.new()
 	preview.position = Vector2(130,242)
 	preview.scale = Vector2(0.86,0.86)
 	stage.add_child(preview)
-	stats = _label(character_body,"",18)
+	var stats_scroll := ScrollContainer.new()
+	stats_scroll.name = "StatsScroll"
+	stats_scroll.focus_mode = Control.FOCUS_ALL
+	stats_scroll.follow_focus = true
+	stats_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	stats_scroll.size_flags_horizontal = SIZE_EXPAND_FILL
+	character_body.add_child(stats_scroll)
+	stats = _label(stats_scroll,"",19)
 	stats.size_flags_horizontal = SIZE_EXPAND_FILL
 	var actions := HBoxContainer.new()
 	character.add_child(actions)
-	_button(actions,"倉庫／準備行囊",func(): management_requested.emit(active_slot)).size_flags_horizontal = SIZE_EXPAND_FILL
-	_button(actions,"成就帳",func(): achievements_requested.emit(active_slot))
+	_button(actions,"藏兵閣",func(): management_requested.emit(active_slot)).size_flags_horizontal = SIZE_EXPAND_FILL
+	_button(actions,"戰功簿",func(): achievements_requested.emit(active_slot))
 	var right := PanelContainer.new()
 	right.size_flags_horizontal = SIZE_EXPAND_FILL
 	body.add_child(right)
@@ -146,42 +166,63 @@ func _ready() -> void:
 	right.add_child(equipment)
 	var equipment_heading := HBoxContainer.new()
 	equipment.add_child(equipment_heading)
-	_label(equipment_heading,"出 戰 行 囊",25).size_flags_horizontal = SIZE_EXPAND_FILL
+	_label(equipment_heading,"隨 身 行 囊",25).size_flags_horizontal = SIZE_EXPAND_FILL
 	category = OptionButton.new()
-	category.add_item("護身符")
-	category.add_item("武器")
+	category.name = "BagCategory"
+	category.add_item("護符")
+	category.add_item("兵器")
 	equipment_heading.add_child(category)
 	category.item_selected.connect(func(_index): _refresh_items())
 	purse = _label(equipment,"",18)
 	item_list = ItemList.new()
-	item_list.custom_minimum_size.y = 105
+	item_list.name = "BagItems"
+	item_list.focus_mode = Control.FOCUS_ALL
+	item_list.custom_minimum_size.y = 90
 	item_list.size_flags_vertical = SIZE_EXPAND_FILL
 	item_list.add_theme_font_size_override("font_size",19)
 	item_list.add_theme_constant_override("v_separation",6)
 	equipment.add_child(item_list)
 	item_list.item_selected.connect(func(_index): _show_item())
-	item_detail = _label(equipment,"",18)
-	item_detail.custom_minimum_size.y = 95
+	var item_scroll := ScrollContainer.new()
+	item_scroll.name = "ItemDetailScroll"
+	item_scroll.focus_mode = Control.FOCUS_ALL
+	item_scroll.follow_focus = true
+	item_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	item_scroll.custom_minimum_size.y = 84
+	equipment.add_child(item_scroll)
+	item_detail = _label(item_scroll,"",18)
+	item_detail.size_flags_horizontal = SIZE_EXPAND_FILL
 	var equipment_actions := HBoxContainer.new()
 	equipment.add_child(equipment_actions)
 	equip_button = _button(equipment_actions,"裝備",func():
 		var indices := item_list.get_selected_items()
 		if not indices.is_empty(): item_requested.emit(active_slot,int(current_items[indices[0]].uid)))
 	equip_button.size_flags_horizontal = SIZE_EXPAND_FILL
-	unequip_button = _button(equipment_actions,"卸下護身符",func(): treasure_removed.emit(active_slot))
-	_button(equipment,"使用白板武器 ∞",func(): item_requested.emit(active_slot,0))
+	equip_button.name = "Equip"
+	unequip_button = _button(equipment_actions,"卸下護符",func(): treasure_removed.emit(active_slot))
+	_button(equipment,"換用常備兵器 ∞",func(): item_requested.emit(active_slot,0))
 	var footer := HBoxContainer.new()
 	footer.add_theme_constant_override("separation",12)
 	page.add_child(footer)
+	var difficulty_label := _label(footer,"難度",19)
+	difficulty_label.custom_minimum_size.x = 42
+	difficulty_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	difficulties = OptionButton.new()
+	difficulties.name = "Difficulty"
 	for name in ["故事","標準","挑戰"]: difficulties.add_item(name)
 	difficulties.selected = 1
 	difficulties.item_selected.connect(func(_index): changed.emit())
 	footer.add_child(difficulties)
+	var chapter_label := _label(footer,"戰場",19)
+	chapter_label.custom_minimum_size.x = 42
+	chapter_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	chapter_choice = OptionButton.new()
+	chapter_choice.name = "Chapter"
 	chapter_choice.size_flags_horizontal = SIZE_EXPAND_FILL
 	footer.add_child(chapter_choice)
-	_button(footer,"出　陣",func(): begin_requested.emit()).custom_minimum_size.x = 210
+	var begin := _button(footer,"出　陣",func(): begin_requested.emit())
+	begin.name = "Begin"
+	begin.custom_minimum_size.x = 180
 	notice = _label(page,"",17)
 	notice.custom_minimum_size.y = 26
 
@@ -189,8 +230,8 @@ func configure(coop: bool, character: Dictionary, owner: String) -> void:
 	partner_row.visible = coop
 	for team in team_rows: team.hide()
 	slot_choice.clear()
-	slot_choice.add_item("查看 1P")
-	if coop: slot_choice.add_item("查看 2P")
+	slot_choice.add_item("1P 武將")
+	if coop: slot_choice.add_item("2P 武將")
 	active_slot = mini(active_slot,1 if coop else 0)
 	slot_choice.selected = active_slot
 	row = character.duplicate(true)
@@ -198,11 +239,11 @@ func configure(coop: bool, character: Dictionary, owner: String) -> void:
 	title.text = NAMES[Battle.HEROES.find(hero)]
 	var values := Battle.character_stats(row,["easy","normal","hard"][difficulties.selected])
 	var base := Battle.character_stats(_base_row(hero),["easy","normal","hard"][difficulties.selected])
-	stats.text = "%s\n生命　%d\n基準攻擊　%d　(%+d)\n攻速　%d%%　(%+d%%)\n速度　%.2f　(%+.2f)\n範圍　%.0f　(%+.0f)\n擊退　%+.1f\n投摔　%d\n護符　%s\n總積分　%d" % [owner,values.hp,values.damage,values.damage-base.damage,values.attack_speed,values.attack_speed-base.attack_speed,values.speed,values.speed-base.speed,values.reach,values.reach-base.reach,values.knockback,values.throw_damage,values.protection,int(row.score)]
-	if hero == "oichi": stats.text = stats.text.replace("基準攻擊","普通弓射")
+	stats.text = "%s\n體力　%d\n攻擊　%d　(%+d)\n攻速　%d%%　(%+d%%)\n速度　%.2f　(%+.2f)\n範圍　%.0f　(%+.0f)\n擊退　%+.1f\n投摔　%d\n護符　%s\n戰功　%d" % [owner,values.hp,values.damage,values.damage-base.damage,values.attack_speed,values.attack_speed-base.attack_speed,values.speed,values.speed-base.speed,values.reach,values.reach-base.reach,values.knockback,values.throw_damage,values.protection,int(row.score)]
+	if hero == "oichi": stats.text = stats.text.replace("攻擊","弓射")
 	preview.fighter = row.duplicate(true)
 	preview.fighter.merge({"kind":hero,"team":0,"id":active_slot+1,"player_index":active_slot,"action":"idle","action_tick":0,"hp":values.hp,"max_hp":values.hp,"z":0,"face":1,"rage":0,"armor":0,"freeze":0,"poison":0,"invuln":0})
-	purse.text = "金錢 %d 文　｜　武器 %d / 2・護符 %d / 2" % [int(row.gold),Equipment.bag_count(row,false),Equipment.bag_count(row,true)]
+	purse.text = "持金 %d 文　｜　兵器 %d / 2・護符 %d / 2" % [int(row.gold),Equipment.bag_count(row,false),Equipment.bag_count(row,true)]
 	unequip_button.disabled = int(row.treasure_uid) == 0
 	_refresh_items()
 
@@ -221,34 +262,33 @@ func _refresh_items() -> void:
 		var spec := Equipment.catalog(item.item_id)
 		item_list.add_item(("◆ " if item.uid in [row.weapon_uid,row.treasure_uid] else "　") + "%s　%d/%d　#%d" % [spec.name,int(item.durability),int(spec.durability),int(item.uid)])
 	if not current_items.is_empty(): item_list.select(0)
+	item_list.tooltip_text = "◆ 裝備中"
 	_show_item()
 
 func _show_item() -> void:
 	var indices := item_list.get_selected_items()
 	if indices.is_empty():
-		item_detail.text = "行囊尚無護符。可從倉庫準備，或在戰場拾取。" if category.selected == 0 else "行囊尚無武器。出陣使用無限耐久白板；拾取後自行換裝。"
+		item_detail.text = "行囊未備護符。" if category.selected == 0 else "行囊未備兵器；攜常備兵器出陣（耐久 ∞）。"
 		equip_button.disabled = true
 		return
 	var item: Dictionary = current_items[indices[0]]
 	var spec := Equipment.catalog(item.item_id)
-	item_detail.text = spec.description if category.selected == 0 else "攻擊 %+d　攻速 %d%%　範圍 %+.0f　擊退 %+.1f\n%s\n耐久 %d / %d；每次傷到敵人減 1。" % [int(spec.damage_bonus),roundi(spec.attack_speed * 100),float(spec.reach_bonus),float(spec.knockback),spec.special,int(item.durability),int(spec.durability)]
+	item_detail.text = spec.description if category.selected == 0 else "攻擊 %+d　攻速 %d%%　範圍 %+.0f　擊退 %+.1f\n%s\n耐久 %d / %d；傷敵耗損 1。" % [int(spec.damage_bonus),roundi(spec.attack_speed * 100),float(spec.reach_bonus),float(spec.knockback),spec.special,int(item.durability),int(spec.durability)]
 	equip_button.disabled = item.uid in [row.weapon_uid,row.treasure_uid]
-	equip_button.text = "已裝備" if equip_button.disabled else "裝備並查看變化"
+	equip_button.text = "已裝備" if equip_button.disabled else "裝備"
 
 func _label(parent: Node, text: String, size: int) -> Label:
 	var label := Label.new()
 	label.text = text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.add_theme_font_size_override("font_size",size)
-	if size >= 25:
-		label.add_theme_font_override("font",Typography.font())
-		label.add_theme_color_override("font_color",Typography.GOLD)
 	parent.add_child(label)
 	return label
 
 func _button(parent: Node, text: String, action: Callable) -> Button:
 	var button := Button.new()
 	button.text = text
+	button.focus_mode = Control.FOCUS_ALL
 	button.custom_minimum_size.y = 42
 	button.add_theme_font_size_override("font_size",19)
 	button.pressed.connect(action)

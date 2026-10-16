@@ -122,8 +122,8 @@ func run() -> void:
 	app.controls_dialog.hide()
 	app.paused = false
 	check(app.view._fx.configured and app.view._fx.shared_player.catalog.size() == 28,"Real Main initializes every shared VFX base")
-	for hero in Battle.HEROES:
-		for attack in ["light","heavy","charged","charged_slam","special"]:
+	for hero in Battle.PLAYABLE_HEROES:
+		for attack in (["light","heavy","charged","charge_rain"] if hero == "oichi" else ["light","heavy","charged"]):
 			app.sim.reset_campaign("normal",1,[hero],2)
 			app.sim.state.fighters = app.sim.state.fighters.filter(func(f): return f.team == 0)
 			app.sim.state.props.clear()
@@ -134,16 +134,17 @@ func run() -> void:
 			player.x = 520.0; player.y = 520.0
 			var dummy := app.sim._make_fighter(1,"dummy",650,520,10000)
 			app.sim.state.fighters.append(dummy)
-			app.frame = {"dx":0,"dy":0,"buttons":Battle.LIGHT if attack == "light" else (Battle.SPECIAL if attack == "special" else Battle.HEAVY)}
+			app.frame = {"dx":0,"dy":0,"buttons":Battle.LIGHT if attack == "light" else Battle.HEAVY}
 			player.rage = 100
-			if attack == "charged_slam": app.frame.dy = 1
+			if attack == "charge_rain": app.frame.dy = -1
 			app._physics_process(1.0/60)
-			if attack in ["charged","charged_slam"]:
-				for tick in range(42): app._physics_process(1.0/60)
+			if attack in ["charged","charge_rain"]:
+				var charge_ticks := ceili(float(Battle.CombatMoves.registration(hero).clips.charge_ready.duration_ms)*.06)+1
+				for tick in range(charge_ticks): app._physics_process(1.0/60)
 				await shot(app,"charge-"+hero+"-"+attack)
-			app.frame = {"dx":0,"dy":0,"buttons":0}
+			app.frame = {"dx":0,"dy":-1 if attack == "charge_rain" else 0,"buttons":0}
 			var released := false
-			for tick in range(45):
+			for tick in range(180):
 				app._physics_process(1.0/60)
 				if player.action == attack and app.view._fighter_animation(player).released:
 					released = true
@@ -151,7 +152,7 @@ func run() -> void:
 			check(released,"Real Main input reaches "+hero+" "+attack+" release")
 			check(app.view._fx.last_tick == app.sim.state.tick and app.view._fx.emitter.diagnostics.is_empty(),"Main syncs VFX at actual simulation time")
 			await shot(app,"attack-"+hero+"-"+attack)
-			if capture and attack == "charged" and hero in ["nobunaga","hideyoshi","tadakatsu"]: check(not app.view.get_meta("shared_vfx_meshes",[]).is_empty(),"Actual charged move retains native flowing VFX draw meshes")
+			if attack == "charged" and hero == "nobunaga": check(app.view._art.animation_frame(hero,app.view._fighter_animation(player)).combat_layers.has("fx"),"Current spin retains its separate VFX layer")
 	for group in [["soldier","flag","commander","archer","gunner"],["shield_spear","fire_archer","raider"]]:
 		for pose in ["idle","attack","hurt","dead"]:
 			app.sim.reset_campaign("normal",1,["nobunaga"],2)

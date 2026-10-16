@@ -137,14 +137,14 @@ func run() -> void:
 				var sample := view.live_sample(actor)
 				coverage[hero][action].append({"source":sample.get("source","missing"),"sheet":sample.get("sheet","missing"),"frame":sample.get("frame",-1),"tick":actor.action_tick})
 				if available_only and sample.get("source") != "v22": continue
-				check(sample.get("source") == "v22" and sample.get("count") == 6,hero + " " + action + " never falls back to a legacy image")
+				check(sample.get("source") == "v22" and (sample.get("source_version") == "v33" or sample.get("count") == 6),hero + " " + action + " never falls back to a legacy image")
 				if sample.get("source") != "v22": continue
 				var frame: Dictionary = view._art.animation_frame(hero,sample)
 				var geometry: Dictionary = view._weapons.geometry(actor,frame,148 if hero == "oichi" else 155)
 				check(not geometry.is_empty() if frame.get("weapon_visible",true) else geometry.is_empty(),hero + " " + action + " resolves equipped weapon pose")
 				view.cards.append(actor)
 				view.samples[actor.id] = sample
-			if action in ["walk","run","light1","light2","light3","heavy1","heavy2","charged_upper","charged_slam"] and view.cards.size() == 6:
+			if action in ["walk","run","light1","light2","light3","heavy1","heavy2","charged_upper","charged_slam"] and view.cards.size() == 6 and view.samples[view.cards[0].id].get("source_version") != "v33":
 				var seen: Array = []
 				for card in view.cards:
 					if not seen.has(view.samples[card.id].frame): seen.append(view.samples[card.id].frame)

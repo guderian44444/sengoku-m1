@@ -8,36 +8,36 @@
 
 | 護符 | 階位 | 功能定義 | 說明 | 耐久 | 題材 |
 | --- | --- | --- | --- | --- | --- |
-| 金剛護身符 | 1 | 吸收共 40 點傷害 | 輕量的護身札，適合初次出陣。 | 40 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
-| 玄鐵護身符 | 2 | 吸收共 75 點傷害 | 把有限護盾留給真正打到身上的傷害。 | 75 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
-| 明鏡護身符 | 3 | 吸收共 110 點傷害 | 容量較大的護盾，並不提高攻擊。 | 110 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
-| 疾風御守 | 2 | 初始減傷 15%；移動 +8% | 靠走位減少受擊，不能穿過敵人。 | 160 | [禪居庵：摩利支天](https://zenkyoan.jp/pages/marishiten) |
-| 武神御守 | 3 | 初始減傷 25%；基準攻擊 +3 | 既有的攻防款，保留原本能力。 | 240 | [鶴岡八幡宮：武士的守護神](https://www.hachimangu.or.jp/?vm=r) |
-| 月影御守 | 4 | 初始減傷 35%；範圍 +12 | 既有的範圍防護款，沒有無敵效果。 | 320 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
-| 八幡戰勝札 | 2 | 初始減傷 10%；基準攻擊 +2；擊殺怒氣 +1 | 每擊殺一敵回復少量怒氣，單純打中不觸發。 | 180 | [鶴岡八幡宮：武士的守護神](https://www.hachimangu.or.jp/?vm=r) |
-| 毘沙門堅陣札 | 3 | 初始減傷 16%；成功防禦怒氣 +2 | 真的擋住一擊才回怒氣，背後或破防不算。 | 220 | [e國寶：毘沙門天立像](https://emuseum.nich.go.jp/detail?content_base_id=100437&content_part_id=0&content_pict_id=0&langId=ja&webView=) |
-| 摩利支天陽炎守 | 4 | 初始減傷 12%；移動 +6%；攻速 +4% | 機動與節奏各增一點，不提供隱身或迴避無敵。 | 250 | [禪居庵：摩利支天](https://zenkyoan.jp/pages/marishiten) |
-| 熊野牛王誓札 | 4 | 初始減傷 14%；中毒時間 -20%；成功防禦怒氣 +1 | 保護、解毒與守勢的折衷，三項都維持小幅。 | 260 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
-| 八咫烏導路守 | 2 | 初始減傷 8%；移動 +6%；範圍 +6 | 擅長調整位置，延長少許接觸距離。 | 180 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
-| 竹柏旅守 | 1 | 初始減傷 6%；移動 +5%；中毒時間 -15% | 行路用的輕型機動護符。 | 140 | [熊野三山官方簡介：竹柏葉](https://www.kumano-area.jp/wp-content/uploads/2025/01/2abc9d2a5e9d06677597f563155e7815.pdf) |
-| 愛宕火伏札 | 2 | 初始減傷 8%；燃燒時間 -40% | 燃燒時間縮短，仍會受火焰直接命中傷害。 | 180 | [消防廳：愛宕火伏信仰](https://www.fdma.go.jp/publication/ugoki/assets/2702_all.pdf) |
-| 火迺要慎守 | 3 | 初始減傷 12%；燃燒時間 -30%；移動 +4% | 較均衡的離火走位款。 | 220 | [消防廳：愛宕火伏信仰](https://www.fdma.go.jp/publication/ugoki/assets/2702_all.pdf) |
-| 霜鏡守 | 2 | 初始減傷 8%；冰凍時間 -35% | 鏡面與霜色的創作款，只縮短冰凍時間。 | 180 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
-| 清水祓守 | 2 | 初始減傷 8%；中毒時間 -35% | 以避災札為題材的解毒款，不清除已存在的毒。 | 180 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
-| 稻荷五穀守 | 1 | 初始減傷 6%；食物回復 +15% | 拾取食物時多回少量生命，滿血不浪費食物。 | 150 | [伏見稻荷大社：祭神與信仰](https://inari.jp/about/saijin/) |
-| 豐穰兵糧札 | 3 | 初始減傷 12%；食物回復 +12%；中毒時間 -15% | 補給與抗毒兼顧，沒有持續自動回血。 | 210 | [伏見稻荷大社：祭神與信仰](https://inari.jp/about/saijin/) |
-| 天神機先守 | 2 | 初始減傷 8%；攻速 +6% | 命中與收招一起變快，沒有另加傷害。 | 170 | [湯島天滿宮：御守](https://www.yushimatenjin.or.jp/en/amulets/) |
-| 春日白鹿守 | 2 | 初始減傷 8%；移動 +10% | 較強的移動款，放棄高減傷與攻擊加成。 | 170 | [春日大社：鹿島、香取與祭神](https://www.kasugataisha.or.jp/ch-h/guidance_ch-h/) |
-| 鹿島武藝札 | 2 | 初始減傷 10%；重手傷害 +10% | 只強化未蓄力的重手類招式。 | 180 | [春日大社：鹿島、香取與祭神](https://www.kasugataisha.or.jp/ch-h/guidance_ch-h/) |
-| 香取斬鋒札 | 2 | 初始減傷 10%；蓄力傷害 +10% | 完整蓄力後的直接命中較強，持續元素不增加。 | 180 | [春日大社：鹿島、香取與祭神](https://www.kasugataisha.or.jp/ch-h/guidance_ch-h/) |
-| 陽炎飛躍守 | 2 | 初始減傷 8%；空中傷害 +10% | 強化空中輕手與重手，地面攻擊不加成。 | 170 | [禪居庵：摩利支天](https://zenkyoan.jp/pages/marishiten) |
-| 牛王結誓守 | 2 | 初始減傷 10%；投摔傷害 +12% | 投摔直接傷害較高，撞飛旁人的傷害不加成。 | 180 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
-| 八幡奮戰守 | 3 | 初始減傷 10%；擊殺怒氣 +2；成功防禦怒氣 +1 | 靠擊殺與防禦累積怒氣，不提供被動怒氣回復。 | 210 | [鶴岡八幡宮：武士的守護神](https://www.hachimangu.or.jp/?vm=r) |
-| 北方鎮陣守 | 3 | 初始減傷 16%；擊退 +1.5；冰凍時間 -15% | 用小幅擊退爭取空間，不能擊飛重型頭目。 | 220 | [e國寶：毘沙門天立像](https://emuseum.nich.go.jp/detail?content_base_id=100437&content_part_id=0&content_pict_id=0&langId=ja&webView=) |
-| 戰勝扇守 | 3 | 初始減傷 10%；必殺傷害 +8%；擊殺怒氣 +1 | 必殺更穩定，不能縮短必殺或突破怒氣上限。 | 220 | [鶴岡八幡宮：武士的守護神](https://www.hachimangu.or.jp/?vm=r) |
-| 三寶調和守 | 4 | 初始減傷 12%；基準攻擊 +1；攻速 +3%；食物回復 +8% | 攻擊、節奏、補給各給一點，沒有單項最高值。 | 250 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
-| 武門雙神守 | 4 | 初始減傷 14%；重手傷害 +6%；蓄力傷害 +6%；擊退 +1.0 | 重手與蓄力各小幅提高，不同條件不會重複疊算。 | 250 | [春日大社：鹿島、香取與祭神](https://www.kasugataisha.or.jp/ch-h/guidance_ch-h/) |
-| 熊野歸陣守 | 4 | 初始減傷 18%；燃燒時間 -15%；食物回復 +8% | 以安穩完成關卡為主，沒有復活或免死。 | 260 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
+| 金剛護身符 | 1 | 吸收共 40 點傷害 | 輕札護身，伴君初陣。 | 40 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
+| 玄鐵護身符 | 2 | 吸收共 75 點傷害 | 玄鐵鎮身，承受刀箭之傷。 | 75 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
+| 明鏡護身符 | 3 | 吸收共 110 點傷害 | 明鏡護身，專司禦傷。 | 110 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
+| 疾風御守 | 2 | 初始減傷 15%；移動 +8% | 疾行避刃；敵陣仍不可穿越。 | 160 | [禪居庵：摩利支天](https://zenkyoan.jp/pages/marishiten) |
+| 武神御守 | 3 | 初始減傷 25%；基準攻擊 +3 | 武威護身，攻守兼備。 | 240 | [鶴岡八幡宮：武士的守護神](https://www.hachimangu.or.jp/?vm=r) |
+| 月影御守 | 4 | 初始減傷 35%；範圍 +12 | 月影延鋒，護身而不免傷。 | 320 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
+| 八幡戰勝札 | 2 | 初始減傷 10%；基準攻擊 +2；擊殺怒氣 +1 | 討取敵首，方能振奮怒氣。 | 180 | [鶴岡八幡宮：武士的守護神](https://www.hachimangu.or.jp/?vm=r) |
+| 毘沙門堅陣札 | 3 | 初始減傷 16%；成功防禦怒氣 +2 | 正面守住敵擊，方得怒氣；背襲與破防無效。 | 220 | [e國寶：毘沙門天立像](https://emuseum.nich.go.jp/detail?content_base_id=100437&content_part_id=0&content_pict_id=0&langId=ja&webView=) |
+| 摩利支天陽炎守 | 4 | 初始減傷 12%；移動 +6%；攻速 +4% | 輕身快手，仍須避開鋒刃。 | 250 | [禪居庵：摩利支天](https://zenkyoan.jp/pages/marishiten) |
+| 熊野牛王誓札 | 4 | 初始減傷 14%；中毒時間 -20%；成功防禦怒氣 +1 | 護身抗毒，穩守待敵。 | 260 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
+| 八咫烏導路守 | 2 | 初始減傷 8%；移動 +6%；範圍 +6 | 烏引前路，步疾鋒長。 | 180 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
+| 竹柏旅守 | 1 | 初始減傷 6%；移動 +5%；中毒時間 -15% | 竹柏隨身，輕步遠行。 | 140 | [熊野三山官方簡介：竹柏葉](https://www.kumano-area.jp/wp-content/uploads/2025/01/2abc9d2a5e9d06677597f563155e7815.pdf) |
+| 愛宕火伏札 | 2 | 初始減傷 8%；燃燒時間 -40% | 縮短燃燒時辰；烈火直擊仍會受傷。 | 180 | [消防廳：愛宕火伏信仰](https://www.fdma.go.jp/publication/ugoki/assets/2702_all.pdf) |
+| 火迺要慎守 | 3 | 初始減傷 12%；燃燒時間 -30%；移動 +4% | 火伏護身，輕步離焰。 | 220 | [消防廳：愛宕火伏信仰](https://www.fdma.go.jp/publication/ugoki/assets/2702_all.pdf) |
+| 霜鏡守 | 2 | 初始減傷 8%；冰凍時間 -35% | 霜鏡禦寒，縮短冰縛。 | 180 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
+| 清水祓守 | 2 | 初始減傷 8%；中毒時間 -35% | 縮短新中毒的時辰，已中的毒不消。 | 180 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
+| 稻荷五穀守 | 1 | 初始減傷 6%；食物回復 +15% | 兵糧養身；體力充盈時不取食。 | 150 | [伏見稻荷大社：祭神與信仰](https://inari.jp/about/saijin/) |
+| 豐穰兵糧札 | 3 | 初始減傷 12%；食物回復 +12%；中毒時間 -15% | 兵糧益身、護符抗毒；須取食方能回復。 | 210 | [伏見稻荷大社：祭神與信仰](https://inari.jp/about/saijin/) |
+| 天神機先守 | 2 | 初始減傷 8%；攻速 +6% | 出手收勢皆快，力道如常。 | 170 | [湯島天滿宮：御守](https://www.yushimatenjin.or.jp/en/amulets/) |
+| 春日白鹿守 | 2 | 初始減傷 8%；移動 +10% | 白鹿引路，身輕步疾。 | 170 | [春日大社：鹿島、香取與祭神](https://www.kasugataisha.or.jp/ch-h/guidance_ch-h/) |
+| 鹿島武藝札 | 2 | 初始減傷 10%；重手傷害 +10% | 未蓄力的重手招式威力增強。 | 180 | [春日大社：鹿島、香取與祭神](https://www.kasugataisha.or.jp/ch-h/guidance_ch-h/) |
+| 香取斬鋒札 | 2 | 初始減傷 10%；蓄力傷害 +10% | 蓄力直擊威力增強，餘焰等持續傷害如常。 | 180 | [春日大社：鹿島、香取與祭神](https://www.kasugataisha.or.jp/ch-h/guidance_ch-h/) |
+| 陽炎飛躍守 | 2 | 初始減傷 8%；空中傷害 +10% | 躍起出手更強，地面招式如常。 | 170 | [禪居庵：摩利支天](https://zenkyoan.jp/pages/marishiten) |
+| 牛王結誓守 | 2 | 初始減傷 10%；投摔傷害 +12% | 摔投本體威力增強，撞敵的餘力如常。 | 180 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
+| 八幡奮戰守 | 3 | 初始減傷 10%；擊殺怒氣 +2；成功防禦怒氣 +1 | 討敵、守禦皆可聚怒；靜候不生怒氣。 | 210 | [鶴岡八幡宮：武士的守護神](https://www.hachimangu.or.jp/?vm=r) |
+| 北方鎮陣守 | 3 | 初始減傷 16%；擊退 +1.5；冰凍時間 -15% | 推敵守陣，重型敵將仍難擊飛。 | 220 | [e國寶：毘沙門天立像](https://emuseum.nich.go.jp/detail?content_base_id=100437&content_part_id=0&content_pict_id=0&langId=ja&webView=) |
+| 戰勝扇守 | 3 | 初始減傷 10%；必殺傷害 +8%；擊殺怒氣 +1 | 必殺威力增強，施招時長與怒氣上限如常。 | 220 | [鶴岡八幡宮：武士的守護神](https://www.hachimangu.or.jp/?vm=r) |
+| 三寶調和守 | 4 | 初始減傷 12%；基準攻擊 +1；攻速 +3%；食物回復 +8% | 三寶隨身，兼養武力、身法與兵糧。 | 250 | [伊勢神宮：御守與御神札](https://www.isejingu.or.jp/en/pdf/soul-of-japan.pdf) |
+| 武門雙神守 | 4 | 初始減傷 14%；重手傷害 +6%；蓄力傷害 +6%；擊退 +1.0 | 重手、蓄力各得其益，同一招式不重複加成。 | 250 | [春日大社：鹿島、香取與祭神](https://www.kasugataisha.or.jp/ch-h/guidance_ch-h/) |
+| 熊野歸陣守 | 4 | 初始減傷 18%；燃燒時間 -15%；食物回復 +8% | 護佑歸陣，身殞不能復生。 | 260 | [熊野本宮大社：牛王神符](https://www.hongutaisha.jp/2015/04/22/熊野牛王神符/) |
 
 ## 功能結算
 

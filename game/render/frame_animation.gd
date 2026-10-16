@@ -1,6 +1,7 @@
 extends RefCounted
 
 const Battle = preload("res://core/battle.gd")
+const CombatMoves = preload("res://core/combat_moves.gd")
 
 const POSE_CLIPS := ["idle", "light", "heavy", "charge", "jump", "throw", "hurt", "special", "victory", "walk"]
 const CLIPS := {
@@ -191,9 +192,11 @@ static func enemy_v14_sample(fighter: Dictionary, locomotion_tick: float, idle_t
 	if clip in ["walk","idle","struggle"]:
 		tick = locomotion_tick if clip == "walk" else (idle_tick if clip == "idle" else tick)
 		var fps := 12.0 if clip == "walk" else 6.0
-		# Six v19 key poses keep a natural one-second gait; fewer drawings do not speed up walking.
+		# Source pose count changes cadence, never the duration of a complete stride.
 		if clip == "walk" and source == "v19": fps = float(count)
 		frame = posmod(floori(maxf(tick,0) * fps / 60.0),count)
+		# These struggle poses have different footing; a captive must keep one pose.
+		if clip == "struggle" and int(fighter.get("held_by",0)) != 0: frame = count / 2
 		if action == "retreat" and float(fighter.get("move_dx",-float(fighter.get("face",1)))) * float(fighter.get("face",1)) < 0: frame = posmod(-frame,count)
 		duration = count * 60.0 / fps
 	elif clip == "death":
@@ -473,29 +476,29 @@ static func hero_v12_sample(fighter: Dictionary, distance: float, height: float,
 
 
 static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictionary:
+	if CombatMoves.active(fighter):
+		if fighter.get("action","") == "idle" and float(fighter.get("z",0)) <= 0 and not fighter.get("moving",false) and sheets.has("v33_guard_idle"):
+			return {"source":"v22","source_version":"v33","hero":fighter.kind,"clip":"idle","sheet":"v33_guard_idle","frame":0,"cell":0,"count":1,"tick":0.0,"duration":0.0,"released":false}
+		var clip33 := CombatMoves.clip(fighter)
+		var spec33 := CombatMoves.spec(fighter)
+		if not spec33.is_empty() and sheets.has("v33_"+clip33):
+			var milliseconds := Battle.combat_time_ms(fighter)
+			if fighter.action == "charge":
+				milliseconds = float(fighter.charge)*1000/60
+				if clip33 == "charge_hold": milliseconds -= float(CombatMoves.registration(str(fighter.kind)).clips.charge_ready.duration_ms)
+			var index33 := CombatMoves.frame_index(spec33,milliseconds)
+			var released33 := false
+			for event in spec33.get("events",[]):
+				if milliseconds >= float(event.ms): released33 = true
+			return {"source":"v22","source_version":"v33","hero":fighter.kind,"clip":clip33,"sheet":"v33_"+clip33,"frame":index33,"cell":index33,"count":spec33.frames.size(),"tick":float(fighter.action_tick),"duration":float(Battle.fighter_tick(fighter,19)) if fighter.action == "light" else float(spec33.duration_ms)*.06,"released":released33}
 	var action := str(fighter.get("action","idle"))
 	var tick := float(fighter.get("action_tick",0))
 	var clip := action
 	if fighter.get("hp",1) <= 0: clip = "launched" if fighter.get("airborne_lock",false) else "down"
 	elif action == "idle": clip = "jump" if float(fighter.get("z",0)) > 0 else (("run" if fighter.get("sprinting",false) else "walk") if fighter.get("moving",false) else "idle")
-	elif action == "light": clip = "light%d" % clampi(int(fighter.get("combo",1)),1,3)
-	elif action == "heavy": clip = "heavy%d" % clampi(int(fighter.get("heavy_combo",1)),1,2)
 	elif action in ["defeated","dead"]: clip = "down"
-	elif action == "dash_heavy" and fighter.get("kind","") == "hideyoshi": clip = "heavy1"
-	elif action == "charged" and fighter.get("kind","") == "hideyoshi": clip = ["light1","light2","heavy1"][mini(2,floori(tick/22.0))]
-	elif action in ["frozen","pulled","grabbed"]: clip = action if fighter.get("kind","") == "hideyoshi" and sheets.has("v22_"+action) else "hurt"
+	elif action in ["frozen","pulled","grabbed"]: clip = "hurt"
 	elif action == "thrown": clip = "launched"
-	elif action == "counter_cut": clip = "light2"
-	elif action == "upper_heavy": clip = "upper_heavy" if fighter.get("kind","") == "hideyoshi" and sheets.has("v22_upper_heavy") else "charged_upper"
-	elif action == "ground_slam": clip = "ground_slam" if fighter.get("kind","") == "hideyoshi" and sheets.has("v22_ground_slam") else "charged_slam"
-	elif action == "holding": clip = "holding" if sheets.has("v22_holding") else "throw"
-	elif action == "charge":
-		clip = "charge_slam" if int(fighter.get("charge_direction",0)) > 0 else ("charge_upper" if int(fighter.get("charge_direction",0)) < 0 else "charge")
-		if not sheets.has("v22_"+clip): clip = "charged_slam" if int(fighter.get("charge_direction",0)) > 0 else ("charged_upper" if int(fighter.get("charge_direction",0)) < 0 else "heavy2")
-	elif action == "charged" and not sheets.has("v22_charged"): clip = "heavy2"
-	if action == "special" and fighter.get("kind","") == "hideyoshi": clip = "special_%d" % mini(3,1+floori(tick/70.0))
-	if action in ["mixed_finisher","mixed_rising"] and not sheets.has("v22_"+action):
-		clip = ("light2" if fighter.get("kind","") == "oichi" else "light3") if tick < 22 else ("charged_upper" if action == "mixed_rising" else "charged_slam")
 	var sheet := "v22_" + clip
 	if not sheets.has(sheet): return {}
 	var count: int = sheets[sheet].size()
@@ -510,47 +513,25 @@ static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictiona
 	elif clip in ["jump","launched"]: frame = clampi(floori((10.0-float(fighter.get("vz",0))) / 20.0 * count),0,count-1)
 	elif clip == "down":
 		frame = mini(count-1,floori(tick*count/24.0))
-		if fighter.get("down_from_air",false): frame = count/2 + mini(count/2-1,floori(tick*count/24.0))
+		if fighter.get("down_from_air",false):
+			var start := count / 2
+			frame = start + mini(count-start-1,floori(tick*count/24.0))
 	elif clip == "recovering": frame = mini(count-1,floori(tick*count/float(Battle.RECOVER_TICKS)))
 	elif clip == "hurt": frame = count/2 if action == "frozen" else mini(count-1,floori(tick*count/18.0))
 	elif clip == "stunned": frame = posmod(floori(tick/8.0),count)
 	elif clip == "victory":
 		duration = Battle.VICTORY_TICKS
 		frame = mini(count-1,floori(tick*count/duration))
-	elif action in ["charge","holding"]: frame = mini(count-1 if fighter.get("kind","") == "hideyoshi" else count/2-1,floori(tick/6.0))
-	elif action == "guard": frame = 4 if fighter.get("guard_hit_tick",0)>0 else mini(count-1 if fighter.get("kind","") == "hideyoshi" else 2,floori(tick/4.0))
-	elif action == "special" and fighter.get("kind","") == "hideyoshi":
-		frame = _attack_frame(fposmod(tick,70),35,70,count)
-		duration = Battle.SPECIAL_TICKS
-		released = fposmod(tick,70) >= 35
-	elif action == "special":
-		var pulses: Array = Battle.SPECIAL_HIT_TICKS.get(str(fighter.get("kind","nobunaga")),Battle.SPECIAL_HIT_TICKS.nobunaga)
-		var pulse := 0
-		for index in range(1,pulses.size()):
-			if tick >= (float(pulses[index-1])+float(pulses[index]))*.5: pulse=index
-		var hit := float(pulses[pulse])
-		var start := 0.0 if pulse == 0 else (float(pulses[pulse-1])+hit)*.5
-		var finish := float(Battle.SPECIAL_TICKS) if pulse == pulses.size()-1 else (hit+float(pulses[pulse+1]))*.5
-		frame = _attack_frame(tick-start,hit-start,finish-start,count)
-		duration = Battle.SPECIAL_TICKS
-		released = tick >= hit
-	else:
-		var timing: Array = {"light":[6,19],"heavy":[14,36],"charged":[14,36],"throw":[0,24],"rising":[6,24],"upper_heavy":[12,36],"low_sweep":[9,28],"ground_slam":[14,42],"charged_upper":[22,56],"charged_slam":[28,72],"air_light":[6,20],"air_heavy":[12,38],"dash_strike":[10,30],"dash_heavy":[12,34],"counter_cut":[5,24],"mixed_finisher":[5,26],"mixed_rising":[5,26]}.get(action,[14,36])
-		if fighter.get("kind","") == "hideyoshi":
-			if action == "throw": timing = [12,36]
-			elif action in ["mixed_finisher","mixed_rising"]: timing = [14,48]
-		var local_tick := tick
-		if fighter.get("kind","") == "hideyoshi" and action == "charged":
-			local_tick = fposmod(tick,22)
-			timing = [12,22]
-		if action in ["mixed_finisher","mixed_rising"] and fighter.get("kind","") != "hideyoshi":
-			if tick < 22: timing = [9,22]
-			else: local_tick -= 22
-		if action == "charged" and fighter.get("kind","") == "tadakatsu": timing = [5,36]
-		frame = _attack_frame(local_tick,timing[0],timing[1],count) if timing[0] > 0 else mini(count-1,floori(local_tick*count/timing[1]))
-		duration = timing[1]
-		if fighter.get("kind","") == "hideyoshi" and action == "charged": duration = 66
-		released = local_tick >= timing[0]
+	# Authored holds affect drawing only; input cancellation and combat keep their own clocks.
+	if sheets[sheet][0].has("clip_duration_ms") and clip not in ["jump","launched"] and action != "frozen":
+		var spec := {"frames":sheets[sheet],"duration_ms":sheets[sheet][0].clip_duration_ms,"loop":sheets[sheet][0].clip_loop}
+		duration = float(spec.duration_ms)*.06
+		var elapsed := maxf(0,tick)*1000.0/60.0
+		if sheets[sheet][0].get("combat_v33",false) and clip in ["hurt","down","recovering","victory"]:
+			var window: float = {"hurt":18,"down":24,"recovering":Battle.RECOVER_TICKS,"victory":Battle.VICTORY_TICKS}[clip]
+			elapsed = clampf(tick / maxf(1,window-1),0,1)*float(spec.duration_ms)
+		frame = CombatMoves.frame_index(spec,elapsed)
+		if clip == "down" and fighter.get("down_from_air",false): frame = maxi(count/2,frame)
 	return {"source":"v22","source_version":sheets[sheet][frame].get("source_version","v22"),"hero":fighter.get("kind",""),"clip":clip,"sheet":sheet,"frame":frame,"cell":frame,"count":count,"tick":tick,"duration":duration,"released":released}
 
 static func hero_v11_sample(fighter: Dictionary, distance: float, height: float, counts: Dictionary) -> Dictionary:

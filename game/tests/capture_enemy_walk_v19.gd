@@ -4,7 +4,6 @@ const View = preload("res://render/battle_view.gd")
 const Battle = preload("res://core/battle.gd")
 const Frames = preload("res://render/frame_animation.gd")
 const ROLES := ["soldier","flag","commander","archer","gunner","boss","matsui"]
-const PHASES := ["寬／前腿開","窄／收攏","交錯／通過","換腿寬／開","窄／收攏","交錯／通過"]
 var output := ""
 
 class Board extends View:
@@ -19,12 +18,13 @@ class Board extends View:
 		draw_rect(Rect2(Vector2.ZERO,board_size),Color("172329"))
 		draw_string(ThemeDB.fallback_font,Vector2(24,34),title,HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color("ecd6a8"))
 		if mode == "contact":
-			for index in range(6):
-				var x := index * board_size.x / 6.0
-				draw_rect(Rect2(x+3,54,board_size.x/6.0-6,board_size.y-60),Color("23353d"))
-				draw_string(ThemeDB.fallback_font,Vector2(x+14,88),"%02d  %s" % [index+1,PHASES[index]],HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color("ecd6a8"))
-				_walk_ticks[selected.id] = index * 10
-				_draw_actor(selected,Vector2(x+board_size.x/12.0,350))
+			var count: int = _art.enemy_clips["imagawa:"+str(selected.label)+":walk"].size()
+			for index in range(count):
+				var x := index * board_size.x / float(count)
+				draw_rect(Rect2(x+3,54,board_size.x/float(count)-6,board_size.y-60),Color("23353d"))
+				draw_string(ThemeDB.fallback_font,Vector2(x+14,88),"%02d" % [index+1],HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color("ecd6a8"))
+				_walk_ticks[selected.id] = index * 60.0 / count
+				_draw_actor(selected,Vector2(x+board_size.x/float(count*2),350))
 		elif mode == "actions":
 			for index in range(actors.size()):
 				_draw_actor(actors[index],Vector2((index+0.5)*board_size.x/6.0,350))
@@ -81,7 +81,7 @@ func run() -> void:
 		var fighter := actor(ROLES[index],index+1)
 		board.actors.append(fighter)
 		var key: String = "imagawa:"+ROLES[index]+":walk"
-		assert(board._art.enemy_clips.has(key) and board._art.enemy_clips[key].size() == 6,"Capture requires all seven accepted six-pose walking clips")
+		assert(board._art.enemy_clips.has(key) and board._art.enemy_clips[key].size() == (12 if ROLES[index] == "soldier" else 6),"Capture uses every current genuine walk pose")
 	var nobunaga := {"id":100,"kind":"nobunaga","team":0,"action":"idle","moving":false,"face":1,"label":"nobunaga"}
 	board.actors.append(nobunaga)
 	# --write-movie records this first section at 60 fps: two full cycles in each facing.
@@ -91,13 +91,13 @@ func run() -> void:
 		for tick in range(120):
 			board.walk_tick = tick
 			board.state.tick = tick
-			board.title = "今川七身份｜%s｜6 姿勢／60 tick 一輪｜第 %d tick" % ["面右" if face == 1 else "面左",tick%60]
+			board.title = "今川七身份｜%s｜足輕 12／其他 6 姿勢；60 tick 一輪｜第 %d tick" % ["面右" if face == 1 else "面左",tick%60]
 			for fighter in board.actors:
 				if fighter.team == 0: continue
 				board._walk_ticks[fighter.id] = tick
 				var sample := board._fighter_animation(fighter)
-				assert(sample.source == "v19" and sample.count == 6 and sample.duration == 60)
-				assert(sample.frame == int(tick%60/10),"Every pose retains ten complete native frames")
+				assert(sample.source == "v19" and sample.count == (12 if fighter.label == "soldier" else 6) and sample.duration == 60)
+				assert(sample.frame == int(tick%60*sample.count/60),"All poses retain the complete one-second gait")
 				record.trace.append({"role":fighter.label,"tick":tick,"frame":sample.frame,"sheet":sample.sheet})
 			board.queue_redraw()
 			await process_frame
@@ -119,10 +119,12 @@ func run() -> void:
 	board.reparent(sheets)
 	for role in ROLES:
 		board.selected = actor(role,70)
+		board.board_size.x = 4000 if role == "soldier" else 2000
+		sheets.size = Vector2i(board.board_size)
 		for face in [1,-1]:
 			board.facing = face
-			board.title = role+"｜六個來源姿勢｜"+("面右" if face == 1 else "面左")+"｜每格 10 tick；原生遊戲比例"
-			var filename: String = role+"-six-"+("right" if face == 1 else "left")+".png"
+			board.title = role+"｜全部來源姿勢｜"+("面右" if face == 1 else "面左")+"｜60 tick 一輪；原生遊戲比例"
+			var filename: String = role+"-poses-"+("right" if face == 1 else "left")+".png"
 			await save_board(board,filename)
 			report.boards.append(filename)
 	board.mode = "actions"

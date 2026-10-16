@@ -2,6 +2,7 @@ extends RefCounted
 
 const FrameAnimation = preload("res://render/frame_animation.gd")
 const LayeredHeroSource = preload("res://render/layered_hero_source.gd")
+const CombatMoves = preload("res://core/combat_moves.gd")
 
 # shortcut: portable projects load raw PNGs; include these files when producing a game export.
 const ROOT := "res://assets/v03/"
@@ -67,32 +68,17 @@ var day_frame: Dictionary = {}
 var stage2_equipment: Dictionary = {}
 
 func _init() -> void:
-	for hero in ["nobunaga", "oichi"]:
-		var frames := _load_grid(ROOT + hero + "-transparent.png", 3, 3, true)
-		if frames.size() == 9:
-			for index in range(9):
-				var texture_size: Vector2 = frames[index].texture.get_size()
-				var source_scale := texture_size / Vector2(1536, 1024)
-				frames[index]["anchor"] = HERO_ANCHORS[hero][index] * source_scale - frames[index].region.position
-				frames[index]["body_height"] = HERO_BODY_HEIGHT[hero] * source_scale.y * (SPECIAL_SOURCE_SCALE[hero] if index == 7 else 1.0)
-			heroes[hero] = frames
-		_load_animation(hero)
-		_load_upgrade(hero)
-		_load_upgrade(hero, LATEST_ROOT, "v06", hero == "oichi")
-		_load_upgrade(hero, REFINED_ROOT, "v07", hero == "nobunaga")
+	animations = {"nobunaga":{},"oichi":{}}
 	_load_combat_atlases()
 	_load_combat_atlases(EXPANDED_ROOT, "v10")
 	_load_combat_atlases("res://assets/v11/", "v11")
-	_load_combat_atlases("res://assets/v12/", "v12")
-	_load_combat_atlases("res://assets/v13/", "v13")
 	_load_combat_atlases("res://assets/v14/", "v14")
-	_load_combat_atlases("res://assets/v15/", "v15")
-	_load_combat_atlases("res://assets/v16/", "v16")
-	_load_combat_atlases("res://assets/v17/", "v17")
 	_load_combat_atlases("res://assets/v19/enemies/", "v19")
 	_load_combat_atlases("res://assets/v31/enemies/", "v31")
+	_load_combat_atlases("res://assets/v34/enemies/", "v19")
 	_load_oda_troops()
 	_load_layered_heroes()
+	_load_combat_v33()
 	weather_frames = _load_grid(ROOT + "castle-road-weather-v03.png", 1, 3)
 	scenery_frames = _load_grid(ROOT + "scenery-sprites-v03.png", 4, 2, true)
 	villager_frames = _load_grid(ANIMATION_ROOT + "scenery/villager-walk-run.png", 4, 2, true)
@@ -113,6 +99,42 @@ func hero_frame(hero: String, pose: int) -> Dictionary:
 		return animations[hero].combat[0] if has_v10(hero) else {}
 	return heroes[hero][clampi(pose, 0, 8)]
 
+func _load_combat_v33() -> void:
+	for hero in CombatMoves.HEROES:
+		if not animations.has(hero): animations[hero] = {}
+		_load_registered_layers(hero,CombatMoves.registration(hero),"res://assets/v33/%s/" % hero,"v33_")
+		animations[hero]["v33_guard_idle"] = animations[hero].get("v22_idle",[animations[hero].v33_light_1[0]]) if hero not in ["nobunaga","oichi"] else [animations[hero].v33_light_1[0]]
+
+func _load_registered_layers(hero: String, registration: Dictionary, folder: String, prefix: String) -> void:
+	var textures := {}
+	for clip in registration.clips:
+		var frames := []
+		for spec in registration.clips[clip].frames:
+			var layers := {}
+			for name in spec.layers:
+				var layer: Dictionary = spec.layers[name]
+				var path := folder+str(layer.file)
+				if not textures.has(path): textures[path] = ImageTexture.create_from_image(Image.load_from_file(path))
+				layers[name] = {"texture":textures[path],"region":Rect2(layer.rect[0],layer.rect[1],layer.rect[2],layer.rect[3]),"anchor":Vector2(layer.anchor[0],layer.anchor[1]),"body_height":float(layer.body_height)}
+			var frame: Dictionary = layers.body.duplicate()
+			frame.merge({"source":"v22","source_version":"v33","combat_v33":true,"combat_layers":layers,"weapon_behind":spec.weapon_behind,"weapon_visible":true,"layered_weapon":true,"weapon_angle":float(spec.weapon_angle),"weapon_hand":Vector2(spec.hand[0],spec.hand[1])*float(frame.body_height)/float(registration.standing_battle_height)},true)
+			frame.hand_offset = frame.weapon_hand
+			if spec.get("second_hand") is Array: frame.second_hand = Vector2(spec.second_hand[0],spec.second_hand[1])*float(frame.body_height)/float(registration.standing_battle_height)
+			frame.weapon_matrix = spec.get("weapon_matrix",[])
+			frame.weapon_mode = spec.get("weapon_mode","normal")
+			frame.weapon_stowed = bool(spec.get("weapon_stowed",false))
+			frame.nocked = bool(spec.get("nocked",false))
+			frame.authored_weapon = bool(spec.get("authored_weapon",false))
+			frame.fixed_weapon = bool(spec.get("fixed_weapon",false))
+			frame.weapon_visible = bool(spec.get("weapon_visible",true))
+			frame.weapon_longitudinal_scale = float(spec.get("weapon_longitudinal_scale",1))
+			if spec.has("weapon_grip_fraction"): frame.weapon_grip_fraction = float(spec.weapon_grip_fraction)
+			frame.duration_ms = float(spec.duration_ms)
+			frames.append(frame)
+		frames[0].clip_duration_ms = float(registration.clips[clip].duration_ms)
+		frames[0].clip_loop = bool(registration.clips[clip].loop)
+		animations[hero][prefix+str(clip)] = frames
+
 
 func _load_oda_troops() -> void:
 	var folder := "res://assets/v32/enemies/"
@@ -126,6 +148,7 @@ func _load_oda_troops() -> void:
 		var frames: Array = enemy_clips[key].duplicate(true)
 		if spec.shield_grips.has(oda_key):
 			for index in range(frames.size()):
+				if frames[index].has("shield_anchor"): continue
 				var grip: Array = spec.shield_grips[oda_key][index]
 				frames[index].shield_anchor = Vector2(grip[0],grip[1])-frames[index].source_region.position+frames[index].frame_padding-frames[index].anchor
 		if spec.flag_cloth.has(oda_key):
@@ -142,12 +165,15 @@ func _load_oda_troops() -> void:
 
 
 func _load_layered_heroes() -> void:
-	for hero in ["nobunaga","oichi","tadakatsu","hideyoshi"]:
+	for hero in CombatMoves.HEROES:
 		var folder: String = LayeredHeroSource.folder(str(hero))
-		if not FileAccess.file_exists(folder + "registration.json"): continue
+		assert(FileAccess.file_exists(folder + "registration.json"),"Missing current hero: "+hero)
 		var registration: Variant = JSON.parse_string(FileAccess.get_file_as_string(folder + "registration.json"))
-		if not registration is Dictionary or not registration.get("clips") is Dictionary: continue
-		load_layered_hero_registration(str(hero),folder,registration)
+		assert(LayeredHeroSource.complete_registration(registration),"Invalid current hero: "+hero)
+		if registration.get("layer_format","") == "combat":
+			if not animations.has(hero): animations[hero] = {}
+			_load_registered_layers(hero,registration,folder,"v22_")
+		else: load_layered_hero_registration(str(hero),folder,registration)
 
 # Explicit test/review entry point: loading a draft affects only this ArtAssets
 # instance. It never activates a runtime manifest or copies/changes source art.
@@ -174,6 +200,7 @@ func load_layered_hero_registration(hero: String, folder: String, registration: 
 				"source_version":source_version,"source_file":filename,"source_rect":rect,
 				"weapon_hand":hand,"hand_offset":hand,"weapon_angle":float(spec.get("weapon_angle",0)),"weapon_grounded":bool(spec.get("weapon_grounded",false)),
 				"weapon_behind":bool(spec.get("weapon_behind",false)),"weapon_visible":bool(spec.get("weapon_visible",true))}
+			if spec.has("duration_ms"): frame.duration_ms = float(spec.duration_ms)
 			if spec.has("main_weapon_state"):
 				frame.weapon_mode = str(spec.main_weapon_state)
 				frame.weapon_flip_x = bool(registration.get("weapon_flip_x",false))
@@ -203,7 +230,12 @@ func load_layered_hero_registration(hero: String, folder: String, registration: 
 				for point in spec.clip_polygon: polygon.append(Vector2(point[0]+2,point[1]+2))
 				frame.clip_polygon = polygon
 			frames.append(frame)
-		assert(frames.size() == 6,"Every layered hero motion has six genuinely drawn poses")
+		assert(not frames.is_empty() and frames.size() == registration.clips[clip].frames.size(),"Missing layered hero poses: " + str(clip))
+		if frames[0].has("duration_ms"):
+			var duration_ms := 0.0
+			for frame in frames: duration_ms += float(frame.duration_ms)
+			frames[0].clip_duration_ms = duration_ms
+			frames[0].clip_loop = bool(registration.clips[clip].get("loop",clip in ["idle","walk","run","stunned"]))
 		if not animations.has(hero): animations[hero] = {}
 		animations[hero]["v22_" + str(clip)] = frames
 	for alias in registration.get("aliases",{}):
@@ -276,6 +308,7 @@ func _load_combat_atlases(asset_root: String = COMBAT_ROOT, version: String = "v
 	elif version == "v09": combat_registration = runtime_registration
 	for actor in registration.get("actors", {}):
 		var spec: Dictionary = registration.actors[actor]
+		if spec.get("target","") == "hero" or str(spec.get("hero","")) in ["nobunaga","oichi","hideyoshi","ieyasu","mitsuhide","tadakatsu"]: continue
 		var columns := int(spec.get("columns", 4))
 		var rows := int(spec.get("rows", 2 if str(actor).ends_with("-air") else 4))
 		var count := rows * columns
@@ -311,6 +344,9 @@ func _load_combat_atlases(asset_root: String = COMBAT_ROOT, version: String = "v
 			var planted: bool = index not in unplanted and not str(actor).ends_with("-air") and (target == "hero" or (target == "enemy" and index >= columns))
 			var offset := float(SUPPORT_OFFSET.get(hero, spec.get("support_offset", 0.32 if target == "hero" else 0))) * body_height if planted else 0.0
 			frames[index].merge({"anchor": support + Vector2(offset, 0), "support_point": support, "planted": planted, "body_height": body_height, "source": version})
+			if spec.get("shield_grips",[]).size() == count:
+				var grip: Array = spec.shield_grips[index]
+				frames[index]["shield_anchor"] = Vector2(grip[0],grip[1]) - source_region.position + frame_padding - frames[index].anchor
 			if spec.get("frame_ticks",[]).size() == count: frames[index]["frame_tick"] = int(spec.frame_ticks[index])
 			var bounds: Rect2 = source_region
 			var local_bounds: Rect2 = frames[index].region

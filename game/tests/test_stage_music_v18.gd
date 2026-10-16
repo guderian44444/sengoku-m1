@@ -33,16 +33,17 @@ func run() -> void:
 		check(stream.loop_mode == AudioStreamWAV.LOOP_FORWARD and stream.loop_begin == 0 and stream.loop_end == stream.data.size() / 4, key + " repeats the full seamless PCM loop")
 		for frame in range(120): audio.sync_stage_music({"stage": {"music": key}})
 		check(audio._music_player == current and current.get_stream_playback() == playback and is_zero_approx(audio._music_fade), key + " is not restarted by repeated state sync")
-		audio._process(Audio.MUSIC_FADE_SECONDS * .5)
+		var fade_seconds := .55 if key == "boss" else Audio.MUSIC_FADE_SECONDS
+		audio._process(fade_seconds * .5)
 		check(current.volume_linear > 0 and previous.volume_linear > 0, key + " and outgoing score overlap during the transition")
 		var held: float = audio._music_fade
 		audio.set_music_paused(true)
 		audio._process(1.0)
 		check(current.stream_paused and previous.stream_paused and audio._music_fade == held, "Pause holds both scores and the fade position")
 		audio.set_music_paused(false)
-		audio._process(Audio.MUSIC_FADE_SECONDS * .5)
+		audio._process(fade_seconds * .5)
 		check(current.playing and not previous.playing and previous.stream == null, key + " releases the outgoing score after the fade")
-		check(is_equal_approx(current.volume_db, Audio.MUSIC_VOLUME_DB), key + " returns to the normal music level")
+		check(is_equal_approx(current.volume_db, -14.0 if key == "boss" else Audio.MUSIC_VOLUME_DB), key + " returns to its configured music level")
 	# A quick area transition during a fade must not leave a third score behind.
 	audio.sync_stage_music({"stage": {"music": "town"}})
 	audio._process(.1)

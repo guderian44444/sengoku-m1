@@ -1,17 +1,19 @@
 extends RefCounted
 
 static var _shapes: Dictionary = {}
-static var _stances: Dictionary = {}
 const LENGTHS := {"sword":115.0,"spear":335.0,"bow":175.0}
 
 # Names and forms are historical; tiers, colours and magical properties are game design.
 const ITEMS := {
-	"practice_nobunaga":{"name":"信長・練習打刀","family":"sword","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":105,"durability":180,"move_bonus":0.0,"special":"白板武器，無附加能力","art_id":"sword_uchigatana","history":"練習用普通武器；名稱與設定為遊戲創作。","source":""},
-	"practice_oichi":{"name":"阿市・練習木弓","family":"bow","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":150,"durability":180,"move_bonus":0.0,"special":"白板武器，無附加能力","art_id":"bow_azusa","history":"練習用普通武器；名稱與設定為遊戲創作。","source":""},
-	"practice_hideyoshi":{"name":"秀吉・練習打刀","family":"sword","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":115,"durability":180,"move_bonus":0.0,"special":"白板武器，無附加能力","art_id":"sword_uchigatana","history":"練習用普通武器；名稱與設定為遊戲創作。","source":""},
-	"practice_ieyasu":{"name":"家康・練習太刀","family":"sword","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":105,"durability":180,"move_bonus":0.0,"special":"白板武器，無附加能力","art_id":"sword_uchigatana","history":"練習用普通武器；名稱與設定為遊戲創作。","source":""},
-	"practice_mitsuhide":{"name":"光秀・練習刀","family":"sword","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":105,"durability":180,"move_bonus":0.0,"special":"白板武器，無附加能力","art_id":"sword_uchigatana","history":"練習用普通武器；名稱與設定為遊戲創作。","source":""},
-	"practice_tadakatsu":{"name":"忠勝・練習直槍","family":"spear","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":215,"durability":180,"move_bonus":0.0,"special":"白板武器，無附加能力","art_id":"spear_suyari","history":"練習用普通武器；名稱與設定為遊戲創作。","source":""},
+	"practice_nobunaga":{"name":"信長・常備打刀","family":"sword","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":105,"durability":180,"move_bonus":0.0,"special":"常備兵器，無附加威能","art_id":"sword_uchigatana","history":"出陣常備兵器；演義設定，非史載名物。","source":""},
+	"practice_oichi":{"name":"阿市・常備木弓","family":"bow","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":150,"durability":180,"move_bonus":0.0,"special":"常備兵器，無附加威能","art_id":"bow_azusa","history":"出陣常備兵器；演義設定，非史載名物。","source":""},
+	"practice_hideyoshi":{"name":"秀吉・常備打刀","family":"sword","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":115,"durability":180,"move_bonus":0.0,"special":"常備兵器，無附加威能","art_id":"sword_uchigatana","history":"出陣常備兵器；演義設定，非史載名物。","source":""},
+	"practice_ieyasu":{"name":"家康・常備太刀","family":"sword","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":105,"durability":180,"move_bonus":0.0,"special":"常備兵器，無附加威能","art_id":"sword_uchigatana","history":"出陣常備兵器；演義設定，非史載名物。","source":""},
+	"practice_mitsuhide":{"name":"顯如・常備錫杖","family":"spear","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":215,"durability":180,"move_bonus":0.0,"special":"常備兵器，無附加威能","art_id":"staff_ornate_shakujo","history":"出陣常備兵器；演義設定，非史載名物。","source":""},
+	"staff_long_staff":{"name":"僧兵長棍","family":"spear","hero":"mitsuhide","tier":1,"damage_bonus":1,"reach_bonus":-10.0,"knockback":1.0,"element":"","attack_speed":1.06,"world_length":190,"durability":180,"move_bonus":0.0,"special":"無附加元素","history":"僧兵長棍，演義兵裝。","source":""},
+	"staff_ornate_shakujo":{"name":"金環錫杖","family":"spear","hero":"mitsuhide","tier":3,"damage_bonus":5,"reach_bonus":12.0,"knockback":2.0,"element":"","attack_speed":1.0,"world_length":215,"durability":246,"move_bonus":0.0,"special":"無附加元素","history":"金環錫杖，演義兵裝。","source":""},
+	"staff_approved03_naginata":{"name":"僧兵薙刀","family":"spear","hero":"mitsuhide","tier":4,"damage_bonus":7,"reach_bonus":20.0,"knockback":3.0,"element":"","attack_speed":1.0,"world_length":215,"durability":246,"move_bonus":0.0,"special":"無附加元素","history":"僧兵薙刀，演義兵裝。","source":""},
+	"practice_tadakatsu":{"name":"忠勝・常備直槍","family":"spear","tier":0,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.0,"world_length":215,"durability":180,"move_bonus":0.0,"special":"常備兵器，無附加威能","art_id":"spear_suyari","history":"出陣常備兵器；演義設定，非史載名物。","source":""},
 
 	"sword_uchigatana":{"name":"打刀","family":"sword","tier":1,"damage_bonus":0,"reach_bonus":0.0,"knockback":0.0,"element":"","attack_speed":1.06,"durability":144,"move_bonus":0.0,"special":"無附加元素","history":"室町以後常見的打刀形制；裝具為遊戲重繪。","source":"https://museum.city.fukuoka.jp/about/news/20200904.pdf"},
 	"sword_nagamitsu":{"name":"大般若長光","family":"sword","tier":2,"damage_bonus":3,"reach_bonus":8.0,"knockback":0.0,"element":"","attack_speed":1.06,"durability":176,"move_bonus":0.0,"special":"無附加元素","history":"東京國立博物館藏，鎌倉時代長船長光作太刀。","source":"https://webarchives.tnm.jp/imgsearch/show/E0137927"},
@@ -40,7 +42,7 @@ const ITEMS := {
 	"sword_himetsuru_ichimonji":{"name":"姬鶴一文字","family":"sword","tier":3,"damage_bonus":6,"reach_bonus":3.0,"knockback":1.0,"element":"","attack_speed":1.0,"durability":216,"move_bonus":0.0,"special":"無附加元素","history":"姬鶴一文字是上杉家傳來的太刀，華麗丁子刃與無刀鐔的合口式黑漆刀裝可與普通打刀區分。","source":"https://www.denkoku-no-mori.yonezawa.yamagata.jp/togodb/capt.php?ID=17039"},
 	"sword_magoroku_kanemoto":{"name":"孫六兼元","family":"sword","tier":3,"damage_bonus":5,"reach_bonus":-2.0,"knockback":1.0,"element":"","attack_speed":1.0,"durability":192,"move_bonus":0.0,"special":"無附加元素","history":"孫六兼元的美濃刀，以成群尖互之目構成的三本杉刃文辨認，與兼定為不同刀工。","source":"https://jmapps.ne.jp/gifuhaku/det.html?data_id=1686"},
 	"sword_odenta_mitsuyo":{"name":"大典太光世","family":"sword","tier":4,"damage_bonus":8,"reach_bonus":-6.0,"knockback":4.0,"element":"","attack_speed":1.14,"durability":224,"move_bonus":0.0,"special":"無附加元素","history":"大典太以偏短卻寬闊的太刀身、豬首鋒與寬淺棒樋形成厚實輪廓，為前田家傳世名刀。","source":"https://www.ishibi.pref.ishikawa.jp/exhibition/exhibition-16305/"},
-	"sword_kosetsu_samonji":{"name":"江雪左文字","family":"sword","tier":4,"damage_bonus":7,"reach_bonus":13.0,"knockback":2.0,"element":"","attack_speed":1.0,"durability":232,"move_bonus":0.0,"special":"無附加元素","history":"江雪左文字是南北朝時代左文字的太刀，長刀身與起伏刃文可作大弧斬擊造型。","source":"https://fukubun.net/collection/479"},
+	"sword_kosetsu_samonji":{"name":"江雪左文字","family":"sword","tier":4,"damage_bonus":7,"reach_bonus":13.0,"knockback":2.0,"element":"","attack_speed":1.0,"durability":232,"move_bonus":0.0,"special":"無附加元素","history":"江雪左文字是南北朝時代左文字的太刀，長刀身與起伏刃文為其特徵。","source":"https://fukubun.net/collection/479"},
 	"sword_okanemitsu":{"name":"大兼光","family":"sword","tier":5,"damage_bonus":17,"reach_bonus":18.0,"knockback":3.0,"element":"","attack_speed":0.9,"durability":264,"move_bonus":0.0,"special":"無附加元素","history":"大兼光原是更長大的南北朝太刀，現存83.5公分刃長仍顯豪壯，長鋒與平緩灣刃是辨識重點。","source":"https://sanobi.or.jp/about/japanese_sword/"},
 	"spear_otegine":{"name":"御手杵（復原）","family":"spear","tier":5,"damage_bonus":17,"reach_bonus":32.0,"knockback":3.0,"element":"","attack_speed":0.9,"durability":270,"move_bonus":0.0,"special":"無附加元素","history":"結城市資料記錄結城晴朝命島田刀工五條義助製作；後傳結城秀康及松平大和守家。原物於東京大空襲燒失，結城蔵美館現展示現代復元品。","source":"https://www.city.yuki.lg.jp/data/doc/1713334887_doc_181_0.pdf"},
 	"spear_omi_sukesada_1504":{"name":"大身槍・長船祐定","family":"spear","tier":4,"damage_bonus":8,"reach_bonus":20.0,"knockback":2.0,"element":"","attack_speed":1.0,"durability":254,"move_bonus":0.0,"special":"無附加元素","history":"東京國立博物館藏F-15922，銘備州長船祐定／永正元年三月日；館方描述其刃身超過70cm，丁子亂刃文。","source":"https://online.bunka.go.jp/heritages/detail/553506"},
@@ -65,7 +67,7 @@ const ITEMS := {
 }
 
 static func family_for(hero: String) -> String:
-	return "bow" if hero == "oichi" else ("spear" if hero == "tadakatsu" else "sword")
+	return "bow" if hero == "oichi" else ("spear" if hero in ["tadakatsu","mitsuhide"] else "sword")
 
 static func default_for(hero: String) -> String:
 	return "practice_" + hero if hero in ["nobunaga","oichi","hideyoshi","ieyasu","mitsuhide","tadakatsu"] else "practice_nobunaga"
@@ -86,21 +88,23 @@ static func pose(fighter: Dictionary, frame: Dictionary, height: float) -> Dicti
 	var family: String = ITEMS[id].family
 	var body_scale := height / maxf(1,float(frame.get("body_height",height)))
 	var length: float = float(ITEMS[id].get("world_length",spec.get("world_length",LENGTHS[family]))) + float(ITEMS[id].reach_bonus) + float(fighter.get("treasure_reach",0))
-	var world_length := length * height / (148.0 if fighter.get("kind") == "oichi" else 155.0)
+	var world_length := length * height / float({"oichi":148.0,"hideyoshi":150.0,"ieyasu":152.0,"mitsuhide":163.0,"tadakatsu":163.0}.get(fighter.get("kind"),155.0))
 	var scale := world_length / float(spec.length)
 	var hand: Vector2 = frame.get("weapon_hand",Vector2.ZERO)
 	var angle := deg_to_rad(float(frame.get("weapon_angle",0)))
 	var grip := Vector2(spec.grip[0],spec.grip[1])
 	var top := Vector2(spec.tip_top[0],spec.tip_top[1])
 	var bottom := Vector2(spec.tip_bottom[0],spec.tip_bottom[1])
+	if family == "spear" and frame.has("weapon_grip_fraction"): grip = top.lerp(bottom,float(frame.weapon_grip_fraction))
 	var offsets: Dictionary = frame.get("weapon_grip_offsets",{})
 	if offsets.has(art): grip += Vector2(offsets[art][0],offsets[art][1]) * float(spec.length)
-	if frame.has("weapon_mode") and frame.has("second_hand"):
+	if family == "sword" and frame.has("weapon_mode") and frame.has("second_hand"):
 		var axis: Vector2 = frame.weapon_hand-frame.second_hand
 		angle = axis.angle()+PI*.5
 		if not offsets.has(art):
 			# shortcut: alternate swords use catalog grips; refine from authored measurements after visual review.
 			grip.y = minf(grip.y,bottom.y-axis.length()*body_scale/scale-6/scale)
+	if family == "bow" and frame.get("weapon_stowed",false): grip=(top+bottom)*.5
 	var hilt: Dictionary = frame.get("hilt_geometry",{}).get(art,{})
 	var guard_pixels: Array = hilt.get("guard",[grip.x,grip.y-float(spec.length)*.16])
 	var guard := Vector2(guard_pixels[0],guard_pixels[1])
@@ -110,29 +114,17 @@ static func pose(fighter: Dictionary, frame: Dictionary, height: float) -> Dicti
 		grip = guard
 	if family == "spear" and frame.get("weapon_grounded",false) and absf(cos(angle)) > .5:
 		grip.y = bottom.y + (hand.y * body_scale / scale + (bottom.x - grip.x) * sin(angle)) / cos(angle)
+	if family == "spear" and frame.get("weapon_stowed",false):
+		var lowest := maxf(((top-grip)*scale).rotated(angle).y,((bottom-grip)*scale).rotated(angle).y)
+		hand.y = minf(hand.y,(-lowest-3)/body_scale)
 	var blade_side := -1.0 if frame.get("weapon_flip_x",false) else 1.0
 	return {"id":art,"family":family,"scale":scale,"hand":hand * body_scale,"angle":angle,"grip":grip,"guard":guard,"blade_side":blade_side,"top":hand * body_scale + ((top - grip) * Vector2(blade_side,1) * scale).rotated(angle),"bottom":hand * body_scale + ((bottom - grip) * Vector2(blade_side,1) * scale).rotated(angle),"body_scale":body_scale}
 
-static func spear_reach(fighter: Dictionary) -> float:
-	if fighter.get("kind","") != "tadakatsu" or item(str(fighter.get("weapon_id",""))).get("family","") != "spear": return 0.0
-	if not _stances.has("tadakatsu"): _stances.tadakatsu = JSON.parse_string(FileAccess.get_file_as_string("res://assets/v22/tadakatsu/registration.json"))
-	var registration: Dictionary = _stances.tadakatsu
-	var action := str(fighter.get("action","light"))
-	var clip := action
-	if action == "light": clip = "light%d" % clampi(int(fighter.get("combo",1)),1,3)
-	elif action == "heavy": clip = "heavy%d" % clampi(int(fighter.get("heavy_combo",1)),1,2)
-	elif action in ["upper_heavy","charged_upper"]: clip = "charged_upper"
-	elif action == "ground_slam": clip = "charged_slam"
-	elif action in ["mixed_finisher","mixed_rising"]: clip = "light3" if float(fighter.get("action_tick",0)) < 22 else ("charged_upper" if action == "mixed_rising" else "charged_slam")
-	clip = str(registration.aliases.get(clip,clip))
-	if not registration.clips.has(clip): return 0.0
-	var spec: Dictionary = registration.clips[clip].frames[3]
-	var frame := {"layered_weapon":true,"weapon_visible":spec.get("weapon_visible",true),"body_height":spec.body_height,"weapon_hand":Vector2(spec.hand[0]-spec.foot[0],spec.hand[1]-spec.foot[1]),"weapon_angle":spec.weapon_angle,"weapon_grounded":spec.get("weapon_grounded",false)}
-	var shape := pose(fighter,frame,155.0)
-	return maxf(0,maxf(shape.top.x,shape.bottom.x)) if not shape.is_empty() else 0.0
-
 static func compatible(hero: String, id: String) -> bool:
 	if id.begins_with("practice_"): return id == "practice_" + hero
+	if ITEMS.has(id) and ITEMS[id].has("hero"): return ITEMS[id].hero == hero
+	# Preserve sword equipment in saves created before Kennyo's staff delivery.
+	if hero == "mitsuhide" and ITEMS.has(id) and ITEMS[id].family == "sword": return true
 	return ITEMS.has(id) and ITEMS[id].family == family_for(hero)
 
 static func can_store(hero: String, id: String) -> bool:

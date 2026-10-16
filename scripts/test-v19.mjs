@@ -20,24 +20,17 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
-  'stage2_repair_v32',
-  'departure_v31', 'boss_reactions_v31',
-  'talismans_v30', 'heroes_v30', 'voice_v30', 'shared_vfx_v30',
-  'oichi_pipeline_v27', 'oichi_layers_v27',
-  'stage2_route_v29', 'stage2_combat_v29', 'shadows_v29',
-  'inventory_v28', 'menu_inventory_v28', 'balance_v28', 'menu_pad_v27', 'exit_save_v27', 'prone_and_boss_death_v27',
-  'collection_progress_v26',
-  'weapon_expansion_v24', 'weapons_save_v22', 'loadout_menu_v22', 'weapon_render_v22', 'hero_layers_v22', 'weapon_encyclopedia_v23', 'projectile_v22',
-  'progression_v21', 'music_v21', 'engineering_menu_v21', 'render_items_v21',
-  'combat_v20', 'audio_v20', 'typography_v20', 'menu_v20',
-  'stage_v19', 'stage_movement_v19', 'stage_occlusion_v19', 'knockdown_v18', 'stage_playthrough_v18', 'battle', 'wire', 'training',
-  'combat_v06', 'combat_v07', 'combat_v09', 'combat_v10', 'combat_v11', 'combat_v13', 'combat_v14',
-  'combo_movement_v12', 'tadakatsu_combat_v17', 'projectile_v12',
-  'hud_v19', 'main_ui_v19', 'stage_integration_v19', 'input_v09', 'input_v10', 'input_v11', 'training_integration', 'local_coop_startup',
-  'audio_v11', 'audio_v14', 'audio_v15', 'stage_music_v18', 'music_integration_v14',
-  'stage_art_v18', 'stage_art_v19', 'enemy_art_v19', 'enemy_walk_v19', 'frame_animation', 'animation_timing_v11', 'special_animation_v11',
-  'render_v11', 'render_v12', 'render_v13', 'render_v14', 'tadakatsu_atlas_v17', 'tadakatsu_render_v17',
-  'walk_v13', 'strike_v12', 'landing_animation_v12', 'parallax_v11', 'victory_v15', 'victory_integration_v15',
+	'weapon_audio_v38',
+	'combat_tuning_v37',
+	'stage03_integration', 'stage03_playthrough',
+	'campaign_music', 'music_integration_v14', 'stage03_alarm', 'stage03_alarm_view', 'stage03_objectives', 'stage03_tent', 'stage03_tent_view', 'stage03_yoshimoto', 'stage03_yoshimoto_view',
+	'delivery_v36', 'variable_frames_v36',
+  'music_v35', 'stage_music_v18', 'stick_sprint_v35', 'victory_integration_v15',
+  'runtime_v34', 'balance_v34', 'grounding_v34', 'enemy_smooth_v34',
+  'ui_input_v34', 'ui_theme_v34', 'ui_panels_v34', 'ui_flow_v34', 'ui_language_v34', 'objective_scroll_v34', 'enemy_health_ui_v34', 'menu_pad_v27',
+  'current_runtime_v33', 'combat_v33', 'inventory_v28', 'exit_save_v27', 'wire', 'local_coop_startup',
+  'stage2_repair_v32', 'boss_reactions_v31', 'shadows_v29', 'menu_inventory_v28',
+  'stage_art_v19', 'stage_movement_v19',
 ];
 const only = process.argv.find(arg => arg.startsWith('--only='))?.slice(7).split(',');
 if (only) for (const name of only) assert(tests.includes(name), 'Unknown test: ' + name);
@@ -91,11 +84,25 @@ for (const name of selected) {
     : name === 'local_coop_startup' ? ['--', '--local-coop'] : [];
   await run(name, ['--headless', '--script', `res://tests/test_${name}.gd`, ...flags]);
 }
+if (process.argv.includes('--render-stage3')) {
+  await run('stage03_native_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_stage03_integration.gd', '--', '--output=' + path.join(out, 'stage03-captures')], 360000);
+}
+if (process.argv.includes('--render-combat-v37')) {
+  await run('combat_tuning_v37_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_combat_tuning_v37.gd']);
+}
 if (process.argv.includes('--render')) {
   for (const name of ['capture_hud_v19', 'capture_stage_scenery_v19', 'capture_stage_v19', 'capture_enemy_walk_v19']) {
     await run(name, ['--windowed', '--audio-driver', 'Dummy', '--script', `res://tests/${name}.gd`], 360000);
   }
   await run('capture_enemy_walk_movie_v19', ['--windowed', '--audio-driver', 'Dummy', '--write-movie', path.join(out, 'enemy-walk-v19.avi'), '--fixed-fps', '60', '--script', 'res://tests/capture_enemy_walk_v19.gd', '--', '--movie-only'], 360000);
+}
+if (process.argv.includes('--render-ui-v34')) {
+  await run('ui_flow_v34_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_ui_flow_v34.gd', '--', '--capture']);
+  await run('objective_scroll_v34_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_objective_scroll_v34.gd', '--', '--capture']);
+  await run('enemy_health_ui_v34_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_enemy_health_ui_v34.gd', '--', '--capture']);
+}
+if (process.argv.includes('--render-combat-v33')) {
+  await run('combat_v33_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_combat_v33.gd']);
 }
 if (process.argv.includes('--render-shared-vfx')) {
   await run('shared_vfx_v30_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_shared_vfx_v30.gd', '--', '--capture']);

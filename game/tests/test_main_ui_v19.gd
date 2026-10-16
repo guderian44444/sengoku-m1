@@ -43,7 +43,7 @@ func run() -> void:
 	check(app.requested_fullscreen, "Menu fullscreen control reaches the same setter")
 	app._update_view()
 	check(not app.hint.visible, "Battle does not reserve the old bottom operation strip")
-	check(app.hud.text.contains("01/07") and app.hud.text.contains("據點 1/2"), "Campaign HUD names the region and its checkpoint")
+	check(app.objective_scroll.chapter == app.sim.state.stage.title and app.objective_scroll.place == "%s　1／2 陣" % app.sim.state.stage.name, "Campaign order names the region and its checkpoint")
 	var player: Dictionary = app.sim.state.fighters[0]
 	app.sim.state.stage.encounter_end = 2400.0 # Ensure this camera fixture permits scrolling even when the first checkpoint fits one screen.
 	player.x = 900.0
@@ -58,7 +58,7 @@ func run() -> void:
 	app.sim.state.stage.go = true
 	app.sim.state.stage.phase = "exit"
 	app._update_view()
-	check(app.hud.text.contains("GO"), "Cleared checkpoint gives the shared forward prompt")
+	check(app.objective_scroll.order == "全軍會合　向右進軍 →", "Cleared checkpoint gives the shared advance order")
 	app.sim.reset_training("oichi", "boss", "imagawa")
 	app.sim.state.intro = {"remaining_ticks":180,"name":"今川軍小王","line":"來戰！"}
 	app._update_view()

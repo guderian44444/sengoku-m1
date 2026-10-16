@@ -25,6 +25,7 @@ func _initialize() -> void:
 			check(art.enemy_clips.has(key),key+" is registered")
 			var frames: Array = art.enemy_clips[key]
 			var expected: int = 1 if clip=="idle" else (3 if clip in ["hurt","struggle"] else 6)
+			if role == "soldier" and clip == "walk": expected = 12
 			check(frames.size()==expected,key+" genuine source count")
 			var regions := []
 			for frame in frames:

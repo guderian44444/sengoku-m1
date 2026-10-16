@@ -32,7 +32,7 @@ func _initialize() -> void:
 		var player := equip(battle,id)
 		var spec: Dictionary = Equipment.TREASURES[id]
 		check(Equipment.valid(player) and Wire.valid_snapshot(battle.state),id+" equips in a legal state")
-		check(not spec.description.is_empty() and spec.source.begins_with("https://") and spec.description.contains("遊戲創作"),id+" carries function definitions and bounded source claims")
+		check(not spec.description.is_empty() and spec.source.begins_with("https://") and not spec.history.is_empty(),id+" carries function definitions and separate historical source metadata")
 		check(spec.icons.size() >= 1 and spec.icons.size() <= 3 and View.buff_icon(player) == spec.icons[0],id+" has readable function icons")
 		var before := int(player.shield_points)
 		Equipment.absorb(player,20)

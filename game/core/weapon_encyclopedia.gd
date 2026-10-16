@@ -7,11 +7,11 @@ var warning := ""
 
 func _init(path: String = DATA_PATH) -> void:
 	if not FileAccess.file_exists(path):
-		warning = "史料資料尚未載入。"
+		warning = "兵器圖錄暫缺。"
 		return
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
 	if not parsed is Dictionary:
-		warning = "史料資料格式錯誤；能力值仍以遊戲資料為準。"
+		warning = "兵器圖錄殘缺，威能記錄仍可查閱。"
 		return
 	entries = parsed
 
@@ -44,7 +44,7 @@ static func safe_url(url: String) -> bool:
 
 static func stats(id: String) -> String:
 	var item: Dictionary = Weapons.item(id)
-	if item.is_empty(): return "尚無遊戲能力資料"
+	if item.is_empty(): return "威能未詳"
 	var element := str(item.get("element",""))
 	return "階位　%d\n傷害加成　%s\n攻速　%d%%\n攻擊距離加成　%s\n擊退加成　%s\n耐久上限　%s\n特殊能力　%s\n元素　%s" % [int(item.tier),signed_value(item.damage_bonus),roundi(float(item.get("attack_speed",1.0))*100),signed_value(item.reach_bonus),signed_value(item.knockback),"∞" if id.begins_with("practice_") else str(int(item.get("durability",180))),str(item.get("special","無")),{"":"無","fire":"火","ice":"冰","earth":"地","blade":"刃"}.get(element,element)]
 

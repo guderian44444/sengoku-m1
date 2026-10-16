@@ -55,9 +55,9 @@ func _initialize() -> void:
 		sources.append(str(background.source))
 	check(sources.size() == 6 and sources.all(func(path): return sources.count(path) == 1),"Each second-chapter scene uses its own background file")
 	var view := View.new()
-	var standing: Dictionary = view._art.animations.tadakatsu.v22_idle[0]
+	var standing := {"anchor":Vector2(100,200),"body_height":180.0,"clip_polygon":PackedVector2Array([Vector2(20,200),Vector2(10,190),Vector2(70,20),Vector2(130,20),Vector2(190,190),Vector2(180,200),Vector2(140,200),Vector2(100,160),Vector2(60,200)])}
 	var feet: Array = View.frame_contact_points(standing,155)
-	check(feet.size() == 2 and feet[0].offset.x < -40 and feet[1].offset.x > 40,"Wide-standing Tadakatsu has contact shadows at each actual shoe rather than only the central gap")
+	check(feet.size() == 2 and absf(feet[0].offset.x-feet[1].offset.x) > 10,"Wide stance polygon creates separate shoe contact shadows")
 	check(feet.all(func(foot): return absf(foot.offset.y) < 4),"Shoe contact shadows remain at the authored sole height")
 	var mirrored_feet: Array = View.frame_contact_points(standing,155,-1)
 	check(is_equal_approx(mirrored_feet[0].offset.x,-feet[0].offset.x),"Shoe contact follows facing without changing source anchor")

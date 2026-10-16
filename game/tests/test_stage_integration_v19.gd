@@ -20,17 +20,16 @@ func run() -> void:
 	root.add_child(app)
 	await process_frame
 	app.set_physics_process(false)
-	app._start_solo()
 	app._update_view()
 	check(app.sim.state.stage.index == 0 and app.sim.state.faction == "imagawa" and not app.menu.visible, "Menu starts the current Imagawa campaign")
-	check(app.hud.text.contains("01/07") and app.hud.text.contains("據點 1/2") and app.view.camera_x == 0, "First region opens at its first checkpoint and left camera edge")
+	check(app.objective_scroll.place == "%s　1／2 陣" % app.sim.state.stage.name and app.view.camera_x == 0, "First region opens at its first checkpoint and left camera edge")
 	for index in range(7):
 		app.sim._enter_segment(index)
 		app.sim.state.fighters[0].x = 1100.0
 		app._camera_scene = -1
 		app._update_view()
 		var spec: Dictionary = app.sim._campaign.segments[index]
-		check(app.hud.text.contains("%02d/07" % (index + 1)) and app.hud.text.contains(spec.name), "HUD follows region " + str(index + 1))
+		check(app.sim.state.stage.index == index and app.objective_scroll.place.begins_with(spec.name), "Order follows region " + str(index + 1))
 		check(app.audio._music_key == spec.music and app.audio._music_active, "Actual region data selects its loop without stopping music")
 		check(app.view.state.stage.theme == spec.theme and is_equal_approx(app.view.camera_x, Battle.camera_left(app.sim.state)), "Backdrop state and spawn camera stay on the same region")
 		check(Wire.valid_snapshot(app.sim.get_state()), "Region snapshot survives the multiplayer boundary")
@@ -42,7 +41,7 @@ func run() -> void:
 	app.sim.state.wave = 2
 	app.sim._spawn_segment_wave()
 	app._update_view()
-	check(app.hud.text.contains("07/07") and app.hud.text.contains("據點 2/2") and app.audio._music_key == "boss", "Final commander uses the last checkpoint and battle score")
+	check(app.sim.state.stage.index == 6 and app.objective_scroll.place.ends_with("2／2 陣") and app.audio._music_key == "boss", "Final commander uses the last checkpoint and battle score")
 	check(app.end_label.text.contains("松井宗信") and not app.end_label.text.contains("暫停") and not app.end_label.text.contains("結束後開戰"), "Actual commander introduction keeps its name and line without a pause message")
 	check(app.combat_hud.boss.get("stage_boss", false) and app.combat_hud.boss.get("display_name", "") == "松井宗信", "Compact boss HP bar identifies the actual final commander")
 	var tick: int = app.sim.state.tick

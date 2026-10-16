@@ -1,0 +1,2180 @@
+{
+  "version": 38,
+  "license": "CC0-1.0",
+  "sample_rate": 44100,
+  "sources": {
+    "medieval": {
+      "archive": "medieval_sfx_textures_1_of_2.7z",
+      "sha256": "b5e2b2c86d811d983d15dbf8453df6a25275a2a0dc4e88e0dc5e1cb3046fd4ae",
+      "author": "Ben Jaszczak and Brian Nelson / Still North Media",
+      "page": "https://opengameart.org/content/medieval-sound-effects-weapon-textures",
+      "download": "https://opengameart.org/sites/default/files/medieval_sfx_textures_1_of_2.7z",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    "sword": {
+      "archive": "sword_-_starninjas_1.zip",
+      "sha256": "87a1fe1cfeee5f282fe06a7a9c25ab9ebf24b7674fe19171b7f2762dffb628c1",
+      "author": "StarNinjas",
+      "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+      "download": "https://opengameart.org/sites/default/files/sword_-_starninjas_1.zip",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    "clash": {
+      "archive": "sword_clash_-_starninjas_0.zip",
+      "sha256": "f363c80ea1627548d336370750651b0d2d092978148ecfb3642717c2efb54b6b",
+      "author": "StarNinjas",
+      "page": "https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes",
+      "download": "https://opengameart.org/sites/default/files/sword_clash_-_starninjas_0.zip",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    "body": {
+      "archive": "independent_nu_ljudbank-hits_and_punches.7z",
+      "sha256": "641c65d2e1a00002171c23e2c6fa14e925ae4c12db09d3f79d130a4538916032",
+      "author": "Independent.nu (submitted by qubodup)",
+      "page": "https://opengameart.org/node/2558",
+      "download": "https://opengameart.org/sites/default/files/independent_nu_ljudbank-hits_and_punches.7z",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "cues": {
+    "sword_whoosh": {
+      "gain_db": -17,
+      "variants": [
+        {
+          "file": "sword_whoosh_0.wav",
+          "sha256": "3f526808778bb7db50dd8786630b2a5bfae4323f40854616094ff08f13cceb27",
+          "seconds": 0.19,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                0.35,
+                0.54
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "sword_whoosh_1.wav",
+          "sha256": "7b327fd1dd9aa53ca2a2b725f40aafb8cc792138cea4932212299385371341a9",
+          "seconds": 0.17,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                1.34,
+                1.51
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "sword_whoosh_2.wav",
+          "sha256": "7516af7b66432fc4e128f5c814fce7b7ee20ca2bbd50295053a24ebfd280b347",
+          "seconds": 0.18,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                2.3,
+                2.48
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "sword_whoosh_3.wav",
+          "sha256": "ce6b739f1f319d3ef2e97bcd71725489d045cc19f533bd8d4096ec9ab5c192ff",
+          "seconds": 0.15,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                3.47,
+                3.62
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "sword_whoosh_4.wav",
+          "sha256": "fc384c3fcfab02da9fe9c1ecf4ccc851d46a85fae2035c59e2088e1a577f9dda",
+          "seconds": 0.15,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                4.54,
+                4.69
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        }
+      ]
+    },
+    "sword_heavy_whoosh": {
+      "gain_db": -15,
+      "variants": [
+        {
+          "file": "sword_heavy_whoosh_0.wav",
+          "sha256": "edac11ebc19ca2b7ed0e4bbfd4c46c9a1da1d7450e0ade63db6710e114206acd",
+          "seconds": 0.38136054421768706,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                0.35,
+                0.54
+              ],
+              "speed": 0.78,
+              "lowpass_hz": 5200
+            },
+            {
+              "mix_gain": 0.08,
+              "pack": "clash",
+              "file": "sword_clash.1.ogg",
+              "sha256": "5c5e78e466ba78fe2414f2b7a2a6eb674822ccfc8a8bc9fda32be22f5dde5e69",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "sword_heavy_whoosh_1.wav",
+          "sha256": "fd8a9de56878fdb551bd82c849a2783f40c65967833c3a4eb180493ff02740dc",
+          "seconds": 0.3086848072562358,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                1.34,
+                1.51
+              ],
+              "speed": 0.78,
+              "lowpass_hz": 5200
+            },
+            {
+              "mix_gain": 0.08,
+              "pack": "clash",
+              "file": "sword_clash.2.ogg",
+              "sha256": "e09f222b70d53f2967514d076e2ae50c21526ac640fe4919965f964af043da1a",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "sword_heavy_whoosh_2.wav",
+          "sha256": "8268ff5d25035ba9a6d38fbcff43b4fee1bc8306c371e1dfaf963d21d602b22d",
+          "seconds": 0.42979591836734693,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                2.3,
+                2.48
+              ],
+              "speed": 0.78,
+              "lowpass_hz": 5200
+            },
+            {
+              "mix_gain": 0.08,
+              "pack": "clash",
+              "file": "sword_clash.3.ogg",
+              "sha256": "6c588bc79b7e4fe202e3b65fa849954d684d2d2342f6ad04813540854c421663",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "sword_heavy_whoosh_3.wav",
+          "sha256": "27591dcebcc6f3527a127de23dc53932b24ba605dc01b0f3246ee7d436d7f50a",
+          "seconds": 0.2515646258503401,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                3.47,
+                3.62
+              ],
+              "speed": 0.78,
+              "lowpass_hz": 5200
+            },
+            {
+              "mix_gain": 0.08,
+              "pack": "clash",
+              "file": "sword_clash.4.ogg",
+              "sha256": "4c2c962f8703882b8a6f863c1f5a35c6ae518d0281755fac9a13e63a73b86fa5",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "sword_heavy_whoosh_4.wav",
+          "sha256": "cdd76d6623795cf864b5c3a078f8dbb62fd5e82115ae4b3653c2af1125cecf53",
+          "seconds": 0.2494784580498866,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                4.54,
+                4.69
+              ],
+              "speed": 0.78,
+              "lowpass_hz": 5200
+            },
+            {
+              "mix_gain": 0.08,
+              "pack": "clash",
+              "file": "sword_clash.5.ogg",
+              "sha256": "09e36369f2556e6a234ce78ec797447518ef7671f8224fc64747a7fa66ea229a",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        }
+      ]
+    },
+    "hit": {
+      "gain_db": -17,
+      "variants": [
+        {
+          "file": "hit_0.wav",
+          "sha256": "82cca4ae31d923edca492e207ca2d9b11858820265e763c673ce40b1e5e150cb",
+          "seconds": 0.4,
+          "sources": [
+            {
+              "mix_gain": 0.8,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.1.ogg",
+              "sha256": "4a3e80705619cbd7500682ab51004011ddf67e14ccf1818ceb9e5b539fe42b75",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.55,
+              "pack": "body",
+              "file": "hits/hit01.mp3.flac",
+              "sha256": "bdab6cd6c1d261efc363da24e205372daa88718b98bb149677d74459b24245d8",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "hit_1.wav",
+          "sha256": "81a232adf272fe987cddef9486f0a10236aca55eb017d77ebd0f577eeff601a0",
+          "seconds": 0.4,
+          "sources": [
+            {
+              "mix_gain": 0.8,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.2.ogg",
+              "sha256": "e74221f6cec0acaa7c19095618c683c3cdc1741f02193b61cb28a2ec56cbfce2",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.55,
+              "pack": "body",
+              "file": "hits/hit02.mp3.flac",
+              "sha256": "31fe92be9bf7dccf2428ade7b680ee09e2f70c2aa2a3cbec502f4a9ff932249f",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "hit_2.wav",
+          "sha256": "f3dc34a17118faca36b8eb50877bc8f7332906c9ea7e139a111fb775b88241ce",
+          "seconds": 0.4,
+          "sources": [
+            {
+              "mix_gain": 0.8,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.3.ogg",
+              "sha256": "ce09eb2987531d1323415065d7811a9cf0ea8639766d9fa77655d602e7e14989",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.55,
+              "pack": "body",
+              "file": "hits/hit03.mp3.flac",
+              "sha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "hit_3.wav",
+          "sha256": "b936b698bacc7e13443f7e1880d5fd26079d8a6ea1f60a6ce7414dee78174b1a",
+          "seconds": 0.4,
+          "sources": [
+            {
+              "mix_gain": 0.8,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.4.ogg",
+              "sha256": "320aa8a77d35f9354c3d7e03a53e987ae67b0c5721f0dd2680100c5e6b5e4cc4",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.55,
+              "pack": "body",
+              "file": "hits/hit04.mp3.flac",
+              "sha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "hit_4.wav",
+          "sha256": "cc20b2119115b5d131a40126f157dffb342b8ec4468ce84d189f1b56820b15ce",
+          "seconds": 0.4,
+          "sources": [
+            {
+              "mix_gain": 0.8,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.5.ogg",
+              "sha256": "135d1b26aad8d2f2205e56c14cd0162755a883e9419d6fd955cb978126a77452",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.55,
+              "pack": "body",
+              "file": "hits/hit05.mp3.flac",
+              "sha256": "f4185c56500bfdd48a09c1606d87a2262a90907e95f7d2a37000746bbb0f2cbf",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        }
+      ]
+    },
+    "heavy_hit": {
+      "gain_db": -13,
+      "variants": [
+        {
+          "file": "heavy_hit_0.wav",
+          "sha256": "d48829e064d5c75e17d9c585e09e1a5283c9808cc28b28319a2bcc6e7dde4cce",
+          "seconds": 0.3925170068027211,
+          "sources": [
+            {
+              "mix_gain": 0.65,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.1.ogg",
+              "sha256": "4a3e80705619cbd7500682ab51004011ddf67e14ccf1818ceb9e5b539fe42b75",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit06.mp3.flac",
+              "sha256": "e51601e681630928329da90b299e813b53be23b76a9db44716235ee3496f8174",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "heavy_hit_1.wav",
+          "sha256": "4c5c48e2de61ceac31fb530753061101f74b212127ed34854f73f137a7464d49",
+          "seconds": 0.55,
+          "sources": [
+            {
+              "mix_gain": 0.65,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.2.ogg",
+              "sha256": "e74221f6cec0acaa7c19095618c683c3cdc1741f02193b61cb28a2ec56cbfce2",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit07.mp3.flac",
+              "sha256": "fd0bddacf2daf2041be7196d1569b91cec2188ebdc66dc8bbf508f58c4d9baa4",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "heavy_hit_2.wav",
+          "sha256": "c4848da4a7be6f0b1415ac3907c200834787cb4a810153fc41fb5ac261691297",
+          "seconds": 0.55,
+          "sources": [
+            {
+              "mix_gain": 0.65,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.3.ogg",
+              "sha256": "ce09eb2987531d1323415065d7811a9cf0ea8639766d9fa77655d602e7e14989",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit08.mp3.flac",
+              "sha256": "1a1b39efc06ac641e80aec7ca78956d351aa9b0a9cdc89428688b8560c96bcdc",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "heavy_hit_3.wav",
+          "sha256": "b152a7620b9da281df9d4c318a02b7a20b4423ed78bc1a5433d1016398b2ae28",
+          "seconds": 0.5138095238095238,
+          "sources": [
+            {
+              "mix_gain": 0.65,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.4.ogg",
+              "sha256": "320aa8a77d35f9354c3d7e03a53e987ae67b0c5721f0dd2680100c5e6b5e4cc4",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit09.mp3.flac",
+              "sha256": "97666669bdb698ee5a9061a8dbe78fa6cb873f3158899f3689d5e9efdde8cf0a",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "heavy_hit_4.wav",
+          "sha256": "02f1213e131cfd2909bf33d1ce7e0b1b47493d070f299a4737962fb7c1564521",
+          "seconds": 0.37492063492063493,
+          "sources": [
+            {
+              "mix_gain": 0.65,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.5.ogg",
+              "sha256": "135d1b26aad8d2f2205e56c14cd0162755a883e9419d6fd955cb978126a77452",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit10.mp3.flac",
+              "sha256": "1a1f4bec8fed5a1b785b9d43b335fa1cf99efcb85cf37507482f32e75a052265",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        }
+      ]
+    },
+    "spear_wind": {
+      "gain_db": -17,
+      "variants": [
+        {
+          "file": "spear_wind_0.wav",
+          "sha256": "5eff31f2a3a341f6c67fe5c47d97d12b603ba4b15f0f7ed552da3d4ff5cabc56",
+          "seconds": 0.20653061224489797,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                0.35,
+                0.54
+              ],
+              "speed": 0.92,
+              "lowpass_hz": 7500
+            }
+          ]
+        },
+        {
+          "file": "spear_wind_1.wav",
+          "sha256": "94ef4cefa5abf9039445ef1e8f727c63972afb236153414af5d0f5299593d04b",
+          "seconds": 0.1847845804988662,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                1.34,
+                1.51
+              ],
+              "speed": 0.92,
+              "lowpass_hz": 7500
+            }
+          ]
+        },
+        {
+          "file": "spear_wind_2.wav",
+          "sha256": "a8050a61481ae68669f040dc264f09f891ce683dda42edb1a3cdd81c62b31556",
+          "seconds": 0.1956689342403628,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                2.3,
+                2.48
+              ],
+              "speed": 0.92,
+              "lowpass_hz": 7500
+            }
+          ]
+        },
+        {
+          "file": "spear_wind_3.wav",
+          "sha256": "de7c7d59fdb164680011fa3fd19de0ec1663d534ffd67523c8d7365e0aa277ce",
+          "seconds": 0.16306122448979593,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                3.47,
+                3.62
+              ],
+              "speed": 0.92,
+              "lowpass_hz": 7500
+            }
+          ]
+        },
+        {
+          "file": "spear_wind_4.wav",
+          "sha256": "ab65b1b4f57f2212fb8f76d2feb528baa31ace8000eb9a605980b4b52ca7ba37",
+          "seconds": 0.16306122448979593,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                4.54,
+                4.69
+              ],
+              "speed": 0.92,
+              "lowpass_hz": 7500
+            }
+          ]
+        }
+      ]
+    },
+    "spear_hit": {
+      "gain_db": -17,
+      "variants": [
+        {
+          "file": "spear_hit_0.wav",
+          "sha256": "4a2c4e53e8e0ca08858820c8a71b6cd20c1fbc03212ab60edb5194e41385e92a",
+          "seconds": 0.32,
+          "sources": [
+            {
+              "mix_gain": 0.25,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.1.ogg",
+              "sha256": "4a3e80705619cbd7500682ab51004011ddf67e14ccf1818ceb9e5b539fe42b75",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit01.mp3.flac",
+              "sha256": "bdab6cd6c1d261efc363da24e205372daa88718b98bb149677d74459b24245d8",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "spear_hit_1.wav",
+          "sha256": "e1266c0f87f3ff891dbdd1762191498b4b0f16e2badae349de77b66ac53c9f59",
+          "seconds": 0.32,
+          "sources": [
+            {
+              "mix_gain": 0.25,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.2.ogg",
+              "sha256": "e74221f6cec0acaa7c19095618c683c3cdc1741f02193b61cb28a2ec56cbfce2",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit02.mp3.flac",
+              "sha256": "31fe92be9bf7dccf2428ade7b680ee09e2f70c2aa2a3cbec502f4a9ff932249f",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "spear_hit_2.wav",
+          "sha256": "3ec043443f7ba1deb2e48eafad118dedbc6e170b549a3e8c4ff0a7e0fcdacb65",
+          "seconds": 0.32,
+          "sources": [
+            {
+              "mix_gain": 0.25,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.3.ogg",
+              "sha256": "ce09eb2987531d1323415065d7811a9cf0ea8639766d9fa77655d602e7e14989",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit03.mp3.flac",
+              "sha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "spear_hit_3.wav",
+          "sha256": "a0474db6e65a01e7b52c98cdcb57d77bb9dc8117701bd38a531f03e0e4ddc57d",
+          "seconds": 0.32,
+          "sources": [
+            {
+              "mix_gain": 0.25,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.4.ogg",
+              "sha256": "320aa8a77d35f9354c3d7e03a53e987ae67b0c5721f0dd2680100c5e6b5e4cc4",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit04.mp3.flac",
+              "sha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "spear_hit_4.wav",
+          "sha256": "a76e8963238c136117b020baa5ea3d8b7bb4346e37aa7f604610868fbb6603b4",
+          "seconds": 0.32,
+          "sources": [
+            {
+              "mix_gain": 0.25,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.5.ogg",
+              "sha256": "135d1b26aad8d2f2205e56c14cd0162755a883e9419d6fd955cb978126a77452",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit05.mp3.flac",
+              "sha256": "f4185c56500bfdd48a09c1606d87a2262a90907e95f7d2a37000746bbb0f2cbf",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        }
+      ]
+    },
+    "spear_heavy_hit": {
+      "gain_db": -13,
+      "variants": [
+        {
+          "file": "spear_heavy_hit_0.wav",
+          "sha256": "408e52ab52b0c8d261ee40a3c11410f8c3cb6eaaa16c9362c3d8f7ace689a533",
+          "seconds": 0.3925170068027211,
+          "sources": [
+            {
+              "mix_gain": 0.35,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.1.ogg",
+              "sha256": "4a3e80705619cbd7500682ab51004011ddf67e14ccf1818ceb9e5b539fe42b75",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit06.mp3.flac",
+              "sha256": "e51601e681630928329da90b299e813b53be23b76a9db44716235ee3496f8174",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "spear_heavy_hit_1.wav",
+          "sha256": "54bf4261ffef427bc37d4c2f7107ef667917ae447971ea636ffb517f84bdc9a7",
+          "seconds": 0.46,
+          "sources": [
+            {
+              "mix_gain": 0.35,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.2.ogg",
+              "sha256": "e74221f6cec0acaa7c19095618c683c3cdc1741f02193b61cb28a2ec56cbfce2",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit07.mp3.flac",
+              "sha256": "fd0bddacf2daf2041be7196d1569b91cec2188ebdc66dc8bbf508f58c4d9baa4",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "spear_heavy_hit_2.wav",
+          "sha256": "7583d0a5b6d2c8f810202fe63659c7d329e9d046277d3050a89d9fb6a0f5a682",
+          "seconds": 0.46,
+          "sources": [
+            {
+              "mix_gain": 0.35,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.3.ogg",
+              "sha256": "ce09eb2987531d1323415065d7811a9cf0ea8639766d9fa77655d602e7e14989",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit08.mp3.flac",
+              "sha256": "1a1b39efc06ac641e80aec7ca78956d351aa9b0a9cdc89428688b8560c96bcdc",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "spear_heavy_hit_3.wav",
+          "sha256": "161d17e6d4cd98e12160735643da87640ef405806a80131b73017eab38c8b705",
+          "seconds": 0.46,
+          "sources": [
+            {
+              "mix_gain": 0.35,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.4.ogg",
+              "sha256": "320aa8a77d35f9354c3d7e03a53e987ae67b0c5721f0dd2680100c5e6b5e4cc4",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit09.mp3.flac",
+              "sha256": "97666669bdb698ee5a9061a8dbe78fa6cb873f3158899f3689d5e9efdde8cf0a",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "spear_heavy_hit_4.wav",
+          "sha256": "73fa74ca2c7f7686adc7a91b5fc421d0567bf9e4b46343043a7968c79656d0b1",
+          "seconds": 0.37492063492063493,
+          "sources": [
+            {
+              "mix_gain": 0.35,
+              "pack": "sword",
+              "file": "sword - StarNinjas/sword.5.ogg",
+              "sha256": "135d1b26aad8d2f2205e56c14cd0162755a883e9419d6fd955cb978126a77452",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit10.mp3.flac",
+              "sha256": "1a1f4bec8fed5a1b785b9d43b335fa1cf99efcb85cf37507482f32e75a052265",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        }
+      ]
+    },
+    "blunt_whoosh": {
+      "gain_db": -17,
+      "variants": [
+        {
+          "file": "blunt_whoosh_0.wav",
+          "sha256": "5cc24577387f99b59ce933cdda9cd5b7191be30e7a0386071c5c3d279c5d8ba1",
+          "seconds": 0.2714285714285714,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                0.35,
+                0.54
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        },
+        {
+          "file": "blunt_whoosh_1.wav",
+          "sha256": "a26a777a48b6b85a6932724c962395233b394a9d13789844b7e2048861050ca8",
+          "seconds": 0.24285714285714285,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                1.34,
+                1.51
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        },
+        {
+          "file": "blunt_whoosh_2.wav",
+          "sha256": "9a1a7837bc2b2bc0e5a1a5f9fa8a9949c1f022bc76b53eeec290652cbea749b3",
+          "seconds": 0.2571428571428571,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                2.3,
+                2.48
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        },
+        {
+          "file": "blunt_whoosh_3.wav",
+          "sha256": "46cc943a0c463622304a78bfc59ea543684a27771c8effdd11017581fe5c6b99",
+          "seconds": 0.21428571428571427,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                3.47,
+                3.62
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        },
+        {
+          "file": "blunt_whoosh_4.wav",
+          "sha256": "c72f463389b8922825f9f3c6bc666ee65bc2b158c8e100589539a3843edc7fdd",
+          "seconds": 0.21428571428571427,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                4.54,
+                4.69
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        }
+      ]
+    },
+    "blunt_hit": {
+      "gain_db": -17,
+      "variants": [
+        {
+          "file": "blunt_hit_0.wav",
+          "sha256": "a5184a62379051f6270b5b4888425cebf181004027a398187d313253d98dfe0b",
+          "seconds": 0.42,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit01.mp3.flac",
+              "sha256": "bdab6cd6c1d261efc363da24e205372daa88718b98bb149677d74459b24245d8",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "blunt_hit_1.wav",
+          "sha256": "cdf4aa49891dcc77384371096e5041a1503af3f416853fa8cb202cea324d5507",
+          "seconds": 0.42,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit02.mp3.flac",
+              "sha256": "31fe92be9bf7dccf2428ade7b680ee09e2f70c2aa2a3cbec502f4a9ff932249f",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "blunt_hit_2.wav",
+          "sha256": "fbc512275c564b35612adfd3802074dd7c826823dcd929481874b312de07e863",
+          "seconds": 0.42,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit03.mp3.flac",
+              "sha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "blunt_hit_3.wav",
+          "sha256": "7854845f9688d0e47255cdebe422018a48063855e7411d6f80ba721b405e47d3",
+          "seconds": 0.42,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit04.mp3.flac",
+              "sha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "blunt_hit_4.wav",
+          "sha256": "d45e22a5b1f03c24a40ecc74ced57e1e1831850a2323ce74ae5035a83bd0fc5c",
+          "seconds": 0.42,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit05.mp3.flac",
+              "sha256": "f4185c56500bfdd48a09c1606d87a2262a90907e95f7d2a37000746bbb0f2cbf",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        }
+      ]
+    },
+    "blunt_heavy_hit": {
+      "gain_db": -13,
+      "variants": [
+        {
+          "file": "blunt_heavy_hit_0.wav",
+          "sha256": "471932ac3d9c3c06f09663be6ceab5f98433affb017ade41c9c06a3cf2837f28",
+          "seconds": 0.5275963718820862,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit06.mp3.flac",
+              "sha256": "e51601e681630928329da90b299e813b53be23b76a9db44716235ee3496f8174",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit01.mp3.flac",
+              "sha256": "bdab6cd6c1d261efc363da24e205372daa88718b98bb149677d74459b24245d8",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "blunt_heavy_hit_1.wav",
+          "sha256": "28365f1c98a042636f46fa527c7eb54614df16f620d8548992eb4dfc5f49c572",
+          "seconds": 0.55,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit07.mp3.flac",
+              "sha256": "fd0bddacf2daf2041be7196d1569b91cec2188ebdc66dc8bbf508f58c4d9baa4",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit02.mp3.flac",
+              "sha256": "31fe92be9bf7dccf2428ade7b680ee09e2f70c2aa2a3cbec502f4a9ff932249f",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "blunt_heavy_hit_2.wav",
+          "sha256": "20bd42f275ff2d4d47ee775871fc871f2b3cadc8f1f18c57c5085d008bd2bed2",
+          "seconds": 0.55,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit08.mp3.flac",
+              "sha256": "1a1b39efc06ac641e80aec7ca78956d351aa9b0a9cdc89428688b8560c96bcdc",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit03.mp3.flac",
+              "sha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "blunt_heavy_hit_3.wav",
+          "sha256": "fdff57b1db8a37b409805e1065c337a7588afa318489f91d629031c4650fb051",
+          "seconds": 0.5221315192743764,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit09.mp3.flac",
+              "sha256": "97666669bdb698ee5a9061a8dbe78fa6cb873f3158899f3689d5e9efdde8cf0a",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit04.mp3.flac",
+              "sha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "blunt_heavy_hit_4.wav",
+          "sha256": "f0e6aea9d16803b4a4477f2608aca9b14ea075bd6c8e700ed5aa76dcfd713d17",
+          "seconds": 0.4770294784580499,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit10.mp3.flac",
+              "sha256": "1a1f4bec8fed5a1b785b9d43b335fa1cf99efcb85cf37507482f32e75a052265",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit05.mp3.flac",
+              "sha256": "f4185c56500bfdd48a09c1606d87a2262a90907e95f7d2a37000746bbb0f2cbf",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        }
+      ]
+    },
+    "bow_release": {
+      "gain_db": -15,
+      "variants": [
+        {
+          "file": "bow_release_0.wav",
+          "sha256": "50658ea23e7b87d015183e7b84f0da47885d0c8f21b6b378352140ca98e4f5f2",
+          "seconds": 0.19,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                0.09,
+                0.24
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                0.35,
+                0.54
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "bow_release_1.wav",
+          "sha256": "b0207f2114e9546825d1d79b063a65231624c94d9216dd40c09b9e02f0440b4c",
+          "seconds": 0.17,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                0.43,
+                0.57
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                1.34,
+                1.51
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "bow_release_2.wav",
+          "sha256": "bfab02c41a3aae5efe1cc8852e538a01b768721671a128e1183454e871e95951",
+          "seconds": 0.18,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                0.76,
+                0.91
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                2.3,
+                2.48
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "bow_release_3.wav",
+          "sha256": "2a2bd892473c5ac22db9162148193edd94f974646ac229a17b0731759f3d85c9",
+          "seconds": 0.15,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                1.24,
+                1.39
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                3.47,
+                3.62
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "bow_release_4.wav",
+          "sha256": "8f6b3f17b222c988680b5516bb4523e7d23037012bb2e6be20e40cbf7c1cf907",
+          "seconds": 0.15,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                2.07,
+                2.21
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                4.54,
+                4.69
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        }
+      ]
+    },
+    "bow_heavy_release": {
+      "gain_db": -14,
+      "variants": [
+        {
+          "file": "bow_heavy_release_0.wav",
+          "sha256": "9395f4062a12be92a838d95d9b9603988077a7edacac2122bb9971d1ce690453",
+          "seconds": 0.30401360544217687,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Scythian Recurve Shoot.wav",
+              "sha256": "8d95d06f0c7539f14b5a69fb2818ab42dc985b6966db9856a30a7767f11c259b",
+              "cut_seconds": [
+                0.2,
+                0.33
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.28,
+              "pack": "medieval",
+              "file": "Scythian Recurve Heavy Arrow Pass.wav",
+              "sha256": "331f53a2e9ac334bca10bf80f5fc4fe51065ddeece3cc4ec3b231fcf9a7f25ec",
+              "cut_seconds": [
+                0.04,
+                0.42
+              ],
+              "speed": 1.25,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "bow_heavy_release_1.wav",
+          "sha256": "cd874dcab38538023a3e40e1a9f1b7d00f041ea44b4155be5f5985698bab9bd5",
+          "seconds": 0.33755102040816326,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Scythian Recurve Shoot.wav",
+              "sha256": "8d95d06f0c7539f14b5a69fb2818ab42dc985b6966db9856a30a7767f11c259b",
+              "cut_seconds": [
+                1.89,
+                2.03
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.28,
+              "pack": "medieval",
+              "file": "Scythian Recurve Heavy Arrow Pass.wav",
+              "sha256": "331f53a2e9ac334bca10bf80f5fc4fe51065ddeece3cc4ec3b231fcf9a7f25ec",
+              "cut_seconds": [
+                0.69,
+                1.13
+              ],
+              "speed": 1.25,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "bow_heavy_release_2.wav",
+          "sha256": "72a58bcc18f00156c7629c5a7cf9178bd3623bb3837c6fecf7aacb1f9a6713b3",
+          "seconds": 0.3983673469387755,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Scythian Recurve Shoot.wav",
+              "sha256": "8d95d06f0c7539f14b5a69fb2818ab42dc985b6966db9856a30a7767f11c259b",
+              "cut_seconds": [
+                2.42,
+                2.55
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.28,
+              "pack": "medieval",
+              "file": "Scythian Recurve Heavy Arrow Pass.wav",
+              "sha256": "331f53a2e9ac334bca10bf80f5fc4fe51065ddeece3cc4ec3b231fcf9a7f25ec",
+              "cut_seconds": [
+                1.41,
+                1.92
+              ],
+              "speed": 1.25,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "bow_heavy_release_3.wav",
+          "sha256": "cc14962560e0ae5292ee8f02f512f8928de6a0ca8b51220d48d674c712e32d9a",
+          "seconds": 0.401859410430839,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Scythian Recurve Shoot.wav",
+              "sha256": "8d95d06f0c7539f14b5a69fb2818ab42dc985b6966db9856a30a7767f11c259b",
+              "cut_seconds": [
+                2.94,
+                3.08
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.28,
+              "pack": "medieval",
+              "file": "Scythian Recurve Heavy Arrow Pass.wav",
+              "sha256": "331f53a2e9ac334bca10bf80f5fc4fe51065ddeece3cc4ec3b231fcf9a7f25ec",
+              "cut_seconds": [
+                2.09,
+                2.6
+              ],
+              "speed": 1.25,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "bow_heavy_release_4.wav",
+          "sha256": "256a8165fb909838e074e8b78150d9bfc8ceb111c8e7b622beecd1846fd5a77c",
+          "seconds": 0.45,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Scythian Recurve Shoot.wav",
+              "sha256": "8d95d06f0c7539f14b5a69fb2818ab42dc985b6966db9856a30a7767f11c259b",
+              "cut_seconds": [
+                3.39,
+                3.53
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.28,
+              "pack": "medieval",
+              "file": "Scythian Recurve Heavy Arrow Pass.wav",
+              "sha256": "331f53a2e9ac334bca10bf80f5fc4fe51065ddeece3cc4ec3b231fcf9a7f25ec",
+              "cut_seconds": [
+                2.7,
+                3.28
+              ],
+              "speed": 1.25,
+              "lowpass_hz": null
+            }
+          ]
+        }
+      ]
+    },
+    "arrow_hit": {
+      "gain_db": -17,
+      "variants": [
+        {
+          "file": "arrow_hit_0.wav",
+          "sha256": "c7f8297e2087cfe6190e8bd6d08ea4e7fe09072099c6262f3ff2cca938f08363",
+          "seconds": 0.28,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit16.mp3.flac",
+              "sha256": "dbadfea3b5900283e2368102baa7faef5d7721ad670ac865dd8a2fbc1b5c31cd",
+              "cut_seconds": null,
+              "speed": 1.15,
+              "lowpass_hz": 4800
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                0.09,
+                0.24
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "arrow_hit_1.wav",
+          "sha256": "24a069f637ef85180c412ce8568fc5b8cca235c736821b12307e2a8a042043e2",
+          "seconds": 0.28,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit17.mp3.flac",
+              "sha256": "400d2064230b4fd8fb43b8f8692f3829688f58e3b5f61c8cc676601cd6bdbfb2",
+              "cut_seconds": null,
+              "speed": 1.15,
+              "lowpass_hz": 4800
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                0.43,
+                0.57
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "arrow_hit_2.wav",
+          "sha256": "7fd0fb356ae73a9f300767cdccd2b1498647edac0ef27567558d2debfca5b361",
+          "seconds": 0.28,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit18.mp3.flac",
+              "sha256": "cdf99ae759f57199c9b6fce92666d5b63878c841ffa5f10522c7095143069afd",
+              "cut_seconds": null,
+              "speed": 1.15,
+              "lowpass_hz": 4800
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                0.76,
+                0.91
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "arrow_hit_3.wav",
+          "sha256": "be5983e5bbdce3d9ea16e868fd6c5f73372a47432f1511837d58ccc0d22fa06a",
+          "seconds": 0.28,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit19.mp3.flac",
+              "sha256": "ef5773159eec3b6bc59f613acf7b7c8f0d7ff68d306f00f53dfa116f8c5bb438",
+              "cut_seconds": null,
+              "speed": 1.15,
+              "lowpass_hz": 4800
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                1.24,
+                1.39
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        },
+        {
+          "file": "arrow_hit_4.wav",
+          "sha256": "7ef4bbf0e064846dee4f382475b8369e496eff208e258adb51ec4cb6843fa855",
+          "seconds": 0.28,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "body",
+              "file": "hits/hit20.mp3.flac",
+              "sha256": "661c38f1d5441ec0a24e191ba73af99d0a81db20fe2b528276a45e7e5d26f207",
+              "cut_seconds": null,
+              "speed": 1.15,
+              "lowpass_hz": 4800
+            },
+            {
+              "mix_gain": 0.12,
+              "pack": "medieval",
+              "file": "English Longbow Shoot.wav",
+              "sha256": "c25684ccdab3eb13f17a0ffa637fbd175659d092665f16c0bce8510d46c4fbee",
+              "cut_seconds": [
+                2.07,
+                2.21
+              ],
+              "speed": 1.0,
+              "lowpass_hz": null
+            }
+          ]
+        }
+      ]
+    },
+    "shield_hit": {
+      "gain_db": -16,
+      "variants": [
+        {
+          "file": "shield_hit_0.wav",
+          "sha256": "ce5dfcde950a7b5435cb220d4a7f3b7f0faf5dda0cabb414d091842fb44338aa",
+          "seconds": 0.5275963718820862,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.1.ogg",
+              "sha256": "5c5e78e466ba78fe2414f2b7a2a6eb674822ccfc8a8bc9fda32be22f5dde5e69",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit01.mp3.flac",
+              "sha256": "bdab6cd6c1d261efc363da24e205372daa88718b98bb149677d74459b24245d8",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "shield_hit_1.wav",
+          "sha256": "b35a3fcfb5931d0156f40b80d3b150a250e7bcea93b0b4a959d2341d5af8880a",
+          "seconds": 0.6024943310657597,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.2.ogg",
+              "sha256": "e09f222b70d53f2967514d076e2ae50c21526ac640fe4919965f964af043da1a",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit02.mp3.flac",
+              "sha256": "31fe92be9bf7dccf2428ade7b680ee09e2f70c2aa2a3cbec502f4a9ff932249f",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "shield_hit_2.wav",
+          "sha256": "433604193fcc9fc1e5406b1f9bb290eba406a1ef34935d9e9d4b9ef87beb8c30",
+          "seconds": 0.5011337868480725,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.3.ogg",
+              "sha256": "6c588bc79b7e4fe202e3b65fa849954d684d2d2342f6ad04813540854c421663",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit03.mp3.flac",
+              "sha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "shield_hit_3.wav",
+          "sha256": "21a1b0df4830cb17f5d9b786d7e15a694c6a6fb081e50e07a7c2738f286aee4d",
+          "seconds": 0.5221315192743764,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.4.ogg",
+              "sha256": "4c2c962f8703882b8a6f863c1f5a35c6ae518d0281755fac9a13e63a73b86fa5",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit04.mp3.flac",
+              "sha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "shield_hit_4.wav",
+          "sha256": "cb5e52e3b19a1aecc05febe3465c8bd901ca15b87765d67030cbd11e37daf665",
+          "seconds": 0.4770294784580499,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.5.ogg",
+              "sha256": "09e36369f2556e6a234ce78ec797447518ef7671f8224fc64747a7fa66ea229a",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit05.mp3.flac",
+              "sha256": "f4185c56500bfdd48a09c1606d87a2262a90907e95f7d2a37000746bbb0f2cbf",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        }
+      ]
+    },
+    "guard_break": {
+      "gain_db": -14,
+      "variants": [
+        {
+          "file": "guard_break_0.wav",
+          "sha256": "db40d1e6c331d6b00409bd130980a71862ffb169ba8798226e925b6674c8f26a",
+          "seconds": 0.3833106575963719,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.6.ogg",
+              "sha256": "4c7643dbcd813eb614a56451652987d37ba587fac3309303aa0ab9a27d3a7e71",
+              "cut_seconds": null,
+              "speed": 0.85,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit06.mp3.flac",
+              "sha256": "e51601e681630928329da90b299e813b53be23b76a9db44716235ee3496f8174",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "guard_break_1.wav",
+          "sha256": "714b18aad362e8157c2e571c9194ae06affd6ab1ab605b55fa66c72b39c75e8c",
+          "seconds": 0.624172335600907,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.7.ogg",
+              "sha256": "6763e519e7b31250a78f514d2b8b4f4e73a3bb105c980844ea687d698364b80c",
+              "cut_seconds": null,
+              "speed": 0.85,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit07.mp3.flac",
+              "sha256": "fd0bddacf2daf2041be7196d1569b91cec2188ebdc66dc8bbf508f58c4d9baa4",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "guard_break_2.wav",
+          "sha256": "72f39f080fcc14555168885a1b6b30d1acb5ffba4f30e8af07542dba157d1bc0",
+          "seconds": 0.5766666666666667,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.8.ogg",
+              "sha256": "1466349e10779cfede4538657031bd87f3757d6cf5139cfad6552fa859007172",
+              "cut_seconds": null,
+              "speed": 0.85,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit08.mp3.flac",
+              "sha256": "1a1b39efc06ac641e80aec7ca78956d351aa9b0a9cdc89428688b8560c96bcdc",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "guard_break_3.wav",
+          "sha256": "126600ea98f5a0d731ceb464c69732dea01f830dcbb12e96430ac4bc11bd8960",
+          "seconds": 0.6231746031746032,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.9.ogg",
+              "sha256": "aabd55ad99a1d171b50d741923077488a1021460fab35adf4fb7f36def49adc0",
+              "cut_seconds": null,
+              "speed": 0.85,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit09.mp3.flac",
+              "sha256": "97666669bdb698ee5a9061a8dbe78fa6cb873f3158899f3689d5e9efdde8cf0a",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        },
+        {
+          "file": "guard_break_4.wav",
+          "sha256": "c029b6644044f4be04578ccb1f629570446694e7bc2f90bf85ec081f973d9da7",
+          "seconds": 0.4785034013605442,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.10.ogg",
+              "sha256": "61d40c241c5df7722249983938109564a8470245116fe34d23d2a35324d3a4f1",
+              "cut_seconds": null,
+              "speed": 0.85,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.25,
+              "pack": "body",
+              "file": "hits/hit10.mp3.flac",
+              "sha256": "1a1f4bec8fed5a1b785b9d43b335fa1cf99efcb85cf37507482f32e75a052265",
+              "cut_seconds": null,
+              "speed": 0.9,
+              "lowpass_hz": 4600
+            }
+          ]
+        }
+      ]
+    },
+    "guard": {
+      "gain_db": -16,
+      "variants": [
+        {
+          "file": "shield_hit_0.wav",
+          "sha256": "ce5dfcde950a7b5435cb220d4a7f3b7f0faf5dda0cabb414d091842fb44338aa",
+          "seconds": 0.5275963718820862,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.1.ogg",
+              "sha256": "5c5e78e466ba78fe2414f2b7a2a6eb674822ccfc8a8bc9fda32be22f5dde5e69",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit01.mp3.flac",
+              "sha256": "bdab6cd6c1d261efc363da24e205372daa88718b98bb149677d74459b24245d8",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "shield_hit_1.wav",
+          "sha256": "b35a3fcfb5931d0156f40b80d3b150a250e7bcea93b0b4a959d2341d5af8880a",
+          "seconds": 0.6024943310657597,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.2.ogg",
+              "sha256": "e09f222b70d53f2967514d076e2ae50c21526ac640fe4919965f964af043da1a",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit02.mp3.flac",
+              "sha256": "31fe92be9bf7dccf2428ade7b680ee09e2f70c2aa2a3cbec502f4a9ff932249f",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "shield_hit_2.wav",
+          "sha256": "433604193fcc9fc1e5406b1f9bb290eba406a1ef34935d9e9d4b9ef87beb8c30",
+          "seconds": 0.5011337868480725,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.3.ogg",
+              "sha256": "6c588bc79b7e4fe202e3b65fa849954d684d2d2342f6ad04813540854c421663",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit03.mp3.flac",
+              "sha256": "b97c1246a9b3c02f1d0e0ce6ce0f36a407de32ff912c00c1ddadcf0b8196235e",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "shield_hit_3.wav",
+          "sha256": "21a1b0df4830cb17f5d9b786d7e15a694c6a6fb081e50e07a7c2738f286aee4d",
+          "seconds": 0.5221315192743764,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.4.ogg",
+              "sha256": "4c2c962f8703882b8a6f863c1f5a35c6ae518d0281755fac9a13e63a73b86fa5",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit04.mp3.flac",
+              "sha256": "729d8301e133c3038ec5818b73965c7f2364dd49ba1347c7a057d74e3ffe8e10",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        },
+        {
+          "file": "shield_hit_4.wav",
+          "sha256": "cb5e52e3b19a1aecc05febe3465c8bd901ca15b87765d67030cbd11e37daf665",
+          "seconds": 0.4770294784580499,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "clash",
+              "file": "sword_clash.5.ogg",
+              "sha256": "09e36369f2556e6a234ce78ec797447518ef7671f8224fc64747a7fa66ea229a",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": null
+            },
+            {
+              "mix_gain": 0.18,
+              "pack": "body",
+              "file": "hits/hit05.mp3.flac",
+              "sha256": "f4185c56500bfdd48a09c1606d87a2262a90907e95f7d2a37000746bbb0f2cbf",
+              "cut_seconds": null,
+              "speed": 1.0,
+              "lowpass_hz": 6500
+            }
+          ]
+        }
+      ]
+    },
+    "kick_whoosh": {
+      "gain_db": -17,
+      "variants": [
+        {
+          "file": "blunt_whoosh_0.wav",
+          "sha256": "5cc24577387f99b59ce933cdda9cd5b7191be30e7a0386071c5c3d279c5d8ba1",
+          "seconds": 0.2714285714285714,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                0.35,
+                0.54
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        },
+        {
+          "file": "blunt_whoosh_1.wav",
+          "sha256": "a26a777a48b6b85a6932724c962395233b394a9d13789844b7e2048861050ca8",
+          "seconds": 0.24285714285714285,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                1.34,
+                1.51
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        },
+        {
+          "file": "blunt_whoosh_2.wav",
+          "sha256": "9a1a7837bc2b2bc0e5a1a5f9fa8a9949c1f022bc76b53eeec290652cbea749b3",
+          "seconds": 0.2571428571428571,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                2.3,
+                2.48
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        },
+        {
+          "file": "blunt_whoosh_3.wav",
+          "sha256": "46cc943a0c463622304a78bfc59ea543684a27771c8effdd11017581fe5c6b99",
+          "seconds": 0.21428571428571427,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                3.47,
+                3.62
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        },
+        {
+          "file": "blunt_whoosh_4.wav",
+          "sha256": "c72f463389b8922825f9f3c6bc666ee65bc2b158c8e100589539a3843edc7fdd",
+          "seconds": 0.21428571428571427,
+          "sources": [
+            {
+              "mix_gain": 1,
+              "pack": "medieval",
+              "file": "Katana Swing.wav",
+              "sha256": "133860f84cb4c311cf273f3a16256a45568d7d4ce468eb081dd17e4e4bfa7487",
+              "cut_seconds": [
+                4.54,
+                4.69
+              ],
+              "speed": 0.7,
+              "lowpass_hz": 3300
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

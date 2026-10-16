@@ -20,7 +20,7 @@ func run() -> void:
 	audio.play_music()
 	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://audio/v21/music.json"))
 	check(manifest.tracks.size() == 4, "Four newly composed v21 scores are installed")
-	var expected_keys := ["bamboo", "siege", "town", "castle", "castle", "bamboo", "castle"]
+	var expected_keys := ["s01_bamboo_approach", "s01_outpost_battle", "s01_outpost_battle", "s01_outpost_battle", "s01_outpost_battle", "s01_outpost_battle", "s01_outpost_battle"]
 	var campaign := Stage.first()
 	for index in range(campaign.segments.size()):
 		var segment: Dictionary = campaign.segments[index]
@@ -58,7 +58,7 @@ func run() -> void:
 	audio.sync_stage_music(world)
 	check(audio._music_key == "bamboo", "Allies and ordinary commanders do not claim the boss score")
 	for key in ["bamboo", "town", "miniboss", "boss"]:
-		check(Audio.STAGE_MUSIC[key].begins_with("res://audio/v21/"), key + " uses its newly generated PCM")
+		check(Audio.STAGE_MUSIC[key].begins_with("res://audio/v27/" if key == "boss" else "res://audio/v21/"), key + " retains the registered legacy PCM source")
 		audio.sync_stage_music({"stage":{"music":key}})
 		audio._process(Audio.MUSIC_FADE_SECONDS)
 		var player: AudioStreamPlayer = audio._music_player

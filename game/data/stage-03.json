@@ -1,0 +1,263 @@
+{
+  "id": 3,
+  "title": "今川本陣",
+  "faction": "imagawa",
+  "year": 1560,
+  "target_minutes": [
+    5,
+    10
+  ],
+  "historical_note": "桶狹間之戰背景下的遊戲改編：破鐘停援、拆障破陣、帳內雙將與義元決戰。",
+  "segments": [
+    {
+      "name": "雨營警鐘",
+      "theme": "camp",
+      "weather": "rain",
+      "music": "s03_rain_approach",
+      "width": 2400,
+      "civilians": "none",
+      "props": [
+        [
+          "crate",
+          380,
+          570,
+          "rice"
+        ],
+        [
+          "basket",
+          690,
+          395,
+          "fish"
+        ]
+      ],
+      "encounters": [
+        {
+          "end": 2400,
+          "mode": "alarm",
+          "population": {
+            "solo": 6,
+            "coop": 9,
+            "delay_ticks": 240,
+            "admit_ticks": 45,
+            "kinds": [
+              "shield_spear",
+              "soldier",
+              "archer"
+            ],
+            "entry_side": 1,
+            "entry_lanes": [
+              395,
+              490,
+              575
+            ]
+          },
+          "alarm": {
+            "hp": 160,
+            "supports": [
+              [
+                900,
+                410
+              ],
+              [
+                1120,
+                560
+              ]
+            ],
+            "x": 1010,
+            "y": 485,
+            "height": 255
+          }
+        }
+      ]
+    },
+    {
+      "name": "重重木障",
+      "theme": "gate",
+      "weather": "rain",
+      "music": "s03_camp_battle",
+      "width": 2600,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "end": 2600,
+          "mode": "barriers",
+          "barriers": {
+            "layers": [
+              [
+                780,
+                180
+              ],
+              [
+                1360,
+                210
+              ],
+              [
+                1960,
+                240
+              ]
+            ],
+            "width": 86,
+            "depth": 300
+          }
+        }
+      ]
+    },
+    {
+      "name": "本陣防線",
+      "theme": "camp",
+      "weather": "rain",
+      "music": "s03_camp_battle",
+      "width": 3000,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "end": 3000,
+          "mode": "formation",
+          "population": {
+            "solo": 6,
+            "coop": 9,
+            "delay_ticks": 240,
+            "admit_ticks": 45
+          },
+          "formation": {
+            "gap_ticks": 90,
+            "breach_x": 2350,
+            "slots": [
+              [
+                0,
+                "shield_spear",
+                1010,
+                395
+              ],
+              [
+                0,
+                "soldier",
+                1075,
+                490
+              ],
+              [
+                0,
+                "shield_spear",
+                980,
+                580
+              ],
+              [
+                1,
+                "soldier",
+                1320,
+                425
+              ],
+              [
+                1,
+                "archer",
+                1580,
+                530
+              ],
+              [
+                1,
+                "shield_spear",
+                1410,
+                575
+              ],
+              [
+                1,
+                "soldier",
+                1660,
+                385
+              ],
+              [
+                1,
+                "archer",
+                1810,
+                470
+              ],
+              [
+                1,
+                "archer",
+                1730,
+                590
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "今川大帳",
+      "theme": "chamber",
+      "weather": "indoor",
+      "music": "s03_dual_miniboss",
+      "width": 2600,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "end": 2600,
+          "mode": "lieutenants",
+          "population": {
+            "solo": 4,
+            "coop": 6,
+            "delay_ticks": 240,
+            "admit_ticks": 45,
+            "kinds": [
+              "soldier",
+              "shield_spear",
+              "archer"
+            ]
+          },
+          "tactics": {
+            "separation": 260,
+            "retreat_ticks": 36,
+            "retreat_distance": 90,
+            "recover_ticks": 24,
+            "retreat_cooldown": 240,
+            "target_hold_ticks": 180
+          },
+          "leaders": [
+            {
+              "key": "A",
+              "label": "井伊直盛",
+              "variant": "long_yari",
+              "x": 1020,
+              "y": 410,
+              "hp": 260,
+              "actions": [
+                "boss_thrust"
+              ]
+            },
+            {
+              "key": "B",
+              "label": "蒲原氏德",
+              "variant": "nodachi",
+              "x": 1350,
+              "y": 560,
+              "hp": 240,
+              "actions": [
+                "boss_sweep"
+              ]
+            }
+          ],
+          "yoshimoto": {
+            "hp": 600,
+            "x": 1650,
+            "y": 480,
+            "transition_ticks": 90,
+            "move_speed": 3.2,
+            "melee_enter": 380,
+            "ranged_enter": 560,
+            "ranged_cooldown": 240,
+            "guard_ticks": 18,
+            "guard_recover_ticks": 30,
+            "guard_cooldown": 240,
+            "motion_ticks": 30,
+            "motion_distance": 75,
+            "motion_cooldown": 120,
+            "motion_recover_ticks": 18
+          }
+        }
+      ]
+    }
+  ]
+}

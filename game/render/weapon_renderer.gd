@@ -21,10 +21,27 @@ static func equipped_id(fighter: Dictionary) -> String:
 	return id if id == "" or Weapons.compatible(hero,id) else Weapons.default_for(hero)
 
 func geometry(fighter: Dictionary, frame: Dictionary, height: float) -> Dictionary:
-	return Weapons.pose(fighter,frame,height)
+	var pose := Weapons.pose(fighter,frame,height)
+	if not pose.is_empty() and float(frame.get("weapon_longitudinal_scale",1)) != 1:
+		pose.basis = Transform2D(float(pose.angle),Vector2(float(pose.scale),float(pose.scale)*float(frame.weapon_longitudinal_scale)),0,Vector2.ZERO)
+	if not pose.is_empty() and frame.get("combat_v33",false) and frame.get("weapon_matrix",[]).size() == 2:
+		var matrix: Array = frame.weapon_matrix
+		var factor := float(pose.scale)/.28
+		var basis := Transform2D(Vector2(matrix[0][0],matrix[1][0])*factor,Vector2(matrix[0][1],matrix[1][1])*factor,Vector2.ZERO)
+		pose.basis = basis
+		var spec: Dictionary = items[pose.id]
+		pose.top = pose.hand+basis*(Vector2(spec.tip_top[0],spec.tip_top[1])-Vector2(pose.grip))
+		pose.bottom = pose.hand+basis*(Vector2(spec.tip_bottom[0],spec.tip_bottom[1])-Vector2(pose.grip))
+	return pose
+
+static func uses_authored_weapon(fighter: Dictionary, frame: Dictionary) -> bool:
+	return frame.get("authored_weapon",false) and (frame.get("fixed_weapon",false) or equipped_id(fighter).begins_with("practice_"))
 
 static func pose_transform(pose: Dictionary, origin: Vector2, face: float, rotation: float) -> Transform2D:
 	var hand: Vector2 = pose.hand
+	if pose.has("basis"):
+		var basis: Transform2D = pose.basis
+		return Transform2D((basis.x*Vector2(face,1)).rotated(rotation),(basis.y*Vector2(face,1)).rotated(rotation),origin+(hand*Vector2(face,1)).rotated(rotation))
 	return Transform2D(rotation + float(pose.angle) * face,Vector2(face*float(pose.get("blade_side",1)),1) * float(pose.scale),0.0,origin + (hand * Vector2(face,1)).rotated(rotation))
 
 func sweep_trail(fighter: Dictionary, current: Dictionary, previous: Dictionary, height: float) -> PackedVector2Array:
@@ -43,11 +60,19 @@ func sweep_trail(fighter: Dictionary, current: Dictionary, previous: Dictionary,
 	return points
 
 func draw_weapon(canvas: CanvasItem, fighter: Dictionary, frame: Dictionary, origin: Vector2, height: float, face: float, rotation: float, tint: Color, behind: bool) -> void:
+	var layers: Dictionary = frame.get("combat_layers",{})
+	var accessory := "accessory_back" if behind else "accessory_front"
+	if layers.has(accessory): _draw_combat_layer(canvas,layers[accessory],origin,height,face,rotation,tint)
+	if behind and uses_authored_weapon(fighter,frame) and layers.has("weapon_back") and equipped_id(fighter) != "": _draw_combat_layer(canvas,layers.weapon_back,origin,height,face,rotation,tint)
 	if bool(frame.get("weapon_behind",false)) != behind: return
+	if uses_authored_weapon(fighter,frame):
+		if layers.has("weapon") and frame.get("weapon_visible",true) and equipped_id(fighter) != "": _draw_combat_layer(canvas,layers.weapon,origin,height,face,rotation,tint)
+		return
 	var pose := geometry(fighter,frame,height)
 	if pose.is_empty(): return
 	var texture: Texture2D = textures[pose.id]
 	canvas.draw_set_transform_matrix(pose_transform(pose,origin,face,rotation))
+	if frame.get("combat_v33",false) and frame.get("weapon_mode","") == "sheathed": _draw_scabbard(canvas,pose,tint)
 	var region := weapon_region(pose,frame,texture.get_size())
 	if region.has_area(): canvas.draw_texture_rect_region(texture,Rect2(region.position-Vector2(pose.grip),region.size),region,tint)
 	if pose.family == "bow":
@@ -59,6 +84,12 @@ func draw_weapon(canvas: CanvasItem, fighter: Dictionary, frame: Dictionary, ori
 			canvas.draw_line(draw_hand,pose.bottom,color,1.1,true)
 		else:
 			canvas.draw_line(pose.top,pose.bottom,color,.9,true)
+		if frame.get("nocked",false):
+			var tail: Vector2 = frame.second_hand*float(pose.body_scale) if frame.has("second_hand") else Vector2(pose.hand)-Vector2(height*.3,0)
+			var direction := (Vector2(pose.hand)-tail).normalized()
+			var tip := Vector2(pose.hand)+direction*height*.12
+			canvas.draw_line(tail,tip,Color(.82,.73,.55,tint.a),1.4,true)
+			canvas.draw_line(tip-direction*4+direction.orthogonal()*2,tip,Color(.85,.89,.87,tint.a),2,true)
 	canvas.draw_set_transform(Vector2.ZERO)
 
 static func weapon_region(pose: Dictionary, frame: Dictionary, size: Vector2) -> Rect2:
@@ -70,10 +101,19 @@ static func weapon_region(pose: Dictionary, frame: Dictionary, size: Vector2) ->
 	return Rect2(Vector2(0,clampf(top,0,size.y)),Vector2(size.x,maxf(0,size.y-maxf(0,top))))
 
 func draw_shadow(canvas: CanvasItem, fighter: Dictionary, frame: Dictionary, _origin: Vector2, height: float, face: float, rotation: float, projection: Transform2D, tint: Color) -> void:
+	if uses_authored_weapon(fighter,frame):
+		if frame.combat_layers.has("weapon") and frame.get("weapon_visible",true) and equipped_id(fighter) != "":
+			var layer: Dictionary = frame.combat_layers.weapon
+			var factor := height/float(layer.body_height)
+			canvas.draw_set_transform_matrix(projection*Transform2D(rotation,Vector2(face,1),0,Vector2.ZERO))
+			canvas.draw_texture_rect_region(layer.texture,Rect2(-Vector2(layer.anchor)*factor,layer.region.size*factor),layer.region,Color(0,0,0,tint.a))
+			canvas.draw_set_transform(Vector2.ZERO)
+		return
 	var pose := geometry(fighter,frame,height)
 	if pose.is_empty(): return
 	var shadow := Color(0,0,0,tint.a)
 	canvas.draw_set_transform_matrix(projection * pose_transform(pose,Vector2.ZERO,face,rotation))
+	if frame.get("combat_v33",false) and frame.get("weapon_mode","") == "sheathed": _draw_scabbard(canvas,pose,shadow)
 	var region := weapon_region(pose,frame,textures[pose.id].get_size())
 	if region.has_area(): canvas.draw_texture_rect_region(textures[pose.id],Rect2(region.position-Vector2(pose.grip),region.size),region,shadow)
 	if pose.family == "bow":
@@ -86,7 +126,18 @@ func draw_shadow(canvas: CanvasItem, fighter: Dictionary, frame: Dictionary, _or
 			canvas.draw_line(pose.top,pose.bottom,shadow,0.9,true)
 	canvas.draw_set_transform(Vector2.ZERO)
 
+func _draw_scabbard(canvas: CanvasItem, pose: Dictionary, tint: Color) -> void:
+	var tip: Array = items[pose.id].tip_top
+	var from := Vector2(pose.guard)-Vector2(pose.grip)
+	var to := Vector2(tip[0],tip[1])-Vector2(pose.grip)
+	var width := float(items[pose.id].length)*.037
+	canvas.draw_line(from,to,Color(.38,.30,.17,tint.a),width+8,true)
+	canvas.draw_line(from,to,Color(.055,.06,.065,tint.a),width,true)
+
 func draw_hand_occlusion(canvas: CanvasItem, frame: Dictionary, origin: Vector2, height: float, face: float, rotation: float, tint: Color) -> void:
+	if frame.get("combat_v33",false):
+		if frame.combat_layers.has("hands"): _draw_combat_layer(canvas,frame.combat_layers.hands,origin,height,face,rotation,tint)
+		return
 	if frame.has("hand_foreground"):
 		var factor := height / float(frame.body_height)
 		canvas.draw_set_transform(origin,rotation,Vector2(face,1))
@@ -105,6 +156,12 @@ func draw_hand_occlusion(canvas: CanvasItem, frame: Dictionary, origin: Vector2,
 		var clipped := hand_rect.intersection(Rect2(Vector2.ZERO,region.size))
 		if not clipped.has_area(): continue
 		canvas.draw_texture_rect_region(frame.texture,Rect2((clipped.position - anchor) * scale,clipped.size * scale),Rect2(region.position + clipped.position,clipped.size),tint)
+	canvas.draw_set_transform(Vector2.ZERO)
+
+func _draw_combat_layer(canvas: CanvasItem, layer: Dictionary, origin: Vector2, height: float, face: float, rotation: float, tint: Color) -> void:
+	var factor := height/float(layer.body_height)
+	canvas.draw_set_transform(origin,rotation,Vector2(face,1))
+	canvas.draw_texture_rect_region(layer.texture,Rect2(-Vector2(layer.anchor)*factor,layer.region.size*factor),layer.region,tint)
 	canvas.draw_set_transform(Vector2.ZERO)
 
 func draw_drop(canvas: CanvasItem, drop: Dictionary, position: Vector2, clock: float) -> bool:
