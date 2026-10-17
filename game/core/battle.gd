@@ -23,6 +23,11 @@ const NOBUNAGA_HEAVY_RANGE_SCALE := 1.5
 const AIR_HEAVY_REACH := 420.0
 const AIR_HEAVY_DEPTH := 150.0
 const HIDEYOSHI_CHARGED_RANGE_SCALE := 2.0
+# blade_ring.png outer edge, measured from the texture pivot at alpha 20.
+const TADAKATSU_CHARGED_RANGE_SCALE := 2.0
+const TADAKATSU_RING_OUTER_X := 0.368
+const TADAKATSU_RING_OUTER_Y := 0.160
+const TADAKATSU_RING_PIVOT_LIFT := 0.0256
 const OICHI_HEAVY_SPEED := 24.0 / 19.0
 const PLAYABLE_HEROES := CombatMoves.HEROES
 const LIGHT_REACH := {"nobunaga":145.0,"hideyoshi":130.0,"ieyasu":145.0,"mitsuhide":180.0,"tadakatsu":185.0}
@@ -779,6 +784,13 @@ func _move_fighter(fighter: Dictionary, dx: float, dy: float = 0.0, shove: bool 
 	fighter.x = next_x
 	fighter.y = next_y
 
+
+static func tadakatsu_charged_area(fighter: Dictionary) -> Dictionary:
+	var reach := LIGHT_REACH.tadakatsu * 1.15
+	reach += float(Weapons.item(str(fighter.get("weapon_id",""))).get("reach_bonus",0)) + Equipment.bonus(fighter,"reach_bonus")
+	reach *= float(HERO_PROFILES.tadakatsu.reach) * TADAKATSU_CHARGED_RANGE_SCALE
+	var size := reach / TADAKATSU_RING_OUTER_X
+	return {"reach": reach, "depth": reach * TADAKATSU_RING_OUTER_Y / TADAKATSU_RING_OUTER_X, "behind": reach, "size": size, "lift": size * TADAKATSU_RING_PIVOT_LIFT}
 
 static func hero_tick(kind: String, tick: int) -> int:
 	return maxi(1, roundi(tick / float(HERO_PROFILES.get(kind, HERO_PROFILES.nobunaga).attack_speed)))
@@ -1629,12 +1641,18 @@ func _melee(attacker: Dictionary, reach: float, depth: float, damage: int, heavy
 		reach *= HIDEYOSHI_CHARGED_RANGE_SCALE
 		depth *= HIDEYOSHI_CHARGED_RANGE_SCALE
 		behind *= HIDEYOSHI_CHARGED_RANGE_SCALE
+	if CombatMoves.active(attacker) and attacker.kind == "tadakatsu" and attacker.action == "charged":
+		var ring := tadakatsu_charged_area(attacker)
+		reach = ring.reach
+		depth = ring.depth
+		behind = ring.behind
 	attacker.attack_reach = reach
 	var downward_wave: bool = CombatMoves.active(attacker) and attacker.kind != "oichi" and attacker.action == "air_heavy"
 	if downward_wave:
 		_effect("blade_wave",attacker.x,attacker.y,18,{"face":attacker.face,"radius":reach,"hit_depth":depth,"z":attacker.z,"action":"air_heavy"})
 	else:
-		_effect("slash", attacker.x + attacker.face * reach * 0.5, attacker.y - attacker.z, 10, {"face": attacker.face, "radius": reach * 0.5})
+		if not (CombatMoves.active(attacker) and attacker.kind == "tadakatsu" and attacker.action == "charged"):
+			_effect("slash", attacker.x + attacker.face * reach * 0.5, attacker.y - attacker.z, 10, {"face": attacker.face, "radius": reach * 0.5})
 	_melee_props(attacker, reach, depth, damage, behind, arc_degrees)
 	for target in state.fighters:
 		if target.team == attacker.team or target.hp <= 0:

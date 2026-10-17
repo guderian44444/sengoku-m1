@@ -1096,6 +1096,8 @@ func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sampl
 				factor *= FrameAnimation.Battle.HIDEYOSHI_CHARGED_RANGE_SCALE
 				hand = Vector2(0,float(frame.weapon_hand.y)*height/float(frame.body_height))
 			_draw_art_frame(fx,ground-Vector2(0,float(fighter.get("z",0)))+hand*(1-factor),height*factor,float(fighter.get("face",1)),0,Color.WHITE,float(fx.body_height))
+		if str(fighter.get("kind","")) == "tadakatsu" and str(sample.get("clip","")) == "charge_release":
+			_draw_tadakatsu_charge_ring(fighter, ground, front)
 		return
 	if _fx.draw_actor(self,fighter,ground,height,sample,frame,front): return
 	var clip := str(sample.clip)
@@ -1119,6 +1121,18 @@ func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sampl
 	if str(fighter.get("kind", "")) == "tadakatsu" and sample.get("source","") == "v16": return
 	if clip in ["heavy","charged","rising","upper_heavy","charged_upper","ground_slam","charged_slam","low_sweep","dash_strike","air_light","air_heavy","mixed_finisher","mixed_rising","counter_cut"]:
 		_draw_technique_trail(fighter,ground - Vector2(0,float(fighter.get("z",0))),height,sample)
+
+func _draw_tadakatsu_charge_ring(fighter: Dictionary, ground: Vector2, front: bool) -> void:
+	if _fx.shared_player == null: return
+	var ring: Dictionary = FrameAnimation.Battle.tadakatsu_charged_area(fighter)
+	var now := FrameAnimation.Battle.combat_time_ms(fighter)
+	var bloom := 0.28
+	for hit_ms in [190.0, 720.0]:
+		var delta: float = now - hit_ms
+		if delta < -160.0: continue
+		if delta < 0.0: bloom = maxf(bloom, lerpf(0.28, 1.0, (delta + 160.0) / 160.0))
+		else: bloom = maxf(bloom, lerpf(1.0, 0.45, clampf(delta / 460.0, 0.0, 1.0)))
+	_fx.shared_player.draw_phase(self, "blade_ring", now * 0.06, 90.0, ground - Vector2(0, float(ring.lift) + float(fighter.get("z", 0))), front, {"opacity": [[0, bloom], [1, bloom]], "uv_radians_per_second": [[0, TAU * 1.4], [1, TAU * 1.4]]}, {"face": float(fighter.get("face", 1)), "size": float(ring.size)})
 
 func _draw_spear_charge_aura(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
 	var power := charge_visual(float(sample.tick) if art_demo else float(fighter.get("charge",0)),height)
