@@ -1,0 +1,627 @@
+{
+  "version": 2,
+  "status": "Static art layout proposal; no runtime changes",
+  "coordinate_system": "2172x724 per scene; x=center, y=bottom of visible alpha bounds; h=visible-art height including weapon",
+  "rules": [
+    "Flat belt-scroll plane; no platform height",
+    "Approved v5 prop orientation upper-left to lower-right",
+    "Melee passes fence; player blocked until fence destroyed",
+    "Muddy ground slows both; player cannot jump",
+    "No enemies hidden in reeds",
+    "Kira exactly six escorts; replace one after one dies",
+    "No Kira landing indicators",
+    "Kira volley fires in place with survivors; no gathering/teleport/refill; spread +50%, track before launch then fixed",
+    "Final escape upper message only"
+  ],
+  "assets_file": "assets.json",
+  "sections": [
+    {
+      "id": 1,
+      "name": "殘煙歸路",
+      "range": [
+        1,
+        3
+      ],
+      "sub": "殘兵 → 路口阻擋 → 小據點"
+    },
+    {
+      "id": 2,
+      "name": "蘆葦河岸",
+      "range": [
+        4,
+        5
+      ],
+      "sub": "泥地走位 → 河岸射擊點"
+    },
+    {
+      "id": 3,
+      "name": "橋頭救援",
+      "range": [
+        6,
+        8
+      ],
+      "sub": "橋頭外圍 → 救援通道 → 富永攔路"
+    },
+    {
+      "id": 4,
+      "name": "河岸追擊",
+      "range": [
+        9,
+        10
+      ],
+      "sub": "追兵 → 吉良與六弓兵"
+    },
+    {
+      "id": 5,
+      "name": "歸路決戰",
+      "range": [
+        11,
+        13
+      ],
+      "sub": "營地外圍 → 集結地 → 主帳外王戰"
+    }
+  ],
+  "nodes": [
+    {
+      "n": 1,
+      "title": "殘兵初遇",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "spear",
+          "x": 1120,
+          "y": 570,
+          "h": 170,
+          "flip": true
+        },
+        {
+          "asset": "spear",
+          "x": 1480,
+          "y": 625,
+          "h": 170,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "進軍 → 槍兵分前後兩線，中央保留走位空間。",
+        "本圖敵數、間距與節點小標皆為配置提案；非已實作戰鬥。"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "路口阻擋",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "shield",
+          "x": 1030,
+          "y": 585,
+          "h": 170,
+          "flip": true
+        },
+        {
+          "asset": "spear",
+          "x": 1390,
+          "y": 640,
+          "h": 170,
+          "flip": true
+        },
+        {
+          "asset": "cheval",
+          "x": 1600,
+          "y": 555,
+          "h": 150,
+          "flip": false
+        }
+      ],
+      "notes": [
+        "盾兵正面接戰，槍兵從較近地面推進；拒馬置於路口側翼。",
+        "拒馬保持核准的左上 → 右下方向；無高低平台。"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "煙後小據點",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "kflag",
+          "x": 1800,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "gunner",
+          "x": 1500,
+          "y": 545,
+          "h": 160,
+          "flip": true
+        },
+        {
+          "asset": "fence",
+          "x": 1430,
+          "y": 590,
+          "h": 175,
+          "flip": false
+        },
+        {
+          "asset": "shield",
+          "x": 1110,
+          "y": 635,
+          "h": 170,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "柵欄後安排鐵炮兵；盾兵可直接穿過柵欄進場，不翻越。",
+        "旗座靠據點外緣；玩家須砍破柵欄才可通行。鐵炮為鵜殿援軍。"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "乾路與泥地",
+      "mud": true,
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "spear",
+          "x": 1110,
+          "y": 620,
+          "h": 170,
+          "flip": true
+        },
+        {
+          "asset": "spear",
+          "x": 1530,
+          "y": 550,
+          "h": 158,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "青綠線＝乾燥通路提案；琥珀虛線＝泥地配置範圍，不是技能落點。",
+        "泥地中玩家減速且不能起跳，敵人也減速；蘆葦只在後景，不能藏敵。"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "河岸射擊點",
+      "mud": true,
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "kflag",
+          "x": 1830,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "gunner",
+          "x": 1550,
+          "y": 545,
+          "h": 160,
+          "flip": true
+        },
+        {
+          "asset": "fence",
+          "x": 1490,
+          "y": 590,
+          "h": 175,
+          "flip": false
+        },
+        {
+          "asset": "spear",
+          "x": 1120,
+          "y": 625,
+          "h": 170,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "乾路維持連續；鐵炮站在柵欄後，近戰由正面接近。",
+        "河側泥地造成雙方減速；無蘆葦伏兵。鐵炮統一鵜殿援軍。"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "橋頭外圍",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "kflag",
+          "x": 1720,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "kflag",
+          "x": 1870,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "gunner",
+          "x": 1480,
+          "y": 540,
+          "h": 160,
+          "flip": true
+        },
+        {
+          "asset": "fence",
+          "x": 1410,
+          "y": 590,
+          "h": 175,
+          "flip": false
+        },
+        {
+          "asset": "shield",
+          "x": 1080,
+          "y": 620,
+          "h": 170,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "橋頭旗座與柵欄形成據點辨識；鐵炮在後，盾兵直接穿越柵欄。",
+        "橋梁只作後景，戰鬥在橋前同一平地；不新增橋面平台。"
+      ]
+    },
+    {
+      "n": 7,
+      "title": "救援通道",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "spear",
+          "x": 1050,
+          "y": 560,
+          "h": 170,
+          "flip": true
+        },
+        {
+          "asset": "shield",
+          "x": 1350,
+          "y": 630,
+          "h": 170,
+          "flip": true
+        },
+        {
+          "asset": "cheval",
+          "x": 1770,
+          "y": 550,
+          "h": 150,
+          "flip": false
+        },
+        {
+          "asset": "kflag",
+          "x": 1930,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        }
+      ],
+      "notes": [
+        "擊破橋頭守軍解除封鎖，清場後開放向右通行；不新增NPC護送依賴。",
+        "上方提示：橋頭封鎖解除，友軍可以通行。救援以背景敘事呈現。"
+      ],
+      "rescue": true
+    },
+    {
+      "n": 8,
+      "title": "富永攔路",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "kflag",
+          "x": 1850,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "tominaga",
+          "x": 1450,
+          "y": 610,
+          "h": 210,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "出場位置提案：富永置於橋頭救援末端；不再塞入所有敵種。",
+        "插刀入地 → 向前噴出長條劍氣。保留縱深閃避空間，效果不可遮住角色。"
+      ]
+    },
+    {
+      "n": 9,
+      "title": "河岸追兵",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "spear",
+          "x": 970,
+          "y": 555,
+          "h": 160,
+          "flip": true
+        },
+        {
+          "asset": "shield",
+          "x": 1280,
+          "y": 620,
+          "h": 170,
+          "flip": true
+        },
+        {
+          "asset": "archer",
+          "x": 1730,
+          "y": 570,
+          "h": 168,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "前線近戰、後排單弓手；用前後距離拉出追擊節奏。",
+        "蘆葦維持背景；所有敵人清楚可見。此節兵種與數量仍為配置提案。"
+      ]
+    },
+    {
+      "n": 10,
+      "title": "吉良與六名弓兵",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "kflag",
+          "x": 2010,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "kira",
+          "x": 1150,
+          "y": 620,
+          "h": 200,
+          "flip": true
+        },
+        {
+          "asset": "archer",
+          "x": 1450,
+          "y": 540,
+          "h": 158,
+          "flip": true
+        },
+        {
+          "asset": "archer",
+          "x": 1670,
+          "y": 540,
+          "h": 158,
+          "flip": true
+        },
+        {
+          "asset": "archer",
+          "x": 1890,
+          "y": 540,
+          "h": 158,
+          "flip": true
+        },
+        {
+          "asset": "archer",
+          "x": 1450,
+          "y": 650,
+          "h": 158,
+          "flip": true
+        },
+        {
+          "asset": "archer",
+          "x": 1670,
+          "y": 650,
+          "h": 158,
+          "flip": true
+        },
+        {
+          "asset": "archer",
+          "x": 1890,
+          "y": 650,
+          "h": 158,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "吉良帶六弓兵入場，死一補一；排列僅為入場示意，命令時原地射、剩多少用多少。",
+        "箭雨範圍 +50%；出射前追蹤、出射後固定，無落點提示。不瞬移集合、不因技能召滿六人。"
+      ]
+    },
+    {
+      "n": 11,
+      "title": "營地外圍",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "uflag",
+          "x": 1810,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "ugunner",
+          "x": 1530,
+          "y": 540,
+          "h": 160,
+          "flip": true
+        },
+        {
+          "asset": "fence",
+          "x": 1450,
+          "y": 590,
+          "h": 175,
+          "flip": false
+        },
+        {
+          "asset": "ushield",
+          "x": 1130,
+          "y": 620,
+          "h": 170,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "營地外圍提案：主帳與軍幕建立新場景辨識，盾兵前壓、鐵炮在柵欄後。",
+        "近戰直接穿柵欄，玩家須砍破柵欄才可通行。鐵炮統一鵜殿援軍。"
+      ]
+    },
+    {
+      "n": 12,
+      "title": "帳前集結地",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "uspear",
+          "x": 1060,
+          "y": 565,
+          "h": 170,
+          "flip": true
+        },
+        {
+          "asset": "ushield",
+          "x": 1420,
+          "y": 635,
+          "h": 170,
+          "flip": true
+        },
+        {
+          "asset": "uflag",
+          "x": 1840,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "uflag",
+          "x": 1990,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        }
+      ],
+      "notes": [
+        "集結地提案：背景助陣兵舉槍吆喝；他們是佈景，不新增可攻擊敵人。",
+        "護衛仍在前景，主帳前留出寬闊平地。另附助陣兵4格動畫素材，尚未接入引擎。"
+      ]
+    },
+    {
+      "n": 13,
+      "title": "主帳外・長照決戰",
+      "actors": [
+        {
+          "asset": "player",
+          "x": 260,
+          "y": 615,
+          "h": 186,
+          "flip": false
+        },
+        {
+          "asset": "uflag",
+          "x": 1820,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "uflag",
+          "x": 1980,
+          "y": 505,
+          "h": 245,
+          "flip": false
+        },
+        {
+          "asset": "udono",
+          "x": 1440,
+          "y": 620,
+          "h": 385,
+          "flip": true
+        }
+      ],
+      "notes": [
+        "營帳與助陣兵只在後景；王戰前景維持寬闊。重甲不受擊倒／擊飛，近戰反制大迴旋。",
+        "槍尾直立震地，FX不遮人。遠攻反制採隨身高速投石v2；終戰倒下起身逃離只用上方提示。"
+      ],
+      "ending": true
+    }
+  ]
+}

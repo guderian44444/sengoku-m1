@@ -1,0 +1,110 @@
+{
+  "version": 5,
+  "supersedes": "V4 idle and damaged timing only; all art and 800ms break sequence unchanged",
+  "idle": {
+    "frames": 8,
+    "duration_ms": 120,
+    "period_ms": 960,
+    "loop": true,
+    "size": [
+      360,
+      720
+    ],
+    "sheet": [
+      4,
+      2
+    ],
+    "ground_pivot": [
+      160,
+      683
+    ],
+    "wind_amplitude_px": [
+      15,
+      12
+    ],
+    "pinned_edge_x": 180,
+    "phase_offsets_frames": [
+      0,
+      2,
+      3,
+      5
+    ]
+  },
+  "damaged": {
+    "frames": 8,
+    "duration_ms": 120,
+    "loop": true,
+    "holes": "Free-edge and bottom tears; crest remains one shared cloth image."
+  },
+  "break": {
+    "frames": 8,
+    "duration_ms": 100,
+    "loop": false,
+    "size": [
+      900,
+      900
+    ],
+    "sheet": [
+      4,
+      2
+    ],
+    "ground_pivot": [
+      360,
+      683
+    ],
+    "events": [
+      {
+        "frame": 2,
+        "event": "flag_pole_snap",
+        "sound_random": [
+          "wood_break_01.ogg",
+          "wood_break_02.ogg",
+          "wood_break_03.ogg"
+        ],
+        "gain_db": -3,
+        "once": true
+      },
+      {
+        "frame": 2,
+        "event": "flag_splinters",
+        "sound_random": [
+          "wood_splinter_debris_01.ogg",
+          "wood_splinter_debris_02.ogg",
+          "wood_splinter_debris_03.ogg"
+        ],
+        "gain_db": -9,
+        "once": true
+      },
+      {
+        "frame": 6,
+        "event": "flag_ground_impact",
+        "sound": "wood_heavy_hit_01.ogg",
+        "gain_db": -8,
+        "wet_ground_optional": {
+          "sound": "mud_splash_01.ogg",
+          "gain_db": -14
+        },
+        "once": true
+      },
+      {
+        "frame": 7,
+        "event": "flag_broken_terminal",
+        "sound": null
+      }
+    ]
+  },
+  "state_machine": {
+    "intact": "Nonlethal hit -> damaged; lethal hit -> breaking",
+    "damaged": "Nonlethal hit remains damaged; lethal hit -> breaking",
+    "breaking": "Ignore repeated break triggers; play once then broken",
+    "broken": "No waving, no respawn, no repeated break sound; restore only on explicit level reset"
+  },
+  "base_variants": {
+    "wood_crossfoot": "Wood base split/chipped, pole snapped",
+    "reinforced_timber": "Wood frame split/chipped, pole snapped",
+    "stone_socket": "STONE BASE REMAINS INTACT; only wooden pole breaks"
+  },
+  "placement": "Roadside sparse; outposts denser; foreground flags now allowed. Avoid obscuring the central combat silhouette.",
+  "physics_note": "Assets specify visual events only; collision bounds, HP and attack interaction must be wired into engine later. No engine change included.",
+  "preview_note": "Destruction GIF repeats for review; production break state must not loop or auto-regenerate."
+}

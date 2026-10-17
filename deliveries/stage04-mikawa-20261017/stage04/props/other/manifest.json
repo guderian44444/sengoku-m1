@@ -1,0 +1,575 @@
+{
+  "version": 1,
+  "stage": "三河歸途",
+  "status": "complete_first_prop_pack",
+  "generation": "built-in image_gen, transparent_background=true",
+  "registration": "Translation-only padding to shared 1664x1536 canvas and bottom-center solid-alpha anchor (832,1000). No scaling, no alpha thresholding applied to deliverable pixels. Bbox threshold 127 used only to measure placement.",
+  "limits": [
+    "Generated damage states retain recognizable construction but are not pixel-identical geometry; in-game transition review still needed.",
+    "Ground anchor is solid-alpha lower bound, including low debris.",
+    "No runtime integration or collision validation performed."
+  ],
+  "assets": [
+    {
+      "id": "barricade_intact",
+      "file": "sprites/barricade_intact.png",
+      "raw": "raw/barricade_intact.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        189
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        146,
+        432,
+        1528,
+        1000
+      ],
+      "sha256": "9e0d900047df264051342f1db1e41da2fa4e9d6d0aecbbaa3df8a5decace5c86"
+    },
+    {
+      "id": "barricade_damaged",
+      "file": "sprites/barricade_damaged.png",
+      "raw": "raw/barricade_damaged.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        155
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        141,
+        324,
+        1536,
+        1000
+      ],
+      "sha256": "7b95da5c5e8a202bf24e6f7218efd7bd2a61bbb472ee561a65b99c82e90a1839"
+    },
+    {
+      "id": "barricade_broken",
+      "file": "sprites/barricade_broken.png",
+      "raw": "raw/barricade_broken.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        170
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        77,
+        538,
+        1587,
+        1000
+      ],
+      "sha256": "08ece6e57ab866775d51b5e73879b662cd8622606a95fa2ae9581e0f032af6d6"
+    },
+    {
+      "id": "cheval_intact",
+      "file": "sprites/cheval_intact.png",
+      "raw": "raw/cheval_intact.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        128
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        133,
+        284,
+        1529,
+        1000
+      ],
+      "sha256": "50df52b6fba724a611bb6a0ea73d46f49a6ec2198b68b569f67c2c0db118d7c8"
+    },
+    {
+      "id": "cheval_damaged",
+      "file": "sprites/cheval_damaged.png",
+      "raw": "raw/cheval_damaged.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        126
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        131,
+        267,
+        1533,
+        1000
+      ],
+      "sha256": "c8fb5acf6fbe4b272f65973298308b8507dfc6655a678e52ca0f53ab80841713"
+    },
+    {
+      "id": "cheval_broken",
+      "file": "sprites/cheval_broken.png",
+      "raw": "raw/cheval_broken.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        231
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        148,
+        586,
+        1541,
+        1000
+      ],
+      "sha256": "e46b5f737bcde78a543998df9f52272efd3f14f09c95cfe92c1e0d7d036b2541"
+    },
+    {
+      "id": "cart_intact",
+      "file": "sprites/cart_intact.png",
+      "raw": "raw/cart_intact.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        184
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        123,
+        391,
+        1557,
+        1000
+      ],
+      "sha256": "657f149c52accfb70bb06021339efdeaef1501d242cc01b38651d393b6693a18"
+    },
+    {
+      "id": "cart_damaged",
+      "file": "sprites/cart_damaged.png",
+      "raw": "raw/cart_damaged.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        183
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        98,
+        382,
+        1584,
+        1000
+      ],
+      "sha256": "347afbcbdb81c3f03c40ced65a48a3c63c40d4009e02f323dd0fb434eb964777"
+    },
+    {
+      "id": "cart_broken",
+      "file": "sprites/cart_broken.png",
+      "raw": "raw/cart_broken.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        194
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        128,
+        491,
+        1557,
+        1000
+      ],
+      "sha256": "ebb0330e3c35e5a511df294c6e1a321b2731ae5532e8a3ac81416e3787ada20e"
+    },
+    {
+      "id": "debris",
+      "file": "sprites/debris.png",
+      "raw": "raw/debris.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        312
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        104,
+        586,
+        1568,
+        1000
+      ],
+      "sha256": "ab2934b0cd5e41a911f94ed381790311b8f5554c34e0aa0f29e7e1a6bb3acd28"
+    },
+    {
+      "id": "mud",
+      "file": "sprites/mud.png",
+      "raw": "raw/mud.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        178
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        108,
+        675,
+        1558,
+        1000
+      ],
+      "sha256": "204e967e8421ae557ab174f8fdc1d26256007dc5bfd613da58895e0f3c08227d"
+    },
+    {
+      "id": "crate_intact",
+      "file": "sprites/crate_intact.png",
+      "raw": "raw/crate_intact.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        104
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        366,
+        251,
+        1301,
+        1000
+      ],
+      "sha256": "074243aaa99269ab1dc30ebee8567ebf94acc4f0998f0185397ad20217162588"
+    },
+    {
+      "id": "crate_damaged",
+      "file": "sprites/crate_damaged.png",
+      "raw": "raw/crate_damaged.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        102
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        349,
+        246,
+        1330,
+        1000
+      ],
+      "sha256": "21718b6c3b09161631b182c45d42b6bff912e43e670a064b8b5c4142db28bf70"
+    },
+    {
+      "id": "crate_broken",
+      "file": "sprites/crate_broken.png",
+      "raw": "raw/crate_broken.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        74
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        80,
+        571,
+        1584,
+        1000
+      ],
+      "sha256": "c2cd9b3b3c333c1ed3dd2c63b71857ea3bc98b8958e1da604034393a8a348a11"
+    },
+    {
+      "id": "barrel_intact",
+      "file": "sprites/barrel_intact.png",
+      "raw": "raw/barrel_intact.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        34
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        479,
+        116,
+        1185,
+        1000
+      ],
+      "sha256": "402f0e7b5e3ad8acb615c9e65f55920faac365b250d21a929684e7b4d8ebcf6e"
+    },
+    {
+      "id": "barrel_damaged",
+      "file": "sprites/barrel_damaged.png",
+      "raw": "raw/barrel_damaged.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        35
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        479,
+        115,
+        1200,
+        1000
+      ],
+      "sha256": "f9039d8033c2ddbe9096b1dcef8b31571b24a1ddf9d8f9d2678cdbef19e8ea5e"
+    },
+    {
+      "id": "barrel_broken",
+      "file": "sprites/barrel_broken.png",
+      "raw": "raw/barrel_broken.png",
+      "size": [
+        1664,
+        1536
+      ],
+      "anchor": [
+        832,
+        1000
+      ],
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "translation": [
+        64,
+        50
+      ],
+      "scale": 1,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "solid_alpha_bbox": [
+        158,
+        533,
+        1519,
+        1000
+      ],
+      "sha256": "790948c83259ebb98fc9c23c9475fcef6151a686aa0593bb15919ab941fda35b"
+    }
+  ]
+}

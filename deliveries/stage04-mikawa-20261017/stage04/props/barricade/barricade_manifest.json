@@ -1,0 +1,157 @@
+{
+  "version": "approved-direction-v5-states-1",
+  "object": "barricade",
+  "orientation": "far upper-left to near lower-right",
+  "state_order": [
+    "intact",
+    "damaged",
+    "broken"
+  ],
+  "intact_approved_source_byte_identical": true,
+  "assets": [
+    {
+      "state": "intact",
+      "file": "sprites/barricade_intact.png",
+      "canvas": [
+        1536,
+        1024
+      ],
+      "anchor_pixels": [
+        800,
+        740
+      ],
+      "anchor_normalized": [
+        0.5208333333333334,
+        0.72265625
+      ],
+      "transform_from_generated": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "alpha_range": [
+        0,
+        254
+      ],
+      "alpha_bbox_gt_127": [
+        153,
+        13,
+        1456,
+        976
+      ],
+      "sha256": "ab53e2d9dfa3618384854654268d50ead6a070c9da162b66e0c6adec60caa9c1"
+    },
+    {
+      "state": "damaged",
+      "file": "sprites/barricade_damaged.png",
+      "canvas": [
+        1536,
+        1024
+      ],
+      "anchor_pixels": [
+        800,
+        740
+      ],
+      "anchor_normalized": [
+        0.5208333333333334,
+        0.72265625
+      ],
+      "transform_from_generated": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "alpha_range": [
+        0,
+        254
+      ],
+      "alpha_bbox_gt_127": [
+        153,
+        13,
+        1459,
+        977
+      ],
+      "sha256": "5d068eed5d9129e791dc697035005935a3c1044e0bf4f0ac45c1da0d4daca3c8"
+    },
+    {
+      "state": "broken",
+      "file": "sprites/barricade_broken.png",
+      "canvas": [
+        1536,
+        1024
+      ],
+      "anchor_pixels": [
+        800,
+        740
+      ],
+      "anchor_normalized": [
+        0.5208333333333334,
+        0.72265625
+      ],
+      "transform_from_generated": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "alpha_range": [
+        0,
+        254
+      ],
+      "alpha_bbox_gt_127": [
+        153,
+        26,
+        1459,
+        977
+      ],
+      "sha256": "6d4cf8c0c70253e2d8dac417f7f20ab49f0e607a816d56ee22180b7e30afc250"
+    }
+  ],
+  "ground_placement": {
+    "anchor": [
+      800,
+      740
+    ],
+    "anchor_definition": "Fixed authored ground reference for all states; place this same pixel at the same world point. Never recalculate from state alpha bounds.",
+    "approximate_intact_footprint_polygon": [
+      [
+        155,
+        480
+      ],
+      [
+        345,
+        445
+      ],
+      [
+        1455,
+        785
+      ],
+      [
+        1230,
+        975
+      ]
+    ],
+    "footprint_status": "Visually estimated art placement guide, not measured physics collider; validate in engine.",
+    "state_policy": "Keep world transform unchanged for all states. Damaged uses same approximate occupancy. Broken becomes low debris; gameplay collision/passability must be explicitly chosen by implementer."
+  },
+  "validation": {
+    "canvas_and_alpha_verified": true,
+    "intact_sha256_match": true,
+    "preview_visual_orientation_review": true,
+    "runtime_tested": false,
+    "pixel_identical_damaged_geometry": false
+  },
+  "limits": [
+    "Generated damage edits retain perspective but may shift local silhouettes slightly.",
+    "Do not mix with original front-facing/opposite-axis pack.",
+    "No character occlusion, gunner cover, melee-vault collision or runtime behavior is tested here."
+  ]
+}

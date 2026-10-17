@@ -1,0 +1,848 @@
+[
+  {
+    "id": "wood_heavy_hit_01",
+    "event_id": "wood_heavy_hit",
+    "wav": "processed/wav/wood_heavy_hit_01.wav",
+    "ogg": "processed/ogg/wood_heavy_hit_01.ogg",
+    "seconds": 0.391229,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_000.ogg",
+      "originals/impact/Audio/impactWood_medium_000.ogg"
+    ],
+    "recipe": "Heavy wood transient plus slowed low-frequency wood body; crack layer from filtered medium wood Foley.",
+    "peak_target_dbfs": -5,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "wood_break_01",
+    "event_id": "wood_break",
+    "wav": "processed/wav/wood_break_01.wav",
+    "ogg": "processed/ogg/wood_break_01.ogg",
+    "seconds": 1.805,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_000.ogg",
+      "originals/impact/Audio/impactWood_medium_000.ogg",
+      "originals/impact/Audio/impactWood_light_000.ogg"
+    ],
+    "recipe": "Designed timber fracture: staggered wood impacts and trailing splinter Foley; not an actual breaking-timber recording.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "wood_splinter_debris_01",
+    "event_id": "wood_splinter_debris",
+    "wav": "processed/wav/wood_splinter_debris_01.wav",
+    "ogg": "processed/ogg/wood_splinter_debris_01.ogg",
+    "seconds": 1.505,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_light_000.ogg"
+    ],
+    "recipe": "Eight varied light-wood fragments, high-passed and decaying; separate optional debris tail.",
+    "peak_target_dbfs": -10,
+    "trigger": "debris-spawn-once",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "gain_linear": 0.5,
+    "priority": "low",
+    "loop": false
+  },
+  {
+    "id": "barricade_collapse_01",
+    "event_id": "barricade_collapse",
+    "wav": "processed/wav/barricade_collapse_01.wav",
+    "ogg": "processed/ogg/barricade_collapse_01.ogg",
+    "seconds": 2.505,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_000.ogg",
+      "originals/impact/Audio/impactWood_medium_000.ogg",
+      "originals/impact/Audio/impactWood_light_000.ogg"
+    ],
+    "recipe": "Layered timber break, heavy post falls, scattered wood debris; large barricade/chevaux-de-frise collapse.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "cart_heavy_hit_01",
+    "event_id": "cart_heavy_hit",
+    "wav": "processed/wav/cart_heavy_hit_01.wav",
+    "ogg": "processed/ogg/cart_heavy_hit_01.ogg",
+    "seconds": 0.391229,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_000.ogg",
+      "originals/impact/Audio/impactWood_medium_000.ogg",
+      "originals/impact/Audio/impactMetal_heavy_000.ogg"
+    ],
+    "recipe": "Wood-first heavy cart impact with restrained iron-band rattle.",
+    "peak_target_dbfs": -5,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "supply_cart"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "cart_wood_metal_crunch_01",
+    "event_id": "cart_wood_metal_crunch",
+    "wav": "processed/wav/cart_wood_metal_crunch_01.wav",
+    "ogg": "processed/ogg/cart_wood_metal_crunch_01.ogg",
+    "seconds": 2.005,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_000.ogg",
+      "originals/impact/Audio/impactWood_medium_000.ogg",
+      "originals/impact/Audio/impactWood_light_000.ogg",
+      "originals/impact/Audio/impactMetal_heavy_000.ogg"
+    ],
+    "recipe": "Cart destruction: slowed wooden frame, subdued metal fittings, second ground impact and debris.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "supply_cart"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "crate_hit_01",
+    "event_id": "crate_hit",
+    "wav": "processed/wav/crate_hit_01.wav",
+    "ogg": "processed/ogg/crate_hit_01.ogg",
+    "seconds": 0.346813,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_000.ogg",
+      "originals/impact/Audio/impactWood_medium_000.ogg"
+    ],
+    "recipe": "Shorter, lighter crate-panel strike retaining heavy wood body.",
+    "peak_target_dbfs": -7,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "crate"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "crate_break_01",
+    "event_id": "crate_break",
+    "wav": "processed/wav/crate_break_01.wav",
+    "ogg": "processed/ogg/crate_break_01.ogg",
+    "seconds": 1.556729,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_000.ogg",
+      "originals/impact/Audio/impactWood_medium_000.ogg",
+      "originals/impact/Audio/impactWood_light_000.ogg"
+    ],
+    "recipe": "Compressed timber fracture and loose crate boards.",
+    "peak_target_dbfs": -6,
+    "trigger": "destroy-once",
+    "objects": [
+      "crate"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "barrel_hit_01",
+    "event_id": "barrel_hit",
+    "wav": "processed/wav/barrel_hit_01.wav",
+    "ogg": "processed/ogg/barrel_hit_01.ogg",
+    "seconds": 0.517312,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_000.ogg",
+      "originals/impact/Audio/impactMetal_heavy_000.ogg"
+    ],
+    "recipe": "Designed hollow stave impact with low wood body and quiet hoop tick; no liquid content.",
+    "peak_target_dbfs": -6,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "barrel"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "barrel_break_01",
+    "event_id": "barrel_break",
+    "wav": "processed/wav/barrel_break_01.wav",
+    "ogg": "processed/ogg/barrel_break_01.ogg",
+    "seconds": 1.919896,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_000.ogg",
+      "originals/impact/Audio/impactWood_medium_000.ogg",
+      "originals/impact/Audio/impactWood_light_000.ogg",
+      "originals/impact/Audio/impactMetal_heavy_000.ogg"
+    ],
+    "recipe": "Stave fracture, restrained metal hoop, settling boards; empty barrel.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "barrel"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "mud_footstep_01",
+    "event_id": "mud_footstep",
+    "wav": "processed/wav/mud_footstep_01.wav",
+    "ogg": "processed/ogg/mud_footstep_01.ogg",
+    "seconds": 0.819688,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/footstep_snow_000.ogg",
+      "originals/impact/Audio/footstep_grass_000.ogg"
+    ],
+    "recipe": "Designed damp-ground step from filtered snow/grass Foley and shaped noise; not a field-recorded mud step.",
+    "peak_target_dbfs": -10,
+    "trigger": "foot-contact",
+    "objects": [
+      "muddy_ground"
+    ],
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "loop": false
+  },
+  {
+    "id": "mud_splash_01",
+    "event_id": "mud_splash",
+    "wav": "processed/wav/mud_splash_01.wav",
+    "ogg": "processed/ogg/mud_splash_01.ogg",
+    "seconds": 0.919687,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactSoft_heavy_000.ogg",
+      "originals/impact/Audio/footstep_snow_000.ogg",
+      "originals/impact/Audio/footstep_grass_000.ogg"
+    ],
+    "recipe": "Designed muddy splash from soft impact, ground Foley and band-limited decaying noise; not recorded water.",
+    "peak_target_dbfs": -8,
+    "trigger": "puddle-contact",
+    "objects": [
+      "muddy_ground"
+    ],
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "loop": false
+  },
+  {
+    "id": "wood_heavy_hit_02",
+    "event_id": "wood_heavy_hit",
+    "wav": "processed/wav/wood_heavy_hit_02.wav",
+    "ogg": "processed/ogg/wood_heavy_hit_02.ogg",
+    "seconds": 0.37575,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_001.ogg",
+      "originals/impact/Audio/impactWood_medium_001.ogg"
+    ],
+    "recipe": "Heavy wood transient plus slowed low-frequency wood body; crack layer from filtered medium wood Foley.",
+    "peak_target_dbfs": -5,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "wood_break_02",
+    "event_id": "wood_break",
+    "wav": "processed/wav/wood_break_02.wav",
+    "ogg": "processed/ogg/wood_break_02.ogg",
+    "seconds": 1.805,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_001.ogg",
+      "originals/impact/Audio/impactWood_medium_001.ogg",
+      "originals/impact/Audio/impactWood_light_001.ogg"
+    ],
+    "recipe": "Designed timber fracture: staggered wood impacts and trailing splinter Foley; not an actual breaking-timber recording.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "wood_splinter_debris_02",
+    "event_id": "wood_splinter_debris",
+    "wav": "processed/wav/wood_splinter_debris_02.wav",
+    "ogg": "processed/ogg/wood_splinter_debris_02.ogg",
+    "seconds": 1.505,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_light_001.ogg"
+    ],
+    "recipe": "Eight varied light-wood fragments, high-passed and decaying; separate optional debris tail.",
+    "peak_target_dbfs": -10,
+    "trigger": "debris-spawn-once",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "gain_linear": 0.5,
+    "priority": "low",
+    "loop": false
+  },
+  {
+    "id": "barricade_collapse_02",
+    "event_id": "barricade_collapse",
+    "wav": "processed/wav/barricade_collapse_02.wav",
+    "ogg": "processed/ogg/barricade_collapse_02.ogg",
+    "seconds": 2.505,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_001.ogg",
+      "originals/impact/Audio/impactWood_medium_001.ogg",
+      "originals/impact/Audio/impactWood_light_001.ogg"
+    ],
+    "recipe": "Layered timber break, heavy post falls, scattered wood debris; large barricade/chevaux-de-frise collapse.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "cart_heavy_hit_02",
+    "event_id": "cart_heavy_hit",
+    "wav": "processed/wav/cart_heavy_hit_02.wav",
+    "ogg": "processed/ogg/cart_heavy_hit_02.ogg",
+    "seconds": 0.438271,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_001.ogg",
+      "originals/impact/Audio/impactWood_medium_001.ogg",
+      "originals/impact/Audio/impactMetal_heavy_001.ogg"
+    ],
+    "recipe": "Wood-first heavy cart impact with restrained iron-band rattle.",
+    "peak_target_dbfs": -5,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "supply_cart"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "cart_wood_metal_crunch_02",
+    "event_id": "cart_wood_metal_crunch",
+    "wav": "processed/wav/cart_wood_metal_crunch_02.wav",
+    "ogg": "processed/ogg/cart_wood_metal_crunch_02.ogg",
+    "seconds": 2.005,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_001.ogg",
+      "originals/impact/Audio/impactWood_medium_001.ogg",
+      "originals/impact/Audio/impactWood_light_001.ogg",
+      "originals/impact/Audio/impactMetal_heavy_001.ogg"
+    ],
+    "recipe": "Cart destruction: slowed wooden frame, subdued metal fittings, second ground impact and debris.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "supply_cart"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "crate_hit_02",
+    "event_id": "crate_hit",
+    "wav": "processed/wav/crate_hit_02.wav",
+    "ogg": "processed/ogg/crate_hit_02.ogg",
+    "seconds": 0.333104,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_001.ogg",
+      "originals/impact/Audio/impactWood_medium_001.ogg"
+    ],
+    "recipe": "Shorter, lighter crate-panel strike retaining heavy wood body.",
+    "peak_target_dbfs": -7,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "crate"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "crate_break_02",
+    "event_id": "crate_break",
+    "wav": "processed/wav/crate_break_02.wav",
+    "ogg": "processed/ogg/crate_break_02.ogg",
+    "seconds": 1.556729,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_001.ogg",
+      "originals/impact/Audio/impactWood_medium_001.ogg",
+      "originals/impact/Audio/impactWood_light_001.ogg"
+    ],
+    "recipe": "Compressed timber fracture and loose crate boards.",
+    "peak_target_dbfs": -6,
+    "trigger": "destroy-once",
+    "objects": [
+      "crate"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "barrel_hit_02",
+    "event_id": "barrel_hit",
+    "wav": "processed/wav/barrel_hit_02.wav",
+    "ogg": "processed/ogg/barrel_hit_02.ogg",
+    "seconds": 0.517312,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_001.ogg",
+      "originals/impact/Audio/impactMetal_heavy_001.ogg"
+    ],
+    "recipe": "Designed hollow stave impact with low wood body and quiet hoop tick; no liquid content.",
+    "peak_target_dbfs": -6,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "barrel"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "barrel_break_02",
+    "event_id": "barrel_break",
+    "wav": "processed/wav/barrel_break_02.wav",
+    "ogg": "processed/ogg/barrel_break_02.ogg",
+    "seconds": 1.919896,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_001.ogg",
+      "originals/impact/Audio/impactWood_medium_001.ogg",
+      "originals/impact/Audio/impactWood_light_001.ogg",
+      "originals/impact/Audio/impactMetal_heavy_001.ogg"
+    ],
+    "recipe": "Stave fracture, restrained metal hoop, settling boards; empty barrel.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "barrel"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "mud_footstep_02",
+    "event_id": "mud_footstep",
+    "wav": "processed/wav/mud_footstep_02.wav",
+    "ogg": "processed/ogg/mud_footstep_02.ogg",
+    "seconds": 0.715708,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/footstep_snow_001.ogg",
+      "originals/impact/Audio/footstep_grass_001.ogg"
+    ],
+    "recipe": "Designed damp-ground step from filtered snow/grass Foley and shaped noise; not a field-recorded mud step.",
+    "peak_target_dbfs": -10,
+    "trigger": "foot-contact",
+    "objects": [
+      "muddy_ground"
+    ],
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "loop": false
+  },
+  {
+    "id": "mud_splash_02",
+    "event_id": "mud_splash",
+    "wav": "processed/wav/mud_splash_02.wav",
+    "ogg": "processed/ogg/mud_splash_02.ogg",
+    "seconds": 0.815708,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactSoft_heavy_001.ogg",
+      "originals/impact/Audio/footstep_snow_001.ogg",
+      "originals/impact/Audio/footstep_grass_001.ogg"
+    ],
+    "recipe": "Designed muddy splash from soft impact, ground Foley and band-limited decaying noise; not recorded water.",
+    "peak_target_dbfs": -8,
+    "trigger": "puddle-contact",
+    "objects": [
+      "muddy_ground"
+    ],
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "loop": false
+  },
+  {
+    "id": "wood_heavy_hit_03",
+    "event_id": "wood_heavy_hit",
+    "wav": "processed/wav/wood_heavy_hit_03.wav",
+    "ogg": "processed/ogg/wood_heavy_hit_03.ogg",
+    "seconds": 0.361479,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_002.ogg",
+      "originals/impact/Audio/impactWood_medium_002.ogg"
+    ],
+    "recipe": "Heavy wood transient plus slowed low-frequency wood body; crack layer from filtered medium wood Foley.",
+    "peak_target_dbfs": -5,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "wood_break_03",
+    "event_id": "wood_break",
+    "wav": "processed/wav/wood_break_03.wav",
+    "ogg": "processed/ogg/wood_break_03.ogg",
+    "seconds": 1.805,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_002.ogg",
+      "originals/impact/Audio/impactWood_medium_002.ogg",
+      "originals/impact/Audio/impactWood_light_002.ogg"
+    ],
+    "recipe": "Designed timber fracture: staggered wood impacts and trailing splinter Foley; not an actual breaking-timber recording.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "wood_splinter_debris_03",
+    "event_id": "wood_splinter_debris",
+    "wav": "processed/wav/wood_splinter_debris_03.wav",
+    "ogg": "processed/ogg/wood_splinter_debris_03.ogg",
+    "seconds": 1.505,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_light_002.ogg"
+    ],
+    "recipe": "Eight varied light-wood fragments, high-passed and decaying; separate optional debris tail.",
+    "peak_target_dbfs": -10,
+    "trigger": "debris-spawn-once",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "gain_linear": 0.5,
+    "priority": "low",
+    "loop": false
+  },
+  {
+    "id": "barricade_collapse_03",
+    "event_id": "barricade_collapse",
+    "wav": "processed/wav/barricade_collapse_03.wav",
+    "ogg": "processed/ogg/barricade_collapse_03.ogg",
+    "seconds": 2.505,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_002.ogg",
+      "originals/impact/Audio/impactWood_medium_002.ogg",
+      "originals/impact/Audio/impactWood_light_002.ogg"
+    ],
+    "recipe": "Layered timber break, heavy post falls, scattered wood debris; large barricade/chevaux-de-frise collapse.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "cart_heavy_hit_03",
+    "event_id": "cart_heavy_hit",
+    "wav": "processed/wav/cart_heavy_hit_03.wav",
+    "ogg": "processed/ogg/cart_heavy_hit_03.ogg",
+    "seconds": 0.361479,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_002.ogg",
+      "originals/impact/Audio/impactWood_medium_002.ogg",
+      "originals/impact/Audio/impactMetal_heavy_002.ogg"
+    ],
+    "recipe": "Wood-first heavy cart impact with restrained iron-band rattle.",
+    "peak_target_dbfs": -5,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "supply_cart"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "cart_wood_metal_crunch_03",
+    "event_id": "cart_wood_metal_crunch",
+    "wav": "processed/wav/cart_wood_metal_crunch_03.wav",
+    "ogg": "processed/ogg/cart_wood_metal_crunch_03.ogg",
+    "seconds": 2.005,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_002.ogg",
+      "originals/impact/Audio/impactWood_medium_002.ogg",
+      "originals/impact/Audio/impactWood_light_002.ogg",
+      "originals/impact/Audio/impactMetal_heavy_002.ogg"
+    ],
+    "recipe": "Cart destruction: slowed wooden frame, subdued metal fittings, second ground impact and debris.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "supply_cart"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "crate_hit_03",
+    "event_id": "crate_hit",
+    "wav": "processed/wav/crate_hit_03.wav",
+    "ogg": "processed/ogg/crate_hit_03.ogg",
+    "seconds": 0.320479,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_002.ogg",
+      "originals/impact/Audio/impactWood_medium_002.ogg"
+    ],
+    "recipe": "Shorter, lighter crate-panel strike retaining heavy wood body.",
+    "peak_target_dbfs": -7,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "crate"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "crate_break_03",
+    "event_id": "crate_break",
+    "wav": "processed/wav/crate_break_03.wav",
+    "ogg": "processed/ogg/crate_break_03.ogg",
+    "seconds": 1.556729,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_002.ogg",
+      "originals/impact/Audio/impactWood_medium_002.ogg",
+      "originals/impact/Audio/impactWood_light_002.ogg"
+    ],
+    "recipe": "Compressed timber fracture and loose crate boards.",
+    "peak_target_dbfs": -6,
+    "trigger": "destroy-once",
+    "objects": [
+      "crate"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "barrel_hit_03",
+    "event_id": "barrel_hit",
+    "wav": "processed/wav/barrel_hit_03.wav",
+    "ogg": "processed/ogg/barrel_hit_03.ogg",
+    "seconds": 0.517312,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_002.ogg",
+      "originals/impact/Audio/impactMetal_heavy_002.ogg"
+    ],
+    "recipe": "Designed hollow stave impact with low wood body and quiet hoop tick; no liquid content.",
+    "peak_target_dbfs": -6,
+    "trigger": "confirmed-contact",
+    "objects": [
+      "barrel"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "barrel_break_03",
+    "event_id": "barrel_break",
+    "wav": "processed/wav/barrel_break_03.wav",
+    "ogg": "processed/ogg/barrel_break_03.ogg",
+    "seconds": 1.919896,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactWood_heavy_002.ogg",
+      "originals/impact/Audio/impactWood_medium_002.ogg",
+      "originals/impact/Audio/impactWood_light_002.ogg",
+      "originals/impact/Audio/impactMetal_heavy_002.ogg"
+    ],
+    "recipe": "Stave fracture, restrained metal hoop, settling boards; empty barrel.",
+    "peak_target_dbfs": -5,
+    "trigger": "destroy-once",
+    "objects": [
+      "barrel"
+    ],
+    "gain_linear": 0.65,
+    "priority": "high",
+    "loop": false
+  },
+  {
+    "id": "mud_footstep_03",
+    "event_id": "mud_footstep",
+    "wav": "processed/wav/mud_footstep_03.wav",
+    "ogg": "processed/ogg/mud_footstep_03.ogg",
+    "seconds": 0.734563,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/footstep_snow_002.ogg",
+      "originals/impact/Audio/footstep_grass_002.ogg"
+    ],
+    "recipe": "Designed damp-ground step from filtered snow/grass Foley and shaped noise; not a field-recorded mud step.",
+    "peak_target_dbfs": -10,
+    "trigger": "foot-contact",
+    "objects": [
+      "muddy_ground"
+    ],
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "loop": false
+  },
+  {
+    "id": "mud_splash_03",
+    "event_id": "mud_splash",
+    "wav": "processed/wav/mud_splash_03.wav",
+    "ogg": "processed/ogg/mud_splash_03.ogg",
+    "seconds": 0.834562,
+    "sample_rate": 48000,
+    "channels": 1,
+    "source_files": [
+      "originals/impact/Audio/impactSoft_heavy_002.ogg",
+      "originals/impact/Audio/footstep_snow_002.ogg",
+      "originals/impact/Audio/footstep_grass_002.ogg"
+    ],
+    "recipe": "Designed muddy splash from soft impact, ground Foley and band-limited decaying noise; not recorded water.",
+    "peak_target_dbfs": -8,
+    "trigger": "puddle-contact",
+    "objects": [
+      "muddy_ground"
+    ],
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "loop": false
+  }
+]

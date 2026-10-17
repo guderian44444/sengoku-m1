@@ -1,0 +1,22 @@
+Fourth-stage music licensing audit — checked 2026-10-17
+
+PeriTune (Oboro2, EpicBattle_Deity, Strategy3, Hanagoyomi2):
+Official https://peritune.com/about/ states that tracks released before March 2026 remain under CC BY 4.0. These four qualify. Accordingly this package can include their audio with attribution, source, license link and modification notice. It is not exclusive music. Keep CREDITS.txt with derivative/distributed works. No claim of ownership or Content ID registration.
+License https://creativecommons.org/licenses/by/4.0/
+
+Kazuki Kaneko Battle10「百折不撓」:
+Official source https://kazuki-kaneko-music.com/battle10/
+Official terms https://kazuki-kaneko-music.com/terms-of-service/
+The site permits personal/commercial games and modifications. Its summary and clause 2(b) restrict secondary distribution to education and direct users to download from the official site. Clause 2(c) additionally discusses attribution when redistributing modifications. The text does not expressly grant a private developer-asset handoff or public-Git exception.
+
+Conservative delivery decision, not a legal opinion:
+- This package does NOT include Battle10 audio, its ZIP, full/trimmed/normalized loops, or the mixed v3 preview.
+- Give the owner the official download URL and an exact local import recipe. The owner obtains the file from the composer and uses the permitted BGM in the game.
+- A private asset handoff is not automatically authorized merely because it is private. Do not describe that permission as verified.
+- Do not commit original or volume-only-converted Battle10 audio to public Git or make a raw downloadable asset bundle. A gain change/rename is not a reliable way to bypass the secondary-distribution restriction.
+- Commercial game BGM is explicitly permitted, but exposing source assets via public repositories/download packs is a different question. Obtain the composer's specific written clarification before material redistribution. Do not contact the composer without user authorization.
+- The earlier 55-second preview was an attributed edited transition considered under clause 2(c); this audit does not broaden that into permission to redistribute the complete development asset. Do not include that preview in the general material handoff package.
+- Keep attribution: 音楽：かねこかずき https://kazuki-kaneko-music.com/
+- No Content ID, JASRAC/rights-management registration or music streaming/distributor registration.
+
+Known completion dependency: the package will not play the hot road loop until the official file is locally imported. This is an explicit missing dependency, not a silent placeholder or a completed all-audio bundle.

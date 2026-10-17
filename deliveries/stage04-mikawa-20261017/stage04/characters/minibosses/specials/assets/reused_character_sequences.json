@@ -1,0 +1,376 @@
+{
+  "moves": [
+    {
+      "id": "tominaga_heavy_chop",
+      "atlas": "assets/tominaga_heavy_chop_8.png",
+      "duration_ms": 1440,
+      "frames": [
+        {
+          "frame": 0,
+          "source_rect": [
+            0,
+            0,
+            400,
+            512
+          ],
+          "foot_anchor_source": [
+            190,
+            500
+          ],
+          "duration_ms": 140,
+          "crest_anchor_source": [
+            145,
+            275
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 1,
+          "source_rect": [
+            420,
+            0,
+            400,
+            512
+          ],
+          "foot_anchor_source": [
+            620,
+            500
+          ],
+          "duration_ms": 180,
+          "crest_anchor_source": [
+            600,
+            285
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 2,
+          "source_rect": [
+            820,
+            0,
+            340,
+            512
+          ],
+          "foot_anchor_source": [
+            970,
+            500
+          ],
+          "duration_ms": 200,
+          "crest_anchor_source": [
+            950,
+            230
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 3,
+          "source_rect": [
+            1170,
+            0,
+            366,
+            512
+          ],
+          "foot_anchor_source": [
+            1340,
+            500
+          ],
+          "duration_ms": 180,
+          "crest_anchor_source": [
+            1325,
+            200
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 4,
+          "source_rect": [
+            0,
+            512,
+            390,
+            512
+          ],
+          "foot_anchor_source": [
+            200,
+            970
+          ],
+          "duration_ms": 80,
+          "crest_anchor_source": [
+            160,
+            800
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 5,
+          "source_rect": [
+            400,
+            512,
+            380,
+            512
+          ],
+          "foot_anchor_source": [
+            615,
+            970
+          ],
+          "duration_ms": 70,
+          "crest_anchor_source": [
+            595,
+            795
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 6,
+          "source_rect": [
+            800,
+            512,
+            360,
+            512
+          ],
+          "foot_anchor_source": [
+            965,
+            970
+          ],
+          "duration_ms": 330,
+          "crest_anchor_source": [
+            970,
+            820
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 7,
+          "source_rect": [
+            1170,
+            512,
+            366,
+            512
+          ],
+          "foot_anchor_source": [
+            1350,
+            970
+          ],
+          "duration_ms": 260,
+          "crest_anchor_source": [
+            1370,
+            815
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        }
+      ],
+      "events": [
+        {
+          "at_ms": 0,
+          "type": "voice_cue",
+          "text": "一刀両断！"
+        },
+        {
+          "at_ms": 700,
+          "type": "hit_window_open"
+        },
+        {
+          "at_ms": 850,
+          "type": "hit_window_close"
+        },
+        {
+          "at_ms": 850,
+          "type": "punish_recovery_open"
+        }
+      ]
+    },
+    {
+      "id": "kira_command",
+      "atlas": "assets/kira_command_8.png",
+      "duration_ms": 920,
+      "frames": [
+        {
+          "frame": 0,
+          "source_rect": [
+            0,
+            0,
+            380,
+            512
+          ],
+          "foot_anchor_source": [
+            190,
+            500
+          ],
+          "duration_ms": 80,
+          "crest_anchor_source": [
+            190,
+            235
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 1,
+          "source_rect": [
+            390,
+            0,
+            380,
+            512
+          ],
+          "foot_anchor_source": [
+            580,
+            500
+          ],
+          "duration_ms": 80,
+          "crest_anchor_source": [
+            580,
+            235
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 2,
+          "source_rect": [
+            780,
+            0,
+            375,
+            512
+          ],
+          "foot_anchor_source": [
+            980,
+            500
+          ],
+          "duration_ms": 100,
+          "crest_anchor_source": [
+            980,
+            235
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 3,
+          "source_rect": [
+            1160,
+            0,
+            376,
+            512
+          ],
+          "foot_anchor_source": [
+            1360,
+            500
+          ],
+          "duration_ms": 140,
+          "crest_anchor_source": [
+            1360,
+            235
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 4,
+          "source_rect": [
+            0,
+            512,
+            383,
+            512
+          ],
+          "foot_anchor_source": [
+            190,
+            985
+          ],
+          "duration_ms": 140,
+          "crest_anchor_source": [
+            190,
+            735
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 5,
+          "source_rect": [
+            390,
+            512,
+            390,
+            512
+          ],
+          "foot_anchor_source": [
+            580,
+            985
+          ],
+          "duration_ms": 180,
+          "crest_anchor_source": [
+            580,
+            735
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 6,
+          "source_rect": [
+            790,
+            512,
+            365,
+            512
+          ],
+          "foot_anchor_source": [
+            980,
+            985
+          ],
+          "duration_ms": 100,
+          "crest_anchor_source": [
+            980,
+            735
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        },
+        {
+          "frame": 7,
+          "source_rect": [
+            1160,
+            512,
+            376,
+            512
+          ],
+          "foot_anchor_source": [
+            1360,
+            985
+          ],
+          "duration_ms": 100,
+          "crest_anchor_source": [
+            1360,
+            735
+          ],
+          "crest_width_px": 18,
+          "crest_visibility": "visible"
+        }
+      ],
+      "events": [
+        {
+          "at_ms": 160,
+          "type": "voice_cue",
+          "text": "放て！"
+        },
+        {
+          "at_ms": 400,
+          "type": "command_archers"
+        },
+        {
+          "at_ms": 540,
+          "type": "hit_window_close"
+        },
+        {
+          "at_ms": 540,
+          "type": "punish_recovery_open"
+        }
+      ]
+    }
+  ]
+}

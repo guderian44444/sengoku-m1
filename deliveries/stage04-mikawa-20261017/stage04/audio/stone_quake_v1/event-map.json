@@ -1,0 +1,80 @@
+[
+  {
+    "id": "rock_impact_crumble_01",
+    "event_id": "rock_impact_crumble",
+    "wav": "wav/rock_impact_crumble_01.wav",
+    "ogg": "ogg/rock_impact_crumble_01.ogg",
+    "gain_linear": 0.72,
+    "loop": false,
+    "seconds": 0.95,
+    "trigger": "confirmed projectile first hard collision/destruction",
+    "dedupe": "projectileId+firstImpact",
+    "selection": "shuffle-bag; no consecutive repeat",
+    "max_voices": 3
+  },
+  {
+    "id": "ground_quake_thump_01",
+    "event_id": "ground_quake_thump",
+    "wav": "wav/ground_quake_thump_01.wav",
+    "ogg": "ogg/ground_quake_thump_01.ogg",
+    "gain_linear": 0.7,
+    "loop": false,
+    "seconds": 1.05,
+    "trigger": "confirmed spear-butt ground contact",
+    "dedupe": "attackId+groundStrikeIndex",
+    "selection": "shuffle-bag; no consecutive repeat",
+    "max_voices": 3
+  },
+  {
+    "id": "rock_impact_crumble_02",
+    "event_id": "rock_impact_crumble",
+    "wav": "wav/rock_impact_crumble_02.wav",
+    "ogg": "ogg/rock_impact_crumble_02.ogg",
+    "gain_linear": 0.72,
+    "loop": false,
+    "seconds": 1.03,
+    "trigger": "confirmed projectile first hard collision/destruction",
+    "dedupe": "projectileId+firstImpact",
+    "selection": "shuffle-bag; no consecutive repeat",
+    "max_voices": 3
+  },
+  {
+    "id": "ground_quake_thump_02",
+    "event_id": "ground_quake_thump",
+    "wav": "wav/ground_quake_thump_02.wav",
+    "ogg": "ogg/ground_quake_thump_02.ogg",
+    "gain_linear": 0.7,
+    "loop": false,
+    "seconds": 1.13,
+    "trigger": "confirmed spear-butt ground contact",
+    "dedupe": "attackId+groundStrikeIndex",
+    "selection": "shuffle-bag; no consecutive repeat",
+    "max_voices": 3
+  },
+  {
+    "id": "rock_impact_crumble_03",
+    "event_id": "rock_impact_crumble",
+    "wav": "wav/rock_impact_crumble_03.wav",
+    "ogg": "ogg/rock_impact_crumble_03.ogg",
+    "gain_linear": 0.72,
+    "loop": false,
+    "seconds": 1.1099791666666667,
+    "trigger": "confirmed projectile first hard collision/destruction",
+    "dedupe": "projectileId+firstImpact",
+    "selection": "shuffle-bag; no consecutive repeat",
+    "max_voices": 3
+  },
+  {
+    "id": "ground_quake_thump_03",
+    "event_id": "ground_quake_thump",
+    "wav": "wav/ground_quake_thump_03.wav",
+    "ogg": "ogg/ground_quake_thump_03.ogg",
+    "gain_linear": 0.7,
+    "loop": false,
+    "seconds": 1.21,
+    "trigger": "confirmed spear-butt ground contact",
+    "dedupe": "attackId+groundStrikeIndex",
+    "selection": "shuffle-bag; no consecutive repeat",
+    "max_voices": 3
+  }
+]

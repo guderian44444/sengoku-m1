@@ -1,0 +1,17 @@
+{
+  "source_asset": "/workspace/scratch/98b7ec868bfb/oichi_newspec_arrows/rain_circle_sparse_fx/circle_rain_events.json",
+  "inspected": {
+    "seed": 141026,
+    "particle_count": 70,
+    "previous_particle_count": 140,
+    "circle_world_radius": 1230,
+    "diameter_multiplier": 1.5,
+    "perspective_y_scale": 0.2,
+    "release_ms": 720,
+    "upward_arrow_exit_ms": 800,
+    "rain_start_ms": 800,
+    "layout": "uniform-area seeded irregular circle projected as ground ellipse, targets left right front back",
+    "occlusion": "target ground depth below/above root controls front/behind character",
+    "contact_event": "area_knockdown"
+  }
+}

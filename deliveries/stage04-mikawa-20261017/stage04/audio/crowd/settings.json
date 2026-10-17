@@ -1,0 +1,85 @@
+{
+  "model": {
+    "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe"
+  },
+  "model_local": "artifacts/voice-v31/custom-model",
+  "language": "Japanese",
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "offline": true,
+  "output_rate": 22050,
+  "single_channels": 1,
+  "group_channels": 2,
+  "pcm": "PCM16",
+  "inference": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 48,
+    "temperature": 0.75,
+    "top_p": 0.9,
+    "do_sample": true,
+    "repetition_penalty": 1.05
+  },
+  "filter": "silenceremove=start_periods=1:start_threshold=-46dB,areverse,silenceremove=start_periods=1:start_threshold=-46dB,areverse,highpass=f=70,lowpass=f=6200",
+  "tempo_factor": 1.0,
+  "pitch_scale": 1.0,
+  "no_reverb_or_extended_tail": true,
+  "intended_content": "Non-lexical male support cries おおっ / うおっ only; no dialogue or move names",
+  "voice_source": "Existing synthetic CustomVoice presets; no real-person imitation, no cloning",
+  "group_pan_law": "equal power; pan -1=left,+1=right; L=sqrt((1-pan)/2),R=sqrt((1+pan)/2)",
+  "group_events": {
+    "tent_support_group_a": [
+      [
+        0,
+        0.0,
+        -0.65,
+        0.18
+      ],
+      [
+        1,
+        0.11,
+        0.55,
+        0.17
+      ],
+      [
+        2,
+        0.26,
+        -0.15,
+        0.14
+      ],
+      [
+        3,
+        0.42,
+        0.78,
+        0.13
+      ]
+    ],
+    "tent_support_group_b": [
+      [
+        2,
+        0.0,
+        0.6,
+        0.16
+      ],
+      [
+        3,
+        0.13,
+        -0.7,
+        0.16
+      ],
+      [
+        0,
+        0.29,
+        0.1,
+        0.14
+      ],
+      [
+        1,
+        0.47,
+        -0.35,
+        0.15
+      ]
+    ]
+  }
+}

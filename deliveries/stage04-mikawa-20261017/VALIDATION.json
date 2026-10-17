@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-17",
+  "remote_repository": "https://github.com/guderian44444/sengoku-m1",
+  "base_commit": "30fdac0349fb39bd769061318a497446a9ff0114",
+  "branch": "art/stage04-mikawa-handoff-20261017",
+  "source": {
+    "archive_bytes": 294153264,
+    "archive_sha256": "3773b6ee4d2ed83d74193a0733a684c6ee6fb5fc58f22b0bce8fb734acf8707c",
+    "library_file_id": "libfile_215b3d0d991c81919c31a9a9f7f7ab37",
+    "source_files": 1381,
+    "source_bytes": 313001820,
+    "zip_crc": "passed",
+    "safe_zip_paths": true,
+    "symlinks": 0,
+    "duplicate_paths": 0,
+    "nested_archives": 0,
+    "files_at_or_above_100MiB": 0,
+    "largest_file": {
+      "file": "stage04/layout/previews/05_歸路決戰_final.png",
+      "bytes": 12918986
+    },
+    "json_parse_count": 89,
+    "root_checksum_verified": 1375,
+    "checksum_manifests": [
+      "stage04/SHA256SUMS.txt",
+      "stage04/audio/music/SHA256SUMS.txt",
+      "stage04/audio/source_docs/objects_v1/SHA256SUMS.txt",
+      "stage04/audio/source_docs/shield_dry_v7/SHA256SUMS.txt",
+      "stage04/audio/source_docs/weapons_v3/SHA256SUMS.txt",
+      "stage04/audio/stone_quake_v1/SHA256SUMS.txt"
+    ],
+    "checksum_entries_verified": {
+      "stage04/SHA256SUMS.txt": 1375,
+      "stage04/audio/music/SHA256SUMS.txt": 12,
+      "stage04/audio/source_docs/objects_v1/SHA256SUMS.txt": 78,
+      "stage04/audio/source_docs/shield_dry_v7/SHA256SUMS.txt": 12,
+      "stage04/audio/source_docs/weapons_v3/SHA256SUMS.txt": 204,
+      "stage04/audio/stone_quake_v1/SHA256SUMS.txt": 32
+    },
+    "retained_historical_checksum_entries_without_packaged_source": {
+      "stage04/audio/source_docs/objects_v1/SHA256SUMS.txt": 139,
+      "stage04/audio/source_docs/shield_dry_v7/SHA256SUMS.txt": 13,
+      "stage04/audio/source_docs/weapons_v3/SHA256SUMS.txt": 10
+    },
+    "audio_original_audit_hashes_verified": 300,
+    "music_included_hashes_verified": 4,
+    "excluded_battle10_audio_absent": true,
+    "secret_scan_rules": [
+      "private_key",
+      "github_token",
+      "aws_key",
+      "api_secret",
+      "signed_url",
+      "credential_assignment"
+    ],
+    "secret_findings": [],
+    "attribution_files_preserved": true,
+    "upstream_archive_hashes_not_rechecked": "source_inventory.json lists historical upstream ZIP hashes; those ZIPs are not included or fetched in this delivery",
+    "runtime_integration": false,
+    "engine_tests": false,
+    "clear_tests": false,
+    "human_audio_listening": false
+  },
+  "decode": {
+    "image_files_decoded": 828,
+    "image_frames_decoded": 1101,
+    "audio_files_decoded": 374,
+    "audio_files_nonfinite": 0,
+    "full_scale_audio_files": [
+      {
+        "file": "audio/music/assets/s04_final_boss_loop.ogg",
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 3726760,
+        "seconds": 84.50702947845805,
+        "peak_dbfs": 0.49810803126956416,
+        "samples_at_or_above_full_scale": 71,
+        "finite": true
+      },
+      {
+        "file": "audio/music/assets/s04_victory_return_once.ogg",
+        "sample_rate": 48000,
+        "channels": 2,
+        "frames": 5895678,
+        "seconds": 122.826625,
+        "peak_dbfs": 0.34703506732419553,
+        "samples_at_or_above_full_scale": 10,
+        "finite": true
+      }
+    ],
+    "human_listening": false,
+    "note": "Decoded sample peaks only; no true-peak, loudness, subjective listening, scene rendering or engine tests in this run."
+  },
+  "source_bytes_preserved": true,
+  "source_scripts_executed": false,
+  "source_files": 1381,
+  "git_delivery_files": 1386,
+  "scope": "deliveries/stage04-mikawa-20261017 only; no game runtime changes"
+}
