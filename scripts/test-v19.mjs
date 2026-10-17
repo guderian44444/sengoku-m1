@@ -20,14 +20,17 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
+	'stage03_balance_v41',
+	'audio_v40',
+	'heavy_wave_v39',
 	'weapon_audio_v38',
 	'combat_tuning_v37',
 	'stage03_integration', 'stage03_playthrough',
-	'campaign_music', 'music_integration_v14', 'stage03_alarm', 'stage03_alarm_view', 'stage03_objectives', 'stage03_tent', 'stage03_tent_view', 'stage03_yoshimoto', 'stage03_yoshimoto_view',
+	'title_music', 'campaign_music', 'music_integration_v14', 'stage03_alarm', 'stage03_alarm_view', 'stage03_objectives', 'stage03_tent', 'stage03_tent_view', 'stage03_yoshimoto', 'stage03_yoshimoto_view',
 	'delivery_v36', 'variable_frames_v36',
   'music_v35', 'stage_music_v18', 'stick_sprint_v35', 'victory_integration_v15',
   'runtime_v34', 'balance_v34', 'grounding_v34', 'enemy_smooth_v34',
-  'ui_input_v34', 'ui_theme_v34', 'ui_panels_v34', 'ui_flow_v34', 'ui_language_v34', 'objective_scroll_v34', 'enemy_health_ui_v34', 'menu_pad_v27',
+  'ui_scroll02', 'ui_input_v34', 'ui_theme_v34', 'ui_panels_v34', 'ui_flow_v34', 'ui_language_v34', 'objective_scroll_v34', 'enemy_health_ui_v34', 'menu_pad_v27',
   'current_runtime_v33', 'combat_v33', 'inventory_v28', 'exit_save_v27', 'wire', 'local_coop_startup',
   'stage2_repair_v32', 'boss_reactions_v31', 'shadows_v29', 'menu_inventory_v28',
   'stage_art_v19', 'stage_movement_v19',
@@ -87,8 +90,14 @@ for (const name of selected) {
 if (process.argv.includes('--render-stage3')) {
   await run('stage03_native_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_stage03_integration.gd', '--', '--output=' + path.join(out, 'stage03-captures')], 360000);
 }
+if (process.argv.includes('--render-barriers-v41')) {
+  await run('barriers_v41_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/capture_barriers_v41.gd']);
+}
 if (process.argv.includes('--render-combat-v37')) {
   await run('combat_tuning_v37_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_combat_tuning_v37.gd']);
+}
+if (process.argv.includes('--render-heavy-v39')) {
+  await run('heavy_wave_v39_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_heavy_wave_v39.gd']);
 }
 if (process.argv.includes('--render')) {
   for (const name of ['capture_hud_v19', 'capture_stage_scenery_v19', 'capture_stage_v19', 'capture_enemy_walk_v19']) {
@@ -145,6 +154,10 @@ if (process.argv.includes('--playthrough-v29')) {
 }
 if (process.argv.includes('--render-heroes-v22')) {
   await run('hero_layers_v22_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_hero_layers_v22.gd'], 360000);
+}
+if (process.argv.includes('--render-audio-v40')) {
+  await run('title_music_native', ['--windowed', '--audio-driver', 'WASAPI', '--script', 'res://tests/test_title_music.gd', '--', '--natural']);
+  await run('ui_scroll02_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_ui_scroll02.gd', '--', '--capture']);
 }
 const failed = results.filter(result => !result.ok);
 console.log(`${failed.length ? 'FAIL' : 'PASS'}: ${results.length} selected native groups; ${failed.length} failed. ${skipped.length} groups excluded by the supplied selection flags.`);

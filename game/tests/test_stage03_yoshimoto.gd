@@ -108,13 +108,15 @@ func ranged_tests():
 	var ready: int = f.ranged_ready_tick
 	var aim: float = f.aim_dx
 	p.x = 1800
-	for tick in range(50):
+	for tick in range(60):
 		sim.state.tick += 1
 		sim._tick_fighter(f)
 		Yoshi.steer(sim,f,p)
 	check(f.action == "boss_arrow" and f.face == -1 and f.aim_dx == aim,"crossing distance and side cannot cancel or turn committed shot")
 	var arrows: Array = sim.state.effects.filter(func(e):return e.get("yoshimoto_projectile",false))
-	check(arrows.size() == 1 and arrows[0].weapon == "arrow" and not arrows[0].get("arcing",false) and not arrows[0].boss_wave,"one straight locked arrow, no matchlock or reacquisition")
+	check(arrows.size() == 3 and arrows.all(func(a):return a.weapon == "arrow" and not a.get("arcing",false) and not a.boss_wave),"three locked fan arrows, no matchlock or reacquisition")
+	check(arrows.all(func(a):return is_equal_approx(Vector2(a.vx,a.vy).length(),Battle.FAST_PROJECTILE_SPEED)),"all three arrows fly at musket speed")
+	check(arrows.size() == 3 and arrows[0].vy > arrows[1].vy and arrows[1].vy > arrows[2].vy and arrows.map(func(a):return a.action_tick) == [42,47,52],"fan spreads over three distinct release frames")
 	check(sim.state.events.any(func(e):return e.type == "bow_release") and not sim.state.events.any(func(e):return e.type == "gunshot"),"bow string release uses bow event")
 	ready = f.ranged_ready_tick
 	check(ready >= sim.state.tick - 8 + int(sim.state.encounter.yoshi_spec.ranged_cooldown),"cooldown remains reserved from actual projectile release")
@@ -139,8 +141,16 @@ func ranged_tests():
 		sim.state.tick += 1
 		sim._tick_fighter(f)
 	var waves: Array = sim.state.effects.filter(func(e):return e.get("boss_wave",false))
-	check(waves.size() == 1 and waves[0].weapon == "blade" and waves[0].piercing and waves[0].hit_depth > arrow.hit_depth and absf(waves[0].vx) < absf(arrow.vx),"wave has distinct width, speed and piercing collision")
+	check(waves.size() == 1 and waves[0].weapon == "blade" and waves[0].piercing and waves[0].hit_depth == 140 and absf(waves[0].vx) >= absf(arrow.vx),"wave has broad musket-speed piercing collision")
 	check(Wire.valid_snapshot(sim.get_state()),"sword-wave state validates")
+	var interrupted = fresh()
+	var archer: Dictionary = yoshi(interrupted)
+	Yoshi.commit(interrupted,archer,interrupted.state.fighters[0],"boss_arrow")
+	archer.action_tick = 42
+	interrupted._tick_enemy_attack(archer)
+	interrupted._begin(archer,"hurt")
+	for tick in range(14): interrupted._tick_fighter(archer)
+	check(interrupted.state.effects.filter(func(e):return e.get("yoshimoto_projectile",false)).size() == 1,"interrupted burst cannot release remaining arrows")
 
 func guard_and_tactics_tests():
 	for attack in ["front","rear","heavy","recovery"]:
@@ -223,13 +233,15 @@ func full_route_tests():
 			if prop.kind == "bell_pillar": sim._damage_prop(prop,10000,sim.state.fighters[0].id)
 		for f in sim.state.fighters:
 			if f.team == 1: kill(sim,f)
-		advance(sim,60)
+		advance(sim,100)
 		move_party(sim,2300)
 		sim.step([])
 		check(sim.state.stage.index == 1,"route alarm to barriers")
 		for prop in sim.state.props: sim._damage_prop(prop,10000,sim.state.fighters[0].id)
+		for f in sim.state.fighters:
+			if f.team == 1: kill(sim,f)
 		advance(sim,60)
-		move_party(sim,2500)
+		move_party(sim,sim.state.stage.width-100)
 		sim.step([])
 		check(sim.state.stage.index == 2,"route barriers to formation")
 		move_party(sim,2400)

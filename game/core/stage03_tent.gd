@@ -64,7 +64,7 @@ static func begin(sim, spec: Dictionary) -> void:
 		b.retreat_origin_y = float(b.y)
 		b.retreat_dx = 0.0
 		b.retreat_dy = 0.0
-		b.cooldown = 75 + index * 35
+		b.cooldown = 30 + index * 18
 		e.leaders.append({"id":int(b.id),"slot":index + 1,"label":str(spec_b.label),"max_hp":hp,"defeated":false})
 		sim.state.fighters.append(b)
 	for index in range(e.target): spawn_minion(sim)
@@ -204,7 +204,7 @@ static func steer(sim, fighter: Dictionary, target: Dictionary) -> bool:
 		if separation.length() < t.separation:
 			away = separation if separation.length() > 1 else Vector2(0, -1 if fighter.lieutenant_slot == 1 else 1)
 			close = true
-	if close and sim.state.tick >= fighter.retreat_ready_tick:
+	if close and fighter.cooldown > 0 and sim.state.tick >= fighter.retreat_ready_tick:
 		var direction := away.normalized()
 		if direction.length() < .5: direction = Vector2(-1,0)
 		if fighter.x + direction.x * t.retreat_distance < 100 or fighter.x + direction.x * t.retreat_distance > sim._right_edge() - 30:

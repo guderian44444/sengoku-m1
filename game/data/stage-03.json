@@ -52,7 +52,7 @@
             ]
           },
           "alarm": {
-            "hp": 160,
+            "hp": 480,
             "supports": [
               [
                 900,
@@ -75,30 +75,35 @@
       "theme": "gate",
       "weather": "rain",
       "music": "s03_camp_battle",
-      "width": 2600,
+      "width": 3800,
       "civilians": "none",
       "props": [],
       "encounters": [
         {
-          "end": 2600,
+          "end": 3800,
           "mode": "barriers",
           "barriers": {
             "layers": [
               [
-                780,
+                1000,
                 180
               ],
               [
-                1360,
+                2100,
                 210
               ],
               [
-                1960,
+                3200,
                 240
               ]
             ],
-            "width": 86,
+            "width": 150,
             "depth": 300
+          },
+          "population": {
+            "solo": 6,
+            "coop": 9,
+            "admit_ticks": 90
           }
         }
       ]
@@ -208,11 +213,11 @@
             ]
           },
           "tactics": {
-            "separation": 260,
-            "retreat_ticks": 36,
-            "retreat_distance": 90,
-            "recover_ticks": 24,
-            "retreat_cooldown": 240,
+            "separation": 200,
+            "retreat_ticks": 28,
+            "retreat_distance": 55,
+            "recover_ticks": 12,
+            "retreat_cooldown": 300,
             "target_hold_ticks": 180
           },
           "leaders": [
@@ -222,7 +227,7 @@
               "variant": "long_yari",
               "x": 1020,
               "y": 410,
-              "hp": 260,
+              "hp": 520,
               "actions": [
                 "boss_thrust"
               ]
@@ -233,7 +238,7 @@
               "variant": "nodachi",
               "x": 1350,
               "y": 560,
-              "hp": 240,
+              "hp": 480,
               "actions": [
                 "boss_sweep"
               ]
@@ -247,7 +252,7 @@
             "move_speed": 3.2,
             "melee_enter": 380,
             "ranged_enter": 560,
-            "ranged_cooldown": 240,
+            "ranged_cooldown": 120,
             "guard_ticks": 18,
             "guard_recover_ticks": 30,
             "guard_cooldown": 240,

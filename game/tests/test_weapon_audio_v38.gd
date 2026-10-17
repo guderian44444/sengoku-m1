@@ -42,7 +42,7 @@ func samples(audio: Audio) -> void:
 			check(seen.size()==5,"Every take plays before recycling")
 	check(unique.size()==75,"75 unique recordings, aliases reuse the same WAVs")
 	for row in [
-		["weapon_swing","sword","light","sword_whoosh"], ["weapon_swing","sword","charged","sword_heavy_whoosh"],
+		["weapon_swing","sword","light","sword_whoosh"], ["weapon_swing","sword","charged","charge_release"],
 		["weapon_swing","blunt","heavy","blunt_whoosh"], ["weapon_swing","spear","light","spear_wind"],
 		["hit","sword","","hit"], ["heavy_hit","sword","","heavy_hit"],
 		["hit","blunt","","blunt_hit"], ["heavy_hit","blunt","","blunt_heavy_hit"],
@@ -172,7 +172,7 @@ func ownership(app: App) -> void:
 	var release := {"id":10002,"type":"weapon_swing","weapon":"sword","action":"charged","actor":player.id,"x":player.x,"y":player.y}
 	app.sim.state.events=[release]
 	app._events([release])
-	check(app.audio.last_sound=="sword_heavy_whoosh" and not app.view._fx.sound.instances.has(cast) and not app.view._fx.charges.has(player.id),"Charged release stops its loop and plays physical wind once")
+	check(app.audio.last_sound=="charge_release" and not app.view._fx.sound.instances.has(cast) and not app.view._fx.charges.has(player.id),"Charged release stops its loop and plays physical wind once")
 	app.audio.play_event({"type":"food_pickup"})
 	for i in range(25): app.audio.play_event({"type":"heavy_hit","weapon":"blunt","target_kind":"dummy"})
 	check(app.audio._food_player.playing and app.audio._voices.size()==6,"Crowded impacts preserve food confirmation and bounded polyphony")

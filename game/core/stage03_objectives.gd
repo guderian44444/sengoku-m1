@@ -12,7 +12,8 @@ static func valid_spec(spec: Dictionary, width: float) -> bool:
 		for layer in b.layers:
 			if not layer is Array or layer.size() != 2 or not number(layer[0],previous + 180,width - 100) or not setting(layer[1],1,1000): return false
 			previous = float(layer[0])
-		return true
+		var p: Variant = spec.get("population")
+		return p is Dictionary and setting(p.get("solo"),1,16) and setting(p.get("coop"),p.solo,16) and setting(p.get("admit_ticks"),30,600)
 	if spec.get("mode") != "formation" or not spec.get("formation") is Dictionary or not spec.get("population") is Dictionary: return false
 	var f: Dictionary = spec.formation
 	var p: Dictionary = spec.population
@@ -39,7 +40,10 @@ static func valid_spec(spec: Dictionary, width: float) -> bool:
 static func begin(sim, spec: Dictionary) -> void:
 	var world: Dictionary = sim.state
 	if spec.mode == "barriers":
-		var e := {"kind":"barriers","epoch":int(sim._next_id),"phase":"active","barrier_ids":[]}
+		var count: int = world.fighters.filter(func(f):return f.team == 0).size()
+		var e := {"kind":"barriers","epoch":int(sim._next_id),"phase":"active","barrier_ids":[],
+			"target":int(spec.population.solo if count == 1 else spec.population.coop),"admit_ticks":int(spec.population.admit_ticks),
+			"next_admit_tick":int(world.tick),"guarded_barrier":0,"spawned_count":0}
 		world.encounter = e
 		for layer in spec.barriers.layers:
 			var id: int = sim._next_id
@@ -48,6 +52,7 @@ static func begin(sim, spec: Dictionary) -> void:
 				"width":float(spec.barriers.width),"depth":float(spec.barriers.depth),"broken":false,"drop":"","food_id":"","mandatory":true,"talisman_id":"",
 				"encounter_epoch":e.epoch,"stage03_barrier":true})
 			e.barrier_ids.append(id)
+		tick(sim)
 	else:
 		var p: Dictionary = spec.population
 		var count: int = world.fighters.filter(func(f):return f.team == 0).size()
@@ -85,9 +90,21 @@ static func tick(sim) -> void:
 	var world: Dictionary = sim.state
 	var e: Dictionary = world.encounter
 	if e.kind == "barriers":
-		if barriers_left(world) == 0:
-			e.phase = "complete"
-			phase_event(sim,"complete")
+		var intact: Array = world.props.filter(func(p):return p.id in e.barrier_ids and not p.broken)
+		if intact.is_empty():
+			if population(world) == 0:
+				e.phase = "complete"
+				phase_event(sim,"complete")
+			return
+		var barrier: Dictionary = intact[0]
+		if e.guarded_barrier != 0 and e.guarded_barrier != barrier.id and not world.fighters.any(func(f):return f.team == 0 and f.hp > 0 and f.x >= barrier.x - 800): return
+		if e.guarded_barrier != barrier.id:
+			e.guarded_barrier = barrier.id
+			while population(world) < e.target and world.fighters.size() < 48: spawn_guard(sim,barrier,true)
+			e.next_admit_tick = int(world.tick) + e.admit_ticks
+		elif population(world) < e.target and world.tick >= e.next_admit_tick and world.fighters.size() < 48:
+			spawn_guard(sim,barrier,false)
+			e.next_admit_tick = int(world.tick) + e.admit_ticks
 		return
 	var party: Array = world.fighters.filter(func(f):return f.team == 0)
 	var front_x: float = e.slots.filter(func(slot):return slot.rank == 0).map(func(slot):return slot.x).max()
@@ -129,6 +146,25 @@ static func tick(sim) -> void:
 		e.tickets.remove_at(index)
 		e.next_admit_tick = int(world.tick) + int(e.admit_ticks)
 		break
+
+static func spawn_guard(sim, barrier: Dictionary, initial: bool) -> void:
+	var e: Dictionary = sim.state.encounter
+	var ordinal: int = e.spawned_count
+	var kind: String = ["soldier","shield_spear","archer"][ordinal % 3]
+	var hp: int = {"soldier":65,"shield_spear":90,"archer":52}[kind]
+	var coop: bool = sim.state.fighters.filter(func(f):return f.team == 0).size() == 2
+	var slot: int = ordinal % int(e.target)
+	var f: Dictionary = sim._make_fighter(1,kind,barrier.x - 260 - (slot/3)*90 - (slot%3)*25,395 + (slot%3)*90,maxi(1,roundi(hp*sim._difficulty.enemy_hp*(1.35 if coop else 1.0))))
+	f.encounter_epoch = e.epoch
+	f.face = -1
+	f.cooldown = 45
+	if not initial:
+		f.x = sim.camera_left(sim.state) - 160
+		f.entering = true
+		f.entry_x = maxf(sim._left_edge()+60,sim.camera_left(sim.state)+100)
+		f.face = 1
+	sim.state.fighters.append(f)
+	e.spawned_count += 1
 
 static func spawn(sim, kind: String, slot: Dictionary, initial: bool) -> void:
 	var e: Dictionary = sim.state.encounter
@@ -183,6 +219,8 @@ static func valid_state(world: Dictionary) -> bool:
 	if e.get("phase") not in PHASES or not integer(e.get("epoch"),1,1000000000): return false
 	if world.phase != "playing" and e.phase == "active": return false
 	if e.kind == "barriers":
+		if not integer(e.get("target"),1,16) or not integer(e.get("admit_ticks"),30,600) or not integer(e.get("next_admit_tick"),0,1000000000) or not integer(e.get("spawned_count"),0,1000000000): return false
+		if not integer(e.get("guarded_barrier"),0,1000000000): return false
 		if not e.get("barrier_ids") is Array or e.barrier_ids.is_empty() or e.barrier_ids.size() > 6: return false
 		var ids := {}
 		for id in e.barrier_ids:
@@ -191,7 +229,10 @@ static func valid_state(world: Dictionary) -> bool:
 			if found.size() != 1: return false
 			ids[id] = true
 		if world.props.any(func(p):return p.get("stage03_barrier",false) and not ids.has(p.id)): return false
-		return (barriers_left(world) == 0) == (e.phase == "complete") if e.phase != "cancelled" else true
+		if e.guarded_barrier != 0 and not ids.has(e.guarded_barrier): return false
+		if world.fighters.any(func(f):return f.team == 1 and (f.get("encounter_epoch",-1) != e.epoch or f.get("role",f.kind) not in KINDS)): return false
+		if population(world) > e.target: return false
+		return (barriers_left(world) == 0 and population(world) == 0) == (e.phase == "complete") if e.phase != "cancelled" else true
 	if e.kind != "formation": return false
 	if not e.get("breached") is bool: return false
 	if not integer(e.get("target"),4,16) or not integer(e.get("gap_ticks"),30,600) or not number(e.get("breach_x"),1800,world.stage.width - 100): return false

@@ -45,7 +45,7 @@ static func begin(sim, spec: Dictionary) -> void:
 		"admit_ticks":int(population.admit_ticks), "next_admit_tick":int(world.tick), "tickets":[], "support_ids":[],
 		"kinds":population.kinds.duplicate(), "entry_side":int(population.entry_side), "entry_lanes":population.entry_lanes.duplicate(),
 		"bell_x":float(alarm.x), "bell_y":float(alarm.y), "bell_height":float(alarm.height), "stopped_tick":-1,
-		"spawned_count":0}
+		"spawned_count":0,"bell_landed":false}
 	world.encounter = encounter
 	for point in alarm.supports:
 		var id: int = sim._next_id
@@ -105,7 +105,10 @@ static func tick(sim) -> void:
 		encounter.stopped_tick = world.tick
 		sim._event("encounter_phase", encounter.bell_x, encounter.bell_y, 0, 0, {"phase":"draining", "encounter_epoch":encounter.epoch})
 	if encounter.phase == "draining":
-		if population(world) == 0:
+		if not encounter.bell_landed and world.tick >= encounter.stopped_tick + 36:
+			encounter.bell_landed = true
+			sim._event("bell_fall",encounter.bell_x,encounter.bell_y,0,0)
+		if encounter.bell_landed and population(world) == 0:
 			encounter.phase = "complete"
 			sim._event("encounter_phase", encounter.bell_x, encounter.bell_y, 0, 0, {"phase":"complete", "encounter_epoch":encounter.epoch})
 		return
@@ -165,6 +168,9 @@ static func valid_state(world: Dictionary) -> bool:
 	for key in ["next_admit_tick", "spawned_count"]:
 		if not _integer(encounter.get(key), 0, 1000000000): return false
 	if not _integer(encounter.get("stopped_tick"), -1, 1000000000) or not encounter.get("ringing") is bool: return false
+	if not encounter.get("bell_landed") is bool: return false
+	if encounter.bell_landed and (encounter.ringing or world.tick < encounter.stopped_tick + 36): return false
+	if encounter.phase == "complete" and not encounter.bell_landed: return false
 	if encounter.ringing != (encounter.phase == "active"): return false
 	if encounter.ringing and (world.phase != "playing" or encounter.stopped_tick != -1): return false
 	if not encounter.ringing and encounter.stopped_tick < 0: return false

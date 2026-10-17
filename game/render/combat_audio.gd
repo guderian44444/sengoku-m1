@@ -1,6 +1,8 @@
 extends Node
 
 const CampaignMusic = preload("res://core/campaign_music.gd")
+const TITLE_ROOT := "res://audio/title-amenoshita-v1/"
+const TITLE_KEYS := ["title_intro", "title_loop"]
 
 const SAMPLE_RATE := 22050
 const VOICE_COUNT := 6
@@ -8,6 +10,15 @@ const IMPACT_VARIANTS := 5
 const SFX_VARIANTS := 3
 const SAMPLED_CUES := ["sword_whoosh","sword_heavy_whoosh","hit","heavy_hit","spear_wind","spear_hit","spear_heavy_hit","blunt_whoosh","blunt_hit","blunt_heavy_hit","bow_release","bow_heavy_release","arrow_hit","shield_hit","guard_break","guard","kick_whoosh"]
 const WEAPON_AUDIO_ROOT := "res://audio/v38/weapons/"
+const WEAPONS_V3_ROOT := "res://audio/weapons-v3/"
+const V3_ALIASES := {
+	"sword_whoosh":"sword_swing", "sword_heavy_whoosh":"sword_swing", "hit":"sword_hit_flesh", "heavy_hit":"sword_hit_flesh",
+	"spear_wind":"spear_thrust", "spear_hit":"spear_hit_flesh", "spear_heavy_hit":"spear_hit_flesh",
+	"blunt_whoosh":"staff_swing", "blunt_hit":"staff_hit", "blunt_heavy_hit":"staff_hit",
+	"bow_heavy_release":"bow_release", "arrow_hit":"arrow_hit_body", "guard":"shield_block", "shield_hit":"shield_block",
+	"needle_whoosh":"knife_throw", "needle_hit":"knife_hit_flesh", "bullet_hit":"musket_hit_body", "grab":"grab_contact"
+}
+static var _v3_banks: Dictionary = {}
 const MUSIC_VOLUME_DB := -19.0
 const MUSIC_FADE_SECONDS := 1.4
 const CATEGORY_BUSES := {"music": "Music", "sfx": "SFX", "voice": "Voice"}
@@ -38,6 +49,9 @@ const EVENT_SOUNDS := {
 var _sounds: Dictionary = {}
 var _voices: Array[AudioStreamPlayer] = []
 var _food_player: AudioStreamPlayer
+var _prop_players: Array[AudioStreamPlayer] = []
+var _bell_player: AudioStreamPlayer
+var _next_prop := 0
 var _next_voice: int = 0
 var _impact_sounds: Dictionary = {}
 var _sound_variants: Dictionary = {}
@@ -59,6 +73,10 @@ var _campaign_scores: Dictionary = {}
 var _music_target_gain := db_to_linear(MUSIC_VOLUME_DB)
 var _music_fade_seconds := MUSIC_FADE_SECONDS
 var _music_key := "legacy"
+var _title_intro_seen := false
+var _title_switch_at := -1.0
+var _title_crossfade_seconds := 0.1
+var _title_linear_crossfade := false
 var _alarm_player: AudioStreamPlayer
 var _music_active := false
 var _music_paused := false
@@ -97,6 +115,21 @@ func _ready() -> void:
 		_sounds[cue] = bank[0]
 		_sample_gains[cue] = float(weapons.cues[cue].gain_db)
 		if cue in ["hit","heavy_hit"]: _impact_sounds[cue] = bank
+	for cue in weapon_banks():
+		var bank := []
+		for take in weapon_banks()[cue].variants:
+			var sample := AudioStreamWAV.load_from_file(WEAPONS_V3_ROOT + str(take.file))
+			assert(sample != null, "Missing v3 weapon sound: " + str(take.file))
+			bank.append(sample)
+		assert(not bank.is_empty())
+		_sound_variants[cue] = bank
+		_sample_gains[cue] = -17.0
+	for cue in V3_ALIASES:
+		_sound_variants[cue] = _sound_variants[V3_ALIASES[cue]]
+		if cue in ["hit","heavy_hit"]: _impact_sounds[cue] = _sound_variants[cue]
+	for cue in ["musket_player_shot","charge_release","spin_finish"]: _sample_gains[cue] = -13.0
+	_sample_gains.musket_enemy_shot = -16.0
+	for element in ["fire","ice","wind","lightning"]: _sample_gains["element_"+element+"_hit"] = -24.0
 	_food_player = AudioStreamPlayer.new()
 	_food_player.bus = CATEGORY_BUSES.sfx
 	_food_player.volume_db = -10.0
@@ -129,6 +162,12 @@ func _ready() -> void:
 		var scores: Variant = JSON.parse_string(FileAccess.get_file_as_string(score_path))
 		if scores is Dictionary:
 			for row in scores.get("assets", []): _campaign_scores[str(row.id)] = row
+	var title_path := TITLE_ROOT + "title_music_handoff.json"
+	if FileAccess.file_exists(title_path):
+		var title: Variant = JSON.parse_string(FileAccess.get_file_as_string(title_path))
+		if title is Dictionary:
+			_title_switch_at = float(title.get("loop_first_start_seconds", -1.0))
+			_title_crossfade_seconds = float(title.get("intro_to_loop_crossfade_seconds", 0.1))
 	_music_player = AudioStreamPlayer.new()
 	_music_player.bus = CATEGORY_BUSES.music
 	_music_player.volume_db = MUSIC_VOLUME_DB
@@ -148,6 +187,19 @@ func _ready() -> void:
 	for cue in ["bell_fall","sword_air"]:
 		_sound_variants[cue] = [AudioStreamWAV.load_from_file("res://audio/stage3/"+cue+".wav")]
 	add_child(_alarm_player)
+	var props: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://audio/props-v41/manifest.json"))
+	for cue in props.cues:
+		var bank := []
+		for file in props.cues[cue]: bank.append(AudioStreamWAV.load_from_file("res://audio/props-v41/" + file))
+		_sound_variants[cue] = bank
+	for index in range(4):
+		var player := AudioStreamPlayer.new()
+		player.bus = CATEGORY_BUSES.sfx
+		add_child(player)
+		_prop_players.append(player)
+	_bell_player = AudioStreamPlayer.new()
+	_bell_player.bus = CATEGORY_BUSES.sfx
+	add_child(_bell_player)
 
 func _restore_volumes() -> void:
 	var config := ConfigFile.new()
@@ -186,6 +238,17 @@ func _apply_volume(category: String) -> void:
 
 func _load_music(key: String) -> AudioStream:
 	if _music_streams.has(key): return _music_streams[key]
+	if key in TITLE_KEYS:
+		var title_path := TITLE_ROOT + key + ".ogg"
+		if not FileAccess.file_exists(title_path): return null
+		var title := AudioStreamOggVorbis.load_from_file(title_path)
+		if title == null: return null
+		title.loop = key == "title_loop"
+		title.loop_offset = 0.0
+		title.beat_count = 0
+		if key == "title_intro" and _title_switch_at < 0: _title_switch_at = maxf(0.0, title.get_length() - _title_crossfade_seconds)
+		_music_streams[key] = title
+		return title
 	if _campaign_scores.has(key):
 		var row: Dictionary = _campaign_scores[key]
 		var ogg_path := CampaignMusic.ROOT + str(row.file).get_file()
@@ -216,9 +279,7 @@ func sync_encounter(world: Dictionary) -> void:
 		if not _alarm_player.playing: _alarm_player.play()
 		_alarm_player.stream_paused = _music_paused
 	else:
-		var stopped: bool = _alarm_player.playing and world.get("phase","") == "playing" and world.get("encounter",{}).get("kind","") == "alarm"
 		_alarm_player.stop()
-		if stopped: play_event({"type":"bell_fall"})
 
 func sync_stage_music(world: Dictionary) -> void:
 	var key := CampaignMusic.select(world,_music_key)
@@ -256,6 +317,7 @@ func _change_music(key: String, gain: float, fade: float) -> void:
 		fade = MUSIC_FADE_SECONDS
 		_music_target_gain = gain
 		if stream == null or key == _music_key: return
+	_title_linear_crossfade = _music_active and _music_key == "title_intro" and key == "title_loop"
 	_music_key = key
 	_music_fade_seconds = fade
 	if key == "victory_jingle":
@@ -279,22 +341,37 @@ func _change_music(key: String, gain: float, fade: float) -> void:
 	_music_fade = 0.0
 
 func _music_finished(player: AudioStreamPlayer) -> void:
-	if player == _music_player and _music_active and _music_key == "victory_jingle":
-		_change_music("victory_loop",.65,.25)
+	if player != _music_player or not _music_active: return
+	if _music_key == "victory_jingle": _change_music("victory_loop",.65,.25)
+	elif _music_key == "title_intro": _change_music("title_loop",1.0,_title_crossfade_seconds)
 
 func _process(delta: float) -> void:
 	if not _music_active or _music_paused: return
+	if _music_key == "title_intro" and _music_player.playing and _music_player.get_playback_position() >= _title_switch_at:
+		_change_music("title_loop",1.0,_title_crossfade_seconds)
 	# Recover an interrupted stream without restarting healthy loops or same-score areas.
-	if not _music_player.playing and _music_player.stream != null and _music_key != "victory_jingle": _music_player.play()
+	if not _music_player.playing and _music_player.stream != null and _music_key not in ["victory_jingle", "title_intro"]: _music_player.play()
 	if _music_fade >= 1.0:
 		_music_player.volume_linear = move_toward(_music_player.volume_linear,_music_target_gain,delta * 2.0)
 		return
 	_music_fade = minf(1.0, _music_fade + delta / _music_fade_seconds)
-	_music_player.volume_linear = _music_target_gain * sin(_music_fade * PI * 0.5)
-	_music_tail.volume_linear = _music_tail_gain * cos(_music_fade * PI * 0.5)
+	_music_player.volume_linear = _music_target_gain * (_music_fade if _title_linear_crossfade else sin(_music_fade * PI * 0.5))
+	_music_tail.volume_linear = _music_tail_gain * (1.0 - _music_fade if _title_linear_crossfade else cos(_music_fade * PI * 0.5))
 	if _music_fade >= 1.0:
 		_music_tail.stop()
 		_music_tail.stream = null
+
+func is_title_music() -> bool:
+	return _music_active and _music_key in TITLE_KEYS
+
+func play_title_music() -> void:
+	if is_title_music(): return
+	var key := "title_loop" if _title_intro_seen else "title_intro"
+	if key == "title_intro" and _load_music(key) == null: key = "title_loop"
+	_title_intro_seen = true
+	# The supplied OGG files already contain gain 0.65 and the intro fade-in.
+	_change_music(key,1.0,0.6)
+	play_music()
 
 func play_music() -> void:
 	if _music_player == null or _music_player.stream == null: return
@@ -313,6 +390,7 @@ func stop_music() -> void:
 		_music_tail.stream = null
 	_music_active = false
 	_music_fade = 1.0
+	_title_linear_crossfade = false
 	_music_key = "legacy"
 	_music_target_gain = db_to_linear(MUSIC_VOLUME_DB)
 	_music_fade_seconds = MUSIC_FADE_SECONDS
@@ -335,36 +413,70 @@ func play_event(event: Dictionary) -> void:
 		return
 	# A crowded impact burst must not steal the healing confirmation.
 	var player := _food_player if kind == "food_pickup" else _voices[_next_voice]
-	if kind != "food_pickup": _next_voice = (_next_voice + 1) % VOICE_COUNT
+	if kind == "bell_fall": player = _bell_player
+	elif event.get("type","") in ["prop_hit","prop_break"]:
+		player = _prop_players[_next_prop]
+		_next_prop = (_next_prop + 1) % _prop_players.size()
+	elif kind != "food_pickup": _next_voice = (_next_voice + 1) % VOICE_COUNT
 	last_sound = kind
 	last_sound_variant = _choose_variant("sfx:" + kind, _sound_variants[kind].size())
 	player.stream = _sound_variants[kind][last_sound_variant]
 	if _impact_sounds.has(kind): last_impact_variant = last_sound_variant
 	player.volume_db = -13.0 if kind in ["heavy_hit", "bullet_hit", "gunshot"] else -17.0
 	if _sample_gains.has(kind): player.volume_db = _sample_gains[kind]
-	if event.get("type","") in ["prop_hit","prop_break"]: player.volume_db = -12.0 if event.type == "prop_break" else -15.0
+	if event.get("type","") in ["prop_hit","prop_break"]: player.volume_db = -5.0 if event.type == "prop_break" else -6.0
+	if kind == "bell_fall": player.volume_db = -4.0
 	if kind == "food_pickup": player.volume_db = -10.0
 	player.play()
 
 static func sound_for_event(event: Dictionary) -> String:
+	if event.get("sound_suppressed",false): return ""
 	if event.get("type","") == "weapon_swing" and event.get("action","") == "boss_sword_wave": return "sword_air"
 	var kind := str(event.get("type", event.get("kind", "")))
 	var weapon := str(event.get("weapon", ""))
+	var action := str(event.get("action", ""))
+	var polearm := str(event.get("weapon_id", "")).contains("naginata")
+	if kind == "gunshot": return "musket_player_shot" if int(event.get("actor_team",1)) == 0 else "musket_enemy_shot"
+	if kind == "element_hit": return "element_" + str(event.get("element","")) + "_hit"
+	if kind == "prop_hit" and weapon in ["arrow","special_arrow","needle"] and event.get("material","") in ["wood","box"]: return "arrow_hit_wood"
 	if kind in ["prop_hit","prop_break"]: return str(event.get("material","wood")) + ("_break" if kind == "prop_break" else "_hit")
 	if kind == "swing": return "" # Voice onset; wind belongs to the actual weapon release.
 	if kind == "weapon_swing":
-		var action := str(event.get("action",""))
+		if action.begins_with("charged"):
+			return "sword_draw" if event.get("actor_kind","") == "ieyasu" and action == "charged" else "charge_release"
+		if weapon == "blade" or polearm: return "polearm_sweep"
 		var sword := "sword_heavy_whoosh" if action.begins_with("charged") or action in ["heavy","air_heavy","dash_heavy"] else "sword_whoosh"
 		return {"needle":"needle_whoosh", "spear":"spear_wind", "blunt":"blunt_whoosh", "kick":"kick_whoosh", "chain":"chain_swing"}.get(weapon,sword)
 	if kind == "bow_release": return "bow_heavy_release" if weapon == "special_arrow" or event.get("action", "") in ["charged","charge_rain","special"] else "bow_release"
-	if kind in ["hit", "heavy_hit"]:
+	if kind in ["hit", "heavy_hit", "shield_hit"]:
+		if event.get("contact","") == "armor_absorb": return "shield_block"
+		if action == "throw": return "" # Release has a whoosh; the body impact belongs to landing.
+		if action == "body_collision": return "body_collision"
+		if action.begins_with("grab_hit"):
+			return "headbutt_hit" if event.get("actor_kind","") in ["nobunaga","ieyasu","mitsuhide"] else "knee_hit"
+		if event.get("spin_finish",false): return "spin_finish"
+		if event.get("material","") == "armor":
+			return {"bullet":"musket_hit_armor", "needle":"knife_hit_armor", "arrow":"knife_hit_armor", "special_arrow":"knife_hit_armor", "blunt":"staff_hit_armor", "kick":"body_collision"}.get(weapon,"sword_hit_armor")
+		if polearm: return "polearm_hit_flesh"
+		if kind == "shield_hit" and event.get("contact","") != "held_body": return "shield_hit"
 		var heavy := kind == "heavy_hit"
-		return {"arrow":"arrow_hit", "special_arrow":"arrow_hit", "bullet":"bullet_hit", "needle":"needle_hit", "spear":"spear_heavy_hit" if heavy else "spear_hit", "blunt":"blunt_heavy_hit" if heavy else "blunt_hit", "kick":"blunt_heavy_hit" if heavy else "blunt_hit"}.get(weapon,kind)
-	if kind == "run_bump": return "blunt_hit"
+		return {"arrow":"arrow_hit", "special_arrow":"arrow_hit", "bullet":"bullet_hit", "needle":"needle_hit", "spear":"spear_heavy_hit" if heavy else "spear_hit", "blunt":"blunt_heavy_hit" if heavy else "blunt_hit", "kick":"body_collision"}.get(weapon,"hit" if kind == "shield_hit" else kind)
+	if kind == "run_bump": return "body_collision"
 	if kind in ["extra_life", "revive", "armor_pickup"]: return "pickup"
 	if kind == "armor_break": return "guard_break"
 	if kind == "landing" and event.get("wet",false): return "splash"
+	if kind == "landing" and event.get("body",false): return "body_land"
 	return kind
+
+static func weapon_banks() -> Dictionary:
+	if _v3_banks.is_empty():
+		var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(WEAPONS_V3_ROOT+"manifest.json"))
+		_v3_banks = data.cues
+	return _v3_banks
+
+static func owns_physical_sound(event: Dictionary) -> bool:
+	var cue := sound_for_event(event)
+	return cue.is_empty() or cue in SAMPLED_CUES or V3_ALIASES.has(cue) or weapon_banks().has(cue)
 
 func _choose_variant(selector: String, count: int) -> int:
 	# Random bags visit every distinct take; a refill never repeats its boundary take.

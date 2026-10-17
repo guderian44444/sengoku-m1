@@ -78,9 +78,9 @@ func ranges() -> void:
 	for action in ["charged","air_heavy"]:
 		for face in [-1,1]:
 			for weapon in Weapons.ids_for("nobunaga"):
-				var reach := (330.0 if action=="charged" else 292.5)+float(Weapons.item(weapon).get("reach_bonus",0))+12.0
-				var depth := 135.0 if action=="charged" else 117.0
-				var rear := 330.0 if action=="charged" else 27.0
+				var reach := (330.0 if action=="charged" else 420.0)+float(Weapons.item(weapon).get("reach_bonus",0))+12.0
+				var depth := 135.0 if action=="charged" else 150.0
+				var rear := 330.0 if action=="charged" else 36.0
 				for probe in [Vector3(reach,0,1),Vector3(reach+.1,0,0),Vector3(80,depth,1),Vector3(80,depth+.1,0),Vector3(-rear,0,1),Vector3(-rear-.1,0,0)]:
 					var battle := Battle.new()
 					battle.reset_training("nobunaga","dummy")

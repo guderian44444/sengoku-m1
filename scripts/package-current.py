@@ -29,7 +29,7 @@ def references(value, folder):
             references(item, folder)
     elif isinstance(value, list):
         for item in value: references(item, folder)
-    elif isinstance(value, str) and re.fullmatch(r'[^\n]+\.(png|wav|ttf|otf)', value):
+    elif isinstance(value, str) and re.fullmatch(r'[^\n]+\.(png|wav|ogg|ttf|otf)', value):
         add(ROOT/'game'/value[6:] if value.startswith('res://') else folder/value)
 
 
@@ -59,7 +59,8 @@ def runtime_files():
         'assets/v20/title/title-background.png', 'assets/current/ui/title-logo-v34.png',
         'assets/current/ui/title-logo-v34.txt',
         'assets/v20/fonts/NotoSerifTC-VF.ttf', 'assets/current/fonts/SengokuReferenceFallback.otf',
-        'assets/current/fonts/Bakudai-Regular.ttf',
+        'assets/current/fonts/MasaFont-Regular.ttf',
+        'assets/current/ui/scroll02/scroll02_blank.png',
         'assets/v22/weapons/encyclopedia.json', 'audio/v27/deaths.json',
         'audio/v35/music.json', 'audio/v35/CREDITS.txt', 'audio/v35/CC-BY-SA-4.0.txt',
     ): add(ROOT/'game'/relative)
@@ -91,6 +92,13 @@ def runtime_files():
     registration('game/audio/v31/manifest.json','clips')
     registration('game/audio/v38/weapons/manifest.json','cues')
     registration('game/audio/v38/voices/manifest.json','clips')
+    registration('game/audio/weapons-v3/manifest.json','cues')
+    registration('game/audio/props-v41/manifest.json','cues')
+    add(ROOT/'game/audio/props-v41/CREDITS.txt')
+    add(ROOT/'docs/STAGE03-V41.md')
+    for folder in ('game/audio/title-amenoshita-v1','game/audio/weapons-v3'):
+        for path in (ROOT/folder).iterdir():
+            if path.suffix.lower() in ('.txt','.md','.json','.ogg'): add(path)
     add(ROOT/'game/audio/v38/weapons/CREDITS.txt')
     for relative in re.findall(r'"res://(audio/[^"\n]+\.wav)"',(ROOT/'game/render/combat_audio.gd').read_text('utf-8')):
         add(ROOT/'game'/relative)
@@ -103,7 +111,7 @@ def runtime_files():
     for folder in ('game/assets/v20/fonts','game/assets/current/fonts'):
         for path in (ROOT/folder).iterdir():
             if path.suffix.lower() in ('.txt','.md'): add(path)
-    for relative in ('README-試玩.md','docs/COMBAT-V33.md','docs/UI-V34.md','docs/STAGE03-INTEGRATION-20261016.md','docs/MUSIC-CAMPAIGN-V1.md','啟動戰鬥原型.cmd',
+    for relative in ('README-試玩.md','docs/COMBAT-V33.md','docs/UI-V34.md','docs/STAGE03-INTEGRATION-20261016.md','docs/MUSIC-CAMPAIGN-V1.md','docs/AUDIO-UI-V40.md','docs/COMBAT-V39.md','啟動戰鬥原型.cmd',
                      '啟動新版雙人試戰.cmd','啟動鍵盤練習場.cmd','啟動雙人合作.cmd','啟動素材循環展示.cmd'):
         add(ROOT/relative)
     for path in (ROOT/'tools/godot-4.7.2').iterdir():

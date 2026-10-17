@@ -11,7 +11,7 @@ const Achievements = preload("res://core/achievements.gd")
 const ACTIONS := ["victory", "idle", "light", "charge", "heavy", "charged", "throw", "special", "windup", "hurt", "down", "defeated", "holding", "grabbed", "thrown", "stunned", "rising", "ground_slam", "low_sweep", "dash_strike", "dash_heavy", "air_light", "air_heavy", "upper_heavy", "charged_upper", "charged_slam", "mixed_finisher", "mixed_rising", "retreat", "pulled", "frozen", "spear_thrust", "spear_sweep", "spear_butt", "flag_poke", "flag_sweep", "flag_slam", "commander_cut", "commander_rise", "commander_dash", "boss_sweep", "boss_smash", "boss_chain", "bow_shot", "gun_shot", "guard", "recovering", "launched"]
 const KINDS := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu", "soldier", "flag", "commander", "archer", "gunner", "boss", "dummy"]
 const EFFECTS := ["projectile", "slash", "warning", "slam", "hit", "poison", "shield_hit", "shockwave", "chain", "fire_hit", "ice_hit", "shatter", "fire_wave", "ice_wave", "guard", "guard_break", "damage", "landing", "debris", "arrow_target", "arrow_impact", "wind_hit", "earth_hit", "blade_hit", "wind_wave", "earth_wave", "blade_wave","fire_patch"]
-const EVENTS := ["hit", "heavy_hit", "special", "pickup", "food_pickup", "armor_pickup", "armor_break", "extra_life", "revive", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_hit", "prop_break", "swing", "weapon_swing", "boss_intro","achievement","weapon_break","inventory_full","challenge_complete","challenge_failed","encounter_phase"]
+const EVENTS := ["hit", "heavy_hit", "special", "pickup", "food_pickup", "armor_pickup", "armor_break", "extra_life", "revive", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_hit", "prop_break", "swing", "weapon_swing", "boss_intro","achievement","weapon_break","inventory_full","challenge_complete","challenge_failed","encounter_phase","bell_fall"]
 const ARRAY_LIMITS := {"fighters": 64, "drops": 64, "effects": 256, "events": 128, "props": 32, "wet_zones": 16}
 const PROP_KINDS := ["bell_pillar","stall","cart","jar","basket","crate","large_crate","barricade","fence","planter","stone_lantern","lantern","rice_bales","screen","cabinet"]
 const FOODS := ["","rice","fish","dango","peach"]
@@ -101,7 +101,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 	for event in world.events:
 		if event.get("type","") == "achievement":
 			if not Achievements.valid([event.get("achievement_id")]) or not event.get("loot") is bool or not event.get("description") is String or event.description.length() > 120: return false
-		if not _choice(event.get("type"), EVENTS) or not _position(event):
+		if not _choice(event.get("type"), EVENTS + ["throw_swing","element_hit"]) or not _position(event):
 			return false
 		for field in ["id", "actor", "target"]:
 			if not _integer(event.get(field), 0):
@@ -119,8 +119,16 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if event.type == "food_pickup" and (not _choice(event.get("food_id"),FOODS) or not _integer(event.get("heal"),1,120)): return false
 		if event.has("wet") and not event.wet is bool: return false
 		if event.has("target_stage_boss") and not event.target_stage_boss is bool: return false
-		if event.has("material") and not _choice(event.material,["ceramic","stone","box","wood","wicker"]): return false
-		if event.has("action") and not _action(event.action): return false
+		if event.has("material") and not _choice(event.material,["ceramic","stone","box","wood","wicker","body","armor"]): return false
+		if event.has("action") and event.action != "body_collision" and not _action(event.action): return false
+		if event.has("actor_team") and not _integer(event.actor_team,0,1): return false
+		if event.has("weapon_id") and event.weapon_id != "" and not _choice(event.weapon_id,Weapons.ITEMS.keys()): return false
+		for field in ["attack_id","action_tick"]:
+			if event.has(field) and not _integer(event[field],-1): return false
+		for field in ["body","spin_finish","sound_suppressed"]:
+			if event.has(field) and not event[field] is bool: return false
+		if event.has("contact") and not _choice(event.contact,["armor_absorb","held_body"]): return false
+		if event.type == "element_hit" and not _choice(event.get("element"),["fire","ice","wind","lightning"]): return false
 		if event.has("combo") and not _integer(event.combo, 0, 3): return false
 		if event.has("heavy_combo") and not _integer(event.heavy_combo, 0, 2): return false
 		if event.has("finisher") and not event.finisher is bool: return false

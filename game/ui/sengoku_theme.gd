@@ -11,7 +11,7 @@ const MUTED := Color("69563d")
 const BUTTON := Color("624331")
 const BUTTON_HOVER := Color("754834")
 const FOCUS_GOLD := Color("ffd380")
-const FOCUS_BORDER := Color("bc9867")
+const FOCUS_BORDER := Color("f2cb73")
 const BACKGROUND := Color("1b201d")
 
 static func panel(fill: Color = PAPER, border: Color = GOLD) -> StyleBoxFlat:
@@ -27,7 +27,10 @@ static func button(fill: Color = BUTTON, border: Color = GOLD, focused: bool = f
 	style.bg_color = fill
 	style.border_color = border
 	style.border_width = 3.0 if focused else 1.0
-	style.set_content_margin_all(12)
+	style.content_margin_left = 28
+	style.content_margin_right = 28
+	style.content_margin_top = 6
+	style.content_margin_bottom = 6
 	return style
 
 static func create_theme(face: Font) -> Theme:
@@ -44,16 +47,16 @@ static func create_theme(face: Font) -> Theme:
 	for type in ["PanelContainer", "Panel", "PopupPanel", "PopupMenu", "AcceptDialog"]:
 		result.set_stylebox("panel", type, panel())
 	for type in ["Button", "OptionButton", "CheckButton", "CheckBox"]:
-		result.set_color("font_color", type, PAPER_LIGHT)
-		result.set_color("font_hover_color", type, FOCUS_GOLD)
-		result.set_color("font_focus_color", type, FOCUS_GOLD)
-		result.set_color("font_pressed_color", type, PAPER_LIGHT)
-		result.set_color("font_hover_pressed_color", type, PAPER_LIGHT)
+		result.set_color("font_color", type, INK)
+		result.set_color("font_hover_color", type, INK)
+		result.set_color("font_focus_color", type, INK)
+		result.set_color("font_pressed_color", type, INK)
+		result.set_color("font_hover_pressed_color", type, INK)
 		result.set_color("font_disabled_color", type, MUTED)
-		result.set_color("icon_normal_color", type, PAPER_LIGHT)
-		result.set_color("icon_hover_color", type, FOCUS_GOLD)
-		result.set_color("icon_focus_color", type, FOCUS_GOLD)
-		result.set_color("icon_pressed_color", type, PAPER_LIGHT)
+		result.set_color("icon_normal_color", type, INK)
+		result.set_color("icon_hover_color", type, INK)
+		result.set_color("icon_focus_color", type, INK)
+		result.set_color("icon_pressed_color", type, INK)
 		result.set_stylebox("normal", type, button())
 		result.set_stylebox("hover", type, button(BUTTON_HOVER, FOCUS_BORDER))
 		result.set_stylebox("pressed", type, button(VERMILION, GOLD))
@@ -69,23 +72,23 @@ static func create_theme(face: Font) -> Theme:
 		result.set_color("font_selected_color", type, PAPER_LIGHT)
 		result.set_color("selection_color", type, VERMILION)
 	result.set_stylebox("panel", "ItemList", panel(PAPER_LIGHT))
-	result.set_stylebox("selected", "ItemList", panel(VERMILION, VERMILION))
-	result.set_stylebox("selected_focus", "ItemList", panel(VERMILION, VERMILION))
+	result.set_stylebox("selected", "ItemList", panel(Color("e8c98d"), VERMILION))
+	result.set_stylebox("selected_focus", "ItemList", panel(Color("e8c98d"), VERMILION))
 	result.set_stylebox("cursor", "ItemList", _focus())
 	result.set_stylebox("cursor_unfocused", "ItemList", panel(Color.TRANSPARENT))
 	result.set_stylebox("focus", "ItemList", _focus())
-	result.set_color("font_selected_color", "ItemList", PAPER_LIGHT)
+	result.set_color("font_selected_color", "ItemList", INK)
 	result.set_constant("v_separation", "ItemList", 10)
 	result.set_constant("h_separation", "ItemList", 12)
-	result.set_stylebox("hover", "PopupMenu", panel(VERMILION, VERMILION))
-	result.set_color("font_hover_color", "PopupMenu", PAPER_LIGHT)
+	result.set_stylebox("hover", "PopupMenu", panel(PAPER_LIGHT, VERMILION))
+	result.set_color("font_hover_color", "PopupMenu", INK)
 	result.set_color("font_disabled_color", "PopupMenu", MUTED)
 	result.set_constant("v_separation", "PopupMenu", 12)
-	result.set_color("font_selected_color", "TabBar", PAPER_LIGHT)
-	result.set_color("font_unselected_color", "TabBar", MUTED)
-	result.set_stylebox("tab_selected", "TabBar", panel(BUTTON, GOLD))
-	result.set_stylebox("tab_unselected", "TabBar", panel(PAPER))
-	result.set_stylebox("tab_focus", "TabBar", _focus(FOCUS_BORDER))
+	result.set_color("font_selected_color", "TabBar", INK)
+	result.set_color("font_unselected_color", "TabBar", INK)
+	result.set_stylebox("tab_selected", "TabBar", button(BUTTON_HOVER, FOCUS_BORDER))
+	result.set_stylebox("tab_unselected", "TabBar", button())
+	result.set_stylebox("tab_focus", "TabBar", button(Color.TRANSPARENT,FOCUS_BORDER,true))
 	for type in ["HScrollBar", "VScrollBar"]:
 		result.set_stylebox("scroll", type, panel(Color("d5c6a8"), Color("d5c6a8")))
 		result.set_stylebox("grabber", type, panel(GOLD, GOLD))
@@ -114,8 +117,8 @@ static func create_theme(face: Font) -> Theme:
 	for type in ["Button", "OptionButton", "CheckButton", "CheckBox", "LineEdit"]:
 		for style_name in result.get_stylebox_list(type):
 			var style := result.get_stylebox(style_name, type)
-			style.content_margin_top = 8
-			style.content_margin_bottom = 8
+			style.content_margin_top = 6
+			style.content_margin_bottom = 6
 	return result
 
 static func _focus(border: Color = VERMILION) -> StyleBoxFlat:

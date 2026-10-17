@@ -99,7 +99,7 @@ func heavy_tests() -> void:
 		for index in range(60):
 			tick(battle)
 			if enemy.hp<damage:
-				check(enemy.action == "hurt" and not enemy.airborne_lock,"Normal heavy pushes standing enemies")
+				check((enemy.airborne_lock and absf(enemy.knockback) <= 2.2) if hero == "nobunaga" else (enemy.action == "hurt" and not enemy.airborne_lock),"Close heavy launches briefly; bow heavy retains ranged push")
 				break
 		check(enemy.hp<damage,"Released normal heavy hits without a second startup")
 		var interrupt := fresh(hero)
@@ -147,8 +147,11 @@ func heavy_tests() -> void:
 	wave.state.fighters[1].x = 765.0
 	tick(wave,Battle.HEAVY)
 	tick(wave)
-	for index in range(65): tick(wave)
-	check(wave.state.fighters[1].hp<5000 and not wave.state.fighters[1].airborne_lock,"Sword wave hits beyond blade contact with standing knockback")
+	var launched := false
+	for index in range(65):
+		tick(wave)
+		launched = launched or wave.state.fighters[1].airborne_lock
+	check(wave.state.fighters[1].hp<5000 and launched and wave.state.fighters[1].x < 855,"Sword wave hits beyond contact with short launch")
 
 func air_and_dash_tests() -> void:
 	for hero in ["nobunaga","oichi"]:

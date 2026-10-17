@@ -19,6 +19,7 @@ var events: Dictionary = {}
 var origins: Dictionary = {}
 var charges: Dictionary = {}
 var specials: Dictionary = {}
+var continuous: Dictionary = {}
 
 func _init() -> void:
 	add_child(emitter)
@@ -33,6 +34,12 @@ func _ready() -> void:
 		emitter.player = shared_player
 		emitter.recipes = shared_recipes
 	if not sound.configure("res://vfx/v2/audio"): return
+	for cue in CombatAudio.weapon_banks():
+		var bank: Dictionary = CombatAudio.weapon_banks()[cue]
+		sound.assets[cue] = {"wav":CombatAudio.WEAPONS_V3_ROOT+str(bank.get("runtime_loop",bank.variants[0].file)),"loop":bank.loop}
+	for element in ["blade","fire","ice","wind","lightning"]:
+		sound.assets[element+"_activate"] = sound.assets.charge_start
+		sound.assets[element+"_charge_loop"] = sound.assets.charge_hold_loop
 	emitter.bind_audio(sound)
 	configured = true
 	active_users += 1
@@ -55,6 +62,7 @@ func reset_scene() -> void:
 	origins.clear()
 	charges.clear()
 	specials.clear()
+	continuous.clear()
 	generation += 1
 	last_tick = -1
 
@@ -74,9 +82,17 @@ func sync(world: Dictionary, view) -> void:
 	var live_charges := {}
 	var live_specials := {}
 	var live_actors := {}
+	var live_loops := {}
 	for fighter in world.get("fighters",[]):
 		var id := int(fighter.id)
 		live_actors[id] = true
+		if fighter.hp > 0 and not muted:
+			var spec: Dictionary = Battle.CombatMoves.spec(fighter)
+			if fighter.get("action","") == "charged" and fighter.kind in ["nobunaga","hideyoshi","mitsuhide","tadakatsu"] and not spec.get("events",[]).is_empty() and Battle.combat_time_ms(fighter) >= float(spec.events[0].ms):
+				live_loops["spin:%d" % id] = "spin_swing_loop"
+			for element in ["fire","ice","wind","lightning"]:
+				var status := int(fighter.get("burn" if element == "fire" else "freeze",0)) > 0 if element in ["fire","ice"] else false
+				if status or (fighter.get("action","") == "special" and family(fighter) == element): live_loops["%s:%d" % [element,id]] = "element_"+element+"_loop"
 		if fighter.get("action","") == "charge" and fighter.hp > 0:
 			live_charges[id] = true
 			if not charges.has(id):
@@ -89,6 +105,12 @@ func sync(world: Dictionary, view) -> void:
 		if fighter.get("action","") == "special" and fighter.hp > 0: live_specials[id] = int(fighter.action_tick)
 	for id in charges.keys():
 		if not live_charges.has(id): emitter.cancel(charges[id]); charges.erase(id)
+	for id in continuous.keys():
+		if not live_loops.has(id): sound.stop_instance(id); continuous.erase(id)
+	for id in live_loops:
+		if not continuous.has(id):
+			sound.handle_cue(id,live_loops[id],"loop_start",{"phase_progress":1.0,"layered":true})
+			continuous[id] = live_loops[id]
 	for id in specials.keys():
 		if live_specials.has(id): specials[id].tick = live_specials[id]
 		else:
@@ -110,7 +132,7 @@ func accept_event(event: Dictionary, world: Dictionary, view) -> bool:
 		if candidate.id == event.get("actor",0): fighter = candidate; break
 	var type := str(event.get("type",""))
 	var recipe := ""
-	var sampled := CombatAudio.sound_for_event(event) in CombatAudio.SAMPLED_CUES
+	var sampled := CombatAudio.owns_physical_sound(event)
 	var context := {"simulation_tick":int(world.get("tick",0)),"silent":muted or sampled,"variant":int(event.id)%4,"face":fighter.get("face",1),"size_multiplier":.55}
 	context.binding_actor = int(event.get("actor",0))
 	var position := Vector2(float(event.get("x",0)),float(event.get("y",0)))
@@ -204,6 +226,17 @@ func draw_actor(canvas, fighter: Dictionary, origin: Vector2, height: float, sam
 func draw_wave(canvas, effect: Dictionary, ground: Vector2) -> bool:
 	if not configured: return false
 	var type := str(effect.get("type",""))
+	if type == "blade_wave" and effect.get("action","") == "air_heavy":
+		var age := float(effect.max_life-effect.life)
+		var reach := float(effect.radius)
+		var depth := float(effect.hit_depth)
+		var face := float(effect.face)
+		var sweep := clampf(age/8.0,0,1)
+		var height := maxf(180,float(effect.z)+120)
+		var center := ground+Vector2(face*reach*.42,-height*.5+lerpf(-45,30,sweep))
+		shared_player.draw_phase(canvas,"blade_arc",age,float(effect.max_life),center,true,{"opacity":[[0,.95],[.45,.85],[1,0]]},{"face":face,"rotation":lerpf(-.8,.65,sweep),"size":reach*1.35,"stretch":Vector2(1,height/reach)})
+		shared_player.draw_phase(canvas,"blade_wave",age,float(effect.max_life),ground+Vector2(face*reach*.48,-20),true,{"opacity":[[0,.45],[.3,.75],[1,0]]},{"face":face,"size":reach*1.25,"stretch":Vector2(1,depth*2.0/(reach*1.25))})
+		return true
 	if type == "slash":
 		var duration := float(effect.get("max_life",10))
 		shared_player.draw_phase(canvas,"neutral_slash_arc",duration-float(effect.get("life",duration)),duration,ground-Vector2(0,52),true,{"opacity":[[0,.4],[.4,.3],[1,0]],"scale":[[0,.55],[.4,1],[1,1]]},{"face":effect.get("face",1),"size":float(effect.get("radius",60))*1.5})

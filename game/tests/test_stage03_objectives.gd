@@ -87,10 +87,14 @@ func barrier_tests() -> void:
 		player.x = before
 		sim._move_fighter(player,100)
 		check(player.x > before + 50,"destroyed layer opens its collision")
-	check(sim.state.encounter.phase == "complete","all layers required to clear")
+	check(sim.state.encounter.phase == "active","remaining defenders keep the exit closed")
+	for enemy in sim.state.fighters:
+		if enemy.team == 1: kill(sim,enemy)
+	Encounter.tick(sim)
+	check(sim.state.encounter.phase == "complete","all layers and defenders required to clear")
 	for tick in range(50): sim.step([])
 	check(sim.state.stage.go and sim.state.phase == "playing","barriers open forward transition")
-	player.x = 2500
+	player.x = sim.state.stage.width - 100
 	sim.step([])
 	check(sim.state.stage.index == 2 and sim.state.encounter.kind == "formation","walk through exit enters formation")
 	check(Wire.valid_snapshot(sim.get_state()),"transition discards old barrier state")

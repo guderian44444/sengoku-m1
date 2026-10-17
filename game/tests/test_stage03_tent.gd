@@ -130,7 +130,7 @@ func target_and_retreat_tests():
 	b.x = 1000
 	b.y = 480
 	a.hp = 177
-	a.cooldown = 0
+	a.cooldown = 1000
 	party[1].x = 850
 	party[1].y = 450
 	var starts := []

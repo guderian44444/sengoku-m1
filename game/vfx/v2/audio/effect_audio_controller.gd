@@ -28,7 +28,7 @@ func handle_cue(instance_id: String, cue_key: String, operation: String, context
 		return true
 	if operation == "loop_stop":
 		var loop_id := instance_id + ":" + cue_key
-		if loops.has(loop_id): _dispose(loops[loop_id])
+		if loops.has(loop_id): _fade_out(loops[loop_id])
 		return true
 	if operation not in ["start", "loop_start"] or not assets.has(cue_key): return false
 	var is_loop := operation == "loop_start"
@@ -42,7 +42,8 @@ func handle_cue(instance_id: String, cue_key: String, operation: String, context
 	instances[instance_id]["distance"] = clampf(float(context.get("distance", instances[instance_id].get("distance", 0.0))), 0.0, 1.0)
 	instances[instance_id]["layered"] = bool(context.get("layered", instances[instance_id].get("layered", false)))
 	_enforce_cap(instance_id)
-	var stream := AudioStreamWAV.load_from_file(root_path + str(assets[cue_key].wav))
+	var path := str(assets[cue_key].wav)
+	var stream := AudioStreamWAV.load_from_file(path if path.begins_with("res://") else root_path + path)
 	if stream == null: return false
 	if is_loop:
 		stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
@@ -56,6 +57,7 @@ func handle_cue(instance_id: String, cue_key: String, operation: String, context
 	p.set_meta("cue", cue_key)
 	p.set_meta("loop", is_loop)
 	p.set_meta("serial", serial)
+	p.set_meta("fade",0.0 if is_loop else 1.0)
 	add_child(p)
 	players.append(p)
 	if is_loop: loops[composite] = p
@@ -73,6 +75,9 @@ func update_instance(instance_id: String, intensity: float, progress: float) -> 
 		if str(p.get_meta("instance")) == instance_id: _apply_gain(p)
 
 func _apply_gain(p: AudioStreamPlayer) -> void:
+	if p.get_meta("stopping",false):
+		p.volume_db = float(p.get_meta("fade_base_db")) + linear_to_db(maxf(.0001,float(p.get_meta("fade"))))
+		return
 	var state: Dictionary = instances.get(str(p.get_meta("instance")), {"intensity": 1.0, "progress": 0.0})
 	var is_loop: bool = bool(p.get_meta("loop"))
 	# Quiet startup, increasing charge energy, limited pitch lift for expanding rings.
@@ -82,7 +87,7 @@ func _apply_gain(p: AudioStreamPlayer) -> void:
 	var gun_extra := -3.0 if cue.begins_with("enemy_matchlock") else 0.0
 	var distance_gain := -12.0 * float(state.get("distance", 0.0))
 	var layer_gain := -6.0 if bool(state.get("layered", false)) else 0.0
-	p.volume_db = base + grow + gun_extra + distance_gain + layer_gain + linear_to_db(maxf(0.001, float(state.intensity))) + (-6.0 if voice_duck else 0.0)
+	p.volume_db = base + grow + gun_extra + distance_gain + layer_gain + linear_to_db(maxf(0.001, float(state.intensity))) + (-6.0 if voice_duck else 0.0) + linear_to_db(maxf(.0001,float(p.get_meta("fade",1.0))))
 	p.pitch_scale = lerpf(0.98, 1.06, float(state.progress))
 
 func set_voice_duck(active: bool) -> void:
@@ -95,14 +100,16 @@ func set_paused(value: bool) -> void:
 
 func stop_instance(instance_id: String) -> void:
 	for p in players.duplicate():
-		if str(p.get_meta("instance")) == instance_id: _dispose(p)
+		if str(p.get_meta("instance")) == instance_id:
+			if p.get_meta("loop",false): _fade_out(p)
+			else: _dispose(p)
 	instances.erase(instance_id)
 	finishing.erase(instance_id)
 
 func finish_instance(instance_id: String) -> void:
 	finishing[instance_id] = true
 	for p in players.duplicate():
-		if str(p.get_meta("instance")) == instance_id and bool(p.get_meta("loop")): _dispose(p)
+		if str(p.get_meta("instance")) == instance_id and bool(p.get_meta("loop")): _fade_out(p)
 	_cleanup_finished(instance_id)
 
 func _cleanup_finished(instance_id: String) -> void:
@@ -114,8 +121,26 @@ func _cleanup_finished(instance_id: String) -> void:
 
 func stop_all() -> void:
 	for p in players.duplicate(): _dispose(p)
+	loops.clear()
 	instances.clear()
 	finishing.clear()
+
+func _fade_out(p: AudioStreamPlayer) -> void:
+	if p.get_meta("stopping",false): return
+	var key := str(p.get_meta("instance"))+":"+str(p.get_meta("cue"))
+	if loops.get(key) == p: loops.erase(key)
+	p.set_meta("fade_base_db",p.volume_db-linear_to_db(maxf(.0001,float(p.get_meta("fade",1.0)))))
+	p.set_meta("stopping",true)
+
+func _process(delta: float) -> void:
+	if paused: return
+	for p in players.duplicate():
+		if not p.get_meta("loop",false): continue
+		var stopping: bool = p.get_meta("stopping",false)
+		var fade := move_toward(float(p.get_meta("fade",1.0)),0.0 if stopping else 1.0,delta/.06)
+		p.set_meta("fade",fade)
+		if stopping and fade <= 0: _dispose(p)
+		else: _apply_gain(p)
 
 func _enforce_cap(instance_id: String) -> void:
 	var owned: Array[AudioStreamPlayer] = []

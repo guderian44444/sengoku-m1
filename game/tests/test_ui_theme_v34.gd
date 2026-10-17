@@ -12,12 +12,12 @@ func _initialize() -> void:
 func _run() -> void:
 	var face := Typography.font()
 	assert(face == Typography.body_font(), "Every Control and canvas uses the same brush face.")
-	assert(face.get_font_name().contains("Bakudai"))
-	assert(face is FontVariation and face.variation_embolden == 1.0)
+	assert(face.get_font_name().contains("MasaFont"))
+	assert(face is FontVariation and face.variation_embolden == 0.0)
 	assert(not face.base_font.allow_system_fallback)
 	assert(face.fallbacks.size() == 2)
 	for fallback in face.fallbacks:
-		assert(fallback is FontVariation and fallback.variation_embolden == 1.0 and not fallback.base_font.allow_system_fallback)
+		assert(fallback is FontVariation and fallback.variation_embolden == 0.0 and not fallback.base_font.allow_system_fallback)
 	var brush := FontFile.new()
 	assert(brush.load_dynamic_font(Typography.FONT_PATH) == OK)
 	brush.allow_system_fallback = false
@@ -29,7 +29,7 @@ func _run() -> void:
 	var style := Typography.theme()
 	assert(style == Typography.theme() and style.default_font == face)
 	for type in ["Label", "Button", "LineEdit", "TextEdit", "OptionButton", "ItemList"]:
-		assert(style.get_color("font_color", type) == (SengokuTheme.PAPER_LIGHT if type in ["Button","OptionButton"] else SengokuTheme.INK))
+		assert(style.get_color("font_color", type) == SengokuTheme.INK)
 		assert(style.get_constant("outline_size", type) == 0)
 	var button_focus := style.get_stylebox("focus", "Button") as SengokuTheme.WashiButton
 	assert(button_focus.border_width >= 3 and button_focus.border_color == SengokuTheme.FOCUS_BORDER)
@@ -42,18 +42,19 @@ func _run() -> void:
 			assert(button is SengokuTheme.WashiButton)
 			for size in [Vector2(28, 28), Vector2(64, 48), Vector2(420, 52)]:
 				var bounds := Rect2(Vector2(12, 8), size)
-				var outline: PackedVector2Array = button.paper_outline(bounds)
-				assert(outline.size() == 9 and outline[0] == outline[8])
-				assert(outline[0].x > bounds.position.x and outline[1].x < bounds.end.x)
-				for point in outline:
-					assert(bounds.grow(0.01).has_point(point), "Paper stays inside the original hit area.")
-	assert(_contrast(SengokuTheme.PAPER_LIGHT, SengokuTheme.BUTTON) >= 4.5)
+				var pieces: Array[Rect2] = button.slices(bounds)
+				assert(pieces.size() == 3)
+				assert(pieces[0].position == bounds.position and pieces[2].end == bounds.end)
+				for piece in pieces:
+					assert(bounds.grow(0.01).encloses(piece), "Scroll stays inside the original hit area.")
+				assert(pieces[1].size.x >= bounds.size.x * .5, "Narrow controls retain readable central paper.")
+	assert(_contrast(SengokuTheme.INK, SengokuTheme.PAPER_LIGHT) >= 7.0)
 	assert(_contrast(SengokuTheme.FOCUS_GOLD, SengokuTheme.BUTTON_HOVER) >= 4.5)
 	assert(_contrast(SengokuTheme.INK, SengokuTheme.PAPER) >= 7.0)
 	assert(_contrast(SengokuTheme.PAPER_LIGHT, SengokuTheme.VERMILION) >= 4.5)
 	assert(_contrast(SengokuTheme.VERMILION, SengokuTheme.PAPER_LIGHT) >= 4.5)
 	assert(style.get_icon("grabber", "HSlider").get_width() == 24)
-	assert(FileAccess.file_exists("res://assets/current/fonts/Bakudai-OFL.txt"))
+	assert(FileAccess.file_exists("res://assets/current/fonts/MasaFont-OFL.txt"))
 	var logo := Image.load_from_file("res://assets/current/ui/title-logo-v34.png")
 	assert(logo != null and logo.get_size() == Vector2i(2172, 724))
 	assert(logo.get_format() == Image.FORMAT_RGBA8 and logo.get_pixel(0, 0).a == 0)
@@ -61,7 +62,7 @@ func _run() -> void:
 	root.add_child(frame)
 	assert(frame.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	frame.free()
-	print("UI THEME V34 PASS: %d bundled glyphs, brush font, paper contrast, visible focus" % checked.size())
+	print("UI THEME V34 PASS: %d bundled glyphs, MasaFont without synthetic bold, scroll paper, ink contrast, visible focus" % checked.size())
 	quit()
 
 func _check_source(path: String, face: Font) -> void:

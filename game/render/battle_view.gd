@@ -70,7 +70,6 @@ func _draw() -> void:
 	_draw_landscape()
 	_draw_scenery()
 	_draw_alarm()
-	_draw_formation_goal()
 	_draw_wet_zones()
 	for effect in state.get("effects", []):
 		if effect.get("type", "") in ["warning", "slam", "shockwave", "arrow_target", "fire_patch"]:
@@ -82,6 +81,16 @@ func _draw() -> void:
 	if state.get("encounter",{}).get("kind","") == "formation":
 		fighters.append({"scenery_tent":true,"x":float(state.stage.encounter_end)-160,"y":610.0})
 	for prop in state.get("props",[]):
+		if prop.get("stage03_barrier",false):
+			for panel in range(3):
+				var piece: Dictionary = prop.duplicate()
+				piece.scenery_prop = true
+				piece.barrier_panel = panel
+				piece.x = prop.x + (panel-1)*50
+				piece.y = 390 + panel*90
+				piece.ground_depth = 0.0
+				fighters.append(piece)
+			continue
 		var display: Dictionary = prop.duplicate()
 		display["scenery_prop"] = true
 		display["ground_depth"] = prop_ground_depth(prop,_stage_art.prop(str(prop.kind)))
@@ -638,8 +647,6 @@ func _draw_alarm() -> void:
 	var tilt := .22 if remaining < supports.size() else 0.0
 	var bell: Dictionary = _stage_art.stage3_props.bell
 	_draw_art_frame(bell,top,82,1,swing + tilt + fall * .9,_scene_light(),float(bell.body_height))
-	var entry := Vector2(minf(1220, float(state.stage.encounter_end) - camera_x - 45), 385)
-	Typography.draw_label(self, entry - Vector2(110,15), "援軍入口 ←", 18, RED)
 
 func _draw_alarm_pillar(prop: Dictionary, origin: Vector2, hit_gain: float) -> void:
 	var ratio := float(prop.hp) / float(prop.max_hp)
@@ -655,34 +662,27 @@ func _draw_alarm_pillar(prop: Dictionary, origin: Vector2, hit_gain: float) -> v
 	if prop.broken: return
 	draw_rect(Rect2(origin + Vector2(-30,10),Vector2(60,6)),INK)
 	draw_rect(Rect2(origin + Vector2(-30,10),Vector2(60 * ratio,6)),GOLD)
-	Typography.draw_label(self,origin + Vector2(-28,36),"支柱",16,GOLD)
 
 func _draw_camp_barrier(prop: Dictionary, origin: Vector2, hit_gain: float) -> void:
 	var frame: Dictionary = _stage_art.stage3_props.barrier_debris if prop.broken else _stage_art.stage3_props.barrier
 	var tint := _scene_light().lerp(Color(1.7,1.45,1.1),hit_gain)
-	for lane in range(365,606,48):
-		var at := Vector2(origin.x,float(lane))
-		if _shadow_pass: _draw_prop_shadow(frame,at,95,42,.22)
-		else: _draw_art_frame(frame,at,95,1,0,tint,float(frame.body_height))
-	if not prop.broken and not _shadow_pass:
-		draw_rect(Rect2(origin.x-38,320,76,6),INK)
-		draw_rect(Rect2(origin.x-38,320,76 * float(prop.hp)/float(prop.max_hp),6),GOLD)
-		Typography.draw_label(self,Vector2(origin.x-38,307),"擊破木障",17,GOLD)
-
-func _draw_formation_goal() -> void:
-	if state.get("encounter",{}).get("kind","") != "formation": return
-	var x := float(state.encounter.breach_x) - camera_x
-	draw_line(Vector2(x,365),Vector2(x,610),GOLD,4,true)
-	Typography.draw_label(self,Vector2(x-120,325),"突破防線・前往帳門 →",20,GOLD)
-	var door := Vector2(float(state.stage.encounter_end)-160-camera_x,485)
-	Typography.draw_label(self,door+Vector2(-75,-245),"突入大帳 →",19,GOLD)
-	for slot in state.encounter.slots:
-		if slot.rank != 0 or state.encounter.breached: continue
-		var occupants: Array = state.fighters.filter(func(f):return f.id == slot.occupant and f.hp > 0)
-		if occupants.is_empty() or Vector2(float(occupants[0].x)-slot.x,float(occupants[0].y)-slot.y).length() > 45:
-			var at := Vector2(float(slot.x)-camera_x,float(slot.y))
-			draw_arc(at,32,0,TAU,24,GOLD,3,true)
-			Typography.draw_label(self,at + Vector2(-20,30),"缺口",17,GOLD)
+	var scale := (135.0 if prop.broken else 175.0) / float(frame.body_height)
+	# Project the fence along the ground lane; each panel sorts against nearby feet.
+	if _shadow_pass:
+		draw_set_transform_matrix(Transform2D(Vector2(.70,.62),Vector2(.30,.20),origin))
+		draw_texture_rect_region(frame.texture,Rect2(-frame.anchor*scale,frame.region.size*scale),frame.region,Color(0,0,0,.24))
+	else:
+		tint.a = prop_opacity(prop,state.fighters,175,60)
+		if not prop.broken:
+			for offset in [Vector2(12,-7),Vector2(6,-3.5)]:
+				draw_set_transform_matrix(Transform2D(Vector2(.70,.62),Vector2(0,1),origin+offset))
+				draw_texture_rect_region(frame.texture,Rect2(-frame.anchor*scale,frame.region.size*scale),frame.region,tint.darkened(.4))
+		draw_set_transform_matrix(Transform2D(Vector2(.70,.62),Vector2(0,1),origin))
+		draw_texture_rect_region(frame.texture,Rect2(-frame.anchor*scale,frame.region.size*scale),frame.region,tint)
+	draw_set_transform(Vector2.ZERO)
+	if not prop.broken and not _shadow_pass and int(prop.get("barrier_panel",0)) == 0:
+		draw_rect(Rect2(origin + Vector2(-38,-190),Vector2(76,6)),INK)
+		draw_rect(Rect2(origin + Vector2(-38,-190),Vector2(76 * float(prop.hp)/float(prop.max_hp),6)),GOLD)
 
 func _draw_prop(prop: Dictionary) -> void:
 	var origin := Vector2(float(prop.x) - camera_x,fighter_depth(prop))
@@ -1092,6 +1092,9 @@ func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sampl
 					hand = Vector2(weapon.hand)*Vector2(float(fighter.get("face",1)),1)
 			if fighter.kind == "nobunaga" and str(sample.clip) in ["charge_release","air_heavy"]:
 				factor *= FrameAnimation.Battle.NOBUNAGA_HEAVY_RANGE_SCALE
+			if fighter.kind == "hideyoshi" and str(sample.clip) == "charge_release":
+				factor *= FrameAnimation.Battle.HIDEYOSHI_CHARGED_RANGE_SCALE
+				hand = Vector2(0,float(frame.weapon_hand.y)*height/float(frame.body_height))
 			_draw_art_frame(fx,ground-Vector2(0,float(fighter.get("z",0)))+hand*(1-factor),height*factor,float(fighter.get("face",1)),0,Color.WHITE,float(fx.body_height))
 		return
 	if _fx.draw_actor(self,fighter,ground,height,sample,frame,front): return
@@ -1421,9 +1424,6 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 		draw_set_transform(guard_at,0,Vector2(face,1))
 		draw_arc(Vector2.ZERO,50,-1.2,1.2,24,GOLD,5,true)
 		draw_set_transform(Vector2.ZERO)
-		Typography.draw_label(self,guard_at+Vector2(-20,-62),"格擋",17,GOLD)
-	elif fighter.get("is_yoshimoto",false) and fighter.get("tactic","") == "recover" and state.tick < fighter.motion_until:
-		Typography.draw_label(self,body_origin-Vector2(24,height+22),"收招",17,Color("a3edf4"))
 	_draw_status(fighter, origin, height)
 	var attack_warning: bool = FrameAnimation.Battle.ENEMY_TIMING.has(action) and not sample.released and int(fighter.get("freeze",0)) == 0
 	if attack_warning:
@@ -1951,11 +1951,11 @@ func _draw_effect(effect: Dictionary) -> void:
 		var direction := Vector2(float(effect.vx),float(effect.get("vy",0))).normalized()
 		if effect.boss_wave:
 			if _fx.configured:
-				_fx.shared_player.draw_phase(self,"blade_wave",1,600,point,true,{"opacity":[[0,.8],[1,.8]]},{"face":effect.face,"size":120,"stretch":Vector2(.55,1)})
+				_fx.shared_player.draw_phase(self,"blade_wave",1,600,point,true,{"opacity":[[0,.8],[1,.8]]},{"face":effect.face,"size":360,"stretch":Vector2(.55,1)})
 				return
 			draw_set_transform(point,direction.angle())
-			draw_arc(Vector2(-20,0),50,-1.15,1.15,24,Color("a3edf4"),9,true)
-			draw_arc(Vector2(-20,0),50,-1.15,1.15,24,Color("f1ffff"),3,true)
+			draw_arc(Vector2(-20,0),150,-1.15,1.15,24,Color("a3edf4"),12,true)
+			draw_arc(Vector2(-20,0),150,-1.15,1.15,24,Color("f1ffff"),4,true)
 			draw_set_transform(Vector2.ZERO)
 		else: _draw_arrow(point,direction,false,1.0)
 		return

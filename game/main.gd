@@ -218,7 +218,7 @@ func _ready() -> void:
 		_start_solo()
 	if menu.visible:
 		_show_menu_page("engineering" if not smoke.is_empty() else ("select" if local_coop_requested else "title"))
-		audio.play_music()
+		audio.play_title_music()
 	if capture_menu and not capture_path.is_empty(): _capture.call_deferred()
 
 func _actions() -> void:
@@ -296,6 +296,7 @@ func _build_ui() -> void:
 	ui.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.theme = Typography.theme()
+	ui.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	layer.add_child(ui)
 	combat_hud = CombatHUD.new()
 	ui.add_child(combat_hud)
@@ -369,7 +370,7 @@ func _menu_page(key: String, at: Vector2, width: float, heading: String = "") ->
 	paper.name = key.capitalize() + "Paper"
 	paper.position = at - Vector2(18, 14)
 	paper.size.x = width + 36
-	paper.add_theme_stylebox_override("panel", MenuTheme.panel(MenuTheme.BUTTON.darkened(0.25) if key in ["title","main"] else MenuTheme.PAPER))
+	paper.add_theme_stylebox_override("panel", MenuTheme.panel(Color.TRANSPARENT,Color.TRANSPARENT) if key in ["title","main"] else MenuTheme.panel(MenuTheme.PAPER))
 	menu.add_child(paper)
 	var page := VBoxContainer.new()
 	page.name = key.capitalize()
@@ -414,7 +415,7 @@ func _build_menu(ui: Control) -> void:
 	menu_caption.add_theme_color_override("font_color", Typography.GOLD)
 	var title_page := _menu_page("title", Vector2(380, 446), 520)
 	_button("啟 程 ・ 按 下 開 始", func(): _open_login(false), "Start", title_page)
-	_menu_label(title_page, "Enter ／ ×・A ／ Options 開始", 18)
+	_menu_label(title_page, "Enter ／ ×・A ／ Options 開始", 18).add_theme_color_override("font_color",Typography.PAPER)
 	var main_page := _menu_page("main", Vector2(430, 324), 420)
 	_button("一 人 出 陣", func(): _open_login(false), "Solo", main_page)
 	_button("二 人 共 鬥", func(): _open_login(true), "LocalCoop", main_page)
@@ -1061,6 +1062,9 @@ func _button(text: String, callback: Callable, node_name: String, parent: Node =
 	button.name = node_name
 	button.text = text
 	button.custom_minimum_size.y = 44
+	if parent != null and parent.name in ["Title","Main"]:
+		button.add_theme_font_size_override("font_size",26)
+		button.custom_minimum_size.y = 54
 	button.pressed.connect(callback)
 	(parent if parent != null else menu_panel).add_child(button)
 	return button
@@ -1073,12 +1077,12 @@ func _choices() -> void:
 	difficulty = DIFFICULTIES[difficulties.selected]
 	selected_faction = FACTION_NAMES.keys()[factions.selected]
 
-func _close_network() -> bool:
+func _close_network(keep_music: bool = false) -> bool:
 	if not _save_before_leaving(): return false
 	_stop_rumble()
 	player_devices = [-1, -1]
 	audio.stop_speech()
-	audio.stop_music()
+	if not keep_music: audio.stop_music()
 	pending_intro_actor = 0
 	received_intro_actor = 0
 	training_active = false
@@ -1104,7 +1108,7 @@ func _close_network() -> bool:
 
 func _start_solo() -> void:
 	if _confirm_end(_start_solo,"重新開始這一戰？"): return
-	if not _close_network(): return
+	if not _close_network(true): return
 	_choices()
 	local_slot = 0
 	sim.reset_campaign(difficulty, 1, [selected_hero],selected_chapter)
@@ -1121,7 +1125,7 @@ func _start_local_coop() -> void:
 		status.text = "雙搖桿合作需要兩支搖桿。請接上兩支，再按雙搖桿合作。"
 		character_panel.notice.text = status.text
 		return
-	if not _close_network(): return
+	if not _close_network(true): return
 	_choices()
 	session = "local"
 	local_slot = 0
@@ -1133,7 +1137,7 @@ func _start_local_coop() -> void:
 func _start_training(drill: String = "") -> void:
 	if _confirm_end(_start_training.bind(drill),"收兵離陣，轉赴演武場？"): return
 	if drill != "": training_drill = drill
-	if not _close_network(): return
+	if not _close_network(true): return
 	_choices()
 	training_active = true
 	local_slot = 0
@@ -1222,7 +1226,7 @@ func _activate() -> void:
 	_victory_subtitle = ""
 	active = true
 	paused = false
-	if sim.state.has("stage"): audio.stop_music()
+	if sim.state.has("stage") and not audio.is_title_music(): audio.stop_music()
 	audio.sync_stage_music(sim.state)
 	audio.play_music()
 	last_event = -1
@@ -1249,7 +1253,7 @@ func _activate() -> void:
 
 func _host() -> void:
 	if _confirm_end(_host,"結束目前階段，建立連線戰鬥？"): return
-	if not _close_network(): return
+	if not _close_network(true): return
 	_choices()
 	var peer := ENetMultiplayerPeer.new()
 	if not smoke.is_empty(): peer.set_bind_ip("127.0.0.1")
@@ -1259,14 +1263,14 @@ func _host() -> void:
 		return
 	multiplayer.multiplayer_peer = peer
 	session = "host"
-	audio.play_music()
+	audio.play_title_music()
 	local_slot = 0
 	status.text = "等待第二台電腦加入 · UDP %d\n請隊友輸入本機 IPv4。按返回可結束等候。" % int(port.value)
 	_show_menu_page("engineering")
 
 func _join() -> void:
 	if _confirm_end(_join,"結束目前階段，加入連線戰鬥？"): return
-	if not _close_network(): return
+	if not _close_network(true): return
 	_choices()
 	if not address.text.strip_edges().is_valid_ip_address():
 		_fail("IP 格式不正確，請輸入主機的 IPv4／IPv6 位址。")
@@ -1278,7 +1282,7 @@ func _join() -> void:
 		return
 	multiplayer.multiplayer_peer = peer
 	session = "client"
-	audio.play_music()
+	audio.play_title_music()
 	local_slot = 1
 	connecting_since = Time.get_ticks_msec()
 	status.text = "正在連線至 %s:%d…" % [address.text, int(port.value)]
@@ -1371,10 +1375,10 @@ func _peer_disconnected(id: int) -> void:
 		_fail("連線中斷，請回主選單重新連線。")
 
 func _fail(message: String) -> void:
-	if not _close_network(): return
+	if not _close_network(true): return
 	paused = false
 	_show_menu_page("main")
-	audio.play_music()
+	audio.play_title_music()
 	status.text = message
 	if not smoke.is_empty():
 		_report({"ok": false, "error": message})
@@ -1382,10 +1386,10 @@ func _fail(message: String) -> void:
 
 func _leave_to_menu() -> void:
 	if _confirm_end(_leave_to_menu,"收兵返回本陣？"): return
-	if not _close_network(): return
+	if not _close_network(true): return
 	paused = false
 	_show_menu_page("main")
-	audio.play_music()
+	audio.play_title_music()
 	end_label.text = ""
 	status.text = ""
 

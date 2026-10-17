@@ -3,51 +3,51 @@ extends StyleBox
 var bg_color := Color.TRANSPARENT
 var border_color := Color.TRANSPARENT
 var border_width := 1.0
+static var _texture: Texture2D
+# Crop only the empty outer canvas at draw time; the supplied PNG stays unchanged.
+const SOURCE := Rect2(8,88,2148,462)
+const LEFT_CAP := 250.0
+const RIGHT_CAP := 245.0
 
-# Keep the native button's content margins and hit area; only the paper is cut.
-func paper_outline(rect: Rect2) -> PackedVector2Array:
-	var cut := minf(11.0, minf(rect.size.x, rect.size.y) * 0.22)
-	var p := rect.position
-	var end := rect.end
-	return PackedVector2Array([
-		p + Vector2(cut, 0), Vector2(end.x - cut * 0.5, p.y),
-		Vector2(end.x, p.y + cut * 0.5), Vector2(end.x, end.y - cut),
-		Vector2(end.x - cut, end.y), Vector2(p.x + cut * 0.5, end.y),
-		Vector2(p.x, end.y - cut * 0.5), p + Vector2(0, cut),
-		p + Vector2(cut, 0),
-	])
+static func texture() -> Texture2D:
+	if _texture == null:
+		_texture = ImageTexture.create_from_image(Image.load_from_file("res://assets/current/ui/scroll02/scroll02_blank.png"))
+	return _texture
+
+func slices(rect: Rect2) -> Array[Rect2]:
+	var scale := rect.size.y / SOURCE.size.y
+	var left := minf(LEFT_CAP * scale,rect.size.x * .22)
+	var right := minf(RIGHT_CAP * scale,rect.size.x * .22)
+	return [
+		Rect2(rect.position,Vector2(left,rect.size.y)),
+		Rect2(rect.position+Vector2(left,0),Vector2(maxf(0,rect.size.x-left-right),rect.size.y)),
+		Rect2(Vector2(rect.end.x-right,rect.position.y),Vector2(right,rect.size.y))
+	]
 
 func _draw(canvas: RID, rect: Rect2) -> void:
-	var edge := rect.grow(-1.5)
-	if edge.size.x <= 0 or edge.size.y <= 0:
-		return
-	var outline := paper_outline(edge)
+	if rect.size.x <= 0 or rect.size.y <= 0: return
 	if bg_color.a > 0:
-		RenderingServer.canvas_item_add_polygon(canvas, outline, PackedColorArray([bg_color]))
-		# Deterministic fibres stay still when the button is hovered or pressed.
-		var fibres := PackedVector2Array()
-		for y in range(7, int(rect.size.y) - 6, 7):
-			for x in range(14, int(rect.size.x) - 15, 13):
-				var grain := x * 17 + y * 29
-				var start := rect.position + Vector2(x + grain % 7 - 3, y + grain % 5 - 2)
-				fibres.append(start)
-				fibres.append(start + Vector2(2 + grain % 5, grain % 3 - 1))
-		if not fibres.is_empty():
-			RenderingServer.canvas_item_add_multiline(canvas, fibres, PackedColorArray([Color("efddba0b")]), 1.0, true)
-		# Small seigaiha fans decorate the ends without competing with the label.
-		if rect.size.x >= 64 and rect.size.y >= 36:
-			for x in [rect.position.x + 22, rect.end.x - 22]:
-				for radius in [5.0, 9.0, 13.0]:
-					var wave := PackedVector2Array()
-					for step in range(13):
-						var angle := PI + PI * step / 12.0
-						wave.append(Vector2(x, rect.end.y - 9) + Vector2(cos(angle), sin(angle)) * radius)
-					RenderingServer.canvas_item_add_polyline(canvas, wave, PackedColorArray([Color("bc986724")]), 1.0, true)
-		if edge.size.x > 24 and edge.size.y > 18:
-			RenderingServer.canvas_item_add_polyline(canvas, paper_outline(edge.grow(-4)), PackedColorArray([Color(border_color, 0.25)]), 1.0, true)
-	RenderingServer.canvas_item_add_polyline(canvas, outline, PackedColorArray([border_color]), border_width, true)
-	if bg_color.a == 0 and edge.size.x > 24 and edge.size.y > 18:
-		# A small vermilion seal adds a shape cue for controller focus.
-		var center := Vector2(rect.position.x + 8, rect.get_center().y)
-		var seal := PackedVector2Array([center + Vector2(0, -4), center + Vector2(3, 0), center + Vector2(0, 4), center + Vector2(-3, 0)])
-		RenderingServer.canvas_item_add_polygon(canvas, seal, PackedColorArray([Color("b65c43")]))
+		var tint := Color.WHITE
+		if bg_color == Color("754834"): tint = Color(1.1,1.07,1.02)
+		elif bg_color == Color("772d24"): tint = Color(.86,.84,.8)
+		elif bg_color == Color("bba888"): tint = Color(.72,.72,.72,.65)
+		var source := [
+			Rect2(SOURCE.position,Vector2(LEFT_CAP,SOURCE.size.y)),
+			Rect2(SOURCE.position+Vector2(LEFT_CAP,0),Vector2(SOURCE.size.x-LEFT_CAP-RIGHT_CAP,SOURCE.size.y)),
+			Rect2(Vector2(SOURCE.end.x-RIGHT_CAP,SOURCE.position.y),Vector2(RIGHT_CAP,SOURCE.size.y))
+		]
+		var destination := slices(rect)
+		for i in range(3):
+			RenderingServer.canvas_item_add_texture_rect_region(canvas,destination[i],texture().get_rid(),source[i],tint)
+	else:
+		# Focus brackets remain separate from ink text and inside the original hit area.
+		var mark := Vector2(rect.position.x + minf(10,rect.size.x*.15),rect.get_center().y)
+		var diamond := PackedVector2Array([mark+Vector2(0,-5),mark+Vector2(3,0),mark+Vector2(0,5),mark+Vector2(-3,0)])
+		RenderingServer.canvas_item_add_polygon(canvas,diamond,PackedColorArray([Color("fff0c8")]))
+		var b := rect.grow(-2)
+		var arm := minf(10,minf(b.size.x,b.size.y)*.22)
+		for corner in [b.position,Vector2(b.end.x,b.position.y),b.end,Vector2(b.position.x,b.end.y)]:
+			var dx := 1.0 if corner.x < b.get_center().x else -1.0
+			var dy := 1.0 if corner.y < b.get_center().y else -1.0
+			var points := PackedVector2Array([corner+Vector2(dx*arm,0),corner,corner+Vector2(0,dy*arm)])
+			RenderingServer.canvas_item_add_polyline(canvas,points,PackedColorArray([border_color]),border_width,true)

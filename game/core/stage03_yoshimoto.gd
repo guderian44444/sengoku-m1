@@ -139,7 +139,7 @@ static func steer(sim, f: Dictionary, target: Dictionary) -> bool:
 		sim._begin(f,"guard")
 		return true
 	if f.cooldown == 0:
-		if f.combat_mode == "ranged" and distance >= s.melee_enter + 40 and distance <= 1100 and absf(dy) < 150 and sim.state.tick >= f.ranged_ready_tick:
+		if f.combat_mode == "ranged" and distance >= s.melee_enter + 40 and distance <= 1600 and absf(dy) < 260 and sim.state.tick >= f.ranged_ready_tick:
 			commit(sim,f,target,RANGED[f.ranged_cycle % 2])
 			return true
 		if distance < 220 and absf(dy) < 40:
@@ -165,20 +165,21 @@ static func steer(sim, f: Dictionary, target: Dictionary) -> bool:
 	f.move_dy = int(signf(movement.y))
 	return true
 
-static func release(sim, f: Dictionary) -> void:
+static func release(sim, f: Dictionary, shot: int = 0) -> void:
 	if not f.get("is_yoshimoto",false) or f.action not in RANGED: return
 	f.ranged_ready_tick = maxi(int(f.ranged_ready_tick),int(sim.state.tick) + int(sim.state.encounter.yoshi_spec.ranged_cooldown))
 	var wave: bool = f.action == "boss_sword_wave"
-	var speed := 10.0 if wave else 14.0
-	var vx: float = f.aim_dx * speed
-	var vy: float = f.aim_dy * speed
-	var lifetime: int = ceili(1100.0/maxf(.1,absf(vx))) + 2
+	var speed: float = sim.FAST_PROJECTILE_SPEED
+	var direction := Vector2(f.aim_dx,f.aim_dy).rotated(0.0 if wave else deg_to_rad((shot-1)*12.0))
+	var vx: float = direction.x * speed
+	var vy: float = direction.y * speed
+	var lifetime: int = ceili(1600.0/maxf(.1,absf(vx))) + 2
 	var scale := 155.0 * float(f.render_scale) / 330.0
 	var socket := Vector2(190,-85) if wave else Vector2(160,-240)
 	var origin_x: float = f.x + f.aim_face * socket.x * scale
 	sim._effect("projectile",origin_x,f.y,lifetime,{"z":28.0,"visual_height":-socket.y * scale,"vx":vx,"vy":vy,"face":int(f.aim_face),"owner":int(f.id),"team":1,
 		"damage":maxi(1,roundi((22 if wave else 16) * sim._difficulty.enemy_damage)),"poison":0,"weapon":"blade" if wave else "arrow",
-		"action":str(f.action),"action_tick":int(f.action_tick),"range_left":1100.0,"hit_depth":34.0 if wave else 16.0,"height_tolerance":70.0,
+		"action":str(f.action),"action_tick":int(f.action_tick),"range_left":1600.0,"hit_depth":140.0 if wave else 16.0,"height_tolerance":70.0,
 		"piercing":wave,"hit_ids":[],"previous_x":origin_x,"previous_y":float(f.y),"yoshimoto_projectile":true,"boss_wave":wave})
 	sim._weapon_release(f,"blade" if wave else "arrow")
 

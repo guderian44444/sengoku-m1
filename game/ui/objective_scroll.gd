@@ -50,7 +50,7 @@ static func objective(world: Dictionary) -> Dictionary:
 				state = "obstacle" if left > 0 else "battle"
 			"barriers":
 				var left: int = world.props.filter(func(p):return p.get("stage03_barrier",false) and not p.broken).size()
-				order_text = "擊破木障　尚餘 %d 層" % left if left > 0 else "木障已破　殲滅餘軍"
+				order_text = "破柵停止增援　尚餘 %d 層" % left if left > 0 else "木障已破　殲滅餘軍"
 				state = "obstacle" if left > 0 else "battle"
 			"formation":
 				order_text = "趁隙破陣　突入大帳 →" if not encounter.breached else "防線已破　全軍入帳 →"
