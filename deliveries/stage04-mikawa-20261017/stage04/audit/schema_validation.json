@@ -1,0 +1,438 @@
+{
+  "checks": [
+    {
+      "id": "tominaga_sweep",
+      "frames": 8,
+      "duration_sum_ms": 1140,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "tominaga_pursuit",
+      "frames": 8,
+      "duration_sum_ms": 980,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "tominaga_heavy_chop",
+      "frames": 8,
+      "duration_sum_ms": 1440,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "kira_arrow",
+      "frames": 8,
+      "duration_sum_ms": 980,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "kira_command",
+      "frames": 8,
+      "duration_sum_ms": 920,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "kira_counter",
+      "frames": 8,
+      "duration_sum_ms": 840,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "tominaga_locomotion",
+      "frames": 8,
+      "duration_sum_ms": 1280,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "tominaga_recovery",
+      "frames": 8,
+      "duration_sum_ms": 1420,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "tominaga_reactions",
+      "frames": 12,
+      "duration_sum_ms": 2320,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "kira_locomotion",
+      "frames": 8,
+      "duration_sum_ms": 1280,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "kira_recovery",
+      "frames": 8,
+      "duration_sum_ms": 1420,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "kira_reactions",
+      "frames": 12,
+      "duration_sum_ms": 2320,
+      "foot_anchor": "source-pixel"
+    },
+    {
+      "id": "shield_idle",
+      "frames": 2,
+      "duration_sum_ms": 900,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": true
+    },
+    {
+      "id": "shield_walk",
+      "frames": 4,
+      "duration_sum_ms": 520,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": true
+    },
+    {
+      "id": "shield_hurt",
+      "frames": 3,
+      "duration_sum_ms": 325,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "shield_heavy_hurt",
+      "frames": 4,
+      "duration_sum_ms": 490,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "shield_stunned",
+      "frames": 2,
+      "duration_sum_ms": 480,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "shield_knockdown",
+      "frames": 4,
+      "duration_sum_ms": 880,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "shield_down",
+      "frames": 1,
+      "duration_sum_ms": 650,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "shield_recovery",
+      "frames": 7,
+      "duration_sum_ms": 1050,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "shield_guard",
+      "frames": 3,
+      "duration_sum_ms": 420,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "shield_attack",
+      "frames": 8,
+      "duration_sum_ms": 1010,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "shield_shield_bash",
+      "frames": 8,
+      "duration_sum_ms": 1010,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "shield_sword_cut",
+      "frames": 5,
+      "duration_sum_ms": 660,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "spear_idle",
+      "frames": 2,
+      "duration_sum_ms": 900,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": true
+    },
+    {
+      "id": "spear_walk",
+      "frames": 4,
+      "duration_sum_ms": 520,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": true
+    },
+    {
+      "id": "spear_hurt",
+      "frames": 3,
+      "duration_sum_ms": 325,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "spear_heavy_hurt",
+      "frames": 4,
+      "duration_sum_ms": 490,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "spear_stunned",
+      "frames": 2,
+      "duration_sum_ms": 480,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "spear_knockdown",
+      "frames": 4,
+      "duration_sum_ms": 880,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "spear_down",
+      "frames": 1,
+      "duration_sum_ms": 650,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "spear_recovery",
+      "frames": 7,
+      "duration_sum_ms": 1050,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "spear_guard",
+      "frames": 3,
+      "duration_sum_ms": 420,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "spear_attack",
+      "frames": 8,
+      "duration_sum_ms": 1010,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "spear_sweep",
+      "frames": 5,
+      "duration_sum_ms": 690,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_idle",
+      "frames": 2,
+      "duration_sum_ms": 900,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": true
+    },
+    {
+      "id": "archer_walk",
+      "frames": 4,
+      "duration_sum_ms": 520,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": true
+    },
+    {
+      "id": "archer_hurt",
+      "frames": 3,
+      "duration_sum_ms": 325,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_heavy_hurt",
+      "frames": 4,
+      "duration_sum_ms": 490,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_stunned",
+      "frames": 2,
+      "duration_sum_ms": 480,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_knockdown",
+      "frames": 4,
+      "duration_sum_ms": 880,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_down",
+      "frames": 1,
+      "duration_sum_ms": 650,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_recovery",
+      "frames": 7,
+      "duration_sum_ms": 1050,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_guard",
+      "frames": 3,
+      "duration_sum_ms": 420,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_attack",
+      "frames": 8,
+      "duration_sum_ms": 1010,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_draw",
+      "frames": 4,
+      "duration_sum_ms": 570,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_release",
+      "frames": 4,
+      "duration_sum_ms": 510,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    },
+    {
+      "id": "archer_run",
+      "frames": 4,
+      "duration_sum_ms": 400,
+      "foot_anchor": [
+        256,
+        285
+      ],
+      "overridden": false
+    }
+  ],
+  "errors": [],
+  "runtime_tested": false
+}

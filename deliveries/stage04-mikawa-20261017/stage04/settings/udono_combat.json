@@ -1,0 +1,251 @@
+{
+  "status": "design_handoff_not_runtime_config",
+  "updated": "2026-10-17",
+  "superseded": [
+    "udono_arrow_volley",
+    "udono_archer_command_proposal",
+    "flight_time_proposal_0.65_to_1.0_seconds",
+    "ground_pickup_animation_release_1.12_2.72_4.32"
+  ],
+  "confirmed_direction": {
+    "counter_source": "udono_self",
+    "projectile": "large_rock",
+    "keep_spear_in_other_hand": true,
+    "retarget_before_each_release": true,
+    "homing_after_release": false,
+    "boss_knockdown": false,
+    "boss_launch": false,
+    "charged_ultimate_response": "standing_stun_only",
+    "preserve_existing_stun": true,
+    "stone_source": "carried_at_waist",
+    "ground_pickup": false,
+    "speed_reference": "enemy_gunner_bullet_shared_source",
+    "speed_must_not_be_reduced_for_dodge_time": true,
+    "aim_lock": "sample_before_each_release_lock_on_release"
+  },
+  "current_production_plan": {
+    "shot_count": 3,
+    "shot_count_origin": "approved_delivery_plan",
+    "release_events": "pending_waist_source_revision_do_not_use_old_ground_pickup_timings",
+    "action_id": "udono_ranged_rock_volley",
+    "release_event": "udono_rock_release",
+    "ground_impact_event": "udono_rock_ground_impact",
+    "release_events_s": [
+      0.8,
+      2,
+      3.2
+    ],
+    "duration_s": 3.6,
+    "cycle_s": 1.2,
+    "release_anchor_source_px": [
+      639.4,
+      388.2
+    ],
+    "root_source_px": [
+      430,
+      650
+    ],
+    "source_canvas_px": [
+      1600,
+      800
+    ],
+    "manifest": "mikawa-udono-rock-volley-v2/manifest_patch.json"
+  },
+  "approved_animation": {
+    "spin": {
+      "id": "udono_melee_spin_counter",
+      "duration_s": 1.44,
+      "windup_end_s": 0.44,
+      "active_s": [
+        0.52,
+        1.056
+      ],
+      "main_impact_s": 0.792,
+      "frames": 15,
+      "range_multiplier": 1.5
+    },
+    "groundsmash": {
+      "duration_s": 1,
+      "hits_s": [
+        0.56
+      ]
+    },
+    "triplequake": {
+      "duration_s": 2.5,
+      "hits_s": [
+        0.62,
+        1.3,
+        1.98
+      ]
+    },
+    "slam_terminal_drop_ms": 20,
+    "slam_contact_hold_ms": 60
+  },
+  "tuning_proposals_not_approved": {
+    "base_hp_range": [
+      1080,
+      1440
+    ],
+    "difficulty_hp_scale": [
+      0.85,
+      1,
+      1.25
+    ],
+    "coop_hp_scale": 1.7,
+    "damage_taken_scale": 1,
+    "pressure_window_ticks": 150,
+    "minimum_distinct_attacks": 3,
+    "minimum_span_ticks": 48,
+    "counter_cooldown_ticks": 480,
+    "shared_cooldown_ticks": 240,
+    "near_distance": 260,
+    "far_distance": 320,
+    "far_share": 0.6,
+    "rock_damage_range": [
+      12,
+      16
+    ],
+    "gravity": "initial_0_matches_approved_horizontal_v2",
+    "ttl_s": 3,
+    "boundary_margin": 128,
+    "rock_hit_response": "do_not_add_knockdown_without_design",
+    "rock_aoe": false
+  },
+  "required_tests": [
+    "dedup_attack_pressure",
+    "no_homing",
+    "three_release_events_only",
+    "preserve_stun_cancel_unreleased",
+    "collision_height_and_sweep",
+    "no_double_direct_ground_damage",
+    "player_invulnerability",
+    "boundary_ttl_cleanup",
+    "occlusion_and_shadow",
+    "coop_single_activation",
+    "waist_source_no_ground_pickup",
+    "speed_matches_enemy_bullet_same_direction",
+    "shared_speed_source_changes_both",
+    "fast_projectile_swept_collision"
+  ],
+  "verified_runtime_reference": {
+    "commit": "30fdac0349fb39bd769061318a497446a9ff0114",
+    "enemy_gunner_call": "game/core/battle.gd:1445",
+    "speed_definition": "game/core/battle.gd:2032-2035",
+    "tick_movement": "game/core/battle.gd:2161-2164",
+    "bullet_speed_world_units_per_tick": 34,
+    "physics_ticks_per_second": 60,
+    "horizontal_world_units_per_second": 2040,
+    "gunner_reach_not_speed": 1100,
+    "runtime_implementation": "reference_or_extract_same_shared_speed_source_do_not_duplicate_number",
+    "preview_px_per_second": "2040 * calibrated_preview_px_per_world_unit"
+  },
+  "integration_initial_values_unmeasured": {
+    "base_hp": 1200,
+    "difficulty_hp_scale": {
+      "easy": 0.85,
+      "normal": 1,
+      "hard": 1.25
+    },
+    "coop_hp_scale": 1.7,
+    "damage_taken_scale": 1,
+    "full_charge_stun_ticks": 78,
+    "spin_damage": 26,
+    "spin_base_radius_world": 260,
+    "spin_radius_multiplier": 1.5,
+    "spin_effective_radius_world": 390,
+    "spin_depth_scale": 0.4,
+    "spin_target_max_hits_per_activation": 1,
+    "spin_player_launch_horizontal_world_per_tick": 9,
+    "spin_player_launch_vertical_world_per_tick": 6,
+    "rock_damage": 16,
+    "rock_count": 3,
+    "rock_speed_binding": "enemy_bullet_shared_speed",
+    "reference_world_units_per_tick": 34,
+    "reference_tick_rate": 60,
+    "rock_gravity_world_units_per_second_squared": 0,
+    "rock_initial_vertical_velocity_world_per_second": 0,
+    "rock_range_world": 1100,
+    "rock_hit_radius_world": 12,
+    "rock_ttl_s": 3,
+    "rock_boundary_margin_world": 128,
+    "rock_aoe_radius_world": 0,
+    "rock_first_collision_consumes": true,
+    "rock_player_invulnerability_bypass": false,
+    "rock_aim_lock_offset_before_release_s": 0,
+    "rock_ground_warning": false,
+    "rock_telegraph": "waist_draw_and_arm_windup",
+    "pressure_window_ticks": 150,
+    "pressure_distinct_attack_min": 3,
+    "pressure_min_span_ticks": 48,
+    "near_distance_world": 260,
+    "far_distance_world": 320,
+    "far_share_threshold": 0.6,
+    "counter_cooldown_ticks": 480,
+    "shared_counter_cooldown_ticks": 240,
+    "normal_shield_light3_damage_multiplier": 0.5,
+    "heavy_shield_light3_damage_multiplier": 0.5,
+    "generic_udono_display_height_world": 201.5
+  },
+  "initial_values_note": "Runnable adapter input defaults, not native engine config; no runtime tests. Zero gravity/horizontal flight matches approved v2 preview. Shared bullet speed authoritative; reference numbers are audit evidence, never independent override.",
+  "charged_skill_mapping": {
+    "source_commit": "30fdac0349fb39bd769061318a497446a9ff0114",
+    "code": "game/core/battle.gd:955-957;game/core/combat_moves.gd:clip",
+    "eligible": [
+      {
+        "hero": "nobunaga",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "oichi",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "hideyoshi",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "ieyasu",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "mitsuhide",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "tadakatsu",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "oichi",
+        "action": "charge_rain",
+        "clip": "charge_rain"
+      }
+    ],
+    "full_charge_gate": "charge*1000/60 >= registration.clips.charge_ready.duration_ms",
+    "exclude": [
+      "charge",
+      "heavy",
+      "dash_heavy",
+      "air_heavy",
+      "special",
+      "legacy charged_upper",
+      "legacy charged_slam"
+    ],
+    "source_identity_required": "Preserve originating action/hero/attack_id through projectile and delayed AoE; never infer from attacker current action",
+    "udono_result": "standing_stun_only_never_down_or_launch",
+    "heavy_shield_result": "Only eligible skill with explicit knockdown may knock down; never grant knockdown solely because charged"
+  },
+  "approved_integration_rules": {
+    "source": "Sentinel_1445f5350c108191aa4d0712f21ecf91",
+    "heavy_shield_grab": "no_pickup_no_throw_no_knockdown_only_brief_standing_stagger_ground_push",
+    "fence_player": "blocked_until_destroyed",
+    "fence_melee_enemy": "pass_through",
+    "canonical_file": "stage04_shield_rules_canonical_20261017.json"
+  }
+}

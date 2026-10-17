@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "delivery_id": "stage04-20261017-final-art-handoff",
+  "status": "ASSET_HANDOFF_WITH_EXTERNAL_MUSIC_DEPENDENCY",
+  "runtime_tested": false,
+  "pixel_resampling_in_packaging": false,
+  "canonical_components": {
+    "udono_base": "characters/udono/base/manifest_v4.json",
+    "udono_groundsmash_and_triplequake": "characters/udono/slam/manifest_patch.json",
+    "udono_spin_counter": "characters/udono/spin/manifest_patch.json",
+    "udono_carried_stone": "characters/udono/rock/manifest_patch.json",
+    "miniboss_base": "characters/minibosses/animation_manifest.json",
+    "miniboss_specials": "characters/minibosses/specials/special_attack_events.json",
+    "troop_base": "characters/troops/manifest.json",
+    "troop_walk_and_ready": "characters/troops/alert/manifest.json",
+    "gunner_walk": "characters/gunner/manifest.json",
+    "gunner_other_actions": "characters/gunner/actions-manifest.json",
+    "flags": "props/flags/animation_events_v5.json",
+    "layout": "layout/layout.json",
+    "shield_rules": "settings/shield_combat_rules.json",
+    "udono_combat": "settings/udono_combat.json",
+    "kira_rain_rules": "settings/kira_rain.json",
+    "encounter_nodes": "layout/stage4_nodes_proposal.json",
+    "voice_events": "audio/voice_animation_map_v3.json",
+    "sfx_routes": "audio/stage4_sfx_routes.json",
+    "music": "audio/music/music_map.json",
+    "new_stone_quake_sfx": "audio/stone_quake_v1/event-map.json",
+    "camp_crowd": "backgrounds/crowd/animation_events.json",
+    "crowd_audio": "audio/crowd/manifest.json"
+  },
+  "precedence": [
+    "This manifest selects exactly one active version for each component.",
+    "Troop alert-v3 replaces only walk and ready. Other attacks/reactions use base.",
+    "Udono slam/spin/rock patch manifests supersede corresponding base actions.",
+    "Flag v5 idle/damaged timing supersedes v4; v4 destruction remains unchanged.",
+    "Gunner uses legacy-reskin only; no wide-walk-v2, original new gunner, or vault assets."
+  ],
+  "archived_not_included": [
+    "troop legacy reskin",
+    "melee vault",
+    "gunner wide-walk-v2",
+    "old downward spear-blade smash",
+    "old metal shield sounds"
+  ],
+  "readiness": {
+    "assets": "PACKAGED_AND_TECHNICALLY_VALIDATED",
+    "music": "SOURCE_REQUIRED",
+    "runtime": "NOT_RUN",
+    "subjective_voice_listening": "NOT_VERIFIED"
+  }
+}

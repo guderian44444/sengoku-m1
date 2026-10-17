@@ -1,0 +1,66 @@
+{
+  "model": {
+    "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe"
+  },
+  "model_path": "D:\\AI\\吞食戰國\\artifacts\\voice-v31\\custom-model",
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "local_files_only": true,
+  "language": "Japanese",
+  "backend": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "profiles": {
+    "udono": {
+      "name": "鵜殿長照",
+      "speaker": "Uncle_Fu",
+      "instruction": "成熟日本男性武将，低沉厚重的胸腔男低音，粗粝而威严。用腹部支撑发出果断有力的战场短喝，保持低音，不要尖叫或拖长元音。"
+    },
+    "tominaga": {
+      "name": "富永伴五郎忠元",
+      "speaker": "Aiden",
+      "instruction": "成年日本男性剑士，干脆锐利的中低男声，清晰紧凑的辅音，快速而有杀气的短促战吼。声线偏干，锋利坚定，不要低沉轰鸣或悠长宣讲。"
+    },
+    "kira": {
+      "name": "吉良義昭",
+      "speaker": "Ryan",
+      "instruction": "成年日本男性弓兵指挥官，清楚有指挥感的男中音，明亮清晰的咬字，冷静而坚定地短声号令。重音明确，干净收声，不要嘶哑咆哮或冗长演说。"
+    }
+  },
+  "inference": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 80,
+    "do_sample": true,
+    "top_p": 0.9,
+    "temperature": 0.75,
+    "repetition_penalty": 1.05
+  },
+  "output": {
+    "sample_rate": 22050,
+    "channels": 1,
+    "encoding": "PCM16",
+    "playback_pitch": 1.0
+  },
+  "filter": "silenceremove=start_periods=1:start_threshold=-42dB,areverse,silenceremove=start_periods=1:start_threshold=-42dB,areverse,highpass=f=60,lowpass=f=5800,acompressor=threshold=0.16:ratio=2.5:attack=3:release=45:makeup=1.5,alimiter=limit=0.85:level=false",
+  "maximum_tempo_factor": 1.1,
+  "seed_base": 2026101700,
+  "voice_source": "Existing synthetic CustomVoice presets; no real-person imitation or voice cloning",
+  "source_scripts_sha256": {
+    "generate-voices-v11.py": "439b4a627b515d0792d621bff0146bfa41144014d5d67f5233e97a2a408e630c",
+    "generate-voices-v15.py": "1d8dbd98be56d9b61321b25b96446cf06d271c370d9e5414532f9b2b2b4f45a8",
+    "generate-voices-v31.py": "507b438e25f35e9f673ff42f7e678d4018f565c28c8ed230ead846343586b5ed",
+    "generate-voices-v38.py": "6ad1ecba63183be2dbc141b63628fc9693ea23870386636cebdd5bd772df376a"
+  },
+  "config_sha256": "17a07f527a1c25ea30b4e023a184482a23d3e279d697b1dc81b1bde498d29cf9",
+  "weight_files": {
+    "model.safetensors": 3833402552,
+    "speech_tokenizer/model.safetensors": 682293092
+  },
+  "software": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "torch": "2.7.1+cu128",
+    "numpy": "2.4.4",
+    "soundfile": "0.13.1",
+    "gpu": "NVIDIA GeForce RTX 5090 Laptop GPU"
+  }
+}

@@ -1,0 +1,1 @@
+採用槍尾撞地 v5 畫格，時間以 manifest_patch.json / timing_patch.json 的 v7 為準。單震1秒、三連震2.5秒，每次末段下砸20ms。腳點及畫布不變。

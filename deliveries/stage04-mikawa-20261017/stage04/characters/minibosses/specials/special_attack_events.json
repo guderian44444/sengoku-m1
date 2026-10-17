@@ -1,0 +1,802 @@
+{
+  "version": "special-attacks-review-v3-live-roster-release-lock-expanded",
+  "status": "asset-only, no runtime",
+  "proposed_tuning": true,
+  "kira": {
+    "id": "kira_command_arrow_rain",
+    "character_animation": "kira_command",
+    "voice": {
+      "reuse_existing_key": "kira_command",
+      "text": "放て！",
+      "cue_ms": 400,
+      "new_audio_generated": false
+    },
+    "archer_slots": [
+      [
+        100,
+        470
+      ],
+      [
+        280,
+        600
+      ],
+      [
+        420,
+        435
+      ],
+      [
+        555,
+        585
+      ]
+    ],
+    "escorts": 4,
+    "salvos": 4,
+    "total_arrows": 16,
+    "continuous_flat_fire": "separate existing behavior; rain has distinct upward-aim windup and command cue",
+    "oichi_reference": {
+      "path": "oichi_newspec_arrows/rain_circle_sparse_fx/circle_rain_events.json",
+      "inspected_particle_count": 70,
+      "world_radius": 1230,
+      "perspective_y_scale": 0.2,
+      "rain_after_upward_exit": true,
+      "comparison_note": "Count comparison, not a measured density ratio across equal world areas.",
+      "demo_count_ratio": 0.22857142857142856
+    },
+    "targeting": {
+      "ground_indicators": "none",
+      "telegraph_each_impact": false,
+      "mode": "track current player position continuously during pre-release preparation; snapshot independently at each actual wave release",
+      "post_release_tracking": false,
+      "multiwave_interpretation": "Each of the four waves locks independently on its own release. This is the implementation interpretation of the user request.",
+      "tracking_updates": "every preview tick (20ms), with all release timestamps exactly represented; runtime every simulation tick",
+      "dodge_window": "actual release to impact; 1000ms in this retained review tuning",
+      "spread_multiplier_xy": 1.5,
+      "previous_preview_ground_radii": [
+        210,
+        46.2
+      ],
+      "new_preview_ground_radii": [
+        315,
+        69.3
+      ],
+      "linear_width_and_depth_multiplier": 1.5,
+      "area_multiplier": 2.25,
+      "density_note": "For equal archer count, density is 1/2.25 of previous. No extra arrows are added for larger area.",
+      "advance_visual_cues": [
+        "Kira command gesture",
+        "existing archers raise bows"
+      ]
+    },
+    "particles": [
+      {
+        "id": 0,
+        "escort_entity_id": "existing_archer_1",
+        "escort_slot": 0,
+        "salvo": 0,
+        "release_ms": 900,
+        "lock_ms": 900,
+        "locked_center": [
+          900.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          94.5,
+          1.5
+        ],
+        "rain_start_ms": 1500,
+        "fall_duration_ms": 400,
+        "impact_ms": 1900,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          994.5,
+          556.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "front"
+      },
+      {
+        "id": 1,
+        "escort_entity_id": "existing_archer_2",
+        "escort_slot": 1,
+        "salvo": 0,
+        "release_ms": 900,
+        "lock_ms": 900,
+        "locked_center": [
+          900.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          166.5,
+          52.5
+        ],
+        "rain_start_ms": 1500,
+        "fall_duration_ms": 400,
+        "impact_ms": 1900,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1066.5,
+          607.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "front"
+      },
+      {
+        "id": 2,
+        "escort_entity_id": "existing_archer_3",
+        "escort_slot": 2,
+        "salvo": 0,
+        "release_ms": 900,
+        "lock_ms": 900,
+        "locked_center": [
+          900.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          33.0,
+          -63.0
+        ],
+        "rain_start_ms": 1500,
+        "fall_duration_ms": 400,
+        "impact_ms": 1900,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          933.0,
+          492.0
+        ],
+        "post_release_tracking": false,
+        "z_layer": "behind"
+      },
+      {
+        "id": 3,
+        "escort_entity_id": "existing_archer_4",
+        "escort_slot": 3,
+        "salvo": 0,
+        "release_ms": 900,
+        "lock_ms": 900,
+        "locked_center": [
+          900.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          159.0,
+          -4.5
+        ],
+        "rain_start_ms": 1500,
+        "fall_duration_ms": 400,
+        "impact_ms": 1900,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1059.0,
+          550.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "behind"
+      },
+      {
+        "id": 4,
+        "escort_entity_id": "existing_archer_1",
+        "escort_slot": 0,
+        "salvo": 1,
+        "release_ms": 1100,
+        "lock_ms": 1100,
+        "locked_center": [
+          940.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          246.0,
+          12.0
+        ],
+        "rain_start_ms": 1700,
+        "fall_duration_ms": 400,
+        "impact_ms": 2100,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1186.0,
+          567.0
+        ],
+        "post_release_tracking": false,
+        "z_layer": "front"
+      },
+      {
+        "id": 5,
+        "escort_entity_id": "existing_archer_2",
+        "escort_slot": 1,
+        "salvo": 1,
+        "release_ms": 1100,
+        "lock_ms": 1100,
+        "locked_center": [
+          940.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          199.5,
+          1.5
+        ],
+        "rain_start_ms": 1700,
+        "fall_duration_ms": 400,
+        "impact_ms": 2100,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1139.5,
+          556.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "front"
+      },
+      {
+        "id": 6,
+        "escort_entity_id": "existing_archer_3",
+        "escort_slot": 2,
+        "salvo": 1,
+        "release_ms": 1100,
+        "lock_ms": 1100,
+        "locked_center": [
+          940.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          144.0,
+          30.0
+        ],
+        "rain_start_ms": 1700,
+        "fall_duration_ms": 400,
+        "impact_ms": 2100,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1084.0,
+          585.0
+        ],
+        "post_release_tracking": false,
+        "z_layer": "front"
+      },
+      {
+        "id": 7,
+        "escort_entity_id": "existing_archer_4",
+        "escort_slot": 3,
+        "salvo": 1,
+        "release_ms": 1100,
+        "lock_ms": 1100,
+        "locked_center": [
+          940.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          -42.0,
+          -18.0
+        ],
+        "rain_start_ms": 1700,
+        "fall_duration_ms": 400,
+        "impact_ms": 2100,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          898.0,
+          537.0
+        ],
+        "post_release_tracking": false,
+        "z_layer": "behind"
+      },
+      {
+        "id": 8,
+        "escort_entity_id": "existing_archer_1",
+        "escort_slot": 0,
+        "salvo": 2,
+        "release_ms": 1300,
+        "lock_ms": 1300,
+        "locked_center": [
+          980.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          -153.0,
+          10.5
+        ],
+        "rain_start_ms": 1900,
+        "fall_duration_ms": 400,
+        "impact_ms": 2300,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          827.0,
+          565.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "front"
+      },
+      {
+        "id": 9,
+        "escort_entity_id": "existing_archer_2",
+        "escort_slot": 1,
+        "salvo": 2,
+        "release_ms": 1300,
+        "lock_ms": 1300,
+        "locked_center": [
+          980.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          -252.0,
+          -22.5
+        ],
+        "rain_start_ms": 1900,
+        "fall_duration_ms": 400,
+        "impact_ms": 2300,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          728.0,
+          532.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "behind"
+      },
+      {
+        "id": 10,
+        "escort_entity_id": "existing_archer_3",
+        "escort_slot": 2,
+        "salvo": 2,
+        "release_ms": 1300,
+        "lock_ms": 1300,
+        "locked_center": [
+          980.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          123.0,
+          -34.5
+        ],
+        "rain_start_ms": 1900,
+        "fall_duration_ms": 400,
+        "impact_ms": 2300,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1103.0,
+          520.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "behind"
+      },
+      {
+        "id": 11,
+        "escort_entity_id": "existing_archer_4",
+        "escort_slot": 3,
+        "salvo": 2,
+        "release_ms": 1300,
+        "lock_ms": 1300,
+        "locked_center": [
+          980.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          270.0,
+          -13.5
+        ],
+        "rain_start_ms": 1900,
+        "fall_duration_ms": 400,
+        "impact_ms": 2300,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1250.0,
+          541.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "behind"
+      },
+      {
+        "id": 12,
+        "escort_entity_id": "existing_archer_1",
+        "escort_slot": 0,
+        "salvo": 3,
+        "release_ms": 1500,
+        "lock_ms": 1500,
+        "locked_center": [
+          1020.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          193.5,
+          27.0
+        ],
+        "rain_start_ms": 2100,
+        "fall_duration_ms": 400,
+        "impact_ms": 2500,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1213.5,
+          582.0
+        ],
+        "post_release_tracking": false,
+        "z_layer": "front"
+      },
+      {
+        "id": 13,
+        "escort_entity_id": "existing_archer_2",
+        "escort_slot": 1,
+        "salvo": 3,
+        "release_ms": 1500,
+        "lock_ms": 1500,
+        "locked_center": [
+          1020.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          -63.0,
+          52.5
+        ],
+        "rain_start_ms": 2100,
+        "fall_duration_ms": 400,
+        "impact_ms": 2500,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          957.0,
+          607.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "front"
+      },
+      {
+        "id": 14,
+        "escort_entity_id": "existing_archer_3",
+        "escort_slot": 2,
+        "salvo": 3,
+        "release_ms": 1500,
+        "lock_ms": 1500,
+        "locked_center": [
+          1020.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          85.5,
+          52.5
+        ],
+        "rain_start_ms": 2100,
+        "fall_duration_ms": 400,
+        "impact_ms": 2500,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1105.5,
+          607.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "front"
+      },
+      {
+        "id": 15,
+        "escort_entity_id": "existing_archer_4",
+        "escort_slot": 3,
+        "salvo": 3,
+        "release_ms": 1500,
+        "lock_ms": 1500,
+        "locked_center": [
+          1020.0,
+          555.0
+        ],
+        "offset_from_locked_center": [
+          216.0,
+          -10.5
+        ],
+        "rain_start_ms": 2100,
+        "fall_duration_ms": 400,
+        "impact_ms": 2500,
+        "flight_duration_ms": 1000,
+        "ground_target": [
+          1236.0,
+          544.5
+        ],
+        "post_release_tracking": false,
+        "z_layer": "behind"
+      }
+    ],
+    "events": [
+      {
+        "at_ms": 400,
+        "event": "capture_existing_command_roster_and_voice_cue"
+      },
+      {
+        "at_ms": 900,
+        "event": "filter_roster_snapshot_player_center_release_one_per_eligible",
+        "wave": 0
+      },
+      {
+        "at_ms": 1100,
+        "event": "filter_roster_snapshot_player_center_release_one_per_eligible",
+        "wave": 1
+      },
+      {
+        "at_ms": 1300,
+        "event": "filter_roster_snapshot_player_center_release_one_per_eligible",
+        "wave": 2
+      },
+      {
+        "at_ms": 1500,
+        "event": "filter_roster_snapshot_player_center_release_one_per_eligible",
+        "wave": 3
+      }
+    ],
+    "damage_policy_proposal": {
+      "per_target_hit_limit_per_command": 1,
+      "configurable": true
+    },
+    "implemented": false,
+    "independent_fx_sequence": {
+      "pattern": "assets/kira_rain_fx_%03d.png",
+      "count": 210,
+      "frame_ms": 20,
+      "dimensions": [
+        1600,
+        720
+      ]
+    },
+    "helper_pose_manifest": "assets/archer_upward/manifest.json",
+    "hit_registration": "Proposal only; one-hit-per-command is adjustable separately from continuous flat fire.",
+    "escorts_meaning": "Demo count only, not a required skill count",
+    "total_arrows_meaning": "Demo result only: four eligible present archers times four waves",
+    "arrow_count_rule": "One arrow per eligible command-roster archer per wave; sum eligible count over waves. Never force 6 or 24.",
+    "waves": [
+      {
+        "wave": 0,
+        "track_player_until_ms_exclusive": 900,
+        "lock_on_release_ms": 900,
+        "locked_center_demo": [
+          900.0,
+          555.0
+        ],
+        "eligible_entity_ids": [
+          "existing_archer_1",
+          "existing_archer_2",
+          "existing_archer_3",
+          "existing_archer_4"
+        ],
+        "arrow_ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "impact_ms": 1900
+      },
+      {
+        "wave": 1,
+        "track_player_until_ms_exclusive": 1100,
+        "lock_on_release_ms": 1100,
+        "locked_center_demo": [
+          940.0,
+          555.0
+        ],
+        "eligible_entity_ids": [
+          "existing_archer_1",
+          "existing_archer_2",
+          "existing_archer_3",
+          "existing_archer_4"
+        ],
+        "arrow_ids": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "impact_ms": 2100
+      },
+      {
+        "wave": 2,
+        "track_player_until_ms_exclusive": 1300,
+        "lock_on_release_ms": 1300,
+        "locked_center_demo": [
+          980.0,
+          555.0
+        ],
+        "eligible_entity_ids": [
+          "existing_archer_1",
+          "existing_archer_2",
+          "existing_archer_3",
+          "existing_archer_4"
+        ],
+        "arrow_ids": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "impact_ms": 2300
+      },
+      {
+        "wave": 3,
+        "track_player_until_ms_exclusive": 1500,
+        "lock_on_release_ms": 1500,
+        "locked_center_demo": [
+          1020.0,
+          555.0
+        ],
+        "eligible_entity_ids": [
+          "existing_archer_1",
+          "existing_archer_2",
+          "existing_archer_3",
+          "existing_archer_4"
+        ],
+        "arrow_ids": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "impact_ms": 2500
+      }
+    ],
+    "participant_policy": {
+      "snapshot_at_command_ms": 400,
+      "roster": "already present, alive archer entity IDs at command time",
+      "per_wave_filter": "still alive, in scene and able to fire at that release",
+      "world_position": "each archer stays at its existing position; only authored bow animation changes",
+      "skill_spawn": false,
+      "skill_teleport": false,
+      "rally_to_formation": false,
+      "late_replacements_join_current_command": false,
+      "zero_eligible": "zero projectiles; do not create proxy archers",
+      "reinforcement_policy": "original one-death-one-replacement system stays separate; this skill never calls it"
+    },
+    "player_demo": {
+      "type": "labeled schematic figure, not character walk animation",
+      "path": [
+        [
+          0,
+          780,
+          555
+        ],
+        [
+          900,
+          900,
+          555
+        ],
+        [
+          1100,
+          940,
+          555
+        ],
+        [
+          1300,
+          980,
+          555
+        ],
+        [
+          1500,
+          1020,
+          555
+        ],
+        [
+          2050,
+          1450,
+          555
+        ],
+        [
+          4200,
+          1450,
+          555
+        ]
+      ],
+      "ground_indicator": false
+    }
+  },
+  "tominaga": {
+    "id": "tominaga_floorplant_groundwave",
+    "character_animation": "tominaga_heavy_chop",
+    "contact_source_frame": 5,
+    "contact_pose": "blade vertically planted in ground",
+    "preview_contact_ms": 1180,
+    "source_contact_ms": 780,
+    "voice": "reuse existing heavy_chop call; no new voice",
+    "effect_atlas": "assets/tominaga_groundwave_8.png",
+    "grid": [
+      2,
+      4
+    ],
+    "effect_frame_ms": [
+      110,
+      110,
+      110,
+      110,
+      110,
+      110,
+      110,
+      110
+    ],
+    "path": {
+      "origin_preview": [
+        320,
+        600
+      ],
+      "end_preview": [
+        1110,
+        600
+      ],
+      "direction": "facing forward along floor",
+      "length_preview_px": 790,
+      "width_preview_px": 28,
+      "travel_ms": 560,
+      "groundhugging": true,
+      "sequential_eruption": true
+    },
+    "events": [
+      {
+        "at_ms": 500,
+        "event": "narrow_forward_lane_warning"
+      },
+      {
+        "at_ms": 1180,
+        "event": "blade_ground_contact_and_wave_spawn"
+      },
+      {
+        "at_ms": 1740,
+        "event": "wave_reaches_endpoint"
+      },
+      {
+        "at_ms": 2060,
+        "event": "vfx_end_and_recovery_open"
+      }
+    ],
+    "hit": {
+      "response": "launch_player",
+      "hit_once_per_target_per_activation": true,
+      "dedup_key": [
+        "activation_id",
+        "target_id"
+      ],
+      "damage": "unset",
+      "launch_velocity": "tunable; not implemented",
+      "active_ms": [
+        1180,
+        1740
+      ]
+    },
+    "implemented": false,
+    "effect_source_rects": [
+      [
+        0,
+        0,
+        887,
+        280
+      ],
+      [
+        887,
+        0,
+        887,
+        280
+      ],
+      [
+        0,
+        280,
+        887,
+        255
+      ],
+      [
+        887,
+        280,
+        887,
+        255
+      ],
+      [
+        0,
+        535,
+        887,
+        207
+      ],
+      [
+        887,
+        535,
+        887,
+        207
+      ],
+      [
+        0,
+        742,
+        887,
+        145
+      ],
+      [
+        887,
+        742,
+        887,
+        145
+      ]
+    ]
+  },
+  "change_from_v1": "Only Kira pre-impact ground markers, area outline and marker captions removed. Arrow trajectories, cadence, six escorts, 24 arrows and Tominaga wave unchanged.",
+  "change_from_v2": "Existing live archers fire in place; independently release-locked tracking per wave; ground spread width/depth x1.5; no added arrows; no landing UI. Tominaga unchanged."
+}

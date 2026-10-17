@@ -1,0 +1,136 @@
+{
+  "qa": [
+    {
+      "type": "fist_pump",
+      "unique_frame_sha256_count": 4,
+      "rgba": true,
+      "foot_anchor": [
+        192,
+        420
+      ],
+      "alpha_bbox_per_frame": [
+        [
+          88,
+          59,
+          297,
+          423
+        ],
+        [
+          89,
+          59,
+          296,
+          423
+        ],
+        [
+          88,
+          58,
+          297,
+          423
+        ],
+        [
+          87,
+          58,
+          298,
+          423
+        ]
+      ],
+      "adjacent_changed_pixels": [
+        40152,
+        40607,
+        41012,
+        41345
+      ]
+    },
+    {
+      "type": "cupped_call",
+      "unique_frame_sha256_count": 4,
+      "rgba": true,
+      "foot_anchor": [
+        192,
+        420
+      ],
+      "alpha_bbox_per_frame": [
+        [
+          82,
+          76,
+          303,
+          423
+        ],
+        [
+          80,
+          75,
+          305,
+          423
+        ],
+        [
+          79,
+          75,
+          306,
+          423
+        ],
+        [
+          80,
+          75,
+          305,
+          423
+        ]
+      ],
+      "adjacent_changed_pixels": [
+        40891,
+        42474,
+        41598,
+        41839
+      ]
+    },
+    {
+      "type": "raised_spear",
+      "unique_frame_sha256_count": 4,
+      "rgba": true,
+      "foot_anchor": [
+        192,
+        420
+      ],
+      "alpha_bbox_per_frame": [
+        [
+          37,
+          81,
+          306,
+          423
+        ],
+        [
+          36,
+          80,
+          307,
+          423
+        ],
+        [
+          30,
+          80,
+          306,
+          423
+        ],
+        [
+          37,
+          81,
+          306,
+          423
+        ]
+      ],
+      "adjacent_changed_pixels": [
+        38349,
+        39412,
+        39931,
+        38611
+      ]
+    }
+  ],
+  "authored_distinct_poses": true,
+  "no_optical_flow_or_tweening": true,
+  "foot_registration": "All 12 frames aligned from visible shoe bottom to (192,420), constant scale 1.0",
+  "limitations": [
+    "Minimum 4-pose loops, not 8 unique poses",
+    "Background-scale cheers only; not foreground combat animation",
+    "No new crowd audio recorded/generated",
+    "Engine playback not implemented"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "source_root": "/workspace/scratch/98b7ec868bfb/wood_shield_patch_v7",
+  "events": [
+    {
+      "event_id": "guard_block",
+      "material": "wood_shield",
+      "variant_id": "wood_shield_block_01",
+      "wav": "wav/wood_shield_block_01.wav",
+      "ogg": "ogg/wood_shield_block_01.ogg",
+      "gain_linear": 0.85,
+      "seconds": 0.38,
+      "trigger": "confirmed shield block",
+      "dedupe": "attackId+targetId+guard_block",
+      "loop": false,
+      "max_voices": 3,
+      "source": "v6 wood shield same-number variant; dry quick-decay edit only"
+    },
+    {
+      "event_id": "guard_block",
+      "material": "wood_shield",
+      "variant_id": "wood_shield_block_02",
+      "wav": "wav/wood_shield_block_02.wav",
+      "ogg": "ogg/wood_shield_block_02.ogg",
+      "gain_linear": 0.85,
+      "seconds": 0.38,
+      "trigger": "confirmed shield block",
+      "dedupe": "attackId+targetId+guard_block",
+      "loop": false,
+      "max_voices": 3,
+      "source": "v6 wood shield same-number variant; dry quick-decay edit only"
+    },
+    {
+      "event_id": "guard_block",
+      "material": "wood_shield",
+      "variant_id": "wood_shield_block_03",
+      "wav": "wav/wood_shield_block_03.wav",
+      "ogg": "ogg/wood_shield_block_03.ogg",
+      "gain_linear": 0.85,
+      "seconds": 0.38,
+      "trigger": "confirmed shield block",
+      "dedupe": "attackId+targetId+guard_block",
+      "loop": false,
+      "max_voices": 3,
+      "source": "v6 wood shield same-number variant; dry quick-decay edit only"
+    }
+  ],
+  "path_base": "audio/ relative to delivery root"
+}
