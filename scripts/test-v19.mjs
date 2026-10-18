@@ -20,7 +20,7 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
-  'stage05_art', 'stage05_combat', 'stage05_audio', 'stage05_playthrough', 'officer_weapon_fx',
+  'stage05_art', 'stage05_combat', 'stage05_audio', 'stage05_playthrough', 'stage05_campaign_flow', 'officer_weapon_fx',
 	'charged_invulnerability', 'stage04_rebuild', 'combat_feedback_v42', 'stage04_density', 'stage04_shields', 'campaign_food', 'food_inventory', 'knockback_distance', 'oichi_air_multihit', 'guard_restore', 'light_finisher', 'light_finisher_cadence', 'hideyoshi_blink',
 	'stage03_balance_v41',
 	'audio_v40',
@@ -164,6 +164,9 @@ if (process.argv.includes('--render-audio-v40')) {
 if (process.argv.includes('--render-stage05')) {
   await run('stage05_main_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/play_stage05.gd', '--', '--coop', '--review-dir=' + path.join(out, 'stage05-native')]);
   await run('officer_fx_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_officer_weapon_fx.gd', '--', '--capture-dir=' + path.join(out, 'officer-native')]);
+}
+if (process.argv.includes('--render-stage05-flow')) {
+  await run('stage05_campaign_flow_capture', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_stage05_campaign_flow.gd', '--', '--capture-dir=' + path.join(out, 'campaign-flow-native')]);
 }
 const failed = results.filter(result => !result.ok);
 console.log(`${failed.length ? 'FAIL' : 'PASS'}: ${results.length} selected native groups; ${failed.length} failed. ${skipped.length} groups excluded by the supplied selection flags.`);
