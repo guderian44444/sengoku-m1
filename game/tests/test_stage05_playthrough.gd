@@ -26,18 +26,29 @@ func _initialize() -> void:
 
 static func pilot(sim, hero: Dictionary, tick: int) -> Dictionary:
 	var input := {"dx":0,"dy":0,"buttons":0}
+	var leader: Dictionary=sim.state.fighters[0]
+	if hero.player_index==1 and absf(leader.x-hero.x)>500:
+		# Keep a cooperative party together instead of chasing archers in opposite directions.
+		input.dx=int(signf(leader.x-hero.x))
+		input.dy=int(signf(leader.y-hero.y)) if absf(leader.y-hero.y)>15 else 0
+		if tick%3==0: input.buttons=Battle.LIGHT
+		return input
 	if sim.state.stage.go:
 		input.dx=1
 		input.dy=int(signf(590-hero.y)) if absf(590-hero.y)>8 else 0
 		return input
-	var candidates: Array=sim.state.fighters.filter(func(f):return f.team==1 and f.hp>0)
+	var candidates: Array=sim.state.fighters.filter(func(f):return f.team==1 and f.hp>0 and not f.get("entering",false))
+	var flags: Array=sim.state.props.filter(func(p):return p.get("s05_banner",false) and not p.broken)
+	candidates.append_array(flags)
 	# Break any obstruction through normal attacks.
 	candidates.append_array(sim.state.props.filter(func(p):return not p.broken and absf(p.x-hero.x)<180 and absf(p.y-hero.y)<70))
 	var target := {}
 	var nearest := INF
 	for candidate in candidates:
 		var distance: float=absf(candidate.x-hero.x)+absf(candidate.y-hero.y)*2
-		if candidate.get("s05_role","")=="kusei": distance-=220
+		if not candidate.get("s05_banner",false) and absf(candidate.x-hero.x)<110 and absf(candidate.y-hero.y)<45: distance-=350
+		if candidate.get("s05_banner",false): distance-=220
+		if flags.is_empty() and candidate.get("s05_role","")=="kusei": distance-=220
 		if distance<nearest: target=candidate;nearest=distance
 	if target.is_empty(): return input
 	var dx: float=target.x-hero.x
@@ -49,5 +60,4 @@ static func pilot(sim, hero: Dictionary, tick: int) -> Dictionary:
 	else:
 		input.dx=int(signf(dx)) if absf(dx)>85 else 0
 		input.dy=int(signf(dy)) if absf(dy)>15 else 0
-	if hero.action=="idle" and hero.rage>=100 and nearest<300: input.buttons=Battle.SPECIAL
 	return input

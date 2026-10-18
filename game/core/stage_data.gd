@@ -37,9 +37,19 @@ static func chapter(id: int) -> Dictionary:
 			if id == 5:
 				mikawa_node += 1
 				assert(encounter.mode == "ikki" and int(encounter.node) == mikawa_node)
-				assert(encounter.role in ["militia","monk"] and encounter.finite_batches == 2)
-				assert(encounter.units_per_batch >= (4 if encounter.role=="monk" else 6) and encounter.units_per_batch <= (6 if encounter.role=="monk" else 8))
+				assert(encounter.role in ["militia","monk"])
+				assert(encounter.garrison >= (4 if encounter.role=="monk" else 6) and encounter.garrison <= (6 if encounter.role=="monk" else 8))
 				assert(encounter.boss in ["","hachiya","natsume","kusei"])
+				var pairs := {}
+				for object in encounter.objects:
+					assert(object.x>=start+100 and object.x<=encounter.end-150 and object.y>=360 and object.y<=600)
+					if object.has("banner_pair"):
+						var key := int(object.banner_pair)
+						if not pairs.has(key): pairs[key]=[]
+						pairs[key].append(object)
+				assert(not pairs.is_empty())
+				for pair in pairs.values():
+					assert(pair.size()==2 and pair[0].x==pair[1].x and absf(pair[0].y-pair[1].y)>=150)
 				start = float(encounter.end)
 				continue
 			if id == 4:
@@ -83,5 +93,11 @@ static func chapter(id: int) -> Dictionary:
 					for kind in boss.reinforcements: assert(kind in ["soldier", "archer", "gunner", "flag", "commander", "shield_spear", "fire_archer", "raider"])
 			start = float(encounter.end)
 		assert(start == float(region.width), "Final checkpoint must reach scene exit")
-	if id==5: assert(mikawa_node==12,"Stage five has twelve nodes")
+	if id==5:
+		assert(mikawa_node==12,"Stage five has twelve nodes")
+		for section in data.segments.slice(0,2):
+			var flags := 0
+			for encounter in section.encounters:
+				flags+=encounter.objects.filter(func(o):return o.has("banner_pair")).size()
+			assert(flags>=8 and flags<=10,"Farm scenes have eight to ten deliberately paired banners")
 	return data

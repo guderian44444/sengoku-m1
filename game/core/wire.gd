@@ -81,6 +81,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if drop.kind == "talisman" and not _choice(drop.get("talisman_id"),Battle.TALISMANS.keys()): return false
 		if drop.kind == "weapon" and not _choice(drop.get("weapon_id"),Weapons.ITEMS.keys()): return false
 	for prop in world.props:
+		if prop.has("s05_banner") and (not prop.s05_banner is bool or not prop.has("s05_asset") or prop.s05_banner!=str(prop.s05_asset).contains("_")): return false
 		if prop.has("s05_asset") and (not _choice(prop.s05_asset,["militia_ragged","militia_patched","militia_wicker","temple_brown","temple_ochre","rice","wood","jar"]) or not _integer(prop.get("broken_tick"),-1)): return false
 		if prop.has("mikawa_asset") and (not _choice(prop.mikawa_asset,["kflag","uflag","fence","cheval"]) or not _integer(prop.get("broken_tick"),-1)): return false
 		if not _position(prop) or not _integer(prop.get("id"), 1) or not _choice(prop.get("kind"), PROP_KINDS): return false
@@ -187,8 +188,8 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 		if fighter.get("team") != 1 or not _choice(fighter.s05_role,Ikki.ROLES): return false
 		if not fighter.get("s05_elite") is bool or not fighter.get("s05_weak") is bool: return false
 		if fighter.s05_elite and fighter.s05_role != "monk": return false
-		if fighter.s05_weak and fighter.s05_role != "militia": return false
-		if not _choice(fighter.get("s05_move_clip"),["walk","run","retreat_run"]): return false
+		if fighter.s05_weak and fighter.s05_role not in Ikki.FARMERS: return false
+		if not _choice(fighter.get("s05_move_clip"),["walk","run","retreat_run","retreat"]): return false
 		if not _number(fighter.get("s05_root_px"),-2000,3000) or not _integer(fighter.get("s05_target"),0): return false
 		if not _id_list(fighter.get("s05_combo")) or fighter.s05_combo.size()>2: return false
 		if not _strings(fighter.get("s05_events"),32,80): return false
@@ -306,6 +307,7 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 
 
 static func _valid_effect(effect: Dictionary) -> bool:
+	if effect.has("s05_arrow") and (not effect.s05_arrow is bool or not effect.s05_arrow or effect.get("type")!="projectile" or effect.get("weapon")!="arrow" or effect.get("team")!=1): return false
 	if effect.get("type") in ["s05_wave","s05_fx"]:
 		if not _integer(effect.get("owner"),1) or not _number(effect.get("z"),-500,2000): return false
 		if effect.type == "s05_wave":
@@ -465,17 +467,20 @@ static func _action(value: Variant) -> bool:
 static func _valid_ikki(box: Variant) -> bool:
 	if not box is Dictionary: return false
 	if not _integer(box.get("node"),1,12) or not _choice(box.get("phase"),["combat","complete"]): return false
-	for key in ["admit_tick","farmer_tick","boss"]:
+	for key in ["admit_tick","farmer_tick","entry_seq","boss"]:
 		if not _integer(box.get(key),0): return false
-	if not _integer(box.get("next_batch"),1,2) or not _integer(box.get("summon_count"),0,3): return false
+	if not _integer(box.get("summon_count"),0,3): return false
 	for key in ["thresholds","summons"]:
 		if not box.get(key) is Array or box[key].size()>3: return false
 		var seen := []
 		for value in box[key]:
 			if not value is int or value not in [70,40,10] or value in seen: return false
 			seen.append(value)
-	if not box.get("pending") is Array or box.pending.size()>20: return false
+	if not box.get("pending") is Array or box.pending.size()>24: return false
 	for unit in box.pending:
-		if not unit is Dictionary or not _choice(unit.get("role"),["militia","monk"]) or not unit.get("elite") is bool: return false
+		if not unit is Dictionary or not _choice(unit.get("role"),Ikki.FARMERS+["monk"]) or not unit.get("elite") is bool or not unit.get("weak") is bool: return false
+		if not _choice(unit.get("source"),["banner","summon","farmer"]) or not _integer(unit.get("due"),0): return false
 		if unit.elite and unit.role != "monk": return false
+		if unit.weak and unit.role not in Ikki.FARMERS: return false
+		if (unit.source=="summon")!=unit.elite or (unit.source=="farmer")!=unit.weak: return false
 	return true

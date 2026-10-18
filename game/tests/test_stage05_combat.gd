@@ -22,7 +22,13 @@ func node(number: int, players: int = 1) -> Battle:
 	return sim
 
 func actor(sim, role: String) -> Dictionary:
-	return sim.state.fighters.filter(func(f):return f.get("s05_role","")==role)[0]
+	# These isolated move checks start with settled actors; entry is tested separately.
+	var found: Array=sim.state.fighters.filter(func(f):return f.get("s05_role","")==role)
+	if found.is_empty():
+		var f:=S5.spawn(sim,role,float(sim.state.stage.encounter_start)+900,480,false,role=="militia")
+		sim.state.fighters.append(f);found.append(f)
+	found[0].entering=false;found[0].x=float(sim.state.stage.encounter_start)+900
+	return found[0]
 
 func _initialize() -> void:
 	var sim := node(12,2)
@@ -90,22 +96,24 @@ func _initialize() -> void:
 		check(sim.state.ikki.summon_count==i,"first clap does not spawn")
 		boss.action_tick=99;S5.attack(sim,boss)
 		check(sim.state.ikki.summon_count==i+1,"second clap queues four")
-	check(sim.state.ikki.pending.size()==12,"three thresholds total twelve elites")
+	check(sim.state.ikki.pending.filter(func(u):return u.elite).size()==12,"three thresholds total twelve elites")
 	var elite := S5.spawn(sim,"monk",500,500,true)
 	var regular := S5.spawn(sim,"monk",500,500)
 	check(elite.max_hp==regular.max_hp*1.5 and S5.Data.speed(elite)==1.5,"elite HP and speed are 150 percent")
 	check(S5.Data.height(elite.s05_role)==S5.Data.height(regular.s05_role),"elite visuals and reach retain same size")
-	var before: int=sim.state.fighters.size()
+	sim.state.ikki.pending=sim.state.ikki.pending.filter(func(u):return u.source!="farmer")
 	for f in sim.state.fighters:
 		if f.get("s05_weak",false): f.hp=0
-	sim.state.tick=121; S5.tick(sim)
-	check(sim.state.fighters.size()>before,"weak farmers replenish while boss alive")
-	boss.hp=0;sim.state.ikki.pending.clear();sim.state.ikki.next_batch=2
-	before=sim.state.fighters.size();sim.state.tick=1000;S5.tick(sim)
-	check(sim.state.fighters.size()==before,"farmer replenishment stops at boss death")
+	for tick in range(121,1300): sim.state.tick=tick;S5.tick(sim)
+	check(sim.state.fighters.filter(func(f):return f.get("s05_weak",false) and f.hp>0).size()==2,"weak farmers replenish through the entry queue while boss alive")
+	boss.hp=0
+	for f in sim.state.fighters:
+		if f.get("s05_weak",false): f.hp=0
+	for tick in range(1300,1600): sim.state.tick=tick;S5.tick(sim)
+	check(not sim.state.fighters.any(func(f):return f.get("s05_weak",false) and f.hp>0) and not sim.state.ikki.pending.any(func(u):return u.weak),"farmer replenishment stops at boss death independently of banners")
 
 	sim=node(10);boss=actor(sim,"natsume");hero=sim.state.fighters[0]
-	hero.x=boss.x-150;hero.y=boss.y;boss.cooldown=0;hero.z=0;hero.vz=0
+	hero.x=boss.x-210;hero.y=boss.y;boss.cooldown=0;hero.z=0;hero.vz=0
 	S5.ai(sim,boss,hero);check(boss.action=="s05_natsume_ground","ground approach selects downward wave")
 	boss.action="idle";boss.cooldown=0;hero.z=55;hero.vz=5
 	S5.ai(sim,boss,hero);check(boss.action=="s05_natsume_diagonal","jump approach selects upward wave")

@@ -1,0 +1,1607 @@
+{
+  "version": "stage5_hunting_bow_farmer_v1",
+  "character": "hunting_bow_farmer",
+  "canvas": [
+    1536,
+    1536
+  ],
+  "root": [
+    768,
+    1350
+  ],
+  "anatomical_head_span_target_px": 128,
+  "frames": {
+    "idle": {
+      "path": "frames/idle.png",
+      "source": "raw/idle.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 150,
+      "scale_uniform": 0.8533333333333334,
+      "translation": [
+        235,
+        359
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        625,
+        1161
+      ],
+      "crop_native": [
+        294,
+        95,
+        1016,
+        1175
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "04c3252398eef3c8063af8e057ea3572bc21d2c0420b3947576e1922b8a9ef78",
+      "visible_bbox": [
+        496,
+        450,
+        1092,
+        1352
+      ],
+      "weapon_grip_estimate": [
+        1047,
+        852
+      ],
+      "anchor_status": "manual visible pixel estimates; not skeleton or collision validated",
+      "runtime_trim": {
+        "rect_xyxy": [
+          492,
+          439,
+          1099,
+          1362
+        ],
+        "anchor_in_trim": [
+          276,
+          911
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "attack-nock": {
+      "path": "frames/attack-nock.png",
+      "source": "raw/attack-nock.png",
+      "native_size": [
+        1230,
+        1278
+      ],
+      "head_span_native_estimate": 164,
+      "scale_uniform": 0.7804878048780488,
+      "translation": [
+        300,
+        415
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        600,
+        1198
+      ],
+      "crop_native": [
+        130,
+        51,
+        1212,
+        1212
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "4b733bc8dd8d7775a82da16e1e14f8b03a02e62aaa93230089f3e29d349eadc8",
+      "visible_bbox": [
+        410,
+        465,
+        1236,
+        1352
+      ],
+      "weapon_grip_estimate": [
+        1102,
+        876
+      ],
+      "string_hand_estimate": [
+        820,
+        837
+      ],
+      "anchor_status": "manual visible pixel estimates; not skeleton or collision validated",
+      "runtime_trim": {
+        "rect_xyxy": [
+          400,
+          454,
+          1246,
+          1362
+        ],
+        "anchor_in_trim": [
+          368,
+          896
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "attack-draw": {
+      "path": "frames/attack-draw.png",
+      "source": "raw/attack-draw.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 174,
+      "scale_uniform": 0.735632183908046,
+      "translation": [
+        316,
+        466
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        615,
+        1202
+      ],
+      "crop_native": [
+        178,
+        0,
+        1177,
+        1216
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "2a7a7e704826d42fbc704762e02478fca93f7d6273bff32d3c7e519b71a08247",
+      "visible_bbox": [
+        456,
+        473,
+        1173,
+        1352
+      ],
+      "weapon_grip_estimate": [
+        1094,
+        782
+      ],
+      "string_hand_estimate": [
+        726,
+        758
+      ],
+      "arrow_exit_estimate": [
+        1172,
+        752
+      ],
+      "anchor_status": "manual visible pixel estimates; not skeleton or collision validated",
+      "runtime_trim": {
+        "rect_xyxy": [
+          446,
+          470,
+          1182,
+          1356
+        ],
+        "anchor_in_trim": [
+          322,
+          880
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "attack-release": {
+      "path": "frames/attack-release.png",
+      "source": "raw/attack-release.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 174,
+      "scale_uniform": 0.735632183908046,
+      "translation": [
+        316,
+        464
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        615,
+        1204
+      ],
+      "crop_native": [
+        177,
+        0,
+        1122,
+        1218
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "2de00014897b6d9af842f39ea3f3dded95da44d2cde5a369b7c4b443ac7d998b",
+      "visible_bbox": [
+        455,
+        471,
+        1132,
+        1351
+      ],
+      "weapon_grip_estimate": [
+        1099,
+        780
+      ],
+      "string_hand_estimate": [
+        705,
+        738
+      ],
+      "arrow_exit_estimate": [
+        1161,
+        751
+      ],
+      "anchor_status": "manual visible pixel estimates; not skeleton or collision validated",
+      "projectile_spawn_estimate": [
+        726,
+        758
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          446,
+          464,
+          1135,
+          1354
+        ],
+        "anchor_in_trim": [
+          322,
+          886
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "attack-recover": {
+      "path": "frames/attack-recover.png",
+      "source": "raw/attack-recover.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 165,
+      "scale_uniform": 0.7757575757575758,
+      "translation": [
+        299,
+        414
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        605,
+        1207
+      ],
+      "crop_native": [
+        177,
+        10,
+        1125,
+        1221
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "02aaff042f2aa25857f1c9d2dada8386249ff8c0dc9c7e3ea826ba8575c462cc",
+      "visible_bbox": [
+        445,
+        431,
+        1162,
+        1352
+      ],
+      "weapon_grip_estimate": [
+        1115,
+        892
+      ],
+      "anchor_status": "manual visible pixel estimates; not skeleton or collision validated",
+      "runtime_trim": {
+        "rect_xyxy": [
+          436,
+          426,
+          1165,
+          1361
+        ],
+        "anchor_in_trim": [
+          332,
+          924
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "walk-00": {
+      "path": "frames/walk-00.png",
+      "source": "raw/walk-00.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 153,
+      "scale_uniform": 0.8366013071895425,
+      "translation": [
+        245,
+        374
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        625,
+        1167
+      ],
+      "crop_native": [
+        146,
+        62,
+        1161,
+        1181
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "5c3b13070a79205ebaf1065fd2ec4da60c188b9e1b16ae8ad4ade78f9c77874d",
+      "visible_bbox": [
+        377,
+        436,
+        1206,
+        1352
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          371,
+          432,
+          1216,
+          1363
+        ],
+        "anchor_in_trim": [
+          397,
+          918
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "walk-01": {
+      "path": "frames/walk-01.png",
+      "source": "raw/walk-01.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 156,
+      "scale_uniform": 0.8205128205128205,
+      "translation": [
+        247,
+        392
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        635,
+        1167
+      ],
+      "crop_native": [
+        289,
+        124,
+        1056,
+        1181
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "4f453f5215346980af8b39702e09c2094a290d212bb2e251fa574408c443deca",
+      "visible_bbox": [
+        494,
+        503,
+        1103,
+        1351
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          484,
+          500,
+          1107,
+          1362
+        ],
+        "anchor_in_trim": [
+          284,
+          850
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "walk-02": {
+      "path": "frames/walk-02.png",
+      "source": "raw/walk-02.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 158,
+      "scale_uniform": 0.810126582278481,
+      "translation": [
+        241,
+        413
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        650,
+        1156
+      ],
+      "crop_native": [
+        397,
+        90,
+        1019,
+        1170
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "776930c112a7d15ef7aa019b1d1a678ae3f9d4800307a55360e862c2cd29bdc8",
+      "visible_bbox": [
+        572,
+        496,
+        1057,
+        1351
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          565,
+          491,
+          1068,
+          1359
+        ],
+        "anchor_in_trim": [
+          203,
+          859
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "walk-03": {
+      "path": "frames/walk-03.png",
+      "source": "raw/walk-03.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 148,
+      "scale_uniform": 0.8648648648648649,
+      "translation": [
+        232,
+        368
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        620,
+        1136
+      ],
+      "crop_native": [
+        208,
+        123,
+        1059,
+        1150
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "b1fa0409f8a45899b740d0841cfa50c2b16b98118addab1bc2ff5c03d0b94386",
+      "visible_bbox": [
+        422,
+        484,
+        1138,
+        1352
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          411,
+          475,
+          1149,
+          1363
+        ],
+        "anchor_in_trim": [
+          357,
+          875
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "walk-04": {
+      "path": "frames/walk-04.png",
+      "source": "raw/walk-04.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 160,
+      "scale_uniform": 0.8,
+      "translation": [
+        248,
+        398
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        650,
+        1190
+      ],
+      "crop_native": [
+        257,
+        30,
+        1018,
+        1204
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "6ff4752ba6efddf0f4b4b15f9d8507558a68fd47a9a597593ded3e3a73ae003f",
+      "visible_bbox": [
+        463,
+        432,
+        1054,
+        1352
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          459,
+          422,
+          1063,
+          1358
+        ],
+        "anchor_in_trim": [
+          309,
+          928
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "walk-05": {
+      "path": "frames/walk-05.png",
+      "source": "raw/walk-05.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 160,
+      "scale_uniform": 0.8,
+      "translation": [
+        248,
+        404
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        650,
+        1183
+      ],
+      "crop_native": [
+        357,
+        28,
+        1028,
+        1197
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "6c77a2f9485eebef5c6f9c46821f9071da29ee9784ff8c352d9bdf25a96d559c",
+      "visible_bbox": [
+        544,
+        435,
+        1061,
+        1351
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          536,
+          427,
+          1071,
+          1358
+        ],
+        "anchor_in_trim": [
+          232,
+          923
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "hurt": {
+      "path": "frames/hurt.png",
+      "source": "raw/hurt.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 136,
+      "scale_uniform": 0.9411764705882353,
+      "translation": [
+        100,
+        217
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        710,
+        1204
+      ],
+      "crop_native": [
+        359,
+        110,
+        1088,
+        1218
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "230526a24eb1dc587c5122cdd435ae8a3e2a23a4b79141c2a5d200d164fd7dba",
+      "visible_bbox": [
+        449,
+        333,
+        1113,
+        1352
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          441,
+          326,
+          1119,
+          1361
+        ],
+        "anchor_in_trim": [
+          327,
+          1024
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "stunned": {
+      "path": "frames/stunned.png",
+      "source": "raw/stunned.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 158,
+      "scale_uniform": 0.810126582278481,
+      "translation": [
+        254,
+        405
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        635,
+        1167
+      ],
+      "crop_native": [
+        308,
+        97,
+        1003,
+        1181
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "d55a39648f7fbc143250c5c57401029503a021113d7f0232c8d814bcfed1bd0c",
+      "visible_bbox": [
+        514,
+        494,
+        1057,
+        1352
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          506,
+          483,
+          1068,
+          1359
+        ],
+        "anchor_in_trim": [
+          262,
+          867
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "stunned-02": {
+      "path": "frames/stunned-02.png",
+      "source": "raw/stunned-02.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 158,
+      "scale_uniform": 0.810126582278481,
+      "translation": [
+        254,
+        402
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        635,
+        1170
+      ],
+      "crop_native": [
+        307,
+        107,
+        1005,
+        1184
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "2512649e377503f3643515dd948bb952ed16778e0632750ebd28d6c0af02a196",
+      "visible_bbox": [
+        513,
+        499,
+        1058,
+        1352
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          508,
+          494,
+          1069,
+          1357
+        ],
+        "anchor_in_trim": [
+          260,
+          856
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "recover": {
+      "path": "frames/recover.png",
+      "source": "raw/recover.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 160,
+      "scale_uniform": 0.8,
+      "translation": [
+        180,
+        417
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        735,
+        1166
+      ],
+      "crop_native": [
+        273,
+        22,
+        1031,
+        1216
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "d00ddaa2c28d92df3cf01518440fdef16f5b8a1875c83ebc1402774519c630a1",
+      "visible_bbox": [
+        408,
+        445,
+        994,
+        1381
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          398,
+          441,
+          1005,
+          1384
+        ],
+        "anchor_in_trim": [
+          370,
+          909
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "recover-02": {
+      "path": "frames/recover-02.png",
+      "source": "raw/recover-02.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "head_span_native_estimate": 154,
+      "scale_uniform": 0.8311688311688312,
+      "translation": [
+        228,
+        380
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Manual crown-to-chin and pelvis-floor estimate; uniform scale only; sole baseline registered to 1350; no limb warping",
+      "root_in_source": [
+        650,
+        1167
+      ],
+      "crop_native": [
+        306,
+        149,
+        1082,
+        1181
+      ],
+      "crop_method": "alpha>=32 support bbox plus 12px; original antialiased alpha inside crop preserved",
+      "sha256": "498cbf4699cb642639e8ff00fb4a942d92efa48f546f69a44df35f7b0c1aa8d0",
+      "visible_bbox": [
+        492,
+        514,
+        1117,
+        1352
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          487,
+          503,
+          1123,
+          1359
+        ],
+        "anchor_in_trim": [
+          281,
+          847
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "launched": {
+      "path": "frames/launched.png",
+      "source": "references/shared-launched.png",
+      "source_role": "Unchanged original weaponless reaction; dropped bow not drawn",
+      "native_size": [
+        1536,
+        1536
+      ],
+      "scale_uniform": 1.0,
+      "translation": [
+        0,
+        0
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Preserved existing v7 registered art without alteration",
+      "sha256": "6a38b53d6216935e8ec41f495c236881e9cff43fadd4ad3caf7636c0a43292f2",
+      "visible_bbox": [
+        390,
+        801,
+        1187,
+        1269
+      ],
+      "source_metadata": {
+        "source": "raw/militia/launched.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          33,
+          55,
+          1501,
+          918
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          728.6153846153846,
+          1068.3076923076924
+        ],
+        "offset": [
+          373,
+          771
+        ],
+        "airborne_elevation_px": 120,
+        "feet_anchors": [
+          [
+            1141,
+            1070
+          ],
+          [
+            1130,
+            1230
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          373,
+          778,
+          1204,
+          1326
+        ],
+        "sha256": "6a38b53d6216935e8ec41f495c236881e9cff43fadd4ad3caf7636c0a43292f2",
+        "registered_output_upscaled": false
+      },
+      "runtime_trim": {
+        "rect_xyxy": [
+          372,
+          777,
+          1205,
+          1327
+        ],
+        "anchor_in_trim": [
+          396,
+          573
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "landing": {
+      "path": "frames/landing.png",
+      "source": "references/shared-landing.png",
+      "source_role": "Unchanged original weaponless reaction; dropped bow not drawn",
+      "native_size": [
+        1536,
+        1536
+      ],
+      "scale_uniform": 1.0,
+      "translation": [
+        0,
+        0
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Preserved existing v7 registered art without alteration",
+      "sha256": "245ba4226221d0f21c244dec888c95932944163ab41ecd86654c36c68762a28e",
+      "visible_bbox": [
+        487,
+        991,
+        1106,
+        1367
+      ],
+      "source_metadata": {
+        "source": "raw/militia/landing.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          51,
+          92,
+          1456,
+          944
+        ],
+        "source_head_span_px": 291.45,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.439189,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          689.2307692307693,
+          905.8461538461538
+        ],
+        "offset": [
+          465,
+          952
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            1062,
+            1255
+          ],
+          [
+            984,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          476,
+          955,
+          1118,
+          1398
+        ],
+        "sha256": "245ba4226221d0f21c244dec888c95932944163ab41ecd86654c36c68762a28e",
+        "registered_output_upscaled": false
+      },
+      "runtime_trim": {
+        "rect_xyxy": [
+          475,
+          954,
+          1119,
+          1399
+        ],
+        "anchor_in_trim": [
+          293,
+          396
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "down": {
+      "path": "frames/down.png",
+      "source": "references/shared-down.png",
+      "source_role": "Unchanged original weaponless reaction; dropped bow not drawn",
+      "native_size": [
+        1536,
+        1536
+      ],
+      "scale_uniform": 1.0,
+      "translation": [
+        0,
+        0
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Preserved existing v7 registered art without alteration",
+      "sha256": "127182233881c5b81c84809b2046e3753294a39615b8f9e953f9f21dea9aa55a",
+      "visible_bbox": [
+        334,
+        1127,
+        1227,
+        1380
+      ],
+      "source_metadata": {
+        "source": "raw/militia/down.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "source_visible_bbox_alpha128": [
+          64,
+          227,
+          1712,
+          692
+        ],
+        "source_head_span_px": 236.53,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.54115,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          864.2564102564103,
+          636.8205128205128
+        ],
+        "offset": [
+          300,
+          1005
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            1174,
+            1281
+          ],
+          [
+            1162,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          325,
+          1010,
+          1243,
+          1475
+        ],
+        "sha256": "127182233881c5b81c84809b2046e3753294a39615b8f9e953f9f21dea9aa55a",
+        "registered_output_upscaled": false
+      },
+      "runtime_trim": {
+        "rect_xyxy": [
+          324,
+          1009,
+          1244,
+          1476
+        ],
+        "anchor_in_trim": [
+          444,
+          341
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "grabbed": {
+      "path": "frames/grabbed.png",
+      "source": "references/shared-grabbed.png",
+      "source_role": "Unchanged original weaponless reaction; dropped bow not drawn",
+      "native_size": [
+        1536,
+        1536
+      ],
+      "scale_uniform": 1.0,
+      "translation": [
+        0,
+        0
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "anatomical_anchor_method": "Preserved existing v7 registered art without alteration",
+      "sha256": "3fadbf81fc7f47410ecaa54c5a30122e9d5b50d9cf04a3aa5880cfede4747d4d",
+      "visible_bbox": [
+        540,
+        465,
+        990,
+        1329
+      ],
+      "source_metadata": {
+        "source": "raw/militia/grabbed.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          166,
+          17,
+          926,
+          1476
+        ],
+        "source_head_span_px": 216.62,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.590909,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          551.3846153846154,
+          1512.523076923077
+        ],
+        "offset": [
+          442,
+          456
+        ],
+        "airborne_elevation_px": 35,
+        "feet_anchors": [
+          [
+            698,
+            1201
+          ],
+          [
+            954,
+            1315
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          442,
+          460,
+          1025,
+          1344
+        ],
+        "sha256": "3fadbf81fc7f47410ecaa54c5a30122e9d5b50d9cf04a3aa5880cfede4747d4d",
+        "registered_output_upscaled": false
+      },
+      "runtime_trim": {
+        "rect_xyxy": [
+          441,
+          459,
+          1026,
+          1345
+        ],
+        "anchor_in_trim": [
+          327,
+          891
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    },
+    "arrow": {
+      "path": "frames/arrow.png",
+      "source": "raw/arrow.png",
+      "native_size": [
+        2172,
+        724
+      ],
+      "scale_uniform": 0.21182033096926714,
+      "translation": [
+        761.8572104018913,
+        1272.4737588652483
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "root_role": "projectile nock; forward is +X",
+      "root_in_source": [
+        29,
+        366
+      ],
+      "tip_estimate": [
+        1216,
+        1350
+      ],
+      "crop_native": [
+        17,
+        242,
+        2156,
+        490
+      ],
+      "sha256": "c1033b8f46d2f0a9a83c03da735c1ebf702bac35c4bc91a0e91909c138169cfb",
+      "visible_bbox": [
+        767,
+        1326,
+        1216,
+        1375
+      ],
+      "runtime_trim": {
+        "rect_xyxy": [
+          764,
+          1323,
+          1219,
+          1378
+        ],
+        "anchor_in_trim": [
+          4,
+          27
+        ],
+        "original_canvas": [
+          1536,
+          1536
+        ],
+        "method": "lossless nonzero alpha bounding box +1px; retain original art unchanged",
+        "recommended_only": true
+      }
+    }
+  },
+  "clips": {
+    "idle": {
+      "frames": [
+        "idle"
+      ],
+      "durations_ms": [
+        1000
+      ],
+      "loop": true,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "walk": {
+      "frames": [
+        "walk-00",
+        "walk-01",
+        "walk-02",
+        "walk-03",
+        "walk-04",
+        "walk-05"
+      ],
+      "durations_ms": [
+        160,
+        170,
+        170,
+        160,
+        170,
+        170
+      ],
+      "loop": true,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "attack": {
+      "frames": [
+        "attack-nock",
+        "attack-draw",
+        "attack-release",
+        "attack-recover"
+      ],
+      "durations_ms": [
+        180,
+        300,
+        100,
+        220
+      ],
+      "loop": false,
+      "events": [
+        {
+          "at_ms": 480,
+          "event": "s05.farmer.bow_release"
+        },
+        {
+          "at_ms": 480,
+          "event": "spawn_projectile",
+          "frame": "attack-release",
+          "projectile": "arrow",
+          "spawn_anchor": "projectile_spawn_estimate",
+          "direction": "facing",
+          "collision": "projectile only; no melee hitbox",
+          "impact_sfx": "s05.farmer.arrow_impact",
+          "impact_condition": "confirmed_collision_only"
+        }
+      ],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "hurt": {
+      "frames": [
+        "idle",
+        "hurt",
+        "stunned"
+      ],
+      "durations_ms": [
+        40,
+        110,
+        170
+      ],
+      "loop": false,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "stunned": {
+      "frames": [
+        "stunned",
+        "stunned-02"
+      ],
+      "durations_ms": [
+        220,
+        280
+      ],
+      "loop": true,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "launched": {
+      "frames": [
+        "launched"
+      ],
+      "durations_ms": [
+        300
+      ],
+      "loop": false,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "down": {
+      "frames": [
+        "launched",
+        "landing",
+        "down"
+      ],
+      "durations_ms": [
+        120,
+        130,
+        700
+      ],
+      "loop": false,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "recover": {
+      "frames": [
+        "down",
+        "recover",
+        "recover-02",
+        "idle"
+      ],
+      "durations_ms": [
+        150,
+        220,
+        180,
+        150
+      ],
+      "loop": false,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "grabbed": {
+      "frames": [
+        "grabbed"
+      ],
+      "durations_ms": [
+        500
+      ],
+      "loop": false,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "thrown": {
+      "frames": [
+        "grabbed",
+        "launched"
+      ],
+      "durations_ms": [
+        100,
+        300
+      ],
+      "loop": false,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested"
+    },
+    "retreat": {
+      "frames": [
+        "walk-05",
+        "walk-04",
+        "walk-03",
+        "walk-02",
+        "walk-01",
+        "walk-00"
+      ],
+      "durations_ms": [
+        170,
+        170,
+        160,
+        170,
+        170,
+        160
+      ],
+      "loop": true,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested",
+      "motion": "Runtime moves away from target while facing target; reversed walk reuse, not a knockdown pose"
+    },
+    "defeated": {
+      "frames": [
+        "down"
+      ],
+      "durations_ms": [
+        1000
+      ],
+      "loop": false,
+      "events": [],
+      "review_status": "cloud_visual_review; runtime_not_tested",
+      "terminal_hold": true
+    }
+  },
+  "state_aliases": {
+    "death": "defeated"
+  },
+  "runtime_tested": false,
+  "production_ready": false,
+  "weapon": {
+    "type": "wooden_hunting_bow",
+    "attack": "nock_draw_release_recover",
+    "bow_hand": "left during attack",
+    "draw_hand": "right during attack",
+    "projectile": "arrow",
+    "projectile_root_role": "nock",
+    "anchor_warning": "Manual visible pixel estimates only. Refine spawn position and projectile collisions at runtime; no continuous melee damage."
+  },
+  "known_limitations": [
+    "Per-frame anatomical measurements and anchors manually estimated, not skeleton-validated.",
+    "Bow and garment projections vary between hand-painted poses; validate temporal coherence in runtime.",
+    "Retreat reuses reversed walk and needs runtime displacement away from target.",
+    "Original launched, landing, down, and grabbed are shared weaponless reactions; dropped bow is not drawn.",
+    "Sparse keypose attack and reaction timings are integration recommendations, not gameplay-tested.",
+    "No runtime, repository, or source art modifications were made."
+  ]
+}

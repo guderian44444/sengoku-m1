@@ -1744,6 +1744,7 @@ func boss_voice_finished(actor: int) -> void:
 
 func _update_view() -> void:
 	view.state = sim.state
+	if int(sim.state.get("stage",{}).get("id",0))==5: view._stage05_art.prepare_scene(sim.state)
 	view._fx.muted = testing or not smoke.is_empty()
 	view._fx.sync(sim.state,view)
 	view._fx.sound.set_voice_duck(audio.speech_playing())

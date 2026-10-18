@@ -23,7 +23,7 @@ func _initialize() -> void:
 			var sample:=art.sample({"tick":0},f,elapsed*.03,elapsed*.03)
 			assert(sample.frame_data.texture != null)
 			count+=1
-	assert(count==50)
+	assert(count==74)
 	assert(Data.duration("kusei","s05_kusei_stomp")==5000)
 	assert(Data.actors().hachiya.run.native_face == -1)
 	assert(Data.actors().militia.walk.frames.size()==6 and Data.actors().monk.walk.frames.size()==6)

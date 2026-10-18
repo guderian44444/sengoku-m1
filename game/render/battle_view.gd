@@ -173,6 +173,12 @@ func _update_motion() -> void:
 		_frozen_samples.clear()
 		_npc_alarm.clear()
 	_motion_tick = tick
+	var living_ids := {}
+	for fighter in state.get("fighters",[]): living_ids[int(fighter.id)]=true
+	# Retired reinforcements must not keep an evicted texture alive through a frozen pose.
+	for cache in [_positions,_walk_distance,_walk_ticks,_frozen_samples,_moving,_facing_back,_npc_alarm]:
+		for id in cache.keys():
+			if not living_ids.has(id): cache.erase(id)
 	for fighter in state.get("fighters", []):
 		var id := int(fighter.get("id", -1))
 		var position_now := Vector2(float(fighter.get("x", 0)), float(fighter.get("y", 0)))
@@ -820,8 +826,9 @@ func _draw_art_frame(frame: Dictionary, origin: Vector2, height: float, face: fl
 			_draw_art_frame(layer, origin, height, face, rotation, tint, base_height)
 		return
 	var region: Rect2 = frame.region
-	var scale := height / (base_height if base_height > 0 else region.size.y)
-	var size := region.size * scale
+	var source_size: Vector2 = frame.get("source_size",region.size)
+	var scale := height / (base_height if base_height > 0 else source_size.y)
+	var size := source_size * scale
 	var anchor: Vector2 = frame.get("anchor", Vector2(region.size.x * 0.5, region.size.y))
 	draw_set_transform(origin, rotation, Vector2(face, 1))
 	if frame.has("clip_polygon"):
@@ -890,7 +897,7 @@ func _draw_frame_shadow(frame: Dictionary, projection: Transform2D, height: floa
 		for point in frame.clip_polygon: uvs.append((point + region.position) / frame.texture.get_size())
 		draw_polygon(frame.clip_polygon,PackedColorArray([tint]),uvs,frame.texture)
 	else:
-		draw_texture_rect_region(frame.texture,Rect2(Vector2.ZERO,region.size),region,tint)
+		draw_texture_rect_region(frame.texture,Rect2(Vector2.ZERO,frame.get("source_size",region.size)),region,tint)
 	draw_set_transform(Vector2.ZERO)
 
 func _draw_pose_shadow(frame: Dictionary, origin: Vector2, height: float, face: float, rotation: float, z: float, contacts: Array = [], fighter: Dictionary = {}) -> void:
@@ -2012,7 +2019,7 @@ func _draw_arrow_rain(effect: Dictionary, behind: bool) -> void:
 		elif progress>=1 and age<36: draw_line(landing-Vector2(0,19),landing,Color(.94,.87,.69,opacity*.7),1.2,true)
 
 func _draw_effect(effect: Dictionary) -> void:
-	if effect.type in ["s05_fx","s05_wave"]:
+	if effect.type in ["s05_fx","s05_wave"] or effect.get("s05_arrow",false):
 		_stage05_art.effect(self,effect)
 		return
 	if effect.has("mikawa_projectile") or effect.type == "mikawa_fx":

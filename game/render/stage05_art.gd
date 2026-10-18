@@ -3,29 +3,82 @@ extends RefCounted
 const Data = preload("res://core/stage05_data.gd")
 # Bound decoded texture memory; files retain their original PNG bytes.
 const CACHE_BYTES := 192*1024*1024
+const RUNTIME := "../stage5-runtime/"
 var textures: Dictionary = {}
 var recent: Array = []
 var cached_bytes := 0
+var profiling := false
+var metrics := {"hits":0,"misses":0,"evictions":0,"decode_us":0,"prepare_us":0,"upload_us":0,"uploaded_bytes":0,"peak_cached_bytes":0}
+var atlas: Dictionary = {}
+var prepared_node := -1
+var last_prepare_ms := 0.0
+var use_atlas := true # Native profiling can compare the untouched masters against derivatives.
+
+func atlas_manifest() -> Dictionary:
+	if atlas.is_empty(): atlas=Data.read(RUNTIME+"manifest.json")
+	return atlas
+
+func prepare_scene(world: Dictionary) -> void:
+	if not use_atlas: return
+	var node := int(world.get("ikki",{}).get("node",0))
+	if node==prepared_node: return
+	var started := Time.get_ticks_usec()
+	var meta := atlas_manifest()
+	var groups := ["militia","monk","sickle_farmer","hunting_bow_farmer"]
+	var upcoming: String={1:"hachiya",3:"natsume",4:"kusei"}.get(int(world.stage.index),"")
+	if not upcoming.is_empty(): groups.append(upcoming)
+	for f in world.get("fighters",[]):
+		var role: String=f.get("s05_role","")
+		if not role.is_empty() and role not in groups: groups.append(role)
+	for prop in world.get("props",[]):
+		if prop.has("s05_asset"):
+			var group: String="prop_"+str(prop.s05_asset)
+			if group not in groups: groups.append(group)
+	var paths := ["backgrounds/"+Data.BACKGROUNDS[int(world.stage.index)]+".png"]
+	for group in groups:
+		for page in meta.groups[group]: paths.append(RUNTIME+str(page))
+	var keep: Array=paths.map(func(path):return path+"[]")
+	for key in textures.keys():
+		if key not in keep:
+			cached_bytes-=int(textures[key].bytes);textures.erase(key);recent.erase(key)
+	for path in paths: texture(path)
+	assert(cached_bytes<=CACHE_BYTES and keep.all(func(key):return textures.has(key)),"A whole encounter must fit without texture churn")
+	prepared_node=node;last_prepare_ms=float(Time.get_ticks_usec()-started)/1000
 
 func texture(path: String, crop: Array = []) -> Texture2D:
 	var key := path+str(crop)
 	if textures.has(key):
+		if profiling: metrics.hits+=1
 		recent.erase(key); recent.append(key)
 		return textures[key].texture
+	var started := Time.get_ticks_usec() if profiling else 0
 	var source := Image.load_from_file(Data.ROOT+path)
+	var decoded := Time.get_ticks_usec() if profiling else 0
 	assert(source != null,"Missing stage-five art: "+path)
 	if not crop.is_empty(): source = source.get_region(Rect2i(int(crop[0]),int(crop[1]),int(crop[2]),int(crop[3])))
-	source.generate_mipmaps()
+	# BattleView uses linear filtering; these derivatives already have two screen pixels per pixel.
+	if not use_atlas: source.generate_mipmaps()
 	var size := source.get_data_size()
 	while not recent.is_empty() and cached_bytes+size > CACHE_BYTES:
 		var old: String = recent.pop_front()
 		cached_bytes -= int(textures[old].bytes)
 		textures.erase(old)
+		if profiling: metrics.evictions+=1
+	var prepared := Time.get_ticks_usec() if profiling else 0
 	var tex := ImageTexture.create_from_image(source)
 	textures[key] = {"texture":tex,"bytes":size}; recent.append(key); cached_bytes += size
+	if profiling:
+		metrics.misses+=1;metrics.decode_us+=decoded-started;metrics.prepare_us+=prepared-decoded
+		metrics.upload_us+=Time.get_ticks_usec()-prepared;metrics.uploaded_bytes+=size
+		metrics.peak_cached_bytes=maxi(metrics.peak_cached_bytes,cached_bytes)
 	return tex
 
 func frame(row: Dictionary) -> Dictionary:
+	var meta := atlas_manifest()
+	if use_atlas and meta.entries.has(str(row.path)):
+		var entry: Dictionary=meta.entries[str(row.path)]
+		var tex := texture(RUNTIME+str(entry.page))
+		return {"texture":tex,"region":Rect2(entry.region[0],entry.region[1],entry.region[2],entry.region[3]),"source_size":Vector2(entry.crop[2],entry.crop[3]),"anchor":Vector2(row.anchor[0]-entry.crop[0],row.anchor[1]-entry.crop[1]),"body_height":float(row.body_height),"opaque_bounds":Rect2(0,0,entry.crop[2],entry.crop[3])}
 	var crop: Array = row.get("crop",[])
 	var tex := texture(str(row.path),crop)
 	var offset := Vector2(crop[0],crop[1]) if not crop.is_empty() else Vector2.ZERO
@@ -42,10 +95,10 @@ func sample(world: Dictionary, fighter: Dictionary, walk_tick: float, clock_tick
 	elif action == "grabbed" and not clips.has(action): clip = "hurt"
 	elif action in ["dead","defeated"] or fighter.hp <= 0: clip = "down"
 	elif action in ["launched","thrown"] and not clips.has(action): clip = "down"; ms = Data.duration(role,clip)-1
-	elif action == "retreat": clip = "retreat_run" if clips.has("retreat_run") else "run"
+	elif action == "retreat": clip = "retreat" if clips.has("retreat") else ("retreat_run" if clips.has("retreat_run") else "run")
 	elif action == "idle" and fighter.get("moving",false): clip = str(fighter.get("s05_move_clip","walk"))
 	if clip == "idle": ms = clock_tick*1000.0/60.0
-	elif clip in ["walk","run","retreat_run"]: ms = walk_tick*1000.0/60.0*Data.speed(fighter)
+	elif clip in ["walk","run","retreat_run","retreat"]: ms = walk_tick*1000.0/60.0*Data.speed(fighter)
 	var spec: Dictionary = clips[clip]
 	var index := Data.frame_index(spec,ms)
 	var row: Dictionary = spec.frames[index]
@@ -71,6 +124,11 @@ func draw_landscape(view) -> void:
 
 func effect(view, e: Dictionary) -> void:
 	var point := Vector2(float(e.x)-view.camera_x,float(e.y)-float(e.z))
+	if e.get("s05_arrow",false):
+		var arrow: Dictionary=Data.read("../stage5-farmers/arrow.json")
+		point.x-=(float(arrow.tip_estimate[0])-float(arrow.anchor[0]))*146.0/810*int(e.face)
+		view._draw_art_frame(frame(arrow),point,146,int(e.face),0,Color.WHITE,810)
+		return
 	if e.type == "s05_fx":
 		var age := float(int(e.max_life)-int(e.life))*1000/60
 		var index := mini(25,floori(age/5))
@@ -81,8 +139,8 @@ func effect(view, e: Dictionary) -> void:
 		return
 	var kind: String=e.s05_asset
 	var path := "natsume/skills/sources/8f3c72ed36c58bb2.png" if kind=="sweep" else "natsume/fx_patch_v3/natsume-%s-fx-native-crop.png"%("diag" if kind=="diagonal" else "down")
-	var tex := texture(path)
-	var drawing := frame({"path":path,"anchor":[tex.get_width()*.85,tex.get_height()*.75],"body_height":691.2})
+	var canvas: Array=atlas_manifest().entries[path].canvas
+	var drawing := frame({"path":path,"anchor":[canvas[0]*.85,canvas[1]*.75],"body_height":691.2})
 	var alpha := minf(1.0,float(e.life)/5.0)
 	view._draw_art_frame(drawing,point,Data.height("natsume")*1.25,e.face,0,Color(1,1,1,alpha),691.2)
 

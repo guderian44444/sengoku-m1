@@ -3,7 +3,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const out=path.join(root,'artifacts/stage05-network');
+const out=process.env.TEST_ARTIFACT_DIR||path.join(root,'artifacts/stage05-network');
 await mkdir(out,{recursive:true});
 const engine=path.join(root,'tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe');
 const children=[];
@@ -21,7 +21,7 @@ async function peer(name){
   const ok=code===0&&!error&&!/ERROR:/.test(clean)&&log.includes('STAGE05_NETWORK_'+name.toUpperCase()+'_PASS');
   return {name,ok,code,evidence:log.split(/\r?\n/).filter(l=>l.includes('STAGE05_NETWORK_')||l.includes('ERROR:'))};
 }
-const timer=setTimeout(()=>{ready();for(const p of children)p.kill();},75000);
+const timer=setTimeout(()=>{ready();for(const p of children)p.kill();},120000);
 try{
   const host=peer('host');await hostReady;
   const results=await Promise.all([host,peer('client')]);

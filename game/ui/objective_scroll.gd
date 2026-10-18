@@ -42,6 +42,10 @@ static func objective(world: Dictionary) -> Dictionary:
 		order_text = "掃除路障　打通去路"
 		state = "obstacle"
 	var encounter: Dictionary = world.get("encounter",{})
+	if world.has("ikki") and not stage.get("go",false):
+		var flags: int=world.props.filter(func(p):return p.get("s05_banner",false) and not p.broken).size()
+		order_text="破旗斷援　尚餘 %d 支"%flags if flags>0 else "旗幟全破　殲滅餘軍"
+		state="obstacle" if flags>0 else "battle"
 	if not encounter.is_empty() and not stage.get("go",false):
 		match encounter.kind:
 			"alarm":

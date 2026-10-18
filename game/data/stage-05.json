@@ -7,7 +7,7 @@
     12,
     20
   ],
-  "tuning_status": "initial proposal from v09 assessment",
+  "tuning_status": "2026-10-18 playtest: banner-controlled garrisons, one-for-one replacement",
   "segments": [
     {
       "name": "寺町",
@@ -24,20 +24,38 @@
           "end": 1400,
           "boss": "",
           "role": "militia",
-          "finite_batches": 2,
-          "units_per_batch": 6,
           "objects": [
             {
               "asset": "militia_ragged",
-              "x": 590,
-              "y": 375
+              "x": 440,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "militia_ragged",
+              "x": 440,
+              "y": 565,
+              "banner_pair": 1
+            },
+            {
+              "asset": "militia_ragged",
+              "x": 1010,
+              "y": 395,
+              "banner_pair": 2
+            },
+            {
+              "asset": "militia_ragged",
+              "x": 1010,
+              "y": 565,
+              "banner_pair": 2
             },
             {
               "asset": "rice",
               "x": 840,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 6
         },
         {
           "node": 2,
@@ -45,20 +63,38 @@
           "end": 2800,
           "boss": "",
           "role": "militia",
-          "finite_batches": 2,
-          "units_per_batch": 7,
           "objects": [
             {
               "asset": "militia_patched",
-              "x": 1990,
-              "y": 375
+              "x": 1840,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "militia_patched",
+              "x": 1840,
+              "y": 565,
+              "banner_pair": 1
+            },
+            {
+              "asset": "militia_patched",
+              "x": 2410,
+              "y": 395,
+              "banner_pair": 2
+            },
+            {
+              "asset": "militia_patched",
+              "x": 2410,
+              "y": 565,
+              "banner_pair": 2
             },
             {
               "asset": "wood",
               "x": 2240,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 7
         }
       ]
     },
@@ -77,20 +113,38 @@
           "end": 1400,
           "boss": "",
           "role": "militia",
-          "finite_batches": 2,
-          "units_per_batch": 6,
           "objects": [
             {
               "asset": "militia_wicker",
-              "x": 590,
-              "y": 375
+              "x": 440,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "militia_wicker",
+              "x": 440,
+              "y": 565,
+              "banner_pair": 1
+            },
+            {
+              "asset": "militia_wicker",
+              "x": 1010,
+              "y": 395,
+              "banner_pair": 2
+            },
+            {
+              "asset": "militia_wicker",
+              "x": 1010,
+              "y": 565,
+              "banner_pair": 2
             },
             {
               "asset": "rice",
               "x": 840,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 6
         },
         {
           "node": 4,
@@ -98,20 +152,26 @@
           "end": 2800,
           "boss": "",
           "role": "militia",
-          "finite_batches": 2,
-          "units_per_batch": 7,
           "objects": [
             {
               "asset": "militia_ragged",
-              "x": 1990,
-              "y": 375
+              "x": 2120,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "militia_ragged",
+              "x": 2120,
+              "y": 565,
+              "banner_pair": 1
             },
             {
               "asset": "wood",
               "x": 2240,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 7
         },
         {
           "node": 5,
@@ -119,20 +179,38 @@
           "end": 4200,
           "boss": "hachiya",
           "role": "militia",
-          "finite_batches": 2,
-          "units_per_batch": 8,
           "objects": [
             {
               "asset": "militia_patched",
-              "x": 3390,
-              "y": 375
+              "x": 3240,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "militia_patched",
+              "x": 3240,
+              "y": 565,
+              "banner_pair": 1
+            },
+            {
+              "asset": "militia_patched",
+              "x": 3810,
+              "y": 395,
+              "banner_pair": 2
+            },
+            {
+              "asset": "militia_patched",
+              "x": 3810,
+              "y": 565,
+              "banner_pair": 2
             },
             {
               "asset": "jar",
               "x": 3640,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 8
         }
       ]
     },
@@ -151,20 +229,26 @@
           "end": 1400,
           "boss": "",
           "role": "monk",
-          "finite_batches": 2,
-          "units_per_batch": 4,
           "objects": [
             {
               "asset": "temple_brown",
-              "x": 590,
-              "y": 375
+              "x": 720,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "temple_brown",
+              "x": 720,
+              "y": 565,
+              "banner_pair": 1
             },
             {
               "asset": "rice",
               "x": 840,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 4
         },
         {
           "node": 7,
@@ -172,20 +256,26 @@
           "end": 2800,
           "boss": "",
           "role": "monk",
-          "finite_batches": 2,
-          "units_per_batch": 5,
           "objects": [
             {
               "asset": "temple_ochre",
-              "x": 1990,
-              "y": 375
+              "x": 2120,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "temple_ochre",
+              "x": 2120,
+              "y": 565,
+              "banner_pair": 1
             },
             {
               "asset": "wood",
               "x": 2240,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 5
         }
       ]
     },
@@ -204,20 +294,26 @@
           "end": 1400,
           "boss": "",
           "role": "monk",
-          "finite_batches": 2,
-          "units_per_batch": 4,
           "objects": [
             {
               "asset": "temple_brown",
-              "x": 590,
-              "y": 375
+              "x": 720,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "temple_brown",
+              "x": 720,
+              "y": 565,
+              "banner_pair": 1
             },
             {
               "asset": "rice",
               "x": 840,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 4
         },
         {
           "node": 9,
@@ -225,20 +321,26 @@
           "end": 2800,
           "boss": "",
           "role": "monk",
-          "finite_batches": 2,
-          "units_per_batch": 5,
           "objects": [
             {
               "asset": "temple_ochre",
-              "x": 1990,
-              "y": 375
+              "x": 2120,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "temple_ochre",
+              "x": 2120,
+              "y": 565,
+              "banner_pair": 1
             },
             {
               "asset": "wood",
               "x": 2240,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 5
         },
         {
           "node": 10,
@@ -246,20 +348,26 @@
           "end": 4200,
           "boss": "natsume",
           "role": "monk",
-          "finite_batches": 2,
-          "units_per_batch": 6,
           "objects": [
             {
               "asset": "temple_brown",
-              "x": 3390,
-              "y": 375
+              "x": 3520,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "temple_brown",
+              "x": 3520,
+              "y": 565,
+              "banner_pair": 1
             },
             {
               "asset": "jar",
               "x": 3640,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 6
         }
       ]
     },
@@ -278,20 +386,26 @@
           "end": 1400,
           "boss": "",
           "role": "monk",
-          "finite_batches": 2,
-          "units_per_batch": 4,
           "objects": [
             {
               "asset": "temple_ochre",
-              "x": 590,
-              "y": 375
+              "x": 720,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "temple_ochre",
+              "x": 720,
+              "y": 565,
+              "banner_pair": 1
             },
             {
               "asset": "rice",
               "x": 840,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 4
         },
         {
           "node": 12,
@@ -299,20 +413,26 @@
           "end": 2800,
           "boss": "kusei",
           "role": "monk",
-          "finite_batches": 2,
-          "units_per_batch": 4,
           "objects": [
             {
               "asset": "temple_brown",
-              "x": 1990,
-              "y": 375
+              "x": 2120,
+              "y": 395,
+              "banner_pair": 1
+            },
+            {
+              "asset": "temple_brown",
+              "x": 2120,
+              "y": 565,
+              "banner_pair": 1
             },
             {
               "asset": "wood",
               "x": 2240,
               "y": 575
             }
-          ]
+          ],
+          "garrison": 4
         }
       ]
     }

@@ -1,0 +1,1725 @@
+{
+  "sickle_farmer": {
+    "idle": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/idle.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            558,
+            555,
+            537,
+            805
+          ],
+          "duration_ms": 1000,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            619,
+            885
+          ],
+          "weapon_tip_estimate": [
+            750,
+            862
+          ]
+        }
+      ],
+      "duration_ms": 1000,
+      "loop": true,
+      "events": [],
+      "native_face": 1
+    },
+    "hurt": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/idle.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            558,
+            555,
+            537,
+            805
+          ],
+          "duration_ms": 40,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            619,
+            885
+          ],
+          "weapon_tip_estimate": [
+            750,
+            862
+          ]
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/hurt.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            433,
+            517,
+            688,
+            841
+          ],
+          "duration_ms": 110,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/stunned.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            526,
+            555,
+            494,
+            804
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 320,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "stunned": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/stunned.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            526,
+            555,
+            494,
+            804
+          ],
+          "duration_ms": 220,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/stunned-02.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            526,
+            579,
+            491,
+            779
+          ],
+          "duration_ms": 280,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/stunned.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            526,
+            555,
+            494,
+            804
+          ],
+          "duration_ms": 220,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 720,
+      "loop": true,
+      "events": [],
+      "native_face": 1
+    },
+    "launched": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/launched.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            373,
+            778,
+            831,
+            548
+          ],
+          "duration_ms": 300,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 300,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "down": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/launched.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            373,
+            778,
+            831,
+            548
+          ],
+          "duration_ms": 120,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/landing.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            476,
+            955,
+            642,
+            443
+          ],
+          "duration_ms": 130,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/down.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            325,
+            1010,
+            918,
+            465
+          ],
+          "duration_ms": 700,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 950,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "recover": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/down.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            325,
+            1010,
+            918,
+            465
+          ],
+          "duration_ms": 150,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/recover.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            470,
+            680,
+            562,
+            674
+          ],
+          "duration_ms": 220,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/recover-02.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            478,
+            587,
+            658,
+            772
+          ],
+          "duration_ms": 180,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/idle.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            558,
+            555,
+            537,
+            805
+          ],
+          "duration_ms": 150,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            619,
+            885
+          ],
+          "weapon_tip_estimate": [
+            750,
+            862
+          ]
+        }
+      ],
+      "duration_ms": 700,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "walk": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-00.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            437,
+            637,
+            687,
+            718
+          ],
+          "duration_ms": 160,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-01.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            518,
+            630,
+            465,
+            729
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-02.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            583,
+            598,
+            398,
+            757
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-03.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            437,
+            631,
+            685,
+            728
+          ],
+          "duration_ms": 160,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-04.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            467,
+            629,
+            544,
+            724
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-05.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            556,
+            625,
+            412,
+            732
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 1000,
+      "loop": true,
+      "events": [],
+      "native_face": 1
+    },
+    "s05_sickle_farmer_attack": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/idle.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            558,
+            555,
+            537,
+            805
+          ],
+          "duration_ms": 70,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            619,
+            885
+          ],
+          "weapon_tip_estimate": [
+            750,
+            862
+          ]
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/attack-windup.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            432,
+            488,
+            717,
+            871
+          ],
+          "duration_ms": 190,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            507,
+            650
+          ],
+          "weapon_tip_estimate": [
+            618,
+            592
+          ]
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/attack-impact.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            396,
+            630,
+            750,
+            729
+          ],
+          "duration_ms": 100,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            956,
+            1046
+          ],
+          "weapon_tip_estimate": [
+            1130,
+            1159
+          ]
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/attack-recover.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            392,
+            583,
+            681,
+            776
+          ],
+          "duration_ms": 180,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            485,
+            976
+          ],
+          "weapon_tip_estimate": [
+            545,
+            1117
+          ]
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/idle.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            558,
+            555,
+            537,
+            805
+          ],
+          "duration_ms": 100,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            619,
+            885
+          ],
+          "weapon_tip_estimate": [
+            750,
+            862
+          ]
+        }
+      ],
+      "duration_ms": 640,
+      "loop": false,
+      "events": [
+        {
+          "at_ms": 260,
+          "event": "s05.farmer.sickle_swing"
+        },
+        {
+          "window_ms": [
+            260,
+            360
+          ],
+          "event": "hitbox_active",
+          "shape": "sickle_tip_arc",
+          "condition": "confirmed_collision_only",
+          "impact_sfx": "s05.farmer.sickle_impact"
+        }
+      ],
+      "native_face": 1
+    },
+    "grabbed": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/grabbed.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            442,
+            460,
+            583,
+            884
+          ],
+          "duration_ms": 500,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 500,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "thrown": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/grabbed.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            442,
+            460,
+            583,
+            884
+          ],
+          "duration_ms": 100,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/launched.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            373,
+            778,
+            831,
+            548
+          ],
+          "duration_ms": 300,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 400,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "retreat": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-05.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            556,
+            625,
+            412,
+            732
+          ],
+          "duration_ms": 160,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-04.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            467,
+            629,
+            544,
+            724
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-03.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            437,
+            631,
+            685,
+            728
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-02.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            583,
+            598,
+            398,
+            757
+          ],
+          "duration_ms": 160,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-01.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            518,
+            630,
+            465,
+            729
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/sickle/frames/walk-00.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            437,
+            637,
+            687,
+            718
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 1000,
+      "loop": true,
+      "events": [],
+      "native_face": 1
+    },
+    "defeated": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/sickle/frames/down.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            325,
+            1010,
+            918,
+            465
+          ],
+          "duration_ms": 1000,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 1000,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    }
+  },
+  "hunting_bow_farmer": {
+    "idle": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/idle.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            493,
+            440,
+            605,
+            921
+          ],
+          "duration_ms": 1000,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            1047,
+            852
+          ]
+        }
+      ],
+      "duration_ms": 1000,
+      "loop": true,
+      "events": [],
+      "native_face": 1
+    },
+    "walk": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/walk-00.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            372,
+            433,
+            843,
+            929
+          ],
+          "duration_ms": 160,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-01.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            485,
+            501,
+            621,
+            860
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-02.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            566,
+            492,
+            501,
+            866
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-03.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            412,
+            476,
+            736,
+            886
+          ],
+          "duration_ms": 160,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-04.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            460,
+            423,
+            602,
+            934
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-05.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            537,
+            428,
+            533,
+            929
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 1000,
+      "loop": true,
+      "events": [],
+      "native_face": 1
+    },
+    "s05_hunting_bow_farmer_shot": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/attack-nock.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            401,
+            455,
+            844,
+            906
+          ],
+          "duration_ms": 180,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            1102,
+            876
+          ]
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/attack-draw.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            447,
+            471,
+            734,
+            884
+          ],
+          "duration_ms": 300,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            1094,
+            782
+          ]
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/attack-release.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            447,
+            465,
+            687,
+            888
+          ],
+          "duration_ms": 100,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            1099,
+            780
+          ],
+          "projectile_spawn_estimate": [
+            726,
+            758
+          ]
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/attack-recover.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            437,
+            427,
+            727,
+            933
+          ],
+          "duration_ms": 220,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            1115,
+            892
+          ]
+        }
+      ],
+      "duration_ms": 800,
+      "loop": false,
+      "events": [
+        {
+          "at_ms": 480,
+          "event": "s05.farmer.bow_release"
+        },
+        {
+          "at_ms": 480,
+          "event": "spawn_projectile",
+          "frame": "attack-release",
+          "projectile": "arrow",
+          "spawn_anchor": "projectile_spawn_estimate",
+          "direction": "facing",
+          "collision": "projectile only; no melee hitbox",
+          "impact_sfx": "s05.farmer.arrow_impact",
+          "impact_condition": "confirmed_collision_only"
+        }
+      ],
+      "native_face": 1
+    },
+    "hurt": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/idle.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            493,
+            440,
+            605,
+            921
+          ],
+          "duration_ms": 40,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            1047,
+            852
+          ]
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/hurt.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            442,
+            327,
+            676,
+            1033
+          ],
+          "duration_ms": 110,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/stunned.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            507,
+            484,
+            560,
+            874
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 320,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "stunned": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/stunned.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            507,
+            484,
+            560,
+            874
+          ],
+          "duration_ms": 220,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/stunned-02.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            509,
+            495,
+            559,
+            861
+          ],
+          "duration_ms": 280,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 500,
+      "loop": true,
+      "events": [],
+      "native_face": 1
+    },
+    "launched": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/launched.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            373,
+            778,
+            831,
+            548
+          ],
+          "duration_ms": 300,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 300,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "down": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/launched.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            373,
+            778,
+            831,
+            548
+          ],
+          "duration_ms": 120,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/landing.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            476,
+            955,
+            642,
+            443
+          ],
+          "duration_ms": 130,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/down.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            325,
+            1010,
+            918,
+            465
+          ],
+          "duration_ms": 700,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 950,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "recover": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/down.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            325,
+            1010,
+            918,
+            465
+          ],
+          "duration_ms": 150,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/recover.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            399,
+            442,
+            605,
+            941
+          ],
+          "duration_ms": 220,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/recover-02.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            488,
+            504,
+            634,
+            854
+          ],
+          "duration_ms": 180,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/idle.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            493,
+            440,
+            605,
+            921
+          ],
+          "duration_ms": 150,
+          "root_motion_px": 0,
+          "weapon_grip_estimate": [
+            1047,
+            852
+          ]
+        }
+      ],
+      "duration_ms": 700,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "grabbed": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/grabbed.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            442,
+            460,
+            583,
+            884
+          ],
+          "duration_ms": 500,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 500,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "thrown": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/grabbed.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            442,
+            460,
+            583,
+            884
+          ],
+          "duration_ms": 100,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/launched.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            373,
+            778,
+            831,
+            548
+          ],
+          "duration_ms": 300,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 400,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    },
+    "retreat": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/walk-05.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            537,
+            428,
+            533,
+            929
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-04.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            460,
+            423,
+            602,
+            934
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-03.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            412,
+            476,
+            736,
+            886
+          ],
+          "duration_ms": 160,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-02.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            566,
+            492,
+            501,
+            866
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-01.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            485,
+            501,
+            621,
+            860
+          ],
+          "duration_ms": 170,
+          "root_motion_px": 0
+        },
+        {
+          "path": "../stage5-farmers/bow/frames/walk-00.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            372,
+            433,
+            843,
+            929
+          ],
+          "duration_ms": 160,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 1000,
+      "loop": true,
+      "events": [],
+      "native_face": 1
+    },
+    "defeated": {
+      "frames": [
+        {
+          "path": "../stage5-farmers/bow/frames/down.png",
+          "anchor": [
+            768,
+            1350
+          ],
+          "body_height": 810,
+          "canvas": [
+            1536,
+            1536
+          ],
+          "crop": [
+            325,
+            1010,
+            918,
+            465
+          ],
+          "duration_ms": 1000,
+          "root_motion_px": 0
+        }
+      ],
+      "duration_ms": 1000,
+      "loop": false,
+      "events": [],
+      "native_face": 1
+    }
+  }
+}

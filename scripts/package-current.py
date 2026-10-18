@@ -86,7 +86,7 @@ def runtime_files():
     hot = ROOT/'game/audio/local-stage4/s04_hot.ogg'
     assert hashlib.sha256(hot.read_bytes()).hexdigest() == 'c52705340bfa48fad98ad775f59b0b62f84a1df4dcd139d8008b2830d60dab3e'
     add(hot)
-    for name in ('stage5','officer-fx-power-v4'):
+    for name in ('stage5','stage5-farmers','stage5-runtime','officer-fx-power-v4'):
         folder=ROOT/'game/assets'/name
         add(folder/'runtime-files.json')
         manifest=json.loads((folder/'runtime-files.json').read_text('utf-8'))
@@ -119,6 +119,7 @@ def runtime_files():
     add(ROOT/'game/audio/props-v41/CREDITS.txt')
     add(ROOT/'docs/STAGE03-V41.md')
     add(ROOT/'docs/STAGE04-REBUILD-20261018.md')
+    add(ROOT/'docs/STAGE05-PLAYTEST-REVISION-20261018.md')
     add(ROOT/'docs/STAGE05-INTEGRATION-20261018.md')
     for folder in ('game/audio/title-amenoshita-v1','game/audio/weapons-v3'):
         for path in (ROOT/folder).iterdir():

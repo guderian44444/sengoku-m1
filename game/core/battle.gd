@@ -1421,6 +1421,7 @@ func _enemy_input(fighter: Dictionary) -> void:
 		fighter.move_dx = fighter.face
 		var old_x: float = fighter.x
 		var entry_speed: float = 2.8 * HERO_PROFILES[target.kind].move_speed if fighter.kind == "boss" else 2.4
+		if fighter.has("s05_role"): entry_speed *= Stage05.Data.speed(fighter)
 		var entry_step := move_toward(fighter.x,fighter.entry_x,entry_speed) - float(fighter.x)
 		_move_fighter(fighter,entry_step)
 		var blocked := is_equal_approx(old_x,fighter.x)
@@ -2010,7 +2011,11 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 				# Light strings deal damage without keeping minibosses trapped in repeated hurt recovery.
 				steady = attack_action in ["light","air_light"] and target.freeze == 0 and target.stun == 0
 				heavy = false
-			if attacker.get("kind","") == "hideyoshi" and attack_action == "charged":
+			if Stage05.standing_monk(target):
+				target.knockback=(12.0 if heavy or strong_hit else 6.0)*(1 if target.x>=source_x else -1)
+				target.z=0.0;target.vz=0.0;target.airborne_lock=false;target.bounces_left=0
+				_begin(target,"frozen" if target.freeze>0 else "hurt")
+			elif attacker.get("kind","") == "hideyoshi" and attack_action == "charged":
 				target.z = 0.0; target.vz = 0.0; target.knockback = 0.0; target.stun = 0
 				target.airborne_lock = false; target.bounces_left = 0
 				_begin(target,"down")
@@ -2163,6 +2168,10 @@ func _launch(target: Dictionary, direction: int, horizontal: float = 8.0, vertic
 	if charged_release_invulnerable(target) or not Stage04.permits_launch(target): return
 	if target.kind == "boss" and target.hp <= 0: return
 	if target.held_by != 0 or target.freeze > 0: return
+	if Stage05.standing_monk(target):
+		target.knockback=direction*horizontal
+		_begin(target,"hurt")
+		return
 	target.knockback = direction * (9.0 if target.team == 0 and horizontal >= 8.0 else horizontal)
 	target.z = maxf(target.z, 1.0)
 	target.vz = vertical
@@ -2533,6 +2542,9 @@ func _add_drop(kind: String, x: float, y: float, owner: int = 0) -> bool:
 
 
 func _begin(fighter: Dictionary, action: String) -> void:
+	if Stage05.standing_monk(fighter) and action in ["down","launched","thrown","recovering"]:
+		action="frozen" if fighter.freeze>0 else "hurt"
+		fighter.z=0.0;fighter.vz=0.0;fighter.airborne_lock=false;fighter.bounces_left=0
 	if fighter.kind == "hideyoshi" and action == "charged": fighter.knockback = 0.0
 	fighter.combat_previous_ms = -1.0
 	fighter.combat_step = 0.0

@@ -39,7 +39,7 @@ func run() -> void:
 			boss.x=left+850;boss.y=500
 			var move: String={"hachiya":"s05_hachiya_sweep","natsume":"s05_natsume_diagonal","kusei":"s05_kusei_stomp"}[boss.s05_role]
 			S5.start(app.sim,boss,move,app.sim.state.fighters[0])
-			boss.action_tick=32 if boss.s05_role=="natsume" else (31 if boss.s05_role=="hachiya" else 39)
+			boss.action_tick=18 if boss.s05_role=="natsume" else (31 if boss.s05_role=="hachiya" else 39)
 			S5.attack(app.sim,boss)
 		app._camera_scene=-1;app._update_view()
 		assert(Wire.valid_snapshot(app.sim.state))
