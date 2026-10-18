@@ -1,6 +1,7 @@
 extends RefCounted
 
 const CampaignMusic = preload("res://core/campaign_music.gd")
+const Mikawa = preload("res://core/stage04_data.gd")
 
 const Stage03 = preload("res://core/stage03_encounter.gd")
 const Battle = preload("res://core/battle.gd")
@@ -11,7 +12,7 @@ const Achievements = preload("res://core/achievements.gd")
 const ACTIONS := ["victory", "idle", "light", "charge", "heavy", "charged", "throw", "special", "windup", "hurt", "down", "defeated", "holding", "grabbed", "thrown", "stunned", "rising", "ground_slam", "low_sweep", "dash_strike", "dash_heavy", "air_light", "air_heavy", "upper_heavy", "charged_upper", "charged_slam", "mixed_finisher", "mixed_rising", "retreat", "pulled", "frozen", "spear_thrust", "spear_sweep", "spear_butt", "flag_poke", "flag_sweep", "flag_slam", "commander_cut", "commander_rise", "commander_dash", "boss_sweep", "boss_smash", "boss_chain", "bow_shot", "gun_shot", "guard", "recovering", "launched"]
 const KINDS := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu", "soldier", "flag", "commander", "archer", "gunner", "boss", "dummy"]
 const EFFECTS := ["projectile", "slash", "warning", "slam", "hit", "poison", "shield_hit", "shockwave", "chain", "fire_hit", "ice_hit", "shatter", "fire_wave", "ice_wave", "guard", "guard_break", "damage", "landing", "debris", "arrow_target", "arrow_impact", "wind_hit", "earth_hit", "blade_hit", "wind_wave", "earth_wave", "blade_wave","fire_patch"]
-const EVENTS := ["hit", "heavy_hit", "special", "pickup", "food_pickup", "armor_pickup", "armor_break", "extra_life", "revive", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_hit", "prop_break", "swing", "weapon_swing", "boss_intro","achievement","weapon_break","inventory_full","challenge_complete","challenge_failed","encounter_phase","bell_fall"]
+const EVENTS := ["hit", "heavy_hit", "special", "pickup", "food_pickup", "food_stored", "armor_pickup", "armor_break", "extra_life", "revive", "defeat", "grab", "shield_hit", "bow_release", "gunshot", "shatter", "guard", "guard_break", "damage", "landing", "run_bump", "prop_hit", "prop_break", "swing", "weapon_swing", "boss_intro","achievement","weapon_break","inventory_full","challenge_complete","challenge_failed","encounter_phase","bell_fall"]
 const ARRAY_LIMITS := {"fighters": 64, "drops": 64, "effects": 256, "events": 128, "props": 32, "wet_zones": 16}
 const PROP_KINDS := ["bell_pillar","stall","cart","jar","basket","crate","large_crate","barricade","fence","planter","stone_lantern","lantern","rice_bales","screen","cabinet"]
 const FOODS := ["","rice","fish","dango","peach"]
@@ -31,6 +32,7 @@ static func valid_input(frame: Dictionary) -> bool:
 
 
 static func valid_snapshot(world: Dictionary) -> bool:
+	if world.get("stage",{}).get("id",0) == 4 and not _valid_mikawa(world.get("mikawa")): return false
 	if not _integer(world.get("loot_rng"),0,2147483647): return false
 	if world.has("victory_looting") and not world.victory_looting is bool: return false
 	if not _choice(world.get("phase"), ["playing", "won", "lost"]) or not _choice(world.get("difficulty"), ["easy", "normal", "hard"]):
@@ -76,6 +78,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if drop.kind == "talisman" and not _choice(drop.get("talisman_id"),Battle.TALISMANS.keys()): return false
 		if drop.kind == "weapon" and not _choice(drop.get("weapon_id"),Weapons.ITEMS.keys()): return false
 	for prop in world.props:
+		if prop.has("mikawa_asset") and (not _choice(prop.mikawa_asset,["kflag","uflag","fence","cheval"]) or not _integer(prop.get("broken_tick"),-1)): return false
 		if not _position(prop) or not _integer(prop.get("id"), 1) or not _choice(prop.get("kind"), PROP_KINDS): return false
 		if by_id.has(prop.id): return false
 		by_id[prop.id] = prop
@@ -101,7 +104,10 @@ static func valid_snapshot(world: Dictionary) -> bool:
 	for event in world.events:
 		if event.get("type","") == "achievement":
 			if not Achievements.valid([event.get("achievement_id")]) or not event.get("loot") is bool or not event.get("description") is String or event.description.length() > 120: return false
-		if not _choice(event.get("type"), EVENTS + ["throw_swing","element_hit"]) or not _position(event):
+		if event.get("type") == "mikawa_audio" and (not _choice(event.get("cue"),Mikawa.audio_cues()) or not event.get("voice") is bool): return false
+		for field in ["actor_mikawa","target_mikawa"]:
+			if event.has(field) and not event[field] is bool: return false
+		if not _choice(event.get("type"), EVENTS + ["throw_swing","element_hit","mikawa_audio"]) or not _position(event):
 			return false
 		for field in ["id", "actor", "target"]:
 			if not _integer(event.get(field), 0):
@@ -116,6 +122,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if event.type == "encounter_phase" and (not _choice(event.get("phase"),Stage03.PHASES) or not _integer(event.get("encounter_epoch"),1)): return false
 		if event.type == "damage" and not event.has("amount"): return false
 		if event.type == "challenge_complete" and not _integer(event.get("amount"),1,10000): return false
+		if event.type == "food_stored" and not _choice(event.get("food_id"),FOODS): return false
 		if event.type == "food_pickup" and (not _choice(event.get("food_id"),FOODS) or not _integer(event.get("heal"),1,120)): return false
 		if event.has("wet") and not event.wet is bool: return false
 		if event.has("target_stage_boss") and not event.target_stage_boss is bool: return false
@@ -151,11 +158,12 @@ static func _valid_stage(stage: Variant) -> bool:
 	if not stage is Dictionary: return false
 	if stage.has("prototype") and (not stage.prototype is bool or stage.get("id") != 3): return false
 	var camp: bool = stage.get("id",0) == 3
-	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),4 if camp else 6,4 if camp else 8) or not _integer(stage.get("index"),0,stage.total - 1): return false
+	var mikawa: bool = stage.get("id",0) == 4
+	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),5 if mikawa else (4 if camp else 6),5 if mikawa else (4 if camp else 8)) or not _integer(stage.get("index"),0,stage.total - 1): return false
 	if not _choice(stage.get("theme"),["bamboo","ridge","village","road","outpost","gate","camp","courtyard","command","chamber","supply_road","riverbank","granary","switchback","marune_gate","supply_court"]): return false
-	if not _choice(stage.get("weather"),["clear","rain","storm","mist","indoor"]) or not _choice(stage.get("music"),["bamboo","siege","town","castle","boss"] + CampaignMusic.KEYS): return false
+	if not _choice(stage.get("weather"),["clear","rain","storm","mist","indoor"]) or not _choice(stage.get("music"),["bamboo","siege","town","castle","boss"] + CampaignMusic.KEYS + Mikawa.MUSIC): return false
 	if not _choice(stage.get("civilians"),["none","villagers","vendors","porters"]): return false
-	if not _number(stage.get("width"),2000,4800) or not _integer(stage.get("wave_total"),1 if camp else 2,1 if camp else 3): return false
+	if not _number(stage.get("width"),2000,6516 if mikawa else 4800) or not _integer(stage.get("wave_total"),1 if camp or mikawa else 2,1 if camp or mikawa else 3): return false
 	if not _integer(stage.get("checkpoint_total"),1 if camp else 2,1 if camp else 4) or not _integer(stage.get("checkpoint"),0,stage.checkpoint_total-1): return false
 	if not _number(stage.get("encounter_start"),0,stage.width) or not _number(stage.get("encounter_end"),stage.encounter_start+1000,stage.width): return false
 	if not _choice(stage.get("phase"),["combat","exit"]) or not stage.get("go") is bool or stage.go != (stage.phase == "exit"): return false
@@ -163,15 +171,26 @@ static func _valid_stage(stage: Variant) -> bool:
 		if not _integer(stage.get(field),-1): return false
 	for field in ["reinforcement_queue","reinforcement_calls"]:
 		if not _integer(stage.get(field),0): return false
-	if stage.has("food_drops") and not _integer(stage.food_drops,0,2): return false
 	for field in ["title","name"]:
 		if not stage.get(field) is String or stage[field].length() > 100: return false
 	return true
 
 
 static func _valid_fighter(fighter: Dictionary) -> bool:
+	if fighter.has("mikawa_role"):
+		if fighter.get("team") != 1 or not _choice(fighter.mikawa_role,Mikawa.ROLES) or not fighter.get("mikawa_escort") is bool: return false
+		for key in ["mikawa_sequence","mikawa_command"]:
+			if not _integer(fighter.get(key),0): return false
+		if not _strings(fighter.get("mikawa_events"),16,32) or not fighter.get("mikawa_pressure") is Array or fighter.mikawa_pressure.size()>150: return false
+		for hit in fighter.mikawa_pressure:
+			if not hit is Dictionary or not _strings([hit.get("key")],1,32) or not _integer(hit.get("tick"),0) or not _choice(hit.get("band"),["near","far"]): return false
+		if not fighter.get("mikawa_counters") is Dictionary: return false
+		for key in ["spin","rock","shared"]:
+			if not _integer(fighter.mikawa_counters.get(key),0): return false
+		if fighter.has("mikawa_roster") and (not _id_list(fighter.mikawa_roster) or fighter.mikawa_roster.size()>6): return false
 	for field in ["combat_previous_ms","combat_step","combat_air_start"]:
 		if fighter.has(field) and not _number(fighter[field],-1,1000000000): return false
+	if fighter.has("light_recovery_ticks") and not _integer(fighter.light_recovery_ticks,0,30): return false
 	if fighter.has("grab_hits") and not _integer(fighter.grab_hits,0,2): return false
 	if fighter.has("throw_clip") and not _choice(fighter.throw_clip,["throw_forward","throw_reverse"]): return false
 	if fighter.has("throw_face") and (not _integer(fighter.throw_face,-1,1) or fighter.throw_face == 0): return false
@@ -197,6 +216,7 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 	if fighter.has("role"):
 		if fighter.team != 1 or not _choice(fighter.role,Battle.ENEMY_ROLES.keys()) or fighter.kind != Battle.ENEMY_ROLES[fighter.role]: return false
 	if fighter.team == 0:
+		if not _choice(fighter.get("food_state"),["ready","pending","spent"]): return false
 		if fighter.get("bag_only") != true: return false
 		if fighter.weapon_id != "" and not Weapons.compatible(fighter.kind,fighter.weapon_id): return false
 		if not Equipment.valid(fighter) or not Achievements.valid(fighter.get("achievements")) or not Achievements.valid(fighter.get("performance_awards")): return false
@@ -279,7 +299,15 @@ static func _valid_effect(effect: Dictionary) -> bool:
 		for field in ["owner","team","radius","damage","equipment_uid","attack_id"]:
 			if not effect.has(field): return false
 		if effect.type == "sky_arrow" and (not effect.has("z") or not effect.has("rain_center_x")): return false
-	if not _choice(effect.get("type"), EFFECTS+["sky_arrow","arrow_rain"]) or not _position(effect):
+	if effect.get("type") == "mikawa_fx" and (not _choice(effect.get("asset"),["quake","stone_impact"]) or not _integer(effect.get("owner"),1)): return false
+	if effect.has("mikawa_projectile"):
+		if effect.get("type") != "projectile" or not _choice(effect.mikawa_projectile,["stone","rain","wave"]) or effect.get("team") != 1: return false
+		if effect.mikawa_projectile == "stone" and not _number(effect.get("range_left"),0,1100): return false
+		if effect.mikawa_projectile == "rain":
+			for field in ["from_x","from_y","land_x","land_y"]:
+				if not _number(effect.get(field)): return false
+			if not _integer(effect.get("command"),1) or not _integer(effect.get("wave"),0,3): return false
+	if not _choice(effect.get("type"), EFFECTS+["sky_arrow","arrow_rain","mikawa_fx"]) or not _position(effect):
 		return false
 	if not _integer(effect.get("life"), 0, 1000000) or not _integer(effect.get("max_life"), 1, 1000000):
 		return false
@@ -323,7 +351,7 @@ static func _valid_effect(effect: Dictionary) -> bool:
 		if effect.has(field) and not _integer(effect[field],0,1000000000): return false
 	if effect.has("equipment_knockback") and not _number(effect.equipment_knockback,0,4): return false
 	if effect.has("hit_ids") and not _id_list(effect.hit_ids): return false
-	if effect.has("weapon") and not _choice(effect.weapon, ["needle", "arrow", "special_arrow", "bullet", "blade"]): return false
+	if effect.has("weapon") and not _choice(effect.weapon, ["needle", "arrow", "special_arrow", "bullet", "blade","blunt"]): return false
 	if effect.has("kind") and not effect.kind is String:
 		return false
 	if effect.has("action") and not _action(effect.action): return false
@@ -362,6 +390,30 @@ static func _valid_effect(effect: Dictionary) -> bool:
 
 static func _position(item: Dictionary) -> bool:
 	return _number(item.get("x")) and _number(item.get("y"))
+
+static func _strings(items: Variant, count: int, length: int) -> bool:
+	if not items is Array or items.size()>count: return false
+	return items.all(func(item): return item is String and item.length()<=length)
+
+static func _valid_mikawa(box: Variant) -> bool:
+	if not box is Dictionary or not _integer(box.get("node"),1,13) or not _choice(box.get("phase"),["combat","retreat","complete"]): return false
+	if not _integer(box.get("command"),0) or not _integer(box.get("boss"),0) or not _integer(box.get("retreat_tick"),-1): return false
+	for key in ["epoch","admit_tick","escort_tick"]:
+		if not _integer(box.get(key),0): return false
+	if not _integer(box.get("next_batch"),0,3) or not box.get("escape_complete") is bool: return false
+	if not box.get("reserved") is Array or box.reserved.size()>4: return false
+	for pair in box.reserved:
+		if not pair is Dictionary: return false
+		for side in ["left","right"]:
+			var unit: Variant = pair.get(side)
+			if not unit is Dictionary or not _choice(unit.get("kind"),["soldier","archer","gunner"]) or not _choice(unit.get("role"),Mikawa.ROLES.slice(0,6)): return false
+	if not _id_list(box.get("deaths")) or not _strings(box.get("rain_hits"),128,32): return false
+	if not box.get("pending") is Array or box.pending.size()>6 or not box.get("mud") is Array or box.mud.size()>16: return false
+	for token in box.pending:
+		if not token is Dictionary or not _integer(token.get("due"),0) or not _integer(token.get("dead"),1): return false
+	for point in box.mud:
+		if not point is Array or point.size()!=2 or not _number(point[0]) or not _number(point[1],360,600): return false
+	return true
 
 
 static func _id_list(value: Variant) -> bool:

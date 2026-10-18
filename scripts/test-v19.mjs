@@ -20,6 +20,7 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
+	'charged_invulnerability', 'stage04_rebuild', 'combat_feedback_v42', 'stage04_density', 'stage04_shields', 'campaign_food', 'food_inventory', 'knockback_distance', 'oichi_air_multihit', 'guard_restore', 'light_finisher', 'light_finisher_cadence', 'hideyoshi_blink',
 	'stage03_balance_v41',
 	'audio_v40',
 	'heavy_wave_v39',

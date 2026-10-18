@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Stage04Data = preload("res://core/stage04_data.gd")
 const Stage03 = preload("res://core/stage03_encounter.gd")
 
 const PATH := "res://data/stage-01.json"
@@ -20,7 +21,8 @@ static func chapter(id: int) -> Dictionary:
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/stage-%02d.json" % id))
 	assert(int(data.id) == id)
 	var camp: bool = id == 3
-	assert(data.segments.size() == 4 if camp else (data.segments.size() >= 6 and data.segments.size() <= 8))
+	assert(data.segments.size() == 5 if id == 4 else (data.segments.size() == 4 if camp else (data.segments.size() >= 6 and data.segments.size() <= 8)))
+	var mikawa_node := 0
 	for region in data.segments:
 		assert(region.width >= 2000 and (region.encounters.size() == 1 if camp else region.encounters.size() >= 2))
 		if region.has("challenge"):
@@ -32,6 +34,24 @@ static func chapter(id: int) -> Dictionary:
 		var start := 0.0
 		for encounter in region.encounters:
 			assert(encounter.end >= start + 1000 and encounter.end <= region.width)
+			if id == 4:
+				mikawa_node += 1
+				assert(encounter.mode == "mikawa" and int(encounter.node) == mikawa_node)
+				assert(encounter.units.size() >= 1 and encounter.units.size() <= 8)
+				assert(int(encounter.cap) in [10,11,15] and int(encounter.regular_cap) in [8,10])
+				assert(encounter.batches.size() in [2,3])
+				var total: int = encounter.units.size()
+				for batch in encounter.batches:
+					assert(batch.left.size() == batch.right.size() and batch.left.size() in [3,4])
+					for unit in batch.left+batch.right:
+						assert(unit.role in Stage04Data.ROLES and unit.kind in ["soldier","archer","gunner"])
+					total += batch.left.size()*2
+				assert(total == int(encounter.scheduled_total))
+				for unit in encounter.units:
+					assert(unit.role in Stage04Data.ROLES and unit.kind in ["soldier","archer","gunner","boss"])
+					assert(unit.x >= start and unit.x <= encounter.end and unit.y >= 360 and unit.y <= 600)
+				start = float(encounter.end)
+				continue
 			if camp:
 				assert(Stage03.valid_spec(encounter, float(region.width)))
 				start = float(encounter.end)

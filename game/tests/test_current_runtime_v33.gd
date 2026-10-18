@@ -21,8 +21,8 @@ func run() -> void:
 		check(battle.state.fighters[0].kind==(hero if hero in Battle.PLAYABLE_HEROES else "nobunaga"),"Unavailable hero cannot start: "+hero)
 		var player: Dictionary = battle.state.fighters[0]
 		player.rage = 100
-		battle.step([{"buttons":Battle.SPECIAL|Battle.GUARD,"dx":0,"dy":0}])
-		check(player.action=="idle" and player.rage==100,"Retired input bits ignored: "+hero)
+		battle.step([{"buttons":Battle.SPECIAL,"dx":0,"dy":0}])
+		check(player.action=="idle" and player.rage==100,"Retired special input ignored: "+hero)
 	var saves := Players.new("user://current-roster-%d" % Time.get_ticks_usec(),"user://current-roster-missing.json")
 	for hero in Battle.HEROES:
 		var row := saves.character(0,hero)
@@ -36,7 +36,7 @@ func run() -> void:
 	root.add_child(app)
 	await process_frame
 	app.set_physics_process(false)
-	check(not InputMap.has_action("special") and not InputMap.has_action("guard"),"Retired controls removed from InputMap")
+	check(not InputMap.has_action("special") and InputMap.has_action("guard"),"Guard restored while retired special remains removed")
 	for choice in [app.heroes,app.partner_heroes,app.roster_choices[0],app.roster_choices[1]]:
 		for index in range(6):
 			check(not choice.is_item_disabled(index),"Only current heroes selectable")

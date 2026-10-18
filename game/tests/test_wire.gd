@@ -80,6 +80,7 @@ func _test_real_states() -> void:
 		if type == "damage": valid.events[0].amount = 20
 		if type == "challenge_complete": valid.events[0].amount = 300
 		if type == "food_pickup": valid.events[0].merge({"food_id":"rice", "heal":40})
+		if type == "food_stored": valid.events[0].food_id = "rice"
 		if type == "achievement": valid.events[0].merge({"achievement_id":"cleave3","loot":false,"description":"單次攻擊命中 3 人","name":"一刀三斬"})
 		_check(Wire.valid_snapshot(valid), "event " + type)
 	for metadata in [{}, {"combo": 0, "heavy_combo": 0, "finisher": false}, {"combo": 3, "heavy_combo": 2, "finisher": true}]:
@@ -103,7 +104,7 @@ func _test_invalid_snapshots() -> void:
 		var malformed := original.duplicate(true)
 		malformed[field] = [1]
 		_check(not Wire.valid_snapshot(malformed), "non-dictionary " + field + " item")
-	for field in ["x", "y", "z", "hp", "max_hp", "rage", "team", "kind", "player_index", "armor", "weapon", "face", "action", "action_tick", "charge", "poison", "invuln", "vz", "target_x", "lives", "score", "next_life_score", "respawn_ticks", "shield_points", "shield_kind", "extra_life_tick"]:
+	for field in ["x", "y", "z", "hp", "max_hp", "rage", "team", "kind", "player_index", "armor", "weapon", "face", "action", "action_tick", "charge", "poison", "invuln", "vz", "target_x", "lives", "score", "next_life_score", "respawn_ticks", "shield_points", "shield_kind", "extra_life_tick", "food_state"]:
 		var malformed := original.duplicate(true)
 		malformed.fighters[0][field] = []
 		_check(not Wire.valid_snapshot(malformed), "malformed fighter " + field)

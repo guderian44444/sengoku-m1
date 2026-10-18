@@ -72,6 +72,15 @@ def runtime_files():
         registration('game/'+relative)
     for scene in ('supply_road','riverbank','granary','switchback','marune_gate','supply_court'):
         add(ROOT/f'game/assets/v29/stage2/{scene}.png')
+    stage4 = ROOT/'game/assets/stage4'
+    add(stage4/'runtime-files.json')
+    for relative,digest in json.loads((stage4/'runtime-files.json').read_text('utf-8')).items():
+        path = stage4/relative
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == digest, path
+        add(path)
+    hot = ROOT/'game/audio/local-stage4/s04_hot.ogg'
+    assert hashlib.sha256(hot.read_bytes()).hexdigest() == 'c52705340bfa48fad98ad775f59b0b62f84a1df4dcd139d8008b2830d60dab3e'
+    add(hot)
     registration('game/assets/stage3/enemies/registration.json')
     add(ROOT/'game/assets/stage3/enemies/SHA256.json')
     for scene in ('rain_camp','barrier_camp','command_front','command_inside','props'):
@@ -96,6 +105,7 @@ def runtime_files():
     registration('game/audio/props-v41/manifest.json','cues')
     add(ROOT/'game/audio/props-v41/CREDITS.txt')
     add(ROOT/'docs/STAGE03-V41.md')
+    add(ROOT/'docs/STAGE04-REBUILD-20261018.md')
     for folder in ('game/audio/title-amenoshita-v1','game/audio/weapons-v3'):
         for path in (ROOT/folder).iterdir():
             if path.suffix.lower() in ('.txt','.md','.json','.ogg'): add(path)

@@ -4,9 +4,16 @@ const Weapons = preload("res://core/weapon_catalog.gd")
 const CAPACITY := 120
 const BAG_WEAPONS := 2
 const BAG_TREASURES := 2
+const FOODS := {
+	"food_rice":{"name":"飯糰","heal":40,"durability":1,"price":0},
+	"food_fish":{"name":"烤魚","heal":40,"durability":1,"price":0},
+	"food_dango":{"name":"糰子","heal":40,"durability":1,"price":0},
+	"food_peach":{"name":"桃子","heal":40,"durability":1,"price":0}
+}
 const TREASURES := preload("res://core/talisman_catalog.gd").ITEMS
 
 static func catalog(id: String) -> Dictionary:
+	if FOODS.has(id): return FOODS[id]
 	if TREASURES.has(id): return TREASURES[id]
 	if not Weapons.ITEMS.has(id): return {}
 	var row: Dictionary = Weapons.item(id).duplicate()
@@ -49,7 +56,7 @@ static func bag_count(row: Dictionary, treasure: bool) -> int:
 	var count := 0
 	for uid in row.get("bag_uids",[]):
 		var item := instance(row,int(uid))
-		if not item.is_empty() and TREASURES.has(item.item_id) == treasure: count += 1
+		if not item.is_empty() and not FOODS.has(item.item_id) and TREASURES.has(item.item_id) == treasure: count += 1
 	return count
 
 static func pack(row: Dictionary, uid: int, carry: bool) -> bool:
@@ -58,8 +65,8 @@ static func pack(row: Dictionary, uid: int, carry: bool) -> bool:
 	if carry:
 		if uid in row.bag_uids: return true
 		var treasure := TREASURES.has(item.item_id)
-		if not treasure and not Weapons.compatible(str(row.get("hero",row.get("kind",""))),item.item_id): return false
-		if bag_count(row,treasure) >= (BAG_TREASURES if treasure else BAG_WEAPONS): return false
+		if not treasure and not FOODS.has(item.item_id) and not Weapons.compatible(str(row.get("hero",row.get("kind",""))),item.item_id): return false
+		if not FOODS.has(item.item_id) and bag_count(row,treasure) >= (BAG_TREASURES if treasure else BAG_WEAPONS): return false
 		row.bag_uids.append(uid)
 	else:
 		row.bag_uids.erase(uid)
@@ -74,7 +81,7 @@ static func add(row: Dictionary, id: String) -> int:
 	if row.get("bag_only",false):
 		if is_practice(id): return 0
 		var treasure := TREASURES.has(id)
-		if bag_count(row,treasure) >= (BAG_TREASURES if treasure else BAG_WEAPONS): return 0
+		if not FOODS.has(id) and bag_count(row,treasure) >= (BAG_TREASURES if treasure else BAG_WEAPONS): return 0
 	var uid := int(row.next_item_uid)
 	row.next_item_uid = uid + 1
 	row.inventory.append({"uid":uid,"item_id":id,"durability":int(spec.durability)})
@@ -104,7 +111,7 @@ static func equip(row: Dictionary, uid: int) -> bool:
 		sync(row)
 		return true
 	var item := instance(row,uid)
-	if item.is_empty(): return false
+	if item.is_empty() or FOODS.has(item.item_id): return false
 	if is_practice(item.item_id): return equip(row,0)
 	if uid not in row.get("bag_uids",[]) and not pack(row,uid,true): return false
 	if TREASURES.has(item.item_id): row.treasure_uid = uid
@@ -123,12 +130,13 @@ static func remove(row: Dictionary, uid: int) -> void:
 	sync(row)
 
 static func sale_price(item: Dictionary) -> int:
+	if FOODS.has(item.item_id): return 0
 	var spec := catalog(str(item.item_id))
 	return maxi(1,roundi(float(spec.price) * float(item.durability) / float(spec.durability)))
 
 static func sell(row: Dictionary, uid: int) -> int:
 	var item := instance(row,uid)
-	if item.is_empty() or uid in [int(row.weapon_uid),int(row.treasure_uid)]: return 0
+	if item.is_empty() or FOODS.has(item.item_id) or uid in [int(row.weapon_uid),int(row.treasure_uid)]: return 0
 	var price := sale_price(item)
 	if int(row.gold) + price > 1000000000: return 0
 	row.gold += price
@@ -183,11 +191,11 @@ static func valid(row: Dictionary) -> bool:
 		if Weapons.ITEMS.has(id) and id not in owned: owned.append(id)
 	if row.owned_weapons != owned: return false
 	if row.has("bag_uids"):
-		if not row.bag_uids is Array or row.bag_uids.size() > BAG_WEAPONS + BAG_TREASURES: return false
+		if not row.bag_uids is Array or row.bag_uids.size() > CAPACITY: return false
 		var packed := []
 		for uid in row.bag_uids:
 			if not _integer(uid,1,int(row.next_item_uid)-1) or not seen.has(int(uid)) or int(uid) in packed or is_practice(str(seen[int(uid)])): return false
-			if not TREASURES.has(seen[int(uid)]) and not Weapons.compatible(str(row.get("hero",row.get("kind",""))),seen[int(uid)]): return false
+			if not TREASURES.has(seen[int(uid)]) and not FOODS.has(seen[int(uid)]) and not Weapons.compatible(str(row.get("hero",row.get("kind",""))),seen[int(uid)]): return false
 			packed.append(int(uid))
 		if bag_count(row,true) > BAG_TREASURES or bag_count(row,false) > BAG_WEAPONS: return false
 		for uid in [int(row.weapon_uid),int(row.treasure_uid)]:

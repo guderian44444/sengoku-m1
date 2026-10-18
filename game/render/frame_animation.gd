@@ -477,8 +477,12 @@ static func hero_v12_sample(fighter: Dictionary, distance: float, height: float,
 
 static func hero_v22_sample(fighter: Dictionary, sheets: Dictionary) -> Dictionary:
 	if CombatMoves.active(fighter):
+		if fighter.get("action","") == "guard" and sheets.has("v33_guard"):
+			var count: int = sheets.v33_guard.size()
+			var frame := mini(count-1,int(fighter.get("action_tick",0))/3)
+			return {"source":"v22","source_version":"v33","hero":fighter.kind,"clip":"guard","sheet":"v33_guard","frame":frame,"cell":frame,"count":count,"tick":float(fighter.get("action_tick",0)),"duration":float(count*3),"released":false}
 		if fighter.get("action","") == "idle" and float(fighter.get("z",0)) <= 0 and not fighter.get("moving",false) and sheets.has("v33_guard_idle"):
-			return {"source":"v22","source_version":"v33","hero":fighter.kind,"clip":"idle","sheet":"v33_guard_idle","frame":0,"cell":0,"count":1,"tick":0.0,"duration":0.0,"released":false}
+			return {"source":"v22","source_version":"v33","hero":fighter.kind,"clip":fighter.action,"sheet":"v33_guard_idle","frame":0,"cell":0,"count":1,"tick":0.0,"duration":0.0,"released":false}
 		var clip33 := CombatMoves.clip(fighter)
 		var spec33 := CombatMoves.spec(fighter)
 		if not spec33.is_empty() and sheets.has("v33_"+clip33):

@@ -4,6 +4,7 @@ const ArtAssets = preload("res://render/art_assets.gd")
 const FrameAnimation = preload("res://render/frame_animation.gd")
 const StageArt = preload("res://render/stage_art.gd")
 const Stage03Art = preload("res://render/stage03_art.gd")
+const Stage04Art = preload("res://render/stage04_art.gd")
 const Stage2Scenery = preload("res://render/stage2_scenery.gd")
 const Typography = preload("res://render/game_typography.gd")
 const WeaponRenderer = preload("res://render/weapon_renderer.gd")
@@ -21,6 +22,7 @@ static var _shared_art: ArtAssets
 var _art: ArtAssets
 var _stage_art = StageArt.new()
 var _stage03_art = Stage03Art.new()
+var _stage04_art = Stage04Art.new()
 var _stage_key: String = ""
 var _positions: Dictionary = {}
 var _moving: Dictionary = {}
@@ -117,6 +119,7 @@ func _draw() -> void:
 	_projectile_origins = live_origins
 	_fx.draw_world(self,camera_x)
 	draw_set_transform(Vector2.ZERO)
+	if state.has("mikawa"): _stage04_art.draw_foreground(self)
 	_draw_weather()
 	_draw_stage_go()
 	_draw_stage2_hint()
@@ -229,6 +232,14 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 	var tick := float(fighter.get("action_tick", 0))
 	var clock_tick := _art_clock() * 60.0
 	var walking: bool = fighter.get("moving", _moving.get(int(fighter.get("id", -1)), false))
+	if fighter.has("mikawa_role"):
+		var id := int(fighter.id)
+		if int(fighter.get("freeze",0)) > 0 and _frozen_samples.has(id): return _frozen_samples[id]
+		var current := fighter.duplicate()
+		current.moving = walking
+		var sample := _stage04_art.sample(state,current,float(_walk_ticks.get(id,0)),clock_tick)
+		_frozen_samples[id] = sample
+		return sample
 	if not Stage03Art.actor_id(state,fighter).is_empty():
 		var id := int(fighter.id)
 		if int(fighter.get("freeze",0)) > 0 and _frozen_samples.has(id): return _frozen_samples[id]
@@ -341,6 +352,9 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 	return {}
 
 func _draw_landscape() -> void:
+	if state.get("stage",{}).get("id",0) == 4:
+		_stage04_art.draw_landscape(self)
+		return
 	if not state.get("stage",{}).is_empty():
 		var backdrop := _stage_art.background(str(state.stage.get("theme","bamboo")),int(state.stage.id),int(state.stage.index))
 		if not backdrop.is_empty():
@@ -432,6 +446,7 @@ func _camp_flag_sample(index: int, clock: float) -> Dictionary:
 	return {"frame":_art.scenery_frames[index % 2],"rotation":sin(clock * 2.2 + index) * 0.018}
 
 func _draw_scenery() -> void:
+	if state.has("mikawa"): return
 	if not state.get("stage",{}).is_empty():
 		_draw_stage_scenery()
 		return
@@ -685,6 +700,13 @@ func _draw_camp_barrier(prop: Dictionary, origin: Vector2, hit_gain: float) -> v
 		draw_rect(Rect2(origin + Vector2(-38,-190),Vector2(76 * float(prop.hp)/float(prop.max_hp),6)),GOLD)
 
 func _draw_prop(prop: Dictionary) -> void:
+	if prop.has("mikawa_asset"):
+		var drawing := _stage04_art.prop(prop,int(state.tick))
+		var ground := Vector2(float(prop.x)-camera_x,float(prop.y))
+		var height := 245.0 if prop.mikawa_asset in ["kflag","uflag"] else 148.0
+		if _shadow_pass: return
+		_draw_art_frame(drawing,ground,height,1,0,Color.WHITE,float(drawing.body_height))
+		return
 	var origin := Vector2(float(prop.x) - camera_x,fighter_depth(prop))
 	if origin.x < -240 or origin.x > 1520: return
 	var hit_age := int(state.get("tick",0)) - int(prop.get("hit_tick",-100))
@@ -1080,6 +1102,9 @@ func _draw_charge(fighter: Dictionary, ground: Vector2, height: float, sample: D
 func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, front: bool) -> void:
 	var frame := _art.animation_frame(str(fighter.get("kind","")),sample)
 	if frame.get("combat_v33",false):
+		if fighter.kind == "nobunaga" and fighter.action in ["light","heavy","dash_heavy"]:
+			_fx.draw_nobunaga_cut(self,fighter,ground,height,sample,frame,front)
+			return
 		var layer_key := "fx" if front else "fx_back"
 		if frame.combat_layers.has(layer_key):
 			var fx: Dictionary = frame.combat_layers[layer_key]
@@ -1092,9 +1117,6 @@ func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sampl
 					hand = Vector2(weapon.hand)*Vector2(float(fighter.get("face",1)),1)
 			if fighter.kind == "nobunaga" and str(sample.clip) in ["charge_release","air_heavy"]:
 				factor *= FrameAnimation.Battle.NOBUNAGA_HEAVY_RANGE_SCALE
-			if fighter.kind == "hideyoshi" and str(sample.clip) == "charge_release":
-				factor *= FrameAnimation.Battle.HIDEYOSHI_CHARGED_RANGE_SCALE
-				hand = Vector2(0,float(frame.weapon_hand.y)*height/float(frame.body_height))
 			_draw_art_frame(fx,ground-Vector2(0,float(fighter.get("z",0)))+hand*(1-factor),height*factor,float(fighter.get("face",1)),0,Color.WHITE,float(fx.body_height))
 		if str(fighter.get("kind","")) == "tadakatsu" and str(sample.get("clip","")) == "charge_release":
 			_draw_tadakatsu_charge_ring(fighter, ground, front)
@@ -1399,7 +1421,7 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 	if shattered_defeat(fighter): return true
 	var sample := _fighter_animation(fighter)
 	var genuine_reaction: bool = sample.get("genuine_reaction",false) or sample.sheet == "enemy_reaction" or sample.source in ["v14","v19"]
-	var frame: Dictionary = sample.frame_data if sample.source == "stage3" else _art.enemy_frame(kind,int(sample.cell),enemy_art_faction(fighter),str(sample.sheet))
+	var frame: Dictionary = sample.frame_data if sample.source in ["stage3","stage4"] else _art.enemy_frame(kind,int(sample.cell),enemy_art_faction(fighter),str(sample.sheet))
 	if sample.source != "v14" and kind == "boss" and fighter.get("faction","mori") == "mori" and fighter.get("action", "") == "boss_chain" and int(sample.cell) == 6 and frame.has("hand_offset") and frame.has("clip_polygon"):
 		# The live chain replaces the atlas's short demonstration weight beyond the casting hand.
 		var cutoff: float = frame.anchor.x + frame.hand_offset.x + 6.0
@@ -1428,28 +1450,35 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 	if down and not genuine_reaction: body_origin += Vector2(face * height * 0.33, -height * 0.09)
 	if _shadow_pass:
 		_draw_pose_shadow(frame,body_origin + Vector2(0,z),height,face,rotation,z,[-height * .18,height * .18])
-		if not down and sample.source != "stage3": _draw_role_shadow(fighter,body_origin + Vector2(0,z),height,face,z,frame)
+		if not down and sample.source not in ["stage3","stage4"]: _draw_role_shadow(fighter,body_origin + Vector2(0,z),height,face,z,frame)
 		return true
 	_fx.draw_status(self,fighter,origin-Vector2(0,z),height,false)
+	if frame.has("behind"): _draw_art_frame(frame.behind,body_origin,height,face,0,Color.WHITE,float(frame.body_height))
 	_draw_art_frame(frame, body_origin, height, face, rotation, tint, float(frame.body_height))
-	if sample.source != "stage3": _draw_enemy_role(fighter,body_origin,height,face,down,frame,sample)
+	if frame.has("crest"):
+		var scale: float = height/float(frame.body_height)
+		var at: Vector2 = body_origin+(frame.crest.anchor-frame.anchor)*Vector2(face,1)*scale
+		var width: float = frame.crest.width*scale
+		draw_texture_rect(frame.crest.texture,Rect2(at-Vector2.ONE*width*.5,Vector2.ONE*width),false,tint)
+	if sample.source not in ["stage3","stage4"]: _draw_enemy_role(fighter,body_origin,height,face,down,frame,sample)
 	if fighter.get("is_yoshimoto",false) and fighter.action == "guard":
 		var guard_at := body_origin + Vector2(face*25,-height*.55)
 		draw_set_transform(guard_at,0,Vector2(face,1))
 		draw_arc(Vector2.ZERO,50,-1.2,1.2,24,GOLD,5,true)
 		draw_set_transform(Vector2.ZERO)
 	_draw_status(fighter, origin, height)
-	var attack_warning: bool = FrameAnimation.Battle.ENEMY_TIMING.has(action) and not sample.released and int(fighter.get("freeze",0)) == 0
+	var attack_warning: bool = not fighter.has("mikawa_role") and FrameAnimation.Battle.ENEMY_TIMING.has(action) and not sample.released and int(fighter.get("freeze",0)) == 0
 	if attack_warning:
 		var warning := origin - Vector2(0,z + height + 16)
 		draw_line(warning - Vector2(0,10), warning, GOLD, 3)
 		draw_circle(warning + Vector2(0,5), 2, GOLD)
 	if float(fighter.get("hp",0)) > 0:
 		var bar := enemy_health_rect(frame,height,face,rotation)
+		if fighter.has("mikawa_role"): bar = Rect2(-30,-height-18,60,6)
 		bar.position += body_origin
 		if attack_warning: bar.position.y = minf(bar.position.y,origin.y-z-height-37)
 		_draw_enemy_health(fighter,bar)
-		if fighter.get("stage_boss",false) and fighter.get("faction","") != "oda":
+		if fighter.get("stage_boss",false) and not fighter.has("mikawa_role") and fighter.get("faction","") != "oda":
 			Typography.draw_label(self,bar.position-Vector2(21,7),str(fighter.get("display_name","")),18,Typography.GOLD)
 	return true
 
@@ -1959,6 +1988,9 @@ func _draw_arrow_rain(effect: Dictionary, behind: bool) -> void:
 		elif progress>=1 and age<36: draw_line(landing-Vector2(0,19),landing,Color(.94,.87,.69,opacity*.7),1.2,true)
 
 func _draw_effect(effect: Dictionary) -> void:
+	if effect.has("mikawa_projectile") or effect.type == "mikawa_fx":
+		_stage04_art.effect(self,effect)
+		return
 	var ground := Vector2(float(effect.get("x", 0)) - camera_x, float(effect.get("y", 460)))
 	if effect.get("yoshimoto_projectile",false):
 		var point := ground - Vector2(0,float(effect.get("visual_height",float(effect.z)+42)))
@@ -1987,15 +2019,8 @@ func _draw_effect(effect: Dictionary) -> void:
 		return
 	if kind == "projectile":
 		if effect.get("combat_sword_wave",false):
-			var center := ground-Vector2(0,float(effect.z))
-			var face := float(effect.face)
-			var points := PackedVector2Array()
-			for index in range(25):
-				var angle := lerpf(-PI*.44,PI*.44,float(index)/24)
-				points.append(center+Vector2(cos(angle)*38*face,sin(angle)*75))
-			draw_polyline(points,Color(1,.65,.18,opacity*.55),22,true)
-			draw_polyline(points,Color(1,.89,.48,opacity),13,true)
-			draw_polyline(points,Color(1,1,.94,opacity),6,true)
+			var age := float(effect.max_life-effect.life)
+			_fx.shared_player.draw_phase(self,"blade_wave",age,float(effect.max_life),ground,true,{"opacity":[[0,.95],[.75,.9],[1,0]]},{"face":effect.face,"size":210.0,"stretch":Vector2(.72,1.0)})
 			return
 		var needle_pos := ground - Vector2(0, float(effect.get("z", 28)) + (42.0 if int(effect.get("team", 0)) == 1 else 96.0))
 		# Freeze the release-hand offset, then preserve the core's flight displacement and collision state.

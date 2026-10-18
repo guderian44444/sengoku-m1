@@ -60,6 +60,11 @@ static func objective(world: Dictionary) -> Dictionary:
 				if encounter.phase == "awaiting_yoshimoto": order_text = "義元將至　整陣迎敵"
 				elif encounter.phase == "yoshimoto": order_text = "擊破今川義元"
 				state = "boss"
+	if world.has("mikawa"):
+		if world.mikawa.phase == "retreat": order_text = "長照敗退　殲滅殘餘增援"; state = "battle"
+		elif world.mikawa.node == 7 and stage.get("go",false): order_text = "橋頭封鎖解除　友軍可以通行"
+		elif world.mikawa.node == 10 and state == "boss": order_text = "擊敗吉良　截斷弓兵增援"
+		if not world.mikawa.get("reserved",[]).is_empty(): order_text = "← 左右增援接近　第 %d 波 →" % int(world.mikawa.next_batch); state = "battle"
 	return {"chapter": str(stage.get("title", "")), "place": "%s　%d／%d 陣" % [str(stage.get("name", "")), int(stage.get("checkpoint", 0)) + 1, int(stage.get("checkpoint_total", 1))], "order": order_text, "state": state}
 
 func sync(world: Dictionary, can_show: bool, dialogue: bool = false) -> void:

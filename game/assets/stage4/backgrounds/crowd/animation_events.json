@@ -1,0 +1,342 @@
+{
+  "status": "MINIMAL_AUTHORED_4_POSE_BACKGROUND_LOOPS; not engine integrated",
+  "source": "/workspace/shared/mikawa-cheering-animation-v1/cheer_3types_4frames_corrected_source.png",
+  "source_sha256": "28d9deacb963f4338d7b8aab813e2f957b877cbb0154c945378637127ef091d1",
+  "canvas": [
+    384,
+    448
+  ],
+  "foot_anchor": [
+    192,
+    420
+  ],
+  "frames_per_type": 4,
+  "loop_durations_ms": [
+    240,
+    200,
+    240,
+    200
+  ],
+  "period_ms": 880,
+  "interpolation": "none; directly authored distinct PNG poses",
+  "types": [
+    {
+      "id": "fist_pump",
+      "frames": [
+        {
+          "bbox": [
+            89,
+            12,
+            298,
+            376
+          ],
+          "foot_anchor_source": [
+            193.0,
+            373.0
+          ],
+          "pixel_count": 31646,
+          "frame": 0,
+          "file": "frames/fist_pump_00.png",
+          "svg": "frames/fist_pump_00.svg"
+        },
+        {
+          "bbox": [
+            447,
+            12,
+            653,
+            376
+          ],
+          "foot_anchor_source": [
+            549.5,
+            373.0
+          ],
+          "pixel_count": 31946,
+          "frame": 1,
+          "file": "frames/fist_pump_01.png",
+          "svg": "frames/fist_pump_01.svg"
+        },
+        {
+          "bbox": [
+            805,
+            12,
+            1013,
+            377
+          ],
+          "foot_anchor_source": [
+            908.5,
+            374.0
+          ],
+          "pixel_count": 32235,
+          "frame": 2,
+          "file": "frames/fist_pump_02.png",
+          "svg": "frames/fist_pump_02.svg"
+        },
+        {
+          "bbox": [
+            1160,
+            12,
+            1370,
+            377
+          ],
+          "foot_anchor_source": [
+            1264.5,
+            374.0
+          ],
+          "pixel_count": 32030,
+          "frame": 3,
+          "file": "frames/fist_pump_03.png",
+          "svg": "frames/fist_pump_03.svg"
+        }
+      ],
+      "event": {
+        "frame": 2,
+        "event": "optional_background_shout_peak",
+        "audio_file": null,
+        "note": "Visual cue only; no new recorded or synthesized crowd audio delivered"
+      }
+    },
+    {
+      "id": "cupped_call",
+      "frames": [
+        {
+          "bbox": [
+            94,
+            383,
+            315,
+            730
+          ],
+          "foot_anchor_source": [
+            204.0,
+            727.0
+          ],
+          "pixel_count": 33631,
+          "frame": 0,
+          "file": "frames/cupped_call_00.png",
+          "svg": "frames/cupped_call_00.svg"
+        },
+        {
+          "bbox": [
+            445,
+            382,
+            669,
+            730
+          ],
+          "foot_anchor_source": [
+            556.5,
+            727.0
+          ],
+          "pixel_count": 34224,
+          "frame": 1,
+          "file": "frames/cupped_call_01.png",
+          "svg": "frames/cupped_call_01.svg"
+        },
+        {
+          "bbox": [
+            805,
+            382,
+            1032,
+            730
+          ],
+          "foot_anchor_source": [
+            918.0,
+            727.0
+          ],
+          "pixel_count": 34410,
+          "frame": 2,
+          "file": "frames/cupped_call_02.png",
+          "svg": "frames/cupped_call_02.svg"
+        },
+        {
+          "bbox": [
+            1164,
+            382,
+            1389,
+            730
+          ],
+          "foot_anchor_source": [
+            1276.0,
+            727.0
+          ],
+          "pixel_count": 34411,
+          "frame": 3,
+          "file": "frames/cupped_call_03.png",
+          "svg": "frames/cupped_call_03.svg"
+        }
+      ],
+      "event": {
+        "frame": 2,
+        "event": "optional_background_shout_peak",
+        "audio_file": null,
+        "note": "Visual cue only; no new recorded or synthesized crowd audio delivered"
+      }
+    },
+    {
+      "id": "raised_spear",
+      "frames": [
+        {
+          "bbox": [
+            51,
+            736,
+            319,
+            1078
+          ],
+          "foot_anchor_source": [
+            205.5,
+            1075.0
+          ],
+          "pixel_count": 30236,
+          "frame": 0,
+          "file": "frames/raised_spear_00.png",
+          "svg": "frames/raised_spear_00.svg"
+        },
+        {
+          "bbox": [
+            406,
+            735,
+            676,
+            1078
+          ],
+          "foot_anchor_source": [
+            561.5,
+            1075.0
+          ],
+          "pixel_count": 30754,
+          "frame": 1,
+          "file": "frames/raised_spear_01.png",
+          "svg": "frames/raised_spear_01.svg"
+        },
+        {
+          "bbox": [
+            758,
+            735,
+            1034,
+            1078
+          ],
+          "foot_anchor_source": [
+            920.0,
+            1075.0
+          ],
+          "pixel_count": 30708,
+          "frame": 2,
+          "file": "frames/raised_spear_02.png",
+          "svg": "frames/raised_spear_02.svg"
+        },
+        {
+          "bbox": [
+            1127,
+            735,
+            1396,
+            1077
+          ],
+          "foot_anchor_source": [
+            1282.0,
+            1074.0
+          ],
+          "pixel_count": 30542,
+          "frame": 3,
+          "file": "frames/raised_spear_03.png",
+          "svg": "frames/raised_spear_03.svg"
+        }
+      ],
+      "event": {
+        "frame": 2,
+        "event": "optional_background_shout_peak",
+        "audio_file": null,
+        "note": "Visual cue only; no new recorded or synthesized crowd audio delivered"
+      }
+    }
+  ],
+  "placement": [
+    {
+      "id": 0,
+      "type": "fist_pump",
+      "x": 497,
+      "foot_y": 450,
+      "scale": 0.37,
+      "flip": false,
+      "phase_ms": 0,
+      "non_combat": true
+    },
+    {
+      "id": 1,
+      "type": "cupped_call",
+      "x": 578,
+      "foot_y": 450,
+      "scale": 0.37,
+      "flip": false,
+      "phase_ms": 220,
+      "non_combat": true
+    },
+    {
+      "id": 2,
+      "type": "raised_spear",
+      "x": 658,
+      "foot_y": 450,
+      "scale": 0.37,
+      "flip": false,
+      "phase_ms": 440,
+      "non_combat": true
+    },
+    {
+      "id": 3,
+      "type": "fist_pump",
+      "x": 738,
+      "foot_y": 450,
+      "scale": 0.37,
+      "flip": false,
+      "phase_ms": 660,
+      "non_combat": true
+    },
+    {
+      "id": 4,
+      "type": "cupped_call",
+      "x": 1635,
+      "foot_y": 450,
+      "scale": 0.37,
+      "flip": true,
+      "phase_ms": 110,
+      "non_combat": true
+    },
+    {
+      "id": 5,
+      "type": "raised_spear",
+      "x": 1715,
+      "foot_y": 450,
+      "scale": 0.37,
+      "flip": true,
+      "phase_ms": 330,
+      "non_combat": true
+    },
+    {
+      "id": 6,
+      "type": "fist_pump",
+      "x": 1795,
+      "foot_y": 450,
+      "scale": 0.37,
+      "flip": true,
+      "phase_ms": 550,
+      "non_combat": true
+    },
+    {
+      "id": 7,
+      "type": "cupped_call",
+      "x": 1875,
+      "foot_y": 450,
+      "scale": 0.37,
+      "flip": true,
+      "phase_ms": 770,
+      "non_combat": true
+    }
+  ],
+  "audio_binding": {
+    "event": "optional_background_shout_peak",
+    "groups": [
+      "audio/crowd/groups/tent_support_group_a.ogg",
+      "audio/crowd/groups/tent_support_group_b.ogg"
+    ],
+    "gain_linear": 0.65,
+    "playback_speed": 1.0,
+    "global_min_interval_seconds": 2,
+    "one_group_per_event": true
+  }
+}

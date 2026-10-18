@@ -88,7 +88,7 @@ func sync(world: Dictionary, view) -> void:
 		live_actors[id] = true
 		if fighter.hp > 0 and not muted:
 			var spec: Dictionary = Battle.CombatMoves.spec(fighter)
-			if fighter.get("action","") == "charged" and fighter.kind in ["nobunaga","hideyoshi","mitsuhide","tadakatsu"] and not spec.get("events",[]).is_empty() and Battle.combat_time_ms(fighter) >= float(spec.events[0].ms):
+			if fighter.get("action","") == "charged" and fighter.kind in ["nobunaga","mitsuhide","tadakatsu"] and not spec.get("events",[]).is_empty() and Battle.combat_time_ms(fighter) >= float(spec.events[0].ms):
 				live_loops["spin:%d" % id] = "spin_swing_loop"
 			for element in ["fire","ice","wind","lightning"]:
 				var status := int(fighter.get("burn" if element == "fire" else "freeze",0)) > 0 if element in ["fire","ice"] else false
@@ -223,9 +223,34 @@ func draw_actor(canvas, fighter: Dictionary, origin: Vector2, height: float, sam
 		shared_player.draw_phase(canvas,effect,age,3,at+Vector2(face*reach*.4,-height*.55),true,curves,{"face":face,"size":reach*.9})
 	return true
 
+static func nobunaga_cut_pose(fighter: Dictionary, sample: Dictionary, geometry: Dictionary) -> Dictionary:
+	if geometry.is_empty(): return {}
+	var clip := str(sample.clip)
+	var window: Array = {"light_1":[6,11],"light_2":[9,12],"light_3":[5,9],"heavy":[7,11],"dash_heavy":[5,9]}.get(clip,[])
+	if window.is_empty() or int(sample.frame) < int(window[0]) or int(sample.frame) > int(window[1]): return {}
+	var direction: Vector2 = geometry.top-geometry.hand
+	var size := maxf(210.0,direction.length()*2.1) * (1.2 if clip == "dash_heavy" else 1.0)
+	var angle := direction.angle()
+	var tip: Vector2 = geometry.top+direction.normalized()*12
+	var center := tip-Vector2(.29,-.09).rotated(angle)*size
+	return {"center":center*Vector2(float(fighter.face),1),"rotation":angle,"size":size,"age":float(sample.frame)-float(window[0]),"duration":float(window[1]-window[0]+1)}
+
+func draw_nobunaga_cut(canvas, fighter: Dictionary, ground: Vector2, height: float, sample: Dictionary, frame: Dictionary, front: bool) -> void:
+	if not configured or not front: return
+	var pose := nobunaga_cut_pose(fighter,sample,canvas._weapons.geometry(fighter,frame,height))
+	if pose.is_empty(): return
+	shared_player.draw_phase(canvas,"blade_arc",pose.age,pose.duration,ground-Vector2(0,float(fighter.z))+pose.center,true,{"opacity":[[0,.85],[.55,.95],[1,0]]},{"face":fighter.face,"rotation":pose.rotation,"size":pose.size})
+
 func draw_wave(canvas, effect: Dictionary, ground: Vector2) -> bool:
 	if not configured: return false
 	var type := str(effect.get("type",""))
+	if type == "wind_wave" and effect.get("kind","") == "hideyoshi" and effect.get("action","") == "charged":
+		var age := float(effect.max_life-effect.life)
+		var distance := float(effect.radius)
+		var face := float(effect.face)
+		shared_player.draw_phase(canvas,"wind_wave",age,float(effect.max_life),ground+Vector2(face*distance*.5,-55),true,{"opacity":[[0,.75],[.4,.5],[1,0]]},{"face":face,"size":maxf(90,distance*1.7),"stretch":Vector2(1,.4)})
+		shared_player.draw_phase(canvas,"wind_arc",age,float(effect.max_life),ground+Vector2(face*(distance+55),-65),true,{"opacity":[[0,.95],[.5,.8],[1,0]]},{"face":face,"size":300.0,"rotation":-.55 if int(effect.get("combo",1))==2 else .55})
+		return true
 	if type == "blade_wave" and effect.get("action","") == "air_heavy":
 		var age := float(effect.max_life-effect.life)
 		var reach := float(effect.radius)
@@ -236,6 +261,16 @@ func draw_wave(canvas, effect: Dictionary, ground: Vector2) -> bool:
 		var center := ground+Vector2(face*reach*.42,-height*.5+lerpf(-45,30,sweep))
 		shared_player.draw_phase(canvas,"blade_arc",age,float(effect.max_life),center,true,{"opacity":[[0,.95],[.45,.85],[1,0]]},{"face":face,"rotation":lerpf(-.8,.65,sweep),"size":reach*1.35,"stretch":Vector2(1,height/reach)})
 		shared_player.draw_phase(canvas,"blade_wave",age,float(effect.max_life),ground+Vector2(face*reach*.48,-20),true,{"opacity":[[0,.45],[.3,.75],[1,0]]},{"face":face,"size":reach*1.25,"stretch":Vector2(1,depth*2.0/(reach*1.25))})
+		return true
+	if type == "slash" and effect.get("finisher",false):
+		var age := float(effect.max_life-effect.life)
+		var reach := float(effect.radius)
+		var weapon := str(effect.kind)
+		var id: String = {"sword":"blade_arc","spear":"wind_wave","blunt":"wind_hit","kick":"wind_arc"}.get(weapon,"blade_arc")
+		var size := maxf(240,reach*1.6)
+		var height := maxf(220,float(effect.hit_depth)*3.6)
+		var center := ground+Vector2(float(effect.face)*reach*.55,-80)
+		shared_player.draw_phase(canvas,id,age,float(effect.max_life),center,true,{"opacity":[[0,.95],[.45,.9],[1,0]],"scale":[[0,.9],[.25,1],[1,1]]},{"face":effect.face,"size":size,"stretch":Vector2(1,height/size)})
 		return true
 	if type == "slash":
 		var duration := float(effect.get("max_life",10))

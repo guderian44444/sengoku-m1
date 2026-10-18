@@ -1,0 +1,352 @@
+{
+  "routes": [
+    {
+      "scope": "udono_upthrust",
+      "event": "weapon_motion",
+      "asset_pool": "spear_thrust",
+      "trigger": "actual animation attack-release event",
+      "notes": "Swing audible on miss. Do not schedule contact sound from animation alone.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_upthrust",
+      "event": "weapon_contact",
+      "asset_pool": [
+        "spear_hit_flesh"
+      ],
+      "trigger": "confirmed target collision/damage",
+      "notes": "Choose one material appropriate impact per attack+target+contact. Existing pools only; no new special heavy-sword timbre claimed.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_charge",
+      "event": "weapon_motion",
+      "asset_pool": "spear_thrust",
+      "trigger": "actual animation attack-release event",
+      "notes": "Swing audible on miss. Do not schedule contact sound from animation alone.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_charge",
+      "event": "weapon_contact",
+      "asset_pool": [
+        "spear_hit_flesh"
+      ],
+      "trigger": "confirmed target collision/damage",
+      "notes": "Choose one material appropriate impact per attack+target+contact. Existing pools only; no new special heavy-sword timbre claimed.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_sweep",
+      "event": "weapon_motion",
+      "asset_pool": "polearm_sweep",
+      "trigger": "actual animation attack-release event",
+      "notes": "Swing audible on miss. Do not schedule contact sound from animation alone.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_sweep",
+      "event": "weapon_contact",
+      "asset_pool": [
+        "polearm_hit_flesh"
+      ],
+      "trigger": "confirmed target collision/damage",
+      "notes": "Choose one material appropriate impact per attack+target+contact. Existing pools only; no new special heavy-sword timbre claimed.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "tominaga_sweep",
+      "event": "weapon_motion",
+      "asset_pool": "sword_swing",
+      "trigger": "actual animation attack-release event",
+      "notes": "Swing audible on miss. Do not schedule contact sound from animation alone.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "tominaga_sweep",
+      "event": "weapon_contact",
+      "asset_pool": [
+        "sword_hit_flesh",
+        "sword_hit_armor"
+      ],
+      "trigger": "confirmed target collision/damage",
+      "notes": "Choose one material appropriate impact per attack+target+contact. Existing pools only; no new special heavy-sword timbre claimed.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "tominaga_pursuit",
+      "event": "weapon_motion",
+      "asset_pool": "sword_swing",
+      "trigger": "actual animation attack-release event",
+      "notes": "Swing audible on miss. Do not schedule contact sound from animation alone.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "tominaga_pursuit",
+      "event": "weapon_contact",
+      "asset_pool": [
+        "sword_hit_flesh",
+        "sword_hit_armor"
+      ],
+      "trigger": "confirmed target collision/damage",
+      "notes": "Choose one material appropriate impact per attack+target+contact. Existing pools only; no new special heavy-sword timbre claimed.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "tominaga_heavy_chop",
+      "event": "weapon_motion",
+      "asset_pool": "sword_swing",
+      "trigger": "actual animation attack-release event",
+      "notes": "Swing audible on miss. Do not schedule contact sound from animation alone.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "tominaga_heavy_chop",
+      "event": "weapon_contact",
+      "asset_pool": [
+        "sword_hit_flesh",
+        "sword_hit_armor"
+      ],
+      "trigger": "confirmed target collision/damage",
+      "notes": "Choose one material appropriate impact per attack+target+contact. Existing pools only; no new special heavy-sword timbre claimed.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_melee_spin_counter",
+      "event": "spin_motion",
+      "asset_pool": [
+        "spin_swing_loop"
+      ],
+      "trigger": "start at active window .520s; stop with short fade at1.056s",
+      "notes": "Do not layer polearm_sweep repeatedly each frame. spin_finish optional at active end, never in place of confirmed hit.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_melee_spin_counter",
+      "event": "spin_contact",
+      "asset_pool": [
+        "polearm_hit_flesh"
+      ],
+      "trigger": "confirmed contact in .520–1.056 window",
+      "notes": "At most one hit per target per activation; .792s is authored representative impact, not guaranteed collision.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_groundsmash",
+      "event": "ground_contact",
+      "asset_pool": [
+        "stone_quake_v1:ground_quake_thump"
+      ],
+      "trigger": ".560s grounded butt contact",
+      "notes": "Dedicated newly derived mining/low-impact quake design, 3 variants. One per grounded strike; do not also layer staff_hit. Subjective audition pending.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_triplequake",
+      "event": "ground_contact",
+      "asset_pool": [
+        "stone_quake_v1:ground_quake_thump"
+      ],
+      "trigger": ".620/1.300/1.980s actual grounded butt contacts",
+      "notes": "Dedicated newly derived mining/low-impact quake design, 3 variants. One per grounded strike; do not also layer staff_hit. Subjective audition pending.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_ranged_rock_volley",
+      "event": "rock_release",
+      "asset_pool": [
+        "throw_swing"
+      ],
+      "trigger": ".800/2.000/3.200s release",
+      "notes": "Existing generic throw whoosh is a provisional choice. Never play flesh/ground impact on release.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "udono_ranged_rock_volley",
+      "event": "rock_first_collision",
+      "asset_pool": [
+        "stone_quake_v1:rock_impact_crumble"
+      ],
+      "trigger": "actual first hard projectile collision / rock destruction",
+      "notes": "Use new derived rock crunch for hard collision/destruction. Ordinary body-only nonshattering collision can use body_collision instead; choose one main contact sound, never both by default.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "kira_arrow",
+      "event": "bow_release",
+      "asset_pool": [
+        "bow_release"
+      ],
+      "trigger": ".620s release",
+      "notes": "One bowstring per volley; arrow impacts occur at actual projectile collision.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "kira_arrow",
+      "event": "arrow_collision",
+      "asset_pool": [
+        "arrow_hit_body",
+        "arrow_hit_wood"
+      ],
+      "trigger": "actual projectile collision",
+      "notes": "Choose target material, not both.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "kira_command",
+      "event": "command",
+      "asset_pool": [],
+      "trigger": ".400s command notification",
+      "notes": "Voice plays at .160s and survives animation end. Do not emit bowstrings until subordinate bows actually release.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "all_wood_shields",
+      "event": "guard_block",
+      "asset_pool": [
+        "shield_dry_v7:wood_shield_block_01",
+        "shield_dry_v7:wood_shield_block_02",
+        "shield_dry_v7:wood_shield_block_03"
+      ],
+      "trigger": "confirmed shield block",
+      "notes": "Use dryv7 gain .85; replace weapon-v3 metal shield_block route for WOOD shields. No simultaneous flesh hurt hit for fully blocked damage. Dedupe attackId+targetId+guard_block; max3 voices.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "wooden_barricade",
+      "event": "damaged",
+      "asset_pool": [
+        "wood_heavy_hit"
+      ],
+      "trigger": "confirmed nondestroying object damage",
+      "notes": "Respect source gain .65, no repeated sound per animation frame.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "wooden_barricade",
+      "event": "destroyed",
+      "asset_pool": [
+        "barricade_collapse"
+      ],
+      "trigger": "one destruction transition per object",
+      "notes": "Choose one main destruction sound, optionally wood_splinter_debris at gain .5; do not stack all hit/break/collapse pools.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "chevaux_de_frise",
+      "event": "damaged",
+      "asset_pool": [
+        "wood_heavy_hit"
+      ],
+      "trigger": "confirmed nondestroying object damage",
+      "notes": "Respect source gain .65, no repeated sound per animation frame.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "chevaux_de_frise",
+      "event": "destroyed",
+      "asset_pool": [
+        "wood_break"
+      ],
+      "trigger": "one destruction transition per object",
+      "notes": "Choose one main destruction sound, optionally wood_splinter_debris at gain .5; do not stack all hit/break/collapse pools.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "supply_cart",
+      "event": "damaged",
+      "asset_pool": [
+        "cart_heavy_hit"
+      ],
+      "trigger": "confirmed nondestroying object damage",
+      "notes": "Respect source gain .65, no repeated sound per animation frame.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "supply_cart",
+      "event": "destroyed",
+      "asset_pool": [
+        "cart_wood_metal_crunch"
+      ],
+      "trigger": "one destruction transition per object",
+      "notes": "Choose one main destruction sound, optionally wood_splinter_debris at gain .5; do not stack all hit/break/collapse pools.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "crate",
+      "event": "damaged",
+      "asset_pool": [
+        "crate_hit"
+      ],
+      "trigger": "confirmed nondestroying object damage",
+      "notes": "Respect source gain .65, no repeated sound per animation frame.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "crate",
+      "event": "destroyed",
+      "asset_pool": [
+        "crate_break"
+      ],
+      "trigger": "one destruction transition per object",
+      "notes": "Choose one main destruction sound, optionally wood_splinter_debris at gain .5; do not stack all hit/break/collapse pools.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "barrel",
+      "event": "damaged",
+      "asset_pool": [
+        "barrel_hit"
+      ],
+      "trigger": "confirmed nondestroying object damage",
+      "notes": "Respect source gain .65, no repeated sound per animation frame.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "barrel",
+      "event": "destroyed",
+      "asset_pool": [
+        "barrel_break"
+      ],
+      "trigger": "one destruction transition per object",
+      "notes": "Choose one main destruction sound, optionally wood_splinter_debris at gain .5; do not stack all hit/break/collapse pools.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "muddy_ground",
+      "event": "footstep",
+      "asset_pool": [
+        "mud_footstep"
+      ],
+      "trigger": "actual foot contact",
+      "notes": "Gain .5, cooldown70ms, max2 voices from source event map.",
+      "status": "proposal_not_runtime_connected"
+    },
+    {
+      "scope": "muddy_ground",
+      "event": "puddle_contact",
+      "asset_pool": [
+        "mud_splash"
+      ],
+      "trigger": "actual puddle contact",
+      "notes": "Not per-frame looping.",
+      "status": "proposal_not_runtime_connected"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "tent_crowd_shout",
+      "status": "missing_from_audited_banks",
+      "detail": "13 r2 clips are explicit spoken phrases, not verified wordless crowd cries. No crowd asset was made or substituted. Parent reports separate local generation in progress; must audit delivered files before marking ready."
+    },
+    {
+      "id": "voice_subjective_audition",
+      "status": "pending",
+      "detail": "No phonetic, naturalness, emotional or game-mix listening verification performed."
+    }
+  ],
+  "gain_policy": "Use source event-map gains, not already-baked generation normalization again. Voice gain1.0; SFX source gains .5/.6/.65/.85 as supplied; final mix requires audition.",
+  "no_runtime_or_git_changes": true,
+  "supplement_root": "/workspace/shared/stage4_audio_audit/stone_quake_v1",
+  "path_base": "audio/ relative to delivery root"
+}

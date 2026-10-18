@@ -187,7 +187,8 @@ func action_chain_tests() -> void:
 				if player.attack_id != original_id:
 					switched = tick
 					break
-			check(switched == contact_tick+(10 if action == "light" else 8) and switched < finish_tick, "Queued action waits for every contact plus commitment, then skips the visual tail: "+hero+"/"+action)
+			var expected_switch := 1 if hero == "nobunaga" and action == "air_heavy" else contact_tick+(10 if action == "light" else 8)
+			check(switched == expected_switch and switched < finish_tick, "Queued action follows current immediate-air or contact commitment timing: "+hero+"/"+action)
 			check(player.action in ["light","air_light"], "Buffered light is consumed exactly once")
 		for next_action in [Battle.HEAVY, Battle.JUMP, Battle.GRAB]:
 			var battle := fresh(hero)

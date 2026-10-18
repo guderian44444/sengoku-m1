@@ -47,12 +47,12 @@ func boundaries() -> void:
 	var battle := arena()
 	var player: Dictionary = battle.state.fighters[0]
 	var area: Dictionary = Battle.tadakatsu_charged_area(player)
-	check(is_equal_approx(area.reach, 185.0 * 1.15 * 1.48 * 2.0), "Practice spear ring reach is double the old charged reach")
+	check(is_equal_approx(area.reach, 185.0 * 1.15 * 1.48 * 2.0 * .7), "Practice spear ring shrinks 30 percent")
 	check(is_equal_approx(area.depth, area.reach * Battle.TADAKATSU_RING_OUTER_Y / Battle.TADAKATSU_RING_OUTER_X), "Ring depth matches the sword-ring artwork")
 	check(is_equal_approx(area.behind, area.reach), "The ring reaches equally behind the spear")
 	var tonbo := arena("spear_tonbokiri")
 	var longer: Dictionary = Battle.tadakatsu_charged_area(tonbo.state.fighters[0])
-	check(is_equal_approx(longer.reach - area.reach, 24.0 * 1.48 * 2.0), "Tonbokiri lengthens the ring with the same scale")
+	check(is_equal_approx(longer.reach - area.reach, 24.0 * 1.48 * 2.0 * .7), "Tonbokiri lengthens the ring with the same scale")
 	for face in [-1, 1]:
 		for probe in [Vector2(area.reach - 1.0, 0), Vector2(area.reach + 8.0, 0), Vector2(40, area.depth - 1.0), Vector2(40, area.depth + 8.0), Vector2(-area.behind + 1.0, 0), Vector2(-area.behind - 8.0, 0)]:
 			var trial := arena()

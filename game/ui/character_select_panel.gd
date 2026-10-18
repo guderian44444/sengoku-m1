@@ -256,7 +256,7 @@ func _refresh_items() -> void:
 	current_items.clear()
 	item_list.clear()
 	for item in row.get("inventory",[]):
-		if int(item.uid) not in row.get("bag_uids",[]): continue
+		if int(item.uid) not in row.get("bag_uids",[]) or Equipment.FOODS.has(item.item_id): continue
 		if Equipment.TREASURES.has(item.item_id) != (category.selected == 0): continue
 		current_items.append(item)
 		var spec := Equipment.catalog(item.item_id)

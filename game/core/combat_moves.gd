@@ -12,6 +12,25 @@ static func registration(hero: String) -> Dictionary:
 		var path := "res://assets/v33/%s/registration.json" % hero
 		var value: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
 		assert(value is Dictionary and value.get("complete",false),"Incomplete combat registration: "+hero)
+		if hero == "hideyoshi":
+			# Reuse the three authored sword cuts, with one half-second beat per cut.
+			var release := {"frames":[],"events":[],"duration_ms":1500.0,"loop":false}
+			for stage in range(3):
+				var cut: Dictionary = value.clips["light_%d" % (stage+1)]
+				var scale := 500.0/float(cut.duration_ms)
+				for original in cut.frames:
+					var frame: Dictionary = original.duplicate(true)
+					frame.duration_ms *= scale
+					frame.root_step = 0.0
+					release.frames.append(frame)
+				release.events.append({"ms":stage*500.0+float(cut.events[0].ms)*scale,"event":"contact"})
+			value.clips.charge_release = release
+			var heavy: Dictionary = value.clips.light_2.duplicate(true)
+			var heavy_scale := float(value.clips.heavy.duration_ms)/float(heavy.duration_ms)
+			heavy.duration_ms = value.clips.heavy.duration_ms
+			for frame in heavy.frames: frame.duration_ms *= heavy_scale
+			heavy.events[0].ms *= heavy_scale
+			value.clips.heavy = heavy
 		_registrations[hero] = value
 	return _registrations[hero]
 

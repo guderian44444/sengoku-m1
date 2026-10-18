@@ -104,43 +104,6 @@ func safety() -> void:
 		battle._combat_contact_v33(player,"contact")
 		check(target.hp==health,"Downward wave respects invulnerability")
 
-func hideyoshi() -> void:
-	for face in [-1,1]:
-		for weapon in Weapons.ids_for("hideyoshi"):
-			var reach := (130.0*1.15+float(Weapons.item(weapon).get("reach_bonus",0))+12.0)*.88*2
-			var depth := 85.0*.85*2
-			for probe in [Vector3(reach-.01,0,1),Vector3(reach+.1,0,0),Vector3(80,depth-.01,1),Vector3(80,depth+.1,0),Vector3(-299,0,1),Vector3(-299.1,0,0)]:
-				var battle := arena("hideyoshi",face,weapon)
-				var player: Dictionary = battle.state.fighters[0]
-				Equipment.equip(player,Equipment.add(player,"moon"))
-				battle._begin(player,"charged")
-				var target: Dictionary = battle.state.fighters[1]
-				target.x = player.x+probe.x*face
-				target.y = player.y+probe.y
-				battle._combat_contact_v33(player,"contact")
-				check((target.hp<10000)==bool(probe.z),"Hideyoshi doubled front, rear and depth: "+weapon+"/"+str(probe))
-				if probe.z == 1:
-					var expected := maxi(1,roundi((30+player.weapon*2+int(Weapons.item(weapon).get("damage_bonus",0)))*.85)-int(target.armor)*3)
-					check(10000-target.hp==expected,"Hideyoshi charge retains original damage")
-				check(is_equal_approx(player.attack_reach,reach),"Hideyoshi doubles equipment bonuses together with reach")
-		var battle := arena("hideyoshi",face)
-		var player: Dictionary = battle.state.fighters[0]
-		var target: Dictionary = battle.state.fighters[1]
-		target.x = player.x+face*250
-		for tick in range(100): battle.step([{"buttons":Battle.HEAVY}])
-		battle.step([{}])
-		check(player.action=="charged","Holding and releasing heavy selects the enlarged move")
-		var hits := 0
-		for tick in range(120):
-			target.x = player.x+face*250
-			target.z = 0
-			target.vz = 0
-			battle.step([{}])
-			hits += battle.state.events.filter(func(e): return e.type=="weapon_swing").size()
-			if battle.state.events.any(func(e): return e.type=="weapon_swing"):
-				captures.append({"order":9000+hits*10+(0 if face<0 else 1),"label":"Hideyoshi charged / contact %d / " % hits+("left" if face<0 else "right"),"world":battle.state.duplicate(true)})
-		check(hits==2 and target.hp<10000 and player.action=="idle","Doubled charge retains two contacts, damage and recovery")
-
 func live_inputs() -> void:
 	for hero in Moves.HEROES:
 		for face in [-1,1]:
@@ -148,9 +111,10 @@ func live_inputs() -> void:
 			var player: Dictionary = battle.state.fighters[0]
 			battle.step([{"buttons":Battle.JUMP|Battle.HEAVY}])
 			check(player.action=="air_heavy","Jump plus heavy input selects aerial heavy: "+hero)
-			var waves := 0
+			var waves: int = battle.state.effects.filter(func(e): return e.type=="blade_wave").size()
 			var arrows := 0
-			var hits := 0
+			var hits: int = battle.state.events.filter(func(e): return e.type=="weapon_swing").size()
+			if hero == "nobunaga": check(waves==1 and hits==1,"Nobunaga releases on the heavy input tick")
 			for tick in range(90):
 				battle.step([{}])
 				hits += battle.state.events.filter(func(e): return e.type=="weapon_swing").size()
@@ -172,7 +136,6 @@ func run() -> void:
 	boundaries()
 	safety()
 	live_inputs()
-	hideyoshi()
 	if DisplayServer.get_name() != "headless":
 		var viewport := SubViewport.new()
 		viewport.size = Vector2i(2400,1500)

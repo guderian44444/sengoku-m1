@@ -3,6 +3,7 @@ extends Control
 const Typography = preload("res://render/game_typography.gd")
 signal closed
 signal equip_requested(id: String)
+signal use_requested(id: String)
 signal details_requested(id: String)
 signal sell_requested(id: String)
 signal pack_requested(id: String)
@@ -52,7 +53,7 @@ func _ready() -> void:
 	categories = TabBar.new()
 	categories.name = "Categories"
 	categories.focus_mode = Control.FOCUS_ALL
-	for category in ["全部","刀","槍","弓","護符"]: categories.add_tab(category)
+	for category in ["全部","刀","槍","弓","護符","食物"]: categories.add_tab(category)
 	page.add_child(categories)
 	categories.tab_changed.connect(func(_index): refresh_list())
 	var body := HBoxContainer.new()
@@ -102,7 +103,9 @@ func _ready() -> void:
 	actions.name = "ItemActions"
 	actions.columns = 3
 	detail.add_child(actions)
-	equip_button = _button(actions,"裝備",func(): equip_requested.emit(selected_id))
+	equip_button = _button(actions,"裝備",func():
+		if entries.any(func(item): return str(item.id) == selected_id and item.get("consumable",false)): use_requested.emit(selected_id)
+		else: equip_requested.emit(selected_id))
 	equip_button.name = "Equip"
 	pack_button = _button(actions,"放入行囊",func(): pack_requested.emit(selected_id))
 	pack_button.name = "Pack"
@@ -137,7 +140,7 @@ func configure(owner: String, items: Array, equipped_ids: Array, battle: bool = 
 func refresh_list() -> void:
 	item_list.clear()
 	listed.clear()
-	var category: String = ["","刀","槍","弓","護符"][categories.current_tab]
+	var category: String = ["","刀","槍","弓","護符","食物"][categories.current_tab]
 	for item in entries:
 		if category != "" and str(item.get("category","其他")) != category: continue
 		listed.append(item)
@@ -169,11 +172,15 @@ func select_item(id: String) -> void:
 		description.text = str(item.get("description",""))
 		var image := str(item.get("image",""))
 		var pixels := Image.load_from_file(image) if image != "" and FileAccess.file_exists(image) else null
+		if pixels != null and item.has("image_region"): pixels = pixels.get_region(item.image_region)
 		picture.texture = ImageTexture.create_from_image(pixels) if pixels != null else null
 		equip_button.disabled = id in equipped or not item.get("can_equip",false)
 		equip_button.text = "已裝備" if id in equipped else ("裝備" if item.get("can_equip",false) else ("先放入行囊" if item.get("can_pack",false) and not item.get("packed",false) else "無法裝備"))
+		if item.get("consumable",false):
+			equip_button.disabled = not item.get("can_use",false)
+			equip_button.text = "使用" if in_battle else "出戰後使用"
 		details_button.visible = item.get("has_details",false)
-		sell_button.disabled = id in equipped
+		sell_button.disabled = id in equipped or not item.get("can_sell",true)
 		sell_button.text = "出售　%d 文" % int(item.get("price",0))
 		pack_button.text = "存入藏兵閣" if item.get("packed",false) else "放入行囊"
 		pack_button.disabled = not item.get("can_pack",false)

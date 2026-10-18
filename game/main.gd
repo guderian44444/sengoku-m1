@@ -27,9 +27,9 @@ const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadak
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "顯如", "tadakatsu": "忠勝"}
 const FACTION_NAMES := {"mori": "毛利", "imagawa": "今川", "oda": "織田", "saito": "齋藤", "miyoshi": "三好", "azai": "淺井", "asakura": "朝倉", "takeda": "武田", "ikko": "一向一揆", "akechi": "明智", "hashiba": "羽柴", "iga": "伊賀"}
 const DIFFICULTIES := ["easy", "normal", "hard"]
-const CONTROL_ACTIONS := ["move_left", "move_right", "move_up", "move_down", "light", "heavy", "jump", "grab", "pickup"]
-const BATTLE_HINT := "WASD 移動／雙點衝刺   J 輕擊   K 重擊／蓄力後放開   空白 跳   L 擒拿   E 拾取\n左搖桿推滿 0.2 秒衝刺 · □／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 擒拿 · L1／LB 拾取 · Options 軍議"
-const TRAINING_HINT := "WASD／雙點衝刺 · 左搖桿推滿 0.2 秒衝刺   J 輕擊   K 重擊／蓄力   空白 跳   L 擒拿   E 拾取\n1 木樁   2 披甲武士   3 連陣   4 弓手   5 敵將   R 重演   Tab 換將   F1 秘卷"
+const CONTROL_ACTIONS := ["move_left", "move_right", "move_up", "move_down", "light", "heavy", "jump", "grab", "pickup", "guard"]
+const BATTLE_HINT := "WASD 移動／雙點衝刺   J 輕擊   K 重擊／蓄力後放開   空白 跳   L 擒拿   I 格擋   E 拾取\n左搖桿推滿 0.2 秒衝刺 · □／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 擒拿 · L2／LT 格擋 · L1／LB 拾取 · Options 軍議"
+const TRAINING_HINT := "WASD／雙點衝刺 · 左搖桿推滿 0.2 秒衝刺   J 輕擊   K 重擊／蓄力   空白 跳   L 擒拿   I 格擋   E 拾取\n1 木樁   2 披甲武士   3 連陣   4 弓手   5 敵將   R 重演   Tab 換將   F1 秘卷"
 var sim = Battle.new()
 var view: Node2D
 var audio: Node
@@ -222,11 +222,11 @@ func _ready() -> void:
 	if capture_menu and not capture_path.is_empty(): _capture.call_deferred()
 
 func _actions() -> void:
-	for retired in ["special","guard"]:
+	for retired in ["special"]:
 		if InputMap.has_action(retired): InputMap.erase_action(retired)
 	var keys := {
 		"move_left": KEY_A, "move_right": KEY_D, "move_up": KEY_W, "move_down": KEY_S,
-		"light": KEY_J, "heavy": KEY_K, "jump": KEY_SPACE, "grab": KEY_L, "pickup": KEY_E
+		"light": KEY_J, "heavy": KEY_K, "jump": KEY_SPACE, "grab": KEY_L, "pickup": KEY_E, "guard": KEY_I
 	}
 	for action in keys:
 		if not InputMap.has_action(action): InputMap.add_action(action, 0.24)
@@ -258,6 +258,10 @@ func _actions() -> void:
 	grab_axis.axis = JOY_AXIS_TRIGGER_RIGHT
 	grab_axis.axis_value = 1.0
 	InputMap.action_add_event("grab",grab_axis)
+	var guard_axis := InputEventJoypadMotion.new()
+	guard_axis.axis = JOY_AXIS_TRIGGER_LEFT
+	guard_axis.axis_value = 1.0
+	InputMap.action_add_event("guard",guard_axis)
 
 func _setup_menu_input() -> void:
 	menu_input = MenuInput.new()
@@ -555,6 +559,7 @@ func _build_menu(ui: Control) -> void:
 	menu_pages["collection"] = collection
 	collection.closed.connect(_menu_back)
 	collection.equip_requested.connect(func(uid: String): _equip_inventory(encyclopedia_slot,int(uid)))
+	collection.use_requested.connect(_use_food)
 	collection.sell_requested.connect(_request_sale)
 	collection.pack_requested.connect(_pack_item)
 	collection.discard_requested.connect(_request_discard)
@@ -842,8 +847,9 @@ func _discard_item(uid: int) -> void:
 	if not profiles.discard(encyclopedia_slot,hero,uid): return
 	_finish_inventory_change(encyclopedia_slot,hero,previous,"物品已丟棄並消失，行囊空位已釋出。")
 
-func _finish_inventory_change(slot: int, hero: String, previous: Dictionary, message: String) -> void:
-	if profiles.save_player(slot) != OK:
+func _finish_inventory_change(slot: int, hero: String, previous: Dictionary, message: String) -> bool:
+	var saved: bool = profiles.save_player(slot) == OK
+	if not saved:
 		profiles.records[profiles.selected[slot]].data = previous
 		message = "操作未完成，已保留原裝備與物品。" + profiles.warning
 	else:
@@ -864,6 +870,30 @@ func _finish_inventory_change(slot: int, hero: String, previous: Dictionary, mes
 	encyclopedia.equipped = str(row.weapon_id)
 	encyclopedia.owned = row.owned_weapons.duplicate()
 	if menu_screen == "encyclopedia": encyclopedia.refresh_list()
+	return saved
+
+func _use_food(id: String) -> void:
+	if not active or not paused or not equipment_in_battle or session not in ["solo","local"] or not _prepare_inventory_save(): return
+	var slot := encyclopedia_slot
+	var hero := _equipment_hero(slot)
+	var party: Array = sim.state.fighters.filter(func(f): return f.team == 0 and int(f.player_index) == slot)
+	if party.is_empty(): return
+	var fighter: Dictionary = party[0]
+	var item := Equipment.instance(fighter,int(id))
+	if item.is_empty() or not Equipment.FOODS.has(item.item_id) or int(id) not in fighter.bag_uids: return
+	if fighter.hp <= 0 or fighter.hp >= fighter.max_hp:
+		collection.notice.text = "體力全滿時保留食物；倒地戰敗時無法使用。"
+		return
+	var food_id: String = str(item.item_id)
+	var previous: Dictionary = profiles.records[profiles.selected[slot]].data.duplicate(true)
+	if not profiles.discard(slot,hero,int(id)): return
+	# Save consumption before healing; a failed save keeps both HP and the item unchanged.
+	if not _finish_inventory_change(slot,hero,previous,"已食用%s，恢復體力。" % Equipment.FOODS[food_id].name): return
+	sim._eat_food(fighter,food_id.trim_prefix("food_"),int(Equipment.FOODS[food_id].heal))
+	_events(sim.state.events)
+	_update_view()
+	_refresh_collection()
+	collection.notice.text = "已食用%s，體力 %d / %d。" % [Equipment.FOODS[food_id].name,fighter.hp,fighter.max_hp]
 
 func _request_sale(id: String) -> void:
 	if equipment_in_battle: return
@@ -921,12 +951,18 @@ func _refresh_collection() -> void:
 	for item in row.inventory:
 		if equipment_in_battle and int(item.uid) not in row.bag_uids: continue
 		var spec := Equipment.catalog(str(item.item_id))
+		if Equipment.FOODS.has(item.item_id):
+			var food_id: String = str(item.item_id).trim_prefix("food_")
+			var party: Array = sim.state.fighters.filter(func(f): return f.team == 0 and int(f.player_index) == encyclopedia_slot)
+			var can_use: bool = equipment_in_battle and not party.is_empty() and party[0].hp > 0 and party[0].hp < party[0].max_hp
+			items.append({"id":str(item.uid),"name":spec.name+"　×1","category":"食物","description":"恢復 %d 點體力（護符加成另計）。\n滿血拾取會收進行囊；有缺血時拾取就會吃掉。\n軍議中開啟行囊，選擇「使用」即可補血。"%int(spec.heal),"image":"res://assets/v18/food-source.png","image_region":view._stage_art.food[food_id].source_region,"consumable":true,"can_use":can_use,"can_pack":true,"packed":int(item.uid) in row.bag_uids,"can_sell":false})
+			continue
 		var treasure: bool = Equipment.TREASURES.has(item.item_id)
 		var packed: bool = int(item.uid) in row.bag_uids
 		var practice := Equipment.is_practice(item.item_id)
 		items.append({"id":str(item.uid),"name":"%s　%s　#%d" % [spec.name,"耐久 ∞・常備" if practice else "%d/%d" % [int(item.durability),int(spec.durability)],int(item.uid)],"category":"護符" if treasure else {"sword":"刀","spear":"槍","bow":"弓"}[spec.family],"description":spec.description if treasure else WeaponArchive.stats(item.item_id) + "\n\n" + str(spec.history),"image":"res://assets/v21/treasures/%s.png" % spec.image if treasure else "res://assets/v22/weapons/%s.png" % Weapons.art_id(item.item_id),"can_equip":packed and (treasure or Weapons.compatible(hero,item.item_id)),"can_pack":not practice and (treasure or Weapons.compatible(hero,item.item_id)),"packed":packed,"has_details":not treasure and int(spec.tier) > 0,"slot":"護符" if treasure else "武器","price":Equipment.sale_price(item)})
 	collection.configure("%s・%s　%d 文" % [profiles.name_for(encyclopedia_slot),HERO_NAMES[hero],int(row.gold)],items,[str(row.weapon_uid),str(row.treasure_uid)],equipment_in_battle)
-	collection.notice.text = "武器 %d / 2、護符 %d / 2（含裝備中）　｜　L1/R1 換分類　｜　%s" % [Equipment.bag_count(row,false),Equipment.bag_count(row,true),"丟棄須確認，物品會消失。" if equipment_in_battle else "倉庫 %d / %d；出戰後僅能使用行囊。" % [row.inventory.size(),Equipment.CAPACITY]]
+	collection.notice.text = "武器 %d / 2、護符 %d / 2、食物 %d（不佔裝備位）　｜　%s" % [Equipment.bag_count(row,false),Equipment.bag_count(row,true),row.inventory.filter(func(item): return int(item.uid) in row.bag_uids and Equipment.FOODS.has(item.item_id)).size(),"丟棄須確認，物品會消失。" if equipment_in_battle else "倉庫 %d / %d；出戰後僅能使用行囊。" % [row.inventory.size(),Equipment.CAPACITY]]
 
 func _open_weapon_encyclopedia(slot: int, return_page: String = "select") -> void:
 	if equipment_in_battle: return
@@ -1026,7 +1062,7 @@ func _build_controls(ui: Control) -> void:
 	text.add_theme_font_size_override("normal_font_size", 19)
 	text.add_theme_constant_override("line_separation", 5)
 	controls_dialog.add_child(text)
-	text.text = "[b]信長・阿市　合戰之法[/b]\n" + BATTLE_HINT + "\n\n[b]連擊與奧義[/b]\nJ 連按三次：三連擊，末式擊飛。命中後可續招，未續招則收勢。\nK 點放：信長斬出劍氣，阿市射出單箭；可擊退，出招亦可被打斷。\n重手與蓄力皆可左右轉向，勁力不散。\n長按 K 蓄滿後放開：信長雙旋斬，阿市貫穿箭；阿市上＋放開為箭雨。\n跳＋J：近身揮打，威力與範圍＋20%。\n跳＋K：信長重落斬（＋30%），阿市近中遠三箭。\n擒敵後 J：兩擊後摔出；反推方向立即過肩摔。\n衝刺＋K：踏步撞進，破陣擊飛；盾兵可受擊，敵將可格擋。\n\n[b]兵甲與軍令[/b]\nE／L1 拾取。兵器命中耗損耐久，折損後改持常備兵器；軍議中可開行囊換裝。\n奉令清敵破障，全軍會合後向右進軍。三命在身，每 10000 戰績添一命。\nF11 全螢幕／視窗　｜　Esc／Options 軍議　｜　F1 合戰秘卷\n\n[b]演武之法[/b]\n" + TRAINING_HINT
+	text.text = "[b]信長・阿市　合戰之法[/b]\n" + BATTLE_HINT + "\n\n[b]連擊與奧義[/b]\nJ 連按三次：三連擊，末式帶武器氣勁，範圍再＋20% 並擊飛。第三下出手後至少間隔 0.5 秒才可再輕攻擊。\nK 點放：信長斬出劍氣，阿市射出單箭；可擊退，出招亦可被打斷。\n重手與蓄力皆可左右轉向，勁力不散。\n長按 K 蓄滿後放開：信長雙旋斬，阿市貫穿箭；阿市上＋放開為箭雨。\n跳＋J：近身揮打，威力與範圍＋20%。\n跳＋K：信長重落斬（＋30%），阿市近中遠三箭。\n按住 I／L2／LT：正面格擋減傷 80%，仍會被擊退、擊倒；放開解除，背襲不減傷。\n秀吉輕手三段範圍＋30%；K 點放：橫斬擊飛劍氣，射程同信長。\n秀吉蓄滿放開：三連瞬移斬，1.5 秒前進約 1/3 畫面，沿途擊倒。\n擒敵後 J：兩擊後摔出；反推方向立即過肩摔。\n衝刺＋K：踏步撞進，破陣擊飛；盾兵可受擊，敵將可格擋。\n\n[b]兵甲與軍令[/b]\nE／L1 拾取。滿血拾取食物會收入行囊；缺血時直接食用。軍議中可用備用食物補血。\n兵器命中耗損耐久，折損後改持常備兵器；軍議中可開行囊換裝。\n奉令清敵破障，全軍會合後向右進軍。三命在身，每 10000 戰績添一命。\nF11 全螢幕／視窗　｜　Esc／Options 軍議　｜　F1 合戰秘卷\n\n[b]演武之法[/b]\n" + TRAINING_HINT
 	controls_dialog.confirmed.connect(_close_controls)
 	controls_dialog.canceled.connect(_close_controls)
 	controls_dialog.window_input.connect(func(event: InputEvent):
@@ -1132,7 +1168,7 @@ func _start_local_coop() -> void:
 	sim.reset_campaign(difficulty, 2, [selected_hero, HEROES[partner_heroes.selected]],selected_chapter)
 	_load_characters()
 	_activate()
-	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 抓技 · L1／LB 拾取 · Options 暫停"
+	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 抓技 · L2／LT 格擋 · L1／LB 拾取 · Options 暫停"
 
 func _start_training(drill: String = "") -> void:
 	if _confirm_end(_start_training.bind(drill),"收兵離陣，轉赴演武場？"): return
@@ -1474,6 +1510,7 @@ func _player_frame(slot: int) -> Dictionary:
 		for button in pad_buttons:
 			if Input.is_joy_button_pressed(device,button): frame.buttons |= pad_buttons[button]
 		if Input.get_joy_axis(device, JOY_AXIS_TRIGGER_RIGHT) > 0.24: frame.buttons |= Battle.GRAB
+		if Input.get_joy_axis(device, JOY_AXIS_TRIGGER_LEFT) > 0.24: frame.buttons |= Battle.GUARD
 		var x := Input.get_joy_axis(device, JOY_AXIS_LEFT_X)
 		var y := Input.get_joy_axis(device, JOY_AXIS_LEFT_Y)
 		frame.dx = int(Input.is_joy_button_pressed(device, JOY_BUTTON_DPAD_RIGHT)) - int(Input.is_joy_button_pressed(device, JOY_BUTTON_DPAD_LEFT))
@@ -1482,7 +1519,7 @@ func _player_frame(slot: int) -> Dictionary:
 		if absf(y) > 0.24: frame.dy = int(signf(y))
 		if absf(x) > 0.24 or absf(y) > 0.24: frame.stick_full = Vector2(x,y).length() >= 0.9
 	if slot == local_slot:
-		var keys := {KEY_J:Battle.LIGHT,KEY_K:Battle.HEAVY,KEY_SPACE:Battle.JUMP,KEY_L:Battle.GRAB,KEY_E:Battle.INTERACT}
+		var keys := {KEY_J:Battle.LIGHT,KEY_K:Battle.HEAVY,KEY_SPACE:Battle.JUMP,KEY_L:Battle.GRAB,KEY_E:Battle.INTERACT,KEY_I:Battle.GUARD}
 		for key in keys:
 			if Input.is_physical_key_pressed(key): frame.buttons |= keys[key]
 		frame.dx = clampi(frame.dx + int(Input.is_physical_key_pressed(KEY_D)) - int(Input.is_physical_key_pressed(KEY_A)), -1, 1)
@@ -1595,7 +1632,7 @@ func _physics_process(_delta: float) -> void:
 				net_events.clear()
 	_update_view()
 	var smoke_done := int(sim.state.get("tick", 0)) >= (240 if smoke == "host" else 180)
-	if local_frame % 120 == 0 or sim.state.events.any(func(event): return event.type in ["pickup","defeat"]): _save_characters()
+	if local_frame % 120 == 0 or sim.state.events.any(func(event): return event.type in ["pickup","food_stored","defeat"]): _save_characters()
 	if smoke_terminal: smoke_done = smoke == "client" and sim.state.get("phase", "") == "lost"
 	if not smoke.is_empty() and smoke_done:
 		var player_count := 0
@@ -1643,6 +1680,7 @@ func _events(events: Array) -> void:
 		_collect_rumble(event, pulses)
 		if event.type == "achievement": _achievement_messages.append("%dP  %s\n%s%s" % [int(sim._fighter(int(event.actor)).get("player_index",0))+1,str(event.name),str(event.description),"　・　獲得戰利品！" if event.get("loot",false) else ""])
 		elif event.type == "weapon_break": _achievement_messages.append(str(event.name) + " 已折・改持常備兵器")
+		elif event.type == "food_stored": _achievement_messages.append("%dP 食物已收入行囊，可於軍議中使用。" % (int(sim._fighter(int(event.actor)).player_index)+1))
 		elif event.type == "inventory_full": _achievement_messages.append("行囊或藏兵閣已滿，騰出空位後再拾取。地上物品保留。")
 		elif event.type == "challenge_complete": _achievement_messages.append("糧車奪回・每將獲賞 %d 金" % int(event.amount))
 		elif event.type == "challenge_failed": _achievement_messages.append("糧車損毀・仍可繼續進軍")
@@ -1744,7 +1782,7 @@ func _update_view() -> void:
 		var stats: Dictionary = sim.state.training
 		var full_ms := float(Battle.CombatMoves.registration(str(player.kind)).clips.charge_ready.duration_ms)
 		var charge_percent := mini(100,roundi(float(player.charge)*1000/60/full_ms*100))
-		var move_name: String = {"idle":"衝刺" if player.get("sprinting",false) else "待機","light":"輕手 %d/3" % player.combo,"heavy":"單箭・擊退" if player.kind == "oichi" else "下斬劍氣・擊退","charged":"貫穿箭・擊退" if player.kind == "oichi" else "旋斬兩圈・擊飛","charge_rain":"朝天箭雨・範圍擊倒","grab_start":"抓取起手","holding":"抓住：輕手兩次，第三次摔／反推過肩摔","grab_hit_1":"膝擊一" if player.kind == "oichi" else "頭槌一","grab_hit_2":"膝擊二" if player.kind == "oichi" else "頭槌二","throw":"摔投","dash_heavy":"跑步重手","air_light":"空中輕手","air_heavy":"空中三箭" if player.kind == "oichi" else "重落地下斬","charge":"滿蓄・放開施放" if charge_percent >= 100 else "蓄力 %d%%" % charge_percent,"recovering":"起身中","launched":"被擊飛","down":"倒地"}.get(player.action,player.action)
+		var move_name: String = {"guard":"格擋","idle":"衝刺" if player.get("sprinting",false) else "待機","light":"輕手 %d/3" % player.combo,"heavy":"單箭・擊退" if player.kind == "oichi" else ("橫斬劍氣・擊飛" if player.kind == "hideyoshi" else "下斬劍氣・擊退"),"charged":"貫穿箭・擊退" if player.kind == "oichi" else ("三連瞬移斬・沿途擊倒" if player.kind == "hideyoshi" else "旋斬兩圈・擊飛"),"charge_rain":"朝天箭雨・範圍擊倒","grab_start":"抓取起手","holding":"抓住：輕手兩次，第三次摔／反推過肩摔","grab_hit_1":"膝擊一" if player.kind == "oichi" else "頭槌一","grab_hit_2":"膝擊二" if player.kind == "oichi" else "頭槌二","throw":"摔投","dash_heavy":"跑步重手","air_light":"空中輕手","air_heavy":"空中三箭" if player.kind == "oichi" else "重落地下斬","charge":"滿蓄・放開施放" if charge_percent >= 100 else "蓄力 %d%%" % charge_percent,"recovering":"起身中","launched":"被擊飛","down":"倒地"}.get(player.action,player.action)
 		var drill_name: String = {"dummy": "木樁演武", "shield": "破盾演武", "enemies": FACTION_NAMES.get(selected_faction, selected_faction) + "軍試戰", "ranged": "弓銃演武", "boss": "敵將試煉"}.get(training_drill, training_drill)
 		var living := 0
 		for enemy in sim.state.fighters:

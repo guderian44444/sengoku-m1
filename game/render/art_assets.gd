@@ -104,6 +104,10 @@ func _load_combat_v33() -> void:
 		if not animations.has(hero): animations[hero] = {}
 		_load_registered_layers(hero,CombatMoves.registration(hero),"res://assets/v33/%s/" % hero,"v33_")
 		animations[hero]["v33_guard_idle"] = animations[hero].get("v22_idle",[animations[hero].v33_light_1[0]]) if hero not in ["nobunaga","oichi"] else [animations[hero].v33_light_1[0]]
+		# Stop at the authored weapon-up poses before any strike or projectile release.
+		var guard: Array = {"nobunaga":["charge_ready",[0,1,2,3]],"oichi":["light_2",[0,1]],"hideyoshi":["light_3",[0,1]],"ieyasu":["light_2",[0,1]],"mitsuhide":["light_1",[0,1,3]],"tadakatsu":["charge_ready",[0,1,2]]}[hero]
+		animations[hero]["v33_guard"] = []
+		for index in guard[1]: animations[hero].v33_guard.append(animations[hero]["v33_"+guard[0]][index])
 
 func _load_registered_layers(hero: String, registration: Dictionary, folder: String, prefix: String) -> void:
 	var textures := {}
