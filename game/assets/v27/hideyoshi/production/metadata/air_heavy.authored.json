@@ -1,0 +1,1555 @@
+{
+  "animation": "air_heavy",
+  "source": "raw/air_heavy.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "Full source image native pixels, origin top-left; rects x,y,width,height. Frame source overrides have independent scale and coordinates.",
+  "angle_convention": "Tip-up=0; clockwise positive. Two-hand axis from rear left grip to front right grip.",
+  "authorship": "Independent visual measurement from native source; hidden left grips explicitly reference-inferred under parent-authorized natural occlusion policy.",
+  "impact_frame_1based": 4,
+  "frames": [
+    {
+      "frame": 1,
+      "source": "raw/air_heavy.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "cell_rect": [
+        84,
+        56,
+        374,
+        426
+      ],
+      "alpha_bounds": [
+        86,
+        58,
+        370,
+        415
+      ],
+      "right_hand_grip": [
+        194,
+        94
+      ],
+      "left_hand_position": [
+        177,
+        131
+      ],
+      "root": [
+        265,
+        478
+      ],
+      "anatomical_crown": [
+        312,
+        89
+      ],
+      "anatomical_height_px": 455,
+      "body_height_px": 455,
+      "two_handed": true,
+      "fan_state": "stowed",
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            180,
+            80,
+            29,
+            28
+          ],
+          "visible_portion": "visible right fist skin"
+        },
+        {
+          "hand": "left",
+          "rect": [
+            164,
+            118,
+            27,
+            27
+          ],
+          "visible_portion": "visible left skin only; rear grip under crossing wrist in compressed poses"
+        }
+      ],
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "occluded, no measured opening",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "left_hand_grip": [
+        177,
+        131
+      ],
+      "left_hand_visibility": "visible, sometimes partly overlapped by right wrist",
+      "left_hand_anchor_method": "pixel_measured",
+      "left_hand_anchor_confidence": "high",
+      "sword_angle_confidence": "measured left-to-right grasp axis",
+      "sword_angle_deg": 24.7,
+      "root_note": "Virtual airborne registration plane for frames1\u20135; preserve transparent padding and flight motion. Frame6 recovery may land. Not an instruction to ground every foot.",
+      "source_region_polygon": [
+        [
+          84,
+          283
+        ],
+        [
+          114,
+          148
+        ],
+        [
+          115,
+          145
+        ],
+        [
+          127,
+          129
+        ],
+        [
+          180,
+          76
+        ],
+        [
+          183,
+          74
+        ],
+        [
+          188,
+          71
+        ],
+        [
+          190,
+          70
+        ],
+        [
+          265,
+          56
+        ],
+        [
+          273,
+          56
+        ],
+        [
+          277,
+          57
+        ],
+        [
+          284,
+          59
+        ],
+        [
+          335,
+          93
+        ],
+        [
+          341,
+          99
+        ],
+        [
+          343,
+          102
+        ],
+        [
+          455,
+          289
+        ],
+        [
+          456,
+          291
+        ],
+        [
+          457,
+          294
+        ],
+        [
+          457,
+          300
+        ],
+        [
+          456,
+          305
+        ],
+        [
+          426,
+          404
+        ],
+        [
+          425,
+          407
+        ],
+        [
+          422,
+          413
+        ],
+        [
+          394,
+          447
+        ],
+        [
+          392,
+          449
+        ],
+        [
+          305,
+          474
+        ],
+        [
+          297,
+          474
+        ],
+        [
+          293,
+          473
+        ],
+        [
+          290,
+          472
+        ],
+        [
+          288,
+          471
+        ],
+        [
+          232,
+          439
+        ],
+        [
+          106,
+          344
+        ],
+        [
+          96,
+          335
+        ],
+        [
+          93,
+          332
+        ],
+        [
+          84,
+          294
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      },
+      "source_sha256": "ac7124edf883d1ce2ed6c24e58752c4db0fa975b423743df745a68c1613e2be7"
+    },
+    {
+      "frame": 2,
+      "source": "raw/air_heavy.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "cell_rect": [
+        528,
+        28,
+        406,
+        465
+      ],
+      "alpha_bounds": [
+        530,
+        30,
+        402,
+        455
+      ],
+      "right_hand_grip": [
+        690,
+        37
+      ],
+      "left_hand_position": [
+        701,
+        54
+      ],
+      "root": [
+        748,
+        489
+      ],
+      "anatomical_crown": [
+        795,
+        99
+      ],
+      "anatomical_height_px": 455,
+      "body_height_px": 455,
+      "two_handed": true,
+      "fan_state": "stowed",
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            680,
+            28,
+            20,
+            18
+          ],
+          "visible_portion": "rear upper knuckles only, partly obscured by left fist; refine in composite"
+        },
+        {
+          "hand": "left",
+          "rect": [
+            688,
+            41,
+            27,
+            27
+          ],
+          "visible_portion": "visible left skin only; rear grip under crossing wrist in compressed poses"
+        }
+      ],
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "occluded, no measured opening",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "left_hand_grip": [
+        701,
+        54
+      ],
+      "left_hand_visibility": "visible, sometimes partly overlapped by right wrist",
+      "left_hand_anchor_method": "pixel_measured",
+      "left_hand_anchor_confidence": "medium",
+      "sword_angle_confidence": "measured left-to-right grasp axis",
+      "sword_angle_deg": -32.9,
+      "right_hand_visibility": "partly occluded by left fist; only rear upper knuckles visible",
+      "right_hand_anchor_confidence": "low",
+      "right_hand_anchor_method": "visible rear knuckle fragment plus traced right sleeve",
+      "root_note": "Virtual airborne registration plane for frames1\u20135; preserve transparent padding and flight motion. Frame6 recovery may land. Not an instruction to ground every foot.",
+      "source_region_polygon": [
+        [
+          528,
+          268
+        ],
+        [
+          529,
+          263
+        ],
+        [
+          531,
+          257
+        ],
+        [
+          600,
+          88
+        ],
+        [
+          603,
+          82
+        ],
+        [
+          606,
+          79
+        ],
+        [
+          624,
+          64
+        ],
+        [
+          686,
+          32
+        ],
+        [
+          694,
+          29
+        ],
+        [
+          702,
+          28
+        ],
+        [
+          711,
+          28
+        ],
+        [
+          713,
+          29
+        ],
+        [
+          777,
+          63
+        ],
+        [
+          826,
+          93
+        ],
+        [
+          829,
+          95
+        ],
+        [
+          834,
+          100
+        ],
+        [
+          837,
+          105
+        ],
+        [
+          930,
+          276
+        ],
+        [
+          931,
+          278
+        ],
+        [
+          932,
+          283
+        ],
+        [
+          933,
+          317
+        ],
+        [
+          933,
+          323
+        ],
+        [
+          891,
+          453
+        ],
+        [
+          889,
+          457
+        ],
+        [
+          876,
+          471
+        ],
+        [
+          874,
+          472
+        ],
+        [
+          869,
+          474
+        ],
+        [
+          785,
+          486
+        ],
+        [
+          774,
+          486
+        ],
+        [
+          713,
+          481
+        ],
+        [
+          707,
+          480
+        ],
+        [
+          703,
+          478
+        ],
+        [
+          598,
+          393
+        ],
+        [
+          588,
+          384
+        ],
+        [
+          587,
+          383
+        ],
+        [
+          563,
+          347
+        ],
+        [
+          529,
+          290
+        ],
+        [
+          528,
+          287
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      },
+      "source_sha256": "ac7124edf883d1ce2ed6c24e58752c4db0fa975b423743df745a68c1613e2be7"
+    },
+    {
+      "frame": 3,
+      "source": "raw/air_heavy.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "cell_rect": [
+        1028,
+        81,
+        414,
+        475
+      ],
+      "alpha_bounds": [
+        1030,
+        83,
+        410,
+        469
+      ],
+      "right_hand_grip": [
+        1310,
+        336
+      ],
+      "left_hand_position": [
+        1272,
+        320
+      ],
+      "root": [
+        1280,
+        552
+      ],
+      "anatomical_crown": [
+        1283,
+        123
+      ],
+      "anatomical_height_px": 455,
+      "body_height_px": 455,
+      "two_handed": true,
+      "fan_state": "stowed",
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            1294,
+            318,
+            33,
+            36
+          ],
+          "visible_portion": "visible right fist skin"
+        }
+      ],
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "occluded, no measured opening",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "left_hand_grip": [
+        1272,
+        320
+      ],
+      "left_hand_visibility": "fully_occluded",
+      "left_hand_anchor_method": "pose_reference_inferred",
+      "left_hand_anchor_confidence": "low",
+      "left_hand_anchor_reference": "qa/heavy1-fresh-crossed-contact-gray.png",
+      "left_hand_anchor_rationale": "Correct crossed-forearm topology and reference handle center delta[75,32] at roughly0.5 source scale; rear grip inferred at right[-38,-16]. No visible skin claimed.",
+      "sword_angle_confidence": "inferred mother-pose grip axis; not a direct pixel measurement",
+      "left_hand_occluder_note": "None: hidden by right forearm; no fictional visible left hand mask.",
+      "sword_angle_deg": 112.8,
+      "foreground_occluders": [
+        {
+          "part": "right_forearm",
+          "polygon": [
+            [
+              1242,
+              260
+            ],
+            [
+              1263,
+              265
+            ],
+            [
+              1310,
+              310
+            ],
+            [
+              1290,
+              337
+            ],
+            [
+              1240,
+              296
+            ],
+            [
+              1228,
+              277
+            ]
+          ],
+          "purpose": "Restore original forearm pixels over weapon handle at fully occluded inferred left grip."
+        }
+      ],
+      "root_note": "Virtual airborne registration plane for frames1\u20135; preserve transparent padding and flight motion. Frame6 recovery may land. Not an instruction to ground every foot.",
+      "source_region_polygon": [
+        [
+          1425,
+          311
+        ],
+        [
+          1441,
+          505
+        ],
+        [
+          1441,
+          518
+        ],
+        [
+          1440,
+          521
+        ],
+        [
+          1438,
+          525
+        ],
+        [
+          1435,
+          528
+        ],
+        [
+          1432,
+          530
+        ],
+        [
+          1426,
+          533
+        ],
+        [
+          1421,
+          534
+        ],
+        [
+          1217,
+          553
+        ],
+        [
+          1205,
+          553
+        ],
+        [
+          1201,
+          552
+        ],
+        [
+          1195,
+          549
+        ],
+        [
+          1192,
+          547
+        ],
+        [
+          1190,
+          545
+        ],
+        [
+          1093,
+          394
+        ],
+        [
+          1087,
+          383
+        ],
+        [
+          1036,
+          279
+        ],
+        [
+          1032,
+          270
+        ],
+        [
+          1029,
+          261
+        ],
+        [
+          1028,
+          257
+        ],
+        [
+          1028,
+          250
+        ],
+        [
+          1029,
+          249
+        ],
+        [
+          1143,
+          137
+        ],
+        [
+          1221,
+          84
+        ],
+        [
+          1227,
+          81
+        ],
+        [
+          1246,
+          81
+        ],
+        [
+          1249,
+          82
+        ],
+        [
+          1259,
+          87
+        ],
+        [
+          1262,
+          89
+        ],
+        [
+          1307,
+          129
+        ],
+        [
+          1312,
+          134
+        ],
+        [
+          1314,
+          137
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      },
+      "source_sha256": "ac7124edf883d1ce2ed6c24e58752c4db0fa975b423743df745a68c1613e2be7"
+    },
+    {
+      "frame": 4,
+      "source": "raw/air_heavy-frame04-scabbard.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "cell_rect": [
+        296,
+        16,
+        892,
+        988
+      ],
+      "alpha_bounds": [
+        298,
+        18,
+        888,
+        968
+      ],
+      "right_hand_grip": [
+        944,
+        471
+      ],
+      "left_hand_position": [
+        859,
+        435
+      ],
+      "root": [
+        800,
+        1000
+      ],
+      "anatomical_crown": [
+        828,
+        86
+      ],
+      "anatomical_height_px": 1020,
+      "body_height_px": 1020,
+      "two_handed": true,
+      "fan_state": "stowed",
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            906,
+            433,
+            77,
+            76
+          ],
+          "visible_portion": "visible right fist skin"
+        }
+      ],
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "occluded, no measured opening",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "left_hand_grip": [
+        859,
+        435
+      ],
+      "left_hand_visibility": "fully_occluded",
+      "left_hand_anchor_method": "pose_reference_inferred",
+      "left_hand_anchor_confidence": "low",
+      "left_hand_anchor_reference": "qa/heavy1-fresh-crossed-contact-gray.png",
+      "left_hand_anchor_rationale": "Same crossed-forearm mother-pose axis; enlarged single pose has about2.24x sheet scale. Rear grip inferred at right[-85,-36], not measured skin.",
+      "sword_angle_confidence": "inferred mother-pose grip axis; not a direct pixel measurement",
+      "left_hand_occluder_note": "None: hidden by right forearm; no fictional visible left hand mask.",
+      "sword_angle_deg": 113.0,
+      "source_override": "raw/air_heavy-frame04-scabbard.png",
+      "body_scale_note": "Standing-equivalent1020px based on reference head/torso/leg proportions; not968px airborne alpha height. Sheet ruler455px. Virtual root includes bottom padding.",
+      "replacement_reason": "Corrected standalone airborne contact: no residual guard, empty scabbard restored, complete body.",
+      "foreground_occluders": [
+        {
+          "part": "right_forearm",
+          "polygon": [
+            [
+              794,
+              326
+            ],
+            [
+              833,
+              348
+            ],
+            [
+              903,
+              408
+            ],
+            [
+              894,
+              447
+            ],
+            [
+              843,
+              430
+            ],
+            [
+              772,
+              383
+            ],
+            [
+              762,
+              356
+            ]
+          ],
+          "purpose": "Restore original forearm pixels over weapon handle at fully occluded inferred left grip."
+        }
+      ],
+      "root_note": "Virtual airborne registration plane for frames1\u20135; preserve transparent padding and flight motion. Frame6 recovery may land. Not an instruction to ground every foot.",
+      "source_region_polygon": [
+        [
+          296,
+          368
+        ],
+        [
+          298,
+          366
+        ],
+        [
+          463,
+          217
+        ],
+        [
+          703,
+          29
+        ],
+        [
+          705,
+          28
+        ],
+        [
+          731,
+          18
+        ],
+        [
+          734,
+          17
+        ],
+        [
+          745,
+          16
+        ],
+        [
+          753,
+          16
+        ],
+        [
+          768,
+          17
+        ],
+        [
+          774,
+          20
+        ],
+        [
+          779,
+          23
+        ],
+        [
+          792,
+          31
+        ],
+        [
+          878,
+          98
+        ],
+        [
+          888,
+          106
+        ],
+        [
+          895,
+          113
+        ],
+        [
+          897,
+          116
+        ],
+        [
+          900,
+          121
+        ],
+        [
+          901,
+          123
+        ],
+        [
+          903,
+          128
+        ],
+        [
+          952,
+          265
+        ],
+        [
+          1185,
+          937
+        ],
+        [
+          1186,
+          940
+        ],
+        [
+          1187,
+          944
+        ],
+        [
+          1187,
+          955
+        ],
+        [
+          1186,
+          960
+        ],
+        [
+          1184,
+          966
+        ],
+        [
+          1183,
+          968
+        ],
+        [
+          1175,
+          976
+        ],
+        [
+          1172,
+          978
+        ],
+        [
+          1166,
+          981
+        ],
+        [
+          1159,
+          984
+        ],
+        [
+          1153,
+          986
+        ],
+        [
+          1149,
+          987
+        ],
+        [
+          1125,
+          987
+        ],
+        [
+          1116,
+          985
+        ],
+        [
+          1113,
+          984
+        ],
+        [
+          1108,
+          982
+        ],
+        [
+          589,
+          767
+        ],
+        [
+          584,
+          764
+        ],
+        [
+          581,
+          762
+        ],
+        [
+          577,
+          759
+        ],
+        [
+          575,
+          757
+        ],
+        [
+          569,
+          750
+        ],
+        [
+          321,
+          424
+        ],
+        [
+          318,
+          420
+        ],
+        [
+          311,
+          410
+        ],
+        [
+          309,
+          407
+        ],
+        [
+          306,
+          402
+        ],
+        [
+          301,
+          392
+        ],
+        [
+          298,
+          385
+        ],
+        [
+          297,
+          382
+        ],
+        [
+          296,
+          378
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      },
+      "source_sha256": "163b6e2d15361bc8c5a58c99a9fd13ac1c4bc391edf58a1a77706503a69474fc"
+    },
+    {
+      "frame": 5,
+      "source": "raw/air_heavy.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "cell_rect": [
+        520,
+        534,
+        534,
+        474
+      ],
+      "alpha_bounds": [
+        522,
+        536,
+        530,
+        464
+      ],
+      "right_hand_grip": [
+        961,
+        789
+      ],
+      "left_hand_position": [
+        923,
+        773
+      ],
+      "root": [
+        787,
+        1004
+      ],
+      "anatomical_crown": [
+        867,
+        568
+      ],
+      "anatomical_height_px": 455,
+      "body_height_px": 455,
+      "two_handed": true,
+      "fan_state": "stowed",
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            944,
+            773,
+            34,
+            33
+          ],
+          "visible_portion": "visible right fist skin"
+        }
+      ],
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "occluded, no measured opening",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "left_hand_grip": [
+        923,
+        773
+      ],
+      "left_hand_visibility": "fully_occluded",
+      "left_hand_anchor_method": "pose_reference_inferred",
+      "left_hand_anchor_confidence": "low",
+      "left_hand_anchor_reference": "qa/heavy1-fresh-crossed-contact-gray.png",
+      "left_hand_anchor_rationale": "Correct crossed-forearm topology and reference handle center delta[75,32] at roughly0.5 source scale; rear grip inferred at right[-38,-16]. No visible skin claimed.",
+      "sword_angle_confidence": "inferred mother-pose grip axis; not a direct pixel measurement",
+      "left_hand_occluder_note": "None: hidden by right forearm; no fictional visible left hand mask.",
+      "sword_angle_deg": 112.8,
+      "foreground_occluders": [
+        {
+          "part": "right_forearm",
+          "polygon": [
+            [
+              883,
+              710
+            ],
+            [
+              911,
+              726
+            ],
+            [
+              950,
+              766
+            ],
+            [
+              932,
+              793
+            ],
+            [
+              884,
+              756
+            ],
+            [
+              869,
+              730
+            ]
+          ],
+          "purpose": "Restore original forearm pixels over weapon handle at fully occluded inferred left grip."
+        }
+      ],
+      "root_note": "Virtual airborne registration plane for frames1\u20135; preserve transparent padding and flight motion. Frame6 recovery may land. Not an instruction to ground every foot.",
+      "source_region_polygon": [
+        [
+          1008,
+          1001
+        ],
+        [
+          540,
+          942
+        ],
+        [
+          536,
+          941
+        ],
+        [
+          533,
+          940
+        ],
+        [
+          529,
+          938
+        ],
+        [
+          525,
+          934
+        ],
+        [
+          522,
+          928
+        ],
+        [
+          521,
+          925
+        ],
+        [
+          520,
+          920
+        ],
+        [
+          520,
+          912
+        ],
+        [
+          521,
+          907
+        ],
+        [
+          522,
+          903
+        ],
+        [
+          584,
+          692
+        ],
+        [
+          587,
+          686
+        ],
+        [
+          590,
+          681
+        ],
+        [
+          596,
+          675
+        ],
+        [
+          642,
+          638
+        ],
+        [
+          729,
+          569
+        ],
+        [
+          733,
+          567
+        ],
+        [
+          816,
+          536
+        ],
+        [
+          827,
+          534
+        ],
+        [
+          831,
+          534
+        ],
+        [
+          843,
+          537
+        ],
+        [
+          845,
+          538
+        ],
+        [
+          849,
+          541
+        ],
+        [
+          891,
+          579
+        ],
+        [
+          899,
+          587
+        ],
+        [
+          901,
+          590
+        ],
+        [
+          903,
+          594
+        ],
+        [
+          985,
+          780
+        ],
+        [
+          1052,
+          974
+        ],
+        [
+          1053,
+          977
+        ],
+        [
+          1053,
+          983
+        ],
+        [
+          1052,
+          988
+        ],
+        [
+          1051,
+          990
+        ],
+        [
+          1046,
+          995
+        ],
+        [
+          1043,
+          997
+        ],
+        [
+          1039,
+          999
+        ],
+        [
+          1035,
+          1000
+        ],
+        [
+          1029,
+          1001
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      },
+      "source_sha256": "ac7124edf883d1ce2ed6c24e58752c4db0fa975b423743df745a68c1613e2be7"
+    },
+    {
+      "frame": 6,
+      "source": "raw/air_heavy.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "cell_rect": [
+        1109,
+        546,
+        423,
+        462
+      ],
+      "alpha_bounds": [
+        1111,
+        548,
+        419,
+        458
+      ],
+      "right_hand_grip": [
+        1288,
+        656
+      ],
+      "left_hand_position": [
+        1294,
+        692
+      ],
+      "root": [
+        1324,
+        1002
+      ],
+      "anatomical_crown": [
+        1353,
+        576
+      ],
+      "anatomical_height_px": 455,
+      "body_height_px": 455,
+      "two_handed": true,
+      "fan_state": "stowed",
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            1273,
+            642,
+            31,
+            29
+          ],
+          "visible_portion": "visible right fist skin"
+        },
+        {
+          "hand": "left",
+          "rect": [
+            1281,
+            679,
+            27,
+            27
+          ],
+          "visible_portion": "visible left skin only; rear grip under crossing wrist in compressed poses"
+        }
+      ],
+      "scabbard_mouth": null,
+      "scabbard_mouth_visibility": "occluded, no measured opening",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "left_hand_grip": [
+        1294,
+        692
+      ],
+      "left_hand_visibility": "visible, sometimes partly overlapped by right wrist",
+      "left_hand_anchor_method": "pixel_measured",
+      "left_hand_anchor_confidence": "high",
+      "sword_angle_confidence": "measured left-to-right grasp axis",
+      "sword_angle_deg": -9.5,
+      "root_note": "Virtual airborne registration plane for frames1\u20135; preserve transparent padding and flight motion. Frame6 recovery may land. Not an instruction to ground every foot.",
+      "source_region_polygon": [
+        [
+          1492,
+          761
+        ],
+        [
+          1531,
+          987
+        ],
+        [
+          1531,
+          991
+        ],
+        [
+          1530,
+          995
+        ],
+        [
+          1528,
+          998
+        ],
+        [
+          1526,
+          1000
+        ],
+        [
+          1523,
+          1002
+        ],
+        [
+          1519,
+          1004
+        ],
+        [
+          1513,
+          1006
+        ],
+        [
+          1507,
+          1007
+        ],
+        [
+          1487,
+          1007
+        ],
+        [
+          1133,
+          987
+        ],
+        [
+          1128,
+          986
+        ],
+        [
+          1122,
+          984
+        ],
+        [
+          1120,
+          983
+        ],
+        [
+          1117,
+          981
+        ],
+        [
+          1112,
+          976
+        ],
+        [
+          1110,
+          973
+        ],
+        [
+          1109,
+          970
+        ],
+        [
+          1109,
+          962
+        ],
+        [
+          1118,
+          811
+        ],
+        [
+          1119,
+          808
+        ],
+        [
+          1184,
+          677
+        ],
+        [
+          1186,
+          673
+        ],
+        [
+          1194,
+          660
+        ],
+        [
+          1202,
+          648
+        ],
+        [
+          1287,
+          554
+        ],
+        [
+          1288,
+          553
+        ],
+        [
+          1297,
+          547
+        ],
+        [
+          1306,
+          546
+        ],
+        [
+          1311,
+          546
+        ],
+        [
+          1318,
+          548
+        ],
+        [
+          1324,
+          551
+        ],
+        [
+          1372,
+          576
+        ],
+        [
+          1375,
+          578
+        ],
+        [
+          1383,
+          586
+        ],
+        [
+          1385,
+          589
+        ],
+        [
+          1424,
+          650
+        ],
+        [
+          1491,
+          759
+        ]
+      ],
+      "source_region_validation": {
+        "margin_px": 2,
+        "foreign_alpha_gt32_pixels": 0,
+        "own_alpha_gt10_pixels_excluded": 0
+      },
+      "source_sha256": "ac7124edf883d1ce2ed6c24e58752c4db0fa975b423743df745a68c1613e2be7"
+    }
+  ]
+}

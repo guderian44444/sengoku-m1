@@ -1,0 +1,561 @@
+{
+  "animation": "charge",
+  "source": "raw/charge.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "Full-sheet native pixels. source_rect/cell_rect x,y,width,height; anchors and occluder rects are GLOBAL SOURCE pixels, convert to crop-local during export.",
+  "authorship": "Individually visually measured supplied final gray QA. Close hand crops inspected. No image changes.",
+  "hand_identity": "Right anatomical near arm starts screen-left shoulder; crosses in front to lower-right fist in low guards. Left anatomical far arm starts screen-right shoulder, often hidden behind right forearm. Right hand closest to future blade in two-hand poses.",
+  "angle_convention": "Sword tip up=0, clockwise positive. Two-hand angle estimated from left-to-right grip axis only where visible; hidden left grips provisional.",
+  "measurement_notes": "body_height510 is clip upright-equivalent ruler from head, trunk and straightened legs; NOT current low-pose bbox. Occluded left center is explicitly estimated, no double-grip pass claimed. source_index is1based within original sheet row-major.",
+  "qa_status": "Measured; weapon layering and two-hand axis review pending.",
+  "frames": [
+    {
+      "frame": 1,
+      "source": "raw/charge.png",
+      "source_index": 1,
+      "source_rect": [
+        45,
+        5,
+        465,
+        510
+      ],
+      "cell_rect": [
+        45,
+        5,
+        465,
+        510
+      ],
+      "right_hand_grip": [
+        126,
+        268
+      ],
+      "left_hand_position": [
+        317,
+        250
+      ],
+      "right_foot_contact": [
+        100,
+        504
+      ],
+      "left_foot_contact": [
+        457,
+        498
+      ],
+      "root": [
+        279,
+        501
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        302,
+        34
+      ],
+      "anatomical_height_px": 510,
+      "body_height": 510,
+      "scabbard_mouth": [
+        332,
+        258
+      ],
+      "scabbard_tip": [
+        424,
+        316
+      ],
+      "scabbard_mouth_visibility": "left hand at sheath mouth; center underneath hand",
+      "scabbard_direction_deg": 122,
+      "sword_angle_deg": -30,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            110,
+            249,
+            33,
+            35
+          ]
+        },
+        {
+          "hand": "left",
+          "rect": [
+            300,
+            235,
+            34,
+            32
+          ]
+        }
+      ],
+      "left_hand_visibility": "visible",
+      "left_hand_center_confidence": "medium",
+      "grip_separation_px": 191.8,
+      "two_hand_axis_validated": null,
+      "phase": "begin_sheathing",
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true,
+      "weapon_grounded": false,
+      "weapon_behind": false,
+      "sheath_anchor": [
+        332,
+        258
+      ],
+      "sheathed_layer_note": "Right hand is future equipped hilt position; left hand holds scabbard mouth. Not two hands on same sword grip. Blade concealment/hilt overlay requires separate sheath renderer."
+    },
+    {
+      "frame": 2,
+      "source": "raw/charge.png",
+      "source_index": 2,
+      "source_rect": [
+        555,
+        15,
+        470,
+        500
+      ],
+      "cell_rect": [
+        555,
+        15,
+        470,
+        500
+      ],
+      "right_hand_grip": [
+        751,
+        190
+      ],
+      "left_hand_position": [
+        841,
+        261
+      ],
+      "right_foot_contact": [
+        610,
+        504
+      ],
+      "left_foot_contact": [
+        974,
+        491
+      ],
+      "root": [
+        792,
+        498
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        815,
+        52
+      ],
+      "anatomical_height_px": 510,
+      "body_height": 510,
+      "scabbard_mouth": [
+        850,
+        269
+      ],
+      "scabbard_tip": [
+        924,
+        316
+      ],
+      "scabbard_mouth_visibility": "left hand at sheath mouth; center underneath hand",
+      "scabbard_direction_deg": 122,
+      "sword_angle_deg": 129,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            733,
+            175,
+            37,
+            29
+          ]
+        },
+        {
+          "hand": "left",
+          "rect": [
+            824,
+            244,
+            35,
+            32
+          ]
+        }
+      ],
+      "left_hand_visibility": "visible",
+      "left_hand_center_confidence": "medium",
+      "grip_separation_px": 114.6,
+      "two_hand_axis_validated": null,
+      "phase": "partial_sheath",
+      "fan_state": "stowed",
+      "main_weapon_state": "sheathed_transition",
+      "weapon_visible": true,
+      "weapon_grounded": false,
+      "weapon_behind": true,
+      "sheath_anchor": [
+        850,
+        269
+      ],
+      "sheathed_layer_note": "Right hand is future equipped hilt position; left hand holds scabbard mouth. Not two hands on same sword grip. Blade concealment/hilt overlay requires separate sheath renderer.",
+      "weapon_angle_basis": "tip points from right-hand hilt through left-hand sheath mouth, not two-hand grip axis; blade hidden during sheathed state"
+    },
+    {
+      "frame": 3,
+      "source": "raw/charge.png",
+      "source_index": 3,
+      "source_rect": [
+        1060,
+        30,
+        476,
+        480
+      ],
+      "cell_rect": [
+        1060,
+        30,
+        476,
+        480
+      ],
+      "right_hand_grip": [
+        1317,
+        233
+      ],
+      "left_hand_position": [
+        1348,
+        273
+      ],
+      "right_foot_contact": [
+        1114,
+        499
+      ],
+      "left_foot_contact": [
+        1477,
+        496
+      ],
+      "root": [
+        1296,
+        498
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        1335,
+        63
+      ],
+      "anatomical_height_px": 510,
+      "body_height": 510,
+      "scabbard_mouth": [
+        1360,
+        281
+      ],
+      "scabbard_tip": [
+        1445,
+        330
+      ],
+      "scabbard_mouth_visibility": "left hand at sheath mouth; center underneath hand",
+      "scabbard_direction_deg": 120,
+      "sword_angle_deg": 138,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            1299,
+            214,
+            34,
+            36
+          ]
+        },
+        {
+          "hand": "left",
+          "rect": [
+            1333,
+            253,
+            34,
+            37
+          ]
+        }
+      ],
+      "left_hand_visibility": "visible",
+      "left_hand_center_confidence": "medium",
+      "grip_separation_px": 50.6,
+      "two_hand_axis_validated": null,
+      "phase": "ready_hilt_hand",
+      "fan_state": "stowed",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "weapon_behind": true,
+      "sheath_anchor": [
+        1360,
+        281
+      ],
+      "sheathed_layer_note": "Right hand is future equipped hilt position; left hand holds scabbard mouth. Not two hands on same sword grip. Blade concealment/hilt overlay requires separate sheath renderer.",
+      "weapon_angle_basis": "tip points from right-hand hilt through left-hand sheath mouth, not two-hand grip axis; blade hidden during sheathed state"
+    },
+    {
+      "frame": 4,
+      "source": "raw/charge.png",
+      "source_index": 4,
+      "source_rect": [
+        15,
+        514,
+        518,
+        496
+      ],
+      "cell_rect": [
+        15,
+        514,
+        518,
+        496
+      ],
+      "right_hand_grip": [
+        289,
+        721
+      ],
+      "left_hand_position": [
+        327,
+        742
+      ],
+      "right_foot_contact": [
+        68,
+        989
+      ],
+      "left_foot_contact": [
+        478,
+        987
+      ],
+      "root": [
+        273,
+        988
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        295,
+        540
+      ],
+      "anatomical_height_px": 510,
+      "body_height": 510,
+      "scabbard_mouth": [
+        340,
+        751
+      ],
+      "scabbard_tip": [
+        430,
+        808
+      ],
+      "scabbard_mouth_visibility": "left hand at sheath mouth; center underneath hand",
+      "scabbard_direction_deg": 122,
+      "sword_angle_deg": 120,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            272,
+            704,
+            34,
+            34
+          ]
+        },
+        {
+          "hand": "left",
+          "rect": [
+            312,
+            726,
+            34,
+            35
+          ]
+        }
+      ],
+      "left_hand_visibility": "visible",
+      "left_hand_center_confidence": "medium",
+      "grip_separation_px": 43.4,
+      "two_hand_axis_validated": null,
+      "phase": "focus_settle",
+      "fan_state": "stowed",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "weapon_behind": true,
+      "sheath_anchor": [
+        340,
+        751
+      ],
+      "sheathed_layer_note": "Right hand is future equipped hilt position; left hand holds scabbard mouth. Not two hands on same sword grip. Blade concealment/hilt overlay requires separate sheath renderer.",
+      "weapon_angle_basis": "tip points from right-hand hilt through left-hand sheath mouth, not two-hand grip axis; blade hidden during sheathed state"
+    },
+    {
+      "frame": 5,
+      "source": "raw/charge.png",
+      "source_index": 5,
+      "source_rect": [
+        540,
+        538,
+        528,
+        472
+      ],
+      "cell_rect": [
+        540,
+        538,
+        528,
+        472
+      ],
+      "right_hand_grip": [
+        827,
+        739
+      ],
+      "left_hand_position": [
+        864,
+        759
+      ],
+      "right_foot_contact": [
+        594,
+        990
+      ],
+      "left_foot_contact": [
+        1014,
+        989
+      ],
+      "root": [
+        804,
+        990
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        816,
+        571
+      ],
+      "anatomical_height_px": 510,
+      "body_height": 510,
+      "scabbard_mouth": [
+        878,
+        767
+      ],
+      "scabbard_tip": [
+        963,
+        820
+      ],
+      "scabbard_mouth_visibility": "left hand at sheath mouth; center underneath hand",
+      "scabbard_direction_deg": 122,
+      "sword_angle_deg": 119,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            809,
+            723,
+            37,
+            35
+          ]
+        },
+        {
+          "hand": "left",
+          "rect": [
+            847,
+            743,
+            36,
+            34
+          ]
+        }
+      ],
+      "left_hand_visibility": "visible",
+      "left_hand_center_confidence": "medium",
+      "grip_separation_px": 42.1,
+      "two_hand_axis_validated": null,
+      "phase": "charged_hold",
+      "fan_state": "stowed",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "weapon_behind": true,
+      "sheath_anchor": [
+        878,
+        767
+      ],
+      "sheathed_layer_note": "Right hand is future equipped hilt position; left hand holds scabbard mouth. Not two hands on same sword grip. Blade concealment/hilt overlay requires separate sheath renderer.",
+      "weapon_angle_basis": "tip points from right-hand hilt through left-hand sheath mouth, not two-hand grip axis; blade hidden during sheathed state"
+    },
+    {
+      "frame": 6,
+      "source": "raw/charge.png",
+      "source_index": 6,
+      "source_rect": [
+        1080,
+        540,
+        456,
+        470
+      ],
+      "cell_rect": [
+        1080,
+        540,
+        456,
+        470
+      ],
+      "right_hand_grip": [
+        1369,
+        750
+      ],
+      "left_hand_position": [
+        1397,
+        769
+      ],
+      "right_foot_contact": [
+        1122,
+        981
+      ],
+      "left_foot_contact": [
+        1466,
+        984
+      ],
+      "root": [
+        1294,
+        983
+      ],
+      "root_kind": "ground_support",
+      "anatomical_crown": [
+        1373,
+        578
+      ],
+      "anatomical_height_px": 510,
+      "body_height": 510,
+      "scabbard_mouth": [
+        1410,
+        777
+      ],
+      "scabbard_tip": [
+        1485,
+        821
+      ],
+      "scabbard_mouth_visibility": "left hand at sheath mouth; center underneath hand",
+      "scabbard_direction_deg": 120,
+      "sword_angle_deg": 123,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "rect": [
+            1351,
+            733,
+            35,
+            35
+          ]
+        },
+        {
+          "hand": "left",
+          "rect": [
+            1382,
+            753,
+            35,
+            33
+          ]
+        }
+      ],
+      "left_hand_visibility": "visible",
+      "left_hand_center_confidence": "medium",
+      "grip_separation_px": 33.8,
+      "two_hand_axis_validated": null,
+      "phase": "full_hold",
+      "fan_state": "stowed",
+      "main_weapon_state": "sheathed",
+      "weapon_visible": false,
+      "weapon_grounded": false,
+      "weapon_behind": true,
+      "sheath_anchor": [
+        1410,
+        777
+      ],
+      "sheathed_layer_note": "Right hand is future equipped hilt position; left hand holds scabbard mouth. Not two hands on same sword grip. Blade concealment/hilt overlay requires separate sheath renderer.",
+      "weapon_angle_basis": "tip points from right-hand hilt through left-hand sheath mouth, not two-hand grip axis; blade hidden during sheathed state"
+    }
+  ]
+}

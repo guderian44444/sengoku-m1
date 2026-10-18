@@ -1,0 +1,480 @@
+{
+  "animation": "dash_heavy",
+  "source": "raw/dash_heavy.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "Full-sheet native pixels, origin top-left, x right y down. Rectangles x,y,width,height. Individual source rectangles follow actual full silhouettes, not rigid512 cells.",
+  "authorship": "Six native generated poses, independently visually measured from gray composites. Grip and free-hand points approximately3-5px precision.",
+  "angle_convention": "Blade tip straight up=0 degrees; clockwise positive. Angles are authored choreography, not observed baked sword pixels.",
+  "hand_identity": "right_hand_grip is the anatomical right empty fist, traced from its shoulder. left_hand_position is the free anatomical left balance/guard hand. Frontal right shoulder appears on screen-left; back-facing dash poses follow actual torso orientation.",
+  "measurement_notes": "anatomical_height_px/body_height_px are standing-equivalent per-sheet scale calibration, measured from the least compressed pose. They intentionally remain fixed under crouch/airborne changes to avoid size pumping. measured_crown_to_root_px records actual per-frame pose extent. No hidden scabbard point guessed.",
+  "impact_frame_1based": 4,
+  "review_notes": "Contact4 cuts back-left with gaze left. Frame5 recovery crosses chest before returning.",
+  "frames": [
+    {
+      "frame": 1,
+      "cell_rect": [
+        33,
+        42,
+        462,
+        443
+      ],
+      "alpha_bounds": [
+        36,
+        45,
+        456,
+        437
+      ],
+      "right_hand_grip": [
+        144,
+        185
+      ],
+      "left_hand_position": [
+        466,
+        207
+      ],
+      "root": [
+        270,
+        475
+      ],
+      "anatomical_crown": [
+        421,
+        77
+      ],
+      "anatomical_height_px": 398,
+      "body_height_px": 398,
+      "measured_crown_to_root_px": 398,
+      "sword_angle_deg": -100,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              133,
+              168
+            ],
+            [
+              155,
+              168
+            ],
+            [
+              159,
+              173
+            ],
+            [
+              159,
+              198
+            ],
+            [
+              155,
+              203
+            ],
+            [
+              133,
+              203
+            ],
+            [
+              129,
+              198
+            ],
+            [
+              129,
+              173
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true
+    },
+    {
+      "frame": 2,
+      "cell_rect": [
+        506,
+        65,
+        538,
+        420
+      ],
+      "alpha_bounds": [
+        509,
+        68,
+        532,
+        414
+      ],
+      "right_hand_grip": [
+        760,
+        285
+      ],
+      "left_hand_position": [
+        937,
+        193
+      ],
+      "root": [
+        774,
+        475
+      ],
+      "anatomical_crown": [
+        880,
+        99
+      ],
+      "anatomical_height_px": 398,
+      "body_height_px": 398,
+      "measured_crown_to_root_px": 376,
+      "sword_angle_deg": 145,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              748,
+              271
+            ],
+            [
+              772,
+              271
+            ],
+            [
+              776,
+              276
+            ],
+            [
+              776,
+              294
+            ],
+            [
+              772,
+              299
+            ],
+            [
+              748,
+              299
+            ],
+            [
+              744,
+              294
+            ],
+            [
+              744,
+              276
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true
+    },
+    {
+      "frame": 3,
+      "cell_rect": [
+        1067,
+        53,
+        469,
+        437
+      ],
+      "alpha_bounds": [
+        1070,
+        56,
+        465,
+        431
+      ],
+      "right_hand_grip": [
+        1287,
+        278
+      ],
+      "left_hand_position": [
+        1406,
+        261
+      ],
+      "root": [
+        1300,
+        478
+      ],
+      "anatomical_crown": [
+        1388,
+        84
+      ],
+      "anatomical_height_px": 398,
+      "body_height_px": 398,
+      "measured_crown_to_root_px": 394,
+      "sword_angle_deg": -135,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              1275,
+              264
+            ],
+            [
+              1299,
+              264
+            ],
+            [
+              1303,
+              269
+            ],
+            [
+              1303,
+              288
+            ],
+            [
+              1299,
+              293
+            ],
+            [
+              1275,
+              293
+            ],
+            [
+              1271,
+              288
+            ],
+            [
+              1271,
+              269
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true
+    },
+    {
+      "frame": 4,
+      "cell_rect": [
+        8,
+        526,
+        543,
+        454
+      ],
+      "alpha_bounds": [
+        11,
+        529,
+        537,
+        448
+      ],
+      "right_hand_grip": [
+        77,
+        638
+      ],
+      "left_hand_position": [
+        333,
+        629
+      ],
+      "root": [
+        280,
+        968
+      ],
+      "anatomical_crown": [
+        260,
+        559
+      ],
+      "anatomical_height_px": 398,
+      "body_height_px": 398,
+      "measured_crown_to_root_px": 409,
+      "sword_angle_deg": -90,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              66,
+              624
+            ],
+            [
+              88,
+              624
+            ],
+            [
+              92,
+              629
+            ],
+            [
+              92,
+              647
+            ],
+            [
+              88,
+              652
+            ],
+            [
+              66,
+              652
+            ],
+            [
+              62,
+              647
+            ],
+            [
+              62,
+              629
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true
+    },
+    {
+      "frame": 5,
+      "cell_rect": [
+        564,
+        531,
+        476,
+        451
+      ],
+      "alpha_bounds": [
+        567,
+        534,
+        470,
+        445
+      ],
+      "right_hand_grip": [
+        856,
+        683
+      ],
+      "left_hand_position": [
+        912,
+        703
+      ],
+      "root": [
+        841,
+        969
+      ],
+      "anatomical_crown": [
+        720,
+        563
+      ],
+      "anatomical_height_px": 398,
+      "body_height_px": 398,
+      "measured_crown_to_root_px": 406,
+      "sword_angle_deg": -140,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              846,
+              668
+            ],
+            [
+              867,
+              668
+            ],
+            [
+              871,
+              673
+            ],
+            [
+              871,
+              693
+            ],
+            [
+              867,
+              698
+            ],
+            [
+              846,
+              698
+            ],
+            [
+              842,
+              693
+            ],
+            [
+              842,
+              673
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true
+    },
+    {
+      "frame": 6,
+      "cell_rect": [
+        1057,
+        551,
+        475,
+        439
+      ],
+      "alpha_bounds": [
+        1060,
+        554,
+        469,
+        433
+      ],
+      "right_hand_grip": [
+        1250,
+        760
+      ],
+      "left_hand_position": [
+        1273,
+        680
+      ],
+      "root": [
+        1300,
+        974
+      ],
+      "anatomical_crown": [
+        1343,
+        585
+      ],
+      "anatomical_height_px": 398,
+      "body_height_px": 398,
+      "measured_crown_to_root_px": 389,
+      "sword_angle_deg": -160,
+      "hand_occluders": [
+        {
+          "hand": "right",
+          "polygon": [
+            [
+              1238,
+              745
+            ],
+            [
+              1263,
+              745
+            ],
+            [
+              1267,
+              750
+            ],
+            [
+              1267,
+              770
+            ],
+            [
+              1263,
+              775
+            ],
+            [
+              1238,
+              775
+            ],
+            [
+              1234,
+              770
+            ],
+            [
+              1234,
+              750
+            ]
+          ]
+        }
+      ],
+      "fan_state": "stowed",
+      "main_weapon_state": "drawn",
+      "weapon_visible": true
+    }
+  ],
+  "source_sha256": "cbcd451ecf98ef1c15ebcba50b32fbfd3322f2ed77124bdb65a8ac0ad77f87fc"
+}
