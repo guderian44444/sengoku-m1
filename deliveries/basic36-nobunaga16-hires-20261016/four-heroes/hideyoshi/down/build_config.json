@@ -1,0 +1,184 @@
+{
+  "loop": false,
+  "description": "接地後背肩落實、腿部反作用，再靜止倒地。末格可停留供死亡；可由末格接recovering。",
+  "idle_start": null,
+  "idle_end": null,
+  "representative": 1,
+  "world_mode": "inherit incoming root position; no state-local displacement",
+  "frames": [
+    {
+      "src": "source_3.png",
+      "side": 0,
+      "scale": 0.12,
+      "head": [
+        75,
+        302,
+        329,
+        480
+      ],
+      "hands": [
+        574,
+        484,
+        746,
+        601
+      ],
+      "grip": [
+        660,
+        543
+      ],
+      "feet": {
+        "near": [
+          1215,
+          898
+        ],
+        "far": [
+          1436,
+          672
+        ]
+      },
+      "origin": [
+        790,
+        906
+      ],
+      "angle": 55,
+      "duration_ms": 80,
+      "phase": "ground_contact",
+      "support": "back_hips_near_heel",
+      "world": [
+        0,
+        0
+      ],
+      "event": "land_contact"
+    },
+    {
+      "src": "settle_0.png",
+      "side": 0,
+      "scale": 0.12,
+      "head": [
+        27,
+        383,
+        308,
+        587
+      ],
+      "hands": [
+        558,
+        518,
+        719,
+        651
+      ],
+      "grip": [
+        639,
+        583
+      ],
+      "feet": {
+        "near": [
+          1387,
+          757
+        ],
+        "far": [
+          1434,
+          513
+        ]
+      },
+      "origin": [
+        790,
+        906
+      ],
+      "angle": 55,
+      "duration_ms": 70,
+      "phase": "impact_compression",
+      "support": "back_shoulders",
+      "world": [
+        0,
+        0
+      ]
+    },
+    {
+      "src": "settle_1.png",
+      "side": 0,
+      "scale": 0.12,
+      "head": [
+        40,
+        302,
+        313,
+        506
+      ],
+      "hands": [
+        605,
+        483,
+        759,
+        591
+      ],
+      "grip": [
+        682,
+        539
+      ],
+      "feet": {
+        "near": [
+          1391,
+          874
+        ],
+        "far": [
+          1488,
+          632
+        ]
+      },
+      "origin": [
+        790,
+        906
+      ],
+      "angle": 55,
+      "duration_ms": 90,
+      "phase": "small_settling_reaction",
+      "support": "back_hips_near_heel",
+      "world": [
+        0,
+        0
+      ]
+    },
+    {
+      "src": "source_3.png",
+      "side": 0,
+      "scale": 0.12,
+      "head": [
+        75,
+        302,
+        329,
+        480
+      ],
+      "hands": [
+        574,
+        484,
+        746,
+        601
+      ],
+      "grip": [
+        660,
+        543
+      ],
+      "feet": {
+        "near": [
+          1215,
+          898
+        ],
+        "far": [
+          1436,
+          672
+        ]
+      },
+      "origin": [
+        790,
+        906
+      ],
+      "angle": 55,
+      "duration_ms": 380,
+      "phase": "motionless_final_hold",
+      "support": "back_hips_near_heel",
+      "world": [
+        0,
+        0
+      ],
+      "event": "down_settled"
+    }
+  ]
+}

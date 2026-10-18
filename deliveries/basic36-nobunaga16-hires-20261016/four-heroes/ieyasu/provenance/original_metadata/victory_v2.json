@@ -1,0 +1,627 @@
+{
+  "hero": "ieyasu06",
+  "revision": "victory_v2_candidate_01",
+  "action": "victory",
+  "approval": "accepted",
+  "loop": false,
+  "frame_count": 6,
+  "total_ms": 1300,
+  "standing_ruler_source_px": 920,
+  "standing_ruler_target_px": 152,
+  "new_source_standing_rulers": [
+    1240
+  ],
+  "scale_basis": "declared native standing-equivalent drawing scale, never per-frame bbox height",
+  "per_frame_bbox_height_normalization": false,
+  "original_png_preserved": true,
+  "body_final_downsample_only": true,
+  "image_generation_tool": "official image_gen.imagegen",
+  "direct_approved_references": [
+    "ieyasu06_newspec_20261015/reference/identity06.png",
+    "ieyasu06_newspec_20261015/actions/light_1_source.png"
+  ],
+  "layers": [
+    "body",
+    "weapon",
+    "sheath",
+    "hand_occlusion"
+  ],
+  "ordinary_action_fx": false,
+  "world_motion": {
+    "mode": "runtime_controller",
+    "per_frame_delta": [
+      0,
+      0
+    ],
+    "preview_motion_not_baked": true
+  },
+  "shared_idle": "../idle/registration.json",
+  "frames": [
+    {
+      "source_file": "../idle/composite.png",
+      "approved_exact_idle": true,
+      "source_effective_height": 416,
+      "root_canvas": [
+        220,
+        280
+      ],
+      "grip_canvas": [
+        224.08,
+        201.06
+      ],
+      "hands_canvas": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_canvas": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ]
+      },
+      "support_foot": "both",
+      "scale": 0.36538461538461536,
+      "frame": 1,
+      "duration_ms": 100,
+      "start_ms": 0,
+      "phase": "approved_idle",
+      "event": "victory_start",
+      "loop_next": 2,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/victory_v2_prepare_raw.png",
+      "source_rect": null,
+      "source_sha256": "bd7c832128ee26caee6cff4539dc525c043dce5ea3d2662a3f34fadc50493aa8",
+      "source_bbox": [
+        29,
+        170,
+        994,
+        1412
+      ],
+      "source_effective_height": 1242,
+      "source_effective_width": 965,
+      "source_standing_ruler": 1240,
+      "source_root": [
+        510,
+        1410
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        157.48387096774195,
+        107.16129032258064
+      ],
+      "scale": 0.12258064516129032,
+      "grip_source": [
+        488,
+        533
+      ],
+      "grip_canvas": [
+        217.30322580645162,
+        172.4967741935484
+      ],
+      "hands_source": [
+        [
+          488,
+          533
+        ],
+        [
+          749,
+          835
+        ]
+      ],
+      "hands_canvas": [
+        [
+          217.30322580645162,
+          172.4967741935484
+        ],
+        [
+          249.2967741935484,
+          209.51612903225805
+        ]
+      ],
+      "weapon_angle_degrees": -22,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          115,
+          1404
+        ],
+        "far": [
+          928,
+          1402
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          171.58064516129033,
+          279.26451612903224
+        ],
+        "far": [
+          271.23870967741937,
+          279.01935483870966
+        ]
+      },
+      "support_foot": "both",
+      "frame": 2,
+      "duration_ms": 150,
+      "start_ms": 100,
+      "phase": "single_hand_sword_lift",
+      "event": null,
+      "loop_next": 3,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true,
+      "head_crown_source": [
+        398,
+        175
+      ],
+      "head_crown_canvas": [
+        206.2709677419355,
+        128.61290322580643
+      ]
+    },
+    {
+      "source_file": "../sources/victory_v2_raise_raw.png",
+      "source_rect": null,
+      "source_sha256": "626093af5b42a5536158859b1faa912aebd16066c34c8717af479d2d88d4af9c",
+      "source_bbox": [
+        21,
+        90,
+        1011,
+        1419
+      ],
+      "source_effective_height": 1329,
+      "source_effective_width": 990,
+      "source_standing_ruler": 1240,
+      "source_root": [
+        510,
+        1415
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        157.48387096774195,
+        106.5483870967742
+      ],
+      "scale": 0.12258064516129032,
+      "grip_source": [
+        361,
+        131
+      ],
+      "grip_canvas": [
+        201.73548387096776,
+        122.60645161290324
+      ],
+      "hands_source": [
+        [
+          361,
+          131
+        ],
+        [
+          673,
+          770
+        ]
+      ],
+      "hands_canvas": [
+        [
+          201.73548387096776,
+          122.60645161290324
+        ],
+        [
+          239.98064516129034,
+          200.93548387096774
+        ]
+      ],
+      "weapon_angle_degrees": -5,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          115,
+          1409
+        ],
+        "far": [
+          928,
+          1407
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          171.58064516129033,
+          279.26451612903224
+        ],
+        "far": [
+          271.23870967741937,
+          279.01935483870966
+        ]
+      },
+      "support_foot": "both",
+      "frame": 3,
+      "duration_ms": 170,
+      "start_ms": 250,
+      "phase": "single_hand_sword_up",
+      "event": null,
+      "loop_next": 4,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true,
+      "head_crown_source": [
+        416,
+        192
+      ],
+      "head_crown_canvas": [
+        208.47741935483873,
+        130.08387096774194
+      ]
+    },
+    {
+      "source_file": "../sources/victory_v2_shout_raw.png",
+      "source_rect": null,
+      "source_sha256": "1e16dcf721b838d109472878f01d0cb3fa64772420578daab39e9e979c861e02",
+      "source_bbox": [
+        28,
+        48,
+        1016,
+        1443
+      ],
+      "source_effective_height": 1395,
+      "source_effective_width": 988,
+      "source_standing_ruler": 1240,
+      "source_root": [
+        510,
+        1434
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        157.48387096774195,
+        104.21935483870968
+      ],
+      "scale": 0.12258064516129032,
+      "grip_source": [
+        370,
+        83
+      ],
+      "grip_canvas": [
+        202.83870967741936,
+        114.39354838709677
+      ],
+      "hands_source": [
+        [
+          370,
+          83
+        ],
+        [
+          849,
+          849
+        ]
+      ],
+      "hands_canvas": [
+        [
+          202.83870967741936,
+          114.39354838709677
+        ],
+        [
+          261.5548387096774,
+          208.29032258064515
+        ]
+      ],
+      "weapon_angle_degrees": 0,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          115,
+          1428
+        ],
+        "far": [
+          928,
+          1426
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          171.58064516129033,
+          279.26451612903224
+        ],
+        "far": [
+          271.23870967741937,
+          279.01935483870966
+        ]
+      },
+      "support_foot": "both",
+      "frame": 4,
+      "duration_ms": 500,
+      "start_ms": 420,
+      "phase": "overhead_sword_shout",
+      "event": "victory_shout_pose_no_audio",
+      "loop_next": 5,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true,
+      "head_crown_source": [
+        393,
+        204
+      ],
+      "head_crown_canvas": [
+        205.65806451612906,
+        129.2258064516129
+      ]
+    },
+    {
+      "source_file": "../sources/victory_v2_prepare_raw.png",
+      "source_rect": null,
+      "source_sha256": "bd7c832128ee26caee6cff4539dc525c043dce5ea3d2662a3f34fadc50493aa8",
+      "source_bbox": [
+        29,
+        170,
+        994,
+        1412
+      ],
+      "source_effective_height": 1242,
+      "source_effective_width": 965,
+      "source_standing_ruler": 1240,
+      "source_root": [
+        510,
+        1410
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        157.48387096774195,
+        107.16129032258064
+      ],
+      "scale": 0.12258064516129032,
+      "grip_source": [
+        488,
+        533
+      ],
+      "grip_canvas": [
+        217.30322580645162,
+        172.4967741935484
+      ],
+      "hands_source": [
+        [
+          488,
+          533
+        ],
+        [
+          749,
+          835
+        ]
+      ],
+      "hands_canvas": [
+        [
+          217.30322580645162,
+          172.4967741935484
+        ],
+        [
+          249.2967741935484,
+          209.51612903225805
+        ]
+      ],
+      "weapon_angle_degrees": -30,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          115,
+          1404
+        ],
+        "far": [
+          928,
+          1402
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          171.58064516129033,
+          279.26451612903224
+        ],
+        "far": [
+          271.23870967741937,
+          279.01935483870966
+        ]
+      },
+      "support_foot": "both",
+      "frame": 5,
+      "duration_ms": 180,
+      "start_ms": 920,
+      "phase": "sword_lower_to_chest",
+      "event": null,
+      "loop_next": 6,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true,
+      "head_crown_source": [
+        398,
+        175
+      ],
+      "head_crown_canvas": [
+        206.2709677419355,
+        128.61290322580643
+      ]
+    },
+    {
+      "source_file": "../idle/composite.png",
+      "approved_exact_idle": true,
+      "source_effective_height": 416,
+      "root_canvas": [
+        220,
+        280
+      ],
+      "grip_canvas": [
+        224.08,
+        201.06
+      ],
+      "hands_canvas": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_canvas": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ]
+      },
+      "support_foot": "both",
+      "scale": 0.36538461538461536,
+      "frame": 6,
+      "duration_ms": 200,
+      "start_ms": 1100,
+      "phase": "approved_idle",
+      "event": "victory_complete",
+      "loop_next": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    }
+  ],
+  "runtime_integrated": false,
+  "notes": [
+    "Replaces user-rejected fist victory. Same near hand raises approved sword overhead with open-mouth shout; free far hand naturally clenched. No sound added.",
+    "Four1024x1536 body originals guided by a shared anatomy ruler. All4 use one common1240px native standing-equivalent calibration, never per-frame or raised-arm bbox normalization.",
+    "Crown-to-sole excluding raised hand remains approximately1210-1260sourcepx; measured crown game variation recorded in QA.",
+    "Exact approved idle at both ends; all raw originals retained.",
+    "Return uses the identical preparation body pose in reverse. Newly generated lower pose retained but excluded because crown/body was about4.8px taller at fixed scale. Selected new-frame crown variation is1.47gamepx."
+  ],
+  "source_calibration": {
+    "shared_scale": 0.12258064516129032,
+    "method": "one common anatomy calibration across selected originals, no per-frame or raised-arm bbox scaling"
+  },
+  "approval_basis": {
+    "message_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+    "scope": "Previously delivered current revision with no subsequent objection; run v4 excluded."
+  }
+}

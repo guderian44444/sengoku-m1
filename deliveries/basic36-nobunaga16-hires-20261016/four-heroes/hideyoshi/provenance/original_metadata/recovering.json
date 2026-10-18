@@ -1,0 +1,636 @@
+{
+  "character": "hideyoshi",
+  "action": "recovering",
+  "status": "accepted",
+  "description": "從倒地末格側撐、半跪、雙腿起身，再回到核准戰鬥idle。單手保留持刀，另一手用於支撐；不帶FX。",
+  "version": "recovering_v1_direct_original_highres",
+  "duration_ms": 900,
+  "frame_count": 6,
+  "loop": false,
+  "preview_loop": true,
+  "preview_loop_reset_is_not_runtime_motion": true,
+  "canvas": [
+    520,
+    380
+  ],
+  "standing_ruler_px": 150,
+  "head_scale": 0.95,
+  "layers": [
+    "body",
+    "weapon",
+    "hand_occlusion"
+  ],
+  "frame_path": "frames/{layer}_{index:02}.png",
+  "fx": null,
+  "source_generation": "official image_gen; every source directly references approved original identity and full original mother sheet; no child generation loop",
+  "new_detail_disclosure": "Only pose and cloth/armor detail redrawn at high resolution; no new ornament or identity redesign.",
+  "source_info": {
+    "down_final.png": {
+      "sha256": "a28c9d43cae0aa471b4c1effe6138cc6b167bd93a9774e685e0f70bf3d7a06be",
+      "size_px": [
+        1536,
+        1024
+      ]
+    },
+    "source_0.png": {
+      "sha256": "bd6b09888a417e7fa0b281cc42406916e7e622d491e914389401307c9f0b9c06",
+      "size_px": [
+        1536,
+        1024
+      ]
+    },
+    "source_1.png": {
+      "sha256": "d446fdd147718c847b46d4414670d9447157cfda00e61d6d9ef6c4dad58f0944",
+      "size_px": [
+        1536,
+        1024
+      ]
+    },
+    "source_2.png": {
+      "sha256": "fa88ae880f62cb158ed880ad11afcdcb64aed680fb0a30f14647ff1da2086c77",
+      "size_px": [
+        1536,
+        1024
+      ]
+    }
+  },
+  "world_motion": {
+    "mode": "inherit current position; state-local root translation zero",
+    "root_track": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "preview_displacement_separate": true,
+    "composite_pngs_are_root_local": true,
+    "world_coordinates": "x right, y down; relative to action entry",
+    "world_end_delta": [
+      0,
+      0
+    ]
+  },
+  "frames": [
+    {
+      "index": 0,
+      "duration_ms": 100,
+      "phase": "down_entry",
+      "source": "down_final.png",
+      "source_rect": [
+        79,
+        310,
+        1482,
+        908
+      ],
+      "source_figure_height_px": 598,
+      "source_figure_span_px": 1403,
+      "source_head_rect": [
+        75,
+        302,
+        329,
+        480
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.12,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        790,
+        906
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          271.0,
+          332.04
+        ],
+        "far": [
+          297.52,
+          304.92
+        ]
+      },
+      "feet_world": {
+        "near": [
+          271.0,
+          332.04
+        ],
+        "far": [
+          297.52,
+          304.92
+        ]
+      },
+      "support": "back_hips_near_heel",
+      "grip_canvas": [
+        204.4,
+        289.44
+      ],
+      "grip_world": [
+        204.4,
+        289.44
+      ],
+      "grip_source": [
+        660,
+        543
+      ],
+      "grip_hand": "both",
+      "weapon_angle_deg": 55,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": null
+    },
+    {
+      "index": 1,
+      "duration_ms": 160,
+      "phase": "side_support_push",
+      "source": "source_0.png",
+      "source_rect": [
+        32,
+        163,
+        1487,
+        878
+      ],
+      "source_figure_height_px": 715,
+      "source_figure_span_px": 1455,
+      "source_head_rect": [
+        279,
+        161,
+        532,
+        434
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.125,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        770,
+        865
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          287.25,
+          331.25
+        ],
+        "far": [
+          303.125,
+          330.25
+        ]
+      },
+      "feet_world": {
+        "near": [
+          287.25,
+          331.25
+        ],
+        "far": [
+          303.125,
+          330.25
+        ]
+      },
+      "support": "free_hand_hip_feet",
+      "grip_canvas": [
+        215.5,
+        293.75
+      ],
+      "grip_world": [
+        215.5,
+        293.75
+      ],
+      "grip_source": [
+        734,
+        551
+      ],
+      "grip_hand": "one_hand",
+      "weapon_angle_deg": 50,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": null,
+      "free_hand_ground_contact_canvas": [
+        140,
+        326.375
+      ]
+    },
+    {
+      "index": 2,
+      "duration_ms": 170,
+      "phase": "half_kneel",
+      "source": "source_1.png",
+      "source_rect": [
+        291,
+        33,
+        1344,
+        951
+      ],
+      "source_figure_height_px": 918,
+      "source_figure_span_px": 1053,
+      "source_head_rect": [
+        856,
+        32,
+        1125,
+        326
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.115,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        800,
+        940
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          168.595,
+          324.03
+        ],
+        "far": [
+          249.325,
+          331.85
+        ]
+      },
+      "feet_world": {
+        "near": [
+          168.595,
+          324.03
+        ],
+        "far": [
+          249.325,
+          331.85
+        ]
+      },
+      "support": "knee_front_foot_free_hand",
+      "grip_canvas": [
+        211.72,
+        280.905
+      ],
+      "grip_world": [
+        211.72,
+        280.905
+      ],
+      "grip_source": [
+        728,
+        487
+      ],
+      "grip_hand": "one_hand",
+      "weapon_angle_deg": 60,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": null,
+      "free_hand_ground_contact_canvas": [
+        272.21,
+        324.145
+      ]
+    },
+    {
+      "index": 3,
+      "duration_ms": 160,
+      "phase": "rise_from_crouch",
+      "source": "source_2.png",
+      "source_rect": [
+        66,
+        74,
+        759,
+        933
+      ],
+      "source_figure_height_px": 859,
+      "source_figure_span_px": 859,
+      "source_head_rect": [
+        510,
+        71,
+        702,
+        281
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.164,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        387,
+        923
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          177.524,
+          329.228
+        ],
+        "far": [
+          262.476,
+          333.0
+        ]
+      },
+      "feet_world": {
+        "near": [
+          177.524,
+          329.228
+        ],
+        "far": [
+          262.476,
+          333.0
+        ]
+      },
+      "support": "both",
+      "grip_canvas": [
+        246.404,
+        259.528
+      ],
+      "grip_world": [
+        246.404,
+        259.528
+      ],
+      "grip_source": [
+        548,
+        475
+      ],
+      "grip_hand": "both",
+      "weapon_angle_deg": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": null
+    },
+    {
+      "index": 4,
+      "duration_ms": 130,
+      "phase": "regain_combat_ready",
+      "source": "source_2.png",
+      "source_rect": [
+        838,
+        42,
+        1455,
+        960
+      ],
+      "source_figure_height_px": 918,
+      "source_figure_span_px": 918,
+      "source_head_rect": [
+        1058,
+        40,
+        1249,
+        228
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.164,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        1151,
+        950
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          183.264,
+          331.032
+        ],
+        "far": [
+          256.736,
+          333.0
+        ]
+      },
+      "feet_world": {
+        "near": [
+          183.264,
+          331.032
+        ],
+        "far": [
+          256.736,
+          333.0
+        ]
+      },
+      "support": "both",
+      "grip_canvas": [
+        214.096,
+        249.032
+      ],
+      "grip_world": [
+        214.096,
+        249.032
+      ],
+      "grip_source": [
+        1115,
+        438
+      ],
+      "grip_hand": "both",
+      "weapon_angle_deg": 120,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": null
+    },
+    {
+      "index": 5,
+      "duration_ms": 180,
+      "phase": "approved_idle_exit",
+      "source": "approved_idle",
+      "source_is_existing_approved": true,
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          185,
+          330
+        ],
+        "far": [
+          253,
+          330
+        ]
+      },
+      "feet_world": {
+        "near": [
+          185,
+          330
+        ],
+        "far": [
+          253,
+          330
+        ]
+      },
+      "support": "both",
+      "grip_canvas": [
+        214.625,
+        247.125
+      ],
+      "grip_world": [
+        214.625,
+        247.125
+      ],
+      "weapon_angle_deg": 120,
+      "head_scale": 0.95,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "idle_runtime_layer_export": "../idle/*_exact_00.png",
+      "composite_unchanged": true
+    }
+  ],
+  "quality_notes": [
+    "Accepted artwork; not runtime integrated.",
+    "Original high-resolution PNGs retained. Local head95 then one final body downsample.",
+    "Whole-body drawn poses; no optical-flow or synthetic motion interpolation.",
+    "Preview adds separate root displacement; do not apply it twice.",
+    "Approved idle entry/exit preserved without redraw when present.",
+    "Compared every frame against approved combat idle at same scale; checked face/costume, head scale, grounded stance, hands, weapon layering and transparent edges. GIF decoding verified; no runtime test.",
+    "Approved idle entry/exit composite unchanged; runtime three-layer split repaired to exact recomposition with no double-alpha hand overlay."
+  ],
+  "transition_from": {
+    "action": "down",
+    "frame": 3,
+    "target_frame": 0,
+    "policy": "inherit landed world root; local layers byte-identical"
+  },
+  "transition_to": {
+    "action": "approved_idle",
+    "source_frame": 5,
+    "policy": "hold landed world root; approved idle layers, root-aligned"
+  },
+  "pre_acceptance_status": {
+    "status": "candidate_pending_user_review"
+  },
+  "approval": "accepted",
+  "approved": true,
+  "accepted": true,
+  "candidate": false,
+  "not_user_approved": false,
+  "acceptance_event_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+  "acceptance_record": "../acceptance.json"
+}

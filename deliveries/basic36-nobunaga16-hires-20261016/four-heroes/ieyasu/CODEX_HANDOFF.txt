@@ -1,0 +1,7 @@
+1. 從 character_manifest.json 載入九個 action；run_v5 / victory_v2 是唯一目前版本，勿掃 provenance 當動作。
+2. body 已包含 sheath，依 body→weapon→hand_occlusion 合成；保持 canvas/root 與 152 站高，不按武器或姿勢 bbox 調大小。
+3. 逐格 duration_ms 是播放時長；loop_next=null 的單次動作請遵守 terminal_behavior。down 要 hold，launched 等碰地再接 down，jump 的實際落地由碰撞決定。
+4. preview_displacement、world_travel_preview_only 只供演示；world_delta 全 0，實際行走/跑步速度、擊退和跳躍由 runtime controller 處理，勿重複套位移。
+5. 角度為既有朝上 tachi 的順時針旋轉，畫布 y 向下。腳點/握點為視覺標記；runtime 骨架/武器 socket、深度及朝向鏡像仍需驗。
+6. 尚待 runtime：導入與三層繪製、九狀態與中斷/重播、walk/run 速度與落腳滑動、jump/launched 碰撞落地、down→recovering→idle、握刀遮擋/翻面、實際遊戲幀率與採樣。此包未執行以上測試。
+7. 先跑 validate_bundle.py 和 SHA256SUMS。此角色交接不含 push/runtime；後續由整合工作執行，不把離線 QA 當 runtime 通過。

@@ -1,0 +1,121 @@
+{
+  "character": "ieyasu06",
+  "status": "registered_from_approved_combat",
+  "source": "ieyasu06_newspec_20261015/actions/light_1/composite_00.png",
+  "source_sha256": "76c10684c21263aed9a5b1ae883358f2ba08ccd2ebd5d6e5ecfb6fc12d868dd9",
+  "artwork_changes": false,
+  "standing_ruler_px": 152,
+  "common_idle_selected": "light_1 frame 0, identical art reused for recovery frame 7",
+  "portrait": {
+    "source": "ieyasu06_newspec_20261015/actions/light_1_source.png",
+    "crop": [
+      136,
+      8,
+      272,
+      141
+    ],
+    "redrawn": false
+  },
+  "layers": [
+    "sheath.png",
+    "body.png",
+    "weapon.png",
+    "hand_occlusion.png"
+  ],
+  "layer_order": [
+    "sheath",
+    "body",
+    "weapon",
+    "hand_occlusion"
+  ],
+  "recomposite_pixel_exact": true,
+  "foot_anchor": [
+    180,
+    245
+  ],
+  "source_grip": [
+    228,
+    215
+  ],
+  "weapon_angle_degrees": -55,
+  "duration_ms": 800,
+  "loop": true,
+  "world_delta": [
+    0,
+    0
+  ],
+  "canvas_size": [
+    520,
+    280
+  ],
+  "root_canvas": [
+    135,
+    245
+  ],
+  "feet_canvas": {
+    "near": [
+      75,
+      245
+    ],
+    "far": [
+      191,
+      245
+    ]
+  },
+  "grip_canvas": [
+    139.08,
+    166.06
+  ],
+  "hands_canvas": [
+    [
+      139.08,
+      166.06
+    ]
+  ],
+  "support_foot": "both",
+  "preview_displacement": [
+    0,
+    0
+  ],
+  "grounded": true,
+  "event": null,
+  "fx": null,
+  "foot_anchor_note": "Legacy approved combat pivot/support anchor, retained unchanged. root_canvas is the selected common idle center root.",
+  "source_grip_coordinate_space": "approved combat source cell pixels; canvas grip is separately listed",
+  "canonical_export": {
+    "canvas_size": [
+      480,
+      320
+    ],
+    "translation_only": [
+      85,
+      35
+    ],
+    "root_canvas": [
+      220,
+      280
+    ],
+    "feet_canvas": {
+      "near": [
+        160,
+        280
+      ],
+      "far": [
+        276,
+        280
+      ]
+    },
+    "grip_canvas": [
+      224.08,
+      201.06
+    ],
+    "preview_displacement": [
+      0,
+      0
+    ],
+    "world_delta": [
+      0,
+      0
+    ]
+  }
+}

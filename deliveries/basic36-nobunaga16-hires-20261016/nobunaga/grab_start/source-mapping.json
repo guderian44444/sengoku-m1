@@ -1,0 +1,1023 @@
+{
+  "key": "grab_start",
+  "frames": [
+    {
+      "frame": 0,
+      "duration_ms": 30,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/000.png",
+        "sha256": "32e4e459fff95ee08523f4945fb087e1c4a52b518cc3a0b073f4398ff4107620",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/light_1_hires/frames-highres/000.png",
+        "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png"
+      ],
+      "source_to_review": {
+        "scale": 0.649,
+        "offset": [
+          373,
+          15
+        ],
+        "unrounded_position": [
+          373.346,
+          15.431999999999988
+        ],
+        "recipe": "Body is resized with LANCZOS; weapon is separately affine transformed to output canvas. Rounded layer positions cause native-composite render differences."
+      },
+      "method_note": "Approved candidate-b native composition reconstructed at original donor dimensions; 004/005 use corrected canonical blade roots.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572864
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 138,
+        "mean_absolute_channel_difference": 0.0169674,
+        "different_pixel_count": 4948,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "layers": {
+        "body": "nobunaga_final_approved/grab_start/layers-native/body/000.png",
+        "weapon": "nobunaga_final_approved/grab_start/layers-native/weapon/000.png"
+      },
+      "approved_layer_render_recipe": {
+        "body_rgba": "nobunaga_final_approved/grab_start/layers-native/body/000.png",
+        "body_scale": 0.649,
+        "body_offset": [
+          373,
+          15
+        ],
+        "body_resampling": "LANCZOS",
+        "weapon_template": "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png",
+        "weapon_base_native": [
+          568,
+          517
+        ],
+        "weapon_tip_native": [
+          418,
+          96
+        ],
+        "weapon_template_to_review_inverse_affine": [
+          -0.42078970460784304,
+          -1.4822615925222171,
+          832.4386432650782,
+          1.4822615925222171,
+          -0.42078970460784304,
+          -903.1230332187581
+        ],
+        "weapon_resampling": "BICUBIC",
+        "layer_order": [
+          "body",
+          "weapon"
+        ],
+        "output_canvas": [
+          1440,
+          1200
+        ]
+      }
+    },
+    {
+      "frame": 1,
+      "duration_ms": 20,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/001.png",
+        "sha256": "4141a3c94c4733f2acafc0eb5c12ab7631773f135db473ec8dfe8024f9f11d45",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_ready_hires/source/native-ready-01.png",
+        "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png"
+      ],
+      "source_to_review": {
+        "scale": 0.649,
+        "offset": [
+          340,
+          122
+        ],
+        "unrounded_position": [
+          340.24699999999996,
+          121.86799999999998
+        ],
+        "recipe": "Body is resized with LANCZOS; weapon is separately affine transformed to output canvas. Rounded layer positions cause native-composite render differences."
+      },
+      "method_note": "Approved candidate-b native composition reconstructed at original donor dimensions; 004/005 use corrected canonical blade roots.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572516
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 169,
+        "mean_absolute_channel_difference": 0.02649093,
+        "different_pixel_count": 4854,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "layers": {
+        "body": "nobunaga_final_approved/grab_start/layers-native/body/001.png",
+        "weapon": "nobunaga_final_approved/grab_start/layers-native/weapon/001.png"
+      },
+      "approved_layer_render_recipe": {
+        "body_rgba": "nobunaga_final_approved/grab_start/layers-native/body/001.png",
+        "body_scale": 0.649,
+        "body_offset": [
+          340,
+          122
+        ],
+        "body_resampling": "LANCZOS",
+        "weapon_template": "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png",
+        "weapon_base_native": [
+          697,
+          440
+        ],
+        "weapon_tip_native": [
+          691,
+          47
+        ],
+        "weapon_template_to_review_inverse_affine": [
+          0.07762368341846031,
+          -1.5388755531046057,
+          565.4564573728317,
+          1.5388755531046057,
+          0.07762368341846031,
+          -1202.3388254785268
+        ],
+        "weapon_resampling": "BICUBIC",
+        "layer_order": [
+          "body",
+          "weapon"
+        ],
+        "output_canvas": [
+          1440,
+          1200
+        ]
+      }
+    },
+    {
+      "frame": 2,
+      "duration_ms": 20,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/002.png",
+        "sha256": "240f2679130b713d388d2a156cab521a79e6642d270bf127fff355b8149843f6",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_ready_hires/source/native-ready-02.png",
+        "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png"
+      ],
+      "source_to_review": {
+        "scale": 0.649,
+        "offset": [
+          313,
+          128
+        ],
+        "unrounded_position": [
+          312.98900000000003,
+          128.3580000000001
+        ],
+        "recipe": "Body is resized with LANCZOS; weapon is separately affine transformed to output canvas. Rounded layer positions cause native-composite render differences."
+      },
+      "method_note": "Approved candidate-b native composition reconstructed at original donor dimensions; 004/005 use corrected canonical blade roots.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572516
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 111,
+        "mean_absolute_channel_difference": 0.01838792,
+        "different_pixel_count": 4861,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "layers": {
+        "body": "nobunaga_final_approved/grab_start/layers-native/body/002.png",
+        "weapon": "nobunaga_final_approved/grab_start/layers-native/weapon/002.png"
+      },
+      "approved_layer_render_recipe": {
+        "body_rgba": "nobunaga_final_approved/grab_start/layers-native/body/002.png",
+        "body_scale": 0.649,
+        "body_offset": [
+          313,
+          128
+        ],
+        "body_resampling": "LANCZOS",
+        "weapon_template": "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png",
+        "weapon_base_native": [
+          687,
+          414
+        ],
+        "weapon_tip_native": [
+          936,
+          37
+        ],
+        "weapon_template_to_review_inverse_affine": [
+          0.9317183940703977,
+          -1.2272180891436266,
+          -219.77678779116735,
+          1.2272180891436266,
+          0.9317183940703977,
+          -1252.2100994381067
+        ],
+        "weapon_resampling": "BICUBIC",
+        "layer_order": [
+          "body",
+          "weapon"
+        ],
+        "output_canvas": [
+          1440,
+          1200
+        ]
+      }
+    },
+    {
+      "frame": 3,
+      "duration_ms": 20,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/003.png",
+        "sha256": "a5937409f89570a2e59d65edbd0c4d7bb2ff7489073358523f6fe92e9586b9eb",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_ready_hires/source/native-ready-03.png",
+        "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png"
+      ],
+      "source_to_review": {
+        "scale": 0.649,
+        "offset": [
+          326,
+          143
+        ],
+        "unrounded_position": [
+          325.96900000000005,
+          142.63599999999997
+        ],
+        "recipe": "Body is resized with LANCZOS; weapon is separately affine transformed to output canvas. Rounded layer positions cause native-composite render differences."
+      },
+      "method_note": "Approved candidate-b native composition reconstructed at original donor dimensions; 004/005 use corrected canonical blade roots.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572516
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 147,
+        "mean_absolute_channel_difference": 0.05287558,
+        "different_pixel_count": 4882,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "layers": {
+        "body": "nobunaga_final_approved/grab_start/layers-native/body/003.png",
+        "weapon": "nobunaga_final_approved/grab_start/layers-native/weapon/003.png"
+      },
+      "approved_layer_render_recipe": {
+        "body_rgba": "nobunaga_final_approved/grab_start/layers-native/body/003.png",
+        "body_scale": 0.649,
+        "body_offset": [
+          326,
+          143
+        ],
+        "body_resampling": "LANCZOS",
+        "weapon_template": "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png",
+        "weapon_base_native": [
+          738,
+          456
+        ],
+        "weapon_tip_native": [
+          1080,
+          79
+        ],
+        "weapon_template_to_review_inverse_affine": [
+          1.1079230455128843,
+          -1.070826750409192,
+          -422.15840875326825,
+          1.070826750409192,
+          1.1079230455128843,
+          -1298.854536334662
+        ],
+        "weapon_resampling": "BICUBIC",
+        "layer_order": [
+          "body",
+          "weapon"
+        ],
+        "output_canvas": [
+          1440,
+          1200
+        ]
+      }
+    },
+    {
+      "frame": 4,
+      "duration_ms": 20,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/004.png",
+        "sha256": "9a9301fa82414d1dfdeaaa7c8de6c07872c3203700e3ff8abe75fc5546d8d2b9",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_ready_hires/source/native-ready-04.png",
+        "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png"
+      ],
+      "source_to_review": {
+        "scale": 0.649,
+        "offset": [
+          324,
+          139
+        ],
+        "unrounded_position": [
+          324.022,
+          138.74200000000002
+        ],
+        "recipe": "Body is resized with LANCZOS; weapon is separately affine transformed to output canvas. Rounded layer positions cause native-composite render differences."
+      },
+      "method_note": "Approved candidate-b native composition reconstructed at original donor dimensions; 004/005 use corrected canonical blade roots.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572516
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 108,
+        "mean_absolute_channel_difference": 0.04303742,
+        "different_pixel_count": 4846,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "layers": {
+        "body": "nobunaga_final_approved/grab_start/layers-native/body/004.png",
+        "weapon": "nobunaga_final_approved/grab_start/layers-native/weapon/004.png"
+      },
+      "approved_layer_render_recipe": {
+        "body_rgba": "nobunaga_final_approved/grab_start/layers-native/body/004.png",
+        "body_scale": 0.649,
+        "body_offset": [
+          324,
+          139
+        ],
+        "body_resampling": "LANCZOS",
+        "weapon_template": "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png",
+        "weapon_base_native": [
+          748,
+          529
+        ],
+        "weapon_tip_native": [
+          1168,
+          206
+        ],
+        "weapon_template_to_review_inverse_affine": [
+          1.2804124993546768,
+          -0.8571506493416224,
+          -623.2600140290571,
+          0.8571506493416224,
+          1.2804124993546768,
+          -1262.080655401574
+        ],
+        "weapon_resampling": "BICUBIC",
+        "layer_order": [
+          "body",
+          "weapon"
+        ],
+        "output_canvas": [
+          1440,
+          1200
+        ]
+      }
+    },
+    {
+      "frame": 5,
+      "duration_ms": 20,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/005.png",
+        "sha256": "e371b1f0759ffc9c2f46bd5f1357d251a7c75b6a97bf4134bf4002020da7a6e1",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_ready_hires/source/native-ready-05.png",
+        "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png"
+      ],
+      "source_to_review": {
+        "scale": 0.649,
+        "offset": [
+          348,
+          147
+        ],
+        "unrounded_position": [
+          348.035,
+          147.17899999999997
+        ],
+        "recipe": "Body is resized with LANCZOS; weapon is separately affine transformed to output canvas. Rounded layer positions cause native-composite render differences."
+      },
+      "method_note": "Approved candidate-b native composition reconstructed at original donor dimensions; 004/005 use corrected canonical blade roots.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572516
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 56,
+        "mean_absolute_channel_difference": 0.01514429,
+        "different_pixel_count": 4750,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "layers": {
+        "body": "nobunaga_final_approved/grab_start/layers-native/body/005.png",
+        "weapon": "nobunaga_final_approved/grab_start/layers-native/weapon/005.png"
+      },
+      "approved_layer_render_recipe": {
+        "body_rgba": "nobunaga_final_approved/grab_start/layers-native/body/005.png",
+        "body_scale": 0.649,
+        "body_offset": [
+          348,
+          147
+        ],
+        "body_resampling": "LANCZOS",
+        "weapon_template": "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png",
+        "weapon_base_native": [
+          734,
+          571
+        ],
+        "weapon_tip_native": [
+          1189,
+          304
+        ],
+        "weapon_template_to_review_inverse_affine": [
+          1.3772276778388268,
+          -0.6909466893799606,
+          -777.6446988380171,
+          0.6909466893799606,
+          1.3772276778388268,
+          -1233.6877896940043
+        ],
+        "weapon_resampling": "BICUBIC",
+        "layer_order": [
+          "body",
+          "weapon"
+        ],
+        "output_canvas": [
+          1440,
+          1200
+        ]
+      }
+    },
+    {
+      "frame": 6,
+      "duration_ms": 20,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/006.png",
+        "sha256": "fc326d22cc620af877b829d9ef19ef2dfdf17aba2569719952b62424cbdcba02",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_ready_hires/source/native-ready-06.png",
+        "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png"
+      ],
+      "source_to_review": {
+        "scale": 0.649,
+        "offset": [
+          351,
+          169
+        ],
+        "unrounded_position": [
+          350.63100000000003,
+          169.24500000000006
+        ],
+        "recipe": "Body is resized with LANCZOS; weapon is separately affine transformed to output canvas. Rounded layer positions cause native-composite render differences."
+      },
+      "method_note": "Approved candidate-b native composition reconstructed at original donor dimensions; 004/005 use corrected canonical blade roots.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572516
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 134,
+        "mean_absolute_channel_difference": 0.0188559,
+        "different_pixel_count": 4811,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "layers": {
+        "body": "nobunaga_final_approved/grab_start/layers-native/body/006.png",
+        "weapon": "nobunaga_final_approved/grab_start/layers-native/weapon/006.png"
+      },
+      "approved_layer_render_recipe": {
+        "body_rgba": "nobunaga_final_approved/grab_start/layers-native/body/006.png",
+        "body_scale": 0.649,
+        "body_offset": [
+          351,
+          169
+        ],
+        "body_resampling": "LANCZOS",
+        "weapon_template": "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png",
+        "weapon_base_native": [
+          720,
+          579
+        ],
+        "weapon_tip_native": [
+          1206,
+          429
+        ],
+        "weapon_template_to_review_inverse_affine": [
+          1.4989459957531268,
+          -0.3568253157864821,
+          -1031.5289120237503,
+          0.3568253157864821,
+          1.4989459957531268,
+          -1059.8009016816236
+        ],
+        "weapon_resampling": "BICUBIC",
+        "layer_order": [
+          "body",
+          "weapon"
+        ],
+        "output_canvas": [
+          1440,
+          1200
+        ]
+      }
+    },
+    {
+      "frame": 7,
+      "duration_ms": 30,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/007.png",
+        "sha256": "6bbb4090ac3f6742d7259cae30b80c8096c8963e9525ac17ef5234ec03a85f5b",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/charge_ready_hires/source/native-ready-07.png",
+        "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png"
+      ],
+      "source_to_review": {
+        "scale": 0.649,
+        "offset": [
+          334,
+          164
+        ],
+        "unrounded_position": [
+          334.40600000000006,
+          164.05300000000003
+        ],
+        "recipe": "Body is resized with LANCZOS; weapon is separately affine transformed to output canvas. Rounded layer positions cause native-composite render differences."
+      },
+      "method_note": "Approved candidate-b native composition reconstructed at original donor dimensions; 004/005 use corrected canonical blade roots.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572516
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": false,
+        "max_channel_difference": 116,
+        "mean_absolute_channel_difference": 0.01757832,
+        "different_pixel_count": 4796,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "layers": {
+        "body": "nobunaga_final_approved/grab_start/layers-native/body/007.png",
+        "weapon": "nobunaga_final_approved/grab_start/layers-native/weapon/007.png"
+      },
+      "approved_layer_render_recipe": {
+        "body_rgba": "nobunaga_final_approved/grab_start/layers-native/body/007.png",
+        "body_scale": 0.649,
+        "body_offset": [
+          334,
+          164
+        ],
+        "body_resampling": "LANCZOS",
+        "weapon_template": "nobunaga_impact_v4/charge_ready_hires/source/shortened-blade.png",
+        "weapon_base_native": [
+          720,
+          637
+        ],
+        "weapon_tip_native": [
+          1211,
+          577
+        ],
+        "weapon_template_to_review_inverse_affine": [
+          1.5384225484409162,
+          -0.0861363257807791,
+          -1183.5910196660811,
+          0.0861363257807791,
+          1.5384225484409162,
+          -908.4410018278719
+        ],
+        "weapon_resampling": "BICUBIC",
+        "layer_order": [
+          "body",
+          "weapon"
+        ],
+        "output_canvas": [
+          1440,
+          1200
+        ]
+      }
+    },
+    {
+      "frame": 8,
+      "duration_ms": 40,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/008.png",
+        "sha256": "a3bd11b833894f2b2d1dd5246c7df40e8104b17722c209366debf8b43e26ae63",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/grab_start_swordheld/source/release-left-native.png"
+      ],
+      "source_to_review": {
+        "scale": 0.5885000000000001,
+        "offset": [
+          334,
+          203
+        ]
+      },
+      "method_note": "Approved source component-alpha cleanup copied from grab_start_swordheld/build.py; no new image generation.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572516
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      }
+    },
+    {
+      "frame": 9,
+      "duration_ms": 40,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/009.png",
+        "sha256": "d7cc9352edc42c0184d2995c7326f375d741bebc76359b88e07dc67ab4fd44b2",
+        "dimensions": [
+          1143,
+          1376
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/grab_shared_sword_hires/source/reach-1-down-native.png"
+      ],
+      "source_to_review": {
+        "scale": 0.55,
+        "offset": [
+          386,
+          217
+        ]
+      },
+      "method_note": "Approved source component-alpha cleanup copied from grab_start_swordheld/build.py; no new image generation.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1572768
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      }
+    },
+    {
+      "frame": 10,
+      "duration_ms": 50,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/010.png",
+        "sha256": "39df7c974d60e3dc1aa37c2ad2f82ab51d7ebaed20496551944ef77d341a5b1d",
+        "dimensions": [
+          1144,
+          1375
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/grab_shared_sword_hires/source/reach-2-native.png"
+      ],
+      "source_to_review": {
+        "scale": 0.55,
+        "offset": [
+          434,
+          250
+        ]
+      },
+      "method_note": "Approved source component-alpha cleanup copied from grab_start_swordheld/build.py; no new image generation.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1573000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      }
+    },
+    {
+      "frame": 11,
+      "duration_ms": 90,
+      "output": {
+        "path": "nobunaga_final_approved/grab_start/frames-composite/011.png",
+        "sha256": "19169086f5b77b5ade12847c273fadea0e71d7daae927d6b775f87f0811e520c",
+        "dimensions": [
+          1144,
+          1375
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "original_sources": [
+        "nobunaga_impact_v4/grab_shared_sword_hires/source/grip-key-native.png"
+      ],
+      "source_to_review": {
+        "scale": 0.55,
+        "offset": [
+          390,
+          210
+        ]
+      },
+      "method_note": "Approved source component-alpha cleanup copied from grab_start_swordheld/build.py; no new image generation.",
+      "source_art_changed": false,
+      "native_reconstruction_on_approved_background": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1573000
+      },
+      "transparent_master_render_vs_approved_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      },
+      "exact_approved_recipe_reconstruction_vs_review": {
+        "pixel_exact": true,
+        "max_channel_difference": 0,
+        "mean_absolute_channel_difference": 0.0,
+        "different_pixel_count": 0,
+        "compared_pixel_count": 1728000
+      }
+    }
+  ],
+  "approved_preview": {
+    "key": "grab_start",
+    "gif_path": "nobunaga_impact_v4/grab_start_swordheld/normal.gif",
+    "gif_sha256": "d4ecb3115212e8d0290d23d1f3cd7a83f2f0e1cf3bd755c8f29006cede25f354",
+    "expected_sha256": "d4ecb3115212e8d0290d23d1f3cd7a83f2f0e1cf3bd755c8f29006cede25f354",
+    "sha256_match": true,
+    "frames": 12,
+    "duration_ms": 400,
+    "durations_ms": [
+      30,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      30,
+      40,
+      40,
+      50,
+      90
+    ],
+    "review_directory": "nobunaga_impact_v4/grab_start_swordheld/frames-review",
+    "quantized_review_pixels_equal_gif_by_frame": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "any_difference_bounds": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "background_rgb": [
+    37,
+    39,
+    43
+  ],
+  "warning": "Advisory art mapping, not runtime hitboxes, weapon sockets or world-space events."
+}

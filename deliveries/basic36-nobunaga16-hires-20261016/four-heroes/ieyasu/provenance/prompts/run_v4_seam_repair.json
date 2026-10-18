@@ -1,0 +1,13 @@
+{
+  "prompt": "Use case: compositing. This is a high-resolution game character assembly. Edit the FIRST image only. Keep the canvas framing, exact pose, face, hair, hands, chest armor, shoulders, legs, knees, sandals and all foot coordinates unchanged. Repair ONLY the small waist-to-upper-trouser junction at y 740-920: remove the accidental duplicate row of black/gold waist armor, close the small transparent triangular hole between the waist panels with matching gray patterned trouser fabric, and make one continuous sensible hip connection. Keep the original upper row of waist plates exactly; remove only the extra lower duplicate plates. Do not change anatomical near/far leg occlusion, leg silhouettes, upper body, scale or lighting. Second and third images are approved identity and combat reference only. This is local seam cleanup, NOT a new character pose. Preserve transparent background; no floor, shadow, effects, text or weapon. Output a square canvas with the same placement and margins as the first image.",
+  "tool": "official image_gen.imagegen",
+  "targets": [
+    "run_v4/qa/seam_target_03.png",
+    "run_v4/qa/seam_target_06.png"
+  ],
+  "output_raw": [
+    "sources/run_v4_flight_near_seam_raw.png",
+    "sources/run_v4_flight_far_seam_raw.png"
+  ],
+  "use": "Bounded waist patch only; original face, chest, knees and feet retained."
+}

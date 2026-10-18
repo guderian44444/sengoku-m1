@@ -1,0 +1,630 @@
+{
+  "schema_version": "ieyasu-final-v1",
+  "hero": "ieyasu06",
+  "action": "stunned",
+  "revision_folder": "stunned",
+  "revision": "stunned_accepted_final",
+  "approval": "accepted",
+  "approval_basis": {
+    "message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+    "quote": "動作都OK了，把後續都處理好就上GIT",
+    "scope": "All nine latest Ieyasu base actions, including run_v5 and victory_v2. Visual asset acceptance; not evidence of runtime testing."
+  },
+  "canvas": [
+    480,
+    320
+  ],
+  "canonical_root": [
+    220,
+    280
+  ],
+  "coordinate_system": {
+    "origin": "top-left",
+    "x": "right",
+    "y": "down",
+    "units": "pixels",
+    "foot_identity": "near/far retain original visual landmark indexes; anatomical left/right are supplied only when explicitly source-annotated, otherwise null pending runtime mapping"
+  },
+  "standing_ruler_target_px": 152,
+  "per_frame_bbox_height_normalization": false,
+  "export_resampling": false,
+  "layers": [
+    "body",
+    "weapon",
+    "hand_occlusion"
+  ],
+  "body_includes_scabbard": true,
+  "scabbard_merge": "sheath composited behind original body at game resolution; no resampling",
+  "layer_order": [
+    "body",
+    "weapon",
+    "hand_occlusion"
+  ],
+  "frame_count": 4,
+  "total_ms": 1080,
+  "loop": true,
+  "loop_start": 1,
+  "loop_end": 4,
+  "terminal_behavior": {
+    "mode": "loop_until_stun_ends",
+    "destination": "idle",
+    "runtime_wiring_verified": false
+  },
+  "ordinary_action_fx": false,
+  "shared_idle": "../idle/registration.json",
+  "source_parts_paths_relative_to": "character bundle root, not metadata directory",
+  "direct_approved_references": [
+    "approved_reference/reference/identity06.png",
+    "approved_reference/reference/identity06_original.png",
+    "approved_reference/actions/light_1_source.png",
+    "approved_reference/reference/tachi.png",
+    "approved_reference/reference/saya.png"
+  ],
+  "original_metadata_archive": "../provenance/original_metadata/stunned.json",
+  "world_motion": {
+    "mode": "runtime_controller",
+    "per_frame_delta": [
+      0,
+      0
+    ],
+    "preview_motion_not_baked": true,
+    "speed_and_physics_verified": false
+  },
+  "preview_motion": {
+    "mode": "authored_preview_offsets_only"
+  },
+  "frames": [
+    {
+      "frame": 1,
+      "duration_ms": 260,
+      "start_ms": 0,
+      "phase": "slump_left",
+      "canvas": [
+        480,
+        320
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          170.76521739130436,
+          279.83478260869566
+        ],
+        "far": [
+          264.7739130434783,
+          278.67826086956524
+        ]
+      },
+      "leg_identity": {
+        "near": null,
+        "far": null
+      },
+      "anatomical_feet_canvas": {
+        "left": null,
+        "right": null
+      },
+      "landmark_source_index": {
+        "near": "near",
+        "far": "far"
+      },
+      "anatomical_mapping_status": "not_explicitly_registered; runtime mapping must be confirmed",
+      "feet_local": {
+        "near": [
+          -49.23478260869564,
+          -0.16521739130433843
+        ],
+        "far": [
+          44.773913043478274,
+          -1.3217391304347643
+        ]
+      },
+      "support_foot": "both",
+      "support_anatomical": "both",
+      "grounded": true,
+      "grip_canvas": [
+        220.41304347826087,
+        206.80869565217392
+      ],
+      "hands_canvas": [
+        [
+          214.87826086956522,
+          206.64347826086959
+        ],
+        [
+          225.94782608695652,
+          206.97391304347826
+        ]
+      ],
+      "weapon_angle_degrees": -42,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "sheath_angle_degrees": 65,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "body_includes_scabbard": true,
+      "layer_files": {
+        "body": "body_01.png",
+        "weapon": "weapon_01.png",
+        "hand_occlusion": "hand_occlusion_01.png"
+      },
+      "composite_file": "composite_01.png",
+      "event": "stun_loop_start",
+      "event_markers": [
+        {
+          "name": "stun_loop_start",
+          "basis": "existing_authored_event"
+        }
+      ],
+      "landing": false,
+      "settle": false,
+      "loop_next": 2,
+      "is_loop_start": true,
+      "is_loop_end": false,
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "preview_displacement_coordinate_space": "canvas_pixels_relative_to_root; preview only",
+      "world_delta": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller",
+      "world_travel_preview_only": [
+        0,
+        0
+      ],
+      "fx": null,
+      "source_parts": [
+        {
+          "role": "native_body_original",
+          "path": "sources/stunned_01_02_raw.png",
+          "sha256": "3a08954c5e1e0d8b87dba3d97a03f1c7c178de7e7b584d395087c401b2bef0c3",
+          "source_rect": [
+            0,
+            0,
+            800,
+            1024
+          ],
+          "source_bbox": [
+            48,
+            40,
+            762,
+            980
+          ],
+          "source_effective_height": 940,
+          "source_root": [
+            440,
+            964
+          ],
+          "render_origin": [
+            147.30434782608697,
+            120.73043478260871
+          ],
+          "scale": 0.16521739130434782
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "duration_ms": 280,
+      "start_ms": 260,
+      "phase": "wobble_forward",
+      "canvas": [
+        480,
+        320
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          167.62608695652173,
+          279.8347826086956
+        ],
+        "far": [
+          253.04347826086956,
+          279.0086956521739
+        ]
+      },
+      "leg_identity": {
+        "near": null,
+        "far": null
+      },
+      "anatomical_feet_canvas": {
+        "left": null,
+        "right": null
+      },
+      "landmark_source_index": {
+        "near": "near",
+        "far": "far"
+      },
+      "anatomical_mapping_status": "not_explicitly_registered; runtime mapping must be confirmed",
+      "feet_local": {
+        "near": [
+          -52.37391304347827,
+          -0.16521739130439528
+        ],
+        "far": [
+          33.04347826086956,
+          -0.9913043478260875
+        ]
+      },
+      "support_foot": "both",
+      "support_anatomical": "both",
+      "grounded": true,
+      "grip_canvas": [
+        222.23043478260868,
+        209.61739130434782
+      ],
+      "hands_canvas": [
+        [
+          217.19130434782608,
+          209.12173913043478
+        ],
+        [
+          227.2695652173913,
+          210.11304347826086
+        ]
+      ],
+      "weapon_angle_degrees": -37,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "sheath_angle_degrees": 65,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "body_includes_scabbard": true,
+      "layer_files": {
+        "body": "body_02.png",
+        "weapon": "weapon_02.png",
+        "hand_occlusion": "hand_occlusion_02.png"
+      },
+      "composite_file": "composite_02.png",
+      "event": null,
+      "event_markers": [],
+      "landing": false,
+      "settle": false,
+      "loop_next": 3,
+      "is_loop_start": false,
+      "is_loop_end": false,
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "preview_displacement_coordinate_space": "canvas_pixels_relative_to_root; preview only",
+      "world_delta": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller",
+      "world_travel_preview_only": [
+        0,
+        0
+      ],
+      "fx": null,
+      "source_parts": [
+        {
+          "role": "native_body_original",
+          "path": "sources/stunned_01_02_raw.png",
+          "sha256": "3a08954c5e1e0d8b87dba3d97a03f1c7c178de7e7b584d395087c401b2bef0c3",
+          "source_rect": [
+            800,
+            0,
+            1536,
+            1024
+          ],
+          "source_bbox": [
+            881,
+            75,
+            1532,
+            980
+          ],
+          "source_effective_height": 905,
+          "source_root": [
+            1260,
+            965
+          ],
+          "render_origin": [
+            11.826086956521749,
+            120.56521739130434
+          ],
+          "scale": 0.16521739130434782
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "duration_ms": 260,
+      "start_ms": 540,
+      "phase": "slump_center",
+      "canvas": [
+        480,
+        320
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          169.60869565217394,
+          279.83478260869566
+        ],
+        "far": [
+          264.2782608695652,
+          279.0086956521739
+        ]
+      },
+      "leg_identity": {
+        "near": null,
+        "far": null
+      },
+      "anatomical_feet_canvas": {
+        "left": null,
+        "right": null
+      },
+      "landmark_source_index": {
+        "near": "near",
+        "far": "far"
+      },
+      "anatomical_mapping_status": "not_explicitly_registered; runtime mapping must be confirmed",
+      "feet_local": {
+        "near": [
+          -50.391304347826065,
+          -0.16521739130433843
+        ],
+        "far": [
+          44.2782608695652,
+          -0.9913043478260875
+        ]
+      },
+      "support_foot": "both",
+      "support_anatomical": "both",
+      "grounded": true,
+      "grip_canvas": [
+        220.74347826086958,
+        208.04782608695655
+      ],
+      "hands_canvas": [
+        [
+          215.04347826086956,
+          208.1304347826087
+        ],
+        [
+          226.4434782608696,
+          207.96521739130435
+        ]
+      ],
+      "weapon_angle_degrees": -40,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "sheath_angle_degrees": 65,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "body_includes_scabbard": true,
+      "layer_files": {
+        "body": "body_03.png",
+        "weapon": "weapon_03.png",
+        "hand_occlusion": "hand_occlusion_03.png"
+      },
+      "composite_file": "composite_03.png",
+      "event": null,
+      "event_markers": [],
+      "landing": false,
+      "settle": false,
+      "loop_next": 4,
+      "is_loop_start": false,
+      "is_loop_end": false,
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "preview_displacement_coordinate_space": "canvas_pixels_relative_to_root; preview only",
+      "world_delta": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller",
+      "world_travel_preview_only": [
+        0,
+        0
+      ],
+      "fx": null,
+      "source_parts": [
+        {
+          "role": "native_body_original",
+          "path": "sources/stunned_03_04_raw.png",
+          "sha256": "9f9ba0a0fd7866773df2e5ab4edd20c3dc17164c05e239b9c137634064586961",
+          "source_rect": [
+            0,
+            0,
+            800,
+            1024
+          ],
+          "source_bbox": [
+            68,
+            62,
+            780,
+            961
+          ],
+          "source_effective_height": 899,
+          "source_root": [
+            450,
+            961
+          ],
+          "render_origin": [
+            145.6521739130435,
+            121.22608695652175
+          ],
+          "scale": 0.16521739130434782
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "duration_ms": 280,
+      "start_ms": 800,
+      "phase": "wobble_back",
+      "canvas": [
+        480,
+        320
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          171.75652173913042,
+          279.6695652173913
+        ],
+        "far": [
+          257.3391304347826,
+          278.6782608695652
+        ]
+      },
+      "leg_identity": {
+        "near": null,
+        "far": null
+      },
+      "anatomical_feet_canvas": {
+        "left": null,
+        "right": null
+      },
+      "landmark_source_index": {
+        "near": "near",
+        "far": "far"
+      },
+      "anatomical_mapping_status": "not_explicitly_registered; runtime mapping must be confirmed",
+      "feet_local": {
+        "near": [
+          -48.24347826086958,
+          -0.33043478260867687
+        ],
+        "far": [
+          37.33913043478259,
+          -1.3217391304348212
+        ]
+      },
+      "support_foot": "both",
+      "support_anatomical": "both",
+      "grounded": true,
+      "grip_canvas": [
+        221.9,
+        209.20434782608694
+      ],
+      "hands_canvas": [
+        [
+          216.03478260869565,
+          208.7913043478261
+        ],
+        [
+          227.76521739130433,
+          209.61739130434782
+        ]
+      ],
+      "weapon_angle_degrees": -45,
+      "weapon_angle_convention": "clockwise from approved upward-pointing tachi; screen +x right, +y down",
+      "sheath_angle_degrees": 65,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "body_includes_scabbard": true,
+      "layer_files": {
+        "body": "body_04.png",
+        "weapon": "weapon_04.png",
+        "hand_occlusion": "hand_occlusion_04.png"
+      },
+      "composite_file": "composite_04.png",
+      "event": null,
+      "event_markers": [],
+      "landing": false,
+      "settle": false,
+      "loop_next": 1,
+      "is_loop_start": false,
+      "is_loop_end": true,
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "preview_displacement_coordinate_space": "canvas_pixels_relative_to_root; preview only",
+      "world_delta": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller",
+      "world_travel_preview_only": [
+        0,
+        0
+      ],
+      "fx": null,
+      "source_parts": [
+        {
+          "role": "native_body_original",
+          "path": "sources/stunned_03_04_raw.png",
+          "sha256": "9f9ba0a0fd7866773df2e5ab4edd20c3dc17164c05e239b9c137634064586961",
+          "source_rect": [
+            800,
+            0,
+            1536,
+            1024
+          ],
+          "source_bbox": [
+            818,
+            74,
+            1521,
+            961
+          ],
+          "source_effective_height": 887,
+          "source_root": [
+            1190,
+            962
+          ],
+          "render_origin": [
+            23.391304347826093,
+            121.06086956521739
+          ],
+          "scale": 0.16521739130434782
+        }
+      ]
+    }
+  ],
+  "runtime_integrated": false,
+  "runtime_validation": "not_run",
+  "limitations": [
+    "Foot and grip points are authored visual measurements, not skeletal-rig simulation.",
+    "Visual acceptance does not validate state-machine, collision, physics, speed, interrupts, input or game playback.",
+    "Preserve root alignment and pixel size; do not normalize frame bounding boxes or re-render from preview GIFs."
+  ]
+}

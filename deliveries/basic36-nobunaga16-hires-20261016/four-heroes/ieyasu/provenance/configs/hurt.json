@@ -1,0 +1,7 @@
+{"action":"hurt","loop":false,"representative":2,"notes":["One hit reaction returns to exact approved idle. Preview GIF repeats for review; action itself is non-looping.","Knockback remains runtime-controlled; no displacement baked into RGBA."],"frames":[
+{"idle":true,"duration":80,"phase":"approved_idle_entry"},
+{"source":"hurt_01_02_raw.png","rect":[0,0,816,1024],"root":[450,951],"hands":[[448,454],[510,450]],"feet":{"near":[133,949],"far":[708,940]},"duration":90,"phase":"hit_compress","event":"hurt_start","angle":-62},
+{"source":"hurt_01_02_raw.png","rect":[816,0,1536,1024],"root":[1215,947],"hands":[[1211,394],[1275,376]],"feet":{"near":[893,938],"far":[1434,940]},"duration":120,"phase":"peak_recoil","angle":-70},
+{"source":"hurt_03_04_raw.png","rect":[0,0,816,1024],"root":[470,968],"hands":[[451,467],[545,460]],"feet":{"near":[143,968],"far":[720,962]},"duration":120,"phase":"recover_balance","angle":-62},
+{"source":"hurt_03_04_raw.png","rect":[816,0,1536,1024],"root":[1195,969],"hands":[[1164,493],[1233,493]],"feet":{"near":[892,968],"far":[1436,966]},"duration":120,"phase":"settle_guard","angle":-55},
+{"idle":true,"duration":180,"phase":"approved_idle_return","event":"hurt_complete"}]}

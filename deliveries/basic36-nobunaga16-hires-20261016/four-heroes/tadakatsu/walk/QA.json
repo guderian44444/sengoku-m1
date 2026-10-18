@@ -1,0 +1,57 @@
+{
+  "artifact_checks": "pass",
+  "frame_count": 8,
+  "minimum_effective_source_height": 914,
+  "constant_scale": 0.22027027027027027,
+  "target_standing_ruler": 163,
+  "max_discrete_support_lock_error_px": 7.105427357601002e-15,
+  "genuine_alpha": true,
+  "raw_generated_sources_preserved": true,
+  "no_optical_flow": true,
+  "no_repeated_small_tile_generation": true,
+  "all_new_generation_referenced_approved_full_master": true,
+  "existing_combat_assets_unchanged": true,
+  "portrait_is_approved_source_crop": true,
+  "no_fx": true,
+  "visual_review": "contact sheet and idle comparison inspected; left/right contact, passing, toe-off and swing silhouettes present; user approval pending",
+  "approval": "pending_user",
+  "note": "Near/far leg labels describe cycle continuity; no new anatomical color markings added.",
+  "combat_idle_reference_hash_matches": true,
+  "gif_checks": {
+    "normal.gif": {
+      "frames": 8,
+      "total_ms": 1120,
+      "loop": 0
+    },
+    "slow.gif": {
+      "frames": 8,
+      "total_ms": 2240,
+      "loop": 0
+    },
+    "idle-walk-comparison.gif": {
+      "frames": 8,
+      "total_ms": 1120,
+      "loop": 0
+    },
+    "world-preview.gif": {
+      "frames": 16,
+      "total_ms": 2240,
+      "loop": 0
+    }
+  },
+  "known_review_notes": [
+    "Weapon hold is tucked closer for walking than combat idle; weapon model, length ratio and rendering are shared.",
+    "Preview-only displacement is discrete foot-lock review, not the runtime movement controller.",
+    "Eight distinct drawings use long pauses suitable for candidate gait review; no interpolated optical-flow frames."
+  ],
+  "user_acceptance": {
+    "status": "accepted",
+    "event_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+    "technical_checks_unchanged": true
+  },
+  "latest_artwork_acceptance": {
+    "status": "accepted",
+    "event_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+  },
+  "runtime_tested": false
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": "ieyasu-integration-v1",
+  "character": "ieyasu06",
+  "accepted_event": {
+    "message_id": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+    "quote": "動作都OK了，把後續都處理好就上GIT",
+    "scope": "All nine latest Ieyasu base actions, including run_v5 and victory_v2. Visual asset acceptance; not evidence of runtime testing."
+  },
+  "runtime_tested": false,
+  "standing_ruler_px": 152,
+  "canvas": [
+    480,
+    320
+  ],
+  "canonical_root": [
+    220,
+    280
+  ],
+  "character_manifest": "character_manifest.json",
+  "idle_registration": "idle/registration.json",
+  "idle_material_directory": "idle",
+  "portrait_registration": "portrait/provenance.json",
+  "portrait": "portrait/portrait.png",
+  "actions": [
+    {
+      "action": "walk",
+      "revision": "walk",
+      "frame_count": 8,
+      "total_duration_ms": 1080,
+      "loop": true,
+      "terminal_hold": false,
+      "terminal_behavior": {
+        "mode": "loop",
+        "destination": null,
+        "runtime_wiring_verified": false
+      },
+      "metadata": "walk/metadata.json",
+      "material_directory": "walk",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+    },
+    {
+      "action": "hurt",
+      "revision": "hurt",
+      "frame_count": 6,
+      "total_duration_ms": 710,
+      "loop": false,
+      "terminal_hold": false,
+      "terminal_behavior": {
+        "mode": "return_to_idle",
+        "destination": "idle",
+        "runtime_wiring_verified": false
+      },
+      "metadata": "hurt/metadata.json",
+      "material_directory": "hurt",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+    },
+    {
+      "action": "stunned",
+      "revision": "stunned",
+      "frame_count": 4,
+      "total_duration_ms": 1080,
+      "loop": true,
+      "terminal_hold": false,
+      "terminal_behavior": {
+        "mode": "loop_until_stun_ends",
+        "destination": "idle",
+        "runtime_wiring_verified": false
+      },
+      "metadata": "stunned/metadata.json",
+      "material_directory": "stunned",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+    },
+    {
+      "action": "jump",
+      "revision": "jump",
+      "frame_count": 8,
+      "total_duration_ms": 980,
+      "loop": false,
+      "terminal_hold": false,
+      "terminal_behavior": {
+        "mode": "return_to_idle_after_runtime_landing",
+        "destination": "idle",
+        "runtime_wiring_verified": false
+      },
+      "metadata": "jump/metadata.json",
+      "material_directory": "jump",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+    },
+    {
+      "action": "launched",
+      "revision": "launched",
+      "frame_count": 5,
+      "total_duration_ms": 540,
+      "loop": false,
+      "terminal_hold": true,
+      "terminal_behavior": {
+        "mode": "wait_for_runtime_ground_contact",
+        "destination": "down",
+        "runtime_wiring_verified": false
+      },
+      "metadata": "launched/metadata.json",
+      "material_directory": "launched",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+    },
+    {
+      "action": "down",
+      "revision": "down",
+      "frame_count": 2,
+      "total_duration_ms": 1030,
+      "loop": false,
+      "terminal_hold": true,
+      "terminal_behavior": {
+        "mode": "hold_last_until_recovery",
+        "destination": "recovering",
+        "runtime_wiring_verified": false
+      },
+      "metadata": "down/metadata.json",
+      "material_directory": "down",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+    },
+    {
+      "action": "recovering",
+      "revision": "recovering",
+      "frame_count": 5,
+      "total_duration_ms": 870,
+      "loop": false,
+      "terminal_hold": false,
+      "terminal_behavior": {
+        "mode": "return_to_idle",
+        "destination": "idle",
+        "runtime_wiring_verified": false
+      },
+      "metadata": "recovering/metadata.json",
+      "material_directory": "recovering",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+    },
+    {
+      "action": "victory",
+      "revision": "victory_v2",
+      "frame_count": 6,
+      "total_duration_ms": 1300,
+      "loop": false,
+      "terminal_hold": false,
+      "terminal_behavior": {
+        "mode": "return_to_idle",
+        "destination": "idle",
+        "runtime_wiring_verified": false
+      },
+      "metadata": "victory_v2/metadata.json",
+      "material_directory": "victory_v2",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+    },
+    {
+      "action": "run",
+      "revision": "run_v5",
+      "frame_count": 6,
+      "total_duration_ms": 500,
+      "loop": true,
+      "terminal_hold": false,
+      "terminal_behavior": {
+        "mode": "loop",
+        "destination": null,
+        "runtime_wiring_verified": false
+      },
+      "metadata": "run_v5/metadata.json",
+      "material_directory": "run_v5",
+      "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8"
+    }
+  ],
+  "landmark_contract": "near/far preserve the authored source indexes. Walk has original anatomical annotations; all unannotated anatomical left/right values are null and require runtime mapping confirmation. Do not infer anatomical identity from file names.",
+  "runtime_todo": [
+    "game engine import",
+    "runtime animation/state-machine execution",
+    "input or interruption tests",
+    "collision and jump/launch landing physics",
+    "world speed and foot-slide calibration",
+    "weapon socket runtime attachment",
+    "left-facing mirror or depth-sorting engine tests",
+    "anatomical left/right mapping for unannotated near/far landmarks",
+    "deployment or Git push"
+  ]
+}

@@ -1,0 +1,21 @@
+from pathlib import Path
+from PIL import Image,ImageDraw
+import json,hashlib,numpy as np,zipfile,shutil
+B=Path(__file__).parent;m=json.loads((B/'metadata.json').read_text());cfg=json.loads((B/'config.json').read_text());ph=['near_contact','near_support_far_passing','near_push_far_drive','flight_far_leading','far_contact','far_support_near_passing','far_push_near_drive','flight_near_leading'];support=['near','near','near',None,'far','far','far',None]
+m.update(revision='run_candidate_02_true_passing',status='candidate_for_user_review_not_fully_validated',not_user_approved=True,weapon_carry='near hand holds staff; far hand counter-swings freely',cycle='one near step and one far step, two flight phases; no repeated duplicate half-cycle',source_rule='Original approved full-resolution identity directly referenced with native-resolution leg-overlap reference; no small rendered frame regeneration; no optical flow',world_motion={'mode':'in_place','driver':'runtime_controller','preview_not_baked_into_world':True},reference_paths=['../source/idle-body.png','../walk_v10/source/near-contact-cross-v11.png','../walk_v10/source/far-contact.png'],source_manifest={})
+for i,r in enumerate(m['frames']):
+ r.update(phase=ph[i],events=[ph[i]]+(['loop_start'] if i==0 else ['loop_end_to_1'] if i==7 else []),feet_source={'near':cfg[i]['feet'][0],'far':cfg[i]['feet'][1]},feet_preview={'near':r['feet_preview'][0],'far':r['feet_preview'][1]},support_foot=support[i],grounded=support[i] is not None,root_source=[600,cfg[i]['support_y']],root_canvas=[286,325],world_displacement=[0,0],preview_displacement=[0,0],next_frame=(i+1)%8+1,fx=None,layer_files={k:f'{k}_{i+1:02}.png' for k in ['body','weapon','hand_occlusion']})
+ p=B/r['source'];im=Image.open(p);a=np.array(im)[:,:,3];y,x=np.where(a>128);m['source_manifest'][r['source']]=dict(sha256=hashlib.sha256(p.read_bytes()).hexdigest(),native_canvas=list(im.size),effective_figure_bbox=[int(x.min()),int(y.min()),int(x.max()+1),int(y.max()+1)],effective_figure_height=int(y.max()-y.min()+1),final_body_resample_count=1)
+ layers={k:Image.open(B/f'{k}_{i+1:02}.png') for k in ['body','weapon','hand_occlusion']};comp=Image.new('RGBA',(640,380))
+ for k in r['layer_order']:comp.alpha_composite(layers[k])
+ assert np.array_equal(np.array(comp),np.array(Image.open(B/f'composite_{i+1:02}.png')))
+ for k,im in layers.items():
+  a=np.array(im)[:,:,3];assert max(a[0,:].max(),a[-1,:].max(),a[:,0].max(),a[:,-1].max())==0
+m['source_references']=m['reference_paths'];m['standing_ruler_px']=163;m['source_anatomical_ruler_px']=1420
+(B/'metadata.json').write_text(json.dumps(m,indent=2));(B/'QA.json').write_text(json.dumps(dict(visual_review='Root permits candidate delivery after revised passing review; not user accepted',frame_count=8,total_ms=600,original_effective_heights=[r['source_effective_height_px'] for r in m['frames']],ruler=163,scale=163/1420,no_bbox_normalization=True,no_fx=True,layer_recompose_exact=True,transparent_boundaries=True,cycle_checks=['near/far contact hip-knee-shoe linkage inspected','near/far support and two airborne phases present','knees remain below hips; no inward leg squeeze'],remaining_review='Confirm full leg pathway continuity through push and flight at normal playback speed.'),indent=2))
+cs=Image.new('RGB',(2048,1536),(40,44,48))
+for j,n in enumerate(['01-near-contact.png','05-far-contact.png']):
+ im=Image.open(B/'source'/n);cs.paste(im,(j*1024,0),im);ImageDraw.Draw(cs).text((j*1024+25,20),'NEAR contact' if j==0 else 'FAR contact',fill='white')
+cs.save(B/'contact-leg-identity-native.png')
+(B/'README.txt').write_text('Kennyo run candidate:8frames600ms, one near and one far step with two flight phases. Native high-resolution originals1227-1378px occupied height, standing anatomical ruler1420px, final163px. No per-pose bbox normalization, noFX or opticalflow. Three RGBA layers, per-frame timing/events/near-far feet/root/grips/weaponangle/loop/sourcehash metadata. Near hand carries staff, freefar hand counter-swings. Runtime world motion separate and zero in assets. Candidate pending user approval.\n')
+for src,dst in [('kennyo03-run.gif','kennyo03-run-candidate.gif'),('idle-walk-comparison.gif','kennyo03-run-idle-review.gif')]:shutil.copy(B/src,B/dst)

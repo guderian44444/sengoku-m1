@@ -1,0 +1,1 @@
+Files prefixed historical-preflight are pre-correction audit snapshots, not final status. Current status: delivery-manifest.json, validation-final.json, qa/FINAL-REVIEW.md and per-frame weapon-swap-gaps.json.

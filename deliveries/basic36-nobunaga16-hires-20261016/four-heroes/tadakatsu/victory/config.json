@@ -1,0 +1,132 @@
+{
+  "loop": false,
+  "terminal_hold": true,
+  "terminal_event": "victory_hold",
+  "frames": [
+    {
+      "file": "idle-approved.png",
+      "root": [
+        297,
+        490
+      ],
+      "hands": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "feet": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "phase": "approved_idle",
+      "duration": 100,
+      "scale": 0.44054054054054054,
+      "reused_approved": true,
+      "hand_radius": 15,
+      "support": "both",
+      "standing_ruler_source_px": 370
+    },
+    {
+      "file": "victory-01-02.png",
+      "root": [
+        510,
+        950
+      ],
+      "hands": [
+        [
+          502,
+          438
+        ]
+      ],
+      "feet": {
+        "right": [
+          247,
+          949
+        ],
+        "left": [
+          708,
+          935
+        ]
+      },
+      "phase": "lift_chest_fist",
+      "duration": 180,
+      "component": 0,
+      "angle": 40,
+      "support": "both"
+    },
+    {
+      "file": "victory-01-02.png",
+      "root": [
+        1260,
+        950
+      ],
+      "hands": [
+        [
+          1253,
+          441
+        ]
+      ],
+      "feet": {
+        "right": [
+          998,
+          952
+        ],
+        "left": [
+          1457,
+          937
+        ]
+      },
+      "phase": "raise_victory_fist",
+      "duration": 160,
+      "component": 1,
+      "angle": 25,
+      "support": "both"
+    },
+    {
+      "file": "victory-03-04.png",
+      "root": [
+        1245,
+        963
+      ],
+      "hands": [
+        [
+          1210,
+          476
+        ]
+      ],
+      "feet": {
+        "right": [
+          968,
+          960
+        ],
+        "left": [
+          1449,
+          933
+        ]
+      },
+      "phase": "victory_hold",
+      "duration": 700,
+      "component": 1,
+      "angle": 25,
+      "support": "both"
+    }
+  ],
+  "excluded_source_components": [
+    {
+      "file": "victory-03-04.png",
+      "component": 0,
+      "reason": "wrong arm raised; not used"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "character": "kennyo03",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "status": "accepted",
+  "standing_ruler_px": 163,
+  "runtime_tested": false,
+  "idle_registration": "idle/metadata.json",
+  "portrait_registration": "registered_assets.json",
+  "actions": {
+    "walk": {
+      "directory": "walk_v11",
+      "metadata": "walk_v11/metadata.json",
+      "integration_frames": "walk_v11/integration_frames.json",
+      "frame_count": 8,
+      "total_duration_ms": 880,
+      "loop": true,
+      "terminal_hold": false,
+      "status": "accepted"
+    },
+    "run": {
+      "directory": "run",
+      "metadata": "run/metadata.json",
+      "integration_frames": "run/integration_frames.json",
+      "frame_count": 8,
+      "total_duration_ms": 600,
+      "loop": true,
+      "terminal_hold": false,
+      "status": "accepted"
+    },
+    "jump": {
+      "directory": "jump",
+      "metadata": "jump/metadata.json",
+      "integration_frames": "jump/integration_frames.json",
+      "frame_count": 7,
+      "total_duration_ms": 830,
+      "loop": false,
+      "terminal_hold": false,
+      "status": "accepted"
+    },
+    "hurt": {
+      "directory": "hurt",
+      "metadata": "hurt/metadata.json",
+      "integration_frames": "hurt/integration_frames.json",
+      "frame_count": 5,
+      "total_duration_ms": 480,
+      "loop": false,
+      "terminal_hold": false,
+      "status": "accepted"
+    },
+    "stunned": {
+      "directory": "stunned",
+      "metadata": "stunned/metadata.json",
+      "integration_frames": "stunned/integration_frames.json",
+      "frame_count": 4,
+      "total_duration_ms": 800,
+      "loop": true,
+      "terminal_hold": false,
+      "status": "accepted"
+    },
+    "launched": {
+      "directory": "launched",
+      "metadata": "launched/metadata.json",
+      "integration_frames": "launched/integration_frames.json",
+      "frame_count": 5,
+      "total_duration_ms": 420,
+      "loop": false,
+      "terminal_hold": false,
+      "status": "accepted"
+    },
+    "down": {
+      "directory": "down",
+      "metadata": "down/metadata.json",
+      "integration_frames": "down/integration_frames.json",
+      "frame_count": 4,
+      "total_duration_ms": 870,
+      "loop": false,
+      "terminal_hold": true,
+      "status": "accepted"
+    },
+    "recovering": {
+      "directory": "recovering",
+      "metadata": "recovering/metadata.json",
+      "integration_frames": "recovering/integration_frames.json",
+      "frame_count": 7,
+      "total_duration_ms": 950,
+      "loop": false,
+      "terminal_hold": false,
+      "status": "accepted"
+    },
+    "victory": {
+      "directory": "victory",
+      "metadata": "victory/metadata.json",
+      "integration_frames": "victory/integration_frames.json",
+      "frame_count": 5,
+      "total_duration_ms": 1540,
+      "loop": false,
+      "terminal_hold": false,
+      "status": "accepted"
+    }
+  },
+  "coordinate_convention": "Root-local canvas pixels, x right, y down. Root is not bbox center. Preview motion is never world motion.",
+  "landmark_caveat": "Feet use original per-frame landmark indices; do not infer anatomical left/right from array order. IK, foot-lock and facing mappings require engine integration."
+}

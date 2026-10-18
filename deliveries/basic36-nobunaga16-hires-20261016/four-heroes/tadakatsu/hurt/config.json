@@ -1,0 +1,205 @@
+{
+  "loop": false,
+  "terminal_event": "return_to_idle",
+  "frames": [
+    {
+      "file": "idle-approved.png",
+      "root": [
+        297,
+        490
+      ],
+      "hands": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "feet": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "phase": "approved_idle",
+      "duration": 80,
+      "scale": 0.44054054054054054,
+      "reused_approved": true,
+      "hand_radius": 15,
+      "support": "both"
+    },
+    {
+      "file": "hurt-01-02.png",
+      "component": 0,
+      "root": [
+        490,
+        938
+      ],
+      "hands": [
+        [
+          562,
+          437
+        ],
+        [
+          710,
+          399
+        ]
+      ],
+      "feet": {
+        "right": [
+          217,
+          933
+        ],
+        "left": [
+          710,
+          916
+        ]
+      },
+      "phase": "impact",
+      "event": "hurt_impact",
+      "grounded": true,
+      "support": "both",
+      "duration": 70
+    },
+    {
+      "file": "hurt-01-02.png",
+      "component": 1,
+      "root": [
+        1240,
+        958
+      ],
+      "hands": [
+        [
+          1278,
+          429
+        ],
+        [
+          1432,
+          400
+        ]
+      ],
+      "feet": {
+        "right": [
+          970,
+          953
+        ],
+        "left": [
+          1445,
+          941
+        ]
+      },
+      "phase": "maximum_recoil",
+      "event": "hurt_maximum_recoil",
+      "grounded": true,
+      "support": "both",
+      "duration": 110
+    },
+    {
+      "file": "hurt-03-04.png",
+      "component": 0,
+      "root": [
+        540,
+        946
+      ],
+      "hands": [
+        [
+          580,
+          480
+        ],
+        [
+          675,
+          495
+        ]
+      ],
+      "feet": {
+        "right": [
+          215,
+          940
+        ],
+        "left": [
+          687,
+          927
+        ]
+      },
+      "phase": "brace",
+      "event": "hurt_brace",
+      "grounded": true,
+      "support": "both",
+      "duration": 110
+    },
+    {
+      "file": "hurt-03-04.png",
+      "component": 1,
+      "root": [
+        1250,
+        946
+      ],
+      "hands": [
+        [
+          1348,
+          466
+        ],
+        [
+          1476,
+          464
+        ]
+      ],
+      "feet": {
+        "right": [
+          1010,
+          941
+        ],
+        "left": [
+          1430,
+          930
+        ]
+      },
+      "phase": "recenter",
+      "event": "hurt_recenter",
+      "grounded": true,
+      "support": "both",
+      "duration": 100
+    },
+    {
+      "file": "idle-approved.png",
+      "root": [
+        297,
+        490
+      ],
+      "hands": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "feet": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "phase": "return_idle",
+      "duration": 150,
+      "scale": 0.44054054054054054,
+      "reused_approved": true,
+      "hand_radius": 15,
+      "support": "both",
+      "event": "hurt_complete"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "near": {
+    "target": "assembled_passing_near.png",
+    "official_imagegen_patch_source": "seam_passing_near_generated.png",
+    "patch_generated_size": [
+      1173,
+      1341
+    ],
+    "assembly_canvas": [
+      1400,
+      1600
+    ],
+    "patch_rect": [
+      520,
+      795,
+      1120,
+      980
+    ],
+    "feather_sigma": 6,
+    "outside_mask_pixel_exact": true,
+    "outside_mask_delta_max": 0,
+    "purpose": "Only repair high-resolution assembly seam below waist armor. Contact head/chest/arms, passing knees/shins/shoes remain original pixels outside the localized mask."
+  },
+  "far": {
+    "target": "assembled_passing_far.png",
+    "official_imagegen_patch_source": "seam_passing_far_generated.png",
+    "patch_generated_size": [
+      1173,
+      1341
+    ],
+    "assembly_canvas": [
+      1400,
+      1600
+    ],
+    "patch_rect": [
+      520,
+      785,
+      1100,
+      1010
+    ],
+    "feather_sigma": 6,
+    "outside_mask_pixel_exact": true,
+    "outside_mask_delta_max": 0,
+    "purpose": "Only repair high-resolution assembly seam below waist armor. Contact head/chest/arms, passing knees/shins/shoes remain original pixels outside the localized mask."
+  }
+}

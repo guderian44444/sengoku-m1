@@ -1,0 +1,354 @@
+{
+  "schema": "sengoku.animation.frames.v1",
+  "character": "kennyo",
+  "action": "launched",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 163,
+  "frame_count": 5,
+  "total_duration_ms": 420,
+  "loop": false,
+  "terminal_hold": false,
+  "runtime_tested": false,
+  "source_metadata": "kennyo/launched/metadata.json",
+  "all_file_paths_relative_to": "final_git_bundle root",
+  "frames": [
+    {
+      "frame_index": 0,
+      "duration_ms": 30,
+      "start_ms": 0,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          226.351,
+          326.011
+        ],
+        "landmark_1": [
+          330.484,
+          325
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          286,
+          227.607
+        ],
+        [
+          278.923,
+          216.149
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        286,
+        227.607
+      ],
+      "weapon_angle_degrees": -31.7014,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/launched/body_01.png",
+        "weapon": "kennyo/launched/weapon_01.png",
+        "hand_occlusion": "kennyo/launched/hand_occlusion_01.png"
+      },
+      "composite": "kennyo/launched/composite_01.png",
+      "events": [
+        "entry_idle"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "registered combat idle",
+        "metadata_base": "kennyo/launched"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 1,
+      "duration_ms": 70,
+      "start_ms": 30,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          615.5183140593284,
+          634.596535111092
+        ],
+        "landmark_1": [
+          622.8934192324963,
+          400.10062584991215
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          266.48591549295776,
+          218.67605633802816
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        266.48591549295776,
+        218.67605633802816
+      ],
+      "weapon_angle_degrees": -20,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/launched/body_02.png",
+        "weapon": "kennyo/launched/weapon_02.png",
+        "hand_occlusion": "kennyo/launched/hand_occlusion_02.png"
+      },
+      "composite": "kennyo/launched/composite_02.png",
+      "events": [
+        "hit_takeoff"
+      ],
+      "preview_displacement_px": [
+        -25,
+        -20
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/impact-original.png",
+        "metadata_base": "kennyo/launched"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 2,
+      "duration_ms": 90,
+      "start_ms": 100,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          441.1910083019733,
+          601.1298835679015
+        ],
+        "landmark_1": [
+          703.6827471743401,
+          509.5335902885992
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          237.7887323943662,
+          237.04225352112678
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        237.7887323943662,
+        237.04225352112678
+      ],
+      "weapon_angle_degrees": 30,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/launched/body_03.png",
+        "weapon": "kennyo/launched/weapon_03.png",
+        "hand_occlusion": "kennyo/launched/hand_occlusion_03.png"
+      },
+      "composite": "kennyo/launched/composite_03.png",
+      "events": [
+        "flight_apex"
+      ],
+      "preview_displacement_px": [
+        -75,
+        -95
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/flight-original.png",
+        "metadata_base": "kennyo/launched"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 3,
+      "duration_ms": 110,
+      "start_ms": 190,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          154.52136041326253,
+          610.9518682857436
+        ],
+        "landmark_1": [
+          404.899409084708,
+          731.7931967384964
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          235.06282036806618,
+          243.9753883455992
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        235.06282036806618,
+        243.9753883455992
+      ],
+      "weapon_angle_degrees": 75,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/launched/body_04.png",
+        "weapon": "kennyo/launched/weapon_04.png",
+        "hand_occlusion": "kennyo/launched/hand_occlusion_04.png"
+      },
+      "composite": "kennyo/launched/composite_04.png",
+      "events": [
+        "descending"
+      ],
+      "preview_displacement_px": [
+        -120,
+        -65
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/flight-original.png",
+        "metadata_base": "kennyo/launched"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 4,
+      "duration_ms": 120,
+      "start_ms": 300,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": [
+          -23.53684281872782,
+          551.954507220501
+        ],
+        "landmark_1": [
+          124.1244788985016,
+          718.0794775340321
+        ]
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [],
+      "grip_state": "released",
+      "weapon_anchor_canvas_px": null,
+      "weapon_angle_degrees": 100,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/launched/body_05.png",
+        "weapon": "kennyo/launched/weapon_05.png",
+        "hand_occlusion": "kennyo/launched/hand_occlusion_05.png"
+      },
+      "composite": "kennyo/launched/composite_05.png",
+      "events": [
+        "release_weapon",
+        "transition_to_down"
+      ],
+      "preview_displacement_px": [
+        -155,
+        -15
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/fall-original.png",
+        "metadata_base": "kennyo/launched"
+      },
+      "runtime_tested": false
+    }
+  ]
+}

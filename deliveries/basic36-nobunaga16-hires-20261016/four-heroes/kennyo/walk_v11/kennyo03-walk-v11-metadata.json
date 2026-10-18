@@ -1,0 +1,924 @@
+{
+  "character": "kennyo03",
+  "action": "walk",
+  "candidate": true,
+  "approved": false,
+  "frames": [
+    {
+      "source": "source/near-contact-cross-v11.png",
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "source_effective_height_px": 1407,
+      "root": [
+        286,
+        325
+      ],
+      "feet_source": {
+        "near": [
+          852,
+          1448
+        ],
+        "far": [
+          290,
+          1363
+        ]
+      },
+      "feet_preview": {
+        "near": [
+          320.6661971830986,
+          325.0
+        ],
+        "far": [
+          256.15492957746477,
+          315.24295774647885
+        ]
+      },
+      "grips_source": [
+        [
+          717,
+          615
+        ],
+        [
+          601,
+          411
+        ]
+      ],
+      "grips_preview": [
+        [
+          305.16971830985915,
+          229.38098591549294
+        ],
+        [
+          291.8542253521127,
+          205.96408450704226
+        ]
+      ],
+      "weapon_angle_degrees": -29.623748751173817,
+      "uniform_body_scale": 0.1147887323943662,
+      "frame": 1,
+      "duration_ms": 110,
+      "start_ms": 0,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "events": [
+        "near_heel_contact",
+        "loop_start"
+      ],
+      "phase": "near_heel_contact",
+      "support_foot": "both",
+      "grounded": true,
+      "root_source": [
+        550,
+        1448
+      ],
+      "root_canvas": [
+        286,
+        325
+      ],
+      "next_frame": 2,
+      "fx": null,
+      "layer_files": {
+        "body": "body_01.png",
+        "weapon": "weapon_01.png",
+        "hand_occlusion": "hand_occlusion_01.png"
+      }
+    },
+    {
+      "source": "source/near-load-cross-v11.png",
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "source_effective_height_px": 1411,
+      "root": [
+        286,
+        325
+      ],
+      "feet_source": {
+        "near": [
+          810,
+          1443
+        ],
+        "far": [
+          327,
+          1342
+        ]
+      },
+      "feet_preview": {
+        "near": [
+          315.84507042253523,
+          325.0
+        ],
+        "far": [
+          260.40211267605633,
+          313.406338028169
+        ]
+      },
+      "grips_source": [
+        [
+          724,
+          634
+        ],
+        [
+          601,
+          428
+        ]
+      ],
+      "grips_preview": [
+        [
+          305.97323943661974,
+          232.13591549295774
+        ],
+        [
+          291.8542253521127,
+          208.4894366197183
+        ]
+      ],
+      "weapon_angle_degrees": -30.840892289706968,
+      "uniform_body_scale": 0.1147887323943662,
+      "frame": 2,
+      "duration_ms": 110,
+      "start_ms": 110,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "events": [
+        "near_weight_accept"
+      ],
+      "phase": "near_weight_accept",
+      "support_foot": "near",
+      "grounded": true,
+      "root_source": [
+        550,
+        1443
+      ],
+      "root_canvas": [
+        286,
+        325
+      ],
+      "next_frame": 3,
+      "fx": null,
+      "layer_files": {
+        "body": "body_02.png",
+        "weapon": "weapon_02.png",
+        "hand_occlusion": "hand_occlusion_02.png"
+      }
+    },
+    {
+      "source": "source/far-pass-hand-fixed-v2.png",
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "source_effective_height_px": 1413,
+      "root": [
+        286,
+        325
+      ],
+      "feet_source": {
+        "near": [
+          430,
+          1448
+        ],
+        "far": [
+          837,
+          1420
+        ]
+      },
+      "feet_preview": {
+        "near": [
+          272.22535211267603,
+          325.0
+        ],
+        "far": [
+          318.9443661971831,
+          321.78591549295777
+        ]
+      },
+      "grips_source": [
+        [
+          727,
+          673
+        ],
+        [
+          574,
+          457
+        ]
+      ],
+      "grips_preview": [
+        [
+          306.3176056338028,
+          236.0387323943662
+        ],
+        [
+          288.7549295774648,
+          211.2443661971831
+        ]
+      ],
+      "weapon_angle_degrees": -35.3112134396332,
+      "uniform_body_scale": 0.1147887323943662,
+      "frame": 3,
+      "duration_ms": 110,
+      "start_ms": 220,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "events": [
+        "far_passing"
+      ],
+      "phase": "far_passing",
+      "support_foot": "near",
+      "grounded": true,
+      "root_source": [
+        550,
+        1448
+      ],
+      "root_canvas": [
+        286,
+        325
+      ],
+      "next_frame": 4,
+      "fx": null,
+      "layer_files": {
+        "body": "body_03.png",
+        "weapon": "weapon_03.png",
+        "hand_occlusion": "hand_occlusion_03.png"
+      }
+    },
+    {
+      "source": "source/far-reach.png",
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "source_effective_height_px": 1381,
+      "root": [
+        286,
+        325
+      ],
+      "feet_source": {
+        "near": [
+          140,
+          1340
+        ],
+        "far": [
+          880,
+          1450
+        ]
+      },
+      "feet_preview": {
+        "near": [
+          238.93661971830986,
+          312.3732394366197
+        ],
+        "far": [
+          323.88028169014086,
+          325.0
+        ]
+      },
+      "grips_source": [
+        [
+          730,
+          670
+        ],
+        [
+          600,
+          470
+        ]
+      ],
+      "grips_preview": [
+        [
+          306.6619718309859,
+          235.46478873239437
+        ],
+        [
+          291.7394366197183,
+          212.50704225352115
+        ]
+      ],
+      "weapon_angle_degrees": -33.02386755579674,
+      "uniform_body_scale": 0.1147887323943662,
+      "frame": 4,
+      "duration_ms": 110,
+      "start_ms": 330,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "events": [
+        "far_reach"
+      ],
+      "phase": "far_reach",
+      "support_foot": "near",
+      "grounded": true,
+      "root_source": [
+        550,
+        1450
+      ],
+      "root_canvas": [
+        286,
+        325
+      ],
+      "next_frame": 5,
+      "fx": null,
+      "layer_files": {
+        "body": "body_04.png",
+        "weapon": "weapon_04.png",
+        "hand_occlusion": "hand_occlusion_04.png"
+      }
+    },
+    {
+      "source": "source/far-contact.png",
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "source_effective_height_px": 1406,
+      "root": [
+        286,
+        325
+      ],
+      "feet_source": {
+        "near": [
+          150,
+          1370
+        ],
+        "far": [
+          900,
+          1465
+        ]
+      },
+      "feet_preview": {
+        "near": [
+          240.0845070422535,
+          314.09507042253523
+        ],
+        "far": [
+          326.17605633802816,
+          325.0
+        ]
+      },
+      "grips_source": [
+        [
+          650,
+          610
+        ],
+        [
+          580,
+          480
+        ]
+      ],
+      "grips_preview": [
+        [
+          297.4788732394366,
+          226.8556338028169
+        ],
+        [
+          289.443661971831,
+          211.9330985915493
+        ]
+      ],
+      "weapon_angle_degrees": -28.300755766006407,
+      "uniform_body_scale": 0.1147887323943662,
+      "frame": 5,
+      "duration_ms": 110,
+      "start_ms": 440,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "events": [
+        "far_heel_contact"
+      ],
+      "phase": "far_heel_contact",
+      "support_foot": "both",
+      "grounded": true,
+      "root_source": [
+        550,
+        1465
+      ],
+      "root_canvas": [
+        286,
+        325
+      ],
+      "next_frame": 6,
+      "fx": null,
+      "layer_files": {
+        "body": "body_05.png",
+        "weapon": "weapon_05.png",
+        "hand_occlusion": "hand_occlusion_05.png"
+      }
+    },
+    {
+      "source": "source/far-load.png",
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "source_effective_height_px": 1442,
+      "root": [
+        286,
+        325
+      ],
+      "feet_source": {
+        "near": [
+          220,
+          1320
+        ],
+        "far": [
+          860,
+          1450
+        ]
+      },
+      "feet_preview": {
+        "near": [
+          248.11971830985917,
+          310.0774647887324
+        ],
+        "far": [
+          321.5845070422535,
+          325.0
+        ]
+      },
+      "grips_source": [
+        [
+          650,
+          580
+        ],
+        [
+          550,
+          420
+        ]
+      ],
+      "grips_preview": [
+        [
+          297.4788732394366,
+          225.13380281690144
+        ],
+        [
+          286.0,
+          206.76760563380282
+        ]
+      ],
+      "weapon_angle_degrees": -32.00538320808344,
+      "uniform_body_scale": 0.1147887323943662,
+      "frame": 6,
+      "duration_ms": 110,
+      "start_ms": 550,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "events": [
+        "far_weight_accept"
+      ],
+      "phase": "far_weight_accept",
+      "support_foot": "far",
+      "grounded": true,
+      "root_source": [
+        550,
+        1450
+      ],
+      "root_canvas": [
+        286,
+        325
+      ],
+      "next_frame": 7,
+      "fx": null,
+      "layer_files": {
+        "body": "body_06.png",
+        "weapon": "weapon_06.png",
+        "hand_occlusion": "hand_occlusion_06.png"
+      }
+    },
+    {
+      "source": "source/near-pass.png",
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "source_effective_height_px": 1410,
+      "root": [
+        286,
+        325
+      ],
+      "feet_source": {
+        "near": [
+          780,
+          1320
+        ],
+        "far": [
+          590,
+          1455
+        ]
+      },
+      "feet_preview": {
+        "near": [
+          312.40140845070425,
+          309.5035211267606
+        ],
+        "far": [
+          290.59154929577466,
+          325.0
+        ]
+      },
+      "grips_source": [
+        [
+          580,
+          540
+        ],
+        [
+          470,
+          385
+        ]
+      ],
+      "grips_preview": [
+        [
+          289.443661971831,
+          219.96830985915494
+        ],
+        [
+          276.8169014084507,
+          202.17605633802816
+        ]
+      ],
+      "weapon_angle_degrees": -35.36246188706903,
+      "uniform_body_scale": 0.1147887323943662,
+      "frame": 7,
+      "duration_ms": 110,
+      "start_ms": 660,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "events": [
+        "near_passing"
+      ],
+      "phase": "near_passing",
+      "support_foot": "far",
+      "grounded": true,
+      "root_source": [
+        550,
+        1455
+      ],
+      "root_canvas": [
+        286,
+        325
+      ],
+      "next_frame": 8,
+      "fx": null,
+      "layer_files": {
+        "body": "body_07.png",
+        "weapon": "weapon_07.png",
+        "hand_occlusion": "hand_occlusion_07.png"
+      }
+    },
+    {
+      "source": "source/near-reach-cross-v11.png",
+      "source_crop": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "source_effective_height_px": 1364,
+      "root": [
+        286,
+        325
+      ],
+      "feet_source": {
+        "near": [
+          837,
+          1398
+        ],
+        "far": [
+          302,
+          1375
+        ]
+      },
+      "feet_preview": {
+        "near": [
+          318.9443661971831,
+          319.030985915493
+        ],
+        "far": [
+          257.5323943661972,
+          316.39084507042253
+        ]
+      },
+      "grips_source": [
+        [
+          715,
+          618
+        ],
+        [
+          600,
+          414
+        ]
+      ],
+      "grips_preview": [
+        [
+          304.9401408450704,
+          229.49577464788734
+        ],
+        [
+          291.7394366197183,
+          206.07887323943663
+        ]
+      ],
+      "weapon_angle_degrees": -29.411064324813864,
+      "uniform_body_scale": 0.1147887323943662,
+      "frame": 8,
+      "duration_ms": 110,
+      "start_ms": 770,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "world_displacement": [
+        0,
+        0
+      ],
+      "events": [
+        "near_reach",
+        "loop_end_to_1"
+      ],
+      "phase": "near_reach",
+      "support_foot": "far",
+      "grounded": true,
+      "root_source": [
+        550,
+        1450
+      ],
+      "root_canvas": [
+        286,
+        325
+      ],
+      "next_frame": 1,
+      "fx": null,
+      "layer_files": {
+        "body": "body_08.png",
+        "weapon": "weapon_08.png",
+        "hand_occlusion": "hand_occlusion_08.png"
+      },
+      "support_plane_note": "Depth-projected far support sandal is at source y1375; common root ground plane remains y1450. Foreground reaching heel remains airborne."
+    }
+  ],
+  "frame_count": 8,
+  "total_duration_ms": 880,
+  "loop": true,
+  "preview_repeats_for_review": true,
+  "exit_to": "registered_idle",
+  "loop_range": [
+    1,
+    8
+  ],
+  "standing_ruler_px": 163,
+  "fixed_scale": "fixed source163/1420, crouched sway not bbox normalized",
+  "fx": false,
+  "source_sha256": {
+    "far-contact.png": "9649b13f6dd720458de2328578fecb84c85834bf160f3da9bb2a4c72526602ae",
+    "far-load.png": "35fc85b6ded31bbb5dc8b1aa60dde2a1fcb21794046cb2a9fe903f46df4ad7f4",
+    "far-pass-hand-fixed-v2.png": "0314bcf462726cad31ef1f47ee8eba18559cdad529ccec3ad4b9c11023b90afd",
+    "far-reach.png": "c2d6e496cc2c4f5ee8bf7bfb06f6ade2c1768e6df513729ed2fb7cdb73232400",
+    "near-contact-cross-v11.png": "57c142d2028c949fdf9c52790223a9a96c814ece8799bbcf9b8a49ee96581de5",
+    "near-load-cross-v11.png": "0e58ab4affd366bfb59ceccc80e6df752f84c0017b49c7a73e1c2a184cf87421",
+    "near-pass.png": "1657fec4ba861ae80e65513b02c07e2160b6fbd25b9cd565048044a63cf59495",
+    "near-reach-cross-v11.png": "772969d5d47d1bd657ffa19bfde9bd3d70a09a89c21a63d878dee366e5f97ace"
+  },
+  "source_references": [
+    "original high-resolution identity/idle-body.png",
+    "approved combat light_1/source.png"
+  ],
+  "no_optical_flow": true,
+  "no_reduced_frame_regeneration": true,
+  "revision": "walk_v11_frame3_actual_hand_grip_fix",
+  "status": "candidate_for_user_review_not_fully_validated",
+  "not_user_approved": true,
+  "excluded_versions": {
+    "walk_v6": "user rejected: short shuffling steps and fixed upper body",
+    "walk_v9": "independent visual QA failed: contact leg identity unreliable"
+  },
+  "source_rule": "Original approved full resolution identity directly referenced; no small rendered frame regeneration; no optical flow",
+  "visual_identity_check": "Near-contact frame1 broad near skirt plate and thigh cross in front of central cloth/far thigh; frame5 far contact preserves opposite overlap; 7->8->1 preserves near forward swing",
+  "world_motion": {
+    "mode": "in_place",
+    "driver": "runtime_controller",
+    "preview_not_baked_into_world": true
+  },
+  "reference_paths": [
+    "../source/idle-body.png",
+    "../walk_v9/source/near-pass.png"
+  ],
+  "source_manifest": {
+    "source/near-contact-cross-v11.png": {
+      "sha256": "57c142d2028c949fdf9c52790223a9a96c814ece8799bbcf9b8a49ee96581de5",
+      "native_canvas": [
+        1024,
+        1536
+      ],
+      "effective_figure_bbox": [
+        160,
+        42,
+        957,
+        1449
+      ],
+      "effective_figure_height": 1407,
+      "final_resample_count": 1
+    },
+    "source/near-load-cross-v11.png": {
+      "sha256": "0e58ab4affd366bfb59ceccc80e6df752f84c0017b49c7a73e1c2a184cf87421",
+      "native_canvas": [
+        1024,
+        1536
+      ],
+      "effective_figure_bbox": [
+        142,
+        42,
+        966,
+        1453
+      ],
+      "effective_figure_height": 1411,
+      "final_resample_count": 1
+    },
+    "source/far-pass-hand-fixed-v2.png": {
+      "sha256": "0314bcf462726cad31ef1f47ee8eba18559cdad529ccec3ad4b9c11023b90afd",
+      "native_canvas": [
+        1024,
+        1536
+      ],
+      "effective_figure_bbox": [
+        78,
+        45,
+        959,
+        1458
+      ],
+      "effective_figure_height": 1413,
+      "final_resample_count": 1
+    },
+    "source/far-reach.png": {
+      "sha256": "c2d6e496cc2c4f5ee8bf7bfb06f6ade2c1768e6df513729ed2fb7cdb73232400",
+      "native_canvas": [
+        1024,
+        1536
+      ],
+      "effective_figure_bbox": [
+        77,
+        74,
+        1024,
+        1455
+      ],
+      "effective_figure_height": 1381,
+      "final_resample_count": 1
+    },
+    "source/far-contact.png": {
+      "sha256": "9649b13f6dd720458de2328578fecb84c85834bf160f3da9bb2a4c72526602ae",
+      "native_canvas": [
+        1024,
+        1536
+      ],
+      "effective_figure_bbox": [
+        51,
+        73,
+        1013,
+        1479
+      ],
+      "effective_figure_height": 1406,
+      "final_resample_count": 1
+    },
+    "source/far-load.png": {
+      "sha256": "35fc85b6ded31bbb5dc8b1aa60dde2a1fcb21794046cb2a9fe903f46df4ad7f4",
+      "native_canvas": [
+        1024,
+        1536
+      ],
+      "effective_figure_bbox": [
+        113,
+        41,
+        955,
+        1483
+      ],
+      "effective_figure_height": 1442,
+      "final_resample_count": 1
+    },
+    "source/near-pass.png": {
+      "sha256": "1657fec4ba861ae80e65513b02c07e2160b6fbd25b9cd565048044a63cf59495",
+      "native_canvas": [
+        1024,
+        1536
+      ],
+      "effective_figure_bbox": [
+        165,
+        57,
+        872,
+        1467
+      ],
+      "effective_figure_height": 1410,
+      "final_resample_count": 1
+    },
+    "source/near-reach-cross-v11.png": {
+      "sha256": "772969d5d47d1bd657ffa19bfde9bd3d70a09a89c21a63d878dee366e5f97ace",
+      "native_canvas": [
+        1024,
+        1536
+      ],
+      "effective_figure_bbox": [
+        156,
+        46,
+        981,
+        1410
+      ],
+      "effective_figure_height": 1364,
+      "final_resample_count": 1
+    }
+  },
+  "frame3_change": "Actual lower forearm/hand redrawn; passing legs preserved. Staff angle now35.3degrees left of up, adjacent frames30.8/33.0."
+}

@@ -1,0 +1,870 @@
+{
+  "hero": "tadakatsu",
+  "action": "jump",
+  "revision": "r3_candidate_02_stronger_anticipation",
+  "status": "accepted",
+  "loop": false,
+  "terminal_hold": false,
+  "terminal_event": "return_to_idle",
+  "frame_count": 8,
+  "total_ms": 900,
+  "standing_ruler_target_px": 163,
+  "standing_ruler_source_px": 740,
+  "body_scale": 0.22027027027027027,
+  "per_frame_bbox_normalization": false,
+  "preserve_original_png": true,
+  "body_resample": "once from original high-resolution source to final scale",
+  "world_motion": {
+    "mode": "in_place",
+    "driver": "runtime_controller",
+    "preview_displacement_not_baked": true
+  },
+  "preview_motion": {
+    "mode": "vertical_jump_demo",
+    "runtime_vertical_arc_not_baked_into_world_delta": true
+  },
+  "ordinary_action_fx": false,
+  "imagegen": "official image_gen.imagegen",
+  "identity_references": [
+    "../source/approved-original-master.png",
+    "../source/walk-01-02.png"
+  ],
+  "shared_idle": "../identity/registration.json",
+  "frames": [
+    {
+      "scale": 0.44054054054054054,
+      "render_origin": [
+        109.15945945945947,
+        112.13513513513513
+      ],
+      "root_source": [
+        297,
+        490
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "hands_canvas": [
+        [
+          248.37027027027028,
+          227.11621621621623
+        ],
+        [
+          290.22162162162164,
+          223.15135135135137
+        ]
+      ],
+      "weapon_grip_canvas": [
+        248.37027027027028,
+        227.11621621621623
+      ],
+      "weapon_angle_degrees": 84.58813084768298,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          175.24054054054056,
+          330.6432432432432
+        ],
+        "left": [
+          296.3891891891892,
+          325.7972972972973
+        ]
+      },
+      "frame": 1,
+      "phase": "approved_idle",
+      "event": "approved_idle",
+      "duration_ms": 80,
+      "start_ms": 0,
+      "reused_approved": true,
+      "source_file": "jump/source/idle-approved.png",
+      "source_sha256": "59da5eaaa3ea181c375ff4781f96d7d57725a149fcd4c629b87d79a0059a8d30",
+      "source_bbox": [
+        46,
+        29,
+        469,
+        502
+      ],
+      "source_effective_height": 473,
+      "source_effective_max_dimension": 473,
+      "standing_ruler_source_px": 370,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 2,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        128.76351351351352,
+        120.50540540540541
+      ],
+      "root_source": [
+        505,
+        942
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          439,
+          616
+        ],
+        [
+          598,
+          636
+        ]
+      ],
+      "hands_canvas": [
+        [
+          225.46216216216214,
+          256.1918918918919
+        ],
+        [
+          260.4851351351351,
+          260.5972972972973
+        ]
+      ],
+      "weapon_grip_canvas": [
+        225.46216216216214,
+        256.1918918918919
+      ],
+      "weapon_angle_degrees": 97.16936291861678,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          240,
+          940
+        ],
+        "left": [
+          682,
+          936
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          181.6283783783784,
+          327.5594594594595
+        ],
+        "left": [
+          278.98783783783784,
+          326.6783783783784
+        ]
+      },
+      "frame": 2,
+      "phase": "preload",
+      "event": "jump_deep_preload_chest_lean",
+      "duration_ms": 140,
+      "start_ms": 80,
+      "reused_approved": false,
+      "source_file": "jump/source/jump-preload-takeoff-v2.png",
+      "source_sha256": "291b632ec41eb6d04f9561142efda3adca9f8bf9a47dad1bb0af5f49d882a735",
+      "source_bbox": [
+        36,
+        260,
+        776,
+        953
+      ],
+      "source_effective_height": 693,
+      "source_effective_max_dimension": 740,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 3,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        53.21081081081081,
+        110.74324324324326
+      ],
+      "root_source": [
+        848,
+        950
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        -8
+      ],
+      "hands_source": [
+        [
+          1025,
+          282
+        ],
+        [
+          1229,
+          291
+        ]
+      ],
+      "hands_canvas": [
+        [
+          278.98783783783784,
+          172.85945945945946
+        ],
+        [
+          323.92297297297296,
+          174.84189189189192
+        ]
+      ],
+      "weapon_grip_canvas": [
+        278.98783783783784,
+        172.85945945945946
+      ],
+      "weapon_angle_degrees": 92.52611691161955,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          565,
+          960
+        ],
+        "left": [
+          818,
+          940
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          177.66351351351352,
+          322.2027027027027
+        ],
+        "left": [
+          233.3918918918919,
+          317.7972972972973
+        ]
+      },
+      "frame": 3,
+      "phase": "takeoff",
+      "event": "jump_triple_extension_takeoff",
+      "duration_ms": 80,
+      "start_ms": 220,
+      "reused_approved": false,
+      "source_file": "jump/source/jump-takeoff-v3.png",
+      "source_sha256": "7d7023f8b7cd5d3910144c4c34a0be345f878db648d043f1750b17583d9379fc",
+      "source_bbox": [
+        206,
+        9,
+        1271,
+        977
+      ],
+      "source_effective_height": 968,
+      "source_effective_max_dimension": 1065,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": false,
+      "support_foot": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 4,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        123.25675675675676,
+        73.74324324324326
+      ],
+      "root_source": [
+        530,
+        950
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        -45
+      ],
+      "hands_source": [
+        [
+          580,
+          415
+        ],
+        [
+          795,
+          416
+        ]
+      ],
+      "hands_canvas": [
+        [
+          251.01351351351352,
+          165.15540540540542
+        ],
+        [
+          298.3716216216216,
+          165.3756756756757
+        ]
+      ],
+      "weapon_grip_canvas": [
+        251.01351351351352,
+        165.15540540540542
+      ],
+      "weapon_angle_degrees": 90.2664900760584,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          305,
+          837
+        ],
+        "left": [
+          650,
+          700
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          190.4391891891892,
+          258.10945945945946
+        ],
+        "left": [
+          266.43243243243245,
+          227.93243243243245
+        ]
+      },
+      "frame": 4,
+      "phase": "ascent",
+      "event": "jump_ascent",
+      "duration_ms": 90,
+      "start_ms": 300,
+      "reused_approved": false,
+      "source_file": "jump/source/jump-03-04.png",
+      "source_sha256": "69aff4567576cecc12ef34952ee075dd4bb0392ab6e36ec7f62e6ff093a7b92d",
+      "source_bbox": [
+        42,
+        28,
+        827,
+        847
+      ],
+      "source_effective_height": 819,
+      "source_effective_max_dimension": 819,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": false,
+      "support_foot": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 5,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        -33.13513513513516,
+        53.743243243243256
+      ],
+      "root_source": [
+        1240,
+        950
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        -65
+      ],
+      "hands_source": [
+        [
+          1290,
+          413
+        ],
+        [
+          1476,
+          382
+        ]
+      ],
+      "hands_canvas": [
+        [
+          251.0135135135135,
+          144.71486486486486
+        ],
+        [
+          291.98378378378374,
+          137.8864864864865
+        ]
+      ],
+      "weapon_grip_canvas": [
+        251.0135135135135,
+        144.71486486486486
+      ],
+      "weapon_angle_degrees": 80.53767779197439,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          1138,
+          782
+        ],
+        "left": [
+          1230,
+          772
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          217.53243243243242,
+          225.99459459459462
+        ],
+        "left": [
+          237.7972972972973,
+          223.7918918918919
+        ]
+      },
+      "frame": 5,
+      "phase": "apex",
+      "event": "jump_apex",
+      "duration_ms": 100,
+      "start_ms": 390,
+      "reused_approved": false,
+      "source_file": "jump/source/jump-03-04.png",
+      "source_sha256": "69aff4567576cecc12ef34952ee075dd4bb0392ab6e36ec7f62e6ff093a7b92d",
+      "source_bbox": [
+        834,
+        26,
+        1509,
+        818
+      ],
+      "source_effective_height": 792,
+      "source_effective_max_dimension": 792,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": false,
+      "support_foot": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 6,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        136.47297297297297,
+        83.74324324324326
+      ],
+      "root_source": [
+        470,
+        950
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        -35
+      ],
+      "hands_source": [
+        [
+          535,
+          360
+        ],
+        [
+          700,
+          370
+        ]
+      ],
+      "hands_canvas": [
+        [
+          254.31756756756755,
+          163.04054054054055
+        ],
+        [
+          290.6621621621622,
+          165.24324324324326
+        ]
+      ],
+      "weapon_grip_canvas": [
+        254.31756756756755,
+        163.04054054054055
+      ],
+      "weapon_angle_degrees": 93.46822925891715,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          460,
+          845
+        ],
+        "left": [
+          565,
+          865
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          237.7972972972973,
+          269.87162162162167
+        ],
+        "left": [
+          260.9256756756757,
+          274.27702702702703
+        ]
+      },
+      "frame": 6,
+      "phase": "descent",
+      "event": "jump_descent",
+      "duration_ms": 90,
+      "start_ms": 490,
+      "reused_approved": false,
+      "source_file": "jump/source/jump-05-06.png",
+      "source_sha256": "f2887131dd97db40b320a942b6d032ae9cb7fb12efeefebedd840f9c8f8c885e",
+      "source_bbox": [
+        14,
+        13,
+        737,
+        874
+      ],
+      "source_effective_height": 861,
+      "source_effective_max_dimension": 861,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": false,
+      "support_foot": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 7,
+      "fx": null
+    },
+    {
+      "scale": 0.22027027027027027,
+      "render_origin": [
+        -35.33783783783781,
+        122.04729729729729
+      ],
+      "root_source": [
+        1250,
+        935
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          1308,
+          540
+        ],
+        [
+          1466,
+          528
+        ]
+      ],
+      "hands_canvas": [
+        [
+          252.7756756756757,
+          240.99324324324323
+        ],
+        [
+          287.57837837837843,
+          238.35
+        ]
+      ],
+      "weapon_grip_canvas": [
+        252.7756756756757,
+        240.99324324324323
+      ],
+      "weapon_angle_degrees": 85.65676004831062,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          1030,
+          929
+        ],
+        "left": [
+          1422,
+          921
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          191.54054054054058,
+          326.6783783783784
+        ],
+        "left": [
+          277.8864864864865,
+          324.9162162162162
+        ]
+      },
+      "frame": 7,
+      "phase": "landing_compression",
+      "event": "jump_landing_compression",
+      "duration_ms": 120,
+      "start_ms": 580,
+      "reused_approved": false,
+      "source_file": "jump/source/jump-05-06.png",
+      "source_sha256": "f2887131dd97db40b320a942b6d032ae9cb7fb12efeefebedd840f9c8f8c885e",
+      "source_bbox": [
+        813,
+        171,
+        1511,
+        939
+      ],
+      "source_effective_height": 768,
+      "source_effective_max_dimension": 768,
+      "standing_ruler_source_px": 740,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": 8,
+      "fx": null
+    },
+    {
+      "scale": 0.44054054054054054,
+      "render_origin": [
+        109.15945945945947,
+        112.13513513513513
+      ],
+      "root_source": [
+        297,
+        490
+      ],
+      "root_canvas": [
+        240,
+        328
+      ],
+      "body_offset_px": [
+        0,
+        0
+      ],
+      "hands_source": [
+        [
+          316,
+          261
+        ],
+        [
+          411,
+          252
+        ]
+      ],
+      "hands_canvas": [
+        [
+          248.37027027027028,
+          227.11621621621623
+        ],
+        [
+          290.22162162162164,
+          223.15135135135137
+        ]
+      ],
+      "weapon_grip_canvas": [
+        248.37027027027028,
+        227.11621621621623
+      ],
+      "weapon_angle_degrees": 84.58813084768298,
+      "weapon_length_px": 275.0625,
+      "weapon_behind": false,
+      "weapon_detached": false,
+      "weapon_visible": true,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "feet_source": {
+        "right": [
+          150,
+          496
+        ],
+        "left": [
+          425,
+          485
+        ]
+      },
+      "feet_canvas": {
+        "right": [
+          175.24054054054056,
+          330.6432432432432
+        ],
+        "left": [
+          296.3891891891892,
+          325.7972972972973
+        ]
+      },
+      "frame": 8,
+      "phase": "recover_idle",
+      "event": "jump_complete",
+      "duration_ms": 200,
+      "start_ms": 700,
+      "reused_approved": true,
+      "source_file": "jump/source/idle-approved.png",
+      "source_sha256": "59da5eaaa3ea181c375ff4781f96d7d57725a149fcd4c629b87d79a0059a8d30",
+      "source_bbox": [
+        46,
+        29,
+        469,
+        502
+      ],
+      "source_effective_height": 473,
+      "source_effective_max_dimension": 473,
+      "standing_ruler_source_px": 370,
+      "standing_ruler_target_px": 163,
+      "grounded": true,
+      "support_foot": "both",
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "next_frame": null,
+      "fx": null
+    }
+  ],
+  "runtime_integrated": false,
+  "pre_acceptance_status": {
+    "status": "candidate_pending_user"
+  },
+  "approval": "accepted",
+  "approved": true,
+  "accepted": true,
+  "candidate": false,
+  "not_user_approved": false,
+  "acceptance_event_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+  "acceptance_record": "../acceptance.json"
+}

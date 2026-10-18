@@ -1,0 +1,67 @@
+{
+  "character": "hideyoshi",
+  "action": "idle",
+  "status": "approved_existing_asset_formally_registered",
+  "frame_count": 1,
+  "loop": true,
+  "duration_ms": 1000,
+  "head_scale": 0.95,
+  "standing_ruler_px": 150,
+  "origin_canvas": [
+    185,
+    253
+  ],
+  "source": "hideyoshi_newspec_20261015/reference/shared_ready",
+  "source_is_existing_approved": true,
+  "visual_modified": false,
+  "frame": {
+    "index": 0,
+    "duration_ms": 1000,
+    "body": "body_exact_00.png",
+    "weapon": "weapon_exact_00.png",
+    "hand_occlusion": "hand_occlusion_exact_00.png",
+    "composite": "composite_00.png",
+    "feet_canvas": {
+      "left": [
+        150,
+        250
+      ],
+      "right": [
+        218,
+        250
+      ]
+    },
+    "grip_canvas": [
+      179.625,
+      167.125
+    ],
+    "weapon_angle_deg": 120,
+    "layer_order": [
+      "body",
+      "weapon",
+      "hand_occlusion"
+    ]
+  },
+  "sha256": {
+    "body_canvas_00.png": "340414bdc063b7922daaf04bc2e7d5eae1000819f2fce7f08e4e27c56c5a7e64",
+    "weapon_00.png": "8001324def7a6b11c923cf6096333857418595a723bc3889acdac37b9b756e9f",
+    "composite_00.png": "659bf6c9202395a14ea586ed8f250b989cb16066d2511653a075ec4cedabe9b5"
+  },
+  "note": "Canonical composite byte-for-byte copy. Original registered PNGs retained. Exact runtime layer exports re-split existing pixels without redraw.",
+  "canonical_registered_files_unchanged": true,
+  "runtime_layer_export": {
+    "split_method": "At only pixels where body+weapon differs from approved composite, remove lower layers and place exact canonical composite pixels in hand occlusion. This avoids duplicate semi-transparent hand alpha.",
+    "affected_pixels": 36,
+    "canonical_composite_pixel_exact": true,
+    "original_registered_pngs_retained": true,
+    "render_order": [
+      "body",
+      "weapon",
+      "hand_occlusion"
+    ]
+  },
+  "registration_acceptance_event_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "runtime_tested": false,
+  "registration_status": "approved_existing_asset_formally_registered"
+}

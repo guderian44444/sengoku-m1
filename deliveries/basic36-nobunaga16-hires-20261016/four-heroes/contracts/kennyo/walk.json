@@ -1,0 +1,547 @@
+{
+  "schema": "sengoku.animation.frames.v1",
+  "character": "kennyo",
+  "action": "walk",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 163,
+  "frame_count": 8,
+  "total_duration_ms": 880,
+  "loop": true,
+  "terminal_hold": false,
+  "runtime_tested": false,
+  "source_metadata": "kennyo/walk_v11/metadata.json",
+  "all_file_paths_relative_to": "final_git_bundle root",
+  "frames": [
+    {
+      "frame_index": 0,
+      "duration_ms": 110,
+      "start_ms": 0,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          305.16971830985915,
+          229.38098591549294
+        ],
+        [
+          291.8542253521127,
+          205.96408450704226
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        305.16971830985915,
+        229.38098591549294
+      ],
+      "weapon_angle_degrees": -29.623748751173817,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/walk_v11/body_01.png",
+        "weapon": "kennyo/walk_v11/weapon_01.png",
+        "hand_occlusion": "kennyo/walk_v11/hand_occlusion_01.png"
+      },
+      "composite": "kennyo/walk_v11/composite_01.png",
+      "events": [
+        "near_heel_contact",
+        "loop_start"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/near-contact-cross-v11.png",
+        "metadata_base": "kennyo/walk_v11"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 1,
+      "duration_ms": 110,
+      "start_ms": 110,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          305.97323943661974,
+          232.13591549295774
+        ],
+        [
+          291.8542253521127,
+          208.4894366197183
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        305.97323943661974,
+        232.13591549295774
+      ],
+      "weapon_angle_degrees": -30.840892289706968,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/walk_v11/body_02.png",
+        "weapon": "kennyo/walk_v11/weapon_02.png",
+        "hand_occlusion": "kennyo/walk_v11/hand_occlusion_02.png"
+      },
+      "composite": "kennyo/walk_v11/composite_02.png",
+      "events": [
+        "near_weight_accept"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/near-load-cross-v11.png",
+        "metadata_base": "kennyo/walk_v11"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 2,
+      "duration_ms": 110,
+      "start_ms": 220,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          306.3176056338028,
+          236.0387323943662
+        ],
+        [
+          288.7549295774648,
+          211.2443661971831
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        306.3176056338028,
+        236.0387323943662
+      ],
+      "weapon_angle_degrees": -35.3112134396332,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/walk_v11/body_03.png",
+        "weapon": "kennyo/walk_v11/weapon_03.png",
+        "hand_occlusion": "kennyo/walk_v11/hand_occlusion_03.png"
+      },
+      "composite": "kennyo/walk_v11/composite_03.png",
+      "events": [
+        "far_passing"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/far-pass-hand-fixed-v2.png",
+        "metadata_base": "kennyo/walk_v11"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 3,
+      "duration_ms": 110,
+      "start_ms": 330,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          306.6619718309859,
+          235.46478873239437
+        ],
+        [
+          291.7394366197183,
+          212.50704225352115
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        306.6619718309859,
+        235.46478873239437
+      ],
+      "weapon_angle_degrees": -33.02386755579674,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/walk_v11/body_04.png",
+        "weapon": "kennyo/walk_v11/weapon_04.png",
+        "hand_occlusion": "kennyo/walk_v11/hand_occlusion_04.png"
+      },
+      "composite": "kennyo/walk_v11/composite_04.png",
+      "events": [
+        "far_reach"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/far-reach.png",
+        "metadata_base": "kennyo/walk_v11"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 4,
+      "duration_ms": 110,
+      "start_ms": 440,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          297.4788732394366,
+          226.8556338028169
+        ],
+        [
+          289.443661971831,
+          211.9330985915493
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        297.4788732394366,
+        226.8556338028169
+      ],
+      "weapon_angle_degrees": -28.300755766006407,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/walk_v11/body_05.png",
+        "weapon": "kennyo/walk_v11/weapon_05.png",
+        "hand_occlusion": "kennyo/walk_v11/hand_occlusion_05.png"
+      },
+      "composite": "kennyo/walk_v11/composite_05.png",
+      "events": [
+        "far_heel_contact"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/far-contact.png",
+        "metadata_base": "kennyo/walk_v11"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 5,
+      "duration_ms": 110,
+      "start_ms": 550,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          297.4788732394366,
+          225.13380281690144
+        ],
+        [
+          286.0,
+          206.76760563380282
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        297.4788732394366,
+        225.13380281690144
+      ],
+      "weapon_angle_degrees": -32.00538320808344,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/walk_v11/body_06.png",
+        "weapon": "kennyo/walk_v11/weapon_06.png",
+        "hand_occlusion": "kennyo/walk_v11/hand_occlusion_06.png"
+      },
+      "composite": "kennyo/walk_v11/composite_06.png",
+      "events": [
+        "far_weight_accept"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/far-load.png",
+        "metadata_base": "kennyo/walk_v11"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 6,
+      "duration_ms": 110,
+      "start_ms": 660,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          289.443661971831,
+          219.96830985915494
+        ],
+        [
+          276.8169014084507,
+          202.17605633802816
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        289.443661971831,
+        219.96830985915494
+      ],
+      "weapon_angle_degrees": -35.36246188706903,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/walk_v11/body_07.png",
+        "weapon": "kennyo/walk_v11/weapon_07.png",
+        "hand_occlusion": "kennyo/walk_v11/hand_occlusion_07.png"
+      },
+      "composite": "kennyo/walk_v11/composite_07.png",
+      "events": [
+        "near_passing"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/near-pass.png",
+        "metadata_base": "kennyo/walk_v11"
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 7,
+      "duration_ms": 110,
+      "start_ms": 770,
+      "canvas_size_px": [
+        640,
+        380
+      ],
+      "root_canvas_px": [
+        286,
+        325
+      ],
+      "feet_canvas_px": {
+        "landmark_0": "near",
+        "landmark_1": "far"
+      },
+      "foot_identity": {
+        "status": "original_landmark_indices; anatomical mapping unregistered"
+      },
+      "grips_canvas_px": [
+        [
+          304.9401408450704,
+          229.49577464788734
+        ],
+        [
+          291.7394366197183,
+          206.07887323943663
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        304.9401408450704,
+        229.49577464788734
+      ],
+      "weapon_angle_degrees": -29.411064324813864,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "kennyo/walk_v11/body_08.png",
+        "weapon": "kennyo/walk_v11/weapon_08.png",
+        "hand_occlusion": "kennyo/walk_v11/hand_occlusion_08.png"
+      },
+      "composite": "kennyo/walk_v11/composite_08.png",
+      "events": [
+        "near_reach",
+        "loop_end_to_1"
+      ],
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": null,
+      "source_provenance": {
+        "legacy_path": "source/near-reach-cross-v11.png",
+        "metadata_base": "kennyo/walk_v11"
+      },
+      "runtime_tested": false
+    }
+  ]
+}

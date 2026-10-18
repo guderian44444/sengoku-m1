@@ -1,0 +1,887 @@
+{
+  "schema": "sengoku.animation.frames.v1",
+  "character": "tadakatsu",
+  "action": "walk",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 163,
+  "frame_count": 8,
+  "total_duration_ms": 1120,
+  "loop": true,
+  "terminal_hold": false,
+  "runtime_tested": false,
+  "source_metadata": "tadakatsu/walk/metadata.json",
+  "all_file_paths_relative_to": "final_git_bundle root",
+  "frames": [
+    {
+      "frame_index": 0,
+      "duration_ms": 120,
+      "start_ms": 0,
+      "canvas_size_px": [
+        480,
+        280
+      ],
+      "root_canvas_px": [
+        220,
+        238
+      ],
+      "feet_canvas_px": {
+        "near": [
+          158.32432432432432,
+          237.11891891891892
+        ],
+        "far": [
+          264.71486486486486,
+          236.01756756756757
+        ],
+        "left": [
+          264.71486486486486,
+          236.01756756756757
+        ],
+        "right": [
+          158.32432432432432,
+          237.11891891891892
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          237.6216216216216,
+          124.56081081081079
+        ],
+        [
+          266.6972972972973,
+          122.3581081081081
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        237.6216216216216,
+        124.56081081081079
+      ],
+      "weapon_angle_degrees": 85.66768601681149,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/walk/body_01.png",
+        "weapon": "tadakatsu/walk/weapon_01.png",
+        "hand_occlusion": "tadakatsu/walk/hand_occlusion_01.png"
+      },
+      "composite": "tadakatsu/walk/composite_01.png",
+      "events": [
+        "far_contact",
+        "loop_start",
+        "foot_contact"
+      ],
+      "preview_displacement_px": [
+        0.0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "source/walk-01-02.png",
+        "sha256": "0ecfb24362391bdacf3020012cd3c35a5076629b428c3635384ab3f73f013bdc",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 0,
+        "component_bbox": [
+          29,
+          22,
+          834,
+          947
+        ],
+        "effective_figure_height_px": 925,
+        "effective_figure_long_axis_px": 925,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 1,
+      "duration_ms": 150,
+      "start_ms": 120,
+      "canvas_size_px": [
+        480,
+        280
+      ],
+      "root_canvas_px": [
+        220,
+        238
+      ],
+      "feet_canvas_px": {
+        "near": [
+          165.59324324324325,
+          232.0527027027027
+        ],
+        "far": [
+          241.58648648648648,
+          237.11891891891892
+        ],
+        "left": [
+          241.58648648648648,
+          237.11891891891892
+        ],
+        "right": [
+          165.59324324324325,
+          232.0527027027027
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          238.28243243243242,
+          126.98378378378378
+        ],
+        [
+          266.2567567567568,
+          124.78108108108108
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        238.28243243243242,
+        126.98378378378378
+      ],
+      "weapon_angle_degrees": 85.49781050795903,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/walk/body_02.png",
+        "weapon": "tadakatsu/walk/weapon_02.png",
+        "hand_occlusion": "tadakatsu/walk/hand_occlusion_02.png"
+      },
+      "composite": "tadakatsu/walk/composite_02.png",
+      "events": [
+        "far_down_near_toeoff"
+      ],
+      "preview_displacement_px": [
+        23.1284,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "source/walk-01-02.png",
+        "sha256": "0ecfb24362391bdacf3020012cd3c35a5076629b428c3635384ab3f73f013bdc",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 1,
+        "component_bbox": [
+          796,
+          22,
+          1513,
+          936
+        ],
+        "effective_figure_height_px": 914,
+        "effective_figure_long_axis_px": 914,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 2,
+      "duration_ms": 170,
+      "start_ms": 270,
+      "canvas_size_px": [
+        480,
+        280
+      ],
+      "root_canvas_px": [
+        220,
+        238
+      ],
+      "feet_canvas_px": {
+        "near": [
+          221.32162162162163,
+          216.41351351351352
+        ],
+        "far": [
+          206.78378378378378,
+          237.11891891891892
+        ],
+        "left": [
+          206.78378378378378,
+          237.11891891891892
+        ],
+        "right": [
+          221.32162162162163,
+          216.41351351351352
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          239.82432432432432,
+          122.13783783783784
+        ],
+        [
+          266.2567567567568,
+          119.05405405405406
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        239.82432432432432,
+        122.13783783783784
+      ],
+      "weapon_angle_degrees": 83.3455749539934,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/walk/body_03.png",
+        "weapon": "tadakatsu/walk/weapon_03.png",
+        "hand_occlusion": "tadakatsu/walk/hand_occlusion_03.png"
+      },
+      "composite": "tadakatsu/walk/composite_03.png",
+      "events": [
+        "far_support_near_passing",
+        "leg_passing"
+      ],
+      "preview_displacement_px": [
+        57.9311,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "source/walk-03-04.png",
+        "sha256": "d162e109640d283de0dbbb1c495cc9c2e193d5ce99ba2812dbedba6740234f45",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 0,
+        "component_bbox": [
+          39,
+          17,
+          793,
+          958
+        ],
+        "effective_figure_height_px": 941,
+        "effective_figure_long_axis_px": 941,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 3,
+      "duration_ms": 120,
+      "start_ms": 440,
+      "canvas_size_px": [
+        480,
+        280
+      ],
+      "root_canvas_px": [
+        220,
+        238
+      ],
+      "feet_canvas_px": {
+        "near": [
+          260.97027027027025,
+          229.1891891891892
+        ],
+        "far": [
+          157.66351351351352,
+          237.11891891891892
+        ],
+        "left": [
+          157.66351351351352,
+          237.11891891891892
+        ],
+        "right": [
+          260.97027027027025,
+          229.1891891891892
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          237.84189189189186,
+          123.67972972972971
+        ],
+        [
+          265.37567567567567,
+          121.47702702702702
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        237.84189189189186,
+        123.67972972972971
+      ],
+      "weapon_angle_degrees": 85.42607874009914,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/walk/body_04.png",
+        "weapon": "tadakatsu/walk/weapon_04.png",
+        "hand_occlusion": "tadakatsu/walk/hand_occlusion_04.png"
+      },
+      "composite": "tadakatsu/walk/composite_04.png",
+      "events": [
+        "far_push_near_forward_swing"
+      ],
+      "preview_displacement_px": [
+        107.0514,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "source/walk-03-04.png",
+        "sha256": "d162e109640d283de0dbbb1c495cc9c2e193d5ce99ba2812dbedba6740234f45",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 1,
+        "component_bbox": [
+          776,
+          18,
+          1532,
+          951
+        ],
+        "effective_figure_height_px": 933,
+        "effective_figure_long_axis_px": 933,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 4,
+      "duration_ms": 120,
+      "start_ms": 560,
+      "canvas_size_px": [
+        480,
+        280
+      ],
+      "root_canvas_px": [
+        220,
+        238
+      ],
+      "feet_canvas_px": {
+        "near": [
+          257.0054054054054,
+          237.11891891891892
+        ],
+        "far": [
+          173.9635135135135,
+          233.37432432432433
+        ],
+        "left": [
+          173.9635135135135,
+          233.37432432432433
+        ],
+        "right": [
+          257.0054054054054,
+          237.11891891891892
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          239.3837837837838,
+          123.01891891891891
+        ],
+        [
+          266.9175675675676,
+          120.81621621621622
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        239.3837837837838,
+        123.01891891891891
+      ],
+      "weapon_angle_degrees": 85.42607874009914,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/walk/body_05.png",
+        "weapon": "tadakatsu/walk/weapon_05.png",
+        "hand_occlusion": "tadakatsu/walk/hand_occlusion_05.png"
+      },
+      "composite": "tadakatsu/walk/composite_05.png",
+      "events": [
+        "near_contact",
+        "foot_contact"
+      ],
+      "preview_displacement_px": [
+        117.0514,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "source/walk-05-06-corrected.png",
+        "sha256": "40fc458dc4cdff9b9ccf45717d381b31f18ff3dd79b4de370a98b61f595ab54f",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 0,
+        "component_bbox": [
+          50,
+          11,
+          806,
+          954
+        ],
+        "effective_figure_height_px": 943,
+        "effective_figure_long_axis_px": 943,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 5,
+      "duration_ms": 120,
+      "start_ms": 680,
+      "canvas_size_px": [
+        480,
+        280
+      ],
+      "root_canvas_px": [
+        220,
+        238
+      ],
+      "feet_canvas_px": {
+        "near": [
+          243.5689189189189,
+          237.11891891891892
+        ],
+        "far": [
+          174.18378378378378,
+          208.04324324324324
+        ],
+        "left": [
+          174.18378378378378,
+          208.04324324324324
+        ],
+        "right": [
+          243.5689189189189,
+          237.11891891891892
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          235.4189189189189,
+          122.57837837837836
+        ],
+        [
+          267.3581081081081,
+          120.37567567567567
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        235.4189189189189,
+        122.57837837837836
+      ],
+      "weapon_angle_degrees": 86.05481377096244,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/walk/body_06.png",
+        "weapon": "tadakatsu/walk/weapon_06.png",
+        "hand_occlusion": "tadakatsu/walk/hand_occlusion_06.png"
+      },
+      "composite": "tadakatsu/walk/composite_06.png",
+      "events": [
+        "near_down_far_toeoff"
+      ],
+      "preview_displacement_px": [
+        130.4878,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "source/walk-05-06-corrected.png",
+        "sha256": "40fc458dc4cdff9b9ccf45717d381b31f18ff3dd79b4de370a98b61f595ab54f",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 1,
+        "component_bbox": [
+          797,
+          12,
+          1528,
+          956
+        ],
+        "effective_figure_height_px": 944,
+        "effective_figure_long_axis_px": 944,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 6,
+      "duration_ms": 200,
+      "start_ms": 800,
+      "canvas_size_px": [
+        480,
+        280
+      ],
+      "root_canvas_px": [
+        220,
+        238
+      ],
+      "feet_canvas_px": {
+        "near": [
+          229.69189189189188,
+          237.11891891891892
+        ],
+        "far": [
+          183.87567567567567,
+          212.44864864864866
+        ],
+        "left": [
+          183.87567567567567,
+          212.44864864864866
+        ],
+        "right": [
+          229.69189189189188,
+          237.11891891891892
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          238.50270270270272,
+          119.27432432432433
+        ],
+        [
+          263.83378378378376,
+          117.07162162162163
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        238.50270270270272,
+        119.27432432432433
+      ],
+      "weapon_angle_degrees": 85.0302592718897,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/walk/body_07.png",
+        "weapon": "tadakatsu/walk/weapon_07.png",
+        "hand_occlusion": "tadakatsu/walk/hand_occlusion_07.png"
+      },
+      "composite": "tadakatsu/walk/composite_07.png",
+      "events": [
+        "near_support_far_passing",
+        "leg_passing"
+      ],
+      "preview_displacement_px": [
+        144.3649,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "source/walk-07-08-corrected.png",
+        "sha256": "bf3d2b5547b9516dd8e16917231046ac0d9f11d4cbf8d3071ac1270aa8493b7e",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 0,
+        "component_bbox": [
+          51,
+          16,
+          761,
+          971
+        ],
+        "effective_figure_height_px": 955,
+        "effective_figure_long_axis_px": 955,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    },
+    {
+      "frame_index": 7,
+      "duration_ms": 120,
+      "start_ms": 1000,
+      "canvas_size_px": [
+        480,
+        280
+      ],
+      "root_canvas_px": [
+        220,
+        238
+      ],
+      "feet_canvas_px": {
+        "near": [
+          165.37297297297297,
+          236.89864864864865
+        ],
+        "far": [
+          262.2918918918919,
+          223.46216216216217
+        ],
+        "left": [
+          262.2918918918919,
+          223.46216216216217
+        ],
+        "right": [
+          165.37297297297297,
+          236.89864864864865
+        ]
+      },
+      "foot_identity": {
+        "original_labels": [
+          "near",
+          "far"
+        ],
+        "anatomical_mapping": {
+          "near": "right",
+          "far": "left"
+        },
+        "left_right_mapping_status": "source_explicit",
+        "runtime_mapping_required": false
+      },
+      "grips_canvas_px": [
+        [
+          238.28243243243247,
+          123.67972972972973
+        ],
+        [
+          265.8162162162162,
+          121.47702702702702
+        ]
+      ],
+      "grip_state": "held",
+      "weapon_anchor_canvas_px": [
+        238.28243243243247,
+        123.67972972972973
+      ],
+      "weapon_angle_degrees": 85.42607874009914,
+      "weapon_angle_convention": "degrees clockwise from source spear upward axis",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layers": {
+        "body": "tadakatsu/walk/body_08.png",
+        "weapon": "tadakatsu/walk/weapon_08.png",
+        "hand_occlusion": "tadakatsu/walk/hand_occlusion_08.png"
+      },
+      "composite": "tadakatsu/walk/composite_08.png",
+      "events": [
+        "near_push_far_forward_swing",
+        "loop_end"
+      ],
+      "preview_displacement_px": [
+        208.6838,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_motion_owner": "runtime_controller; values are not engine-tested tuning",
+      "pose_offset_already_baked_px": [
+        0,
+        0
+      ],
+      "source_provenance": {
+        "path": "source/walk-07-08-corrected.png",
+        "sha256": "bf3d2b5547b9516dd8e16917231046ac0d9f11d4cbf8d3071ac1270aa8493b7e",
+        "native_canvas_px": [
+          1536,
+          1024
+        ],
+        "original_png_preserved": true,
+        "landmark_coordinate_space": "original native source canvas",
+        "component_index": 1,
+        "component_bbox": [
+          768,
+          16,
+          1533,
+          946
+        ],
+        "effective_figure_height_px": 930,
+        "effective_figure_long_axis_px": 930,
+        "reused_approved": false
+      },
+      "runtime_tested": false
+    }
+  ]
+}

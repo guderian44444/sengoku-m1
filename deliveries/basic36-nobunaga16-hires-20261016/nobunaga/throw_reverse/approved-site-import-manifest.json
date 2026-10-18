@@ -1,0 +1,192 @@
+{
+  "schema": "nobunaga-single-animation-art-handoff-v2",
+  "animation": "reverse_throw_swordheld",
+  "status": "art-review-candidate; user approval required before site import",
+  "change_scope": "this animation only; other 15 animations must remain unchanged",
+  "duration_ms": 800,
+  "frame_count": 16,
+  "frame_durations_ms": [
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50
+  ],
+  "native_source": {
+    "directory": "frames-native",
+    "format": "RGBA PNG",
+    "canvas": [
+      1800,
+      1700
+    ],
+    "alpha": "straight",
+    "already_registered": true,
+    "apply_alignment_again": false,
+    "pixels": "high-resolution aligned masters rebuilt from original source assets, with four locally edited transition poses; original sources preserved"
+  },
+  "preview": {
+    "path": "nobunaga-reverse-throw-planted-16f-800ms.gif",
+    "sha256": "eb9e66deb33d9784ffbd90ad30c9a28162326f6404ab536c135c86de84e3c9ec",
+    "canvas": [
+      1100,
+      950
+    ],
+    "preview_only": true,
+    "must_not_replace_high_resolution_frames": true,
+    "native_to_preview_affine": [
+      [
+        0.55,
+        0,
+        45
+      ],
+      [
+        0,
+        0.55,
+        0
+      ]
+    ],
+    "loop": "infinite review playback; end guard to initial grip is a playback reset, not an in-action transition",
+    "library_file_id": "libfile_45c8f425b8608191a21824c00d79cca2"
+  },
+  "alignment": {
+    "root_anchor_native": [
+      935.5,
+      1410
+    ],
+    "feet_contacts_native": [
+      [
+        534,
+        1422
+      ],
+      [
+        1337,
+        1398
+      ]
+    ],
+    "floor_patch": "every RGBA pixel at y>=1300 is identical across all 16 native frames",
+    "foot_patch_max_channel_difference_by_frame": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "anatomical_ruler": "neck-to-belt target distance 220 native px; no bounding-box equal-height normalization; head dimensions preserved rather than used for whole-actor scaling",
+    "method": "multi-joint thin-plate spline: head, neck, torso, pelvis, knees, true ankles, soles; fixed camera",
+    "max_inverse_palm_coordinate_residual_px": 1.0903818292717915e-08
+  },
+  "layers": [
+    {
+      "id": "actor_composite",
+      "z": 0,
+      "contents": [
+        "body",
+        "clothes",
+        "hair",
+        "right-hand-held sword",
+        "left throwing hand"
+      ],
+      "independent_weapon_layer": false,
+      "frame_paths": [
+        "frames-native/000.png",
+        "frames-native/001.png",
+        "frames-native/002.png",
+        "frames-native/003.png",
+        "frames-native/004.png",
+        "frames-native/005.png",
+        "frames-native/006.png",
+        "frames-native/007.png",
+        "frames-native/008.png",
+        "frames-native/009.png",
+        "frames-native/010.png",
+        "frames-native/011.png",
+        "frames-native/012.png",
+        "frames-native/013.png",
+        "frames-native/014.png",
+        "frames-native/015.png"
+      ]
+    }
+  ],
+  "landmarks": {
+    "per_frame": "frame-manifest.json",
+    "palm_coordinates": "manual source landmarks transformed through the same inverse render map, advisory art metadata only"
+  },
+  "runtime_readiness": {
+    "fully_ready": false,
+    "pending": [
+      "User visual approval",
+      "Importer must reuse existing runtime animation start/end, event, collision and world-scale contract; not supplied here",
+      "Independent weapon layer and runtime weapon socket are not authored",
+      "Hitbox/hurtbox/event geometry is not transformed or validated; do not reuse source pixel coordinates blindly",
+      "No enemy/victim layer or throw-attachment track is included; preserve or separately verify existing choreography."
+    ],
+    "safe_use": "review preview or import actor-composite frames only after approval and verification of existing contract"
+  },
+  "files": {
+    "frames_manifest": "frame-manifest.json",
+    "build_script": "build.py",
+    "contact_sheet": "contact-sheet.jpg",
+    "original_pose_registration": "source/generated-registration.json"
+  },
+  "changes": [
+    "Fixed both soles with identical original pixels and separately aligned knees/ankles",
+    "Removed head-driven whole-body scale pulse",
+    "Replaced sudden 5\u21926 turn and 6\u21928 release gaps with localized transition drawings",
+    "Removed post-throw second reaching gesture; left hand retracts directly to the sword guard",
+    "Preserved final sword guard pose rather than ending at release"
+  ],
+  "single_play_video": {
+    "path": "nobunaga-reverse-throw-planted-16f-800ms.mp4",
+    "library_file_id": "libfile_dd6cb43188c881918fc3e1be782e03fe",
+    "sha256": "8c079cfd610202b1e958fea717b3addf73fa831c6f5d6bbf19955f25044d81d6",
+    "duration_ms": 800,
+    "frame_count": 16,
+    "preview_only": true
+  },
+  "delivery_id": "reverse_throw_planted_v2_20261015T2341Z",
+  "frozen_delivery": true,
+  "frozen_at_utc": "2026-10-15T23:43:00Z",
+  "frame_manifest_sha256": "6a8e1d5f29a0750963c9bfda9ba6a3ab73904ccaac78c9880dd40c05f18b23f4",
+  "native_frame_sha256": [
+    "e1acd1b9342fc64e0dd9a4d61c18510c99fe3bd99d404e84536e9c0401f56edb",
+    "3f9977d9326d1d78788cd68d19c1c8c4bbe8d24937275bebfa05082bcc5c91e8",
+    "b9b2d939714ea60c8237a639aec1ff8ba7e17daec7144aeea7483840a4a78bc8",
+    "f8b0694ac8ccb86629f28df0b8c3ed2c91ca4dd18f11aaaf14f381bec4b77749",
+    "e7650d843d7fbeb5a3397d82716a73f19fe2724b9037213ef566c84210c5850d",
+    "5fc52ff5e36b6936cbf34cedb8e47d87ef9f0c1601a9da4664ea977f38462765",
+    "8360d4c36ca461c3812ad5e87930fd0375b1df0c76358f558bb427280de2d66d",
+    "f725d59019b367448fed886614750250f2747f6e400a06e195eb0a4e10975baa",
+    "b03f5cd8e6767b4ea4963090547cf3696e8f47abb55a66bd99d4d18408867f1d",
+    "c25044472282d1465563b9f5de4f201a177ecb3af4c3e7c304b32030b24ca7ba",
+    "d2d659b1491f7702f9b6707e3370bfa8bf3be3bfb1acd7e0509dd9cb6a8adbfc",
+    "0b35cd79bc7334524c103759038af9adaa1583450b575c9eead2e0606497bcb3",
+    "d5b30b28330cfa4f25d11b9cc324b0d3474cfae8eb4d92ca6b799d6fcb16e827",
+    "b347ddbe56c88821e000623bc83b697fd51bb1634ef4ecb2266960e1184eb6b8",
+    "64ba7cd5001504917ce57fc13b300319ec201aba2a7cd910762ecd39411e557e",
+    "2e0dd6d8dbb2da21ecdd379e0221cb16748394bbf5a15f83af4f9e1ec9e0e705"
+  ],
+  "import_gate": "NO SITE/RUNTIME CHANGES AUTHORIZED BY THIS HANDOFF; wait for root/user confirmation",
+  "animation_contract": "Final guard pose retained. Existing runtime trigger, event, collision, world-scale and exit contracts must remain unchanged until separately reviewed."
+}

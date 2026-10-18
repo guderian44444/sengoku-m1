@@ -1,0 +1,9 @@
+{"action":"jump","loop":false,"representative":3,"notes":["Vertical jump with anticipation, takeoff, apex, descent, landing and recovery to exact approved idle.","Vertical arc is preview-only; runtime physics controls height and collision. No FX."],"frames":[
+{"idle":true,"duration":80,"phase":"approved_idle_entry"},
+{"source":"jump_01_02_raw.png","rect":[0,0,800,1024],"root":[455,960],"hands":[[445,654],[509,654]],"feet":{"near":[144,956],"far":[691,950]},"duration":120,"phase":"anticipation_squat","angle":-45},
+{"source":"jump_01_02_raw.png","rect":[800,0,1536,1024],"root":[1235,960],"hands":[[1221,489],[1285,489]],"feet":{"near":[934,958],"far":[1360,950]},"duration":80,"phase":"takeoff","event":"jump_takeoff","angle":-55,"preview":[0,-18],"grounded":false,"support":"none"},
+{"source":"jump_03_04_raw.png","rect":[0,0,800,1024],"root":[455,960],"hands":[[423,367],[502,365]],"feet":{"near":[247,812],"far":[493,740]},"duration":180,"phase":"air_apex","angle":-55,"preview":[0,-54],"grounded":false,"support":"none"},
+{"source":"jump_03_04_raw.png","rect":[800,0,1536,1024],"root":[1220,960],"hands":[[1194,453],[1270,446]],"feet":{"near":[866,950],"far":[1320,976]},"duration":120,"phase":"air_descent","angle":-55,"preview":[0,-27],"grounded":false,"support":"none"},
+{"source":"jump_05_06_raw.png","rect":[0,0,800,1024],"root":[450,961],"hands":[[438,635],[492,632]],"feet":{"near":[128,960],"far":[704,955]},"duration":100,"phase":"landing_compress","event":"jump_landing","angle":-45},
+{"source":"jump_05_06_raw.png","rect":[800,0,1536,1024],"root":[1175,961],"hands":[[1139,514],[1208,515]],"feet":{"near":[871,959],"far":[1418,956]},"duration":120,"phase":"landing_recover","angle":-55},
+{"idle":true,"duration":180,"phase":"approved_idle_return","event":"jump_complete"}]}

@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "character": "kennyo03",
+  "action": "launched",
+  "status": "accepted",
+  "accepted_event": "Sentinel_003f9aaa53ac819191a42c7ac9485ce8",
+  "standing_ruler_px": 163,
+  "frame_count": 5,
+  "total_duration_ms": 420,
+  "loop": false,
+  "loop_range": null,
+  "terminal_hold": false,
+  "death_uses_last_frame": false,
+  "world_motion_mode": "engine_knockback_physics",
+  "runtime_tested": false,
+  "frames": [
+    {
+      "frame": 1,
+      "duration_ms": 30,
+      "start_ms": 0,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": [
+          226.351,
+          326.011
+        ],
+        "landmark_1": [
+          330.484,
+          325
+        ]
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          286,
+          227.607
+        ],
+        [
+          278.923,
+          216.149
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -31.7014,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_01.png",
+        "weapon": "weapon_01.png",
+        "hand_occlusion": "hand_occlusion_01.png"
+      },
+      "composite_file": "composite_01.png",
+      "preview_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "entry_idle"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "registered combat idle",
+      "source_to_game_scale": null,
+      "bbox_normalized": false,
+      "legacy_preview_paste_rect_px": [
+        0,
+        0,
+        640,
+        380
+      ],
+      "preview_coordinate_repair": "Legacy PIL destination rectangle [x,y,x+width,y+height] reduced to displacement [x,y]; PNG/GIF unchanged."
+    },
+    {
+      "frame": 2,
+      "duration_ms": 70,
+      "start_ms": 30,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": [
+          615.5183140593284,
+          634.596535111092
+        ],
+        "landmark_1": [
+          622.8934192324963,
+          400.10062584991215
+        ]
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          266.48591549295776,
+          218.67605633802816
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": -20,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_02.png",
+        "weapon": "weapon_02.png",
+        "hand_occlusion": "hand_occlusion_02.png"
+      },
+      "composite_file": "composite_02.png",
+      "preview_displacement_px": [
+        -25,
+        -20
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "hit_takeoff"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/impact-original.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false,
+      "legacy_preview_paste_rect_px": [
+        -25,
+        -20,
+        615,
+        360
+      ],
+      "preview_coordinate_repair": "Legacy PIL destination rectangle [x,y,x+width,y+height] reduced to displacement [x,y]; PNG/GIF unchanged."
+    },
+    {
+      "frame": 3,
+      "duration_ms": 90,
+      "start_ms": 100,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": [
+          441.1910083019733,
+          601.1298835679015
+        ],
+        "landmark_1": [
+          703.6827471743401,
+          509.5335902885992
+        ]
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          237.7887323943662,
+          237.04225352112678
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": 30,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_03.png",
+        "weapon": "weapon_03.png",
+        "hand_occlusion": "hand_occlusion_03.png"
+      },
+      "composite_file": "composite_03.png",
+      "preview_displacement_px": [
+        -75,
+        -95
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "flight_apex"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/flight-original.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false,
+      "legacy_preview_paste_rect_px": [
+        -75,
+        -95,
+        565,
+        285
+      ],
+      "preview_coordinate_repair": "Legacy PIL destination rectangle [x,y,x+width,y+height] reduced to displacement [x,y]; PNG/GIF unchanged."
+    },
+    {
+      "frame": 4,
+      "duration_ms": 110,
+      "start_ms": 190,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": [
+          154.52136041326253,
+          610.9518682857436
+        ],
+        "landmark_1": [
+          404.899409084708,
+          731.7931967384964
+        ]
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [
+        [
+          235.06282036806618,
+          243.9753883455992
+        ]
+      ],
+      "weapon_released": false,
+      "weapon_angle_degrees": 75,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_04.png",
+        "weapon": "weapon_04.png",
+        "hand_occlusion": "hand_occlusion_04.png"
+      },
+      "composite_file": "composite_04.png",
+      "preview_displacement_px": [
+        -120,
+        -65
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "descending"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/flight-original.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false,
+      "legacy_preview_paste_rect_px": [
+        -120,
+        -65,
+        520,
+        315
+      ],
+      "preview_coordinate_repair": "Legacy PIL destination rectangle [x,y,x+width,y+height] reduced to displacement [x,y]; PNG/GIF unchanged."
+    },
+    {
+      "frame": 5,
+      "duration_ms": 120,
+      "start_ms": 300,
+      "canvas_size": [
+        640,
+        380
+      ],
+      "root_px": [
+        286,
+        325
+      ],
+      "feet_px": {
+        "landmark_0": [
+          -23.53684281872782,
+          551.954507220501
+        ],
+        "landmark_1": [
+          124.1244788985016,
+          718.0794775340321
+        ]
+      },
+      "foot_identity_mapping": "not guaranteed by original landmark array order",
+      "grips_px": [],
+      "weapon_released": true,
+      "weapon_angle_degrees": 100,
+      "weapon_angle_convention": "clockwise from upward shaft axis, canvas x-right/y-down",
+      "layer_order_back_to_front": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "layer_files": {
+        "body": "body_05.png",
+        "weapon": "weapon_05.png",
+        "hand_occlusion": "hand_occlusion_05.png"
+      },
+      "composite_file": "composite_05.png",
+      "preview_displacement_px": [
+        -155,
+        -15
+      ],
+      "world_displacement_px": [
+        0,
+        0
+      ],
+      "world_displacement_status": "engine controlled; zero values are not a tested movement speed/trajectory",
+      "displacements_baked_into_png": false,
+      "events": [
+        "release_weapon",
+        "transition_to_down"
+      ],
+      "landing": false,
+      "settled": false,
+      "loop_start": false,
+      "loop_end": false,
+      "source": "source/fall-original.png",
+      "source_to_game_scale": 0.1147887323943662,
+      "bbox_normalized": false,
+      "legacy_preview_paste_rect_px": [
+        -155,
+        -15,
+        485,
+        365
+      ],
+      "preview_coordinate_repair": "Legacy PIL destination rectangle [x,y,x+width,y+height] reduced to displacement [x,y]; PNG/GIF unchanged."
+    }
+  ]
+}

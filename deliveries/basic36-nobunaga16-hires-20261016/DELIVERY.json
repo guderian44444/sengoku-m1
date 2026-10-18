@@ -1,0 +1,37 @@
+{
+  "schema": "sengoku.accepted-basic36-nobunaga16.delivery.v1",
+  "base_commit": "966cf8c3d48a4579554bc046a5961870faaaafa8",
+  "branch": "art/basic36-nobunaga16-hires-20261016",
+  "accepted_actions": 52,
+  "frames": 444,
+  "original_files": 4312,
+  "original_bytes": 1850251141,
+  "maximum_file_bytes": 6572441,
+  "parts": {
+    "four_heroes": {
+      "entry": "four-heroes/manifest.json",
+      "actions": 36,
+      "frames": 212,
+      "provenance": "FOUR_HEROES_PROVENANCE.json",
+      "validation": "FOUR_HEROES_VALIDATION.json"
+    },
+    "nobunaga": {
+      "entry": "nobunaga/delivery-manifest.json",
+      "actions": 16,
+      "frames": 232,
+      "duration_ms": 10520,
+      "provenance": "NOBUNAGA_PROVENANCE.json",
+      "validation": "NOBUNAGA_VALIDATION.json"
+    }
+  },
+  "prior_deliveries": {
+    "oichi_pr": "https://github.com/guderian44444/sengoku-m1/pull/5",
+    "four_hero_combat_pr": "https://github.com/guderian44444/sengoku-m1/pull/6",
+    "prior_delivery_trees_copied": false,
+    "included_package_dependencies": "Registered idles, portraits and source dependencies supplied inside this exact final bundle are preserved."
+  },
+  "transport_archives_in_git": false,
+  "runtime_changed": false,
+  "runtime_tested": false,
+  "nobunaga_independent_weapon_swap_ready": false
+}

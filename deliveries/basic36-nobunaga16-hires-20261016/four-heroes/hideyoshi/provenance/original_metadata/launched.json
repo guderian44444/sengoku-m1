@@ -1,0 +1,660 @@
+{
+  "character": "hideyoshi",
+  "action": "launched",
+  "status": "accepted",
+  "description": "強力擊飛修版：30ms受擊後迅速後飛離地，背脊反弓、空手與雙腿慣性甩開，飛離210px再接地。",
+  "version": "launched_v2_explosive_knockback",
+  "duration_ms": 500,
+  "frame_count": 6,
+  "loop": false,
+  "preview_loop": true,
+  "preview_loop_reset_is_not_runtime_motion": true,
+  "canvas": [
+    520,
+    380
+  ],
+  "standing_ruler_px": 150,
+  "head_scale": 0.95,
+  "layers": [
+    "body",
+    "weapon",
+    "hand_occlusion"
+  ],
+  "frame_path": "frames/{layer}_{index:02}.png",
+  "fx": null,
+  "source_generation": "official image_gen; every source directly references approved original identity and full original mother sheet; no child generation loop",
+  "new_detail_disclosure": "Only pose and cloth/armor detail redrawn at high resolution; no new ornament or identity redesign.",
+  "source_info": {
+    "source_0.png": {
+      "sha256": "cad7f1c162048b3f48c92a7681957915d16b71c0cb9ec63da0e506b94942fffc",
+      "size_px": [
+        1536,
+        1024
+      ]
+    },
+    "v2_explosive_liftoff.png": {
+      "sha256": "a93d7d3d8a608b552402f61877ff86405ef077e51ad7f98755e54a9657afa4d3",
+      "size_px": [
+        1312,
+        1199
+      ]
+    },
+    "v2_full_flight.png": {
+      "sha256": "bc48d36232901119ee584f49b821e1d5d77d8a86f6766d9e978e20e128623638",
+      "size_px": [
+        1536,
+        1024
+      ]
+    },
+    "source_2.png": {
+      "sha256": "fc55ddf872d465f8f6cfc6fde19261b77b22bd900d85aaf055f759f067023229",
+      "size_px": [
+        1536,
+        1024
+      ]
+    },
+    "source_3.png": {
+      "sha256": "a28c9d43cae0aa471b4c1effe6138cc6b167bd93a9774e685e0f70bf3d7a06be",
+      "size_px": [
+        1536,
+        1024
+      ]
+    }
+  },
+  "world_motion": {
+    "mode": "sampled separate root track",
+    "root_track": [
+      [
+        0,
+        0
+      ],
+      [
+        -10,
+        -8
+      ],
+      [
+        -65,
+        -85
+      ],
+      [
+        -130,
+        -105
+      ],
+      [
+        -185,
+        -45
+      ],
+      [
+        -210,
+        0
+      ]
+    ],
+    "preview_displacement_separate": true,
+    "composite_pngs_are_root_local": true,
+    "world_coordinates": "x right, y down; relative to action entry",
+    "world_end_delta": [
+      -210,
+      0
+    ],
+    "interpolation": "Engine may apply its own physical root motion. Delivered drawn frames are discrete; no optical flow, no generated tween images."
+  },
+  "frames": [
+    {
+      "index": 0,
+      "duration_ms": 50,
+      "phase": "approved_idle_entry",
+      "source": "approved_idle",
+      "source_is_existing_approved": true,
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          185,
+          330
+        ],
+        "far": [
+          253,
+          330
+        ]
+      },
+      "feet_world": {
+        "near": [
+          185,
+          330
+        ],
+        "far": [
+          253,
+          330
+        ]
+      },
+      "support": "both",
+      "grip_canvas": [
+        214.625,
+        247.125
+      ],
+      "grip_world": [
+        214.625,
+        247.125
+      ],
+      "weapon_angle_deg": 120,
+      "head_scale": 0.95,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "idle_runtime_layer_export": "../idle/*_exact_00.png",
+      "composite_unchanged": true
+    },
+    {
+      "index": 1,
+      "duration_ms": 30,
+      "phase": "sharp_hit_recoil",
+      "source": "source_0.png",
+      "source_rect": [
+        88,
+        135,
+        780,
+        944
+      ],
+      "source_figure_height_px": 809,
+      "source_figure_span_px": 809,
+      "source_head_rect": [
+        132,
+        130,
+        336,
+        281
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.164,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        426,
+        929
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        -10,
+        -8
+      ],
+      "preview_displacement": [
+        -10,
+        -8
+      ],
+      "feet_canvas": {
+        "near": [
+          177.196,
+          333.0
+        ],
+        "far": [
+          262.804,
+          330.54
+        ]
+      },
+      "feet_world": {
+        "near": [
+          167.196,
+          325.0
+        ],
+        "far": [
+          252.80399999999997,
+          322.54
+        ]
+      },
+      "support": "heels_release",
+      "grip_canvas": [
+        224.1,
+        253.296
+      ],
+      "grip_world": [
+        214.1,
+        245.296
+      ],
+      "grip_source": [
+        451,
+        443
+      ],
+      "grip_hand": "both",
+      "weapon_angle_deg": 117,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": "launch_hit",
+      "sampled_root_velocity_px_s": [
+        -200.0,
+        -160.0
+      ]
+    },
+    {
+      "index": 2,
+      "duration_ms": 60,
+      "phase": "explosive_backward_liftoff",
+      "source": "v2_explosive_liftoff.png",
+      "source_rect": [
+        50,
+        148,
+        1285,
+        1063
+      ],
+      "source_figure_height_px": 915,
+      "source_figure_span_px": 1235,
+      "source_head_rect": [
+        167,
+        143,
+        430,
+        309
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.115,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        750,
+        1120
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        -65,
+        -85
+      ],
+      "preview_displacement": [
+        -65,
+        -85
+      ],
+      "feet_canvas": {
+        "near": [
+          241.045,
+          324.835
+        ],
+        "far": [
+          276.12,
+          283.665
+        ]
+      },
+      "feet_world": {
+        "near": [
+          176.045,
+          239.83499999999998
+        ],
+        "far": [
+          211.12,
+          198.66500000000002
+        ]
+      },
+      "support": "air",
+      "grip_canvas": [
+        235.64,
+        231.455
+      ],
+      "grip_world": [
+        170.64,
+        146.455
+      ],
+      "grip_source": [
+        886,
+        237
+      ],
+      "grip_hand": "one_hand",
+      "weapon_angle_deg": 75,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": "explosive_liftoff",
+      "sampled_root_velocity_px_s": [
+        -1833.333,
+        -2566.667
+      ]
+    },
+    {
+      "index": 3,
+      "duration_ms": 100,
+      "phase": "violent_air_apex",
+      "source": "v2_full_flight.png",
+      "source_rect": [
+        26,
+        111,
+        1510,
+        951
+      ],
+      "source_figure_height_px": 840,
+      "source_figure_span_px": 1484,
+      "source_head_rect": [
+        185,
+        104,
+        453,
+        281
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.115,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        800,
+        1070
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        -130,
+        -105
+      ],
+      "preview_displacement": [
+        -130,
+        -105
+      ],
+      "feet_canvas": {
+        "near": [
+          225.52,
+          318.51
+        ],
+        "far": [
+          298.43,
+          269.06
+        ]
+      },
+      "feet_world": {
+        "near": [
+          95.52000000000001,
+          213.51
+        ],
+        "far": [
+          168.43,
+          164.06
+        ]
+      },
+      "support": "air",
+      "grip_canvas": [
+        193.895,
+        231.34
+      ],
+      "grip_world": [
+        63.89500000000001,
+        126.34
+      ],
+      "grip_source": [
+        573,
+        186
+      ],
+      "grip_hand": "one_hand",
+      "weapon_angle_deg": 30,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": "apex",
+      "sampled_root_velocity_px_s": [
+        -1083.333,
+        -333.333
+      ]
+    },
+    {
+      "index": 4,
+      "duration_ms": 90,
+      "phase": "back_first_fast_descent",
+      "source": "source_2.png",
+      "source_rect": [
+        63,
+        192,
+        1516,
+        888
+      ],
+      "source_figure_height_px": 696,
+      "source_figure_span_px": 1453,
+      "source_head_rect": [
+        60,
+        190,
+        329,
+        394
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.12,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        810,
+        1030
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        -185,
+        -45
+      ],
+      "preview_displacement": [
+        -185,
+        -45
+      ],
+      "feet_canvas": {
+        "near": [
+          288.4,
+          313.08
+        ],
+        "far": [
+          300.76,
+          267.24
+        ]
+      },
+      "feet_world": {
+        "near": [
+          103.39999999999998,
+          268.08
+        ],
+        "far": [
+          115.75999999999999,
+          222.24
+        ]
+      },
+      "support": "air",
+      "grip_canvas": [
+        202.24,
+        271.92
+      ],
+      "grip_world": [
+        17.24000000000001,
+        226.92000000000002
+      ],
+      "grip_source": [
+        662,
+        521
+      ],
+      "grip_hand": "both",
+      "weapon_angle_deg": 65,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": null,
+      "sampled_root_velocity_px_s": [
+        -550.0,
+        600.0
+      ]
+    },
+    {
+      "index": 5,
+      "duration_ms": 170,
+      "phase": "ground_contact_to_down",
+      "source": "source_3.png",
+      "source_rect": [
+        79,
+        310,
+        1482,
+        908
+      ],
+      "source_figure_height_px": 598,
+      "source_figure_span_px": 1403,
+      "source_head_rect": [
+        75,
+        302,
+        329,
+        480
+      ],
+      "head_scale": 0.95,
+      "standing_ruler_px": 150,
+      "body_calibration_scale": 0.12,
+      "calibration_basis": "same-direction head/torso and limb size, never silhouette equal-height scaling",
+      "origin_source": [
+        790,
+        906
+      ],
+      "root_canvas": [
+        220,
+        333
+      ],
+      "root_world": [
+        -210,
+        0
+      ],
+      "preview_displacement": [
+        -210,
+        0
+      ],
+      "feet_canvas": {
+        "near": [
+          271.0,
+          332.04
+        ],
+        "far": [
+          297.52,
+          304.92
+        ]
+      },
+      "feet_world": {
+        "near": [
+          61.0,
+          332.04
+        ],
+        "far": [
+          87.51999999999998,
+          304.92
+        ]
+      },
+      "support": "back_hips_near_heel",
+      "grip_canvas": [
+        204.4,
+        289.44
+      ],
+      "grip_world": [
+        -5.599999999999994,
+        289.44
+      ],
+      "grip_source": [
+        660,
+        543
+      ],
+      "grip_hand": "both",
+      "weapon_angle_deg": 55,
+      "weapon_angle_convention": "0 up, clockwise positive",
+      "weapon_source": "../reference/sword_uchigatana.png",
+      "weapon_pivot_source": [
+        180,
+        710
+      ],
+      "weapon_scale": 0.145,
+      "layer_order": [
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "fx": null,
+      "event": "land_contact",
+      "sampled_root_velocity_px_s": [
+        -277.778,
+        500.0
+      ]
+    }
+  ],
+  "quality_notes": [
+    "Accepted artwork; not runtime integrated.",
+    "Original high-resolution PNGs retained. Local head95 then one final body downsample.",
+    "Whole-body drawn poses; no optical-flow or synthetic motion interpolation.",
+    "Preview adds separate root displacement; do not apply it twice.",
+    "Approved idle entry/exit preserved without redraw when present.",
+    "Compared every frame against approved combat idle at same scale; checked face/costume, head scale, grounded stance, hands, weapon layering and transparent edges. GIF decoding verified; no runtime test.",
+    "Approved idle entry/exit composite unchanged; runtime three-layer split repaired to exact recomposition with no double-alpha hand overlay."
+  ],
+  "revision_feedback": {
+    "message_id": "Sentinel_d56ff8cac8d88191b95e31cc69449a43",
+    "text": "飛得不夠力",
+    "changes": "New original-reference explosive liftoff and inertia-splayed flight poses; hit 30ms, flight displacement 210px from 65px; sampled apex -105px from -75px; total500ms from600ms."
+  },
+  "transition_to": {
+    "action": "down",
+    "frame": 0,
+    "source_frame": 5,
+    "world_entry_delta": [
+      -210,
+      0
+    ],
+    "policy": "Preserve final world position; local composite and three layers identical; do not rewind to launch origin."
+  },
+  "pre_acceptance_status": {
+    "status": "candidate_pending_user_review"
+  },
+  "approval": "accepted",
+  "approved": true,
+  "accepted": true,
+  "candidate": false,
+  "not_user_approved": false,
+  "acceptance_event_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+  "acceptance_record": "../acceptance.json"
+}

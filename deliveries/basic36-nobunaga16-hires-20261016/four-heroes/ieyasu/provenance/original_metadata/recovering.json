@@ -1,0 +1,534 @@
+{
+  "hero": "ieyasu06",
+  "revision": "recovering_candidate_01",
+  "action": "recovering",
+  "approval": "accepted",
+  "loop": false,
+  "frame_count": 5,
+  "total_ms": 870,
+  "standing_ruler_source_px": 920,
+  "standing_ruler_target_px": 152,
+  "new_source_standing_rulers": [
+    920,
+    1380
+  ],
+  "scale_basis": "declared native standing-equivalent drawing scale, never per-frame bbox height",
+  "per_frame_bbox_height_normalization": false,
+  "original_png_preserved": true,
+  "body_final_downsample_only": true,
+  "image_generation_tool": "official image_gen.imagegen",
+  "direct_approved_references": [
+    "ieyasu06_newspec_20261015/reference/identity06.png",
+    "ieyasu06_newspec_20261015/actions/light_1_source.png"
+  ],
+  "layers": [
+    "body",
+    "weapon",
+    "sheath",
+    "hand_occlusion"
+  ],
+  "ordinary_action_fx": false,
+  "world_motion": {
+    "mode": "runtime_controller",
+    "per_frame_delta": [
+      0,
+      0
+    ],
+    "preview_motion_not_baked": true
+  },
+  "shared_idle": "../idle/registration.json",
+  "frames": [
+    {
+      "source_file": "../sources/down_hold_high_raw.png",
+      "source_rect": null,
+      "source_sha256": "d40aeabfda005fcfdbdec3c3afec2106bfd8d771fa51faea532557edca09b7b3",
+      "source_bbox": [
+        39,
+        289,
+        1509,
+        906
+      ],
+      "source_effective_height": 617,
+      "source_effective_width": 1470,
+      "source_standing_ruler": 1380,
+      "source_root": [
+        790,
+        906
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        132.9855072463768,
+        180.2086956521739
+      ],
+      "scale": 0.11014492753623188,
+      "grip_source": [
+        614,
+        672
+      ],
+      "grip_canvas": [
+        200.61449275362318,
+        254.22608695652173
+      ],
+      "hands_source": [
+        [
+          614,
+          672
+        ],
+        [
+          691,
+          589
+        ]
+      ],
+      "hands_canvas": [
+        [
+          200.61449275362318,
+          254.22608695652173
+        ],
+        [
+          209.09565217391304,
+          245.0840579710145
+        ]
+      ],
+      "weapon_angle_degrees": -110,
+      "sheath_angle_degrees": 125,
+      "feet_source": {
+        "near": [
+          1391,
+          895
+        ],
+        "far": [
+          1397,
+          725
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          286.19710144927535,
+          278.7884057971014
+        ],
+        "far": [
+          286.85797101449276,
+          260.063768115942
+        ]
+      },
+      "support_foot": "back_left_hip",
+      "frame": 1,
+      "duration_ms": 100,
+      "start_ms": 0,
+      "phase": "down_hold_start",
+      "event": "recover_start",
+      "loop_next": 2,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/recovering_push_high_raw.png",
+      "source_rect": null,
+      "source_sha256": "e99db3fdf8454c8df16c8eb136472a3d2ffc99ece7b9b01aedbd22a2677e2d6b",
+      "source_bbox": [
+        27,
+        40,
+        1511,
+        971
+      ],
+      "source_effective_height": 931,
+      "source_effective_width": 1484,
+      "source_standing_ruler": 1380,
+      "source_root": [
+        800,
+        970
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        131.8840579710145,
+        173.15942028985506
+      ],
+      "scale": 0.11014492753623188,
+      "grip_source": [
+        850,
+        620
+      ],
+      "grip_canvas": [
+        225.5072463768116,
+        241.44927536231882
+      ],
+      "hands_source": [
+        [
+          850,
+          620
+        ],
+        [
+          135,
+          879
+        ]
+      ],
+      "hands_canvas": [
+        [
+          225.5072463768116,
+          241.44927536231882
+        ],
+        [
+          146.7536231884058,
+          269.9768115942029
+        ]
+      ],
+      "weapon_angle_degrees": -95,
+      "sheath_angle_degrees": 100,
+      "feet_source": {
+        "near": [
+          1135,
+          921
+        ],
+        "far": [
+          1438,
+          929
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          256.8985507246377,
+          274.6028985507246
+        ],
+        "far": [
+          290.2724637681159,
+          275.48405797101447
+        ]
+      },
+      "support_foot": "near_palm_hip_far_foot",
+      "frame": 2,
+      "duration_ms": 200,
+      "start_ms": 100,
+      "phase": "roll_palm_push",
+      "event": "palm_weight_bearing",
+      "loop_next": 3,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/recovering_kneel_rise_raw.png",
+      "source_rect": null,
+      "source_sha256": "cf4fb05f980adb8de833a16ced5b570158982e68d095fc089b180ba768fa81a9",
+      "source_bbox": [
+        43,
+        236,
+        816,
+        958
+      ],
+      "source_effective_height": 722,
+      "source_effective_width": 773,
+      "source_standing_ruler": 920,
+      "source_root": [
+        440,
+        953
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        147.30434782608697,
+        122.54782608695652
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        582,
+        629
+      ],
+      "grip_canvas": [
+        243.4608695652174,
+        226.46956521739128
+      ],
+      "hands_source": [
+        [
+          582,
+          629
+        ],
+        [
+          378,
+          681
+        ]
+      ],
+      "hands_canvas": [
+        [
+          243.4608695652174,
+          226.46956521739128
+        ],
+        [
+          209.75652173913045,
+          235.0608695652174
+        ]
+      ],
+      "weapon_angle_degrees": -75,
+      "sheath_angle_degrees": 80,
+      "feet_source": {
+        "near": [
+          99,
+          936
+        ],
+        "far": [
+          735,
+          947
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          163.6608695652174,
+          277.1913043478261
+        ],
+        "far": [
+          268.7391304347826,
+          279.0086956521739
+        ]
+      },
+      "support_foot": "near_knee_far_foot",
+      "frame": 3,
+      "duration_ms": 190,
+      "start_ms": 300,
+      "phase": "one_knee_leverage",
+      "event": "near_knee_grounded",
+      "loop_next": 4,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/recovering_kneel_rise_raw.png",
+      "source_rect": null,
+      "source_sha256": "cf4fb05f980adb8de833a16ced5b570158982e68d095fc089b180ba768fa81a9",
+      "source_bbox": [
+        828,
+        62,
+        1520,
+        966
+      ],
+      "source_effective_height": 904,
+      "source_effective_width": 692,
+      "source_standing_ruler": 920,
+      "source_root": [
+        1190,
+        961
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        23.391304347826093,
+        121.22608695652175
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        1238.0,
+        493.0
+      ],
+      "grip_canvas": [
+        227.9304347826087,
+        202.67826086956524
+      ],
+      "hands_source": [
+        [
+          1203,
+          484
+        ],
+        [
+          1273,
+          502
+        ]
+      ],
+      "hands_canvas": [
+        [
+          222.1478260869565,
+          201.1913043478261
+        ],
+        [
+          233.71304347826086,
+          204.16521739130434
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          900,
+          950
+        ],
+        "far": [
+          1459,
+          953
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          172.08695652173913,
+          278.1826086956522
+        ],
+        "far": [
+          264.4434782608696,
+          278.67826086956524
+        ]
+      },
+      "support_foot": "both",
+      "frame": 4,
+      "duration_ms": 180,
+      "start_ms": 490,
+      "phase": "rise_to_guard",
+      "event": "both_feet_planted",
+      "loop_next": 5,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../idle/composite.png",
+      "approved_exact_idle": true,
+      "source_effective_height": 416,
+      "root_canvas": [
+        220,
+        280
+      ],
+      "grip_canvas": [
+        224.08,
+        201.06
+      ],
+      "hands_canvas": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_canvas": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ]
+      },
+      "support_foot": "both",
+      "scale": 0.36538461538461536,
+      "frame": 5,
+      "duration_ms": 200,
+      "start_ms": 670,
+      "phase": "approved_idle",
+      "event": "recovery_complete",
+      "loop_next": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    }
+  ],
+  "runtime_integrated": false,
+  "notes": [
+    "Starts pixel-exact down hold; rolls with bracing palm, one-knee leverage, rising stance, ends pixel-exact approved idle.",
+    "Temporary offhand sword retention during planted near-palm push; both hands resume guard.",
+    "Native standing-equivalent ruler1380 for seated full-body original;920 for kneeling/rising pair. Never per-pose bbox normalization.",
+    "Runtime world delta remains zero; no FX."
+  ],
+  "approval_basis": {
+    "message_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+    "scope": "Previously delivered current revision with no subsequent objection; run v4 excluded."
+  }
+}

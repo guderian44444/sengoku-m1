@@ -1,0 +1,533 @@
+{
+  "hero": "ieyasu06",
+  "revision": "launched_candidate_01",
+  "action": "launched",
+  "approval": "accepted",
+  "loop": false,
+  "frame_count": 5,
+  "total_ms": 540,
+  "standing_ruler_source_px": 920,
+  "standing_ruler_target_px": 152,
+  "new_source_standing_rulers": [
+    920,
+    1380
+  ],
+  "scale_basis": "declared native standing-equivalent drawing scale, never per-frame bbox height",
+  "per_frame_bbox_height_normalization": false,
+  "original_png_preserved": true,
+  "body_final_downsample_only": true,
+  "image_generation_tool": "official image_gen.imagegen",
+  "direct_approved_references": [
+    "ieyasu06_newspec_20261015/reference/identity06.png",
+    "ieyasu06_newspec_20261015/actions/light_1_source.png"
+  ],
+  "layers": [
+    "body",
+    "weapon",
+    "sheath",
+    "hand_occlusion"
+  ],
+  "ordinary_action_fx": false,
+  "world_motion": {
+    "mode": "runtime_controller",
+    "per_frame_delta": [
+      0,
+      0
+    ],
+    "preview_motion_not_baked": true
+  },
+  "shared_idle": "../idle/registration.json",
+  "frames": [
+    {
+      "source_file": "../idle/composite.png",
+      "approved_exact_idle": true,
+      "source_effective_height": 416,
+      "root_canvas": [
+        220,
+        280
+      ],
+      "grip_canvas": [
+        224.08,
+        201.06
+      ],
+      "hands_canvas": [
+        [
+          224.08,
+          201.06
+        ]
+      ],
+      "weapon_angle_degrees": -55,
+      "sheath_angle_degrees": 65,
+      "feet_canvas": {
+        "near": [
+          160,
+          280
+        ],
+        "far": [
+          276,
+          280
+        ]
+      },
+      "support_foot": "both",
+      "scale": 0.36538461538461536,
+      "frame": 1,
+      "duration_ms": 70,
+      "start_ms": 0,
+      "phase": "approved_idle_entry",
+      "event": null,
+      "loop_next": 2,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        0,
+        0
+      ],
+      "grounded": true,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/launched_01_02_raw.png",
+      "source_rect": null,
+      "source_sha256": "b3da76f50d50ceda752d8396dd73973b5eb3140e2d487495f58f899342113905",
+      "source_bbox": [
+        33,
+        99,
+        831,
+        918
+      ],
+      "source_effective_height": 819,
+      "source_effective_width": 798,
+      "source_standing_ruler": 920,
+      "source_root": [
+        455,
+        960
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        144.82608695652175,
+        121.3913043478261
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        405.5,
+        364.0
+      ],
+      "grip_canvas": [
+        211.8217391304348,
+        181.5304347826087
+      ],
+      "hands_source": [
+        [
+          377,
+          375
+        ],
+        [
+          434,
+          353
+        ]
+      ],
+      "hands_canvas": [
+        [
+          207.11304347826086,
+          183.34782608695653
+        ],
+        [
+          216.53043478260872,
+          179.7130434782609
+        ]
+      ],
+      "weapon_angle_degrees": -80,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          630,
+          886
+        ],
+        "far": [
+          755,
+          683
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          248.91304347826087,
+          267.7739130434783
+        ],
+        "far": [
+          269.5652173913044,
+          234.23478260869564
+        ]
+      },
+      "support_foot": "none",
+      "frame": 2,
+      "duration_ms": 100,
+      "start_ms": 70,
+      "phase": "launch_recoil",
+      "event": "launch_start",
+      "loop_next": 3,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        -8,
+        -20
+      ],
+      "grounded": false,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/launched_03_04_raw.png",
+      "source_rect": null,
+      "source_sha256": "6b71af6125e0971330a05c7086800c98ca3f6ba5429d09685a621f2ec35310af",
+      "source_bbox": [
+        53,
+        76,
+        904,
+        828
+      ],
+      "source_effective_height": 752,
+      "source_effective_width": 851,
+      "source_standing_ruler": 920,
+      "source_root": [
+        470,
+        875
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        142.34782608695653,
+        135.43478260869566
+      ],
+      "scale": 0.16521739130434782,
+      "grip_source": [
+        383.5,
+        391.0
+      ],
+      "grip_canvas": [
+        205.7086956521739,
+        200.03478260869565
+      ],
+      "hands_source": [
+        [
+          361,
+          398
+        ],
+        [
+          406,
+          384
+        ]
+      ],
+      "hands_canvas": [
+        [
+          201.9913043478261,
+          201.19130434782608
+        ],
+        [
+          209.42608695652174,
+          198.87826086956522
+        ]
+      ],
+      "weapon_angle_degrees": -84,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          735,
+          800
+        ],
+        "far": [
+          824,
+          655
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          263.7826086956522,
+          267.6086956521739
+        ],
+        "far": [
+          278.4869565217391,
+          243.65217391304347
+        ]
+      },
+      "support_foot": "none",
+      "frame": 3,
+      "duration_ms": 110,
+      "start_ms": 170,
+      "phase": "air_roll_back",
+      "event": null,
+      "loop_next": 4,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        -22,
+        -43
+      ],
+      "grounded": false,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/launched_mid_high_raw.png",
+      "source_rect": null,
+      "source_sha256": "882f5e8c59df4d46ef91dde93dcf4812cd8271936535046d57d08f8a9f2c9c34",
+      "source_bbox": [
+        79,
+        12,
+        1456,
+        996
+      ],
+      "source_effective_height": 984,
+      "source_effective_width": 1377,
+      "source_standing_ruler": 1380,
+      "source_root": [
+        780,
+        1000
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        134.08695652173913,
+        169.85507246376812
+      ],
+      "scale": 0.11014492753623188,
+      "grip_source": [
+        655.0,
+        451.5
+      ],
+      "grip_canvas": [
+        206.231884057971,
+        219.58550724637684
+      ],
+      "hands_source": [
+        [
+          608,
+          459
+        ],
+        [
+          702,
+          444
+        ]
+      ],
+      "hands_canvas": [
+        [
+          201.0550724637681,
+          220.41159420289856
+        ],
+        [
+          211.4086956521739,
+          218.7594202898551
+        ]
+      ],
+      "weapon_angle_degrees": -92,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          1150,
+          960
+        ],
+        "far": [
+          1355,
+          693
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          260.75362318840575,
+          275.59420289855075
+        ],
+        "far": [
+          283.3333333333333,
+          246.1855072463768
+        ]
+      },
+      "support_foot": "none",
+      "frame": 4,
+      "duration_ms": 120,
+      "start_ms": 280,
+      "phase": "air_arc_peak",
+      "event": null,
+      "loop_next": 5,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        -35,
+        -52
+      ],
+      "grounded": false,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    },
+    {
+      "source_file": "../sources/launched_late_high_raw.png",
+      "source_rect": null,
+      "source_sha256": "f9310ade98770b39da28c440fb79bdf77619ab54d863a38bc3bff0bbb6489fdb",
+      "source_bbox": [
+        64,
+        65,
+        1427,
+        1022
+      ],
+      "source_effective_height": 957,
+      "source_effective_width": 1363,
+      "source_standing_ruler": 1380,
+      "source_root": [
+        740,
+        1040
+      ],
+      "root_canvas": [
+        220,
+        280
+      ],
+      "root_local": [
+        0,
+        0
+      ],
+      "render_origin": [
+        138.4927536231884,
+        165.44927536231884
+      ],
+      "scale": 0.11014492753623188,
+      "grip_source": [
+        561.5,
+        525.0
+      ],
+      "grip_canvas": [
+        200.33913043478262,
+        223.27536231884056
+      ],
+      "hands_source": [
+        [
+          520,
+          524
+        ],
+        [
+          603,
+          526
+        ]
+      ],
+      "hands_canvas": [
+        [
+          195.768115942029,
+          223.16521739130434
+        ],
+        [
+          204.91014492753624,
+          223.38550724637682
+        ]
+      ],
+      "weapon_angle_degrees": -98,
+      "sheath_angle_degrees": 65,
+      "feet_source": {
+        "near": [
+          1140,
+          982
+        ],
+        "far": [
+          1320,
+          764
+        ]
+      },
+      "feet_canvas": {
+        "near": [
+          264.05797101449275,
+          273.6115942028986
+        ],
+        "far": [
+          283.8840579710145,
+          249.6
+        ]
+      },
+      "support_foot": "none",
+      "frame": 5,
+      "duration_ms": 140,
+      "start_ms": 400,
+      "phase": "fall_to_down",
+      "event": "await_ground_contact",
+      "loop_next": null,
+      "world_delta": [
+        0,
+        0
+      ],
+      "preview_displacement": [
+        -52,
+        -12
+      ],
+      "grounded": false,
+      "fx": null,
+      "layer_order": [
+        "sheath",
+        "body",
+        "weapon",
+        "hand_occlusion"
+      ],
+      "weapon_behind": false,
+      "sheath_behind": true
+    }
+  ],
+  "runtime_integrated": false,
+  "notes": [
+    "Backwards launch and falling arc; terminal pose transitions to down state, not automatically upright.",
+    "Large reclining single-source drawings use declared1380px standing-equivalent drawing scale, other native sheets920px; all target152px, not bbox-equalized.",
+    "Trajectory is preview-only. Runtime controls knockback and collision."
+  ],
+  "approval_basis": {
+    "message_id": "Sentinel_14a43a0d05ec8191b50a482834f7a976",
+    "scope": "Previously delivered current revision with no subsequent objection; run v4 excluded."
+  }
+}

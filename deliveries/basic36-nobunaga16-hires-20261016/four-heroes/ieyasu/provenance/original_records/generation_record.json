@@ -1,0 +1,272 @@
+{
+  "generator": "official image_gen.imagegen",
+  "references": [
+    "ieyasu06_newspec_20261015/reference/identity06.png",
+    "ieyasu06_newspec_20261015/actions/light_1_source.png"
+  ],
+  "output": "1536x1024 RGBA; 2 figures per generation; nominal 890-900px effective figure; actual selected 886-957px",
+  "invariants": [
+    "approved mature face and topknot",
+    "gray-white 06 jinbaori, navy sleeves, charcoal-gold armor",
+    "near-frontal three-quarter facing right",
+    "approved warm upper-left lighting and brightness",
+    "two fists at belt combat guard",
+    "no weapon drawn; exact approved weapon layered separately",
+    "no FX, background, text or labels"
+  ],
+  "requests": [
+    {
+      "file": "walk_01_02_raw.png",
+      "intent": "near-right contact and down requested; observed far-left contact and down selected for frames 1,2"
+    },
+    {
+      "file": "walk_03_04_raw.png",
+      "intent": "near-right support, far-left passing and forward swing; right figure selected as frame8"
+    },
+    {
+      "file": "walk_05_06_raw.png",
+      "intent": "opposite far-left contact/down; rejected redundant silhouettes retained"
+    },
+    {
+      "file": "walk_07_08_raw.png",
+      "intent": "far-left support, near-right passing and forward swing; selected as frames3,4"
+    },
+    {
+      "file": "walk_contacts_retry_raw.png",
+      "intent": "force near-right thigh crossing in front and forward contact; left figure selected as frame5"
+    },
+    {
+      "file": "walk_near_down_far_pass_raw.png",
+      "intent": "near-right support down, then near-right support far-left passing; selected as frames6,7"
+    }
+  ],
+  "scope_update": "All8 non-run base actions have candidate revisions; run revisions rejected and contact anatomy under review.",
+  "exact_saved_prompt_sets": [
+    "prompts/recovering_victory.json",
+    "prompts/run_v3.json",
+    "prompts/victory_v2.json"
+  ],
+  "raw_original_inventory": [
+    {
+      "file": "sources/down_hold_high_raw.png",
+      "bytes": 2050177,
+      "sha256": "d40aeabfda005fcfdbdec3c3afec2106bfd8d771fa51faea532557edca09b7b3"
+    },
+    {
+      "file": "sources/down_impact_high_raw.png",
+      "bytes": 1932845,
+      "sha256": "72435b4b16d51538715856d1b9f8a1b1c288df9f184e1a6329f51aec3cc9d2eb"
+    },
+    {
+      "file": "sources/frame_01_raw.png",
+      "bytes": 1133273,
+      "sha256": "754fcd39fa7a61fdd6d9c047685734e88454a7010d053cb10ae8b2e6e20222a8"
+    },
+    {
+      "file": "sources/frame_02_raw.png",
+      "bytes": 1009319,
+      "sha256": "98f5c3f1513a4118df14ac9ac023ac185d11d677059f3e342d875d7a0970d75e"
+    },
+    {
+      "file": "sources/frame_03_raw.png",
+      "bytes": 1051841,
+      "sha256": "36af4dbbea8977fcfc5b032cf787eecf30139d666db83c55ff22905fcde961e3"
+    },
+    {
+      "file": "sources/frame_04_raw.png",
+      "bytes": 1046653,
+      "sha256": "599c9175a0ff1c359456084f8482a08351abec961beff65c9706563e5398178a"
+    },
+    {
+      "file": "sources/frame_05_raw.png",
+      "bytes": 1075987,
+      "sha256": "88169f06526ebac8b7c788d33905fa8bf5ed25ab53192ebff619ad70d4af01cf"
+    },
+    {
+      "file": "sources/frame_06_raw.png",
+      "bytes": 1060073,
+      "sha256": "85569ac7cdb26a521439ae0e4b20511ab787c69a0d90e68dd2ff96fbfd4a0db0"
+    },
+    {
+      "file": "sources/frame_07_raw.png",
+      "bytes": 929149,
+      "sha256": "48a14fa3835c866e36ddd7134ed945cd80c5c579978ec4a5c1c013fd9c64de53"
+    },
+    {
+      "file": "sources/frame_08_raw.png",
+      "bytes": 1005863,
+      "sha256": "505bf900b6b69f03b21378d93b847a102f0930caccf6fe32ac32fa94e45ce1d2"
+    },
+    {
+      "file": "sources/hurt_01_02_raw.png",
+      "bytes": 2276960,
+      "sha256": "3d9d160adc56523a64191f89b4be5a824b6c50945abd1354374086912cc59b09"
+    },
+    {
+      "file": "sources/hurt_03_04_raw.png",
+      "bytes": 2267625,
+      "sha256": "df30b0439d2dfdc4431e290b909111873b3e18a72284937cc773d6e3156670b6"
+    },
+    {
+      "file": "sources/jump_01_02_raw.png",
+      "bytes": 2112013,
+      "sha256": "d48b9849c52ed9c760e65764c3df38ec96299c45c2fc12d9a5183fa89dbbeb54"
+    },
+    {
+      "file": "sources/jump_03_04_raw.png",
+      "bytes": 2097530,
+      "sha256": "ede1fff52f5a8b2e54e488ca58547eb41cdb2d9855f6f350602188acdf558646"
+    },
+    {
+      "file": "sources/jump_05_06_raw.png",
+      "bytes": 2122258,
+      "sha256": "d3d9fec2607a1bde9eec65f1afd0d70b3ba9b9d67316b5414eb0330907eee89a"
+    },
+    {
+      "file": "sources/launched_01_02_raw.png",
+      "bytes": 2079549,
+      "sha256": "b3da76f50d50ceda752d8396dd73973b5eb3140e2d487495f58f899342113905"
+    },
+    {
+      "file": "sources/launched_03_04_raw.png",
+      "bytes": 1462112,
+      "sha256": "6b71af6125e0971330a05c7086800c98ca3f6ba5429d09685a621f2ec35310af"
+    },
+    {
+      "file": "sources/launched_late_high_raw.png",
+      "bytes": 1561387,
+      "sha256": "f9310ade98770b39da28c440fb79bdf77619ab54d863a38bc3bff0bbb6489fdb"
+    },
+    {
+      "file": "sources/launched_mid_high_raw.png",
+      "bytes": 2289771,
+      "sha256": "882f5e8c59df4d46ef91dde93dcf4812cd8271936535046d57d08f8a9f2c9c34"
+    },
+    {
+      "file": "sources/recovering_kneel_rise_raw.png",
+      "bytes": 2208647,
+      "sha256": "cf4fb05f980adb8de833a16ced5b570158982e68d095fc089b180ba768fa81a9"
+    },
+    {
+      "file": "sources/recovering_push_high_raw.png",
+      "bytes": 2172382,
+      "sha256": "e99db3fdf8454c8df16c8eb136472a3d2ffc99ece7b9b01aedbd22a2677e2d6b"
+    },
+    {
+      "file": "sources/run_01_02_raw.png",
+      "bytes": 2140030,
+      "sha256": "a7241f1d95eee87b8ab78b900290a5245700472222156f21b5b20ea1a6a5fdc3"
+    },
+    {
+      "file": "sources/run_03_04_raw.png",
+      "bytes": 2051258,
+      "sha256": "024bfb6a9a6bf20dd84d2250229dbaa953422b7f91aa03d1cc16481ab81a9d6a"
+    },
+    {
+      "file": "sources/run_05_06_raw.png",
+      "bytes": 2043573,
+      "sha256": "366990c5e19b3229b5ff3bf190e49177394bbfd06fe1c4e77f96a1f0ac8238c9"
+    },
+    {
+      "file": "sources/run_v2_contacts_raw.png",
+      "bytes": 2129436,
+      "sha256": "23ca7c5a38aac65b51cfc6b7ec7d7d705680d89d751a2c5ba4c23cb84b335060"
+    },
+    {
+      "file": "sources/run_v2_flight_raw.png",
+      "bytes": 2137520,
+      "sha256": "4506e7202c016a1d7018eb471a8be4e850a9b6a14107ecccc8c7d3ece5f8bc2c"
+    },
+    {
+      "file": "sources/run_v2_passing_raw.png",
+      "bytes": 2134273,
+      "sha256": "39dcc1d5707bc497019a50292ede5fdf423f903ac00eb7010665cd2f9089f78e"
+    },
+    {
+      "file": "sources/run_v3_contact_raw.png",
+      "bytes": 1990208,
+      "sha256": "7ee02680a9acbf7cbd8d5eb76359b2409b44a064bc73fe29fba40710a7f73ec3"
+    },
+    {
+      "file": "sources/run_v3_flight_raw.png",
+      "bytes": 2014586,
+      "sha256": "12eb75e018a96e7b78488442d2f329ef72580a7fbcd6edbbedfa1aae46977027"
+    },
+    {
+      "file": "sources/run_v3_passing_raw.png",
+      "bytes": 2123635,
+      "sha256": "2a45f54b4201bccbb4d8309fb1735b36a3a0b924ca09de3dbe058976689fa3d0"
+    },
+    {
+      "file": "sources/stunned_01_02_raw.png",
+      "bytes": 2160663,
+      "sha256": "3a08954c5e1e0d8b87dba3d97a03f1c7c178de7e7b584d395087c401b2bef0c3"
+    },
+    {
+      "file": "sources/stunned_03_04_raw.png",
+      "bytes": 2148978,
+      "sha256": "9f9ba0a0fd7866773df2e5ab4edd20c3dc17164c05e239b9c137634064586961"
+    },
+    {
+      "file": "sources/victory_01_02_raw.png",
+      "bytes": 2274038,
+      "sha256": "59de9c2755527cf306111e0631616f79e6cd95c05c97313e0238bffc9f5cd8c5"
+    },
+    {
+      "file": "sources/victory_03_04_raw.png",
+      "bytes": 2262304,
+      "sha256": "98703192f35e51d6473b1785bb53fdc8229a211c4313992d60df7732ef3bb9d4"
+    },
+    {
+      "file": "sources/victory_v2_lower_raw.png",
+      "bytes": 2031835,
+      "sha256": "7111fc33d89e75011b0aa0e6eee912a1d8f69f250b3c52d872936660e10af864"
+    },
+    {
+      "file": "sources/victory_v2_prepare_raw.png",
+      "bytes": 1982431,
+      "sha256": "bd7c832128ee26caee6cff4539dc525c043dce5ea3d2662a3f34fadc50493aa8"
+    },
+    {
+      "file": "sources/victory_v2_raise_raw.png",
+      "bytes": 2067533,
+      "sha256": "626093af5b42a5536158859b1faa912aebd16066c34c8717af479d2d88d4af9c"
+    },
+    {
+      "file": "sources/victory_v2_shout_raw.png",
+      "bytes": 2192629,
+      "sha256": "1e16dcf721b838d109472878f01d0cb3fa64772420578daab39e9e979c861e02"
+    },
+    {
+      "file": "sources/walk_01_02_raw.png",
+      "bytes": 2160528,
+      "sha256": "a428cce45a5ec5d2c1c52fd4b4507445ef9461114bc8a92bfea44b33903f420b"
+    },
+    {
+      "file": "sources/walk_03_04_raw.png",
+      "bytes": 2061626,
+      "sha256": "95132f16b9d5b851ef62fd7dd8d86a9a218b56f2780d3f9b5205c0e92237add4"
+    },
+    {
+      "file": "sources/walk_05_06_raw.png",
+      "bytes": 2191475,
+      "sha256": "14d215cf7eb68b62a6765d436e13ef89daebd6a7e9337f7c8ded0a6cc3f72541"
+    },
+    {
+      "file": "sources/walk_07_08_raw.png",
+      "bytes": 2119891,
+      "sha256": "684fffd6af368de96471b24a0ad81cd30ff4e9289e5e15a1912acbc373e92e10"
+    },
+    {
+      "file": "sources/walk_contacts_retry_raw.png",
+      "bytes": 2169364,
+      "sha256": "b0d55256c646ebd29d839c07392731af9e1d68e89f0a29ca863f6ad7870259ad"
+    },
+    {
+      "file": "sources/walk_near_down_far_pass_raw.png",
+      "bytes": 2010784,
+      "sha256": "b6f95182c2f28a3a5e81222256aeef35f26b44af989c0a3979915b1743cc9882"
+    }
+  ],
+  "note_on_older_prompts": "Earlier action records describe intent and source provenance; do not imply verbatim prompts were retained where not listed."
+}
