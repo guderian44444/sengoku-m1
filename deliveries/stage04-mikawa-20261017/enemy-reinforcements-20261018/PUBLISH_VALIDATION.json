@@ -1,0 +1,75 @@
+{
+  "status": "STATIC_HANDOFF_PUBLICATION_CHECKS_ONLY",
+  "date_utc": "2026-10-18",
+  "source_library_zip": "libfile_95b531fa12a881919ee83818a3966c9f",
+  "source_library_text": "libfile_6dd3bbd44798819191d7d5331167c3c1",
+  "archive_bytes": 31911,
+  "archive_sha256": "922ec86b1213dc1cf4d3b51b7392161ac74ad594c399a4d2b1e6fd3a10b9eac2",
+  "source_files": 11,
+  "source_json_files": 5,
+  "original_density_json_sha256": "484da071069ca80a54d00892b63fe925b893b8ff8ffd44f1f83b65f5abf48a6f",
+  "source_checksums_verified": 10,
+  "standalone_text_identical": true,
+  "zip_crc": "passed",
+  "safe_zip_paths": true,
+  "duplicate_paths": 0,
+  "secret_scan_rules": [
+    "private_key",
+    "github_token",
+    "aws_key",
+    "api_secret",
+    "signed_url",
+    "credential_assignment"
+  ],
+  "secret_findings": [],
+  "extra_assets": 0,
+  "nodes": 13,
+  "reinforcement_batches": 33,
+  "finite_scheduled_total": 313,
+  "two_sided_counts_and_cap_arithmetic": "passed",
+  "design_ids": 9,
+  "runtime_bindings_verified": false,
+  "static_reference_commit": "30fdac0349fb39bd769061318a497446a9ff0114",
+  "source_blobs_verified": [
+    {
+      "path": "game/core/stage03_encounter.gd",
+      "blob_sha": "3f6c6f424028ec39357a283c55160e03f6386ebf",
+      "match": true
+    },
+    {
+      "path": "game/core/stage_data.gd",
+      "blob_sha": "22510e9e502ed06de4471706cd962cfb1ec5870c",
+      "match": true
+    },
+    {
+      "path": "game/data/stage-03.json",
+      "blob_sha": "4c4ff53c7a5057b16b9567a3a9715a924c130f4b",
+      "match": true
+    },
+    {
+      "path": "game/core/stage03_objectives.gd",
+      "blob_sha": "780a0e2d6d69a96beeb1369611d8efff715d43b2",
+      "match": true
+    },
+    {
+      "path": "game/core/stage03_tent.gd",
+      "blob_sha": "35bb337ff1daffd1ddf267dc937d9a6ed13f3e4e",
+      "match": true
+    },
+    {
+      "path": "game/core/battle.gd",
+      "blob_sha": "6d02383c3c654ac93bb59616034fc22cb334cc0e",
+      "match": true
+    },
+    {
+      "path": "game/project.godot",
+      "blob_sha": "81df7ef4adebf69b1bb63cbfca35fbda3c6922d8",
+      "match": true
+    }
+  ],
+  "test_cases": 15,
+  "test_runtime_status": "ALL_NOT_RUN",
+  "runtime_changed": false,
+  "old_assets_and_configs_retained": true,
+  "source_files_preserved_byte_for_byte": true
+}

@@ -6,6 +6,12 @@
 
 由已核對的遠端 main `30fdac0349fb39bd769061318a497446a9ff0114` 建立 `art/stage04-mikawa-handoff-20261017`。提交範圍僅本資料夾；`stage04/` 內的 1,381 個來源檔保持總包原始位元組，未重採樣、重編碼或改寫來源 metadata。
 
+## 最新敵軍增援交接（2026-10-18，尚未實裝）
+
+[新版敵軍增援入口](enemy-reinforcements-20261018/README.md)與 [13 節點 JSON](enemy-reinforcements-20261018/stage04_density_v2.json) 取代舊「2–3 人初值／無增援／僅初始敵清場」規則：初始另計，每節另補 2–3 波，每波左右各 3–4 名，共 33 波；固定排程全關 313 名，吉良護衛替補另計。王先敗退、護衛池及清場條件以新版交接為準。
+
+舊 `stage04/layout/stage4_nodes_proposal.json` 與全部素材保持原樣，供回退；新版僅為待實作設計，9 個 runtime ID 映射與 15 項實測案例仍待完成。本頁原素材檔數及 `VALIDATION.json` 是 2026-10-17 的原始交付紀錄，不包含這次獨立增補；新版靜態核對另見 [PUBLISH_VALIDATION.json](enemy-reinforcements-20261018/PUBLISH_VALIDATION.json)。
+
 ## 閱讀順序
 
 1. [版本入口與覆蓋順序](stage04/manifest.json)、[完整交接說明](stage04/README_CODEX.md)、[未決項](stage04/OPEN_ITEMS.json)。各角色與旗幟的幀數、每格時間可不同，請逐動作讀取，不套用固定格數或統一 FPS。

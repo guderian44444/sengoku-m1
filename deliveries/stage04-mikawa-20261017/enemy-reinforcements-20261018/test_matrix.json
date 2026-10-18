@@ -1,0 +1,107 @@
+[
+  {
+    "id": "T01",
+    "scope": "普通第1節",
+    "action": "單人初始6；殺到2並等初始入場完成",
+    "expected": "只預約增援1的6名；T+45/90/135各左右1；總18全部清完才開出口。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T02",
+    "scope": "8人波與cap",
+    "action": "第3節上一波剩2，排8人",
+    "expected": "alive+reserved最高10，對側各4，預約轉alive不重算；不能同tick爆出8。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T03",
+    "scope": "全滅空窗",
+    "action": "普通兵瞬間全清且仍有後波",
+    "expected": "不提前clear；預警後排下一波；最後一波未入完不另開波。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T04",
+    "scope": "富永早死",
+    "action": "node8先擊敗富永，普通兵仍在／兩波未出完",
+    "expected": "富永不復活、不鎖血；兩波6+6仍執行；共17排程，全部兵清完才過。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T05",
+    "scope": "吉良同tick死亡",
+    "action": "護衛replacement到期的同tick擊敗吉良",
+    "expected": "先取消護衛token，該tick不生新護衛；有限近戰三波6+6+6仍保留。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T06",
+    "scope": "護衛多殺重複事件",
+    "action": "一次殺3護衛並重送同一死亡事件",
+    "expected": "只新增3token；alive+reserved≤6；3秒到期後節流補；不能重複補員。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T07",
+    "scope": "吉良兩池滿載",
+    "action": "6護衛+王活著，普通剩2，預約6近戰",
+    "expected": "總占用≤15；近戰死不補弓；六弓不阻塞normal≤2觸發。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T08",
+    "scope": "長照先逃",
+    "action": "node13先擊敗王並跑完逃離，三波尚未完",
+    "expected": "escape_complete=true但不通關；原6+8+8照跑，最後required兵死亡才一次通關。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T09",
+    "scope": "長照後逃",
+    "action": "先清所有兵再擊敗長照",
+    "expected": "王倒地起身逃離途中不通關；終點回呼一次通關；重複回呼不重複事件。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T10",
+    "scope": "雙人倍率",
+    "action": "雙人跑普通／富永／吉良／長照各一節",
+    "expected": "初始與每波數完全符合JSON，不額外+50%；cap10/11/15/11維持；HP策略無重複套用。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T11",
+    "scope": "死亡重試",
+    "action": "在T+90已有2對出場時全隊死亡重試",
+    "expected": "清舊epoch所有timer/token；新epoch初始一次；舊callback不能生兵；不接續舊波ordinal。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T12",
+    "scope": "既有中途存檔",
+    "action": "若支援：在有未發token/護衛timer時存讀",
+    "expected": "恢復同一排程剩餘時間，不重播初始／已發配額；若只支持checkpoint，驗證乾淨重開並標不適用中途存檔。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T13",
+    "scope": "最後一兵",
+    "action": "只剩最後一活兵，畫面外入場兵或pending尚在",
+    "expected": "未滿完整clear條件不能通過；最後兵確死且所有queue空才clear；屍體不阻塞。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T14",
+    "scope": "入口阻擋與技術容量",
+    "action": "讓一側入口不合法或actors48暫滿",
+    "expected": "保留該對名額並重試，不吞兵、不重複token、不爆cap；解除阻擋後按45tick實際間隔繼續。",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "T15",
+    "scope": "回歸規則",
+    "action": "4/5泥地、7橋頭、10箭雨、13背景、盾與柵欄",
+    "expected": "原規則不變；無NPC依賴；背景8不入人口；第三關警鐘/木障/防線/帳內原目標均不受改動。",
+    "status": "NOT_RUN"
+  }
+]
