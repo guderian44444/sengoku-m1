@@ -16,7 +16,8 @@ const SAMPLED_CUES := ["sword_whoosh","sword_heavy_whoosh","hit","heavy_hit","sp
 const WEAPON_AUDIO_ROOT := "res://audio/v38/weapons/"
 const WEAPONS_V3_ROOT := "res://audio/weapons-v3/"
 const V3_ALIASES := {
-	"sword_whoosh":"sword_swing", "sword_heavy_whoosh":"sword_swing", "hit":"sword_hit_flesh", "heavy_hit":"sword_hit_flesh",
+	"sword_whoosh":"sword_swing", "sword_heavy_whoosh":"sword_swing", "hit":"body_slash", "heavy_hit":"body_slash",
+	"polearm_hit_flesh":"body_slash",
 	"spear_wind":"spear_thrust", "spear_hit":"spear_hit_flesh", "spear_heavy_hit":"spear_hit_flesh",
 	"blunt_whoosh":"staff_swing", "blunt_hit":"staff_hit", "blunt_heavy_hit":"staff_hit",
 	"bow_heavy_release":"bow_release", "arrow_hit":"arrow_hit_body", "guard":"shield_block", "shield_hit":"shield_block",
@@ -134,6 +135,9 @@ func _ready() -> void:
 		_sound_variants[cue] = _sound_variants[V3_ALIASES[cue]]
 		if cue in ["hit","heavy_hit"]: _impact_sounds[cue] = _sound_variants[cue]
 	for cue in ["musket_player_shot","charge_release","spin_finish"]: _sample_gains[cue] = -13.0
+	for cue in ["hit","body_slash","polearm_hit_flesh","sword_hit_armor","spear_hit","spear_hit_flesh","blunt_hit","staff_hit","staff_hit_armor"]: _sample_gains[cue] = -3.0
+	for cue in ["heavy_hit","spear_heavy_hit","blunt_heavy_hit","spin_finish"]: _sample_gains[cue] = -1.0
+	_sample_gains.metal_parry = -5.0
 	_sample_gains.musket_enemy_shot = -16.0
 	for element in ["fire","ice","wind","lightning"]: _sample_gains["element_"+element+"_hit"] = -24.0
 	_food_player = AudioStreamPlayer.new()
@@ -464,6 +468,7 @@ func play_event(event: Dictionary) -> void:
 
 static func sound_for_event(event: Dictionary) -> String:
 	if event.get("sound_suppressed",false): return ""
+	if event.get("contact","")=="monk_parry": return "metal_parry"
 	if event.get("type","") in ["hit","heavy_hit"] and str(event.get("action","")).begins_with("s05_") and (str(event.action).contains("militia") or str(event.action).contains("monk")): return ""
 	if event.get("type","") == "weapon_swing" and event.get("action","") == "boss_sword_wave": return "sword_air"
 	var kind := str(event.get("type", event.get("kind", "")))

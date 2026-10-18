@@ -256,7 +256,7 @@ func _refresh_items() -> void:
 	current_items.clear()
 	item_list.clear()
 	for item in row.get("inventory",[]):
-		if int(item.uid) not in row.get("bag_uids",[]) or Equipment.FOODS.has(item.item_id): continue
+		if Equipment.FOODS.has(item.item_id): continue
 		if Equipment.TREASURES.has(item.item_id) != (category.selected == 0): continue
 		current_items.append(item)
 		var spec := Equipment.catalog(item.item_id)
@@ -268,7 +268,7 @@ func _refresh_items() -> void:
 func _show_item() -> void:
 	var indices := item_list.get_selected_items()
 	if indices.is_empty():
-		item_detail.text = "行囊未備護符。" if category.selected == 0 else "行囊未備兵器；攜常備兵器出陣（耐久 ∞）。"
+		item_detail.text = "藏兵閣尚無護符。" if category.selected == 0 else "藏兵閣尚無兵器；使用常備兵器出陣（耐久 ∞）。"
 		equip_button.disabled = true
 		return
 	var item: Dictionary = current_items[indices[0]]

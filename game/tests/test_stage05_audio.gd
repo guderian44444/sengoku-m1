@@ -11,6 +11,7 @@ func _initialize() -> void: run.call_deferred()
 func run() -> void:
 	var audio := Audio.new();root.add_child(audio);await process_frame
 	var engine: S5Audio=audio._ikki_audio
+	check(engine.stream("../stage5-runtime/kusei-roar.wav")!=null,"lion roar has a registered sound stream")
 	var variants := {}
 	for row in Data.read("audio/event-map.json"):
 		for name in row.variants:

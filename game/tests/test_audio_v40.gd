@@ -43,7 +43,8 @@ func run():
 				check(bank.variants.size()==1 or selected!=previous,"No adjacent variant repeats")
 				seen[selected]=true; previous=selected
 			check(seen.size()==bank.variants.size(),"Whole bank heard before refill")
-	check(count==98,"All 98 new takes decode")
+	check(count==104,"All registered weapon, body and metal takes decode")
+	check(audio._sample_gains.hit==-3 and audio._sample_gains.heavy_hit==-1 and audio._sample_gains.metal_parry==-5,"Body cuts gain another three dB while metal blocks retain their independent gain")
 	app.sim.reset_training("ieyasu","dummy")
 	var iaido: Dictionary = app.sim.state.fighters[0]
 	iaido.action="charged"
@@ -62,6 +63,7 @@ func run():
 		[{"type":"hit","weapon":"spear","weapon_id":"staff_approved03_naginata"},"polearm_hit_flesh"],
 		[{"type":"prop_hit","weapon":"arrow","material":"wood"},"arrow_hit_wood"], [{"type":"prop_hit","weapon":"sword","material":"wood"},"wood_hit"],
 		[{"type":"shield_hit","contact":"held_body","weapon":"sword"},"hit"], [{"type":"shield_hit","contact":"armor_absorb"},"shield_block"],
+		[{"type":"guard","contact":"monk_parry","material":"armor"},"metal_parry"],
 		[{"type":"weapon_swing","actor_kind":"ieyasu","action":"charged"},"sword_draw"],
 		[{"type":"landing","body":true,"wet":true},"splash"], [{"type":"landing","body":true},"body_land"],
 		[{"type":"heavy_hit","action":"throw"},""], [{"type":"hit","sound_suppressed":true},""],

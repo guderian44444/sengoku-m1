@@ -46,6 +46,8 @@ static func objective(world: Dictionary) -> Dictionary:
 		var flags: int=world.props.filter(func(p):return p.get("s05_banner",false) and not p.broken).size()
 		order_text="破旗斷援　尚餘 %d 支"%flags if flags>0 else "旗幟全破　殲滅餘軍"
 		state="obstacle" if flags>0 else "battle"
+		if world.fighters.any(func(f):return f.get("s05_summon_shield",false)):
+			order_text="破旗斷援　殲僧解印" if flags>0 else "殲滅僧兵　破除空誓護體"
 	if not encounter.is_empty() and not stage.get("go",false):
 		match encounter.kind:
 			"alarm":

@@ -36,6 +36,7 @@ func _initialize() -> void:
 	var hero: Dictionary=sim.state.fighters[0]
 	check(boss.max_hp==2040 and actor(node(12),"kusei").max_hp==1200,"fixed solo/coop HP proposal")
 	S5.start(sim,boss,"s05_kusei_stomp",hero)
+	check(boss.s05_stomp_ready_tick==sim.state.tick+1200,"Stomp reserves a twenty second cooldown")
 	for tick in [0,39,93,147,201,255,299]:
 		boss.action_tick=tick; boss.invuln=0
 		var hp: int=boss.hp
@@ -89,6 +90,7 @@ func _initialize() -> void:
 	for i in 3: S5.thresholds(sim,boss)
 	check(sim.state.ikki.thresholds==[70,40,10] and sim.state.ikki.summons.size()==3,"all crossed thresholds queue once")
 	check(Wire.valid_snapshot(sim.state),"all three numeric thresholds validate")
+	sim.state.props.clear();sim.state.ikki.pending.clear()
 	for i in 3:
 		boss.action="idle"; S5.ai(sim,boss,hero)
 		check(boss.action=="s05_kusei_summon","queued summon starts")
@@ -96,7 +98,18 @@ func _initialize() -> void:
 		check(sim.state.ikki.summon_count==i,"first clap does not spawn")
 		boss.action_tick=99;S5.attack(sim,boss)
 		check(sim.state.ikki.summon_count==i+1,"second clap queues four")
-	check(sim.state.ikki.pending.filter(func(u):return u.elite).size()==12,"three thresholds total twelve elites")
+		check(boss.s05_summon_shield and sim.state.ikki.pending.filter(func(u):return u.elite).size()==4,"summoned monks lock boss HP even before entry")
+		hp=boss.hp
+		check(not sim._damage(boss,500,hero.id,true,true,true) and boss.hp==hp,"summon shield blocks direct damage")
+		check(not sim._damage(boss,3,hero.id,false,false) and boss.hp==hp,"summon shield blocks damage over time")
+		boss.action="idle";S5.ai(sim,boss,hero)
+		check(boss.action!="s05_kusei_summon","next threshold waits until current monks are cleared")
+		S5.tick(sim);check(boss.s05_summon_shield,"pending monks keep the shield active")
+		for f in sim.state.fighters:
+			if f.get("s05_role","")=="monk": f.hp=0;f.action="defeated"
+		sim.state.ikki.pending=sim.state.ikki.pending.filter(func(u):return u.role!="monk")
+		S5.tick(sim);check(not boss.s05_summon_shield,"all living and pending monks must clear before HP unlocks")
+	check(sim.state.ikki.summon_count==3,"three cleared thresholds each summon four elites")
 	var elite := S5.spawn(sim,"monk",500,500,true)
 	var regular := S5.spawn(sim,"monk",500,500)
 	check(elite.max_hp==regular.max_hp*1.5 and S5.Data.speed(elite)==1.5,"elite HP and speed are 150 percent")
@@ -130,5 +143,55 @@ func _initialize() -> void:
 				sim.step([{"dx":1 if tick<110 else 0,"dy":0,"buttons":0},{"dx":1 if tick<110 else 0,"dy":0,"buttons":0}])
 				check(Wire.valid_snapshot(sim.state),"live wire node %d tick %d players %d"%[number,tick,players])
 			check(Wire.valid_snapshot(bytes_to_var(var_to_bytes(sim.state))),"RPC Variant client round trip")
+	pressure()
 	print("STAGE05_COMBAT_PASS %d checks"%checks)
 	quit(0)
+
+func pressure() -> void:
+	var sim:=node(12,2)
+	var boss:=actor(sim,"kusei")
+	var party: Array=sim.state.fighters.filter(func(f):return f.team==0)
+	sim.state.props.clear();sim.state.effects.clear();sim.state.ikki.pending.clear()
+	sim.state.fighters=party+[boss]
+	for i in party.size():
+		party[i].x=boss.x-1000;party[i].y=480+i*100;party[i].invuln=0
+	boss.y=480;boss.cooldown=60
+	var before: float=boss.x
+	S5.ai(sim,boss,party[0])
+	check(is_equal_approx(absf(boss.x-before),2.4*1.15),"Kusei pursues fifteen percent faster")
+	boss.cooldown=0;S5.ai(sim,boss,party[0])
+	check(boss.action=="s05_kusei_roar","distant player triggers lion roar")
+	check(boss.s05_roar_ready_tick==sim.state.tick+480,"Roar reserves an independent eight second cooldown")
+	boss.action_tick=27;S5.attack(sim,boss);S5.attack(sim,boss)
+	var waves: Array=sim.state.effects.filter(func(e):return e.type=="s05_roar")
+	check(waves.size()==1,"one growing sound wave per roar")
+	var wave: Dictionary=waves[0]
+	check(wave.max_life*Vector2(wave.vx,wave.vy).length()>1280,"roar travels farther than a full viewport")
+	for tick in 100: sim._tick_effects()
+	check(wave.radius>=300,"sound wave expands across multiple ground lanes")
+	for hero in party:
+		check(hero.hp==hero.max_hp-12 and hero.stun==120 and hero.action=="stunned","wide roar hits each player once and stuns for two seconds")
+	check(Wire.valid_snapshot(sim.state),"roar and full warehouses cross the wire")
+	var bad:=sim.get_state()
+	bad.effects[0].radius=361
+	check(not Wire.valid_snapshot(bad),"oversized roar data is rejected at the network boundary")
+	boss.action="idle";boss.cooldown=0;sim.state.tick=int(boss.s05_roar_ready_tick)-1
+	S5.ai(sim,boss,party[0])
+	check(boss.action=="idle","Distant players cannot trigger a roar before its cooldown")
+	sim.state.tick+=1;S5.ai(sim,boss,party[0])
+	check(boss.action=="s05_kusei_roar" and boss.s05_roar_ready_tick==sim.state.tick+480,"Roar becomes available only after eight seconds")
+	party[0].x=boss.x-100;party[0].y=boss.y
+	boss.action="idle";boss.cooldown=0;boss.ai_cycle=2
+	S5.ai(sim,boss,party[0])
+	check(boss.action=="s05_kusei_stomp","Ready stomp is still selected at close range")
+	var stomp_ready: int=boss.s05_stomp_ready_tick
+	boss.action="idle";boss.cooldown=0;boss.ai_cycle=2;sim.state.tick=stomp_ready-1
+	S5.ai(sim,boss,party[0])
+	check(boss.action=="s05_kusei_slash" and boss.s05_stomp_ready_tick==stomp_ready,"Cooling stomp is replaced by a slash without extending its cooldown")
+	boss.action="idle";boss.cooldown=0;boss.ai_cycle=2;sim.state.tick=stomp_ready
+	S5.ai(sim,boss,party[0])
+	check(boss.action=="s05_kusei_stomp" and boss.s05_stomp_ready_tick==sim.state.tick+1200,"Stomp is available at its twenty second boundary")
+	check(Wire.valid_snapshot(sim.state),"Stomp cooldown synchronizes")
+	var bad_stomp:=sim.get_state()
+	bad_stomp.fighters[-1].s05_stomp_ready_tick=-1
+	check(not Wire.valid_snapshot(bad_stomp),"Negative stomp cooldown is rejected")

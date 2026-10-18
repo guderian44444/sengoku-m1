@@ -70,7 +70,7 @@ func _ready() -> void:
 	item_list.add_theme_font_size_override("font_size",20)
 	item_list.add_theme_constant_override("v_separation",10)
 	sidebar.add_child(item_list)
-	_label(sidebar,"◆ 裝備中　▣ 隨身攜帶",17)
+	_label(sidebar,"◆ 裝備中；所有藏品皆可隨時取用",17)
 	item_list.item_selected.connect(func(index): select_item(str(listed[index].id)))
 	var detail_panel := PanelContainer.new()
 	detail_panel.size_flags_horizontal = SIZE_EXPAND_FILL
@@ -131,7 +131,7 @@ func configure(owner: String, items: Array, equipped_ids: Array, battle: bool = 
 		if item.id in equipped: slots.append(str(item.get("slot","裝備")) + "：" + str(item.name))
 	equipment_summary.text = "裝備　" + ("　｜　".join(slots) if not slots.is_empty() else "無藏品在身")
 	sell_button.visible = not battle
-	pack_button.visible = not battle
+	pack_button.visible = false
 	discard_button.visible = battle
 	selected_id = str(equipped[0]) if not equipped.is_empty() else ""
 	notice.text = ""

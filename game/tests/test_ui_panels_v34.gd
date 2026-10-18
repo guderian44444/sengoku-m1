@@ -69,7 +69,8 @@ func run() -> void:
 	collection.notice.text = "兵器 2 / 2、護符 2 / 2（含裝備中）　｜　藏兵閣 120 / 120；出陣僅攜行囊。"
 	collection.select_item("119")
 	await settle()
-	for control in [collection.item_list,collection.equip_button,collection.pack_button,collection.sell_button,collection.details_button,collection.notice,collection.description_scroll]: inside(control,"Collection " + str(control.name))
+	for control in [collection.item_list,collection.equip_button,collection.sell_button,collection.details_button,collection.notice,collection.description_scroll]: inside(control,"Collection " + str(control.name))
+	check(not collection.pack_button.visible,"direct warehouse access removes the packing step")
 	check(collection.item_list.size.y >= 200,"Full warehouse keeps usable list height")
 	check(collection.description_scroll.size.y >= 140,"Warehouse description has a readable viewport")
 	check(collection.description_scroll.focus_mode == Control.FOCUS_ALL,"Warehouse description can take controller focus")

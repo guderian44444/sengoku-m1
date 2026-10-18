@@ -4,6 +4,11 @@ const Battle = preload("res://core/battle.gd")
 const Wire = preload("res://core/wire.gd")
 var checks := 0
 
+class FoodBattle extends Battle:
+	var food_roll := 0
+	func _loot_roll(limit: int) -> int:
+		return food_roll if limit == 100 else limit - 1
+
 func check(ok: bool, label: String) -> void:
 	checks += 1
 	assert(ok,label)
@@ -12,39 +17,22 @@ func food(sim) -> Array:
 	return sim.state.drops.filter(func(d): return d.kind == "food")
 
 func kill(sim, player: Dictionary) -> void:
-	var enemies: Array = sim.state.fighters.filter(func(f): return f.team == 1 and f.hp > 0)
-	var target: Dictionary
-	if enemies.is_empty():
-		target = sim._make_fighter(1,"soldier",780,520,50)
-		sim.state.fighters.append(target)
-	else: target = enemies[0]
-	target.entering = false
-	target.action = "idle"
-	target.x = clampf(player.x+100,sim._left_edge()+60,sim._right_edge()-60)
-	target.y = 520
+	var target: Dictionary = sim._make_fighter(1,"soldier",player.x+100,520,50)
+	sim.state.fighters.append(target)
 	check(sim._damage(target,10000,player.id,false,false,true),"actual kill accepted")
 	check(target.hp == 0,"enemy killed")
+	sim.state.fighters.erase(target)
 
-func break_prop(sim, player: Dictionary, configured_food: bool = false) -> void:
-	var prop := {"id":900000+checks,"kind":"crate","x":player.x+80,"y":530.0,"hp":60,"max_hp":60,"broken":false,"drop":"food" if configured_food else "","food_id":"fish"}
+func break_prop(sim, player: Dictionary) -> void:
+	var prop := {"id":900000+checks,"kind":"crate","x":player.x+80,"y":530.0,"hp":60,"max_hp":60,"broken":false,"drop":"food","food_id":"fish"}
 	sim._damage_prop(prop,999,player.id)
 	check(prop.broken,"actual prop broken")
 	sim._damage_prop(prop,999,player.id)
 
-func hurt(sim, player: Dictionary) -> void:
-	player.hp = 60
-	player.max_hp = 120
-	player.action = "idle"
-	player.invuln = 0
-	sim._arm_food_drop()
-	check(player.food_state == "ready","exactly 50 percent does not trigger")
-	check(sim._damage(player,1,0,false,false,true),"real damage crosses below half")
-	check(player.hp == 59 and player.food_state == "pending","crossing latches pending food")
-
 func routes() -> void:
 	for count in [1,2]:
-		for chapter in range(1,5):
-			var sim := Battle.new()
+		for chapter in range(1,6):
+			var sim := FoodBattle.new()
 			sim.reset_campaign("normal",count,["nobunaga","nobunaga"],chapter)
 			var nodes := 0
 			for section in sim._campaign.segments.size():
@@ -53,60 +41,65 @@ func routes() -> void:
 					for f in sim.state.fighters:
 						if f.team == 0: f.hp = f.max_hp
 					sim._start_checkpoint(checkpoint)
-					sim.state.intro.clear()
-					sim.state.events.clear()
-					sim.state.effects.clear()
+					sim.state.intro.clear();sim.state.events.clear();sim.state.effects.clear()
 					var party: Array = sim.state.fighters.filter(func(f): return f.team == 0)
 					var before: int = food(sim).size()
-					kill(sim,party[0])
-					break_prop(sim,party[0],true)
-					check(food(sim).size() == before,"healthy kills, bosses and food containers never bypass gate")
+					kill(sim,party[0]);break_prop(sim,party[0])
+					check(food(sim).size() == before,"healthy kills and breaks do not drop food")
 					for index in party.size():
 						var player: Dictionary = party[index]
-						hurt(sim,player)
-						check(food(sim).size() == before+index,"damage alone does not drop food")
-						if index == 0 and count == 2:
-							kill(sim,party[1])
-							check(food(sim).size() == before and party[0].food_state == "pending","healthy partner cannot spend pending quota")
-						player.hp = player.max_hp
-						if index == 0: kill(sim,player)
-						else: break_prop(sim,player)
-						check(food(sim).size() == before+index+1 and player.food_state == "spent","next credited kill or any break yields exactly one even after healing")
-						player.hp = 59
-						sim._arm_food_drop()
+						before = food(sim).size()
+						player.hp = player.max_hp / 2
 						kill(sim,player)
-						break_prop(sim,player,true)
-						check(food(sim).size() == before+index+1,"no repeat food after another low-health crossing or break")
+						check(food(sim).size() == before,"exactly half HP is ineligible")
+						player.hp -= 1
+						if count == 2:
+							kill(sim,party[1-index])
+							check(food(sim).size() == before,"healthy partner cannot use another player's low HP")
+						for roll in [19,20,0,99,0]:
+							sim.food_roll = roll
+							var expected: int = food(sim).size() + (1 if roll < 20 else 0)
+							kill(sim,player)
+							check(food(sim).size() == expected,"independent twenty-percent roll repeats in the same node")
+						before = food(sim).size()
+						player.hp = player.max_hp
+						sim.food_roll = 0
+						kill(sim,player);break_prop(sim,player)
+						check(food(sim).size() == before,"healing cancels eligibility immediately")
+						player.hp = player.max_hp / 2 - 1
+						break_prop(sim,player);break_prop(sim,player)
+						check(food(sim).size() == before+2,"low-HP breaks have no one-shot quota and cannot duplicate a broken prop")
+						player.hp = player.max_hp
+					for drop in food(sim): check(drop.heal == 80,"campaign food recovery doubles")
 					if sim.state.has("encounter"): Battle.Stage03Encounter.tick(sim)
-					check(Wire.valid_snapshot(sim.get_state()),"chapter node snapshot and per-player quota validate")
+					check(Wire.valid_snapshot(sim.get_state()),"all five chapter snapshots validate without food quotas")
 					nodes += 1
-			check(nodes == [14,12,4,13][chapter-1],"every current checkpoint tested")
+			check(nodes == [14,12,4,13,12][chapter-1],"every current checkpoint covered")
 
 func boundaries() -> void:
-	var sim := Battle.new()
-	sim.reset_campaign("normal",2,["nobunaga","oichi"],4)
-	var party: Array = sim.state.fighters.filter(func(f):return f.team == 0)
-	for p in party: hurt(sim,p)
-	kill(sim,party[0]);kill(sim,party[1])
-	check(food(sim).size() == 2,"simultaneous pending players each get one")
-	var bad := sim.get_state()
-	bad.fighters[0].food_state = "again"
-	check(not Wire.valid_snapshot(bad),"invalid food state rejected")
-	party[0].lives = 2;party[0].hp = 0;party[0].respawn_ticks = 1
-	sim._tick_respawn(party[0])
-	check(sim.state.fighters[0].food_state == "spent","respawn cannot reset quota")
-	sim.state.fighters[0].hp = 30
-	sim._start_checkpoint(1)
-	check(sim.state.fighters[0].food_state == "pending","entering new node already below half arms new quota")
-	# Ordinary loot cannot use the slots needed by both players in later checkpoints.
+	for difficulty in Battle.DIFFICULTIES:
+		for hero in Battle.PLAYABLE_HEROES:
+			var sim := Battle.new()
+			sim.reset(difficulty,1,[hero])
+			var player: Dictionary = sim.state.fighters[0]
+			check(player.max_hp == roundi(Battle.DIFFICULTIES[difficulty].player_hp * 1.5),"all heroes gain fifty percent HP at every difficulty")
+			check(Battle.character_stats(player,difficulty).hp == player.max_hp,"equipment panel matches actual HP")
+	for spec in Battle.Equipment.FOODS.values(): check(spec.heal == 80,"all stored foods double recovery")
+	var sim := FoodBattle.new()
+	sim.reset_campaign("normal",1,["nobunaga"],5)
+	var player: Dictionary = sim.state.fighters[0]
 	sim.state.drops.clear()
 	for i in 56: check(sim._add_drop("talisman",500,500),"ordinary loot fits")
 	check(not sim._add_drop("talisman",500,500),"food slots reserved")
-	kill(sim,sim.state.fighters[0])
-	check(food(sim).size() == 1,"guaranteed food survives normal loot saturation")
+	player.hp = 1
+	kill(sim,player)
+	check(food(sim).size() == 1,"food can drop despite ordinary loot saturation")
+	player.hp = 0
+	kill(sim,player)
+	check(food(sim).size() == 1,"defeated player cannot earn low-health food")
 
 func _initialize() -> void:
 	routes()
 	boundaries()
-	print("CAMPAIGN FOOD PASS: %d checks; all 43 nodes solo/coop, strict threshold, per-player one-shot, credited kills/breaks, reset and wire" % checks)
+	print("CAMPAIGN FOOD PASS: %d checks; five chapters solo/coop, strict threshold, independent 20 percent rolls, no per-node quota, doubled recovery and player HP" % checks)
 	quit()

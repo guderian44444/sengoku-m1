@@ -2019,7 +2019,7 @@ func _draw_arrow_rain(effect: Dictionary, behind: bool) -> void:
 		elif progress>=1 and age<36: draw_line(landing-Vector2(0,19),landing,Color(.94,.87,.69,opacity*.7),1.2,true)
 
 func _draw_effect(effect: Dictionary) -> void:
-	if effect.type in ["s05_fx","s05_wave"] or effect.get("s05_arrow",false):
+	if effect.type in ["s05_fx","s05_wave","s05_roar"] or effect.get("s05_arrow",false):
 		_stage05_art.effect(self,effect)
 		return
 	if effect.has("mikawa_projectile") or effect.type == "mikawa_fx":

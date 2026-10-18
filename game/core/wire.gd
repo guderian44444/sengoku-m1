@@ -77,7 +77,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if drop.has("type") and not drop.type is String:
 			return false
 		if drop.has("food_id") and not _choice(drop.food_id,FOODS): return false
-		if drop.has("heal") and not _integer(drop.heal,1,120): return false
+		if drop.has("heal") and not _integer(drop.heal,1,240): return false
 		if drop.kind == "talisman" and not _choice(drop.get("talisman_id"),Battle.TALISMANS.keys()): return false
 		if drop.kind == "weapon" and not _choice(drop.get("weapon_id"),Weapons.ITEMS.keys()): return false
 	for prop in world.props:
@@ -129,7 +129,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if event.type == "damage" and not event.has("amount"): return false
 		if event.type == "challenge_complete" and not _integer(event.get("amount"),1,10000): return false
 		if event.type == "food_stored" and not _choice(event.get("food_id"),FOODS): return false
-		if event.type == "food_pickup" and (not _choice(event.get("food_id"),FOODS) or not _integer(event.get("heal"),1,120)): return false
+		if event.type == "food_pickup" and (not _choice(event.get("food_id"),FOODS) or not _integer(event.get("heal"),1,240)): return false
 		if event.has("wet") and not event.wet is bool: return false
 		if event.has("target_stage_boss") and not event.target_stage_boss is bool: return false
 		if event.has("material") and not _choice(event.material,["ceramic","stone","box","wood","wicker","body","armor"]): return false
@@ -140,7 +140,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 			if event.has(field) and not _integer(event[field],-1): return false
 		for field in ["body","spin_finish","sound_suppressed"]:
 			if event.has(field) and not event[field] is bool: return false
-		if event.has("contact") and not _choice(event.contact,["armor_absorb","held_body"]): return false
+		if event.has("contact") and not _choice(event.contact,["armor_absorb","held_body","monk_parry"]): return false
 		if event.type == "element_hit" and not _choice(event.get("element"),["fire","ice","wind","lightning"]): return false
 		if event.has("combo") and not _integer(event.combo, 0, 3): return false
 		if event.has("heavy_combo") and not _integer(event.heavy_combo, 0, 2): return false
@@ -194,6 +194,9 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 		if not _id_list(fighter.get("s05_combo")) or fighter.s05_combo.size()>2: return false
 		if not _strings(fighter.get("s05_events"),32,80): return false
 	if fighter.has("s05_combo_owner") and not _integer(fighter.s05_combo_owner,0): return false
+	if fighter.has("s05_summon_shield") and (fighter.get("s05_role","")!="kusei" or not fighter.s05_summon_shield is bool): return false
+	if fighter.has("s05_roar_ready_tick") and (fighter.get("s05_role","")!="kusei" or not _integer(fighter.s05_roar_ready_tick,0)): return false
+	if fighter.has("s05_stomp_ready_tick") and (fighter.get("s05_role","")!="kusei" or not _integer(fighter.s05_stomp_ready_tick,0)): return false
 	if fighter.has("mikawa_role"):
 		if fighter.get("team") != 1 or not _choice(fighter.mikawa_role,Mikawa.ROLES) or not fighter.get("mikawa_escort") is bool: return false
 		for key in ["mikawa_sequence","mikawa_command"]:
@@ -233,8 +236,7 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 	if fighter.has("role"):
 		if fighter.team != 1 or not _choice(fighter.role,Battle.ENEMY_ROLES.keys()) or fighter.kind != Battle.ENEMY_ROLES[fighter.role]: return false
 	if fighter.team == 0:
-		if not _choice(fighter.get("food_state"),["ready","pending","spent"]): return false
-		if fighter.get("bag_only") != true: return false
+		if not fighter.get("bag_only") is bool: return false
 		if fighter.weapon_id != "" and not Weapons.compatible(fighter.kind,fighter.weapon_id): return false
 		if not Equipment.valid(fighter) or not Achievements.valid(fighter.get("achievements")) or not Achievements.valid(fighter.get("performance_awards")): return false
 		for field in ["attack_id","achievement_reward_tick"]:
@@ -307,6 +309,11 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 
 
 static func _valid_effect(effect: Dictionary) -> bool:
+	if effect.get("type")=="s05_roar":
+		if effect.get("team")!=1 or effect.get("action")!="s05_kusei_roar" or not _integer(effect.get("owner"),1): return false
+		if not _number(effect.get("z"),0,300) or not _number(effect.get("radius"),0,360): return false
+		if not _number(effect.get("vx"),-16,16) or not _number(effect.get("vy"),-16,16): return false
+		if not _integer(effect.get("damage"),1,100) or not _id_list(effect.get("hit_ids")) or effect.hit_ids.size()>2: return false
 	if effect.has("s05_arrow") and (not effect.s05_arrow is bool or not effect.s05_arrow or effect.get("type")!="projectile" or effect.get("weapon")!="arrow" or effect.get("team")!=1): return false
 	if effect.get("type") in ["s05_wave","s05_fx"]:
 		if not _integer(effect.get("owner"),1) or not _number(effect.get("z"),-500,2000): return false
@@ -333,7 +340,7 @@ static func _valid_effect(effect: Dictionary) -> bool:
 			for field in ["from_x","from_y","land_x","land_y"]:
 				if not _number(effect.get(field)): return false
 			if not _integer(effect.get("command"),1) or not _integer(effect.get("wave"),0,3): return false
-	if not _choice(effect.get("type"), EFFECTS+["sky_arrow","arrow_rain","mikawa_fx","s05_wave","s05_fx"]) or not _position(effect):
+	if not _choice(effect.get("type"), EFFECTS+["sky_arrow","arrow_rain","mikawa_fx","s05_wave","s05_fx","s05_roar"]) or not _position(effect):
 		return false
 	if not _integer(effect.get("life"), 0, 1000000) or not _integer(effect.get("max_life"), 1, 1000000):
 		return false

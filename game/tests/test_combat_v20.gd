@@ -33,20 +33,20 @@ func _test_boss_health() -> void:
 				battle._spawn_segment_wave()
 				var bosses: Array = battle.state.fighters.filter(func(f): return f.kind == "boss")
 				check(bosses.size() == 1,"Boss stays unique at every difficulty and party size")
-				check(bosses[0].max_hp == battle.state.fighters[0].max_hp * (3 if final else 2),"Exact player health ratio without difficulty or co-op compounding")
+				check(bosses[0].max_hp == int(Battle.DIFFICULTIES[difficulty].player_hp) * (3 if final else 2),"Player HP boost does not increase campaign officer HP")
 			battle.reset(difficulty,count)
 			battle.state.fighters = battle.state.fighters.filter(func(f): return f.team == 0)
 			battle.state.wave = 3
 			battle._spawn_wave()
-			check(battle.state.fighters[-1].max_hp == battle.state.fighters[0].max_hp * 2,"Trial bosses use the same two-times rule")
+			check(battle.state.fighters[-1].max_hp == int(Battle.DIFFICULTIES[difficulty].player_hp) * 2,"Trial bosses retain their prior HP")
 	var training := Battle.new()
 	training.reset_training("nobunaga","boss")
-	check(training.state.fighters[1].max_hp == training.state.fighters[0].max_hp * 2,"Training boss uses the same production rule")
+	check(training.state.fighters[1].max_hp == int(Battle.DIFFICULTIES.normal.player_hp) * 2,"Training boss retains its prior HP")
 	training.reset("normal",2)
-	training.state.fighters[0].max_hp = 75
-	training.state.fighters[1].max_hp = 95
+	training.state.fighters[0].max_hp_bonus = 15
+	training.state.fighters[1].max_hp_bonus = 30
 	training.state.fighters[1].hp = 0
-	check(training._boss_hp() == 190 and training._boss_hp(true) == 285,"Basis is actual highest party max HP, including a fallen partner")
+	check(training._boss_hp() == 300 and training._boss_hp(true) == 450,"Highest saved HP bonus still counts for a fallen partner without the new player multiplier")
 	training.state.fighters.reverse()
 	check(training._boss_hp() == 190,"Party ordering cannot change boss HP")
 

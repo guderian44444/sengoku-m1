@@ -21,7 +21,7 @@ func run() -> void:
 		sim._enter_segment(section)
 		sim.state.intro.clear()
 		var p: Dictionary=sim.state.fighters[0]
-		p.x=450;p.y=600;p.food_state="pending"
+		p.x=450;p.y=600
 		sim._add_drop("food",620,570,p.id)
 		for camera in [0,900]:
 			view.state=sim.get_state()

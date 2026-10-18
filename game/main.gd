@@ -808,7 +808,6 @@ func _equip_inventory(slot: int, uid: int) -> void:
 	var hero := _equipment_hero(slot)
 	var profile = profiles.records[profiles.selected[slot]]
 	var previous: Dictionary = profile.data.duplicate(true)
-	if equipment_in_battle and uid != 0 and uid not in profiles.character(slot,hero).bag_uids: return
 	if not profiles.equip_instance(slot,hero,uid): return
 	_finish_inventory_change(slot,hero,previous,"兵甲整備，已記入軍籍。")
 
@@ -828,7 +827,7 @@ func _pack_item(id: String) -> void:
 	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
 	var carry: bool = int(id) not in row.bag_uids
 	if not profiles.pack(encyclopedia_slot,hero,int(id),carry):
-		collection.notice.text = "行囊限兩把兵器、兩個護符；常備兵器不佔空位。"
+		collection.notice.text = "此物品無法整備，請確認兵器相容性。"
 		return
 	_finish_inventory_change(encyclopedia_slot,hero,previous,"已收入隨身行囊。" if carry else "已送回藏兵閣。")
 
@@ -836,7 +835,7 @@ func _request_discard(id: String) -> void:
 	if not equipment_in_battle: return
 	var row: Dictionary = profiles.character(encyclopedia_slot,_equipment_hero(encyclopedia_slot))
 	var item := Equipment.instance(row,int(id))
-	if item.is_empty() or int(id) not in row.bag_uids: return
+	if item.is_empty(): return
 	_request_confirmation(_discard_item.bind(int(id)),"丟棄 %s？\n物品會永久消失，不能再撿回來。" % Equipment.catalog(item.item_id).name)
 
 func _discard_item(uid: int) -> void:
@@ -845,7 +844,7 @@ func _discard_item(uid: int) -> void:
 	var profile = profiles.records[profiles.selected[encyclopedia_slot]]
 	var previous: Dictionary = profile.data.duplicate(true)
 	if not profiles.discard(encyclopedia_slot,hero,uid): return
-	_finish_inventory_change(encyclopedia_slot,hero,previous,"物品已丟棄並消失，行囊空位已釋出。")
+	_finish_inventory_change(encyclopedia_slot,hero,previous,"物品已從藏兵閣丟棄並消失。")
 
 func _finish_inventory_change(slot: int, hero: String, previous: Dictionary, message: String) -> bool:
 	var saved: bool = profiles.save_player(slot) == OK
@@ -858,8 +857,9 @@ func _finish_inventory_change(slot: int, hero: String, previous: Dictionary, mes
 			for fighter in sim.state.fighters:
 				if fighter.team != 0 or int(fighter.player_index) != slot: continue
 				for field in ["next_item_uid","weapon_uid","treasure_uid","gold","achievements","bag_uids"]: fighter[field] = row[field].duplicate(true) if row[field] is Array else row[field]
-				fighter.inventory = row.inventory.filter(func(item): return int(item.uid) in row.bag_uids).duplicate(true)
-				fighter.storage_reserve = row.inventory.size() - fighter.inventory.size()
+				fighter.inventory = row.inventory.duplicate(true)
+				fighter.bag_only = false
+				fighter.storage_reserve = 0
 				Equipment.sync(fighter)
 			sim.cancel_input(slot)
 	status.text = message
@@ -880,7 +880,7 @@ func _use_food(id: String) -> void:
 	if party.is_empty(): return
 	var fighter: Dictionary = party[0]
 	var item := Equipment.instance(fighter,int(id))
-	if item.is_empty() or not Equipment.FOODS.has(item.item_id) or int(id) not in fighter.bag_uids: return
+	if item.is_empty() or not Equipment.FOODS.has(item.item_id): return
 	if fighter.hp <= 0 or fighter.hp >= fighter.max_hp:
 		collection.notice.text = "體力全滿時保留食物；倒地戰敗時無法使用。"
 		return
@@ -949,20 +949,18 @@ func _refresh_collection() -> void:
 	var row: Dictionary = profiles.character(encyclopedia_slot,hero)
 	var items := []
 	for item in row.inventory:
-		if equipment_in_battle and int(item.uid) not in row.bag_uids: continue
 		var spec := Equipment.catalog(str(item.item_id))
 		if Equipment.FOODS.has(item.item_id):
 			var food_id: String = str(item.item_id).trim_prefix("food_")
 			var party: Array = sim.state.fighters.filter(func(f): return f.team == 0 and int(f.player_index) == encyclopedia_slot)
 			var can_use: bool = equipment_in_battle and not party.is_empty() and party[0].hp > 0 and party[0].hp < party[0].max_hp
-			items.append({"id":str(item.uid),"name":spec.name+"　×1","category":"食物","description":"恢復 %d 點體力（護符加成另計）。\n滿血拾取會收進行囊；有缺血時拾取就會吃掉。\n軍議中開啟行囊，選擇「使用」即可補血。"%int(spec.heal),"image":"res://assets/v18/food-source.png","image_region":view._stage_art.food[food_id].source_region,"consumable":true,"can_use":can_use,"can_pack":true,"packed":int(item.uid) in row.bag_uids,"can_sell":false})
+			items.append({"id":str(item.uid),"name":spec.name+"　×1","category":"食物","description":"恢復 %d 點體力（護符加成另計）。\n滿血拾取會收進藏兵閣；有缺血時拾取就會吃掉。\n軍議中開啟藏兵閣，選擇「使用」即可補血。"%int(spec.heal),"image":"res://assets/v18/food-source.png","image_region":view._stage_art.food[food_id].source_region,"consumable":true,"can_use":can_use,"can_pack":false,"packed":false,"can_sell":false})
 			continue
 		var treasure: bool = Equipment.TREASURES.has(item.item_id)
-		var packed: bool = int(item.uid) in row.bag_uids
 		var practice := Equipment.is_practice(item.item_id)
-		items.append({"id":str(item.uid),"name":"%s　%s　#%d" % [spec.name,"耐久 ∞・常備" if practice else "%d/%d" % [int(item.durability),int(spec.durability)],int(item.uid)],"category":"護符" if treasure else {"sword":"刀","spear":"槍","bow":"弓"}[spec.family],"description":spec.description if treasure else WeaponArchive.stats(item.item_id) + "\n\n" + str(spec.history),"image":"res://assets/v21/treasures/%s.png" % spec.image if treasure else "res://assets/v22/weapons/%s.png" % Weapons.art_id(item.item_id),"can_equip":packed and (treasure or Weapons.compatible(hero,item.item_id)),"can_pack":not practice and (treasure or Weapons.compatible(hero,item.item_id)),"packed":packed,"has_details":not treasure and int(spec.tier) > 0,"slot":"護符" if treasure else "武器","price":Equipment.sale_price(item)})
+		items.append({"id":str(item.uid),"name":"%s　%s　#%d" % [spec.name,"耐久 ∞・常備" if practice else "%d/%d" % [int(item.durability),int(spec.durability)],int(item.uid)],"category":"護符" if treasure else {"sword":"刀","spear":"槍","bow":"弓"}[spec.family],"description":spec.description if treasure else WeaponArchive.stats(item.item_id) + "\n\n" + str(spec.history),"image":"res://assets/v21/treasures/%s.png" % spec.image if treasure else "res://assets/v22/weapons/%s.png" % Weapons.art_id(item.item_id),"can_equip":treasure or Weapons.compatible(hero,item.item_id),"can_pack":false,"packed":false,"has_details":not treasure and int(spec.tier) > 0,"slot":"護符" if treasure else "武器","price":Equipment.sale_price(item)})
 	collection.configure("%s・%s　%d 文" % [profiles.name_for(encyclopedia_slot),HERO_NAMES[hero],int(row.gold)],items,[str(row.weapon_uid),str(row.treasure_uid)],equipment_in_battle)
-	collection.notice.text = "武器 %d / 2、護符 %d / 2、食物 %d（不佔裝備位）　｜　%s" % [Equipment.bag_count(row,false),Equipment.bag_count(row,true),row.inventory.filter(func(item): return int(item.uid) in row.bag_uids and Equipment.FOODS.has(item.item_id)).size(),"丟棄須確認，物品會消失。" if equipment_in_battle else "倉庫 %d / %d；出戰後僅能使用行囊。" % [row.inventory.size(),Equipment.CAPACITY]]
+	collection.notice.text = "藏兵閣 %d / %d；出陣直接取用全部藏品。%s" % [row.inventory.size(),Equipment.CAPACITY,"丟棄須確認，物品會永久消失。" if equipment_in_battle else ""]
 
 func _open_weapon_encyclopedia(slot: int, return_page: String = "select") -> void:
 	if equipment_in_battle: return
@@ -1681,7 +1679,7 @@ func _events(events: Array) -> void:
 		if event.type == "achievement": _achievement_messages.append("%dP  %s\n%s%s" % [int(sim._fighter(int(event.actor)).get("player_index",0))+1,str(event.name),str(event.description),"　・　獲得戰利品！" if event.get("loot",false) else ""])
 		elif event.type == "weapon_break": _achievement_messages.append(str(event.name) + " 已折・改持常備兵器")
 		elif event.type == "food_stored": _achievement_messages.append("%dP 食物已收入行囊，可於軍議中使用。" % (int(sim._fighter(int(event.actor)).player_index)+1))
-		elif event.type == "inventory_full": _achievement_messages.append("行囊或藏兵閣已滿，騰出空位後再拾取。地上物品保留。")
+		elif event.type == "inventory_full": _achievement_messages.append("藏兵閣已滿，騰出空位後再拾取。地上物品保留。")
 		elif event.type == "challenge_complete": _achievement_messages.append("糧車奪回・每將獲賞 %d 金" % int(event.amount))
 		elif event.type == "challenge_failed": _achievement_messages.append("糧車損毀・仍可繼續進軍")
 		if event.get("type", "") == "boss_intro" and session == "host" and remote_id != 0:

@@ -25,7 +25,7 @@ func _initialize() -> void:
 			var sim := fixture(role,face)
 			var farmer: Dictionary=sim.state.fighters[1]
 			var hero: Dictionary=sim.state.fighters[0]
-			assert(farmer.max_hp==66 and Data.height(role)==146)
+			assert(farmer.max_hp==53 and Data.height(role)==146)
 			var action: String="s05_sickle_farmer_attack" if role=="sickle_farmer" else "s05_hunting_bow_farmer_shot"
 			S5.start(sim,farmer,action,hero)
 			var before: int=hero.hp
@@ -36,20 +36,23 @@ func _initialize() -> void:
 			farmer.action_tick=release;S5.attack(sim,farmer)
 			S5.attack(sim,farmer) # A duplicate callback cannot repeat the release.
 			if role=="sickle_farmer":
-				assert(hero.hp==before-10)
+				assert(hero.hp==before-7)
 				for tick in range(17,23):
 					hero.invuln=0;farmer.action_tick=tick;S5.attack(sim,farmer)
-				assert(hero.hp==before-10,"One hit per target across the active window")
+				assert(hero.hp==before-7,"One hit per target across the active window")
 				assert(sim.state.events.filter(func(e):return e.type=="weapon_swing").size()==1)
 			else:
-				assert(hero.hp==before and sim.state.effects.size()==1,"Bow has no melee damage and emits one projectile")
+				assert(hero.hp==before and sim.state.effects.filter(func(e):return e.type=="projectile").size()==1,"Bow has no melee damage and emits one projectile")
 				var arrow: Dictionary=sim.state.effects[0]
 				assert(arrow.s05_arrow and arrow.vx*face>0 and is_equal_approx(arrow.z,592.0*146/810))
 				assert(is_equal_approx(arrow.x,farmer.x+face*406.0*146/810),"Collision starts at the painted arrow tip")
+				assert(arrow.arcing and arrow.origin_x==arrow.x and arrow.start_z==arrow.z and arrow.target_x==hero.x)
 				assert(sim.state.events.filter(func(e):return e.type=="bow_release").size()==1)
-				for tick in 20: sim._tick_effects()
-				assert(hero.hp==before-10,"The straight arrow collides in both facing directions")
-				assert(sim.state.effects.filter(func(e):return e.get("s05_arrow",false)).is_empty(),"Non-piercing arrow is consumed on contact")
+				sim._tick_effects()
+				assert(arrow.z>arrow.start_z and hero.hp==before,"Arrow rises before landing")
+				for tick in int(arrow.flight_ticks): sim._tick_effects()
+				assert(hero.hp==before-7,"The arcing arrow lands in both facing directions")
+				assert(sim.state.effects.filter(func(e):return e.get("s05_arrow",false)).is_empty(),"Arrow is consumed on landing")
 			assert(Wire.valid_snapshot(sim.state),"New roles, action IDs and arrow data travel through the wire")
 	# A cancelled draw must not release; the hurt reaction owns the subsequent ticks.
 	var sim := fixture("hunting_bow_farmer",1)
@@ -62,6 +65,6 @@ func _initialize() -> void:
 	var hero: Dictionary=sim.state.fighters[0]
 	hero.x=800;S5.start(sim,farmer,"s05_sickle_farmer_attack",hero)
 	farmer.action_tick=16;S5.attack(sim,farmer);hero.x=680;farmer.action_tick=19;S5.attack(sim,farmer)
-	assert(hero.hp==hero.max_hp-10)
+	assert(hero.hp==hero.max_hp-7)
 	print("STAGE05_FARMERS_PASS two complete variants; mirrored release/collision; one release per attack; cancelled draw; sickle active window")
 	quit()

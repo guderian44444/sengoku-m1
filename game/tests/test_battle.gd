@@ -202,7 +202,7 @@ func _test_pickups_and_difficulty() -> void:
 	player.y = 465.0
 	player.hp = 20
 	_advance(battle, 1, Battle.INTERACT)
-	_check(player.hp == 60, "food restores 40 health")
+	_check(player.hp == 100, "food restores 80 health")
 	var normal = _arena()
 	var armed = _arena()
 	armed.state.fighters[0].weapon = 1

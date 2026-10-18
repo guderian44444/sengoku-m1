@@ -20,22 +20,20 @@ func core() -> void:
 	for id in ["sword_heshikiri","sword_nagamitsu","wind","vajra"]: check(Equipment.add(p,id)>0,"fill equipment slots")
 	Equipment.sync(p)
 	for id in ["rice","fish","dango","peach"]:
-		p.food_state = "pending"
-		check(sim._add_drop("food",p.x,p.y,p.id),"pending guaranteed food")
+		check(sim._add_drop("food",p.x,p.y,p.id),"food pickup fixture")
 		sim.state.drops[-1].food_id=id
 		var before: int=p.inventory.size()
 		sim._pickup(p)
 		check(p.inventory.size()==before+1 and p.hp==p.max_hp,"full HP stores food beyond equipment slots")
-		check(p.food_state=="spent" and sim.state.drops.is_empty(),"storing consumes pickup but never resets quota")
+		check(sim.state.drops.is_empty(),"storing consumes the ground pickup")
 		check(sim.state.events[-1].type=="food_stored" and Equipment.valid(p),"stored food validates and reports storage")
 		var uid: int=p.inventory[-1].uid
 		check(not Equipment.equip(p,uid) and Equipment.sell(p,uid)==0,"food cannot become weapon or sell for money")
-		p.food_state="pending"
 		sim._add_drop("food",p.x,p.y,p.id)
 		p.hp-=1
 		sim._pickup(p)
 		check(p.hp==p.max_hp and p.inventory.size()==before+1 and sim.state.drops.is_empty(),"even one missing HP consumes whole food")
-	check(Equipment.bag_count(p,false)==2 and Equipment.bag_count(p,true)==2,"food never counts as weapon or treasure")
+	check(p.inventory.filter(func(item):return Equipment.FOODS.has(item.item_id)).size()==4,"all stored foods share the warehouse without equipment slots")
 	check(Wire.valid_snapshot(sim.get_state()),"food inventory crosses snapshot boundary")
 	var folder: String="user://food-save-%d"%Time.get_ticks_usec()
 	var players:=Players.new(folder,"user://no-legacy-food.json")
@@ -46,7 +44,6 @@ func core() -> void:
 	loaded.apply_to(replay.state.fighters[0])
 	check(replay.state.fighters[0].inventory==p.inventory and Equipment.valid(replay.state.fighters[0]),"four food types survive save/load and departure")
 	while p.inventory.size()<Equipment.CAPACITY: check(Equipment.add(p,"food_rice")>0,"food uses existing total capacity")
-	p.food_state="pending"
 	sim._add_drop("food",p.x,p.y,p.id)
 	sim._pickup(p)
 	check(sim.state.drops.size()==1 and sim.state.events[-1].type=="inventory_full","full inventory preserves ground food")

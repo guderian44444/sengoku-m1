@@ -9,7 +9,7 @@ const HITS := {
 	"s05_hachiya_rapid":[410,590,750], "s05_hachiya_return":[660], "s05_hachiya_sweep":[510],
 	"s05_natsume_sweep":[300], "s05_natsume_ground":[300], "s05_natsume_diagonal":[300],
 	"s05_kusei_stomp":[650,1550,2450,3350,4250], "s05_kusei_slash":[450,800,1050],
-	"s05_kusei_guard":[], "s05_kusei_summon":[1000,1650],
+	"s05_kusei_guard":[], "s05_kusei_summon":[1000,1650], "s05_kusei_roar":[450],
 	"s05_militia_attack":[260], "s05_monk_quick_attack":[140], "s05_monk_heavy_attack":[300],
 	"s05_sickle_farmer_attack":[260], "s05_hunting_bow_farmer_shot":[480]
 }
@@ -32,6 +32,11 @@ static func actors() -> Dictionary:
 	if _actors.is_empty():
 		_actors=read("actors.json").duplicate(true)
 		_actors.merge(read("../stage5-farmers/actors.json"))
+		# shortcut: Reuse guard poses for the roar; replace when dedicated roar art is available.
+		var roar: Dictionary = _actors.kusei.s05_kusei_guard.duplicate(true)
+		roar.duration_ms = 1200
+		for frame in roar.frames: frame.duration_ms = float(frame.duration_ms) * .5
+		_actors.kusei.s05_kusei_roar = roar
 		for clip in NATSUME_FRAME_MS:
 			var spec: Dictionary=_actors.natsume[clip]
 			var old: Array=spec.frames.map(func(f):return float(f.duration_ms))
@@ -53,7 +58,7 @@ static func retime(ms: float, old: Array, changed: Array) -> float:
 	return elapsed
 
 static func audio_cues() -> Array:
-	var result := ["kusei_stomp_full"]
+	var result := ["kusei_stomp_full","kusei_roar"]
 	for row in read("audio/event-map.json"): result.append(str(row.event_id))
 	for row in read("audio/voice-event-map.json"): result.append(str(row.id))
 	return result

@@ -124,10 +124,27 @@ func draw_landscape(view) -> void:
 
 func effect(view, e: Dictionary) -> void:
 	var point := Vector2(float(e.x)-view.camera_x,float(e.y)-float(e.z))
+	if e.type=="s05_roar":
+		var age := float(int(e.max_life)-int(e.life))
+		var alpha := minf(1,age/6)*minf(1,float(e.life)/18)
+		var ring := PackedVector2Array()
+		for i in 129:
+			var angle := TAU*i/128
+			var radius := float(e.radius)+sin(angle*9-age*.24)*2.0
+			ring.append(Vector2(cos(angle),sin(angle))*radius)
+		view.draw_set_transform(point,0,Vector2(.85,1))
+		var width := 8.0+float(e.radius)*.035
+		view.draw_polyline(ring,Color(.38,.83,1,.12*alpha),width*3.5,true)
+		view.draw_polyline(ring,Color(.6,.93,1,.4*alpha),width*1.8,true)
+		view.draw_polyline(ring,Color(.9,.99,1,.9*alpha),width*.65,true)
+		view.draw_polyline(ring,Color(1,1,1,alpha),2,true)
+		view.draw_set_transform(Vector2.ZERO)
+		return
 	if e.get("s05_arrow",false):
 		var arrow: Dictionary=Data.read("../stage5-farmers/arrow.json")
-		point.x-=(float(arrow.tip_estimate[0])-float(arrow.anchor[0]))*146.0/810*int(e.face)
-		view._draw_art_frame(frame(arrow),point,146,int(e.face),0,Color.WHITE,810)
+		var angle: float=(view.projectile_direction(e)*int(e.face)).angle()
+		point-=Vector2((float(arrow.tip_estimate[0])-float(arrow.anchor[0]))*146.0/810*int(e.face),0).rotated(angle)
+		view._draw_art_frame(frame(arrow),point,146,int(e.face),angle,Color.WHITE,810)
 		return
 	if e.type == "s05_fx":
 		var age := float(int(e.max_life)-int(e.life))*1000/60
@@ -145,6 +162,10 @@ func effect(view, e: Dictionary) -> void:
 	view._draw_art_frame(drawing,point,Data.height("natsume")*1.25,e.face,0,Color(1,1,1,alpha),691.2)
 
 func actor_fx(view, f: Dictionary, point: Vector2) -> void:
+	if f.get("s05_summon_shield",false):
+		var center := point-Vector2(0,100)
+		view.draw_circle(center,104,Color(1,.82,.3,.08))
+		view.draw_arc(center,104,0,TAU,64,Color(1,.82,.3,.65),3,true)
 	if f.action != "s05_hachiya_sweep": return
 	var ms := float(f.action_tick)*1000/60
 	if ms<420 or ms>=680: return

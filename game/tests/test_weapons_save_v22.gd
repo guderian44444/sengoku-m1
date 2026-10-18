@@ -70,9 +70,10 @@ func _pickup() -> void:
 		battle._pickup(player)
 		check(player.weapon_id == upgrade and upgrade in player.owned_weapons and battle.state.drops.is_empty(),"Compatible pickup equips and records ownership")
 		check(HUD.Weapons.name_for(player) == Weapons.item(upgrade).name,"HUD weapon label follows actual equipped item")
+		var equipped_uid: int = player.weapon_uid
 		drop(battle,upgrade,player)
 		battle._pickup(player)
-		check(player.owned_weapons.size() == 2 and battle.state.drops.size() == 1,"Duplicate equipped weapon does not destroy the pickup or duplicate inventory")
+		check(player.owned_weapons.size() == 2 and player.inventory.size() == 2 and battle.state.drops.is_empty() and player.weapon_uid == equipped_uid,"Equal-tier duplicate enters the warehouse without replacing the equipped instance")
 		battle.state.drops.clear()
 		var other := "sword_uchigatana" if hero == "oichi" else "bow_azusa"
 		drop(battle,other,player)
@@ -181,7 +182,7 @@ func _persistence() -> void:
 	check(loaded.character(0,"nobunaga").weapon_id == "sword_heshikiri" and loaded.character(1,"nobunaga").weapon_id == "sword_nagamitsu","Same hero in two player slots retains separate equipment")
 	var restored: Dictionary = arena("nobunaga").state.fighters[0]
 	loaded.apply_to(restored)
-	check(restored.hp == 140 and restored.max_hp == 140 and restored.max_hp_bonus == 20,"Permanent HP attribute applies to fresh difficulty HP")
+	check(restored.hp == 210 and restored.max_hp == 210 and restored.max_hp_bonus == 20,"Base and permanent HP both receive the player boost without rewriting the saved attribute")
 	check(restored.score == 14500 and restored.next_life_score == 20000,"Score and the next-life threshold restore without granting duplicate lives")
 	check(restored.lives == 3 and restored.action == "idle" and restored.respawn_ticks == 0,"No death, action, life-count or stage state leaks into a new sortie")
 	check(not loaded.equip(0,"nobunaga","bow_shigeto") and not loaded.equip(0,"nobunaga","sword_dojigiri"),"Loadout cannot select an incompatible or unowned weapon")

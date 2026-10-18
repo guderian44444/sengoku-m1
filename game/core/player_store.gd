@@ -141,7 +141,7 @@ func pack(slot: int, hero: String, uid: int, carry: bool) -> bool:
 func discard(slot: int, hero: String, uid: int) -> bool:
 	var profile = records[selected[slot]]
 	var row: Dictionary = profile.character(0,hero)
-	if uid not in row.bag_uids or Equipment.instance(row,uid).is_empty(): return false
+	if Equipment.instance(row,uid).is_empty(): return false
 	Equipment.remove(row,uid)
 	profile.data.characters["0:" + hero] = row
 	dirty[selected[slot]] = true

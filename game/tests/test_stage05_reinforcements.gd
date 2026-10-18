@@ -3,6 +3,7 @@ const Battle = preload("res://core/battle.gd")
 const S5 = preload("res://core/stage05_encounter.gd")
 const Wire = preload("res://core/wire.gd")
 const Objective = preload("res://ui/objective_scroll.gd")
+const Audio = preload("res://render/combat_audio.gd")
 var checks := 0
 
 func check(ok: bool, label: String) -> void:
@@ -47,7 +48,7 @@ func banner_checks() -> void:
 			var spec: Dictionary=sim._campaign.segments[sim.state.stage.index].encounters[sim.state.stage.checkpoint]
 			check(Objective.objective(sim.state).order.begins_with("破旗斷援"),"Order explains the reinforcement objective")
 			for flag in sim.state.props.filter(func(p):return p.s05_banner):
-				check(flag.max_hp==165 and flag.mandatory,"Banner HP triples once and blocks advance")
+				check(flag.max_hp==83 and flag.mandatory,"Banner HP is halved with integer rounding and blocks advance")
 				check(flag.x>=sim.state.stage.encounter_start+100 and flag.x<=sim._right_edge()-90,"Every controlling flag is reachable before the checkpoint unlocks")
 			advance(sim,seen,650)
 			check(regular(sim).size()==spec.garrison,"Initial staggered garrison reaches the configured count")
@@ -85,19 +86,38 @@ func banner_checks() -> void:
 
 func monk_checks() -> void:
 	var sim:=node(6,1);var hero: Dictionary=sim.state.fighters[0]
-	check(S5.spawn(sim,"militia",500,480).max_hp==66 and S5.spawn(sim,"militia",500,480,false,true).max_hp==33,"Farmer HP is baseline times 1.5 exactly once")
+	for role in S5.Data.FARMERS:
+		check(S5.spawn(sim,role,500,480).max_hp==53 and S5.spawn(sim,role,500,480,false,true).max_hp==26,"All farmer variants lose twenty percent HP")
 	for elite in [false,true]:
 		var monk:=S5.spawn(sim,"monk",600,480,elite);sim.state.fighters=[hero,monk]
 		check(monk.max_hp==(216 if elite else 144),"Monk HP doubles, elite retains relative 1.5 HP")
 		for move in ["heavy","air_heavy","charged","charged_upper","charge_rain","body_collision"]:
-			monk.hp=monk.max_hp;monk.invuln=0;monk.freeze=0;hero.action=move;hero.x=520;hero.y=480
+			monk.hp=monk.max_hp;monk.invuln=0;monk.freeze=0;monk.z=0;monk.vz=0;monk.airborne_lock=false;monk.action="idle";hero.action=move;hero.x=520;hero.y=480
 			check(sim._damage(monk,1,hero.id,true,true,true,true,hero.x,hero.y,move),"Monk takes damage from "+move)
 			sim._launch(monk,1,12,8)
-			check(monk.z==0 and monk.vz==0 and not monk.airborne_lock and monk.action not in ["down","launched","recovering"],"Monk cannot be knocked down or airborne by "+move)
+			check(monk.z>0 and monk.vz==8 and monk.airborne_lock and monk.action=="launched","Ordinary and elite monks can be launched by "+move)
 			check(monk.knockback>0,"Monk still receives horizontal knockback")
 		for action in ["down","launched","thrown","recovering"]:
-			sim._begin(monk,action);check(monk.action=="hurt" and monk.z==0,"Direct move transitions retain standing resistance")
-		monk.hp=0;sim._begin(monk,"defeated");check(monk.action=="defeated","Standing resistance does not prevent death")
+			sim._begin(monk,action);check(monk.action==action,"Monks use normal reaction transitions")
+		monk.z=0;monk.vz=0;monk.airborne_lock=false;monk.freeze=0;monk.stun=0;monk.action="idle";monk.invuln=0
+		var blocked:=0;var blocked_id:=-1
+		for attack_id in 100:
+			if S5.parries_light(monk,hero,"light",attack_id): blocked+=1;blocked_id=attack_id
+			check(S5.parries_light(monk,hero,"light",attack_id)==S5.parries_light(monk,hero,"air_light",attack_id),"Repeated light contact has one stable block result")
+		check(blocked==30,"Exactly thirty percent of distinct swings can be blocked")
+		for move in ["heavy","charged","throw","body_collision","grab_hit_1"]:
+			check(not S5.parries_light(monk,hero,move,blocked_id),"Heavy attacks and grabs bypass monk parry")
+		hero.action="light";monk.guard_hit_tick=0;sim.state.events=[]
+		var hp: int=monk.hp
+		for contact in 2: check(not sim._damage(monk,10,hero.id,false,true,true,false,hero.x,hero.y,"light",24,"sword",0,blocked_id),"Blocked contacts deal no damage")
+		check(monk.hp==hp and sim.state.events.size()==1 and Audio.sound_for_event(sim.state.events[0])=="metal_parry","One metallic block event, no flesh impact")
+		check(Wire.valid_snapshot(sim.state),"Monk parry contact synchronizes")
+		hero.action="idle";hero.face=1;hero.x=550;monk.x=600;monk.y=hero.y;monk.guard_hit_tick=0
+		sim._try_grab(hero)
+		check(monk.held_by==hero.id and hero.grab_target==monk.id and monk.action=="grabbed","Both monk variants can be grabbed")
+		sim._release_grab(hero,true)
+		check(monk.held_by==0 and monk.thrown_by==hero.id and monk.airborne_lock and monk.action=="thrown","Both monk variants can be thrown")
+		monk.hp=0;sim._begin(monk,"defeated");check(monk.action=="defeated","Monk can enter defeated state")
 	var counts:=[]
 	for elite in [false,true]:
 		sim=node(6,1);hero=sim.state.fighters[0];hero.x=650;hero.y=480;hero.invuln=100000

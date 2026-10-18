@@ -77,11 +77,11 @@ func apply_to(fighter: Dictionary) -> void:
 	for field in ["score","max_hp_bonus"]: fighter[field] = int(row[field])
 	if data.version == 2:
 		for field in ["next_item_uid","weapon_uid","treasure_uid","gold","achievements","bag_uids"]: fighter[field] = row[field].duplicate(true) if row[field] is Array else row[field]
-		fighter.inventory = row.inventory.filter(func(item): return int(item.uid) in row.bag_uids).duplicate(true)
-		fighter.bag_only = true
-		fighter.storage_reserve = row.inventory.size() - fighter.inventory.size()
+		fighter.inventory = row.inventory.duplicate(true)
+		fighter.bag_only = false
+		fighter.storage_reserve = 0
 		Equipment.sync(fighter)
-	fighter.max_hp += int(row.max_hp_bonus)
+	fighter.max_hp += roundi(int(row.max_hp_bonus) * 1.5)
 	fighter.hp = fighter.max_hp
 	fighter.next_life_score = (int(fighter.score) / 10000 + 1) * 10000
 
@@ -90,7 +90,7 @@ func capture(fighter: Dictionary) -> void:
 	var row := character(int(fighter.player_index),str(fighter.kind))
 	for field in ["score","max_hp_bonus","weapon_id","owned_weapons"]: row[field] = fighter[field].duplicate() if fighter[field] is Array else fighter[field]
 	if data.version == 2:
-		# Only carried instances can break or be discarded; warehouse stock survives battle saves.
+		# Preserve reserved stock from legacy carried-only snapshots; new battles use the whole warehouse.
 		if fighter.get("bag_only",false):
 			row.inventory = row.inventory.filter(func(item): return int(item.uid) not in row.bag_uids)
 			row.inventory.append_array(fighter.inventory.duplicate(true))

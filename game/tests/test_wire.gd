@@ -104,7 +104,7 @@ func _test_invalid_snapshots() -> void:
 		var malformed := original.duplicate(true)
 		malformed[field] = [1]
 		_check(not Wire.valid_snapshot(malformed), "non-dictionary " + field + " item")
-	for field in ["x", "y", "z", "hp", "max_hp", "rage", "team", "kind", "player_index", "armor", "weapon", "face", "action", "action_tick", "charge", "poison", "invuln", "vz", "target_x", "lives", "score", "next_life_score", "respawn_ticks", "shield_points", "shield_kind", "extra_life_tick", "food_state"]:
+	for field in ["x", "y", "z", "hp", "max_hp", "rage", "team", "kind", "player_index", "armor", "weapon", "face", "action", "action_tick", "charge", "poison", "invuln", "vz", "target_x", "lives", "score", "next_life_score", "respawn_ticks", "shield_points", "shield_kind", "extra_life_tick"]:
 		var malformed := original.duplicate(true)
 		malformed.fighters[0][field] = []
 		_check(not Wire.valid_snapshot(malformed), "malformed fighter " + field)
@@ -149,7 +149,7 @@ func _test_invalid_snapshots() -> void:
 		malformed.events = [{"type": "hit", "x": 1.0, "y": 2.0, "id": 1, "actor": 1, "target": 2}]
 		malformed.events[0][pair[0]] = pair[1]
 		_check(not Wire.valid_snapshot(malformed), "invalid event " + str(pair[0]))
-	for pair in [["food_id","unknown"],["food_id",null],["heal",0],["heal",121],["heal",1.5],["heal",null]]:
+	for pair in [["food_id","unknown"],["food_id",null],["heal",0],["heal",241],["heal",1.5],["heal",null]]:
 		var malformed := original.duplicate(true)
 		malformed.events = [{"type":"food_pickup","x":500.0,"y":450.0,"id":1,"actor":1,"target":2,"food_id":"rice","heal":40}]
 		malformed.events[0][pair[0]] = pair[1]

@@ -46,6 +46,7 @@ func play(event: Dictionary) -> void:
 	var path := ""
 	var voice := false
 	if cue=="kusei_stomp_full": path="audio/tracks/kusei_stomp_v2_voiceA_full_5p65s.wav"; voice=true
+	if cue=="kusei_roar": path="../stage5-runtime/kusei-roar.wav"
 	for row in Data.read("audio/voice-event-map.json"):
 		if row.id==cue: path="audio/"+str(row.wav); voice=true; break
 	if path.is_empty():

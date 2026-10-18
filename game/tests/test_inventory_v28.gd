@@ -19,7 +19,7 @@ func check(ok: bool, message: String) -> void:
 func _initialize() -> void:
 	var battle := Battle.new()
 	var player: Dictionary = battle.state.fighters[0]
-	player.bag_only = false # This fixture exercises permanent warehouse stock and wear; apply_to limits the live bag below.
+	player.bag_only = false
 	check(Weapons.ITEMS.size() == 57,"51 collectible weapons plus six practice weapons")
 	for hero in Battle.HEROES:
 		var id := Weapons.default_for(hero)
@@ -133,7 +133,7 @@ func _initialize() -> void:
 	player.achievements = []
 	for rule in Achievements.RULES: player.performance[rule[3]] = rule[4]
 	check(Achievements.earned(player).size() == 30 and Achievements.valid(player.achievements),"All 30 achievement paths can unlock")
-	for pair in [["soldier",false,0.5],["boss",false,1.5],["boss",true,3.0]]:
+	for pair in [["soldier",false,5.5],["boss",false,6.5],["boss",true,8.0]]:
 		var count := 0
 		battle.state.loot_rng = 777
 		for attempt in range(10000):
@@ -151,10 +151,34 @@ func _initialize() -> void:
 		battle.state.events.clear()
 		battle._check_achievements()
 		if not battle.state.drops.is_empty(): rewards += 1
-	check(absf(float(rewards)/100.0-1.0) < 0.3,"Achievement bonus is an independent 1% roll")
+	check(absf(float(rewards)/100.0-6.0) < 0.4,"Achievement bonus increases by five percentage points")
 	battle.reset_campaign()
 	check(Wire.valid_snapshot(battle.get_state()),"New inventory and performance fields pass network validation")
 	for hero in Battle.HEROES:
 		check(Equipment.valid(players.character(0,hero)),"Future hero inventory remains valid: "+hero)
+	pickup_upgrades()
 	print("INVENTORY V28 %s: %d checks, %d failures" % ["PASS" if failures == 0 else "FAILED",checks,failures])
 	quit(1 if failures else 0)
+
+func pickup_upgrades() -> void:
+	var sim:=Battle.new()
+	var player: Dictionary=sim.state.fighters[0]
+	sim.state.drops.clear()
+	for id in ["sword_heshikiri","sword_samonnji","sword_nagamitsu"]:
+		var old_uid: int=player.weapon_uid
+		var old_tier: int=Weapons.item(player.weapon_id).tier
+		sim.state.drops=[{"id":900,"kind":"weapon","weapon_id":id,"x":player.x,"y":player.y}]
+		sim._pickup(player)
+		check(sim.state.drops.is_empty(),"all compatible pickups enter the warehouse")
+		if int(Weapons.item(id).tier)>old_tier:
+			check(player.weapon_id==id and player.weapon_uid!=old_uid,"only a strictly higher tier auto-equips")
+		else: check(player.weapon_uid==old_uid,"equal and lower tiers preserve the equipped instance")
+	check(player.inventory.size()==3,"pickup has no two-weapon bag cap")
+	check(Wire.valid_snapshot(sim.state),"automatic upgrades keep the full warehouse valid")
+	for hero in ["archer","boss"]:
+		var archer:=sim._make_fighter(1,hero,player.x+500,player.y,100)
+		sim.state.fighters.append(archer);sim.state.effects.clear()
+		sim._arc_arrow(archer,10)
+		var arrow: Dictionary=sim.state.effects[0]
+		var original: int=clampi(int(500/7.0)+20,45,150)
+		check(arrow.flight_ticks==(roundi(original/1.2) if hero=="archer" else original),"ordinary bow arrows gain twenty percent speed without changing officer arrows")

@@ -4,6 +4,8 @@ const Data = preload("res://core/stage05_data.gd")
 # Initial balance choices; authored timings and requested mechanics are separate.
 const HP := {"militia":66,"sickle_farmer":66,"hunting_bow_farmer":66,"monk":144,"hachiya":640,"natsume":760,"kusei":1200}
 const CAP := 24
+const ROAR_COOLDOWN_TICKS := 480
+const STOMP_COOLDOWN_TICKS := 1200
 const VOICES := {"s05_hachiya_rapid":"hachiya_tsuranuke","s05_hachiya_return":"hachiya_nigasan","s05_natsume_ground":"natsume_tatakikiru","s05_natsume_diagonal":"natsume_fukitobe","s05_natsume_sweep":"natsume_fukitobe","s05_kusei_guard":"kusei_fudo","s05_kusei_slash":"kusei_kiru","s05_kusei_summon":"kusei_kitare"}
 
 static func begin(sim, spec: Dictionary) -> void:
@@ -17,7 +19,7 @@ static func begin(sim, spec: Dictionary) -> void:
 	for i in spec.objects.size():
 		var item: Dictionary = spec.objects[i]
 		var flag := str(item.asset).contains("_")
-		var hp := 165 if flag else 65
+		var hp := roundi(165 * 0.5) if flag else 65
 		sim.state.props.append({"id":sim._next_id,"kind":"fence" if flag else "jar","s05_asset":item.asset,"s05_banner":flag,"x":item.x,"y":item.y,"hp":hp,"max_hp":hp,"width":52.5 if flag else 110.0,"depth":25.0 if flag else 45.0,"broken":false,"drop":"","mandatory":flag,"broken_tick":-1})
 		sim._next_id+=1
 	if spec.boss == "kusei":
@@ -27,7 +29,7 @@ static func begin(sim, spec: Dictionary) -> void:
 static func spawn(sim, role: String, x: float, y: float, elite: bool = false, weak: bool = false) -> Dictionary:
 	var players: int = sim.state.fighters.filter(func(f): return f.team == 0).size()
 	var boss := role in ["hachiya","natsume","kusei"]
-	var hp := roundi((33.0 if weak else float(HP[role]))*float(sim._difficulty.enemy_hp)*(1.5 if elite else 1.0)*(1.7 if boss and players>1 else 1.0))
+	var hp := roundi((33.0 if weak else float(HP[role]))*(0.8 if role in Data.FARMERS else 1.0)*float(sim._difficulty.enemy_hp)*(1.5 if elite else 1.0)*(1.7 if boss and players>1 else 1.0))
 	var f: Dictionary = sim._make_fighter(1,"boss" if boss else ("archer" if role=="hunting_bow_farmer" else "soldier"),x,y,hp)
 	f.s05_role=role; f.s05_elite=elite; f.s05_weak=weak; f.s05_events=[]; f.s05_combo=[]; f.s05_root_px=0.0; f.s05_target=0
 	f.s05_move_clip="walk"
@@ -35,6 +37,7 @@ static func spawn(sim, role: String, x: float, y: float, elite: bool = false, we
 	if boss:
 		f.display_name={"hachiya":"蜂屋貞次","natsume":"夏目吉信","kusei":"空誓"}[role]
 		f.stage_boss=role=="kusei"; f.weight="heavy"
+		if role=="kusei": f.s05_summon_shield=false;f.s05_roar_ready_tick=0;f.s05_stomp_ready_tick=0
 	else: f.display_name="精銳僧兵" if elite else {"monk":"僧兵","militia":"鋤頭農民","sickle_farmer":"鐮刀農民","hunting_bow_farmer":"獵弓農民"}[role]
 	return f
 
@@ -90,6 +93,8 @@ static func tick(sim) -> void:
 		var unit: Dictionary=box.pending[0]
 		if sim.state.tick>=unit.due and admit(sim,unit.role,unit.elite,unit.weak):
 			box.pending.pop_front();box.admit_tick=sim.state.tick+int([23,41,29,47,31][int(box.entry_seq)%5])
+	if alive_boss and boss.get("s05_summon_shield",false):
+		boss.s05_summon_shield=box.pending.any(func(u):return u.role=="monk") or sim.state.fighters.any(func(f):return f.get("s05_role","")=="monk" and f.hp>0)
 	for prop in sim.state.props:
 		if not prop.broken: continue
 		if int(prop.broken_tick)<0: prop.broken_tick=sim.state.tick
@@ -105,8 +110,11 @@ static func tick(sim) -> void:
 		if owner.is_empty() or owner.hp<=0 or owner.action!="s05_kusei_slash": hero.s05_combo_owner=0
 	if banners(sim)==0 and box.pending.is_empty() and not sim.state.fighters.any(func(f):return f.team==1 and f.hp>0): box.phase="complete"
 
-static func standing_monk(f: Dictionary) -> bool:
-	return f.get("s05_role","")=="monk" and f.hp>0
+static func parries_light(f: Dictionary, attacker: Dictionary, action: String, attack_id: int) -> bool:
+	if f.get("s05_role","")!="monk" or attacker.get("team",1)!=0 or action not in ["light","air_light"]: return false
+	if f.held_by!=0 or f.z>0 or f.airborne_lock or f.freeze>0 or f.stun>0 or f.action in ["down","recovering","thrown","grabbed","defeated"]: return false
+	# One replay-stable result per swing, including repeated contact callbacks.
+	return (attack_id*73+int(f.id)*37+int(attacker.id)*17)%100<30
 
 static func thresholds(sim, f: Dictionary) -> void:
 	if f.hp<=0: return
@@ -121,7 +129,9 @@ static func start(sim, f: Dictionary, action: String, target: Dictionary = {}) -
 	if not target.is_empty(): f.face=1 if target.x>=f.x else -1
 	sim._begin(f,action)
 	f.attack_id=int(f.get("attack_id",0))+1
+	if action=="s05_kusei_roar": f.s05_roar_ready_tick=int(sim.state.tick)+ROAR_COOLDOWN_TICKS
 	if action=="s05_kusei_stomp":
+		f.s05_stomp_ready_tick=int(sim.state.tick)+STOMP_COOLDOWN_TICKS
 		f.stun=0; f.freeze=0; f.knockback=0.0; f.z=0.0; f.vz=0.0; f.airborne_lock=false
 		audio(sim,"kusei_stomp_full",int(f.id))
 	elif VOICES.has(action): audio(sim,VOICES[action],int(f.id))
@@ -131,8 +141,10 @@ static func ai(sim, f: Dictionary, target: Dictionary) -> bool:
 	if f.action!="idle": return true
 	var dx: float=target.x-f.x; var dy: float=target.y-f.y
 	f.face=1 if dx>=0 else -1
-	if f.s05_role=="kusei" and not sim.state.ikki.summons.is_empty():
+	if f.s05_role=="kusei" and not f.get("s05_summon_shield",false) and not sim.state.ikki.summons.is_empty():
 		sim.state.ikki.summons.pop_front(); start(sim,f,"s05_kusei_summon",target); return true
+	if f.s05_role=="kusei" and Vector2(dx,dy).length()>300 and f.cooldown==0 and int(sim.state.tick)>=int(f.s05_roar_ready_tick):
+		start(sim,f,"s05_kusei_roar",target); return true
 	var reach: float={"militia":100.0,"sickle_farmer":100.0,"hunting_bow_farmer":420.0,"monk":155.0,"hachiya":210.0,"natsume":245.0,"kusei":225.0}[f.s05_role]
 	if f.s05_role=="natsume" and absf(dy)<42 and (absf(dx)<=165 or ((target.z>12 or target.vz>0) and absf(dx)<=reach)):
 		f.cooldown=0
@@ -147,7 +159,9 @@ static func ai(sim, f: Dictionary, target: Dictionary) -> bool:
 			"natsume":
 				# Lock a choice from the current target state, not later client inputs.
 				action="s05_natsume_diagonal" if target.z>12 or target.vz>0 else ("s05_natsume_sweep" if absf(dx)<=165 else "s05_natsume_ground")
-			"kusei": action=["s05_kusei_slash","s05_kusei_guard","s05_kusei_stomp"][f.ai_cycle%3]
+			"kusei":
+				action=["s05_kusei_slash","s05_kusei_guard","s05_kusei_stomp"][f.ai_cycle%3]
+				if action=="s05_kusei_stomp" and int(sim.state.tick)<int(f.s05_stomp_ready_tick): action="s05_kusei_slash"
 		f.ai_cycle+=1; start(sim,f,action,target)
 	else:
 		var speed: float=(1.2 if f.s05_weak else (1.8 if f.kind!="boss" else 2.4))*Data.speed(f)
@@ -160,6 +174,7 @@ static func ai(sim, f: Dictionary, target: Dictionary) -> bool:
 			mx=-float(f.face);f.face=int(mx);f.s05_move_clip="retreat_run";speed=3.0
 		elif f.s05_role=="hunting_bow_farmer" and f.cooldown>20 and absf(dx)<145:
 			mx=-float(f.face);f.s05_move_clip="retreat"
+		if f.s05_role=="kusei": speed*=1.15
 		var before: float=f.x
 		sim._move_fighter(f,mx*speed,my*speed*.65)
 		if mx!=0 and is_equal_approx(before,f.x): sim._move_fighter(f,0,(-1 if f.y>480 else 1)*speed)
@@ -167,7 +182,7 @@ static func ai(sim, f: Dictionary, target: Dictionary) -> bool:
 	return true
 
 static func invulnerable(f: Dictionary) -> bool:
-	return f.get("s05_role","")=="kusei" and f.action=="s05_kusei_stomp" and f.action_tick<300
+	return f.get("s05_role","")=="kusei" and (f.get("s05_summon_shield",false) or (f.action=="s05_kusei_stomp" and f.action_tick<300))
 
 static func guard_active(f: Dictionary) -> bool:
 	return f.get("s05_role","")=="kusei" and f.action=="s05_kusei_guard" and f.action_tick>=18 and f.action_tick<120
@@ -189,7 +204,7 @@ static func strike(sim, f: Dictionary, reach: float, depth: float, amount: int, 
 		if locked:
 			if target.id not in f.s05_combo: continue
 		elif (target.x-f.x)*f.face < -22 or (target.x-f.x)*f.face>reach or absf(target.y-f.y)>depth or target.z>60: continue
-		if sim._damage(target,maxi(1,roundi(amount*sim._difficulty.enemy_damage)),f.id,false,true,locked,launch,f.x,f.y,f.action,24,"spear" if f.s05_role=="hachiya" else "sword"):
+		if sim._damage(target,maxi(1,roundi(amount*(0.7 if f.s05_role in Data.FARMERS else 1.0)*sim._difficulty.enemy_damage)),f.id,false,true,locked,launch,f.x,f.y,f.action,24,"spear" if f.s05_role=="hachiya" else "sword"):
 			hit.append(int(target.id))
 			if launch: sim._launch(target,f.face,9,8)
 	return hit
@@ -227,11 +242,17 @@ static func attack(sim, f: Dictionary) -> bool:
 		f.s05_events.append(event_key)
 		match action:
 			"s05_kusei_stomp": quake(sim,f)
+			"s05_kusei_roar":
+				var target: Dictionary=sim._fighter(int(f.s05_target))
+				var direction := Vector2(float(target.get("x",f.x+f.face*900))-float(f.x),float(target.get("y",f.y))-float(f.y)).normalized()
+				sim._effect("s05_roar",f.x+f.face*65,f.y,120,{"owner":f.id,"team":1,"face":f.face,"z":112.0,"vx":direction.x*16,"vy":direction.y*16,"radius":60.0,"hit_ids":[],"damage":maxi(1,roundi(12*sim._difficulty.enemy_damage)),"action":action})
+				audio(sim,"kusei_roar",f.id)
 			"s05_kusei_summon":
 				audio(sim,"s05.kusei.palm_clap",f.id)
 				if i==1:
 					for n in 4: queue(sim,"monk",true,false,"summon",18+n*31)
 					sim.state.ikki.summon_count+=1
+					f.s05_summon_shield=true
 			"s05_kusei_slash":
 				audio(sim,"s05.kusei.blade_swing",f.id)
 				var hit := strike(sim,f,225,58,18,i==2,i>0)
@@ -274,12 +295,15 @@ static func farmer_arrow(sim, f: Dictionary, row: Dictionary) -> void:
 	var point: Array=row.projectile_spawn_estimate
 	var arrow: Dictionary=Data.read("../stage5-farmers/arrow.json")
 	var tip_offset := (float(arrow.tip_estimate[0])-float(arrow.anchor[0]))*scale
-	sim._projectile(f,maxi(1,roundi((6 if f.s05_weak else 10)*sim._difficulty.enemy_damage)),0,false,"arrow",520,0,"",false,{"straight":true})
-	var shot: Dictionary=sim.state.effects[-1]
+	var index: int=sim.state.effects.size()
+	sim._projectile(f,maxi(1,roundi((6 if f.s05_weak else 10)*0.7*sim._difficulty.enemy_damage)),0,false,"arrow")
+	if sim.state.effects.size()==index: return
+	var shot: Dictionary=sim.state.effects[index]
 	# Collision follows the arrow tip; the painted asset is anchored at its nock.
 	shot.x=f.x+((float(point[0])-float(row.anchor[0]))*scale+tip_offset)*f.face
-	shot.previous_x=shot.x;shot.z=(float(row.anchor[1])-float(point[1]))*scale
-	shot.s05_arrow=true;shot.collision_height=80.0;shot.height_tolerance=45.0
+	shot.origin_x=shot.x;shot.z=(float(row.anchor[1])-float(point[1]))*scale
+	shot.start_z=shot.z;shot.vx=(float(shot.target_x)-float(shot.origin_x))/int(shot.flight_ticks)
+	shot.s05_arrow=true
 
 static func wave(sim, f: Dictionary) -> void:
 	var kind: String = f.action.trim_prefix("s05_natsume_")
@@ -291,6 +315,16 @@ static func wave(sim, f: Dictionary) -> void:
 	audio(sim,"s05.natsume.wave_horizontal" if kind=="sweep" else ("s05.natsume.wave_diagonal" if kind=="diagonal" else "s05.natsume.wave_downward"),f.id)
 
 static func projectile(sim, e: Dictionary) -> void:
+	if e.type=="s05_roar":
+		e.x+=e.vx;e.y+=e.vy
+		e.radius=60.0+(int(e.max_life)-int(e.life))*2.5
+		for target in sim.state.fighters:
+			if target.team!=0 or target.hp<=0 or target.id in e.hit_ids: continue
+			if absf(target.x-e.x)>e.radius*.7+25 or absf(target.y-e.y)>e.radius*.6+24 or absf(target.z+65-e.z)>e.radius+50: continue
+			e.hit_ids.append(int(target.id))
+			if sim._damage(target,e.damage,e.owner,false,true,false,false,e.x,e.y,e.action,24,"blunt"):
+				target.stun=maxi(target.stun,120);sim._begin(target,"stunned")
+		return
 	var previous_x: float=e.x
 	var previous_z: float=e.z
 	e.x+=e.vx; e.z+=e.vz

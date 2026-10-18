@@ -125,7 +125,7 @@ func _test_guard_and_rage() -> void:
 	enemy.cooldown = 9999
 	guarded_arrow._projectile(enemy, 10, 0, false, "arrow")
 	_step(guarded_arrow, 100, Battle.GUARD)
-	_check(guarded_arrow.state.fighters[0].hp == 120 and guarded_arrow.state.fighters[0].rage == 10, "facing the shooter guards an arcing arrow")
+	_check(guarded_arrow.state.fighters[0].hp == guarded_arrow.state.fighters[0].max_hp and guarded_arrow.state.fighters[0].rage == 10, "facing the shooter guards an arcing arrow")
 
 
 func _test_sprint() -> void:
