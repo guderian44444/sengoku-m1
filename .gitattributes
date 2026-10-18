@@ -1,3 +1,8 @@
 * text=auto eol=lf
 # Preserve authored prompt bytes for asset provenance.
 game/assets/v27/hideyoshi/production/prompts/*.txt whitespace=-blank-at-eol
+
+# Imported stage-four/five metadata is byte-hashed alongside authored textures.
+game/assets/stage4/** -text
+game/assets/stage5/** -text
+game/assets/officer-fx-power-v4/** -text
