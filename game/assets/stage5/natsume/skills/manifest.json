@@ -1,0 +1,43 @@
+{
+  "status": "updated_animation_proposal_review_pending_not_runtime_integrated",
+  "canvas": [
+    1536,
+    1152
+  ],
+  "root": [
+    650,
+    1080
+  ],
+  "master_library_id": "libfile_b23f91cbe8008191ba6168dec20ef818",
+  "master_scale": 0.6,
+  "actions": {
+    "sweep": {
+      "manifest": "skills/sweep/manifest.json",
+      "duration_ms": 1400,
+      "unique_keys": 9,
+      "knockback": true,
+      "event_ms": 740
+    },
+    "diagonal": {
+      "manifest": "skills/diagonal/manifest.json",
+      "duration_ms": 1000,
+      "unique_keys": 12,
+      "knockback": true,
+      "event_ms": 520
+    },
+    "ground": {
+      "manifest": "skills/ground/manifest.json",
+      "duration_ms": 1000,
+      "unique_keys": 12,
+      "knockback": true,
+      "event_ms": 520
+    }
+  },
+  "limitations": [
+    "Anchors manually estimated from drawings; no rig/engine integration verification.",
+    "Animation key drawings include minor garment and face detail variation.",
+    "Collision/hitboxes are not provided; knockback is event intent only.",
+    "Audio separate and not embedded in these visual previews.",
+    "Basic locomotion/reaction actions delivered separately by another task."
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "pose_id": "down_03_fall",
+  "source": "sources/body_original/down_03_fall.png",
+  "original_source": "sources/body_original/down_03_fall.png",
+  "raw_dimensions": [
+    1086,
+    1448
+  ],
+  "raw_sha256": "17a4ecd2f256f3dea275b052816aed0fa4518ff908104029965eab2f49009b0d",
+  "edited_arms": false,
+  "head_ruler": {
+    "method": "manually inspected projected helmet crest to chin",
+    "raw_px": 203,
+    "raw_endpoints": [
+      [
+        244,
+        244
+      ],
+      [
+        244,
+        447
+      ]
+    ],
+    "canvas_px": 180
+  },
+  "raw_to_canvas_affine": [
+    0.8866995073891626,
+    0,
+    319.01477832512313,
+    0,
+    0.8866995073891626,
+    215.3694581280788
+  ],
+  "canvas_to_raw_affine": [
+    1.1277777777777778,
+    0,
+    -359.7777777777777,
+    0,
+    1.1277777777777778,
+    -242.88888888888886
+  ],
+  "uniform_scale": 0.8866995073891626,
+  "source_upscaled": false,
+  "root_raw": [
+    565,
+    1336
+  ],
+  "root_canvas": [
+    820,
+    1400
+  ],
+  "root_world": [
+    0,
+    0
+  ],
+  "support": "airborne fall",
+  "feet_raw": [
+    [
+      252,
+      1246
+    ],
+    [
+      1020,
+      1142
+    ]
+  ],
+  "feet_canvas": [
+    [
+      542.4630541871921,
+      1320.1970443349753
+    ],
+    [
+      1223.448275862069,
+      1227.9802955665025
+    ]
+  ],
+  "feet_world": [
+    [
+      -0.49218374626901884,
+      0.14152248295275313
+    ],
+    [
+      0.7154747749278072,
+      0.30505957436482317
+    ]
+  ],
+  "rear_grip_raw": [
+    528,
+    844
+  ],
+  "front_guide_raw": [
+    467,
+    607
+  ],
+  "rear_grip_canvas": [
+    787.192118226601,
+    963.743842364532
+  ],
+  "front_guide_canvas": [
+    733.1034482758621,
+    753.5960591133005
+  ],
+  "head_ruler_canvas_endpoints": [
+    [
+      535.3694581280788,
+      431.7241379310345
+    ],
+    [
+      535.3694581280788,
+      611.7241379310344
+    ]
+  ],
+  "weapon": {
+    "source": "sources/weapon/spear_canonical_1160.png",
+    "state": "released",
+    "length_px": 1160,
+    "length_world_units": 2.057142857142857,
+    "scale": [
+      1,
+      1
+    ],
+    "angle_degrees": -4.0,
+    "butt_canvas": [
+      290,
+      1435
+    ],
+    "tip_canvas": [
+      1447.174298301396,
+      1354.0824904568146
+    ],
+    "canonical_to_canvas_affine": [
+      0.9975640502598242,
+      0.0697564737441253,
+      286.40754160217756,
+      -0.0697564737441253,
+      0.9975640502598242,
+      1383.625451411619
+    ],
+    "canvas_to_canonical_affine": [
+      0.9975640502598242,
+      -0.0697564737441253,
+      -189.19303475252917,
+      0.0697564737441253,
+      0.9975640502598242,
+      -1400.2337895086441
+    ],
+    "rear_grip_canonical_u": null,
+    "front_guide_canonical_u": null,
+    "front_guide_sliding_allowed": true,
+    "hand_axis_error_px": null,
+    "placement_note": "Released weapon lies beside the body in foreground ground plane, behind body layer; hands are not forced onto it."
+  },
+  "layer_order": [
+    "weapon",
+    "body"
+  ],
+  "rgba_path": "poses/down_03_fall/rgba.png",
+  "trimmed_rgba_path": "poses/down_03_fall/trimmed_rgba.png",
+  "trimmed_origin_canvas": [
+    289,
+    428
+  ],
+  "alpha_bbox_canvas": [
+    289,
+    428,
+    1447,
+    1477
+  ],
+  "visible_body_bbox_canvas": [
+    375,
+    431,
+    1265,
+    1324
+  ],
+  "qa": {
+    "source_opaque_edge_pixels": 0,
+    "final_any_alpha_edge_pixels": 0,
+    "removed_distant_alpha_noise_pixels": 9220,
+    "head_ruler_error_px": 5.684341886080802e-14,
+    "weapon_length_error_px": 2.2737367544323206e-13,
+    "no_canvas_clipping": true,
+    "no_source_upscale": true,
+    "source_high_alpha_unclipped": true
+  }
+}

@@ -1,0 +1,782 @@
+{
+  "action": "walk",
+  "status": "ready_for_user_review",
+  "canvas": [
+    2048,
+    1536
+  ],
+  "root": [
+    820,
+    1400
+  ],
+  "standing_height_ruler_px": 1015,
+  "head_ruler_px": 180,
+  "fixed_spear_length_px": 1160,
+  "facing": "right",
+  "raw_source_facing": "right",
+  "mirrored_entire_action_once": false,
+  "durations_ms": [
+    120,
+    120,
+    120,
+    120,
+    120,
+    120,
+    120,
+    120
+  ],
+  "total_duration_ms": 960,
+  "loop": true,
+  "root_motion": "In-place. Consumer may translate facing direction; true limb gait exists in native poses.",
+  "contact_events": [
+    {
+      "time_ms": 0,
+      "foot": "left"
+    },
+    {
+      "time_ms": 480,
+      "foot": "right"
+    }
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "phase": "far_contact",
+      "duration_ms": 120,
+      "body_source": "body/walk_01_far_contact_recovered.png",
+      "native_dimensions": [
+        1086,
+        1448
+      ],
+      "native_effective_bbox_alpha128": [
+        128,
+        90,
+        1066,
+        1378
+      ],
+      "native_effective_height": 1288,
+      "native_edge_alpha_max": 0,
+      "sha256": "7007eb70a189dd2fa114a84538716099a583f4c62b7e2f9da4376bc8292f753e",
+      "head_ruler_source_px": 240,
+      "head_ruler_canvas_px": 180,
+      "ruler_method": "Manual gold-crest apex to chin, approximate \u00b18px. Whole-body box is not normalized.",
+      "raw_to_canvas_affine": [
+        0.75,
+        0,
+        362.5,
+        0,
+        0.75,
+        366.5
+      ],
+      "uniform_scale": 0.75,
+      "upscaled": false,
+      "root_canvas": [
+        820,
+        1400
+      ],
+      "body_lift_px": 0,
+      "near_right_foot_canvas": [
+        542.5,
+        1330.25
+      ],
+      "far_left_foot_canvas": [
+        1067.5,
+        1382.75
+      ],
+      "support_anatomical": "left",
+      "rear_grip_canvas": [
+        781.75,
+        881.0
+      ],
+      "front_guide_grip_canvas": [
+        931.0,
+        701.75
+      ],
+      "weapon_tip_canvas": [
+        1360.7026341170085,
+        185.6749771157539
+      ],
+      "weapon_butt_canvas": [
+        618.455667300331,
+        1077.1173141468387
+      ],
+      "weapon_length_px": 1160,
+      "weapon_angle_degrees": -50.218017123575095,
+      "weapon_layer_rigid": true,
+      "rear_grip_fraction_from_butt": 0.22,
+      "body_bbox": [
+        459,
+        434,
+        1162,
+        1400
+      ],
+      "weapon_bbox": [
+        611,
+        186,
+        1361,
+        1081
+      ],
+      "composite_bbox": [
+        459,
+        186,
+        1361,
+        1400
+      ],
+      "canvas_crop_pass": true,
+      "source_crop_pass": true,
+      "layers": [
+        "body",
+        "weapon",
+        "hands"
+      ]
+    },
+    {
+      "frame": 2,
+      "phase": "far_down",
+      "duration_ms": 120,
+      "body_source": "body/walk_02_far_down_recovered.png",
+      "native_dimensions": [
+        1086,
+        1448
+      ],
+      "native_effective_bbox_alpha128": [
+        198,
+        91,
+        946,
+        1376
+      ],
+      "native_effective_height": 1285,
+      "native_edge_alpha_max": 1,
+      "sha256": "55c2b449b2fde9ba6dbf8788fb28ff897d009b5932df636aedfd6fa01ffcde17",
+      "head_ruler_source_px": 247,
+      "head_ruler_canvas_px": 180,
+      "ruler_method": "Manual gold-crest apex to chin, approximate \u00b18px. Whole-body box is not normalized.",
+      "raw_to_canvas_affine": [
+        0.728744939271255,
+        0,
+        357.246963562753,
+        0,
+        0.728744939271255,
+        395.7894736842105
+      ],
+      "uniform_scale": 0.728744939271255,
+      "upscaled": false,
+      "root_canvas": [
+        820,
+        1400
+      ],
+      "body_lift_px": 0,
+      "near_right_foot_canvas": [
+        567.8542510121457,
+        1335.8704453441296
+      ],
+      "far_left_foot_canvas": [
+        951.1740890688259,
+        1379.5951417004048
+      ],
+      "support_anatomical": "left",
+      "rear_grip_canvas": [
+        699.7570850202429,
+        921.2145748987854
+      ],
+      "front_guide_grip_canvas": [
+        951.1740890688259,
+        752.8744939271255
+      ],
+      "weapon_tip_canvas": [
+        1451.5888845730665,
+        417.8141525895038
+      ],
+      "weapon_butt_canvas": [
+        487.7019620694466,
+        1063.199309396275
+      ],
+      "weapon_length_px": 1160,
+      "weapon_angle_degrees": -33.80488857370002,
+      "weapon_layer_rigid": true,
+      "rear_grip_fraction_from_butt": 0.22,
+      "body_bbox": [
+        501,
+        462,
+        1046,
+        1399
+      ],
+      "weapon_bbox": [
+        484,
+        418,
+        1452,
+        1070
+      ],
+      "composite_bbox": [
+        484,
+        418,
+        1452,
+        1399
+      ],
+      "canvas_crop_pass": true,
+      "source_crop_pass": true,
+      "layers": [
+        "body",
+        "weapon",
+        "hands"
+      ]
+    },
+    {
+      "frame": 3,
+      "phase": "near_pass",
+      "duration_ms": 120,
+      "body_source": "body/walk_03_near_pass_final.png",
+      "native_dimensions": [
+        1086,
+        1448
+      ],
+      "native_effective_bbox_alpha128": [
+        304,
+        17,
+        916,
+        1407
+      ],
+      "native_effective_height": 1390,
+      "native_edge_alpha_max": 0,
+      "sha256": "f9a1a10c3358272e9ef617e659e11ba5398b98af151d77849541692ed571ff37",
+      "head_ruler_source_px": 240,
+      "head_ruler_canvas_px": 180,
+      "ruler_method": "Manual gold-crest apex to chin, approximate \u00b18px. Whole-body box is not normalized.",
+      "raw_to_canvas_affine": [
+        0.75,
+        0,
+        353.5,
+        0,
+        0.75,
+        346.25
+      ],
+      "uniform_scale": 0.75,
+      "upscaled": false,
+      "root_canvas": [
+        820,
+        1400
+      ],
+      "body_lift_px": 0,
+      "near_right_foot_canvas": [
+        702.25,
+        1253.75
+      ],
+      "far_left_foot_canvas": [
+        904.75,
+        1381.25
+      ],
+      "support_anatomical": "left",
+      "rear_grip_canvas": [
+        772.75,
+        812.75
+      ],
+      "front_guide_grip_canvas": [
+        918.25,
+        630.5
+      ],
+      "weapon_tip_canvas": [
+        1337.2640703565792,
+        105.65247888325382
+      ],
+      "weapon_butt_canvas": [
+        613.5280827199392,
+        1012.1877623662617
+      ],
+      "weapon_length_px": 1160,
+      "weapon_angle_degrees": -51.39774650255627,
+      "weapon_layer_rigid": true,
+      "rear_grip_fraction_from_butt": 0.22,
+      "body_bbox": [
+        581,
+        359,
+        1040,
+        1402
+      ],
+      "weapon_bbox": [
+        606,
+        106,
+        1337,
+        1016
+      ],
+      "composite_bbox": [
+        581,
+        106,
+        1337,
+        1402
+      ],
+      "canvas_crop_pass": true,
+      "source_crop_pass": true,
+      "layers": [
+        "body",
+        "weapon",
+        "hands"
+      ]
+    },
+    {
+      "frame": 4,
+      "phase": "near_reach",
+      "duration_ms": 120,
+      "body_source": "body/walk_04_identity_v3.png",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "native_effective_bbox_alpha128": [
+        151,
+        55,
+        1019,
+        1462
+      ],
+      "native_effective_height": 1407,
+      "native_edge_alpha_max": 4,
+      "sha256": "492b246754c253dff223d9948767d7d8a62cc27575d91b741f1c548aaaa0b863",
+      "head_ruler_source_px": 260,
+      "head_ruler_canvas_px": 180,
+      "ruler_method": "Manual gold-crest apex to chin, approximate \u00b18px. Whole-body box is not normalized.",
+      "raw_to_canvas_affine": [
+        0.6923076923076923,
+        0,
+        390.7692307692308,
+        0,
+        0.6923076923076923,
+        387.8461538461539
+      ],
+      "uniform_scale": 0.6923076923076923,
+      "upscaled": false,
+      "root_canvas": [
+        820,
+        1400
+      ],
+      "body_lift_px": 0,
+      "near_right_foot_canvas": [
+        974.3846153846155,
+        1395.1538461538462
+      ],
+      "far_left_foot_canvas": [
+        611.6153846153846,
+        1334.9230769230771
+      ],
+      "support_anatomical": "left",
+      "rear_grip_canvas": [
+        772.2307692307693,
+        856.5384615384617
+      ],
+      "front_guide_grip_canvas": [
+        916.9230769230769,
+        702.8461538461539
+      ],
+      "weapon_tip_canvas": [
+        1392.4413074444383,
+        197.75023434499474
+      ],
+      "weapon_butt_canvas": [
+        597.2995917858883,
+        1042.3505256186704
+      ],
+      "weapon_length_px": 1160,
+      "weapon_angle_degrees": -46.72765516786405,
+      "weapon_layer_rigid": true,
+      "rear_grip_fraction_from_butt": 0.22,
+      "body_bbox": [
+        496,
+        426,
+        1097,
+        1400
+      ],
+      "weapon_bbox": [
+        591,
+        198,
+        1393,
+        1047
+      ],
+      "composite_bbox": [
+        496,
+        198,
+        1393,
+        1400
+      ],
+      "canvas_crop_pass": true,
+      "source_crop_pass": true,
+      "layers": [
+        "body",
+        "weapon",
+        "hands"
+      ]
+    },
+    {
+      "frame": 5,
+      "phase": "near_contact",
+      "duration_ms": 120,
+      "body_source": "body/walk_05_identity_v3.png",
+      "native_dimensions": [
+        1086,
+        1448
+      ],
+      "native_effective_bbox_alpha128": [
+        148,
+        63,
+        1076,
+        1391
+      ],
+      "native_effective_height": 1328,
+      "native_edge_alpha_max": 1,
+      "sha256": "5b05fc985ee5870a0a25aaabccac4f863a830afacc6b566185f2c4b19475bec5",
+      "head_ruler_source_px": 234,
+      "head_ruler_canvas_px": 180,
+      "ruler_method": "Manual gold-crest apex to chin, approximate \u00b18px. Whole-body box is not normalized.",
+      "raw_to_canvas_affine": [
+        0.7692307692307693,
+        0,
+        320.0,
+        0,
+        0.7692307692307693,
+        330.0
+      ],
+      "uniform_scale": 0.7692307692307693,
+      "upscaled": false,
+      "root_canvas": [
+        820,
+        1400
+      ],
+      "body_lift_px": 0,
+      "near_right_foot_canvas": [
+        1054.6153846153848,
+        1394.6153846153848
+      ],
+      "far_left_foot_canvas": [
+        550.7692307692307,
+        1341.5384615384614
+      ],
+      "support_anatomical": "right",
+      "rear_grip_canvas": [
+        780.0,
+        830.0
+      ],
+      "front_guide_grip_canvas": [
+        920.7692307692308,
+        651.5384615384615
+      ],
+      "weapon_tip_canvas": [
+        1340.3562579539134,
+        119.6029953808312
+      ],
+      "weapon_butt_canvas": [
+        621.9507990386398,
+        1030.368385918227
+      ],
+      "weapon_length_px": 1160,
+      "weapon_angle_degrees": -51.733866910994855,
+      "weapon_layer_rigid": true,
+      "rear_grip_fraction_from_butt": 0.22,
+      "body_bbox": [
+        434,
+        379,
+        1148,
+        1400
+      ],
+      "weapon_bbox": [
+        614,
+        120,
+        1340,
+        1034
+      ],
+      "composite_bbox": [
+        434,
+        120,
+        1340,
+        1400
+      ],
+      "canvas_crop_pass": true,
+      "source_crop_pass": true,
+      "layers": [
+        "body",
+        "weapon",
+        "hands"
+      ]
+    },
+    {
+      "frame": 6,
+      "phase": "near_down",
+      "duration_ms": 120,
+      "body_source": "body/walk_06_identity_v2.png",
+      "native_dimensions": [
+        1145,
+        1374
+      ],
+      "native_effective_bbox_alpha128": [
+        225,
+        31,
+        1092,
+        1339
+      ],
+      "native_effective_height": 1308,
+      "native_edge_alpha_max": 1,
+      "sha256": "e1d4344b98f7420730df61f49c9ae1b5fb9d2249ddb6553eb8a5eff2c927e07b",
+      "head_ruler_source_px": 245,
+      "head_ruler_canvas_px": 180,
+      "ruler_method": "Manual gold-crest apex to chin, approximate \u00b18px. Whole-body box is not normalized.",
+      "raw_to_canvas_affine": [
+        0.7346938775510204,
+        0,
+        298.3673469387754,
+        0,
+        0.7346938775510204,
+        416.2448979591836
+      ],
+      "uniform_scale": 0.7346938775510204,
+      "upscaled": false,
+      "root_canvas": [
+        820,
+        1400
+      ],
+      "body_lift_px": 0,
+      "near_right_foot_canvas": [
+        991.9183673469387,
+        1394.857142857143
+      ],
+      "far_left_foot_canvas": [
+        575.3469387755101,
+        1332.408163265306
+      ],
+      "support_anatomical": "right",
+      "rear_grip_canvas": [
+        780.3265306122448,
+        882.0408163265306
+      ],
+      "front_guide_grip_canvas": [
+        919.9183673469387,
+        713.0612244897959
+      ],
+      "weapon_tip_canvas": [
+        1356.5768638544891,
+        184.47462345433996
+      ],
+      "weapon_butt_canvas": [
+        617.7943853387912,
+        1078.790255341764
+      ],
+      "weapon_length_px": 1160,
+      "weapon_angle_degrees": -50.44033203100551,
+      "weapon_layer_rigid": true,
+      "rear_grip_fraction_from_butt": 0.22,
+      "body_bbox": [
+        464,
+        439,
+        1101,
+        1400
+      ],
+      "weapon_bbox": [
+        610,
+        184,
+        1357,
+        1083
+      ],
+      "composite_bbox": [
+        464,
+        184,
+        1357,
+        1400
+      ],
+      "canvas_crop_pass": true,
+      "source_crop_pass": true,
+      "layers": [
+        "body",
+        "weapon",
+        "hands"
+      ]
+    },
+    {
+      "frame": 7,
+      "phase": "far_pass",
+      "duration_ms": 120,
+      "body_source": "body/walk_07_far_pass_final.png",
+      "native_dimensions": [
+        1090,
+        1443
+      ],
+      "native_effective_bbox_alpha128": [
+        221,
+        58,
+        1010,
+        1394
+      ],
+      "native_effective_height": 1336,
+      "native_edge_alpha_max": 0,
+      "sha256": "b27240048a687c6f22ce005affe40968f098217a4fe302c4094f3f0b7bd17cc6",
+      "head_ruler_source_px": 241,
+      "head_ruler_canvas_px": 180,
+      "ruler_method": "Manual gold-crest apex to chin, approximate \u00b18px. Whole-body box is not normalized.",
+      "raw_to_canvas_affine": [
+        0.7468879668049793,
+        0,
+        431.6182572614108,
+        0,
+        0.7468879668049793,
+        358.0912863070539
+      ],
+      "uniform_scale": 0.7468879668049793,
+      "upscaled": false,
+      "root_canvas": [
+        820,
+        1400
+      ],
+      "body_lift_px": 0,
+      "near_right_foot_canvas": [
+        816.2655601659751,
+        1385.0622406639004
+      ],
+      "far_left_foot_canvas": [
+        1111.286307053942,
+        1246.8879668049792
+      ],
+      "support_anatomical": "right",
+      "rear_grip_canvas": [
+        784.8962655601661,
+        851.0373443983402
+      ],
+      "front_guide_grip_canvas": [
+        938.0082987551867,
+        664.3153526970955
+      ],
+      "weapon_tip_canvas": [
+        1358.611476969902,
+        151.38464755719895
+      ],
+      "weapon_butt_canvas": [
+        623.0791546497278,
+        1048.3752845330212
+      ],
+      "weapon_length_px": 1160,
+      "weapon_angle_degrees": -50.64824737373527,
+      "weapon_layer_rigid": true,
+      "rear_grip_fraction_from_butt": 0.22,
+      "body_bbox": [
+        597,
+        402,
+        1186,
+        1399
+      ],
+      "weapon_bbox": [
+        616,
+        151,
+        1359,
+        1052
+      ],
+      "composite_bbox": [
+        597,
+        151,
+        1359,
+        1399
+      ],
+      "canvas_crop_pass": true,
+      "source_crop_pass": true,
+      "layers": [
+        "body",
+        "weapon",
+        "hands"
+      ]
+    },
+    {
+      "frame": 8,
+      "phase": "far_reach",
+      "duration_ms": 120,
+      "body_source": "body/walk_08_far_reach_recovered.png",
+      "native_dimensions": [
+        1086,
+        1448
+      ],
+      "native_effective_bbox_alpha128": [
+        140,
+        52,
+        1051,
+        1407
+      ],
+      "native_effective_height": 1355,
+      "native_edge_alpha_max": 1,
+      "sha256": "cf66f1431d835a2e897fda9e19dab2daa373241eaefa771324af43d11cc5394b",
+      "head_ruler_source_px": 250,
+      "head_ruler_canvas_px": 180,
+      "ruler_method": "Manual gold-crest apex to chin, approximate \u00b18px. Whole-body box is not normalized.",
+      "raw_to_canvas_affine": [
+        0.72,
+        0,
+        424.0,
+        0,
+        0.72,
+        388.4000000000001
+      ],
+      "uniform_scale": 0.72,
+      "upscaled": false,
+      "root_canvas": [
+        820,
+        1400
+      ],
+      "body_lift_px": 0,
+      "near_right_foot_canvas": [
+        600.4,
+        1342.4
+      ],
+      "far_left_foot_canvas": [
+        1106.56,
+        1371.2
+      ],
+      "support_anatomical": "right",
+      "rear_grip_canvas": [
+        785.44,
+        896.72
+      ],
+      "front_guide_grip_canvas": [
+        932.3199999999999,
+        704.48
+      ],
+      "weapon_tip_canvas": [
+        1334.7609618138404,
+        177.75579997894386
+      ],
+      "weapon_butt_canvas": [
+        630.503318462763,
+        1099.5047743649134
+      ],
+      "weapon_length_px": 1160,
+      "weapon_angle_degrees": -52.61854648756896,
+      "weapon_layer_rigid": true,
+      "rear_grip_fraction_from_butt": 0.22,
+      "body_bbox": [
+        525,
+        426,
+        1181,
+        1402
+      ],
+      "weapon_bbox": [
+        623,
+        178,
+        1335,
+        1103
+      ],
+      "composite_bbox": [
+        525,
+        178,
+        1335,
+        1402
+      ],
+      "canvas_crop_pass": true,
+      "source_crop_pass": true,
+      "layers": [
+        "body",
+        "weapon",
+        "hands"
+      ]
+    }
+  ],
+  "qa": {
+    "native_separate_pose_count": 8,
+    "source_upscale_count": 0,
+    "source_crop_pass": true,
+    "canvas_crop_pass": true,
+    "left_right_alternation": "Near anatomical right versus far left switches every half-cycle. Checked leg crossing and foreground hip plate ownership. No whole-sprite translation used to create gait.",
+    "scale_note": "All geometry uniformly downscaled from manual head ruler. No pose-height normalization. Native shape consistency still requires art review.",
+    "not_runtime_integrated": true,
+    "art_review": "Parent visual review passed corrected torso/armor consistency in frames 04-06 and full contact sequence. Awaiting user review, not user-approved."
+  },
+  "audio": "Silent; foot-contact events available, no voice."
+}

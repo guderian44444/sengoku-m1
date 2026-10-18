@@ -1,0 +1,186 @@
+{
+  "pose_id": "idle_02_inhale",
+  "source": "sources/body_corrected/idle_02_inhale.png",
+  "original_source": "sources/body_original/idle_02_inhale.png",
+  "raw_dimensions": [
+    1086,
+    1448
+  ],
+  "raw_sha256": "3cb113c34b3a7f919e18107077f7d87db280e4c576acfcded23c112ab9830494",
+  "edited_arms": true,
+  "head_ruler": {
+    "method": "manually inspected projected helmet crest to chin",
+    "raw_px": 246,
+    "raw_endpoints": [
+      [
+        648,
+        60
+      ],
+      [
+        648,
+        306
+      ]
+    ],
+    "canvas_px": 180
+  },
+  "raw_to_canvas_affine": [
+    0.7317073170731707,
+    0,
+    380.9756097560976,
+    0,
+    0.7317073170731707,
+    347.07317073170725
+  ],
+  "canvas_to_raw_affine": [
+    1.3666666666666667,
+    0,
+    -520.6666666666667,
+    0,
+    1.3666666666666667,
+    -474.33333333333326
+  ],
+  "uniform_scale": 0.7317073170731707,
+  "source_upscaled": false,
+  "root_raw": [
+    600,
+    1439
+  ],
+  "root_canvas": [
+    820,
+    1400
+  ],
+  "root_world": [
+    0,
+    0
+  ],
+  "support": "two planted feet at different perspective depth",
+  "feet_raw": [
+    [
+      287,
+      1356
+    ],
+    [
+      981,
+      1439
+    ]
+  ],
+  "feet_canvas": [
+    [
+      590.9756097560976,
+      1339.2682926829266
+    ],
+    [
+      1098.780487804878,
+      1400.0
+    ]
+  ],
+  "feet_world": [
+    [
+      -0.40615162801874316,
+      0.10770154992190359
+    ],
+    [
+      0.4943890424125915,
+      0.0
+    ]
+  ],
+  "rear_grip_raw": [
+    571,
+    697
+  ],
+  "front_guide_raw": [
+    911,
+    403
+  ],
+  "rear_grip_canvas": [
+    798.780487804878,
+    857.0731707317073
+  ],
+  "front_guide_canvas": [
+    1047.560975609756,
+    641.951219512195
+  ],
+  "head_ruler_canvas_endpoints": [
+    [
+      855.1219512195122,
+      390.97560975609747
+    ],
+    [
+      855.1219512195122,
+      570.9756097560975
+    ]
+  ],
+  "weapon": {
+    "source": "sources/weapon/spear_canonical_1160.png",
+    "state": "held_two_hands",
+    "length_px": 1160,
+    "length_world_units": 2.057142857142857,
+    "scale": [
+      1,
+      1
+    ],
+    "angle_degrees": -40.850164709018046,
+    "butt_canvas": [
+      605.7414223862867,
+      1023.9951861230775
+    ],
+    "tip_canvas": [
+      1483.19171974352,
+      265.2587525259404
+    ],
+    "canonical_to_canvas_affine": [
+      0.756422670135546,
+      0.6540831324113251,
+      572.0561410671035,
+      -0.6540831324113251,
+      0.756422670135546,
+      985.0394186110968
+    ],
+    "canvas_to_canonical_affine": [
+      0.756422670135546,
+      -0.6540831324113251,
+      211.58143478036186,
+      0.6540831324113251,
+      0.756422670135546,
+      -1119.2784198788777
+    ],
+    "rear_grip_canonical_u": 255.2,
+    "front_guide_canonical_u": 584.0908405670843,
+    "front_guide_sliding_allowed": true,
+    "hand_axis_error_px": 0,
+    "placement_note": "Both grips lie exactly on the shaft axis; front hand may slide along shaft."
+  },
+  "layer_order": [
+    "body",
+    "weapon",
+    "hands_foreground"
+  ],
+  "rgba_path": "poses/idle_02_inhale/rgba.png",
+  "trimmed_rgba_path": "poses/idle_02_inhale/trimmed_rgba.png",
+  "trimmed_origin_canvas": [
+    498,
+    263
+  ],
+  "alpha_bbox_canvas": [
+    498,
+    263,
+    1485,
+    1404
+  ],
+  "visible_body_bbox_canvas": [
+    500,
+    391,
+    1144,
+    1400
+  ],
+  "qa": {
+    "source_opaque_edge_pixels": 0,
+    "final_any_alpha_edge_pixels": 0,
+    "removed_distant_alpha_noise_pixels": 8196,
+    "head_ruler_error_px": 0.0,
+    "weapon_length_error_px": 0.0,
+    "no_canvas_clipping": true,
+    "no_source_upscale": true,
+    "source_high_alpha_unclipped": true
+  }
+}

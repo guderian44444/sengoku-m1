@@ -1,5 +1,6 @@
 extends RefCounted
 const Mikawa = preload("res://core/stage04_data.gd")
+const Ikki = preload("res://core/stage05_data.gd")
 
 const ROOT := "res://audio/peritune-campaign-v1/"
 const KEYS := ["s01_bamboo_approach","s01_outpost_battle","s01_matsui_boss","s02_supply_road_battle","s02_fort_battle","s02_sakuma_boss","s03_rain_approach","s03_camp_battle","s03_dual_miniboss","s03_yoshimoto_boss","victory_jingle","victory_loop"]
@@ -16,6 +17,9 @@ static func combat_near(world: Dictionary) -> bool:
 
 static func select(world: Dictionary, previous: String) -> String:
 	var stage: Variant = world.get("stage",{})
+	if stage is Dictionary and int(stage.get("id",0)) == 5:
+		if world.get("phase","") == "won" and previous=="victory_loop": return "victory_loop"
+		return Ikki.music(world)
 	if stage is Dictionary and int(stage.get("id",0)) == 4: return Mikawa.music(world)
 	if not stage is Dictionary or int(stage.get("id",0)) not in [1,2,3]: return ""
 	if world.get("phase","") == "lost": return "silence"

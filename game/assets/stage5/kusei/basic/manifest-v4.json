@@ -1,0 +1,7101 @@
+{
+  "title": "Kusei basic actions: generated key poses, not full in-betweens",
+  "version": "basic-keyposes-v4-articulated-idle",
+  "tool": "built-in image_gen",
+  "reference": "kusei-white-gold-master-v2.png",
+  "coordinate_system": "pixels; origin top left; x right; y down",
+  "measurement_method": "Manually inspected source images with 100 px grid. Head crown-to-chin axis, approximate hidden shoulder joint centers. Precision estimated +/- 5 px for visible head/weapon landmarks, +/- 12 px for joints/grips. Not a calibrated skeleton.",
+  "normalization": {
+    "canvas_px": [
+      2048,
+      1536
+    ],
+    "target_head_axis_px": 103.3333333333,
+    "target_ground_root_px": [
+      1024,
+      1400
+    ],
+    "operation": "uniform downscale only using crown-to-chin length; transparent padding; root translation; no per-frame bbox fit, no upscaling, no limb warping",
+    "preview_scale": 0.5,
+    "status": "Uniform downscaling and root alignment; head-axis baseline for upright poses, body/foot-span corrections for bowed heads. Projected head height is allowed to vary when tilted."
+  },
+  "global_cautions": [
+    "Key-pose flipbooks; no motion interpolation or skeletal rig.",
+    "Bodies aligned by a common anatomical scale and ground root, never by total bounding box. Normal upright poses use head reference; bowed and recovered poses use same-pose torso/leg/foot evidence.",
+    "Fixed-layer and native-drawn weapon frames are listed separately in weapon_policy.",
+    "Near/far contact alternation has been visually checked in the new walk sequence and the color-tagged reverse-run pose. The reused flight key does not provide full alternate-side inbetweens.",
+    "down_01, weapon-length repair experiments, and initial text-only gait candidates remain source-only.",
+    "v4 idle is one original body master in three articulated joint poses, with three generated posture studies retained but not selected. It is not three independent full-body redraws; v3 local-patch idle was rejected."
+  ],
+  "sources": {
+    "idle_01": {
+      "source": "sources/idle_01.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "13e6c78922233b98f89deedc4e21cee60a6c06548f2dfe8c2989ac04f038fec2",
+      "alpha_bbox_gt10": [
+        178,
+        11,
+        940,
+        1489
+      ],
+      "alpha_zero_fraction": 0.550694,
+      "landmarks_native": {
+        "head_crown": [
+          548,
+          176
+        ],
+        "chin": [
+          575,
+          333
+        ],
+        "shoulder_joints": [
+          [
+            385,
+            442
+          ],
+          [
+            697,
+            436
+          ]
+        ],
+        "pelvis_root": [
+          575,
+          790
+        ],
+        "ground_root": [
+          575,
+          1480
+        ],
+        "feet_screen_left_right": [
+          [
+            371,
+            1465
+          ],
+          [
+            800,
+            1480
+          ]
+        ],
+        "grips": [
+          [
+            218,
+            619
+          ]
+        ],
+        "blade_tip": [
+          296,
+          10
+        ],
+        "blade_base": [
+          233,
+          281
+        ],
+        "weapon_butt": [
+          194,
+          1457
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 159.305,
+        "shoulder_joint_distance_px": 312.058,
+        "weapon_tip_to_butt_chord_px": 1450.591,
+        "blade_chord_px": 278.227,
+        "grip_fractions_tip_to_butt": [
+          0.4226
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6486519717676098,
+        "translation_px": [
+          651.025,
+          439.995
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1006.486,
+          554.158
+        ],
+        "chin": [
+          1024.0,
+          655.996
+        ],
+        "shoulder_joints": [
+          [
+            900.756,
+            726.699
+          ],
+          [
+            1103.136,
+            722.807
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          952.43
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            891.675,
+            1390.27
+          ],
+          [
+            1169.947,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            792.431,
+            841.511
+          ]
+        ],
+        "blade_tip": [
+          843.026,
+          446.482
+        ],
+        "blade_base": [
+          802.161,
+          622.266
+        ],
+        "weapon_butt": [
+          776.864,
+          1385.081
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 202.417,
+        "weapon_tip_to_butt_chord_px": 940.928
+      },
+      "review_flags": [],
+      "normalized_frame": "frames/idle_01.png"
+    },
+    "idle_02": {
+      "source": "sources/idle_02.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "828f900ba9a94e343ec18b337f928bb0155ac5dc5c86e1b4dce497243dbb8907",
+      "alpha_bbox_gt10": [
+        184,
+        9,
+        941,
+        1487
+      ],
+      "alpha_zero_fraction": 0.548113,
+      "landmarks_native": {
+        "head_crown": [
+          548,
+          177
+        ],
+        "chin": [
+          575,
+          333
+        ],
+        "shoulder_joints": [
+          [
+            384,
+            442
+          ],
+          [
+            701,
+            438
+          ]
+        ],
+        "pelvis_root": [
+          575,
+          790
+        ],
+        "ground_root": [
+          575,
+          1480
+        ],
+        "feet_screen_left_right": [
+          [
+            375,
+            1463
+          ],
+          [
+            800,
+            1480
+          ]
+        ],
+        "grips": [
+          [
+            226,
+            610
+          ]
+        ],
+        "blade_tip": [
+          300,
+          10
+        ],
+        "blade_base": [
+          237,
+          281
+        ],
+        "weapon_butt": [
+          195,
+          1453
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 158.319,
+        "shoulder_joint_distance_px": 317.025,
+        "weapon_tip_to_butt_chord_px": 1446.815,
+        "blade_chord_px": 278.227,
+        "grip_fractions_tip_to_butt": [
+          0.4173
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6526894376390818,
+        "translation_px": [
+          648.704,
+          434.02
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1006.377,
+          549.546
+        ],
+        "chin": [
+          1024.0,
+          651.365
+        ],
+        "shoulder_joints": [
+          [
+            899.336,
+            722.508
+          ],
+          [
+            1106.239,
+            719.898
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          949.644
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            893.462,
+            1388.904
+          ],
+          [
+            1170.855,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            796.211,
+            832.16
+          ]
+        ],
+        "blade_tip": [
+          844.51,
+          440.547
+        ],
+        "blade_base": [
+          803.391,
+          617.425
+        ],
+        "weapon_butt": [
+          775.978,
+          1382.377
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 206.919,
+        "weapon_tip_to_butt_chord_px": 944.321
+      },
+      "review_flags": [],
+      "normalized_frame": "frames/idle_02.png"
+    },
+    "idle_03": {
+      "source": "sources/idle_03.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "ec4e03c1ceca59532638862eba36c6fc8540fcca09d305e59a6d6932bc0e9efa",
+      "alpha_bbox_gt10": [
+        180,
+        12,
+        937,
+        1488
+      ],
+      "alpha_zero_fraction": 0.55596,
+      "landmarks_native": {
+        "head_crown": [
+          547,
+          201
+        ],
+        "chin": [
+          576,
+          359
+        ],
+        "shoulder_joints": [
+          [
+            385,
+            455
+          ],
+          [
+            704,
+            462
+          ]
+        ],
+        "pelvis_root": [
+          575,
+          812
+        ],
+        "ground_root": [
+          575,
+          1480
+        ],
+        "feet_screen_left_right": [
+          [
+            375,
+            1465
+          ],
+          [
+            800,
+            1480
+          ]
+        ],
+        "grips": [
+          [
+            228,
+            626
+          ]
+        ],
+        "blade_tip": [
+          305,
+          14
+        ],
+        "blade_base": [
+          240,
+          290
+        ],
+        "weapon_butt": [
+          195,
+          1454
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 160.639,
+        "shoulder_joint_distance_px": 319.077,
+        "weapon_tip_to_butt_chord_px": 1444.195,
+        "blade_chord_px": 283.551,
+        "grip_fractions_tip_to_butt": [
+          0.4266
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6432629045861578,
+        "translation_px": [
+          654.124,
+          447.971
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1005.989,
+          577.267
+        ],
+        "chin": [
+          1024.643,
+          678.902
+        ],
+        "shoulder_joints": [
+          [
+            901.78,
+            740.656
+          ],
+          [
+            1106.981,
+            745.158
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          970.3
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            895.347,
+            1390.351
+          ],
+          [
+            1168.734,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            800.788,
+            850.653
+          ]
+        ],
+        "blade_tip": [
+          850.319,
+          456.977
+        ],
+        "blade_base": [
+          808.507,
+          634.517
+        ],
+        "weapon_butt": [
+          779.56,
+          1383.275
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 205.25,
+        "weapon_tip_to_butt_chord_px": 928.997
+      },
+      "review_flags": [],
+      "normalized_frame": "frames/idle_03.png"
+    },
+    "walk_01": {
+      "source": "sources/walk_01.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "4759d1ecc6ea1f614cab6bc51ac61b6d8650eb555fa7a598f43fe9d71d7c7553",
+      "alpha_bbox_gt10": [
+        131,
+        12,
+        971,
+        1476
+      ],
+      "alpha_zero_fraction": 0.57749,
+      "landmarks_native": {
+        "head_crown": [
+          582,
+          194
+        ],
+        "chin": [
+          609,
+          344
+        ],
+        "shoulder_joints": [
+          [
+            408,
+            420
+          ],
+          [
+            706,
+            432
+          ]
+        ],
+        "pelvis_root": [
+          578,
+          800
+        ],
+        "ground_root": [
+          578,
+          1463
+        ],
+        "feet_screen_left_right": [
+          [
+            367,
+            1428
+          ],
+          [
+            830,
+            1463
+          ]
+        ],
+        "grips": [
+          [
+            222,
+            620
+          ]
+        ],
+        "blade_tip": [
+          305,
+          13
+        ],
+        "blade_base": [
+          235,
+          281
+        ],
+        "weapon_butt": [
+          180,
+          1450
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 152.411,
+        "shoulder_joint_distance_px": 298.242,
+        "weapon_tip_to_butt_chord_px": 1442.426,
+        "blade_chord_px": 276.991,
+        "grip_fractions_tip_to_butt": [
+          0.4242
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6779929565149936,
+        "translation_px": [
+          632.12,
+          408.096
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1026.712,
+          539.627
+        ],
+        "chin": [
+          1045.018,
+          641.326
+        ],
+        "shoulder_joints": [
+          [
+            908.741,
+            692.853
+          ],
+          [
+            1110.783,
+            700.989
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          950.491
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            880.943,
+            1376.27
+          ],
+          [
+            1194.854,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            782.635,
+            828.452
+          ]
+        ],
+        "blade_tip": [
+          838.908,
+          416.91
+        ],
+        "blade_base": [
+          791.448,
+          598.612
+        ],
+        "weapon_butt": [
+          754.159,
+          1391.186
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 202.206,
+        "weapon_tip_to_butt_chord_px": 977.955
+      },
+      "review_flags": [
+        "anatomical alternating stride unverified"
+      ],
+      "normalized_frame": "frames/walk_01.png"
+    },
+    "walk_02": {
+      "source": "sources/walk_02.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "4cfa5a198db5211cabece1fcb70c4dc99592a4a45ef301bfe23f995348ee0e47",
+      "alpha_bbox_gt10": [
+        182,
+        10,
+        940,
+        1468
+      ],
+      "alpha_zero_fraction": 0.572444,
+      "landmarks_native": {
+        "head_crown": [
+          572,
+          194
+        ],
+        "chin": [
+          606,
+          346
+        ],
+        "shoulder_joints": [
+          [
+            392,
+            447
+          ],
+          [
+            708,
+            445
+          ]
+        ],
+        "pelvis_root": [
+          580,
+          802
+        ],
+        "ground_root": [
+          580,
+          1445
+        ],
+        "feet_screen_left_right": [
+          [
+            511,
+            1445
+          ],
+          [
+            770,
+            1430
+          ]
+        ],
+        "grips": [
+          [
+            228,
+            620
+          ]
+        ],
+        "blade_tip": [
+          317,
+          10
+        ],
+        "blade_base": [
+          245,
+          286
+        ],
+        "weapon_butt": [
+          194,
+          1454
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 155.756,
+        "shoulder_joint_distance_px": 316.006,
+        "weapon_tip_to_butt_chord_px": 1449.229,
+        "blade_chord_px": 285.237,
+        "grip_fractions_tip_to_butt": [
+          0.4246
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.66342990013231,
+        "translation_px": [
+          639.211,
+          441.344
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1018.693,
+          570.049
+        ],
+        "chin": [
+          1041.249,
+          670.891
+        ],
+        "shoulder_joints": [
+          [
+            899.275,
+            737.897
+          ],
+          [
+            1108.919,
+            736.57
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          973.415
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            978.223,
+            1400.0
+          ],
+          [
+            1150.052,
+            1390.049
+          ]
+        ],
+        "grips": [
+          [
+            790.473,
+            852.67
+          ]
+        ],
+        "blade_tip": [
+          849.518,
+          447.978
+        ],
+        "blade_base": [
+          801.751,
+          631.085
+        ],
+        "weapon_butt": [
+          767.916,
+          1405.971
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 209.648,
+        "weapon_tip_to_butt_chord_px": 961.462
+      },
+      "review_flags": [
+        "anatomical alternating stride unverified"
+      ],
+      "normalized_frame": "frames/walk_02.png"
+    },
+    "walk_04": {
+      "source": "sources/walk_04.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "01a1f38c4412de5914dfa565890106c41abc8714f7dce4fc37e61fcfd28972e3",
+      "alpha_bbox_gt10": [
+        184,
+        8,
+        905,
+        1478
+      ],
+      "alpha_zero_fraction": 0.592705,
+      "landmarks_native": {
+        "head_crown": [
+          548,
+          190
+        ],
+        "chin": [
+          579,
+          342
+        ],
+        "shoulder_joints": [
+          [
+            372,
+            422
+          ],
+          [
+            694,
+            433
+          ]
+        ],
+        "pelvis_root": [
+          570,
+          800
+        ],
+        "ground_root": [
+          570,
+          1467
+        ],
+        "feet_screen_left_right": [
+          [
+            447,
+            1467
+          ],
+          [
+            770,
+            1290
+          ]
+        ],
+        "grips": [
+          [
+            229,
+            600
+          ]
+        ],
+        "blade_tip": [
+          300,
+          13
+        ],
+        "blade_base": [
+          241,
+          281
+        ],
+        "weapon_butt": [
+          195,
+          1454
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 155.129,
+        "shoulder_joint_distance_px": 322.188,
+        "weapon_tip_to_butt_chord_px": 1444.82,
+        "blade_chord_px": 274.418,
+        "grip_fractions_tip_to_butt": [
+          0.4088
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6661123812522538,
+        "translation_px": [
+          644.316,
+          422.813
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1009.346,
+          549.374
+        ],
+        "chin": [
+          1029.995,
+          650.624
+        ],
+        "shoulder_joints": [
+          [
+            892.11,
+            703.913
+          ],
+          [
+            1106.598,
+            711.24
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          955.703
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            942.068,
+            1400.0
+          ],
+          [
+            1157.222,
+            1282.098
+          ]
+        ],
+        "grips": [
+          [
+            796.856,
+            822.481
+          ]
+        ],
+        "blade_tip": [
+          844.15,
+          431.473
+        ],
+        "blade_base": [
+          804.849,
+          609.991
+        ],
+        "weapon_butt": [
+          774.208,
+          1391.341
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 214.613,
+        "weapon_tip_to_butt_chord_px": 962.413
+      },
+      "review_flags": [
+        "anatomical alternating stride unverified"
+      ],
+      "normalized_frame": "frames/walk_04.png"
+    },
+    "walk_reverse_clear": {
+      "source": "sources/walk_reverse_clear.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "92af363324cc46490b48c6baf73bc7391b10d7f6e43bddc936420f06b64688e3",
+      "alpha_bbox_gt10": [
+        180,
+        10,
+        970,
+        1484
+      ],
+      "alpha_zero_fraction": 0.574407,
+      "landmarks_native": {
+        "head_crown": [
+          546,
+          190
+        ],
+        "chin": [
+          576,
+          342
+        ],
+        "shoulder_joints": [
+          [
+            375,
+            440
+          ],
+          [
+            692,
+            444
+          ]
+        ],
+        "pelvis_root": [
+          570,
+          800
+        ],
+        "ground_root": [
+          570,
+          1480
+        ],
+        "feet_screen_left_right": [
+          [
+            507,
+            1445
+          ],
+          [
+            739,
+            1480
+          ]
+        ],
+        "grips": [
+          [
+            226,
+            611
+          ]
+        ],
+        "blade_tip": [
+          304,
+          13
+        ],
+        "blade_base": [
+          236,
+          281
+        ],
+        "weapon_butt": [
+          194,
+          1454
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 154.932,
+        "shoulder_joint_distance_px": 317.025,
+        "weapon_tip_to_butt_chord_px": 1445.192,
+        "blade_chord_px": 276.492,
+        "grip_fractions_tip_to_butt": [
+          0.4167
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6669582209771705,
+        "translation_px": [
+          643.834,
+          412.902
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1007.993,
+          539.624
+        ],
+        "chin": [
+          1028.002,
+          641.002
+        ],
+        "shoulder_joints": [
+          [
+            893.943,
+            706.363
+          ],
+          [
+            1105.369,
+            709.031
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          946.468
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            981.982,
+            1376.656
+          ],
+          [
+            1136.716,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            794.566,
+            820.413
+          ]
+        ],
+        "blade_tip": [
+          846.589,
+          421.572
+        ],
+        "blade_base": [
+          801.236,
+          600.317
+        ],
+        "weapon_butt": [
+          773.224,
+          1382.659
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 211.443,
+        "weapon_tip_to_butt_chord_px": 963.883
+      },
+      "review_flags": [
+        "anatomical alternating stride unverified"
+      ],
+      "normalized_frame": "frames/walk_reverse_clear.png"
+    },
+    "hurt_01": {
+      "source": "sources/hurt_01.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "c3e565bc51774b94e7ad1a1c5acb7164fc78c23c6a0e39f1efbd5dac641b3674",
+      "alpha_bbox_gt10": [
+        116,
+        9,
+        1014,
+        1478
+      ],
+      "alpha_zero_fraction": 0.554491,
+      "landmarks_native": {
+        "head_crown": [
+          426,
+          225
+        ],
+        "chin": [
+          477,
+          359
+        ],
+        "shoulder_joints": [
+          [
+            379,
+            479
+          ],
+          [
+            661,
+            363
+          ]
+        ],
+        "pelvis_root": [
+          615,
+          821
+        ],
+        "ground_root": [
+          615,
+          1465
+        ],
+        "feet_screen_left_right": [
+          [
+            420,
+            1423
+          ],
+          [
+            900,
+            1465
+          ]
+        ],
+        "grips": [
+          [
+            225,
+            626
+          ]
+        ],
+        "blade_tip": [
+          183,
+          12
+        ],
+        "blade_base": [
+          161,
+          283
+        ],
+        "weapon_butt": [
+          354,
+          1422
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 143.377,
+        "shoulder_joint_distance_px": 304.926,
+        "weapon_tip_to_butt_chord_px": 1420.331,
+        "blade_chord_px": 271.892,
+        "grip_fractions_tip_to_butt": [
+          0.4327
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.7207100384116888,
+        "translation_px": [
+          580.763,
+          344.16
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          887.786,
+          506.32
+        ],
+        "chin": [
+          924.542,
+          602.895
+        ],
+        "shoulder_joints": [
+          [
+            853.912,
+            689.38
+          ],
+          [
+            1057.153,
+            605.778
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          935.863
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            883.462,
+            1369.73
+          ],
+          [
+            1229.402,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            742.923,
+            795.324
+          ]
+        ],
+        "blade_tip": [
+          712.653,
+          352.808
+        ],
+        "blade_base": [
+          696.798,
+          548.121
+        ],
+        "weapon_butt": [
+          835.895,
+          1369.009
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 219.763,
+        "weapon_tip_to_butt_chord_px": 1023.647
+      },
+      "review_flags": [],
+      "normalized_frame": "frames/hurt_01.png"
+    },
+    "hurt_02": {
+      "source": "sources/hurt_02.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "9d936861ac7627617c0ea11b8391e6b2cb5a6161ba68eead3ef2d14b95563563",
+      "alpha_bbox_gt10": [
+        175,
+        10,
+        977,
+        1496
+      ],
+      "alpha_zero_fraction": 0.551441,
+      "landmarks_native": {
+        "head_crown": [
+          643,
+          287
+        ],
+        "chin": [
+          660,
+          472
+        ],
+        "shoulder_joints": [
+          [
+            400,
+            424
+          ],
+          [
+            759,
+            480
+          ]
+        ],
+        "pelvis_root": [
+          590,
+          864
+        ],
+        "ground_root": [
+          590,
+          1485
+        ],
+        "feet_screen_left_right": [
+          [
+            360,
+            1432
+          ],
+          [
+            870,
+            1485
+          ]
+        ],
+        "grips": [
+          [
+            222,
+            562
+          ]
+        ],
+        "blade_tip": [
+          300,
+          13
+        ],
+        "blade_base": [
+          234,
+          286
+        ],
+        "weapon_butt": [
+          195,
+          1454
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 185.779,
+        "shoulder_joint_distance_px": 363.341,
+        "weapon_tip_to_butt_chord_px": 1444.82,
+        "blade_chord_px": 280.865,
+        "grip_fractions_tip_to_butt": [
+          0.3829
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.5562151216646082,
+        "translation_px": [
+          695.833,
+          574.021
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1053.479,
+          733.654
+        ],
+        "chin": [
+          1062.935,
+          836.554
+        ],
+        "shoulder_joints": [
+          [
+            918.319,
+            809.856
+          ],
+          [
+            1118.0,
+            841.004
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          1054.59
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            896.071,
+            1370.521
+          ],
+          [
+            1179.74,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            819.313,
+            886.613
+          ]
+        ],
+        "blade_tip": [
+          862.698,
+          581.251
+        ],
+        "blade_base": [
+          825.987,
+          733.098
+        ],
+        "weapon_butt": [
+          804.295,
+          1382.757
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 202.096,
+        "weapon_tip_to_butt_chord_px": 803.631
+      },
+      "review_flags": [],
+      "normalized_frame": "frames/hurt_02.png",
+      "assembly_override": {
+        "body_source": "basic/clean-bodies/hurt_02.png",
+        "body_raw_to_canvas_affine": [
+          0.641,
+          0.0,
+          645.81,
+          0.0,
+          0.641,
+          485.93399999999997
+        ],
+        "weapon_source": "locked-weapon/naginata-master.png",
+        "weapon_raw_to_canvas_affine": [
+          0.6475906394397289,
+          0.0,
+          447.5913645251779,
+          0.0,
+          0.6475906394397289,
+          425.37608764320794
+        ],
+        "weapon_uniform_scale": 0.6475906394397289,
+        "weapon_tip_to_butt_px": 962.4053200185459,
+        "weapon_perspective_scale": 1,
+        "rotation_radians": 0.0,
+        "grips_canvas": [
+          [
+            777.2149999999999,
+            781.435
+          ]
+        ],
+        "hand_occlusion_polygons_source": [
+          [
+            [
+              171,
+              419
+            ],
+            [
+              244,
+              412
+            ],
+            [
+              251,
+              457
+            ],
+            [
+              236,
+              508
+            ],
+            [
+              174,
+              505
+            ],
+            [
+              156,
+              467
+            ]
+          ]
+        ],
+        "source_landmarks": {
+          "crown": [
+            642,
+            167
+          ],
+          "chin": [
+            651,
+            367
+          ],
+          "ground": [
+            590,
+            1426
+          ],
+          "grips": [
+            [
+              205,
+              461
+            ]
+          ],
+          "feet": [
+            [
+              345,
+              1365
+            ],
+            [
+              878,
+              1426
+            ]
+          ],
+          "hand_polygons": [
+            [
+              [
+                171,
+                419
+              ],
+              [
+                244,
+                412
+              ],
+              [
+                251,
+                457
+              ],
+              [
+                236,
+                508
+              ],
+              [
+                174,
+                505
+              ],
+              [
+                156,
+                467
+              ]
+            ]
+          ],
+          "shoulder_joints": [
+            [
+              406,
+              317
+            ],
+            [
+              770,
+              381
+            ]
+          ],
+          "pelvis_root": [
+            590,
+            748
+          ]
+        },
+        "ground_root": [
+          1024,
+          1400
+        ],
+        "world_stand_height": 853.3333333333334,
+        "layers": [
+          "body.png",
+          "weapon.png",
+          "hand-occlusion.png"
+        ],
+        "composite": "composite.png",
+        "body_scale_basis": "Same-pose original art matched by shoulder width, foot-to-foot span and crown-to-ground stance height; do not use bowed-head axis alone.",
+        "body_uniform_scale": 0.641,
+        "source_measurements_superseded": true,
+        "body_source_native_px": [
+          1024,
+          1536
+        ],
+        "projected_head_axis_px": 128.3297368539342
+      }
+    },
+    "stunned_01": {
+      "source": "sources/stunned_01.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "4872f99313a7083cbf59d731e24febb107f85543e6db2c0376dd332b5eaf8c85",
+      "alpha_bbox_gt10": [
+        207,
+        9,
+        957,
+        1488
+      ],
+      "alpha_zero_fraction": 0.570838,
+      "landmarks_native": {
+        "head_crown": [
+          613,
+          223
+        ],
+        "chin": [
+          594,
+          383
+        ],
+        "shoulder_joints": [
+          [
+            403,
+            431
+          ],
+          [
+            727,
+            448
+          ]
+        ],
+        "pelvis_root": [
+          575,
+          806
+        ],
+        "ground_root": [
+          575,
+          1480
+        ],
+        "feet_screen_left_right": [
+          [
+            375,
+            1463
+          ],
+          [
+            800,
+            1480
+          ]
+        ],
+        "grips": [
+          [
+            250,
+            618
+          ]
+        ],
+        "blade_tip": [
+          320,
+          13
+        ],
+        "blade_base": [
+          257,
+          285
+        ],
+        "weapon_butt": [
+          225,
+          1454
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 161.124,
+        "shoulder_joint_distance_px": 324.446,
+        "weapon_tip_to_butt_chord_px": 1444.128,
+        "blade_chord_px": 279.201,
+        "grip_fractions_tip_to_butt": [
+          0.4212
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6413273046979385,
+        "translation_px": [
+          655.237,
+          450.836
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1048.37,
+          593.852
+        ],
+        "chin": [
+          1036.185,
+          696.464
+        ],
+        "shoulder_joints": [
+          [
+            913.692,
+            727.248
+          ],
+          [
+            1121.482,
+            738.15
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          967.745
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            895.735,
+            1389.097
+          ],
+          [
+            1168.299,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            815.569,
+            847.176
+          ]
+        ],
+        "blade_tip": [
+          860.462,
+          459.173
+        ],
+        "blade_base": [
+          820.058,
+          633.614
+        ],
+        "weapon_butt": [
+          799.535,
+          1383.325
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 208.076,
+        "weapon_tip_to_butt_chord_px": 926.159
+      },
+      "review_flags": [],
+      "normalized_frame": "frames/stunned_01.png"
+    },
+    "stunned_02": {
+      "source": "sources/stunned_02.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "46a15096d6fd30356daafdcf882a7167700be61133ffba7ccfbcd6f9f9dd26f4",
+      "alpha_bbox_gt10": [
+        181,
+        9,
+        928,
+        1486
+      ],
+      "alpha_zero_fraction": 0.575022,
+      "landmarks_native": {
+        "head_crown": [
+          625,
+          228
+        ],
+        "chin": [
+          608,
+          389
+        ],
+        "shoulder_joints": [
+          [
+            389,
+            447
+          ],
+          [
+            723,
+            471
+          ]
+        ],
+        "pelvis_root": [
+          575,
+          810
+        ],
+        "ground_root": [
+          575,
+          1492
+        ],
+        "feet_screen_left_right": [
+          [
+            375,
+            1474
+          ],
+          [
+            800,
+            1492
+          ]
+        ],
+        "grips": [
+          [
+            222,
+            610
+          ]
+        ],
+        "blade_tip": [
+          305,
+          13
+        ],
+        "blade_base": [
+          233,
+          285
+        ],
+        "weapon_butt": [
+          195,
+          1454
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 161.895,
+        "shoulder_joint_distance_px": 334.861,
+        "weapon_tip_to_butt_chord_px": 1445.192,
+        "blade_chord_px": 281.368,
+        "grip_fractions_tip_to_butt": [
+          0.4163
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6382736689907645,
+        "translation_px": [
+          656.993,
+          447.696
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1055.914,
+          593.222
+        ],
+        "chin": [
+          1045.063,
+          695.984
+        ],
+        "shoulder_joints": [
+          [
+            905.281,
+            733.004
+          ],
+          [
+            1118.465,
+            748.323
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          964.697
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            896.345,
+            1388.511
+          ],
+          [
+            1167.612,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            798.689,
+            837.043
+          ]
+        ],
+        "blade_tip": [
+          851.666,
+          455.993
+        ],
+        "blade_base": [
+          805.71,
+          629.604
+        ],
+        "weapon_butt": [
+          781.456,
+          1375.746
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 213.733,
+        "weapon_tip_to_butt_chord_px": 922.428
+      },
+      "review_flags": [],
+      "normalized_frame": "frames/stunned_02.png"
+    },
+    "stunned_03": {
+      "source": "sources/stunned_03.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "de715d4dc15c11b919ac5f5ac7fb42ccc53c12219146bf1ca958721cc9a04b86",
+      "alpha_bbox_gt10": [
+        180,
+        11,
+        933,
+        1486
+      ],
+      "alpha_zero_fraction": 0.573626,
+      "landmarks_native": {
+        "head_crown": [
+          476,
+          250
+        ],
+        "chin": [
+          496,
+          420
+        ],
+        "shoulder_joints": [
+          [
+            388,
+            445
+          ],
+          [
+            691,
+            443
+          ]
+        ],
+        "pelvis_root": [
+          575,
+          806
+        ],
+        "ground_root": [
+          575,
+          1480
+        ],
+        "feet_screen_left_right": [
+          [
+            375,
+            1463
+          ],
+          [
+            800,
+            1480
+          ]
+        ],
+        "grips": [
+          [
+            230,
+            606
+          ]
+        ],
+        "blade_tip": [
+          320,
+          13
+        ],
+        "blade_base": [
+          240,
+          285
+        ],
+        "weapon_butt": [
+          195,
+          1454
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 171.172,
+        "shoulder_joint_distance_px": 303.007,
+        "weapon_tip_to_butt_chord_px": 1446.411,
+        "blade_chord_px": 283.521,
+        "grip_fractions_tip_to_butt": [
+          0.4138
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6666666666666666,
+        "translation_px": [
+          640.6666666666667,
+          413.33333333333337
+        ],
+        "basis": "same-native-torso-as-idle; bowed-head projection ignored",
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          958.0,
+          580.0
+        ],
+        "chin": [
+          971.333,
+          693.333
+        ],
+        "shoulder_joints": [
+          [
+            899.333,
+            710.0
+          ],
+          [
+            1101.333,
+            708.667
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          950.667
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            890.667,
+            1388.667
+          ],
+          [
+            1174.0,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            794.0,
+            817.333
+          ]
+        ],
+        "blade_tip": [
+          854.0,
+          422.0
+        ],
+        "blade_base": [
+          800.667,
+          603.333
+        ],
+        "weapon_butt": [
+          770.667,
+          1382.667
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 114.115,
+        "shoulder_joint_distance_px": 202.005,
+        "weapon_tip_to_butt_chord_px": 964.274,
+        "blade_chord_px": 189.014
+      },
+      "review_flags": [
+        "Bowed-head projected length is intentionally larger than upright head target; torso/leg scale is matched to idle."
+      ],
+      "normalized_frame": "frames/stunned_03.png"
+    },
+    "down_01": {
+      "source": "sources/down_01.png",
+      "native_px": [
+        1254,
+        1254
+      ],
+      "sha256": "e52c78b077b41e9b22813c68cd56a05f738a05702eab3378b7be5370a61d981b",
+      "alpha_bbox_gt10": [
+        44,
+        28,
+        1239,
+        1210
+      ],
+      "alpha_zero_fraction": 0.683722,
+      "landmarks_native": {
+        "head_crown": [
+          916,
+          460
+        ],
+        "chin": [
+          942,
+          630
+        ],
+        "shoulder_joints": [
+          [
+            633,
+            553
+          ],
+          [
+            1017,
+            632
+          ]
+        ],
+        "pelvis_root": [
+          815,
+          930
+        ],
+        "ground_root": [
+          815,
+          1205
+        ],
+        "feet_screen_left_right": [
+          [
+            450,
+            1204
+          ],
+          [
+            890,
+            1164
+          ]
+        ],
+        "grips": [
+          [
+            620,
+            677
+          ]
+        ],
+        "blade_tip": [
+          1234,
+          0
+        ],
+        "blade_base": [
+          1001,
+          260
+        ],
+        "weapon_butt": [
+          49,
+          1204
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 171.977,
+        "shoulder_joint_distance_px": 392.042,
+        "weapon_tip_to_butt_chord_px": 1689.332,
+        "blade_chord_px": 349.126,
+        "grip_fractions_tip_to_butt": [
+          0.5406
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6008564400213331,
+        "translation_px": [
+          534.302,
+          675.968
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1084.687,
+          952.362
+        ],
+        "chin": [
+          1100.309,
+          1054.508
+        ],
+        "shoulder_joints": [
+          [
+            914.644,
+            1008.242
+          ],
+          [
+            1145.373,
+            1055.709
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          1234.764
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            804.687,
+            1399.399
+          ],
+          [
+            1069.064,
+            1375.365
+          ]
+        ],
+        "grips": [
+          [
+            906.833,
+            1082.748
+          ]
+        ],
+        "blade_tip": [
+          1275.759,
+          675.968
+        ],
+        "blade_base": [
+          1135.759,
+          832.191
+        ],
+        "weapon_butt": [
+          563.744,
+          1399.399
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 235.561,
+        "weapon_tip_to_butt_chord_px": 1015.046
+      },
+      "review_flags": [
+        "blade tip touches upper edge; excluded"
+      ],
+      "normalized_frame": "frames/down_01.png"
+    },
+    "down_02": {
+      "source": "sources/down_02.png",
+      "native_px": [
+        1536,
+        1024
+      ],
+      "sha256": "dd4416b1fd76b0657900a4280a6425367500b0daecc12a30ec60556c3ab8eecf",
+      "alpha_bbox_gt10": [
+        10,
+        193,
+        1529,
+        961
+      ],
+      "alpha_zero_fraction": 0.627576,
+      "landmarks_native": {
+        "head_crown": [
+          394,
+          208
+        ],
+        "chin": [
+          430,
+          393
+        ],
+        "shoulder_joints": [
+          [
+            231,
+            430
+          ],
+          [
+            625,
+            409
+          ]
+        ],
+        "pelvis_root": [
+          715,
+          790
+        ],
+        "ground_root": [
+          715,
+          901
+        ],
+        "feet_screen_left_right": [
+          [
+            1112,
+            890
+          ],
+          [
+            1410,
+            888
+          ]
+        ],
+        "grips": [
+          [
+            802,
+            638
+          ]
+        ],
+        "blade_tip": [
+          1523,
+          196
+        ],
+        "blade_base": [
+          1275,
+          407
+        ],
+        "weapon_butt": [
+          16,
+          959
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 188.47,
+        "shoulder_joint_distance_px": 394.559,
+        "weapon_tip_to_butt_chord_px": 1689.147,
+        "blade_chord_px": 325.615,
+        "grip_fractions_tip_to_butt": [
+          0.499
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.5482742472013118,
+        "translation_px": [
+          631.984,
+          906.005
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          848.004,
+          1020.046
+        ],
+        "chin": [
+          867.742,
+          1121.477
+        ],
+        "shoulder_joints": [
+          [
+            758.635,
+            1141.763
+          ],
+          [
+            974.655,
+            1130.249
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          1339.142
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            1241.665,
+            1393.969
+          ],
+          [
+            1405.051,
+            1392.872
+          ]
+        ],
+        "grips": [
+          [
+            1071.7,
+            1255.804
+          ]
+        ],
+        "blade_tip": [
+          1467.006,
+          1013.467
+        ],
+        "blade_base": [
+          1331.034,
+          1129.153
+        ],
+        "weapon_butt": [
+          640.756,
+          1431.8
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 216.327,
+        "weapon_tip_to_butt_chord_px": 926.116
+      },
+      "review_flags": [],
+      "normalized_frame": "frames/down_02.png"
+    },
+    "recover_01": {
+      "source": "sources/recover_01.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "fce6e6b1f6e4070e3947dd450e06869e704671c15cb8eaf582f89beb6138df6a",
+      "alpha_bbox_gt10": [
+        136,
+        11,
+        1013,
+        1477
+      ],
+      "alpha_zero_fraction": 0.572458,
+      "landmarks_native": {
+        "head_crown": [
+          596,
+          369
+        ],
+        "chin": [
+          630,
+          544
+        ],
+        "shoulder_joints": [
+          [
+            371,
+            523
+          ],
+          [
+            750,
+            661
+          ]
+        ],
+        "pelvis_root": [
+          567,
+          990
+        ],
+        "ground_root": [
+          567,
+          1468
+        ],
+        "feet_screen_left_right": [
+          [
+            250,
+            1378
+          ],
+          [
+            800,
+            1468
+          ]
+        ],
+        "grips": [
+          [
+            203,
+            599
+          ]
+        ],
+        "blade_tip": [
+          298,
+          13
+        ],
+        "blade_base": [
+          225,
+          300
+        ],
+        "weapon_butt": [
+          148,
+          1454
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 178.272,
+        "shoulder_joint_distance_px": 403.342,
+        "weapon_tip_to_butt_chord_px": 1448.786,
+        "blade_chord_px": 296.138,
+        "grip_fractions_tip_to_butt": [
+          0.4091
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.5796377473215266,
+        "translation_px": [
+          695.345,
+          549.092
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1040.809,
+          762.978
+        ],
+        "chin": [
+          1060.517,
+          864.415
+        ],
+        "shoulder_joints": [
+          [
+            910.391,
+            852.242
+          ],
+          [
+            1130.074,
+            932.232
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          1122.933
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            840.255,
+            1347.833
+          ],
+          [
+            1159.056,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            813.012,
+            896.295
+          ]
+        ],
+        "blade_tip": [
+          868.077,
+          556.627
+        ],
+        "blade_base": [
+          825.764,
+          722.983
+        ],
+        "weapon_butt": [
+          781.132,
+          1391.885
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 233.792,
+        "weapon_tip_to_butt_chord_px": 839.771
+      },
+      "review_flags": [],
+      "normalized_frame": "frames/recover_01.png",
+      "assembly_override": {
+        "body_source": "basic/clean-bodies/recover_01.png",
+        "body_raw_to_canvas_affine": [
+          0.616,
+          0.0,
+          691.36,
+          0.0,
+          0.616,
+          522.2
+        ],
+        "weapon_source": "locked-weapon/naginata-master.png",
+        "weapon_raw_to_canvas_affine": [
+          0.6475906394397289,
+          0.0,
+          452.904364525178,
+          0.0,
+          0.6475906394397289,
+          425.37608764320794
+        ],
+        "weapon_uniform_scale": 0.6475906394397289,
+        "weapon_tip_to_butt_px": 962.4053200185459,
+        "weapon_perspective_scale": 1,
+        "rotation_radians": 0.0,
+        "grips_canvas": [
+          [
+            782.528,
+            801.248
+          ]
+        ],
+        "hand_occlusion_polygons_source": [
+          [
+            [
+              108,
+              415
+            ],
+            [
+              183,
+              400
+            ],
+            [
+              195,
+              443
+            ],
+            [
+              175,
+              496
+            ],
+            [
+              116,
+              501
+            ],
+            [
+              101,
+              466
+            ]
+          ]
+        ],
+        "source_landmarks": {
+          "crown": [
+            581,
+            193
+          ],
+          "chin": [
+            620,
+            384
+          ],
+          "ground": [
+            540,
+            1425
+          ],
+          "grips": [
+            [
+              148,
+              453
+            ]
+          ],
+          "feet": [
+            [
+              222,
+              1320
+            ],
+            [
+              799,
+              1425
+            ]
+          ],
+          "hand_polygons": [
+            [
+              [
+                108,
+                415
+              ],
+              [
+                183,
+                400
+              ],
+              [
+                195,
+                443
+              ],
+              [
+                175,
+                496
+              ],
+              [
+                116,
+                501
+              ],
+              [
+                101,
+                466
+              ]
+            ]
+          ],
+          "shoulder_joints": [
+            [
+              338,
+              345
+            ],
+            [
+              739,
+              511
+            ]
+          ],
+          "pelvis_root": [
+            540,
+            900
+          ]
+        },
+        "ground_root": [
+          1024,
+          1400
+        ],
+        "world_stand_height": 853.3333333333334,
+        "layers": [
+          "body.png",
+          "weapon.png",
+          "hand-occlusion.png"
+        ],
+        "composite": "composite.png",
+        "body_scale_basis": "Same-pose original art matched by shoulder width, foot-to-foot span and crown-to-ground stance height; do not use bowed-head axis alone.",
+        "body_uniform_scale": 0.616,
+        "source_measurements_superseded": true,
+        "body_source_native_px": [
+          1024,
+          1536
+        ],
+        "projected_head_axis_px": 120.08366629979284
+      }
+    },
+    "run_01": {
+      "source": "sources/run_01.png",
+      "native_px": [
+        1254,
+        1254
+      ],
+      "sha256": "e9e6634007000424acf291b2c5d661a124c134a764390dbab894bdee5d5a327c",
+      "alpha_bbox_gt10": [
+        36,
+        47,
+        1239,
+        1212
+      ],
+      "alpha_zero_fraction": 0.600354,
+      "landmarks_native": {
+        "head_crown": [
+          423,
+          102
+        ],
+        "chin": [
+          459,
+          255
+        ],
+        "shoulder_joints": [
+          [
+            349,
+            316
+          ],
+          [
+            697,
+            341
+          ]
+        ],
+        "pelvis_root": [
+          650,
+          745
+        ],
+        "ground_root": [
+          650,
+          1205
+        ],
+        "feet_screen_left_right": [
+          [
+            375,
+            1205
+          ],
+          [
+            1025,
+            1078
+          ]
+        ],
+        "grips": [
+          [
+            416,
+            733
+          ],
+          [
+            715,
+            497
+          ]
+        ],
+        "blade_tip": [
+          1170,
+          46
+        ],
+        "blade_base": [
+          965,
+          257
+        ],
+        "weapon_butt": [
+          37,
+          1037
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 157.178,
+        "shoulder_joint_distance_px": 348.897,
+        "weapon_tip_to_butt_chord_px": 1505.247,
+        "blade_chord_px": 294.187,
+        "grip_fractions_tip_to_butt": [
+          0.6775,
+          0.4248
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.65742771717497,
+        "translation_px": [
+          596.672,
+          607.8
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          874.764,
+          674.857
+        ],
+        "chin": [
+          898.431,
+          775.444
+        ],
+        "shoulder_joints": [
+          [
+            826.114,
+            815.547
+          ],
+          [
+            1054.899,
+            831.982
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          1097.583
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            843.207,
+            1400.0
+          ],
+          [
+            1270.535,
+            1316.507
+          ]
+        ],
+        "grips": [
+          [
+            870.162,
+            1089.694
+          ],
+          [
+            1066.733,
+            934.541
+          ]
+        ],
+        "blade_tip": [
+          1365.862,
+          638.041
+        ],
+        "blade_base": [
+          1231.09,
+          776.759
+        ],
+        "weapon_butt": [
+          620.997,
+          1289.552
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 229.374,
+        "weapon_tip_to_butt_chord_px": 989.591
+      },
+      "review_flags": [
+        "anatomical alternating stride unverified"
+      ],
+      "normalized_frame": "frames/run_01.png"
+    },
+    "run_03": {
+      "source": "sources/run_03.png",
+      "native_px": [
+        1254,
+        1254
+      ],
+      "sha256": "37121e90adc4e3e59f47faeee28f86f2c493cf998a25ae6cba198352ba43fd12",
+      "alpha_bbox_gt10": [
+        45,
+        28,
+        1231,
+        1211
+      ],
+      "alpha_zero_fraction": 0.625394,
+      "landmarks_native": {
+        "head_crown": [
+          469,
+          164
+        ],
+        "chin": [
+          492,
+          292
+        ],
+        "shoulder_joints": [
+          [
+            402,
+            363
+          ],
+          [
+            650,
+            430
+          ]
+        ],
+        "pelvis_root": [
+          625,
+          728
+        ],
+        "ground_root": [
+          625,
+          1205
+        ],
+        "feet_screen_left_right": [
+          [
+            346,
+            1205
+          ],
+          [
+            1100,
+            1079
+          ]
+        ],
+        "grips": [
+          [
+            410,
+            698
+          ],
+          [
+            611,
+            570
+          ]
+        ],
+        "blade_tip": [
+          1175,
+          27
+        ],
+        "blade_base": [
+          963,
+          245
+        ],
+        "weapon_butt": [
+          49,
+          978
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 130.05,
+        "shoulder_joint_distance_px": 256.891,
+        "weapon_tip_to_butt_chord_px": 1473.865,
+        "blade_chord_px": 304.086,
+        "grip_fractions_tip_to_butt": [
+          0.6903,
+          0.5301
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.7945662512143256,
+        "translation_px": [
+          527.396,
+          442.548
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          900.048,
+          572.857
+        ],
+        "chin": [
+          918.323,
+          674.561
+        ],
+        "shoulder_joints": [
+          [
+            846.812,
+            730.975
+          ],
+          [
+            1043.864,
+            784.211
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          1020.992
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            802.316,
+            1400.0
+          ],
+          [
+            1401.419,
+            1299.885
+          ]
+        ],
+        "grips": [
+          [
+            853.168,
+            997.155
+          ],
+          [
+            1012.876,
+            895.45
+          ]
+        ],
+        "blade_tip": [
+          1461.011,
+          464.001
+        ],
+        "blade_base": [
+          1292.563,
+          637.216
+        ],
+        "weapon_butt": [
+          566.33,
+          1219.633
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 204.117,
+        "weapon_tip_to_butt_chord_px": 1171.083
+      },
+      "review_flags": [
+        "anatomical alternating stride unverified"
+      ],
+      "normalized_frame": "frames/run_03.png",
+      "assembly_override": {
+        "body_source": "basic/clean-bodies/run_03.png",
+        "body_raw_to_canvas_affine": [
+          0.748517188735993,
+          0.0,
+          556.1767570400043,
+          0.0,
+          0.748517188735993,
+          498.03678757312844
+        ],
+        "weapon_source": "locked-weapon/naginata-master.png",
+        "weapon_raw_to_canvas_affine": [
+          0.35225721316245234,
+          -0.5434045381343255,
+          1258.92803547362,
+          0.5434045381343255,
+          0.35225721316245234,
+          373.04991499502415
+        ],
+        "weapon_uniform_scale": 0.6475906394397289,
+        "weapon_tip_to_butt_px": 962.4053200185459,
+        "weapon_perspective_scale": 1,
+        "rotation_radians": 0.9956585105571282,
+        "grips_canvas": [
+          [
+            863.8173216104974,
+            1021.9988196883236
+          ],
+          [
+            1012.77224216896,
+            925.4401023413805
+          ]
+        ],
+        "hand_occlusion_polygons_source": [
+          [
+            [
+              388,
+              690
+            ],
+            [
+              405,
+              671
+            ],
+            [
+              436,
+              673
+            ],
+            [
+              449,
+              697
+            ],
+            [
+              442,
+              722
+            ],
+            [
+              416,
+              737
+            ],
+            [
+              395,
+              735
+            ],
+            [
+              383,
+              714
+            ]
+          ],
+          [
+            [
+              584,
+              552
+            ],
+            [
+              609,
+              536
+            ],
+            [
+              632,
+              546
+            ],
+            [
+              647,
+              569
+            ],
+            [
+              640,
+              588
+            ],
+            [
+              617,
+              602
+            ],
+            [
+              593,
+              591
+            ],
+            [
+              580,
+              572
+            ]
+          ]
+        ],
+        "source_landmarks": {
+          "crown": [
+            454,
+            164
+          ],
+          "chin": [
+            491,
+            297
+          ],
+          "ground": [
+            625,
+            1205
+          ],
+          "grips": [
+            [
+              411,
+              700
+            ],
+            [
+              610,
+              571
+            ]
+          ],
+          "feet": [
+            [
+              346,
+              1205
+            ],
+            [
+              1100,
+              1079
+            ]
+          ],
+          "hand_polygons": [
+            [
+              [
+                388,
+                690
+              ],
+              [
+                405,
+                671
+              ],
+              [
+                436,
+                673
+              ],
+              [
+                449,
+                697
+              ],
+              [
+                442,
+                722
+              ],
+              [
+                416,
+                737
+              ],
+              [
+                395,
+                735
+              ],
+              [
+                383,
+                714
+              ]
+            ],
+            [
+              [
+                584,
+                552
+              ],
+              [
+                609,
+                536
+              ],
+              [
+                632,
+                546
+              ],
+              [
+                647,
+                569
+              ],
+              [
+                640,
+                588
+              ],
+              [
+                617,
+                602
+              ],
+              [
+                593,
+                591
+              ],
+              [
+                580,
+                572
+              ]
+            ]
+          ],
+          "shoulder_joints": [
+            [
+              402,
+              363
+            ],
+            [
+              650,
+              430
+            ]
+          ],
+          "pelvis_root": [
+            625,
+            728
+          ]
+        },
+        "ground_root": [
+          1024,
+          1400
+        ],
+        "world_stand_height": 853.3333333333334,
+        "layers": [
+          "body.png",
+          "weapon.png",
+          "hand-occlusion.png"
+        ],
+        "composite": "composite.png",
+        "source_measurements_superseded": true,
+        "body_source_native_px": [
+          1254,
+          1254
+        ],
+        "projected_head_axis_px": 103.33333333333333
+      }
+    },
+    "run_passing": {
+      "source": "sources/run_passing.png",
+      "native_px": [
+        1254,
+        1254
+      ],
+      "sha256": "74218e1f1ac76d05d7136149f9c09199fb411313903c96482ce483b9d29045d8",
+      "alpha_bbox_gt10": [
+        37,
+        47,
+        1243,
+        1199
+      ],
+      "alpha_zero_fraction": 0.603259,
+      "landmarks_native": {
+        "head_crown": [
+          423,
+          102
+        ],
+        "chin": [
+          459,
+          255
+        ],
+        "shoulder_joints": [
+          [
+            349,
+            316
+          ],
+          [
+            697,
+            341
+          ]
+        ],
+        "pelvis_root": [
+          650,
+          745
+        ],
+        "ground_root": [
+          650,
+          1205
+        ],
+        "feet_screen_left_right": [
+          [
+            480,
+            1193
+          ],
+          [
+            1100,
+            1170
+          ]
+        ],
+        "grips": [
+          [
+            416,
+            733
+          ],
+          [
+            715,
+            497
+          ]
+        ],
+        "blade_tip": [
+          1170,
+          46
+        ],
+        "blade_base": [
+          965,
+          257
+        ],
+        "weapon_butt": [
+          37,
+          1037
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 157.178,
+        "shoulder_joint_distance_px": 348.897,
+        "weapon_tip_to_butt_chord_px": 1505.247,
+        "blade_chord_px": 294.187,
+        "grip_fractions_tip_to_butt": [
+          0.6775,
+          0.4248
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.65742771717497,
+        "translation_px": [
+          596.672,
+          607.8
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          874.764,
+          674.857
+        ],
+        "chin": [
+          898.431,
+          775.444
+        ],
+        "shoulder_joints": [
+          [
+            826.114,
+            815.547
+          ],
+          [
+            1054.899,
+            831.982
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          1097.583
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            912.237,
+            1392.111
+          ],
+          [
+            1319.842,
+            1376.99
+          ]
+        ],
+        "grips": [
+          [
+            870.162,
+            1089.694
+          ],
+          [
+            1066.733,
+            934.541
+          ]
+        ],
+        "blade_tip": [
+          1365.862,
+          638.041
+        ],
+        "blade_base": [
+          1231.09,
+          776.759
+        ],
+        "weapon_butt": [
+          620.997,
+          1289.552
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 229.374,
+        "weapon_tip_to_butt_chord_px": 989.591
+      },
+      "review_flags": [
+        "anatomical alternating stride unverified"
+      ],
+      "normalized_frame": "frames/run_passing.png"
+    },
+    "run_tuck": {
+      "source": "sources/run_tuck.png",
+      "native_px": [
+        1254,
+        1254
+      ],
+      "sha256": "17aef8f5e05283db372436b9c2b319ce2aeb07a35912616fb9426edc064d45af",
+      "alpha_bbox_gt10": [
+        36,
+        43,
+        1243,
+        1132
+      ],
+      "alpha_zero_fraction": 0.614666,
+      "landmarks_native": {
+        "head_crown": [
+          433,
+          101
+        ],
+        "chin": [
+          471,
+          255
+        ],
+        "shoulder_joints": [
+          [
+            349,
+            316
+          ],
+          [
+            710,
+            337
+          ]
+        ],
+        "pelvis_root": [
+          650,
+          745
+        ],
+        "ground_root": [
+          650,
+          1205
+        ],
+        "feet_screen_left_right": [
+          [
+            610,
+            1124
+          ],
+          [
+            1184,
+            928
+          ]
+        ],
+        "grips": [
+          [
+            411,
+            734
+          ],
+          [
+            716,
+            497
+          ]
+        ],
+        "blade_tip": [
+          1175,
+          47
+        ],
+        "blade_base": [
+          963,
+          254
+        ],
+        "weapon_butt": [
+          39,
+          1026
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 158.619,
+        "shoulder_joint_distance_px": 361.61,
+        "weapon_tip_to_butt_chord_px": 1499.646,
+        "blade_chord_px": 296.299,
+        "grip_fractions_tip_to_butt": [
+          0.685,
+          0.4277
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.651456048569847,
+        "translation_px": [
+          600.554,
+          614.995
+        ],
+        "no_upscale": true
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          882.634,
+          680.793
+        ],
+        "chin": [
+          907.389,
+          781.117
+        ],
+        "shoulder_joints": [
+          [
+            827.912,
+            820.856
+          ],
+          [
+            1063.087,
+            834.536
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          1100.33
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            997.942,
+            1347.232
+          ],
+          [
+            1371.878,
+            1219.547
+          ]
+        ],
+        "grips": [
+          [
+            868.302,
+            1093.164
+          ],
+          [
+            1066.996,
+            938.769
+          ]
+        ],
+        "blade_tip": [
+          1366.014,
+          645.614
+        ],
+        "blade_base": [
+          1227.906,
+          780.465
+        ],
+        "weapon_butt": [
+          625.96,
+          1283.389
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 235.573,
+        "weapon_tip_to_butt_chord_px": 976.953
+      },
+      "review_flags": [
+        "anatomical alternating stride unverified"
+      ],
+      "normalized_frame": "frames/run_tuck.png"
+    },
+    "idle_v3_01": {
+      "source": "sources/idle_01.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "13e6c78922233b98f89deedc4e21cee60a6c06548f2dfe8c2989ac04f038fec2",
+      "alpha_bbox_gt10": [
+        178,
+        11,
+        940,
+        1489
+      ],
+      "alpha_zero_fraction": 0.550694,
+      "landmarks_native": {
+        "head_crown": [
+          548,
+          176
+        ],
+        "chin": [
+          575,
+          333
+        ],
+        "shoulder_joints": [
+          [
+            385,
+            442
+          ],
+          [
+            697,
+            436
+          ]
+        ],
+        "pelvis_root": [
+          575,
+          790
+        ],
+        "ground_root": [
+          575,
+          1480
+        ],
+        "feet_screen_left_right": [
+          [
+            371,
+            1465
+          ],
+          [
+            800,
+            1480
+          ]
+        ],
+        "grips": [
+          [
+            218,
+            619
+          ]
+        ],
+        "blade_tip": [
+          296,
+          10
+        ],
+        "blade_base": [
+          233,
+          281
+        ],
+        "weapon_butt": [
+          194,
+          1457
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 159.305,
+        "shoulder_joint_distance_px": 312.058,
+        "weapon_tip_to_butt_chord_px": 1450.591,
+        "blade_chord_px": 278.227,
+        "grip_fractions_tip_to_butt": [
+          0.4226
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6486519717676098,
+        "translation_px": [
+          651.025,
+          439.995
+        ],
+        "no_upscale": true,
+        "basis": "One immutable idle_01 anatomy/base transform for every state; localized generated robe/bead patches only."
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1006.486,
+          554.158
+        ],
+        "chin": [
+          1024.0,
+          655.996
+        ],
+        "shoulder_joints": [
+          [
+            900.756,
+            726.699
+          ],
+          [
+            1103.136,
+            722.807
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          952.43
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            891.675,
+            1390.27
+          ],
+          [
+            1169.947,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            792.431,
+            841.511
+          ]
+        ],
+        "blade_tip": [
+          843.026,
+          446.482
+        ],
+        "blade_base": [
+          802.161,
+          622.266
+        ],
+        "weapon_butt": [
+          776.864,
+          1385.081
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 202.417,
+        "weapon_tip_to_butt_chord_px": 940.928
+      },
+      "review_flags": [
+        "All head/shoulder/pelvis/feet/grip and weapon coordinates are invariant. Only local cloth/bead pixels may change."
+      ],
+      "normalized_frame": "frames/idle_v3_01.png",
+      "derived_local_patch_source": null,
+      "motion_mask": "idle-v3/motion-mask-canvas.png",
+      "native_global_anatomy_source": "sources/idle_01.png"
+    },
+    "idle_v3_02": {
+      "source": "sources/idle_01.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "13e6c78922233b98f89deedc4e21cee60a6c06548f2dfe8c2989ac04f038fec2",
+      "alpha_bbox_gt10": [
+        178,
+        11,
+        940,
+        1489
+      ],
+      "alpha_zero_fraction": 0.550694,
+      "landmarks_native": {
+        "head_crown": [
+          548,
+          176
+        ],
+        "chin": [
+          575,
+          333
+        ],
+        "shoulder_joints": [
+          [
+            385,
+            442
+          ],
+          [
+            697,
+            436
+          ]
+        ],
+        "pelvis_root": [
+          575,
+          790
+        ],
+        "ground_root": [
+          575,
+          1480
+        ],
+        "feet_screen_left_right": [
+          [
+            371,
+            1465
+          ],
+          [
+            800,
+            1480
+          ]
+        ],
+        "grips": [
+          [
+            218,
+            619
+          ]
+        ],
+        "blade_tip": [
+          296,
+          10
+        ],
+        "blade_base": [
+          233,
+          281
+        ],
+        "weapon_butt": [
+          194,
+          1457
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 159.305,
+        "shoulder_joint_distance_px": 312.058,
+        "weapon_tip_to_butt_chord_px": 1450.591,
+        "blade_chord_px": 278.227,
+        "grip_fractions_tip_to_butt": [
+          0.4226
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6486519717676098,
+        "translation_px": [
+          651.025,
+          439.995
+        ],
+        "no_upscale": true,
+        "basis": "One immutable idle_01 anatomy/base transform for every state; localized generated robe/bead patches only."
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1006.486,
+          554.158
+        ],
+        "chin": [
+          1024.0,
+          655.996
+        ],
+        "shoulder_joints": [
+          [
+            900.756,
+            726.699
+          ],
+          [
+            1103.136,
+            722.807
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          952.43
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            891.675,
+            1390.27
+          ],
+          [
+            1169.947,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            792.431,
+            841.511
+          ]
+        ],
+        "blade_tip": [
+          843.026,
+          446.482
+        ],
+        "blade_base": [
+          802.161,
+          622.266
+        ],
+        "weapon_butt": [
+          776.864,
+          1385.081
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 202.417,
+        "weapon_tip_to_butt_chord_px": 940.928
+      },
+      "review_flags": [
+        "All head/shoulder/pelvis/feet/grip and weapon coordinates are invariant. Only local cloth/bead pixels may change."
+      ],
+      "normalized_frame": "frames/idle_v3_02.png",
+      "derived_local_patch_source": "idle-v3/raw/breath_in.png",
+      "motion_mask": "idle-v3/motion-mask-canvas.png",
+      "native_global_anatomy_source": "sources/idle_01.png"
+    },
+    "idle_v3_03": {
+      "source": "sources/idle_01.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "sha256": "13e6c78922233b98f89deedc4e21cee60a6c06548f2dfe8c2989ac04f038fec2",
+      "alpha_bbox_gt10": [
+        178,
+        11,
+        940,
+        1489
+      ],
+      "alpha_zero_fraction": 0.550694,
+      "landmarks_native": {
+        "head_crown": [
+          548,
+          176
+        ],
+        "chin": [
+          575,
+          333
+        ],
+        "shoulder_joints": [
+          [
+            385,
+            442
+          ],
+          [
+            697,
+            436
+          ]
+        ],
+        "pelvis_root": [
+          575,
+          790
+        ],
+        "ground_root": [
+          575,
+          1480
+        ],
+        "feet_screen_left_right": [
+          [
+            371,
+            1465
+          ],
+          [
+            800,
+            1480
+          ]
+        ],
+        "grips": [
+          [
+            218,
+            619
+          ]
+        ],
+        "blade_tip": [
+          296,
+          10
+        ],
+        "blade_base": [
+          233,
+          281
+        ],
+        "weapon_butt": [
+          194,
+          1457
+        ]
+      },
+      "measurements_native": {
+        "head_axis_px": 159.305,
+        "shoulder_joint_distance_px": 312.058,
+        "weapon_tip_to_butt_chord_px": 1450.591,
+        "blade_chord_px": 278.227,
+        "grip_fractions_tip_to_butt": [
+          0.4226
+        ]
+      },
+      "normalization": {
+        "uniform_scale": 0.6486519717676098,
+        "translation_px": [
+          651.025,
+          439.995
+        ],
+        "no_upscale": true,
+        "basis": "One immutable idle_01 anatomy/base transform for every state; localized generated robe/bead patches only."
+      },
+      "landmarks_normalized": {
+        "head_crown": [
+          1006.486,
+          554.158
+        ],
+        "chin": [
+          1024.0,
+          655.996
+        ],
+        "shoulder_joints": [
+          [
+            900.756,
+            726.699
+          ],
+          [
+            1103.136,
+            722.807
+          ]
+        ],
+        "pelvis_root": [
+          1024.0,
+          952.43
+        ],
+        "ground_root": [
+          1024.0,
+          1400.0
+        ],
+        "feet_screen_left_right": [
+          [
+            891.675,
+            1390.27
+          ],
+          [
+            1169.947,
+            1400.0
+          ]
+        ],
+        "grips": [
+          [
+            792.431,
+            841.511
+          ]
+        ],
+        "blade_tip": [
+          843.026,
+          446.482
+        ],
+        "blade_base": [
+          802.161,
+          622.266
+        ],
+        "weapon_butt": [
+          776.864,
+          1385.081
+        ]
+      },
+      "measurements_normalized": {
+        "head_axis_px": 103.333,
+        "shoulder_joint_distance_px": 202.417,
+        "weapon_tip_to_butt_chord_px": 940.928
+      },
+      "review_flags": [
+        "All head/shoulder/pelvis/feet/grip and weapon coordinates are invariant. Only local cloth/bead pixels may change."
+      ],
+      "normalized_frame": "frames/idle_v3_03.png",
+      "derived_local_patch_source": "idle-v3/raw/breath_out.png",
+      "motion_mask": "idle-v3/motion-mask-canvas.png",
+      "native_global_anatomy_source": "sources/idle_01.png"
+    }
+  },
+  "actions": {
+    "idle": {
+      "loop": true,
+      "cycle_ms": 2000,
+      "not_full_inbetweens": true,
+      "frames": [
+        {
+          "source_key": "idle_v4_01",
+          "frame_file": "frames/idle_v4_01.png",
+          "duration_ms": 500,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "idle_v4.assemblies.idle_v4_01"
+        },
+        {
+          "source_key": "idle_v4_02",
+          "frame_file": "frames/idle_v4_02.png",
+          "duration_ms": 500,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "idle_v4.assemblies.idle_v4_02"
+        },
+        {
+          "source_key": "idle_v4_01",
+          "frame_file": "frames/idle_v4_01.png",
+          "duration_ms": 500,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "idle_v4.assemblies.idle_v4_01"
+        },
+        {
+          "source_key": "idle_v4_03",
+          "frame_file": "frames/idle_v4_03.png",
+          "duration_ms": 500,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "idle_v4.assemblies.idle_v4_03"
+        }
+      ]
+    },
+    "walk": {
+      "loop": true,
+      "cycle_ms": 800,
+      "not_full_inbetweens": true,
+      "frames": [
+        {
+          "source_key": "walk_ref_00",
+          "frame_file": "frames/walk_ref_00.png",
+          "duration_ms": 200,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "ref_cycle_assemblies.walk_ref_00"
+        },
+        {
+          "source_key": "walk_ref_03",
+          "frame_file": "frames/walk_ref_03.png",
+          "duration_ms": 200,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "ref_cycle_assemblies.walk_ref_03"
+        },
+        {
+          "source_key": "walk_ref_06",
+          "frame_file": "frames/walk_ref_06.png",
+          "duration_ms": 200,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "ref_cycle_assemblies.walk_ref_06"
+        },
+        {
+          "source_key": "walk_ref_09",
+          "frame_file": "frames/walk_ref_09.png",
+          "duration_ms": 200,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "ref_cycle_assemblies.walk_ref_09"
+        }
+      ]
+    },
+    "hurt": {
+      "loop": false,
+      "cycle_ms": 440,
+      "not_full_inbetweens": true,
+      "frames": [
+        {
+          "source_key": "idle_v4_01",
+          "frame_file": "frames/idle_v4_01.png",
+          "duration_ms": 70,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "idle_v4.assemblies.idle_v4_01"
+        },
+        {
+          "source_key": "hurt_01",
+          "frame_file": "frames/hurt_01.png",
+          "duration_ms": 90,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "sources.hurt_01"
+        },
+        {
+          "source_key": "hurt_02",
+          "frame_file": "frames/hurt_02.png",
+          "duration_ms": 150,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "corrected_assemblies.hurt_02"
+        },
+        {
+          "source_key": "idle_v4_03",
+          "frame_file": "frames/idle_v4_03.png",
+          "duration_ms": 130,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "idle_v4.assemblies.idle_v4_03"
+        }
+      ]
+    },
+    "stunned": {
+      "loop": true,
+      "cycle_ms": 1000,
+      "not_full_inbetweens": true,
+      "frames": [
+        {
+          "source_key": "stunned_01",
+          "frame_file": "frames/stunned_01.png",
+          "duration_ms": 240,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "sources.stunned_01"
+        },
+        {
+          "source_key": "stunned_03",
+          "frame_file": "frames/stunned_03.png",
+          "duration_ms": 260,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "sources.stunned_03"
+        },
+        {
+          "source_key": "stunned_02",
+          "frame_file": "frames/stunned_02.png",
+          "duration_ms": 240,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "sources.stunned_02"
+        },
+        {
+          "source_key": "stunned_03",
+          "frame_file": "frames/stunned_03.png",
+          "duration_ms": 260,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "sources.stunned_03"
+        }
+      ]
+    },
+    "down": {
+      "loop": false,
+      "cycle_ms": 790,
+      "not_full_inbetweens": true,
+      "frames": [
+        {
+          "source_key": "idle_v4_01",
+          "frame_file": "frames/idle_v4_01.png",
+          "duration_ms": 70,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "idle_v4.assemblies.idle_v4_01"
+        },
+        {
+          "source_key": "hurt_01",
+          "frame_file": "frames/hurt_01.png",
+          "duration_ms": 80,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "sources.hurt_01"
+        },
+        {
+          "source_key": "hurt_02",
+          "frame_file": "frames/hurt_02.png",
+          "duration_ms": 120,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "corrected_assemblies.hurt_02"
+        },
+        {
+          "source_key": "down_02",
+          "frame_file": "frames/down_02.png",
+          "duration_ms": 520,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "sources.down_02"
+        }
+      ]
+    },
+    "recover": {
+      "loop": false,
+      "cycle_ms": 740,
+      "not_full_inbetweens": true,
+      "frames": [
+        {
+          "source_key": "down_02",
+          "frame_file": "frames/down_02.png",
+          "duration_ms": 220,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "sources.down_02"
+        },
+        {
+          "source_key": "recover_01",
+          "frame_file": "frames/recover_01.png",
+          "duration_ms": 180,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "corrected_assemblies.recover_01"
+        },
+        {
+          "source_key": "idle_v4_03",
+          "frame_file": "frames/idle_v4_03.png",
+          "duration_ms": 140,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "idle_v4.assemblies.idle_v4_03"
+        },
+        {
+          "source_key": "idle_v4_01",
+          "frame_file": "frames/idle_v4_01.png",
+          "duration_ms": 200,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "idle_v4.assemblies.idle_v4_01"
+        }
+      ]
+    },
+    "retreat_run": {
+      "loop": true,
+      "cycle_ms": 360,
+      "not_full_inbetweens": true,
+      "frames": [
+        {
+          "source_key": "run_03",
+          "frame_file": "frames/run_03.png",
+          "duration_ms": 100,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "corrected_assemblies.run_03"
+        },
+        {
+          "source_key": "run_tuck_clean",
+          "frame_file": "frames/run_tuck_clean.png",
+          "duration_ms": 80,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "ref_cycle_assemblies.run_tuck_clean"
+        },
+        {
+          "source_key": "run_opposite_final",
+          "frame_file": "frames/run_opposite_final.png",
+          "duration_ms": 100,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "ref_cycle_assemblies.run_opposite_final"
+        },
+        {
+          "source_key": "run_tuck_clean",
+          "frame_file": "frames/run_tuck_clean.png",
+          "duration_ms": 80,
+          "root": [
+            1024,
+            1400
+          ],
+          "anchor_record": "ref_cycle_assemblies.run_tuck_clean"
+        }
+      ]
+    }
+  },
+  "excluded_sources": {
+    "down_01": "Blade tip on upper edge; included only as source/normalized review candidate, not in action playback.",
+    "walk_03": "Earlier candidate repeats same leading-leg arrangement.",
+    "walk_03b": "Earlier candidate repeats same leading-leg arrangement.",
+    "walk_opposite": "Correction did not convincingly reverse anatomical leg arrangement.",
+    "run_03": "Similar leading-leg arrangement and excessive normalized weapon-length drift; omitted from playback."
+  },
+  "reference_measurements": {
+    "file": "reference/kusei-white-gold-master-v2.png",
+    "native_px": [
+      1024,
+      1536
+    ],
+    "head_crown": [
+      548,
+      190
+    ],
+    "chin": [
+      578,
+      349
+    ],
+    "head_axis_px": 161.805,
+    "shoulder_joints": [
+      [
+        385,
+        445
+      ],
+      [
+        700,
+        445
+      ]
+    ],
+    "shoulder_joint_distance_px": 315,
+    "pelvis_root": [
+      575,
+      810
+    ],
+    "ground_root": [
+      575,
+      1480
+    ],
+    "feet_screen_left_right": [
+      [
+        375,
+        1460
+      ],
+      [
+        795,
+        1480
+      ]
+    ],
+    "grips": [
+      [
+        227,
+        624
+      ]
+    ],
+    "blade_tip": [
+      301,
+      12
+    ],
+    "blade_base": [
+      235,
+      282
+    ],
+    "weapon_butt": [
+      195,
+      1458
+    ],
+    "weapon_tip_to_butt_chord_px": 1449.88,
+    "measurement_method": "manual visual approximation, same tolerance as source annotations"
+  },
+  "status": "v4 coordinated idle review package; no claim of user approval",
+  "ref_cycle_assemblies": {
+    "walk_ref_00": {
+      "source": "walk-ref-pass/walk_ref_00.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "landmarks_native": {
+        "file": "walk-ref-pass/walk_ref_00.png",
+        "crown": [
+          616,
+          177
+        ],
+        "chin": [
+          645,
+          340
+        ],
+        "ground": [
+          565,
+          1382
+        ],
+        "grips": [
+          [
+            479,
+            649
+          ]
+        ],
+        "feet": [
+          [
+            185,
+            1357
+          ],
+          [
+            907,
+            1382
+          ]
+        ],
+        "shoulders": [
+          [
+            388,
+            421
+          ],
+          [
+            728,
+            448
+          ]
+        ],
+        "pelvis": [
+          565,
+          875
+        ],
+        "hand_polygons": [
+          [
+            [
+              447,
+              609
+            ],
+            [
+              499,
+              603
+            ],
+            [
+              513,
+              627
+            ],
+            [
+              503,
+              667
+            ],
+            [
+              482,
+              690
+            ],
+            [
+              449,
+              685
+            ],
+            [
+              442,
+              647
+            ]
+          ]
+        ]
+      },
+      "body_raw_to_canvas_affine": [
+        0.6241456116465761,
+        0.0,
+        671.3577294196846,
+        0.0,
+        0.6241456116465761,
+        537.4307647044318
+      ],
+      "uniform_scale": 0.6241456116465761,
+      "target_head_axis_px": 103.3333333333333,
+      "ground_root": [
+        1024,
+        1400
+      ],
+      "grips_canvas": [
+        [
+          970.3234773983945,
+          942.5012666630597
+        ]
+      ],
+      "feet_canvas": [
+        [
+          786.8246675743012,
+          1384.3963597088355
+        ],
+        [
+          1237.457799183129,
+          1400.0
+        ]
+      ],
+      "head_crown_canvas": [
+        1055.8314261939754,
+        647.9045379658758
+      ],
+      "chin_canvas": [
+        1073.9316489317262,
+        749.6402726642677
+      ],
+      "shoulder_distance_canvas_px": 212.8775771759995,
+      "weapon_source": "shared-fixed-weapon/naginata-master.png",
+      "weapon_raw_to_canvas_affine": [
+        0.6475906394397289,
+        -0.0,
+        640.6998419235724,
+        0.0,
+        0.6475906394397289,
+        425.37608764320794
+      ],
+      "weapon_uniform_scale": 0.6475906394397289,
+      "weapon_tip_to_butt_px": 962.4053200185459,
+      "rotation_radians": 0.0,
+      "hand_occlusion_polygons_source": [
+        [
+          [
+            447,
+            609
+          ],
+          [
+            499,
+            603
+          ],
+          [
+            513,
+            627
+          ],
+          [
+            503,
+            667
+          ],
+          [
+            482,
+            690
+          ],
+          [
+            449,
+            685
+          ],
+          [
+            442,
+            647
+          ]
+        ]
+      ],
+      "layers": [
+        "layered/walk_ref_00/body.png",
+        "layered/walk_ref_00/weapon.png",
+        "layered/walk_ref_00/hand-occlusion.png",
+        "layered/walk_ref_00/composite.png"
+      ]
+    },
+    "walk_ref_03": {
+      "source": "walk-ref-pass/walk_ref_03.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "landmarks_native": {
+        "file": "walk-ref-pass/walk_ref_03.png",
+        "crown": [
+          638,
+          140
+        ],
+        "chin": [
+          669,
+          300
+        ],
+        "ground": [
+          560,
+          1440
+        ],
+        "grips": [
+          [
+            437,
+            623
+          ]
+        ],
+        "feet": [
+          [
+            351,
+            1300
+          ],
+          [
+            700,
+            1440
+          ]
+        ],
+        "shoulders": [
+          [
+            396,
+            379
+          ],
+          [
+            735,
+            397
+          ]
+        ],
+        "pelvis": [
+          560,
+          830
+        ],
+        "hand_polygons": [
+          [
+            [
+              411,
+              581
+            ],
+            [
+              460,
+              577
+            ],
+            [
+              474,
+              607
+            ],
+            [
+              466,
+              647
+            ],
+            [
+              440,
+              668
+            ],
+            [
+              409,
+              660
+            ],
+            [
+              401,
+              621
+            ]
+          ]
+        ]
+      },
+      "body_raw_to_canvas_affine": [
+        0.6340422934038765,
+        0.0,
+        668.9363156938291,
+        0.0,
+        0.6340422934038765,
+        486.9790974984178
+      ],
+      "uniform_scale": 0.6340422934038765,
+      "target_head_axis_px": 103.3333333333333,
+      "ground_root": [
+        1024,
+        1400
+      ],
+      "grips_canvas": [
+        [
+          946.0127979113231,
+          881.9874462890328
+        ]
+      ],
+      "feet_canvas": [
+        [
+          891.4851606785898,
+          1311.2340789234572
+        ],
+        [
+          1112.7659210765428,
+          1400.0
+        ]
+      ],
+      "head_crown_canvas": [
+        1073.4552988855023,
+        575.7450185749605
+      ],
+      "chin_canvas": [
+        1093.1106099810224,
+        677.1917855195808
+      ],
+      "shoulder_distance_canvas_px": 215.24311786713307,
+      "weapon_source": "shared-fixed-weapon/naginata-master.png",
+      "weapon_raw_to_canvas_affine": [
+        0.6475906394397289,
+        -0.0,
+        616.389162436501,
+        0.0,
+        0.6475906394397289,
+        425.37608764320794
+      ],
+      "weapon_uniform_scale": 0.6475906394397289,
+      "weapon_tip_to_butt_px": 962.4053200185459,
+      "rotation_radians": 0.0,
+      "hand_occlusion_polygons_source": [
+        [
+          [
+            411,
+            581
+          ],
+          [
+            460,
+            577
+          ],
+          [
+            474,
+            607
+          ],
+          [
+            466,
+            647
+          ],
+          [
+            440,
+            668
+          ],
+          [
+            409,
+            660
+          ],
+          [
+            401,
+            621
+          ]
+        ]
+      ],
+      "layers": [
+        "layered/walk_ref_03/body.png",
+        "layered/walk_ref_03/weapon.png",
+        "layered/walk_ref_03/hand-occlusion.png",
+        "layered/walk_ref_03/composite.png"
+      ]
+    },
+    "walk_ref_06": {
+      "source": "walk-ref-pass/walk_ref_06.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "landmarks_native": {
+        "file": "walk-ref-pass/walk_ref_06.png",
+        "crown": [
+          572,
+          101
+        ],
+        "chin": [
+          601,
+          263
+        ],
+        "ground": [
+          560,
+          1440
+        ],
+        "grips": [
+          [
+            417,
+            610
+          ]
+        ],
+        "feet": [
+          [
+            307,
+            1407
+          ],
+          [
+            867,
+            1440
+          ]
+        ],
+        "shoulders": [
+          [
+            354,
+            346
+          ],
+          [
+            705,
+            367
+          ]
+        ],
+        "pelvis": [
+          560,
+          800
+        ],
+        "hand_polygons": [
+          [
+            [
+              394,
+              577
+            ],
+            [
+              436,
+              565
+            ],
+            [
+              453,
+              601
+            ],
+            [
+              443,
+              636
+            ],
+            [
+              415,
+              654
+            ],
+            [
+              387,
+              644
+            ],
+            [
+              382,
+              611
+            ]
+          ]
+        ]
+      },
+      "body_raw_to_canvas_affine": [
+        0.6278790885325145,
+        0.0,
+        672.3877104217919,
+        0.0,
+        0.6278790885325145,
+        495.8541125131791
+      ],
+      "uniform_scale": 0.6278790885325145,
+      "target_head_axis_px": 103.3333333333333,
+      "ground_root": [
+        1024,
+        1400
+      ],
+      "grips_canvas": [
+        [
+          934.2132903398505,
+          878.8603565180128
+        ]
+      ],
+      "feet_canvas": [
+        [
+          865.1465906012738,
+          1379.279990078427
+        ],
+        [
+          1216.7588801794818,
+          1400.0
+        ]
+      ],
+      "head_crown_canvas": [
+        1031.5345490623902,
+        559.269900454963
+      ],
+      "chin_canvas": [
+        1049.743042629833,
+        660.9863127972304
+      ],
+      "shoulder_distance_canvas_px": 220.7796445952433,
+      "weapon_source": "shared-fixed-weapon/naginata-master.png",
+      "weapon_raw_to_canvas_affine": [
+        0.6475906394397289,
+        -0.0,
+        604.5896548650285,
+        0.0,
+        0.6475906394397289,
+        425.37608764320794
+      ],
+      "weapon_uniform_scale": 0.6475906394397289,
+      "weapon_tip_to_butt_px": 962.4053200185459,
+      "rotation_radians": 0.0,
+      "hand_occlusion_polygons_source": [
+        [
+          [
+            394,
+            577
+          ],
+          [
+            436,
+            565
+          ],
+          [
+            453,
+            601
+          ],
+          [
+            443,
+            636
+          ],
+          [
+            415,
+            654
+          ],
+          [
+            387,
+            644
+          ],
+          [
+            382,
+            611
+          ]
+        ]
+      ],
+      "layers": [
+        "layered/walk_ref_06/body.png",
+        "layered/walk_ref_06/weapon.png",
+        "layered/walk_ref_06/hand-occlusion.png",
+        "layered/walk_ref_06/composite.png"
+      ]
+    },
+    "walk_ref_09": {
+      "source": "walk-ref-pass/walk_ref_09.png",
+      "native_px": [
+        1024,
+        1536
+      ],
+      "landmarks_native": {
+        "file": "walk-ref-pass/walk_ref_09.png",
+        "crown": [
+          595,
+          26
+        ],
+        "chin": [
+          630,
+          204
+        ],
+        "ground": [
+          560,
+          1478
+        ],
+        "grips": [
+          [
+            424,
+            518
+          ]
+        ],
+        "feet": [
+          [
+            420,
+            1478
+          ],
+          [
+            700,
+            1180
+          ]
+        ],
+        "shoulders": [
+          [
+            370,
+            310
+          ],
+          [
+            744,
+            350
+          ]
+        ],
+        "pelvis": [
+          560,
+          710
+        ],
+        "hand_polygons": [
+          [
+            [
+              400,
+              477
+            ],
+            [
+              445,
+              469
+            ],
+            [
+              460,
+              498
+            ],
+            [
+              453,
+              537
+            ],
+            [
+              428,
+              563
+            ],
+            [
+              398,
+              556
+            ],
+            [
+              390,
+              517
+            ]
+          ]
+        ]
+      },
+      "body_raw_to_canvas_affine": [
+        0.5696172021273819,
+        0.0,
+        705.0143668086662,
+        0.0,
+        0.5696172021273819,
+        558.1057752557296
+      ],
+      "uniform_scale": 0.5696172021273819,
+      "target_head_axis_px": 103.3333333333333,
+      "ground_root": [
+        1024,
+        1400
+      ],
+      "grips_canvas": [
+        [
+          946.532060510676,
+          853.1674859577133
+        ]
+      ],
+      "feet_canvas": [
+        [
+          944.2535917021665,
+          1400.0
+        ],
+        [
+          1103.7464082978336,
+          1230.2540737660402
+        ]
+      ],
+      "head_crown_canvas": [
+        1043.9366020744583,
+        572.9158225110415
+      ],
+      "chin_canvas": [
+        1063.8732041489168,
+        674.3076844897155
+      ],
+      "shoulder_distance_canvas_px": 214.25180157840407,
+      "weapon_source": "shared-fixed-weapon/naginata-master.png",
+      "weapon_raw_to_canvas_affine": [
+        0.6475906394397289,
+        -0.0,
+        616.908425035854,
+        0.0,
+        0.6475906394397289,
+        425.37608764320794
+      ],
+      "weapon_uniform_scale": 0.6475906394397289,
+      "weapon_tip_to_butt_px": 962.4053200185459,
+      "rotation_radians": 0.0,
+      "hand_occlusion_polygons_source": [
+        [
+          [
+            400,
+            477
+          ],
+          [
+            445,
+            469
+          ],
+          [
+            460,
+            498
+          ],
+          [
+            453,
+            537
+          ],
+          [
+            428,
+            563
+          ],
+          [
+            398,
+            556
+          ],
+          [
+            390,
+            517
+          ]
+        ]
+      ],
+      "layers": [
+        "layered/walk_ref_09/body.png",
+        "layered/walk_ref_09/weapon.png",
+        "layered/walk_ref_09/hand-occlusion.png",
+        "layered/walk_ref_09/composite.png"
+      ]
+    },
+    "run_opposite_final": {
+      "source": "run-ref-pass/run_opposite_final.png",
+      "native_px": [
+        1254,
+        1254
+      ],
+      "landmarks_native": {
+        "file": "run-ref-pass/run_opposite_final.png",
+        "crown": [
+          363,
+          45
+        ],
+        "chin": [
+          405,
+          202
+        ],
+        "ground": [
+          600,
+          1205
+        ],
+        "grips": [
+          [
+            300,
+            647
+          ],
+          [
+            535,
+            503
+          ]
+        ],
+        "feet": [
+          [
+            275,
+            1198
+          ],
+          [
+            1090,
+            1138
+          ]
+        ],
+        "shoulders": [
+          [
+            277,
+            217
+          ],
+          [
+            566,
+            274
+          ]
+        ],
+        "pelvis": [
+          550,
+          710
+        ],
+        "hand_polygons": [
+          [
+            [
+              275,
+              610
+            ],
+            [
+              314,
+              603
+            ],
+            [
+              338,
+              634
+            ],
+            [
+              336,
+              664
+            ],
+            [
+              306,
+              692
+            ],
+            [
+              277,
+              677
+            ],
+            [
+              260,
+              648
+            ]
+          ],
+          [
+            [
+              505,
+              476
+            ],
+            [
+              539,
+              466
+            ],
+            [
+              568,
+              493
+            ],
+            [
+              570,
+              519
+            ],
+            [
+              542,
+              543
+            ],
+            [
+              512,
+              535
+            ],
+            [
+              495,
+              512
+            ]
+          ]
+        ]
+      },
+      "body_raw_to_canvas_affine": [
+        0.6358161770105509,
+        0.0,
+        642.5102937936695,
+        0.0,
+        0.6358161770105509,
+        633.8415067022861
+      ],
+      "uniform_scale": 0.6358161770105509,
+      "target_head_axis_px": 103.3333333333333,
+      "ground_root": [
+        1024,
+        1400
+      ],
+      "grips_canvas": [
+        [
+          833.2551468968347,
+          1045.2145732281126
+        ],
+        [
+          982.6719484943142,
+          953.6570437385932
+        ]
+      ],
+      "feet_canvas": [
+        [
+          817.3597424715709,
+          1395.549286760926
+        ],
+        [
+          1335.54992673517,
+          1357.400316140293
+        ]
+      ],
+      "head_crown_canvas": [
+        873.3115660484995,
+        662.4532346677609
+      ],
+      "chin_canvas": [
+        900.0158454829426,
+        762.2763744584174
+      ],
+      "shoulder_distance_canvas_px": 187.29076871000623,
+      "weapon_source": "shared-fixed-weapon/naginata-master.png",
+      "weapon_raw_to_canvas_affine": [
+        0.3383511976033738,
+        -0.5521703571999494,
+        1243.7395167394106,
+        0.5521703571999494,
+        0.3383511976033738,
+        407.0979948734748
+      ],
+      "weapon_uniform_scale": 0.6475906394397289,
+      "weapon_tip_to_butt_px": 962.4053200185459,
+      "rotation_radians": 1.0210429345580556,
+      "hand_occlusion_polygons_source": [
+        [
+          [
+            275,
+            610
+          ],
+          [
+            314,
+            603
+          ],
+          [
+            338,
+            634
+          ],
+          [
+            336,
+            664
+          ],
+          [
+            306,
+            692
+          ],
+          [
+            277,
+            677
+          ],
+          [
+            260,
+            648
+          ]
+        ],
+        [
+          [
+            505,
+            476
+          ],
+          [
+            539,
+            466
+          ],
+          [
+            568,
+            493
+          ],
+          [
+            570,
+            519
+          ],
+          [
+            542,
+            543
+          ],
+          [
+            512,
+            535
+          ],
+          [
+            495,
+            512
+          ]
+        ]
+      ],
+      "layers": [
+        "layered/run_opposite_final/body.png",
+        "layered/run_opposite_final/weapon.png",
+        "layered/run_opposite_final/hand-occlusion.png",
+        "layered/run_opposite_final/composite.png"
+      ]
+    },
+    "run_tuck_clean": {
+      "source": "clean-bodies/run_tuck.png",
+      "native_px": [
+        1254,
+        1254
+      ],
+      "landmarks_native": {
+        "file": "clean-bodies/run_tuck.png",
+        "crown": [
+          432,
+          101
+        ],
+        "chin": [
+          471,
+          253
+        ],
+        "ground": [
+          650,
+          1205
+        ],
+        "grips": [
+          [
+            395,
+            733
+          ],
+          [
+            718,
+            495
+          ]
+        ],
+        "feet": [
+          [
+            615,
+            1122
+          ],
+          [
+            1185,
+            917
+          ]
+        ],
+        "shoulders": [
+          [
+            350,
+            316
+          ],
+          [
+            710,
+            337
+          ]
+        ],
+        "pelvis": [
+          650,
+          745
+        ],
+        "hand_polygons": [
+          [
+            [
+              367,
+              700
+            ],
+            [
+              420,
+              689
+            ],
+            [
+              441,
+              728
+            ],
+            [
+              427,
+              758
+            ],
+            [
+              391,
+              775
+            ],
+            [
+              360,
+              748
+            ]
+          ],
+          [
+            [
+              683,
+              470
+            ],
+            [
+              731,
+              457
+            ],
+            [
+              758,
+              486
+            ],
+            [
+              748,
+              517
+            ],
+            [
+              709,
+              539
+            ],
+            [
+              675,
+              514
+            ]
+          ]
+        ]
+      },
+      "body_raw_to_canvas_affine": [
+        0.6584947541397381,
+        0.0,
+        595.9784098091702,
+        0.0,
+        0.6584947541397381,
+        606.5138212616156
+      ],
+      "uniform_scale": 0.6584947541397381,
+      "target_head_axis_px": 103.3333333333333,
+      "ground_root": [
+        1024,
+        1400
+      ],
+      "grips_canvas": [
+        [
+          856.0838376943668,
+          1089.1904760460436
+        ],
+        [
+          1068.7776432815022,
+          932.468724560786
+        ]
+      ],
+      "feet_canvas": [
+        [
+          1000.9526836051091,
+          1345.3449354064019
+        ],
+        [
+          1376.2946934647598,
+          1210.3535108077554
+        ]
+      ],
+      "head_crown_canvas": [
+        880.4481435975371,
+        673.0217914297291
+      ],
+      "chin_canvas": [
+        906.1294390089869,
+        773.1129940589693
+      ],
+      "shoulder_distance_canvas_px": 237.46109700081917,
+      "weapon_source": "shared-fixed-weapon/naginata-master.png",
+      "weapon_raw_to_canvas_affine": [
+        0.3841501443657346,
+        -0.5213466244963539,
+        1246.5372115424213,
+        0.5213466244963539,
+        0.3841501443657346,
+        392.0460356182947
+      ],
+      "weapon_uniform_scale": 0.6475906394397289,
+      "weapon_tip_to_butt_px": 962.4053200185459,
+      "rotation_radians": 0.9357695914045827,
+      "hand_occlusion_polygons_source": [
+        [
+          [
+            367,
+            700
+          ],
+          [
+            420,
+            689
+          ],
+          [
+            441,
+            728
+          ],
+          [
+            427,
+            758
+          ],
+          [
+            391,
+            775
+          ],
+          [
+            360,
+            748
+          ]
+        ],
+        [
+          [
+            683,
+            470
+          ],
+          [
+            731,
+            457
+          ],
+          [
+            758,
+            486
+          ],
+          [
+            748,
+            517
+          ],
+          [
+            709,
+            539
+          ],
+          [
+            675,
+            514
+          ]
+        ]
+      ],
+      "layers": [
+        "layered/run_tuck_clean/body.png",
+        "layered/run_tuck_clean/weapon.png",
+        "layered/run_tuck_clean/hand-occlusion.png",
+        "layered/run_tuck_clean/composite.png"
+      ]
+    }
+  },
+  "corrected_assemblies": {
+    "hurt_02": {
+      "body_source": "basic/clean-bodies/hurt_02.png",
+      "body_raw_to_canvas_affine": [
+        0.641,
+        0.0,
+        645.81,
+        0.0,
+        0.641,
+        485.93399999999997
+      ],
+      "weapon_source": "locked-weapon/naginata-master.png",
+      "weapon_raw_to_canvas_affine": [
+        0.6475906394397289,
+        0.0,
+        447.5913645251779,
+        0.0,
+        0.6475906394397289,
+        425.37608764320794
+      ],
+      "weapon_uniform_scale": 0.6475906394397289,
+      "weapon_tip_to_butt_px": 962.4053200185459,
+      "weapon_perspective_scale": 1,
+      "rotation_radians": 0.0,
+      "grips_canvas": [
+        [
+          777.2149999999999,
+          781.435
+        ]
+      ],
+      "hand_occlusion_polygons_source": [
+        [
+          [
+            171,
+            419
+          ],
+          [
+            244,
+            412
+          ],
+          [
+            251,
+            457
+          ],
+          [
+            236,
+            508
+          ],
+          [
+            174,
+            505
+          ],
+          [
+            156,
+            467
+          ]
+        ]
+      ],
+      "source_landmarks": {
+        "crown": [
+          642,
+          167
+        ],
+        "chin": [
+          651,
+          367
+        ],
+        "ground": [
+          590,
+          1426
+        ],
+        "grips": [
+          [
+            205,
+            461
+          ]
+        ],
+        "feet": [
+          [
+            345,
+            1365
+          ],
+          [
+            878,
+            1426
+          ]
+        ],
+        "hand_polygons": [
+          [
+            [
+              171,
+              419
+            ],
+            [
+              244,
+              412
+            ],
+            [
+              251,
+              457
+            ],
+            [
+              236,
+              508
+            ],
+            [
+              174,
+              505
+            ],
+            [
+              156,
+              467
+            ]
+          ]
+        ],
+        "shoulder_joints": [
+          [
+            406,
+            317
+          ],
+          [
+            770,
+            381
+          ]
+        ],
+        "pelvis_root": [
+          590,
+          748
+        ]
+      },
+      "ground_root": [
+        1024,
+        1400
+      ],
+      "world_stand_height": 853.3333333333334,
+      "layers": [
+        "body.png",
+        "weapon.png",
+        "hand-occlusion.png"
+      ],
+      "composite": "composite.png",
+      "body_scale_basis": "Same-pose original art matched by shoulder width, foot-to-foot span and crown-to-ground stance height; do not use bowed-head axis alone.",
+      "body_uniform_scale": 0.641,
+      "source_measurements_superseded": true,
+      "body_source_native_px": [
+        1024,
+        1536
+      ],
+      "projected_head_axis_px": 128.3297368539342
+    },
+    "recover_01": {
+      "body_source": "basic/clean-bodies/recover_01.png",
+      "body_raw_to_canvas_affine": [
+        0.616,
+        0.0,
+        691.36,
+        0.0,
+        0.616,
+        522.2
+      ],
+      "weapon_source": "locked-weapon/naginata-master.png",
+      "weapon_raw_to_canvas_affine": [
+        0.6475906394397289,
+        0.0,
+        452.904364525178,
+        0.0,
+        0.6475906394397289,
+        425.37608764320794
+      ],
+      "weapon_uniform_scale": 0.6475906394397289,
+      "weapon_tip_to_butt_px": 962.4053200185459,
+      "weapon_perspective_scale": 1,
+      "rotation_radians": 0.0,
+      "grips_canvas": [
+        [
+          782.528,
+          801.248
+        ]
+      ],
+      "hand_occlusion_polygons_source": [
+        [
+          [
+            108,
+            415
+          ],
+          [
+            183,
+            400
+          ],
+          [
+            195,
+            443
+          ],
+          [
+            175,
+            496
+          ],
+          [
+            116,
+            501
+          ],
+          [
+            101,
+            466
+          ]
+        ]
+      ],
+      "source_landmarks": {
+        "crown": [
+          581,
+          193
+        ],
+        "chin": [
+          620,
+          384
+        ],
+        "ground": [
+          540,
+          1425
+        ],
+        "grips": [
+          [
+            148,
+            453
+          ]
+        ],
+        "feet": [
+          [
+            222,
+            1320
+          ],
+          [
+            799,
+            1425
+          ]
+        ],
+        "hand_polygons": [
+          [
+            [
+              108,
+              415
+            ],
+            [
+              183,
+              400
+            ],
+            [
+              195,
+              443
+            ],
+            [
+              175,
+              496
+            ],
+            [
+              116,
+              501
+            ],
+            [
+              101,
+              466
+            ]
+          ]
+        ],
+        "shoulder_joints": [
+          [
+            338,
+            345
+          ],
+          [
+            739,
+            511
+          ]
+        ],
+        "pelvis_root": [
+          540,
+          900
+        ]
+      },
+      "ground_root": [
+        1024,
+        1400
+      ],
+      "world_stand_height": 853.3333333333334,
+      "layers": [
+        "body.png",
+        "weapon.png",
+        "hand-occlusion.png"
+      ],
+      "composite": "composite.png",
+      "body_scale_basis": "Same-pose original art matched by shoulder width, foot-to-foot span and crown-to-ground stance height; do not use bowed-head axis alone.",
+      "body_uniform_scale": 0.616,
+      "source_measurements_superseded": true,
+      "body_source_native_px": [
+        1024,
+        1536
+      ],
+      "projected_head_axis_px": 120.08366629979284
+    },
+    "run_03": {
+      "body_source": "basic/clean-bodies/run_03.png",
+      "body_raw_to_canvas_affine": [
+        0.748517188735993,
+        0.0,
+        556.1767570400043,
+        0.0,
+        0.748517188735993,
+        498.03678757312844
+      ],
+      "weapon_source": "locked-weapon/naginata-master.png",
+      "weapon_raw_to_canvas_affine": [
+        0.35225721316245234,
+        -0.5434045381343255,
+        1258.92803547362,
+        0.5434045381343255,
+        0.35225721316245234,
+        373.04991499502415
+      ],
+      "weapon_uniform_scale": 0.6475906394397289,
+      "weapon_tip_to_butt_px": 962.4053200185459,
+      "weapon_perspective_scale": 1,
+      "rotation_radians": 0.9956585105571282,
+      "grips_canvas": [
+        [
+          863.8173216104974,
+          1021.9988196883236
+        ],
+        [
+          1012.77224216896,
+          925.4401023413805
+        ]
+      ],
+      "hand_occlusion_polygons_source": [
+        [
+          [
+            388,
+            690
+          ],
+          [
+            405,
+            671
+          ],
+          [
+            436,
+            673
+          ],
+          [
+            449,
+            697
+          ],
+          [
+            442,
+            722
+          ],
+          [
+            416,
+            737
+          ],
+          [
+            395,
+            735
+          ],
+          [
+            383,
+            714
+          ]
+        ],
+        [
+          [
+            584,
+            552
+          ],
+          [
+            609,
+            536
+          ],
+          [
+            632,
+            546
+          ],
+          [
+            647,
+            569
+          ],
+          [
+            640,
+            588
+          ],
+          [
+            617,
+            602
+          ],
+          [
+            593,
+            591
+          ],
+          [
+            580,
+            572
+          ]
+        ]
+      ],
+      "source_landmarks": {
+        "crown": [
+          454,
+          164
+        ],
+        "chin": [
+          491,
+          297
+        ],
+        "ground": [
+          625,
+          1205
+        ],
+        "grips": [
+          [
+            411,
+            700
+          ],
+          [
+            610,
+            571
+          ]
+        ],
+        "feet": [
+          [
+            346,
+            1205
+          ],
+          [
+            1100,
+            1079
+          ]
+        ],
+        "hand_polygons": [
+          [
+            [
+              388,
+              690
+            ],
+            [
+              405,
+              671
+            ],
+            [
+              436,
+              673
+            ],
+            [
+              449,
+              697
+            ],
+            [
+              442,
+              722
+            ],
+            [
+              416,
+              737
+            ],
+            [
+              395,
+              735
+            ],
+            [
+              383,
+              714
+            ]
+          ],
+          [
+            [
+              584,
+              552
+            ],
+            [
+              609,
+              536
+            ],
+            [
+              632,
+              546
+            ],
+            [
+              647,
+              569
+            ],
+            [
+              640,
+              588
+            ],
+            [
+              617,
+              602
+            ],
+            [
+              593,
+              591
+            ],
+            [
+              580,
+              572
+            ]
+          ]
+        ],
+        "shoulder_joints": [
+          [
+            402,
+            363
+          ],
+          [
+            650,
+            430
+          ]
+        ],
+        "pelvis_root": [
+          625,
+          728
+        ]
+      },
+      "ground_root": [
+        1024,
+        1400
+      ],
+      "world_stand_height": 853.3333333333334,
+      "layers": [
+        "body.png",
+        "weapon.png",
+        "hand-occlusion.png"
+      ],
+      "composite": "composite.png",
+      "source_measurements_superseded": true,
+      "body_source_native_px": [
+        1254,
+        1254
+      ],
+      "projected_head_axis_px": 103.33333333333333
+    }
+  },
+  "body_scale_overrides": {
+    "stunned_03": {
+      "scale": 0.6666666666666666,
+      "basis": "Torso, pelvis and feet match native idle scale; low-head crown/chin projection is not a size proxy."
+    },
+    "hurt_02": {
+      "scale": 0.641,
+      "basis": "Same-pose original art matched by shoulder width, foot-to-foot span and crown-to-ground stance height; do not use bowed-head axis alone."
+    },
+    "recover_01": {
+      "scale": 0.616,
+      "basis": "Same-pose original art matched by shoulder width, foot-to-foot span and crown-to-ground stance height; do not use bowed-head axis alone."
+    }
+  },
+  "weapon_policy": {
+    "fixed_weapon_tip_to_butt_px": 962.4053200185459,
+    "fixed_weapon_selected_frames": [
+      "hurt_02",
+      "recover_01",
+      "run_03",
+      "walk_ref_00",
+      "walk_ref_03",
+      "walk_ref_06",
+      "walk_ref_09",
+      "run_opposite_final",
+      "run_tuck_clean",
+      "idle_v4_01",
+      "idle_v4_02",
+      "idle_v4_03"
+    ],
+    "native_drawn_selected_frames": [
+      "hurt_01",
+      "stunned_01",
+      "stunned_02",
+      "stunned_03",
+      "down_02"
+    ],
+    "note": "Twelve selected frames (three articulated idle, four walk, three run, hurt_02 and recover_01) use the shared naginata at identical geometric length. Five selected native-drawn hurt/stun/down frames retain their measured deviations. Idle weapon source/scale is fixed; its horizontal position follows each hand, with base height fixed.",
+    "pixel_locked_idle_frames": []
+  },
+  "gait_qa": {
+    "walk": {
+      "status": "visible_near_far_contact_alternation",
+      "reference": "stage-4 walking/walk_00,03,06,09",
+      "phase_order": [
+        "near leg forward contact",
+        "near support with far rear swing",
+        "near leg backward / far forward crossover contact",
+        "near knee forward with far support"
+      ],
+      "cycle_ms": 800,
+      "unique_keyposes": 4
+    },
+    "retreat_run": {
+      "status": "observed_opposite_contact_occlusion",
+      "phase_order": [
+        "near-leading contact",
+        "two-foot tucked flight",
+        "far-leading contact with near thigh crossed in front and trailing backward",
+        "reused tucked flight"
+      ],
+      "unique_keyposes": 3,
+      "cycle_ms": 360,
+      "note": "Not a sped-up walk. Lean, airborne pose and backward cloth are original running poses; far-leading contact is a distinct generated pose.",
+      "native_occlusion_review": {
+        "review_basis": "Both native clean actor images inspected at full resolution; temporary color study used only as provenance, not sole evidence.",
+        "run_03": {
+          "source": "clean-bodies/run_03.png",
+          "near_leg": "Screen-left/front leg: visible dark thigh flap near (453,813) lies over the robe edge and continues toward left/front shin and foot (346,1205).",
+          "far_leg": "Screen-right/back shin appears from behind the white robe near (943,901), continuing to rear foot (1100,1079).",
+          "confidence": "moderate",
+          "limitation": "Hip/crotch connection is partly concealed by overlapping robes, so continuous near/far tracing is not completely exposed."
+        },
+        "run_opposite_final": {
+          "source": "run-ref-pass/run_opposite_final.png",
+          "near_leg": "Foreground thigh panel emerges below the center tassel near (520,744), crosses diagonally over the other thigh, and continues to screen-right/back knee/shin near (898,927), rear foot (1090,1138).",
+          "far_leg": "Screen-left/front thigh emerges from behind that crossing panel near (410,772), continuing to front shin and foot (275,1198).",
+          "confidence": "high",
+          "limitation": "At 0.5 preview scale, both contact silhouettes still resemble a left/front and right/back stride; swap readability depends on the central trouser overlap."
+        },
+        "conclusion": "Opposite near/far assignment is supported by native trouser occlusion. Overall front/back foot silhouette is similar, and run_03 has partial hip occlusion. Three unique running keys with shared flight remain a simplified cycle, not a full run animation."
+      },
+      "confidence": "moderate"
+    }
+  },
+  "qa_summary": {
+    "selected_unique_frames": 17,
+    "all_canvas_equal": true,
+    "all_selected_frames_have_transparent_border": true,
+    "no_source_upscaling": true,
+    "normal_preview_scale": 0.5,
+    "gait_contact_alternation": "Native trouser occlusion supports opposite run contact; run_03 partly obscured, documented confidence moderate.",
+    "caveat": "This is anatomy-scale/anchor QA, not a claim that all projected head heights or drawn silhouettes are identical.",
+    "idle_body_scale_drift": "zero global scale change; reference bone lengths and head axis identical across articulated keys; planted feet pixels fixed",
+    "idle_pose_source_counts": {
+      "original_mother_body": 1,
+      "articulated_joint_keys": 3,
+      "generated_posture_references_not_selected": 3
+    },
+    "fixed_weapon_selected_count": 12
+  },
+  "idle_v3": {
+    "basis": "Same idle_01 full-body pixels for all states. Only generated interior cloth/lower-bead patches are composited. No per-frame body transforms.",
+    "native_base_source": "sources/idle_01.png",
+    "normalized_base_frame": "frames/idle_01.png",
+    "mask_native": "idle-v3/motion-mask-native.png",
+    "mask_canvas": "idle-v3/motion-mask-canvas.png",
+    "motion_polygons_native": [
+      [
+        [
+          404,
+          416
+        ],
+        [
+          477,
+          391
+        ],
+        [
+          610,
+          399
+        ],
+        [
+          633,
+          504
+        ],
+        [
+          624,
+          652
+        ],
+        [
+          578,
+          669
+        ],
+        [
+          405,
+          660
+        ],
+        [
+          394,
+          563
+        ]
+      ],
+      [
+        [
+          599,
+          938
+        ],
+        [
+          735,
+          976
+        ],
+        [
+          787,
+          1106
+        ],
+        [
+          737,
+          1150
+        ],
+        [
+          604,
+          1102
+        ],
+        [
+          580,
+          1010
+        ]
+      ]
+    ],
+    "shared_scale": 0.6486519717676098,
+    "raster_resize_px": [
+      664,
+      996
+    ],
+    "raster_translation_px": [
+      651,
+      440
+    ],
+    "global_scale_range": [
+      0.6486519717676098,
+      0.6486519717676098
+    ],
+    "projected_head_axis_range_px": [
+      103.333,
+      103.333
+    ],
+    "foot_span_px": 278.4420566006507,
+    "qa": {
+      "idle_v3_01": {
+        "outside_motion_mask_changed_pixels": 0,
+        "alpha_identical_to_base": true,
+        "changed_pixels_inside_mask": 0,
+        "locked_region_changed_pixels": {
+          "head_face": 0,
+          "shoulder_left": 0,
+          "shoulder_right": 0,
+          "pelvis": 0,
+          "feet": 0,
+          "weapon_and_grip": 0
+        },
+        "canvas_px": [
+          2048,
+          1536
+        ],
+        "source_global_scale": 0.6486519717676098,
+        "source_global_translation_px": [
+          651,
+          440
+        ],
+        "base_sha256": "49ed933b3119c20695ea25b02919672015990d10dfd36536dc8cfefa5754f613",
+        "frame_sha256": "49ed933b3119c20695ea25b02919672015990d10dfd36536dc8cfefa5754f613"
+      },
+      "idle_v3_02": {
+        "outside_motion_mask_changed_pixels": 0,
+        "alpha_identical_to_base": true,
+        "changed_pixels_inside_mask": 37383,
+        "locked_region_changed_pixels": {
+          "head_face": 0,
+          "shoulder_left": 0,
+          "shoulder_right": 0,
+          "pelvis": 0,
+          "feet": 0,
+          "weapon_and_grip": 0
+        },
+        "canvas_px": [
+          2048,
+          1536
+        ],
+        "source_global_scale": 0.6486519717676098,
+        "source_global_translation_px": [
+          651,
+          440
+        ],
+        "base_sha256": "49ed933b3119c20695ea25b02919672015990d10dfd36536dc8cfefa5754f613",
+        "frame_sha256": "9852fe3b812be4b78326fe36e1e2c24bad118ceb1801fc16c0bf1c6128aacf49"
+      },
+      "idle_v3_03": {
+        "outside_motion_mask_changed_pixels": 0,
+        "alpha_identical_to_base": true,
+        "changed_pixels_inside_mask": 37356,
+        "locked_region_changed_pixels": {
+          "head_face": 0,
+          "shoulder_left": 0,
+          "shoulder_right": 0,
+          "pelvis": 0,
+          "feet": 0,
+          "weapon_and_grip": 0
+        },
+        "canvas_px": [
+          2048,
+          1536
+        ],
+        "source_global_scale": 0.6486519717676098,
+        "source_global_translation_px": [
+          651,
+          440
+        ],
+        "base_sha256": "49ed933b3119c20695ea25b02919672015990d10dfd36536dc8cfefa5754f613",
+        "frame_sha256": "5ecf6d97b08d8166f6978b7bb6eba776d1ee865e79127e6eedc5ac6973fbc33c"
+      }
+    },
+    "rejected_predecessor": "rejected_scale/manifest-v2.json",
+    "cycle_ms": 1200,
+    "unique_local_states": 3,
+    "inbetweens": false,
+    "status": "rejected_local_patch"
+  },
+  "idle_v4": {
+    "reference_analysis": "idle-v4/reference-analysis.json",
+    "method": "3 articulated pose keys derived from one anatomy master. Generated new drafts retained but not selected because of framing/pose-amplitude drift.",
+    "assemblies": {
+      "idle_v4_01": {
+        "pose": {
+          "name": "neutral",
+          "torso_deg": 0.0,
+          "head_extra_deg": 0.0,
+          "grip_delta": [
+            0,
+            0
+          ],
+          "right_upper_extra_deg": 0.0,
+          "right_lower_extra_deg": 0.0,
+          "hem_sway": 0
+        },
+        "basis": "Single native anatomy master articulated through torso/head rigid transforms and two-bone holding-arm IK; no whole-frame resizing between poses. Imagegen v4 drafts are posture studies only.",
+        "source": "sources/idle_01.png",
+        "native_px": [
+          1024,
+          1536
+        ],
+        "native_articulated_frame": "idle-v4/native-keys/idle_v4_01.png",
+        "normalized_frame": "frames/idle_v4_01.png",
+        "landmarks_native": {
+          "pelvis": [
+            575.0,
+            790.0
+          ],
+          "neck": [
+            550.0,
+            365.0
+          ],
+          "head_crown": [
+            548.0,
+            176.0
+          ],
+          "chin": [
+            575.0,
+            333.0
+          ],
+          "left_shoulder": [
+            385.0,
+            442.0
+          ],
+          "left_elbow": [
+            335.00000000000006,
+            610.0
+          ],
+          "grip": [
+            218.0,
+            619.0
+          ],
+          "right_shoulder": [
+            697.0,
+            436.0
+          ],
+          "right_elbow": [
+            796.0,
+            710.0
+          ],
+          "right_hand": [
+            790.0,
+            863.0
+          ],
+          "left_foot": [
+            371.0,
+            1465.0
+          ],
+          "right_foot": [
+            800.0,
+            1480.0
+          ]
+        },
+        "landmarks_normalized": {
+          "pelvis": [
+            1023.9748837663756,
+            952.4350576964117
+          ],
+          "neck": [
+            1007.7585844721855,
+            676.7579696951775
+          ],
+          "head_crown": [
+            1006.4612805286501,
+            554.1627470310993
+          ],
+          "chin": [
+            1023.9748837663756,
+            656.0011065986141
+          ],
+          "left_shoulder": [
+            900.7310091305297,
+            726.7041715212836
+          ],
+          "left_elbow": [
+            868.2984105421493,
+            835.6777027782421
+          ],
+          "grip": [
+            792.4061298453389,
+            841.5155705241505
+          ],
+          "right_shoulder": [
+            1103.110424322024,
+            722.8122596906778
+          ],
+          "right_elbow": [
+            1167.3269695270174,
+            900.5428999550029
+          ],
+          "right_hand": [
+            1163.4350576964116,
+            999.7866516354472
+          ],
+          "left_foot": [
+            891.6498815257833,
+            1390.2751386395485
+          ],
+          "right_foot": [
+            1169.921577414088,
+            1400.0049182160624
+          ]
+        },
+        "bone_lengths": {
+          "left_shoulder__left_elbow": {
+            "native_reference_px": 175.2826289168439,
+            "pose_px": 175.28262891684386
+          },
+          "left_elbow__grip": {
+            "native_reference_px": 117.34564329364768,
+            "pose_px": 117.34564329364773
+          },
+          "right_shoulder__right_elbow": {
+            "native_reference_px": 291.3365751154496,
+            "pose_px": 291.3365751154496
+          },
+          "right_elbow__right_hand": {
+            "native_reference_px": 153.11760186209813,
+            "pose_px": 153.11760186209813
+          },
+          "neck__pelvis": {
+            "native_reference_px": 425.73465914816,
+            "pose_px": 425.73465914816
+          }
+        },
+        "head_axis_native_px": 159.3047394147456,
+        "shoulder_distance_native_px": 312.05768697470023,
+        "root": [
+          1024,
+          1400
+        ],
+        "common_scale": 0.6486519717676098,
+        "common_raster_resize_px": [
+          664,
+          996
+        ],
+        "common_raster_translation_px": [
+          651,
+          440
+        ],
+        "source_global_scale_changes": 0,
+        "feet_native_changed_pixels_below_y1260": 0,
+        "weapon_source": "shared-fixed-weapon/naginata-master.png",
+        "weapon_uniform_scale": 0.6475906394397289,
+        "weapon_tip_to_butt_px": 962.4053200185459,
+        "weapon_affine": [
+          0.6475906394397289,
+          0.0,
+          462.7824943705169,
+          0.0,
+          0.6475906394397289,
+          425.37608764320794
+        ],
+        "grip_canvas": [
+          792.4061298453389,
+          841.5155705241505
+        ],
+        "layers_dir": "idle-v4/layers/idle_v4_01",
+        "head_rigid_angle_deg": 0.0,
+        "holding_arm_angles_deg": [
+          -2.5444437451708134e-14,
+          0.0
+        ],
+        "segment_affines_native": {
+          "torso_about_pelvis": [
+            1.0,
+            -0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "head_about_neck": [
+            1.0,
+            -0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "holding_upper_arm": [
+            1.0,
+            4.440892098500626e-16,
+            -1.7053025658242404e-13,
+            -4.440892098500626e-16,
+            1.0,
+            1.7053025658242404e-13
+          ],
+          "holding_forearm_and_grip": [
+            1.0,
+            -0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "free_upper_arm": [
+            1.0,
+            -0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "free_forearm": [
+            1.0,
+            -0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "planted_feet": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "reference_counts": {
+          "original_body_sources": 1,
+          "retargeted_joint_poses": 3,
+          "imagegen_posture_studies": 3,
+          "selected_independently_redrawn_full_body_frames": 0
+        },
+        "deformation_method": "Piecewise-affine native mesh driven by rigid anatomical segment controls and two-bone IK; feet below native y1260 copied exactly from base. The mesh interpolates attachment/drape transitions between rigid control regions.",
+        "foot_lock_source_y_min": 1260
+      },
+      "idle_v4_02": {
+        "pose": {
+          "name": "shoulder rise / hand lift",
+          "torso_deg": 1.0,
+          "head_extra_deg": -2.0,
+          "grip_delta": [
+            12,
+            -35
+          ],
+          "right_upper_extra_deg": -1.2,
+          "right_lower_extra_deg": -2.0,
+          "hem_sway": 7
+        },
+        "basis": "Single native anatomy master articulated through torso/head rigid transforms and two-bone holding-arm IK; no whole-frame resizing between poses. Imagegen v4 drafts are posture studies only.",
+        "source": "sources/idle_01.png",
+        "native_px": [
+          1024,
+          1536
+        ],
+        "native_articulated_frame": "idle-v4/native-keys/idle_v4_02.png",
+        "normalized_frame": "frames/idle_v4_02.png",
+        "landmarks_native": {
+          "pelvis": [
+            575.0,
+            790.0
+          ],
+          "neck": [
+            557.4210803569357,
+            364.62841939760165
+          ],
+          "head_crown": [
+            552.1228801499764,
+            175.69210982591827
+          ],
+          "chin": [
+            581.8587957298524,
+            332.19698299166504
+          ],
+          "left_shoulder": [
+            391.1023753604603,
+            438.737044862492
+          ],
+          "left_elbow": [
+            344.90229004599536,
+            607.8214974799226
+          ],
+          "grip": [
+            230.0,
+            584.0
+          ],
+          "right_shoulder": [
+            703.1595706878782,
+            438.18310949998613
+          ],
+          "right_elbow": [
+            803.1154060337707,
+            711.8358657081135
+          ],
+          "right_hand": [
+            799.7865380477367,
+            864.917277505665
+          ],
+          "left_foot": [
+            371.0,
+            1465.0
+          ],
+          "right_foot": [
+            800.0,
+            1480.0
+          ]
+        },
+        "landmarks_normalized": {
+          "pelvis": [
+            1023.9748837663756,
+            952.4350576964117
+          ],
+          "neck": [
+            1012.5722828783576,
+            676.5169432047612
+          ],
+          "head_crown": [
+            1009.1355948672939,
+            553.9630334625933
+          ],
+          "chin": [
+            1028.4238551404956,
+            655.4802280327947
+          ],
+          "left_shoulder": [
+            904.6893269405584,
+            724.5876492375497
+          ],
+          "left_elbow": [
+            874.721550505499,
+            834.2646128230931
+          ],
+          "grip": [
+            800.1899535065503,
+            818.8127515122842
+          ],
+          "right_shoulder": [
+            1107.1058419939582,
+            724.2283379724286
+          ],
+          "right_elbow": [
+            1171.94239168075,
+            901.7337378664713
+          ],
+          "right_hand": [
+            1169.7831148978548,
+            1001.0302974699225
+          ],
+          "left_foot": [
+            891.6498815257833,
+            1390.2751386395485
+          ],
+          "right_foot": [
+            1169.921577414088,
+            1400.0049182160624
+          ]
+        },
+        "bone_lengths": {
+          "left_shoulder__left_elbow": {
+            "native_reference_px": 175.2826289168439,
+            "pose_px": 175.28262891684386
+          },
+          "left_elbow__grip": {
+            "native_reference_px": 117.34564329364768,
+            "pose_px": 117.3456432936477
+          },
+          "right_shoulder__right_elbow": {
+            "native_reference_px": 291.3365751154496,
+            "pose_px": 291.33657511544953
+          },
+          "right_elbow__right_hand": {
+            "native_reference_px": 153.11760186209813,
+            "pose_px": 153.11760186209807
+          },
+          "neck__pelvis": {
+            "native_reference_px": 425.73465914816,
+            "pose_px": 425.73465914816
+          }
+        },
+        "head_axis_native_px": 159.3047394147456,
+        "shoulder_distance_native_px": 312.0576869747003,
+        "root": [
+          1024,
+          1400
+        ],
+        "common_scale": 0.6486519717676098,
+        "common_raster_resize_px": [
+          664,
+          996
+        ],
+        "common_raster_translation_px": [
+          651,
+          440
+        ],
+        "source_global_scale_changes": 0,
+        "feet_native_changed_pixels_below_y1260": 0,
+        "weapon_source": "shared-fixed-weapon/naginata-master.png",
+        "weapon_uniform_scale": 0.6475906394397289,
+        "weapon_tip_to_butt_px": 962.4053200185459,
+        "weapon_affine": [
+          0.6475906394397289,
+          0.0,
+          470.56631803172826,
+          0.0,
+          0.6475906394397289,
+          425.37608764320794
+        ],
+        "grip_canvas": [
+          800.1899535065503,
+          818.8127515122842
+        ],
+        "layers_dir": "idle-v4/layers/idle_v4_02",
+        "head_rigid_angle_deg": -1.0,
+        "holding_arm_angles_deg": [
+          -1.2917228936033112,
+          -343.88868320385143
+        ],
+        "segment_affines_native": {
+          "torso_about_pelvis": [
+            0.9998476951563913,
+            -0.01745240643728351,
+            13.874976370528998,
+            0.01745240643728351,
+            0.9998476951563913,
+            -9.914812874987092
+          ],
+          "head_about_neck": [
+            0.9998476951563913,
+            0.01745240643728351,
+            1.134719671312041,
+            -0.01745240643728351,
+            0.9998476951563913,
+            9.282834206024745
+          ],
+          "holding_upper_arm": [
+            0.9997458763654342,
+            0.022542907760754502,
+            -3.763752270485327,
+            -0.022542907760754502,
+            0.9997458763654342,
+            5.52838699686049
+          ],
+          "holding_forearm_and_grip": [
+            0.9607243615150437,
+            -0.2775044165261369,
+            192.33732301939915,
+            0.2775044165261369,
+            0.9607243615150437,
+            -71.1843425805099
+          ],
+          "free_upper_arm": [
+            0.9999939076577904,
+            0.0034906514152237313,
+            4.641893033360702,
+            -0.0034906514152237313,
+            0.9999939076577904,
+            4.618749797600458
+          ],
+          "free_forearm": [
+            0.9998476951563913,
+            0.01745240643728351,
+            -5.154567881188086,
+            -0.01745240643728351,
+            0.9998476951563913,
+            15.836117671153374
+          ],
+          "planted_feet": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "reference_counts": {
+          "original_body_sources": 1,
+          "retargeted_joint_poses": 3,
+          "imagegen_posture_studies": 3,
+          "selected_independently_redrawn_full_body_frames": 0
+        },
+        "deformation_method": "Piecewise-affine native mesh driven by rigid anatomical segment controls and two-bone IK; feet below native y1260 copied exactly from base. The mesh interpolates attachment/drape transitions between rigid control regions.",
+        "foot_lock_source_y_min": 1260
+      },
+      "idle_v4_03": {
+        "pose": {
+          "name": "settle / elbow relax",
+          "torso_deg": -0.8,
+          "head_extra_deg": 1.5,
+          "grip_delta": [
+            -8,
+            31
+          ],
+          "right_upper_extra_deg": 1.0,
+          "right_lower_extra_deg": 1.5,
+          "hem_sway": -6
+        },
+        "basis": "Single native anatomy master articulated through torso/head rigid transforms and two-bone holding-arm IK; no whole-frame resizing between poses. Imagegen v4 drafts are posture studies only.",
+        "source": "sources/idle_01.png",
+        "native_px": [
+          1024,
+          1536
+        ],
+        "native_articulated_frame": "idle-v4/native-keys/idle_v4_03.png",
+        "normalized_frame": "frames/idle_v4_03.png",
+        "landmarks_native": {
+          "pelvis": [
+            575.0,
+            790.0
+          ],
+          "neck": [
+            544.0685102556306,
+            365.3904818045243
+          ],
+          "head_crown": [
+            544.3776726741714,
+            176.38015293702838
+          ],
+          "chin": [
+            569.4575885238698,
+            333.69829499627104
+          ],
+          "left_shoulder": [
+            380.15968168020964,
+            444.68673590919974
+          ],
+          "left_elbow": [
+            320.08042017356763,
+            609.35149333111
+          ],
+          "grip": [
+            210.0,
+            650.0
+          ],
+          "right_shoulder": [
+            692.0454960890777,
+            434.33112049933055
+          ],
+          "right_elbow": [
+            790.0884544594277,
+            708.6750256876722
+          ],
+          "right_hand": [
+            782.2197011136722,
+            861.59030524071
+          ],
+          "left_foot": [
+            371.0,
+            1465.0
+          ],
+          "right_foot": [
+            800.0,
+            1480.0
+          ]
+        },
+        "landmarks_normalized": {
+          "pelvis": [
+            1023.9748837663756,
+            952.4350576964117
+          ],
+          "neck": [
+            1003.9111119539808,
+            677.0112564876216
+          ],
+          "head_crown": [
+            1004.1116507663637,
+            554.409333983276
+          ],
+          "chin": [
+            1020.3797876340363,
+            656.4540570248207
+          ],
+          "left_shoulder": [
+            897.5913271084148,
+            728.4469280664048
+          ],
+          "left_elbow": [
+            858.6207956697897,
+            835.257047648762
+          ],
+          "grip": [
+            787.2169140711981,
+            861.6237816489463
+          ],
+          "right_shoulder": [
+            1099.896675591074,
+            721.7297377119261
+          ],
+          "right_elbow": [
+            1163.4924338559313,
+            899.6834527547701
+          ],
+          "right_hand": [
+            1158.388351482854,
+            998.8722503502433
+          ],
+          "left_foot": [
+            891.6498815257833,
+            1390.2751386395485
+          ],
+          "right_foot": [
+            1169.921577414088,
+            1400.0049182160624
+          ]
+        },
+        "bone_lengths": {
+          "left_shoulder__left_elbow": {
+            "native_reference_px": 175.2826289168439,
+            "pose_px": 175.28262891684395
+          },
+          "left_elbow__grip": {
+            "native_reference_px": 117.34564329364768,
+            "pose_px": 117.34564329364764
+          },
+          "right_shoulder__right_elbow": {
+            "native_reference_px": 291.3365751154496,
+            "pose_px": 291.3365751154496
+          },
+          "right_elbow__right_hand": {
+            "native_reference_px": 153.11760186209813,
+            "pose_px": 153.1176018620982
+          },
+          "neck__pelvis": {
+            "native_reference_px": 425.73465914816,
+            "pose_px": 425.73465914816006
+          }
+        },
+        "head_axis_native_px": 159.30473941474563,
+        "shoulder_distance_native_px": 312.05768697470023,
+        "root": [
+          1024,
+          1400
+        ],
+        "common_scale": 0.6486519717676098,
+        "common_raster_resize_px": [
+          664,
+          996
+        ],
+        "common_raster_translation_px": [
+          651,
+          440
+        ],
+        "source_global_scale_changes": 0,
+        "feet_native_changed_pixels_below_y1260": 0,
+        "weapon_source": "shared-fixed-weapon/naginata-master.png",
+        "weapon_uniform_scale": 0.6475906394397289,
+        "weapon_tip_to_butt_px": 962.4053200185459,
+        "weapon_affine": [
+          0.6475906394397289,
+          0.0,
+          457.593278596376,
+          0.0,
+          0.6475906394397289,
+          425.37608764320794
+        ],
+        "grip_canvas": [
+          787.2169140711981,
+          861.6237816489463
+        ],
+        "layers_dir": "idle-v4/layers/idle_v4_03",
+        "head_rigid_angle_deg": 0.7,
+        "holding_arm_angles_deg": [
+          3.470896836055024,
+          -15.868562482760664
+        ],
+        "segment_affines_native": {
+          "torso_about_pelvis": [
+            0.9999025240093042,
+            0.013962180339145272,
+            -10.974073773274654,
+            -0.013962180339145272,
+            0.9999025240093042,
+            8.105259727658222
+          ],
+          "head_about_neck": [
+            0.999925369660452,
+            -0.012217000835247169,
+            -1.431237752752736,
+            0.012217000835247169,
+            0.999925369660452,
+            -6.301628580926604
+          ],
+          "holding_upper_arm": [
+            0.9981656790200824,
+            -0.06054153306927308,
+            22.625252874096645,
+            0.06054153306927308,
+            0.9981656790200824,
+            -19.81098444934679
+          ],
+          "holding_forearm_and_grip": [
+            0.9618914829576926,
+            0.27343148138693013,
+            -168.9464302632868,
+            -0.27343148138693013,
+            0.9618914829576926,
+            114.19723499153906
+          ],
+          "free_upper_arm": [
+            0.9999939076577904,
+            -0.0034906514152237313,
+            -3.428333531364615,
+            0.0034906514152237313,
+            0.9999939076577904,
+            -4.0992072758769496
+          ],
+          "free_forearm": [
+            0.999925369660452,
+            -0.012217000835247169,
+            2.821930802733391,
+            0.012217000835247169,
+            0.999925369660452,
+            -10.996719436105423
+          ],
+          "planted_feet": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "reference_counts": {
+          "original_body_sources": 1,
+          "retargeted_joint_poses": 3,
+          "imagegen_posture_studies": 3,
+          "selected_independently_redrawn_full_body_frames": 0
+        },
+        "deformation_method": "Piecewise-affine native mesh driven by rigid anatomical segment controls and two-bone IK; feet below native y1260 copied exactly from base. The mesh interpolates attachment/drape transitions between rigid control regions.",
+        "foot_lock_source_y_min": 1260
+      }
+    },
+    "cycle_ms": 2000,
+    "true_articulated_pose_count": 3,
+    "new_independently_redrawn_selected_frames": 0,
+    "full_inbetweens": false,
+    "same_anatomy_scale_all_frames": true,
+    "feet_pixel_locked": true,
+    "body_scale_basis": "One common native master, exact source skeletal bone lengths, same normalization for every state; shoulder motion and head rotation are articulation, not zoom.",
+    "reference_counts": {
+      "original_body_sources": 1,
+      "retargeted_joint_poses": 3,
+      "imagegen_posture_studies": 3,
+      "selected_independently_redrawn_full_body_frames": 0
+    },
+    "status": "internal anatomy/short-loop QA checked; user review pending"
+  }
+}

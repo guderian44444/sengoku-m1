@@ -86,7 +86,8 @@ func run() -> void:
 		check(fighter.z == 0 and app.view._fighter_animation(fighter).clip == "idle","Stopping after victory returns to a grounded idle pose")
 	var looter: Dictionary = app.sim.state.fighters[0]
 	looter.hp = looter.max_hp-20
-	app.sim._add_drop("food",looter.x,looter.y)
+	looter.food_state = "pending"
+	check(app.sim._add_drop("food",looter.x,looter.y,looter.id),"Remaining campaign ration belongs to its eligible player")
 	app.sim.step([{"buttons":app.Battle.INTERACT},{}])
 	check(looter.hp == looter.max_hp,"Victory movement still allows collecting remaining loot")
 	app._leave_to_menu()

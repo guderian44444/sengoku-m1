@@ -1,0 +1,224 @@
+{
+  "name": "spear_air_bolt_v3_power150",
+  "axis": "local +X",
+  "origin_px": [
+    16,
+    192
+  ],
+  "frame_canvas": [
+    1100,
+    384
+  ],
+  "attach": "snapshot weapon_tip at emission then independent flight",
+  "rotation": "weapon forward vector at emission",
+  "visual_max_length_px": 648,
+  "visual_thickness_multiplier_vs_v1": 3.3,
+  "visual_length_multiplier_vs_v1": 2.7,
+  "travel_distance_native_px": 280,
+  "travel_distance_world_units": 47.213793103448275,
+  "speed_world_units_per_second": 1320,
+  "speed_native_px_per_second": 7828.2208588957055,
+  "flight_ms": 35.76802507836991,
+  "stationary_tail_fade_ms": 90,
+  "total_visual_life_ms": 125.7680250783699,
+  "tail_has_additional_hit_distance": false,
+  "reference_scale": {
+    "status": "proposed comparison scale; Hachiya runtime height not yet defined",
+    "hachiya_native_standing_height_px": 1015,
+    "comparison_runtime_height_world_units": 171.15,
+    "source": "stage3 first miniboss 163*1.05"
+  },
+  "speed_source": "https://github.com/guderian44444/sengoku-m1/blob/30fdac0349fb39bd769061318a497446a9ff0114/game/core/battle.gd#L2032",
+  "tick_hz": 60,
+  "ordinary_arrow_speed_world_per_tick": 22,
+  "notes": [
+    "Ordinary Oichi arrow speed. Do not use enemy arc-arrow branch.",
+    "Native self-travel doubled from 140 to 280 pixels. Camera preview scaling is excluded.",
+    "Visual sprite length is not additional hit travel. Tail fade is stationary after flight.",
+    "Recompute native speed if Hachiya runtime height changes; do not treat world/tick as source pixels/frame."
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "age_ms": 0,
+      "travel_px": 0.0,
+      "phase": 0,
+      "opacity": 1
+    },
+    {
+      "frame": 1,
+      "age_ms": 5,
+      "travel_px": 39.14110429447853,
+      "phase": 0,
+      "opacity": 1
+    },
+    {
+      "frame": 2,
+      "age_ms": 10,
+      "travel_px": 78.28220858895706,
+      "phase": 1,
+      "opacity": 1
+    },
+    {
+      "frame": 3,
+      "age_ms": 15,
+      "travel_px": 117.42331288343559,
+      "phase": 1,
+      "opacity": 1
+    },
+    {
+      "frame": 4,
+      "age_ms": 20,
+      "travel_px": 156.56441717791412,
+      "phase": 1,
+      "opacity": 1
+    },
+    {
+      "frame": 5,
+      "age_ms": 25,
+      "travel_px": 195.70552147239263,
+      "phase": 1,
+      "opacity": 1
+    },
+    {
+      "frame": 6,
+      "age_ms": 30,
+      "travel_px": 234.84662576687117,
+      "phase": 1,
+      "opacity": 1
+    },
+    {
+      "frame": 7,
+      "age_ms": 35,
+      "travel_px": 273.9877300613497,
+      "phase": 1,
+      "opacity": 1
+    },
+    {
+      "frame": 8,
+      "age_ms": 40,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.9529780564263324
+    },
+    {
+      "frame": 9,
+      "age_ms": 45,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.8974225008707768
+    },
+    {
+      "frame": 10,
+      "age_ms": 50,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.8418669453152212
+    },
+    {
+      "frame": 11,
+      "age_ms": 55,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.7863113897596656
+    },
+    {
+      "frame": 12,
+      "age_ms": 60,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.73075583420411
+    },
+    {
+      "frame": 13,
+      "age_ms": 65,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.6752002786485545
+    },
+    {
+      "frame": 14,
+      "age_ms": 70,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.619644723092999
+    },
+    {
+      "frame": 15,
+      "age_ms": 75,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.5640891675374434
+    },
+    {
+      "frame": 16,
+      "age_ms": 80,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.508533611981888
+    },
+    {
+      "frame": 17,
+      "age_ms": 85,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.4529780564263324
+    },
+    {
+      "frame": 18,
+      "age_ms": 90,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.3974225008707768
+    },
+    {
+      "frame": 19,
+      "age_ms": 95,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.3418669453152212
+    },
+    {
+      "frame": 20,
+      "age_ms": 100,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.28631138975966564
+    },
+    {
+      "frame": 21,
+      "age_ms": 105,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.23075583420411006
+    },
+    {
+      "frame": 22,
+      "age_ms": 110,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.17520027864855447
+    },
+    {
+      "frame": 23,
+      "age_ms": 115,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.1196447230929989
+    },
+    {
+      "frame": 24,
+      "age_ms": 120,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0.06408916753744331
+    },
+    {
+      "frame": 25,
+      "age_ms": 125.7680250783699,
+      "travel_px": 280,
+      "phase": 2,
+      "opacity": 0
+    }
+  ]
+}

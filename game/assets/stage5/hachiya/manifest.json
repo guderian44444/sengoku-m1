@@ -1,0 +1,67 @@
+{
+  "character": "Hachiya Sadatsugu",
+  "delivery": "complete visual source package, ready for user review except previously approved rapid motion",
+  "canvas": [
+    2048,
+    1536
+  ],
+  "root": [
+    820,
+    1400
+  ],
+  "head_ruler_px": 180,
+  "standing_height_native_px": 1015,
+  "spear_length_native_px": 1160,
+  "world_scale": {
+    "runtime_world_height": null,
+    "asset_metre_definition": 1.8,
+    "arrow_comparison_world_height": 171.15,
+    "note": "1.8 is asset authoring metres only. 171.15 is proposed game-unit comparison for Oichi arrow FX speed. Do not combine these units. Runtime Hachiya height not assigned."
+  },
+  "actions": {
+    "rapid_thrust": {
+      "manifest": "hachiya_actions/rapid_manifest_v4.json",
+      "status": "motion_user_approved; latest FX delivered"
+    },
+    "retreat_counter": {
+      "manifest": "hachiya_actions/retreat_counter_manifest_v4.json",
+      "status": "ready_for_user_review"
+    },
+    "horizontal_sweep": {
+      "manifest": "hachiya_actions/horizontal_sweep_manifest_v4.json",
+      "status": "ready_for_user_review"
+    },
+    "basic_states": {
+      "actions": [
+        "idle",
+        "hurt",
+        "stunned",
+        "down",
+        "recover"
+      ],
+      "manifest": "hachiya_basic_states/manifest.json",
+      "status": "ready_for_user_review"
+    },
+    "walk": {
+      "manifest": "hachiya_locomotion/walk_manifest.json",
+      "status": "ready_for_user_review"
+    },
+    "run": {
+      "manifest": "hachiya_locomotion/run_manifest.json",
+      "status": "ready_for_user_review"
+    }
+  },
+  "fx": {
+    "rapid": "hachiya_actions/fx_v3/manifest.json",
+    "return": "hachiya_actions/secondary_fx_v2/return_manifest.json",
+    "sweep": "hachiya_actions/secondary_fx_v2/sweep_manifest.json",
+    "collision_changes": false
+  },
+  "audio": {
+    "whoosh": "existing audio files in hachiya_actions/audio; preview has whoosh for retreat/sweep only",
+    "voice": "Full uncropped Aiden recordings remain in separate stage5 audio pack libfile_72610fe8337c8191967e03af7d51d6c0; final voice mix not included",
+    "footsteps": "contact events only; no footsteps mixed"
+  },
+  "runtime_or_git_changes": false,
+  "preview": "hachiya_all_actions_review.mp4"
+}

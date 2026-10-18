@@ -1,0 +1,2343 @@
+{
+  "character": "Natsume B",
+  "status": "reviewable source pack; runtime and collision integration not performed",
+  "canvas": [
+    1536,
+    1152
+  ],
+  "root": [
+    650,
+    1080
+  ],
+  "master_scale": 0.6,
+  "frames": [
+    {
+      "id": "idle_01",
+      "source": "raw/master.png",
+      "duration_ms": 360,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1376
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        254.39999999999998
+      ],
+      "feet": [
+        [
+          458.0,
+          1078.8
+        ],
+        [
+          827.0,
+          1076.4
+        ]
+      ],
+      "blade_guard": [
+        785.0,
+        658.8
+      ],
+      "blade_tip": [
+        835.4,
+        283.2
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            1.0,
+            -0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "translation": [
+          0.0,
+          0.0
+        ]
+      },
+      "alpha_bbox": [
+        422,
+        282,
+        878,
+        1081
+      ],
+      "head_crown": [
+        624.8,
+        388.8
+      ],
+      "head_chin": [
+        634.4,
+        501.0
+      ],
+      "head_axis_length_px": 112.61,
+      "grips": [
+        [
+          767.0,
+          697.8
+        ],
+        [
+          753.8,
+          746.4
+        ]
+      ],
+      "source_grips": [
+        [
+          800,
+          739
+        ],
+        [
+          778,
+          820
+        ]
+      ],
+      "png_sha256": "d58f5a9d7a66bd1890c1be10daf1f3e504f87e1fda5d3e7579d57466ac021c74"
+    },
+    {
+      "id": "idle_02",
+      "source": "raw/idle_02.png",
+      "duration_ms": 360,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1376
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        254.39999999999998
+      ],
+      "feet": [
+        [
+          455.6,
+          1078.8
+        ],
+        [
+          827.0,
+          1076.4
+        ]
+      ],
+      "blade_guard": [
+        785.0,
+        658.8
+      ],
+      "blade_tip": [
+        865.27,
+        288.43
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9967993563617904,
+            -0.0799440001295935
+          ],
+          [
+            0.0799440001295935,
+            0.9967993563617904
+          ]
+        ],
+        "translation": [
+          56.538790307060026,
+          -64.19628629540932
+        ]
+      },
+      "alpha_bbox": [
+        427,
+        284,
+        900,
+        1085
+      ],
+      "head_crown": [
+        641.0,
+        386.4
+      ],
+      "head_chin": [
+        656.0,
+        496.2
+      ],
+      "head_axis_length_px": 110.82,
+      "grips": [
+        [
+          766.4,
+          699.0
+        ],
+        [
+          752.6,
+          746.4
+        ]
+      ],
+      "source_grips": [
+        [
+          799,
+          741
+        ],
+        [
+          776,
+          820
+        ]
+      ],
+      "png_sha256": "7b60c9662bb1a4f2325327faab46f375f28211ad8ce9f07fe157c1fb1d68fcb2"
+    },
+    {
+      "id": "walk_01",
+      "source": "raw/walk_01.png",
+      "duration_ms": 150,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1376
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        254.39999999999998
+      ],
+      "feet": [
+        [
+          440.0,
+          1075.2
+        ],
+        [
+          809.0,
+          1078.8
+        ]
+      ],
+      "blade_guard": [
+        788.0,
+        679.2
+      ],
+      "blade_tip": [
+        873.05,
+        309.9
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1087,
+        1447
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9956808260246872,
+            -0.09284230009428075
+          ],
+          [
+            0.09284230009428075,
+            0.9956808260246872
+          ]
+        ],
+        "translation": [
+          71.16062466305482,
+          -40.147985818892266
+        ]
+      },
+      "alpha_bbox": [
+        375,
+        308,
+        907,
+        1081
+      ],
+      "head_crown": [
+        641.0,
+        404.4
+      ],
+      "head_chin": [
+        655.4,
+        512.4
+      ],
+      "head_axis_length_px": 108.96,
+      "grips": [
+        [
+          768.8,
+          721.2
+        ],
+        [
+          750.8,
+          762.6
+        ]
+      ],
+      "source_grips": [
+        [
+          803,
+          778
+        ],
+        [
+          773,
+          847
+        ]
+      ],
+      "png_sha256": "db5098d148c74478290c6cc2b0a14e3d310b67dfb666bfbc422b0808ab9f332b"
+    },
+    {
+      "id": "walk_02",
+      "source": "raw/walk_02.png",
+      "duration_ms": 150,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1376
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        254.39999999999998
+      ],
+      "feet": [
+        [
+          443.0,
+          1043.4
+        ],
+        [
+          779.0,
+          1077.6
+        ]
+      ],
+      "blade_guard": [
+        786.2,
+        663.0
+      ],
+      "blade_tip": [
+        866.44,
+        292.63
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9968052915818464,
+            -0.07986996102684783
+          ],
+          [
+            0.07986996102684783,
+            0.9968052915818464
+          ]
+        ],
+        "translation": [
+          58.48396171916295,
+          -57.13883417844818
+        ]
+      },
+      "alpha_bbox": [
+        396,
+        291,
+        902,
+        1080
+      ],
+      "head_crown": [
+        641.0,
+        375.6
+      ],
+      "head_chin": [
+        659.0,
+        488.4
+      ],
+      "head_axis_length_px": 114.23,
+      "grips": [
+        [
+          768.8,
+          698.4
+        ],
+        [
+          751.4,
+          741.6
+        ]
+      ],
+      "source_grips": [
+        [
+          803,
+          740
+        ],
+        [
+          774,
+          812
+        ]
+      ],
+      "png_sha256": "6c50ff5b599b0ec1c4d930fc23088891a7a7fdd9668f9345d46b3a179e6c79bc"
+    },
+    {
+      "id": "walk_03",
+      "source": "raw/walk_03_v3.png",
+      "duration_ms": 150,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1400
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        240.0
+      ],
+      "feet": [
+        [
+          434.0,
+          1053.0
+        ],
+        [
+          881.0,
+          1078.8
+        ]
+      ],
+      "blade_guard": [
+        799.4,
+        645.6
+      ],
+      "blade_tip": [
+        845.83,
+        269.49
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9999441138734061,
+            0.01057209203178889
+          ],
+          [
+            -0.01057209203178889,
+            0.9999441138734061
+          ]
+        ],
+        "translation": [
+          16.92079545564718,
+          10.81250363570905
+        ]
+      },
+      "alpha_bbox": [
+        375,
+        268,
+        931,
+        1083
+      ],
+      "head_crown": [
+        647.0,
+        375.0
+      ],
+      "head_chin": [
+        659.0,
+        490.8
+      ],
+      "head_axis_length_px": 116.42,
+      "grips": [
+        [
+          775.4,
+          682.2
+        ],
+        [
+          764.6,
+          729.0
+        ]
+      ],
+      "source_grips": [
+        [
+          814,
+          737
+        ],
+        [
+          796,
+          815
+        ]
+      ],
+      "png_sha256": "3d5db61d62f7de0fc0052839c657be36407a4c3d75bd478e4c7066c3d793db66"
+    },
+    {
+      "id": "walk_04",
+      "source": "raw/walk_04.png",
+      "duration_ms": 150,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1390
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        246.0
+      ],
+      "feet": [
+        [
+          545.0,
+          1078.2
+        ],
+        [
+          806.0,
+          1038.0
+        ]
+      ],
+      "blade_guard": [
+        777.2,
+        652.8
+      ],
+      "blade_tip": [
+        830.55,
+        277.61
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9999691715112821,
+            -0.007852135189880554
+          ],
+          [
+            0.007852135189880554,
+            0.9999691715112821
+          ]
+        ],
+        "translation": [
+          -7.682073236384667,
+          -2.496493806204967
+        ]
+      },
+      "alpha_bbox": [
+        403,
+        276,
+        871,
+        1080
+      ],
+      "head_crown": [
+        647.0,
+        375.6
+      ],
+      "head_chin": [
+        659.0,
+        489.0
+      ],
+      "head_axis_length_px": 114.03,
+      "grips": [
+        [
+          761.0,
+          690.0
+        ],
+        [
+          749.6,
+          731.4
+        ]
+      ],
+      "source_grips": [
+        [
+          790,
+          740
+        ],
+        [
+          771,
+          809
+        ]
+      ],
+      "png_sha256": "a53e762ccd477a405a0b70cd7f483c38a0da5a2d8b86379f9b22ff8f00d3ca4f"
+    },
+    {
+      "id": "hurt_01",
+      "source": "raw/hurt_01_v2.png",
+      "duration_ms": 90,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1376
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        254.39999999999998
+      ],
+      "feet": [
+        [
+          467.0,
+          1077.6
+        ],
+        [
+          826.4,
+          1078.2
+        ]
+      ],
+      "blade_guard": [
+        769.4,
+        667.2
+      ],
+      "blade_tip": [
+        835.13,
+        293.98
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9991623124235116,
+            -0.04092277400789158
+          ],
+          [
+            0.04092277400789158,
+            0.9991623124235116
+          ]
+        ],
+        "translation": [
+          2.277230369804329,
+          -19.401300999996806
+        ]
+      },
+      "alpha_bbox": [
+        426,
+        292,
+        891,
+        1087
+      ],
+      "head_crown": [
+        599.0,
+        398.4
+      ],
+      "head_chin": [
+        641.0,
+        499.2
+      ],
+      "head_axis_length_px": 109.2,
+      "grips": [
+        [
+          755.0,
+          705.0
+        ],
+        [
+          741.8,
+          750.6
+        ]
+      ],
+      "source_grips": [
+        [
+          780,
+          751
+        ],
+        [
+          758,
+          827
+        ]
+      ],
+      "png_sha256": "01aa9b04b12a69e97b52ef3cc8d35835528b4e9cd58a2060d99235b0eda1e550"
+    },
+    {
+      "id": "hurt_02",
+      "source": "raw/hurt_02.png",
+      "duration_ms": 130,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1380
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        252.0
+      ],
+      "feet": [
+        [
+          411.8,
+          1078.8
+        ],
+        [
+          826.4,
+          1050.0
+        ]
+      ],
+      "blade_guard": [
+        775.4,
+        657.0
+      ],
+      "blade_tip": [
+        883.1,
+        293.66
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9880465264504174,
+            -0.15415596507843807
+          ],
+          [
+            0.15415596507843807,
+            0.9880465264504174
+          ]
+        ],
+        "translation": [
+          97.82250350902086,
+          -118.89280984268487
+        ]
+      },
+      "alpha_bbox": [
+        344,
+        259,
+        913,
+        1099
+      ],
+      "head_crown": [
+        587.0,
+        420.0
+      ],
+      "head_chin": [
+        629.0,
+        516.0
+      ],
+      "head_axis_length_px": 104.79,
+      "grips": [
+        [
+          758.0,
+          696.0
+        ],
+        [
+          741.8,
+          739.8
+        ]
+      ],
+      "source_grips": [
+        [
+          785,
+          740
+        ],
+        [
+          758,
+          813
+        ]
+      ],
+      "png_sha256": "7ce0c53151e66549ffb87e8f3c6836962aa88fcb82af8f622fab2fd5030c6db1"
+    },
+    {
+      "id": "hurt_03",
+      "source": "raw/hurt_03.png",
+      "duration_ms": 140,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1385
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        249.0
+      ],
+      "feet": [
+        [
+          443.0,
+          1078.8
+        ],
+        [
+          845.0,
+          1074.0
+        ]
+      ],
+      "blade_guard": [
+        782.6,
+        693.0
+      ],
+      "blade_tip": [
+        814.85,
+        315.41
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9988388080750914,
+            0.04817712614021989
+          ],
+          [
+            -0.04817712614021989,
+            0.9988388080750914
+          ]
+        ],
+        "translation": [
+          -35.50759372083405,
+          106.76965805377097
+        ]
+      },
+      "alpha_bbox": [
+        399,
+        314,
+        894,
+        1097
+      ],
+      "head_crown": [
+        677.0,
+        474.0
+      ],
+      "head_chin": [
+        695.0,
+        585.0
+      ],
+      "head_axis_length_px": 112.45,
+      "grips": [
+        [
+          764.6,
+          740.4
+        ],
+        [
+          750.2,
+          784.2
+        ]
+      ],
+      "source_grips": [
+        [
+          796,
+          819
+        ],
+        [
+          772,
+          892
+        ]
+      ],
+      "png_sha256": "2b3f095c0818da1906239baead16a76aa2666183d7f1bef4d425bd859ea1bd49"
+    },
+    {
+      "id": "stunned_01",
+      "source": "raw/stunned_01.png",
+      "duration_ms": 320,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1380
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        252.0
+      ],
+      "feet": [
+        [
+          458.0,
+          1078.8
+        ],
+        [
+          817.4,
+          1075.8
+        ]
+      ],
+      "blade_guard": [
+        752.0,
+        718.2
+      ],
+      "blade_tip": [
+        837.14,
+        348.92
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9956589955409412,
+            -0.09307612260082676
+          ],
+          [
+            0.09307612260082676,
+            0.9956589955409412
+          ]
+        ],
+        "translation": [
+          11.336340333976068,
+          28.6726552467195
+        ]
+      },
+      "alpha_bbox": [
+        421,
+        347,
+        871,
+        1084
+      ],
+      "head_crown": [
+        677.0,
+        408.0
+      ],
+      "head_chin": [
+        677.0,
+        521.4
+      ],
+      "head_axis_length_px": 113.4,
+      "grips": [
+        [
+          721.4,
+          762.6
+        ],
+        [
+          704.0,
+          803.4
+        ]
+      ],
+      "source_grips": [
+        [
+          724,
+          851
+        ],
+        [
+          695,
+          919
+        ]
+      ],
+      "png_sha256": "113bb69128f4ddfe3ce20170d41762eb9cdb771831ded0f37a9e774945a9f5bd"
+    },
+    {
+      "id": "stunned_02",
+      "source": "raw/stunned_02.png",
+      "duration_ms": 320,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1380
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        252.0
+      ],
+      "feet": [
+        [
+          455.0,
+          1080.0
+        ],
+        [
+          830.0,
+          1071.0
+        ]
+      ],
+      "blade_guard": [
+        779.0,
+        672.6
+      ],
+      "blade_tip": [
+        868.05,
+        304.24
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.99461733732403,
+            -0.10361637078404476
+          ],
+          [
+            0.10361637078404476,
+            0.99461733732403
+          ]
+        ],
+        "translation": [
+          64.30504392950127,
+          -55.37367310715342
+        ]
+      },
+      "alpha_bbox": [
+        421,
+        277,
+        902,
+        1081
+      ],
+      "head_crown": [
+        677.0,
+        396.0
+      ],
+      "head_chin": [
+        689.0,
+        510.0
+      ],
+      "head_axis_length_px": 114.63,
+      "grips": [
+        [
+          758.0,
+          710.4
+        ],
+        [
+          744.2,
+          753.0
+        ]
+      ],
+      "source_grips": [
+        [
+          785,
+          764
+        ],
+        [
+          762,
+          835
+        ]
+      ],
+      "png_sha256": "0191cab5ec86df3d2fda85f7e456779dc2967fdd79b842c2e7a6dd529d17379f"
+    },
+    {
+      "id": "down_01",
+      "source": "raw/down_01.png",
+      "duration_ms": 140,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        610,
+        1370
+      ],
+      "body_affine": [
+        0.64,
+        0,
+        259.59999999999997,
+        0,
+        0.64,
+        203.19999999999993
+      ],
+      "feet": [
+        [
+          762.0,
+          1073.6
+        ],
+        [
+          913.68,
+          995.52
+        ]
+      ],
+      "blade_guard": [
+        769.04,
+        639.68
+      ],
+      "blade_tip": [
+        855.9,
+        270.8
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9330129901187857,
+            -0.09161337385776522
+          ],
+          [
+            0.09161337385776522,
+            0.9330129901187857
+          ]
+        ],
+        "translation": [
+          83.34663218154162,
+          -22.88985564200675
+        ]
+      },
+      "alpha_bbox": [
+        267,
+        269,
+        954,
+        1081
+      ],
+      "head_crown": [
+        442.0,
+        561.6
+      ],
+      "head_chin": [
+        490.0,
+        660.8
+      ],
+      "head_axis_length_px": 110.2,
+      "grips": [
+        [
+          754.96,
+          685.76
+        ]
+      ],
+      "source_grips": [
+        [
+          774,
+          754
+        ]
+      ],
+      "support_hand": [
+        323.6,
+        952.0
+      ],
+      "source_support_hand": [
+        100,
+        1170
+      ],
+      "png_sha256": "871ace781c8dd70ba1b9f2ace5467561fbf593250fa3aa0179e998cf2d2738a5"
+    },
+    {
+      "id": "down_02",
+      "source": "raw/down_02.png",
+      "duration_ms": 160,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        610,
+        1020
+      ],
+      "body_affine": [
+        0.55,
+        0,
+        314.5,
+        0,
+        0.55,
+        519.0
+      ],
+      "feet": [
+        [
+          815.0,
+          1080.0
+        ],
+        [
+          930.5,
+          1072.85
+        ]
+      ],
+      "blade_guard": [
+        607.65,
+        922.15
+      ],
+      "blade_tip": [
+        943.16,
+        745.94
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1223,
+        1286
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.631198966131147,
+            -0.8897586806449657
+          ],
+          [
+            0.8897586806449657,
+            0.631198966131147
+          ]
+        ],
+        "translation": [
+          608.8022088658548,
+          -430.92780810771455
+        ]
+      },
+      "alpha_bbox": [
+        322,
+        685,
+        978,
+        1088
+      ],
+      "head_crown": [
+        573.0,
+        686.75
+      ],
+      "head_chin": [
+        595.0,
+        794.0
+      ],
+      "head_axis_length_px": 109.48,
+      "grips": [
+        [
+          574.1,
+          947.45
+        ]
+      ],
+      "source_grips": [
+        [
+          472,
+          779
+        ]
+      ],
+      "support_hand": [
+        364.0,
+        1060.75
+      ],
+      "source_support_hand": [
+        90,
+        985
+      ],
+      "png_sha256": "922ff96da40b5072d618d9b267bfdf1606c8b294c6d1df8069088e85e35182bf"
+    },
+    {
+      "id": "down_03",
+      "source": "raw/down_03.png",
+      "duration_ms": 600,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        810,
+        735
+      ],
+      "body_affine": [
+        0.52,
+        0,
+        228.8,
+        0,
+        0.52,
+        697.8
+      ],
+      "feet": [
+        [
+          1018.16,
+          1030.6
+        ],
+        [
+          998.4,
+          1023.32
+        ]
+      ],
+      "blade_guard": [
+        694.2,
+        1036.32
+      ],
+      "blade_tip": [
+        1072.03,
+        1006.99
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1774,
+        887
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.2415115215696485,
+            -1.1282876989911195
+          ],
+          [
+            1.1282876989911195,
+            0.2415115215696485
+          ]
+        ],
+        "translation": [
+          1455.0113462172062,
+          -448.2575557005723
+        ]
+      },
+      "alpha_bbox": [
+        234,
+        813,
+        1074,
+        1081
+      ],
+      "head_crown": [
+        351.0,
+        814.8
+      ],
+      "head_chin": [
+        379.6,
+        926.6
+      ],
+      "head_axis_length_px": 115.4,
+      "grips": [
+        [
+          650.52,
+          1044.64
+        ]
+      ],
+      "source_grips": [
+        [
+          811,
+          667
+        ]
+      ],
+      "support_hand": [
+        497.64,
+        1061.8
+      ],
+      "source_support_hand": [
+        517,
+        700
+      ],
+      "png_sha256": "2090dccf73f3f5b1baa32abf70fde341ed252085b678d943702e1e3dbf09be12"
+    },
+    {
+      "id": "recover_01",
+      "source": "raw/recover_01_v2.png",
+      "duration_ms": 180,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        610,
+        1080
+      ],
+      "body_affine": [
+        0.55,
+        0,
+        314.5,
+        0,
+        0.55,
+        486.0
+      ],
+      "feet": [
+        [
+          721.5,
+          1055.25
+        ],
+        [
+          925.0,
+          1078.9
+        ]
+      ],
+      "blade_guard": [
+        651.65,
+        844.6
+      ],
+      "blade_tip": [
+        968.59,
+        636.84
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1223,
+        1286
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.7140925580902381,
+            -0.8247147768218046
+          ],
+          [
+            0.8247147768218046,
+            0.7140925580902381
+          ]
+        ],
+        "translation": [
+          576.1609363629988,
+          -513.8116489149184
+        ]
+      },
+      "alpha_bbox": [
+        321,
+        612,
+        981,
+        1081
+      ],
+      "head_crown": [
+        567.5,
+        613.6
+      ],
+      "head_chin": [
+        592.25,
+        725.25
+      ],
+      "head_axis_length_px": 114.36,
+      "grips": [
+        [
+          617.55,
+          871.0
+        ]
+      ],
+      "source_grips": [
+        [
+          551,
+          700
+        ]
+      ],
+      "support_hand": [
+        366.75,
+        1067.9
+      ],
+      "source_support_hand": [
+        95,
+        1058
+      ],
+      "png_sha256": "23619d79caa9faf0d1b98a963dcd1031b1eb0944dfbbf64fdb39653b9af13512"
+    },
+    {
+      "id": "recover_02",
+      "source": "raw/recover_02.png",
+      "duration_ms": 180,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        610,
+        1370
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        284.0,
+        0,
+        0.6,
+        258.0
+      ],
+      "feet": [
+        [
+          422.0,
+          1066.8
+        ],
+        [
+          854.0,
+          1078.8
+        ]
+      ],
+      "blade_guard": [
+        766.4,
+        709.2
+      ],
+      "blade_tip": [
+        868.77,
+        344.32
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9901971114418605,
+            -0.13967705785917636
+          ],
+          [
+            0.13967705785917636,
+            0.9901971114418605
+          ]
+        ],
+        "translation": [
+          76.27873450034065,
+          -31.324811134930428
+        ]
+      },
+      "alpha_bbox": [
+        311,
+        342,
+        930,
+        1090
+      ],
+      "head_crown": [
+        656.0,
+        423.6
+      ],
+      "head_chin": [
+        668.0,
+        540.0
+      ],
+      "head_axis_length_px": 117.02,
+      "grips": [
+        [
+          742.4,
+          753.6
+        ],
+        [
+          722.6,
+          800.4
+        ]
+      ],
+      "source_grips": [
+        [
+          764,
+          826
+        ],
+        [
+          731,
+          904
+        ]
+      ],
+      "png_sha256": "da64e0f95b6d347e0ff588f866769d54e083c52e8a4e3ba7bb558a048c289146"
+    },
+    {
+      "id": "recover_03",
+      "source": "raw/recover_03.png",
+      "duration_ms": 180,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        610,
+        1370
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        284.0,
+        0,
+        0.6,
+        258.0
+      ],
+      "feet": [
+        [
+          428.0,
+          1078.8
+        ],
+        [
+          860.0,
+          1056.0
+        ]
+      ],
+      "blade_guard": [
+        795.2,
+        696.6
+      ],
+      "blade_tip": [
+        879.32,
+        327.09
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9959121651848268,
+            -0.09032695742064038
+          ],
+          [
+            0.09032695742064038,
+            0.9959121651848268
+          ]
+        ],
+        "translation": [
+          86.27327219810536,
+          -15.216173993704729
+        ]
+      },
+      "alpha_bbox": [
+        297,
+        325,
+        916,
+        1108
+      ],
+      "head_crown": [
+        650.0,
+        470.4
+      ],
+      "head_chin": [
+        668.0,
+        583.8
+      ],
+      "head_axis_length_px": 114.82,
+      "grips": [
+        [
+          768.8,
+          735.6
+        ],
+        [
+          750.2,
+          782.4
+        ]
+      ],
+      "source_grips": [
+        [
+          808,
+          796
+        ],
+        [
+          777,
+          874
+        ]
+      ],
+      "png_sha256": "bdd937dadd6d202d6ba488279142adeb0ace30a20cd2ffe53f37ea8ce8125608"
+    },
+    {
+      "id": "run_01",
+      "source": "raw/run_01.png",
+      "duration_ms": 100,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1390
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        246.0
+      ],
+      "feet": [
+        [
+          365.0,
+          921.0
+        ],
+        [
+          858.2,
+          1078.8
+        ]
+      ],
+      "blade_guard": [
+        815.0,
+        659.4
+      ],
+      "blade_tip": [
+        911.99,
+        293.06
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9921447226566873,
+            -0.12509536084317863
+          ],
+          [
+            0.12509536084317863,
+            0.9921447226566873
+          ]
+        ],
+        "translation": [
+          140.8341534032519,
+          -83.5346925704456
+        ]
+      },
+      "alpha_bbox": [
+        298,
+        262,
+        944,
+        1091
+      ],
+      "head_crown": [
+        701.0,
+        402.0
+      ],
+      "head_chin": [
+        713.0,
+        516.0
+      ],
+      "head_axis_length_px": 114.63,
+      "grips": [
+        [
+          792.2,
+          693.0
+        ],
+        [
+          774.8,
+          738.0
+        ]
+      ],
+      "source_grips": [
+        [
+          842,
+          745
+        ],
+        [
+          813,
+          820
+        ]
+      ],
+      "png_sha256": "3e21bebe675f43e218ff16afff703f5912db70a389a2d70f976353e70e70d640"
+    },
+    {
+      "id": "run_02",
+      "source": "raw/run_02.png",
+      "duration_ms": 100,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1380
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        252.0
+      ],
+      "feet": [
+        [
+          395.0,
+          1078.8
+        ],
+        [
+          659.0,
+          981.0
+        ]
+      ],
+      "blade_guard": [
+        794.0,
+        646.8
+      ],
+      "blade_tip": [
+        895.28,
+        281.62
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9906097277402475,
+            -0.136720032571649
+          ],
+          [
+            0.136720032571649,
+            0.9906097277402475
+          ]
+        ],
+        "translation": [
+          114.94322792888602,
+          -123.1485835313955
+        ]
+      },
+      "alpha_bbox": [
+        350,
+        280,
+        927,
+        1094
+      ],
+      "head_crown": [
+        677.0,
+        390.0
+      ],
+      "head_chin": [
+        689.0,
+        504.0
+      ],
+      "head_axis_length_px": 114.63,
+      "grips": [
+        [
+          772.4,
+          681.0
+        ],
+        [
+          756.2,
+          724.8
+        ]
+      ],
+      "source_grips": [
+        [
+          809,
+          715
+        ],
+        [
+          782,
+          788
+        ]
+      ],
+      "png_sha256": "9b028ea2e36881b62fef55ea4c2d293c0eaa4d068dfe9b88f54ba8198610b9a9"
+    },
+    {
+      "id": "run_03",
+      "source": "raw/run_03_v3.png",
+      "duration_ms": 100,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1410
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        234.0
+      ],
+      "feet": [
+        [
+          353.0,
+          873.0
+        ],
+        [
+          782.0,
+          1078.8
+        ]
+      ],
+      "blade_guard": [
+        825.8,
+        593.4
+      ],
+      "blade_tip": [
+        900.37,
+        221.84
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9979098398778659,
+            -0.06462160223123549
+          ],
+          [
+            0.06462160223123549,
+            0.9979098398778659
+          ]
+        ],
+        "translation": [
+          113.28979280522401,
+          -127.22716192960706
+        ]
+      },
+      "alpha_bbox": [
+        324,
+        220,
+        937,
+        1083
+      ],
+      "head_crown": [
+        662.0,
+        381.0
+      ],
+      "head_chin": [
+        668.0,
+        496.2
+      ],
+      "head_axis_length_px": 115.36,
+      "grips": [
+        [
+          805.4,
+          632.4
+        ],
+        [
+          790.4,
+          675.6
+        ]
+      ],
+      "source_grips": [
+        [
+          864,
+          664
+        ],
+        [
+          839,
+          736
+        ]
+      ],
+      "png_sha256": "afd2f14aa3d6e84b062ef0c80d673fd58f2cefccf3f8157fefc9d7fcbf1883f2"
+    },
+    {
+      "id": "run_04",
+      "source": "raw/run_04_v2.png",
+      "duration_ms": 100,
+      "root": [
+        650,
+        1080
+      ],
+      "source_root": [
+        605,
+        1410
+      ],
+      "body_affine": [
+        0.6,
+        0,
+        287.0,
+        0,
+        0.6,
+        234.0
+      ],
+      "feet": [
+        [
+          461.0,
+          1078.8
+        ],
+        [
+          635.0,
+          888.0
+        ]
+      ],
+      "blade_guard": [
+        815.0,
+        600.6
+      ],
+      "blade_tip": [
+        896.41,
+        230.48
+      ],
+      "blade_length_px": 378.966,
+      "anchor_method": "manual visual estimates; not collision-certified",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "blade_rigid_transform": {
+        "matrix": [
+          [
+            0.9965467325564107,
+            -0.08303378728651171
+          ],
+          [
+            0.08303378728651171,
+            0.9965467325564107
+          ]
+        ],
+        "translation": [
+          108.83098460928807,
+          -129.59054119082555
+        ]
+      },
+      "alpha_bbox": [
+        395,
+        229,
+        931,
+        1082
+      ],
+      "head_crown": [
+        659.0,
+        378.0
+      ],
+      "head_chin": [
+        659.0,
+        492.0
+      ],
+      "head_axis_length_px": 114.0,
+      "grips": [
+        [
+          801.8,
+          632.4
+        ],
+        [
+          785.6,
+          678.6
+        ]
+      ],
+      "source_grips": [
+        [
+          858,
+          664
+        ],
+        [
+          831,
+          741
+        ]
+      ],
+      "png_sha256": "fe61f13f7c5fcd75c5683a5924c85eb579b5c9503b80ff09a8d245dda53904b6"
+    }
+  ],
+  "animations": {
+    "idle": {
+      "loop": true,
+      "frames": [
+        "idle_01",
+        "idle_02"
+      ],
+      "keys": [
+        {
+          "frame": "idle_01",
+          "start_ms": 0,
+          "duration_ms": 360
+        },
+        {
+          "frame": "idle_02",
+          "start_ms": 360,
+          "duration_ms": 360
+        }
+      ],
+      "events": [],
+      "duration_ms": 720
+    },
+    "walk": {
+      "loop": true,
+      "frames": [
+        "walk_01",
+        "walk_02",
+        "walk_03",
+        "walk_04"
+      ],
+      "keys": [
+        {
+          "frame": "walk_01",
+          "start_ms": 0,
+          "duration_ms": 150
+        },
+        {
+          "frame": "walk_02",
+          "start_ms": 150,
+          "duration_ms": 150
+        },
+        {
+          "frame": "walk_03",
+          "start_ms": 300,
+          "duration_ms": 150
+        },
+        {
+          "frame": "walk_04",
+          "start_ms": 450,
+          "duration_ms": 150
+        }
+      ],
+      "events": [
+        {
+          "at_ms": 0,
+          "event": "foot_contact",
+          "phase": "walk_01",
+          "foot_anchor_index": 1,
+          "note": "alternating gait contact; source anatomy side not skeleton-certified"
+        },
+        {
+          "at_ms": 300,
+          "event": "foot_contact",
+          "phase": "walk_03",
+          "foot_anchor_index": 1,
+          "note": "alternating gait contact; source anatomy side not skeleton-certified"
+        }
+      ],
+      "duration_ms": 600
+    },
+    "hurt": {
+      "loop": false,
+      "frames": [
+        "idle_01",
+        "hurt_01",
+        "hurt_02",
+        "hurt_03",
+        "idle_01"
+      ],
+      "keys": [
+        {
+          "frame": "idle_01",
+          "start_ms": 0,
+          "duration_ms": 360
+        },
+        {
+          "frame": "hurt_01",
+          "start_ms": 360,
+          "duration_ms": 90
+        },
+        {
+          "frame": "hurt_02",
+          "start_ms": 450,
+          "duration_ms": 130
+        },
+        {
+          "frame": "hurt_03",
+          "start_ms": 580,
+          "duration_ms": 140
+        },
+        {
+          "frame": "idle_01",
+          "start_ms": 720,
+          "duration_ms": 360
+        }
+      ],
+      "events": [],
+      "duration_ms": 1080
+    },
+    "stunned": {
+      "loop": true,
+      "frames": [
+        "stunned_01",
+        "stunned_02"
+      ],
+      "keys": [
+        {
+          "frame": "stunned_01",
+          "start_ms": 0,
+          "duration_ms": 320
+        },
+        {
+          "frame": "stunned_02",
+          "start_ms": 320,
+          "duration_ms": 320
+        }
+      ],
+      "events": [],
+      "duration_ms": 640
+    },
+    "down": {
+      "loop": false,
+      "frames": [
+        "hurt_02",
+        "down_01",
+        "down_02",
+        "down_03"
+      ],
+      "keys": [
+        {
+          "frame": "hurt_02",
+          "start_ms": 0,
+          "duration_ms": 130
+        },
+        {
+          "frame": "down_01",
+          "start_ms": 130,
+          "duration_ms": 140
+        },
+        {
+          "frame": "down_02",
+          "start_ms": 270,
+          "duration_ms": 160
+        },
+        {
+          "frame": "down_03",
+          "start_ms": 430,
+          "duration_ms": 600
+        }
+      ],
+      "events": [
+        {
+          "at_ms": 270,
+          "event": "hip_ground_contact"
+        },
+        {
+          "at_ms": 430,
+          "event": "body_settle"
+        }
+      ],
+      "duration_ms": 1030
+    },
+    "recover": {
+      "loop": false,
+      "frames": [
+        "down_03",
+        "recover_01",
+        "recover_02",
+        "recover_03",
+        "idle_01"
+      ],
+      "keys": [
+        {
+          "frame": "down_03",
+          "start_ms": 0,
+          "duration_ms": 600
+        },
+        {
+          "frame": "recover_01",
+          "start_ms": 600,
+          "duration_ms": 180
+        },
+        {
+          "frame": "recover_02",
+          "start_ms": 780,
+          "duration_ms": 180
+        },
+        {
+          "frame": "recover_03",
+          "start_ms": 960,
+          "duration_ms": 180
+        },
+        {
+          "frame": "idle_01",
+          "start_ms": 1140,
+          "duration_ms": 360
+        }
+      ],
+      "events": [
+        {
+          "at_ms": 0,
+          "event": "body_settle"
+        },
+        {
+          "at_ms": 600,
+          "event": "hand_push"
+        },
+        {
+          "at_ms": 960,
+          "event": "knees_clear_ground"
+        }
+      ],
+      "duration_ms": 1500
+    },
+    "retreat_run": {
+      "loop": true,
+      "frames": [
+        "run_01",
+        "run_02",
+        "run_03",
+        "run_04"
+      ],
+      "keys": [
+        {
+          "frame": "run_01",
+          "start_ms": 0,
+          "duration_ms": 100
+        },
+        {
+          "frame": "run_02",
+          "start_ms": 100,
+          "duration_ms": 100
+        },
+        {
+          "frame": "run_03",
+          "start_ms": 200,
+          "duration_ms": 100
+        },
+        {
+          "frame": "run_04",
+          "start_ms": 300,
+          "duration_ms": 100
+        }
+      ],
+      "events": [
+        {
+          "at_ms": 0,
+          "event": "foot_contact",
+          "phase": "run_01",
+          "foot_anchor_index": 1,
+          "note": "alternating gait contact; source anatomy side not skeleton-certified"
+        },
+        {
+          "at_ms": 200,
+          "event": "foot_contact",
+          "phase": "run_03",
+          "foot_anchor_index": 1,
+          "note": "alternating gait contact; source anatomy side not skeleton-certified"
+        }
+      ],
+      "duration_ms": 400
+    }
+  },
+  "processing": [
+    "native single-character imagegen per pose, no grid crops",
+    "pose scale by head/limb landmarks, not silhouette height",
+    "shared approved-master blade layer at fixed world length, rigid rotation",
+    "original hands and guard front occlusion retained",
+    "alpha fringe red pixels and tiny disconnected specks removed; untouched raw retained"
+  ],
+  "qa_notes": [
+    "All 21 output PNGs use 1536x1152 and root 650,1080.",
+    "Head-axis manual measurements span about 105-117 px, versus approved master 112.6 px.",
+    "Blade length fixed 378.967 px. Grip/handle remains generated per pose, so complete pommel-to-tip length is not mathematically fixed.",
+    "Walk/run have four distinct native poses; opposite contact was regenerated from the opposite passing pose. Armor still occludes hips, so anatomical side labels are manual and not skeleton-certified.",
+    "Down/recover use continuous low-to-high key poses; recover_01 was regenerated to preserve the left-screen support palm. In-between smoothness is not runtime-tested.",
+    "Landmarks are manual visual estimates; feet contacts and events are integration guides, not tested collision data."
+  ],
+  "version": "3.0-metadata",
+  "supersedes": "Natsume_B_basic_actions_source_v2.zip",
+  "change_summary": "Metadata-only: add hand grip and support-palm anchors, immutable frame hashes and explicit package version. Pixel-identical final frames to v2."
+}

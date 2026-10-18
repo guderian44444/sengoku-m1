@@ -1,0 +1,8 @@
+STAGE 5 PROPS v2 — GENERATED INK
+All five flags use imagegen handpainted 南無阿彌陀佛 directly baked into cloth. Six glyphs visually checked for every flag. Text layer = baked_in_cloth. The old SVG is retained solely as spelling reference; it is NOT rendered over the new art.
+Native ink sources retained in source_ink (1254 x 1254). Production canvas 2048 x 2048 is registered assembly, not a claim of native 2048 texture detail. Remaining three cloth sources uniformly registered to original cloth height and top-left anchor; generated fibers can vary slightly, while pole/base silhouettes and root are unchanged.
+Each flag idle: 8 frames x 120ms = 960ms looping; destroy: 8 frames x 120ms = 960ms non-looping, hold remnant last frame. Cloth and lettering deform together. Fall animation is layer rigging rather than eight independent image generations. Fixed root (550,1450), draw scale .25. Do not auto-fit per-frame visible bounds. Audio event timing retained; allow one-shot tails after animation ends.
+Original pole/base/remnant and all rice, wood, ceramic and decorative assets verified byte-identical to v1. No mechanics, sound files, runtime or Git edits.
+Deliverable alpha <=8 cleared to RGBA zero; remaining zero-alpha RGB zeroed. Native imagegen masters preserved unaltered. Gray-background review is actual alpha compositing.
+v1 source assets and full old version remain at ../stage5_props_production and its original Library archive. This v2 package includes unchanged nonflag deliverables plus all regenerated flag animation frames and new native ink sources.
+Historical inspiration: Anjo municipal Honshoji document describes a 1468 six-character myogo. These fictional game art assets are not a claimed replica of a 1563 original flag.

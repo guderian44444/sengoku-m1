@@ -1,0 +1,185 @@
+{
+  "pose_id": "recover_02_roll",
+  "source": "sources/body_original/recover_02_roll.png",
+  "original_source": "sources/body_original/recover_02_roll.png",
+  "raw_dimensions": [
+    1086,
+    1448
+  ],
+  "raw_sha256": "0651974edf21b05a9b751ada69ea3ae0aa02bcee9732a7018fb7157f8d9473a3",
+  "edited_arms": false,
+  "head_ruler": {
+    "method": "manually inspected projected helmet crest to chin",
+    "raw_px": 230,
+    "raw_endpoints": [
+      [
+        273,
+        371
+      ],
+      [
+        273,
+        601
+      ]
+    ],
+    "canvas_px": 180
+  },
+  "raw_to_canvas_affine": [
+    0.782608695652174,
+    0,
+    393.4782608695652,
+    0,
+    0.782608695652174,
+    529.7391304347826
+  ],
+  "canvas_to_raw_affine": [
+    1.2777777777777777,
+    0,
+    -502.7777777777777,
+    0,
+    1.2777777777777777,
+    -676.8888888888889
+  ],
+  "uniform_scale": 0.782608695652174,
+  "source_upscaled": false,
+  "root_raw": [
+    545,
+    1112
+  ],
+  "root_canvas": [
+    820,
+    1400
+  ],
+  "root_world": [
+    0,
+    0
+  ],
+  "support": "support hand, hip and lead sole",
+  "feet_raw": [
+    [
+      902,
+      1112
+    ],
+    [
+      1034,
+      1044
+    ]
+  ],
+  "feet_canvas": [
+    [
+      1099.391304347826,
+      1400.0
+    ],
+    [
+      1202.695652173913,
+      1346.7826086956522
+    ]
+  ],
+  "feet_world": [
+    [
+      0.4954722638680658,
+      0.0
+    ],
+    [
+      0.6786720925251659,
+      0.09437566930820292
+    ]
+  ],
+  "rear_grip_raw": [
+    132,
+    1049
+  ],
+  "front_guide_raw": [
+    447,
+    713
+  ],
+  "rear_grip_canvas": [
+    496.78260869565213,
+    1350.695652173913
+  ],
+  "front_guide_canvas": [
+    743.304347826087,
+    1087.7391304347825
+  ],
+  "head_ruler_canvas_endpoints": [
+    [
+      607.1304347826087,
+      820.0869565217392
+    ],
+    [
+      607.1304347826087,
+      1000.0869565217392
+    ]
+  ],
+  "weapon": {
+    "source": "sources/weapon/spear_canonical_1160.png",
+    "state": "grounded",
+    "length_px": 1160,
+    "length_world_units": 2.057142857142857,
+    "scale": [
+      1,
+      1
+    ],
+    "angle_degrees": 0.0,
+    "butt_canvas": [
+      300,
+      1467
+    ],
+    "tip_canvas": [
+      1460.0,
+      1467.0
+    ],
+    "canonical_to_canvas_affine": [
+      1.0,
+      -0.0,
+      300.0,
+      0.0,
+      1.0,
+      1415.5
+    ],
+    "canvas_to_canonical_affine": [
+      1.0,
+      0.0,
+      -300.0,
+      -0.0,
+      1.0,
+      -1415.5
+    ],
+    "rear_grip_canonical_u": null,
+    "front_guide_canonical_u": null,
+    "front_guide_sliding_allowed": true,
+    "hand_axis_error_px": null,
+    "placement_note": "Released weapon lies beside the body in foreground ground plane, behind body layer; hands are not forced onto it."
+  },
+  "layer_order": [
+    "weapon",
+    "body"
+  ],
+  "rgba_path": "poses/recover_02_roll/rgba.png",
+  "trimmed_rgba_path": "poses/recover_02_roll/trimmed_rgba.png",
+  "trimmed_origin_canvas": [
+    300,
+    818
+  ],
+  "alpha_bbox_canvas": [
+    300,
+    818,
+    1460,
+    1518
+  ],
+  "visible_body_bbox_canvas": [
+    404,
+    820,
+    1232,
+    1400
+  ],
+  "qa": {
+    "source_opaque_edge_pixels": 0,
+    "final_any_alpha_edge_pixels": 0,
+    "removed_distant_alpha_noise_pixels": 4304,
+    "head_ruler_error_px": 0.0,
+    "weapon_length_error_px": 0.0,
+    "no_canvas_clipping": true,
+    "no_source_upscale": true,
+    "source_high_alpha_unclipped": true
+  }
+}

@@ -21,7 +21,7 @@ static func chapter(id: int) -> Dictionary:
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/stage-%02d.json" % id))
 	assert(int(data.id) == id)
 	var camp: bool = id == 3
-	assert(data.segments.size() == 5 if id == 4 else (data.segments.size() == 4 if camp else (data.segments.size() >= 6 and data.segments.size() <= 8)))
+	assert(data.segments.size() == 5 if id in [4,5] else (data.segments.size() == 4 if camp else (data.segments.size() >= 6 and data.segments.size() <= 8)))
 	var mikawa_node := 0
 	for region in data.segments:
 		assert(region.width >= 2000 and (region.encounters.size() == 1 if camp else region.encounters.size() >= 2))
@@ -34,6 +34,14 @@ static func chapter(id: int) -> Dictionary:
 		var start := 0.0
 		for encounter in region.encounters:
 			assert(encounter.end >= start + 1000 and encounter.end <= region.width)
+			if id == 5:
+				mikawa_node += 1
+				assert(encounter.mode == "ikki" and int(encounter.node) == mikawa_node)
+				assert(encounter.role in ["militia","monk"] and encounter.finite_batches == 2)
+				assert(encounter.units_per_batch >= (4 if encounter.role=="monk" else 6) and encounter.units_per_batch <= (6 if encounter.role=="monk" else 8))
+				assert(encounter.boss in ["","hachiya","natsume","kusei"])
+				start = float(encounter.end)
+				continue
 			if id == 4:
 				mikawa_node += 1
 				assert(encounter.mode == "mikawa" and int(encounter.node) == mikawa_node)
@@ -75,4 +83,5 @@ static func chapter(id: int) -> Dictionary:
 					for kind in boss.reinforcements: assert(kind in ["soldier", "archer", "gunner", "flag", "commander", "shield_spear", "fire_archer", "raider"])
 			start = float(encounter.end)
 		assert(start == float(region.width), "Final checkpoint must reach scene exit")
+	if id==5: assert(mikawa_node==12,"Stage five has twelve nodes")
 	return data

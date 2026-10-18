@@ -1,0 +1,39 @@
+{
+  "action": "stunned",
+  "loop": true,
+  "duration_ms": 840,
+  "unique_pose_keys": 3,
+  "frame_count": 3,
+  "frames": [
+    {
+      "key": 1,
+      "pose_id": "rapid_01_guard",
+      "start_ms": 0,
+      "duration_ms": 120,
+      "path": "animations/stunned/01_rapid_01_guard.png"
+    },
+    {
+      "key": 2,
+      "pose_id": "stunned_02_sway_left",
+      "start_ms": 120,
+      "duration_ms": 360,
+      "path": "animations/stunned/02_stunned_02_sway_left.png"
+    },
+    {
+      "key": 3,
+      "pose_id": "stunned_03_sway_right",
+      "start_ms": 480,
+      "duration_ms": 360,
+      "path": "animations/stunned/03_stunned_03_sway_right.png"
+    }
+  ],
+  "events": [],
+  "canvas": [
+    2048,
+    1536
+  ],
+  "root": [
+    820,
+    1400
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "id": "s05.hachiya.spear_sweep_radius_arc_v2",
+  "canvas": [
+    1890,
+    1890
+  ],
+  "origin_px": [
+    944.8000000000001,
+    944.8000000000001
+  ],
+  "local_forward_axis": "+X",
+  "attachment": "rear_grip current pose; outer arc intersects spear tip",
+  "radius_native_px": 904.8000000000001,
+  "active_pose_radius_native_px": {
+    "4": 696,
+    "5": 904.8,
+    "6": 904.8
+  },
+  "radius_formula": "1160 * (1 - rear_grip_fraction 0.22)",
+  "visible_angular_span_degrees": 116,
+  "rotation": "weapon forward angle",
+  "start_ms": 420,
+  "active_end_ms": 620,
+  "visual_end_ms": 680,
+  "cosmetic_only": true,
+  "damage_range_change": false,
+  "collision": null,
+  "frames": [
+    {
+      "frame": "sweep_00.png",
+      "age_ms": 0,
+      "opacity": 0.0
+    },
+    {
+      "frame": "sweep_01.png",
+      "age_ms": 10,
+      "opacity": 0.3
+    },
+    {
+      "frame": "sweep_02.png",
+      "age_ms": 20,
+      "opacity": 0.6
+    },
+    {
+      "frame": "sweep_03.png",
+      "age_ms": 30,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_04.png",
+      "age_ms": 40,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_05.png",
+      "age_ms": 50,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_06.png",
+      "age_ms": 60,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_07.png",
+      "age_ms": 70,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_08.png",
+      "age_ms": 80,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_09.png",
+      "age_ms": 90,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_10.png",
+      "age_ms": 100,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_11.png",
+      "age_ms": 110,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_12.png",
+      "age_ms": 120,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_13.png",
+      "age_ms": 130,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_14.png",
+      "age_ms": 140,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_15.png",
+      "age_ms": 150,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_16.png",
+      "age_ms": 160,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_17.png",
+      "age_ms": 170,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_18.png",
+      "age_ms": 180,
+      "opacity": 0.9
+    },
+    {
+      "frame": "sweep_19.png",
+      "age_ms": 190,
+      "opacity": 0.7875
+    },
+    {
+      "frame": "sweep_20.png",
+      "age_ms": 200,
+      "opacity": 0.675
+    },
+    {
+      "frame": "sweep_21.png",
+      "age_ms": 210,
+      "opacity": 0.5625
+    },
+    {
+      "frame": "sweep_22.png",
+      "age_ms": 220,
+      "opacity": 0.45
+    },
+    {
+      "frame": "sweep_23.png",
+      "age_ms": 230,
+      "opacity": 0.3375
+    },
+    {
+      "frame": "sweep_24.png",
+      "age_ms": 240,
+      "opacity": 0.225
+    },
+    {
+      "frame": "sweep_25.png",
+      "age_ms": 250,
+      "opacity": 0.1125
+    },
+    {
+      "frame": "sweep_26.png",
+      "age_ms": 260,
+      "opacity": 0.0
+    }
+  ],
+  "source": "sweep_fx/raw/air_arc_source.png",
+  "raster_scaled_to_world_radius": true
+}

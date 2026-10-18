@@ -1,0 +1,49 @@
+{
+  "user_confirmed": {
+    "sections": [
+      {
+        "name": "寺町",
+        "nodes": 2,
+        "boss": null
+      },
+      {
+        "name": "糧倉",
+        "nodes": 3,
+        "boss": "蜂屋"
+      },
+      {
+        "name": "山門回廊",
+        "nodes": 2,
+        "boss": null
+      },
+      {
+        "name": "鐘樓銀杏",
+        "nodes": 3,
+        "boss": "夏目"
+      },
+      {
+        "name": "本堂",
+        "nodes": 2,
+        "boss": "空誓"
+      }
+    ],
+    "temple_monks": "4–6 per batch, long weapons quick durable, heavy launches",
+    "front_sections": "ordinary farmer militia; rough homemade flags",
+    "natsume": "All three heavy swings large-range launching waves. Ground approach selects downward; airborne jump approach selects upward diagonal fan.",
+    "kusei": {
+      "stomp": "5s,invincible entire action; hits.65/1.55/2.45/3.35/4.25; later hits affect downed targets; exit radius to evade. Audio5.65s.",
+      "guard": "weapon immune; thrown farmer can damage",
+      "triple_slash": "1.5s14poses; first hit locks full combo; third launches",
+      "summon": "HP70/40/10 each threshold two claps total4empowered monks; HP/move speed/attack speedx1.5,other same",
+      "farmer_refill": "ordinary farmers continuously refill separate throwable pool; not monks; stop on boss death"
+    },
+    "attack_fx": "All current warlord weapon attacks have separate weapon-tip FX. Visual request alone does not expand damage/reach. No FX forced onto idle/hurt/guard/summon."
+  },
+  "proposed_defaults": {
+    "natsume_lock_action_once_started": true,
+    "natsume_target": "existing target selection,not per-frame switching,no future-input reading",
+    "approach_thresholds": "tunable after engine mapping"
+  },
+  "no_extra_attacks": "未另設額外普攻，非素材缺損",
+  "scope": "Stage1–4 extra FX work is separate from this stage5 delivery."
+}

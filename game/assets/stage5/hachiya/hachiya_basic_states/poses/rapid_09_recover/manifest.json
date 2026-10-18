@@ -1,0 +1,186 @@
+{
+  "pose_id": "rapid_09_recover",
+  "source": "sources/body_original/rapid_09_recover.png",
+  "original_source": "sources/body_original/rapid_09_recover.png",
+  "raw_dimensions": [
+    1086,
+    1448
+  ],
+  "raw_sha256": "44527f6cd2893c5daaff42e5ce60307a67fe8bba0c987735a3563efedb00c9bf",
+  "edited_arms": false,
+  "head_ruler": {
+    "method": "manually inspected projected helmet crest to chin",
+    "raw_px": 230,
+    "raw_endpoints": [
+      [
+        574,
+        128
+      ],
+      [
+        574,
+        358
+      ]
+    ],
+    "canvas_px": 180
+  },
+  "raw_to_canvas_affine": [
+    0.782608695652174,
+    0,
+    405.2173913043478,
+    0,
+    0.782608695652174,
+    282.4347826086955
+  ],
+  "canvas_to_raw_affine": [
+    1.2777777777777777,
+    0,
+    -517.7777777777777,
+    0,
+    1.2777777777777777,
+    -360.8888888888887
+  ],
+  "uniform_scale": 0.782608695652174,
+  "source_upscaled": false,
+  "root_raw": [
+    530,
+    1428
+  ],
+  "root_canvas": [
+    820,
+    1400
+  ],
+  "root_world": [
+    0,
+    0
+  ],
+  "support": "two planted feet at different perspective depth",
+  "feet_raw": [
+    [
+      195,
+      1428
+    ],
+    [
+      811,
+      1377
+    ]
+  ],
+  "feet_canvas": [
+    [
+      557.8260869565217,
+      1400.0
+    ],
+    [
+      1039.913043478261,
+      1360.086956521739
+    ]
+  ],
+  "feet_world": [
+    [
+      -0.4649389590918826,
+      0.0
+    ],
+    [
+      0.389993574641251,
+      0.07078175198115248
+    ]
+  ],
+  "rear_grip_raw": [
+    550,
+    688
+  ],
+  "front_guide_raw": [
+    703,
+    509
+  ],
+  "rear_grip_canvas": [
+    835.6521739130435,
+    820.8695652173911
+  ],
+  "front_guide_canvas": [
+    955.391304347826,
+    680.782608695652
+  ],
+  "head_ruler_canvas_endpoints": [
+    [
+      854.4347826086957,
+      382.60869565217376
+    ],
+    [
+      854.4347826086957,
+      562.6086956521738
+    ]
+  ],
+  "weapon": {
+    "source": "sources/weapon/spear_canonical_1160.png",
+    "state": "held_two_hands",
+    "length_px": 1160,
+    "length_world_units": 2.057142857142857,
+    "scale": [
+      1,
+      1
+    ],
+    "angle_degrees": -49.47787957384967,
+    "butt_canvas": [
+      669.8381244583201,
+      1014.8611655598455
+    ],
+    "tip_canvas": [
+      1423.5383492525175,
+      133.0811640032349
+    ],
+    "canonical_to_canvas_affine": [
+      0.6497415730984459,
+      0.7601551737556989,
+      630.6901330099016,
+      -0.7601551737556989,
+      0.6497415730984459,
+      981.3994745452756
+    ],
+    "canvas_to_canonical_affine": [
+      0.6497415730984459,
+      -0.7601551737556989,
+      336.23028893719396,
+      0.7601551737556989,
+      0.6497415730984459,
+      -1117.0784060731821
+    ],
+    "rear_grip_canonical_u": 255.2,
+    "front_guide_canonical_u": 439.48731574582524,
+    "front_guide_sliding_allowed": true,
+    "hand_axis_error_px": 0,
+    "placement_note": "Both grips lie exactly on the shaft axis; front hand may slide along shaft."
+  },
+  "layer_order": [
+    "body",
+    "weapon",
+    "hands_foreground"
+  ],
+  "rgba_path": "poses/rapid_09_recover/rgba.png",
+  "trimmed_rgba_path": "poses/rapid_09_recover/trimmed_rgba.png",
+  "trimmed_origin_canvas": [
+    498,
+    132
+  ],
+  "alpha_bbox_canvas": [
+    498,
+    132,
+    1426,
+    1405
+  ],
+  "visible_body_bbox_canvas": [
+    503,
+    384,
+    1137,
+    1403
+  ],
+  "qa": {
+    "source_opaque_edge_pixels": 0,
+    "final_any_alpha_edge_pixels": 0,
+    "removed_distant_alpha_noise_pixels": 9098,
+    "head_ruler_error_px": 0.0,
+    "weapon_length_error_px": 0.0,
+    "no_canvas_clipping": true,
+    "no_source_upscale": true,
+    "source_high_alpha_unclipped": true
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "id": 5,
+  "title": "三河一向一揆",
+  "faction": "imagawa",
+  "year": 1563,
+  "target_minutes": [
+    12,
+    20
+  ],
+  "tuning_status": "initial proposal from v09 assessment",
+  "segments": [
+    {
+      "name": "寺町",
+      "theme": "road",
+      "weather": "clear",
+      "music": "s05_01_outdoor",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "node": 1,
+          "mode": "ikki",
+          "end": 1400,
+          "boss": "",
+          "role": "militia",
+          "finite_batches": 2,
+          "units_per_batch": 6,
+          "objects": [
+            {
+              "asset": "militia_ragged",
+              "x": 590,
+              "y": 375
+            },
+            {
+              "asset": "rice",
+              "x": 840,
+              "y": 575
+            }
+          ]
+        },
+        {
+          "node": 2,
+          "mode": "ikki",
+          "end": 2800,
+          "boss": "",
+          "role": "militia",
+          "finite_batches": 2,
+          "units_per_batch": 7,
+          "objects": [
+            {
+              "asset": "militia_patched",
+              "x": 1990,
+              "y": 375
+            },
+            {
+              "asset": "wood",
+              "x": 2240,
+              "y": 575
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "糧倉",
+      "theme": "road",
+      "weather": "clear",
+      "music": "s05_03_temple",
+      "width": 4200,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "node": 3,
+          "mode": "ikki",
+          "end": 1400,
+          "boss": "",
+          "role": "militia",
+          "finite_batches": 2,
+          "units_per_batch": 6,
+          "objects": [
+            {
+              "asset": "militia_wicker",
+              "x": 590,
+              "y": 375
+            },
+            {
+              "asset": "rice",
+              "x": 840,
+              "y": 575
+            }
+          ]
+        },
+        {
+          "node": 4,
+          "mode": "ikki",
+          "end": 2800,
+          "boss": "",
+          "role": "militia",
+          "finite_batches": 2,
+          "units_per_batch": 7,
+          "objects": [
+            {
+              "asset": "militia_ragged",
+              "x": 1990,
+              "y": 375
+            },
+            {
+              "asset": "wood",
+              "x": 2240,
+              "y": 575
+            }
+          ]
+        },
+        {
+          "node": 5,
+          "mode": "ikki",
+          "end": 4200,
+          "boss": "hachiya",
+          "role": "militia",
+          "finite_batches": 2,
+          "units_per_batch": 8,
+          "objects": [
+            {
+              "asset": "militia_patched",
+              "x": 3390,
+              "y": 375
+            },
+            {
+              "asset": "jar",
+              "x": 3640,
+              "y": 575
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "山門回廊",
+      "theme": "road",
+      "weather": "clear",
+      "music": "s05_03_temple",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "node": 6,
+          "mode": "ikki",
+          "end": 1400,
+          "boss": "",
+          "role": "monk",
+          "finite_batches": 2,
+          "units_per_batch": 4,
+          "objects": [
+            {
+              "asset": "temple_brown",
+              "x": 590,
+              "y": 375
+            },
+            {
+              "asset": "rice",
+              "x": 840,
+              "y": 575
+            }
+          ]
+        },
+        {
+          "node": 7,
+          "mode": "ikki",
+          "end": 2800,
+          "boss": "",
+          "role": "monk",
+          "finite_batches": 2,
+          "units_per_batch": 5,
+          "objects": [
+            {
+              "asset": "temple_ochre",
+              "x": 1990,
+              "y": 375
+            },
+            {
+              "asset": "wood",
+              "x": 2240,
+              "y": 575
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "鐘樓銀杏",
+      "theme": "road",
+      "weather": "clear",
+      "music": "s05_03_temple",
+      "width": 4200,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "node": 8,
+          "mode": "ikki",
+          "end": 1400,
+          "boss": "",
+          "role": "monk",
+          "finite_batches": 2,
+          "units_per_batch": 4,
+          "objects": [
+            {
+              "asset": "temple_brown",
+              "x": 590,
+              "y": 375
+            },
+            {
+              "asset": "rice",
+              "x": 840,
+              "y": 575
+            }
+          ]
+        },
+        {
+          "node": 9,
+          "mode": "ikki",
+          "end": 2800,
+          "boss": "",
+          "role": "monk",
+          "finite_batches": 2,
+          "units_per_batch": 5,
+          "objects": [
+            {
+              "asset": "temple_ochre",
+              "x": 1990,
+              "y": 375
+            },
+            {
+              "asset": "wood",
+              "x": 2240,
+              "y": 575
+            }
+          ]
+        },
+        {
+          "node": 10,
+          "mode": "ikki",
+          "end": 4200,
+          "boss": "natsume",
+          "role": "monk",
+          "finite_batches": 2,
+          "units_per_batch": 6,
+          "objects": [
+            {
+              "asset": "temple_brown",
+              "x": 3390,
+              "y": 375
+            },
+            {
+              "asset": "jar",
+              "x": 3640,
+              "y": 575
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "本堂",
+      "theme": "road",
+      "weather": "clear",
+      "music": "s05_03_temple",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "node": 11,
+          "mode": "ikki",
+          "end": 1400,
+          "boss": "",
+          "role": "monk",
+          "finite_batches": 2,
+          "units_per_batch": 4,
+          "objects": [
+            {
+              "asset": "temple_ochre",
+              "x": 590,
+              "y": 375
+            },
+            {
+              "asset": "rice",
+              "x": 840,
+              "y": 575
+            }
+          ]
+        },
+        {
+          "node": 12,
+          "mode": "ikki",
+          "end": 2800,
+          "boss": "kusei",
+          "role": "monk",
+          "finite_batches": 2,
+          "units_per_batch": 4,
+          "objects": [
+            {
+              "asset": "temple_brown",
+              "x": 1990,
+              "y": 375
+            },
+            {
+              "asset": "wood",
+              "x": 2240,
+              "y": 575
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

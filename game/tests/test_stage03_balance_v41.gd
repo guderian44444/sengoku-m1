@@ -93,7 +93,11 @@ func run() -> void:
 				sim.state.fighters.append(boss)
 				sim._begin(p,action)
 				check(sim._damage(boss,10,p.id,true,true,false,true),"heavy damage accepted")
-				check(boss.action == "hurt" and not boss.airborne_lock and boss.z == 0 and boss.knockback == 10,"boss remains standing with longer push: "+hero+"/"+action)
+				if hero=="hideyoshi" and action=="charged":
+					# Baseline's approved three-blink cut explicitly knocks bosses down.
+					check(boss.action=="down" and not boss.airborne_lock and boss.z==0,"Hideyoshi charged exception retains grounded knockdown")
+				else:
+					check(boss.action == "hurt" and not boss.airborne_lock and boss.z == 0 and boss.knockback == 10,"boss remains standing with longer push: "+hero+"/"+action)
 
 	var audio := Audio.new()
 	audio.settings_path = "user://audio-v41-test.cfg"

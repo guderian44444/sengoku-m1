@@ -10,6 +10,8 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 HEROES = ('nobunaga', 'oichi', 'hideyoshi', 'ieyasu', 'mitsuhide', 'tadakatsu')
 FILES = set()
+PLAYTEST_ENTRIES = {'game/tests/play_stage05.gd','game/tests/stage05_art_arena.gd'}
+APPROVED_SOURCE_ASSETS = {'game/assets/stage5/natsume/skills/sources/8f3c72ed36c58bb2.png'}
 
 
 def add(path):
@@ -17,7 +19,7 @@ def add(path):
     assert path.is_relative_to(ROOT), f'Outside project: {path}'
     assert path.is_file(), f'Missing runtime dependency: {path}'
     relative = path.relative_to(ROOT).as_posix()
-    assert not any(p in relative.split('/') for p in ('archive', 'prototypes', '.godot', 'sources', 'tests')), relative
+    assert relative in PLAYTEST_ENTRIES | APPROVED_SOURCE_ASSETS or not any(p in relative.split('/') for p in ('archive', 'prototypes', '.godot', 'sources', 'tests')), relative
     assert not relative.endswith(('.import', '.uid')), relative
     FILES.add(relative)
 
@@ -47,6 +49,9 @@ def registration(relative, field=None):
 
 
 def runtime_files():
+    for relative in PLAYTEST_ENTRIES: add(ROOT/relative)
+    for relative in ('啟動第五關試玩.cmd','啟動第五關雙人試玩.cmd','啟動第五關動作測試場.cmd'):
+        add(ROOT/relative)
     for relative in ('game/project.godot', 'game/main.tscn', 'game/main.gd'):
         add(ROOT/relative)
     for folder in ('game/core', 'game/render', 'game/ui'):
@@ -81,6 +86,14 @@ def runtime_files():
     hot = ROOT/'game/audio/local-stage4/s04_hot.ogg'
     assert hashlib.sha256(hot.read_bytes()).hexdigest() == 'c52705340bfa48fad98ad775f59b0b62f84a1df4dcd139d8008b2830d60dab3e'
     add(hot)
+    for name in ('stage5','officer-fx-power-v4'):
+        folder=ROOT/'game/assets'/name
+        add(folder/'runtime-files.json')
+        manifest=json.loads((folder/'runtime-files.json').read_text('utf-8'))
+        for relative,digest in manifest.get('runtime_files',manifest).items():
+            path=folder/relative
+            assert hashlib.sha256(path.read_bytes()).hexdigest()==digest, path
+            add(path)
     registration('game/assets/stage3/enemies/registration.json')
     add(ROOT/'game/assets/stage3/enemies/SHA256.json')
     for scene in ('rain_camp','barrier_camp','command_front','command_inside','props'):
@@ -106,6 +119,7 @@ def runtime_files():
     add(ROOT/'game/audio/props-v41/CREDITS.txt')
     add(ROOT/'docs/STAGE03-V41.md')
     add(ROOT/'docs/STAGE04-REBUILD-20261018.md')
+    add(ROOT/'docs/STAGE05-INTEGRATION-20261018.md')
     for folder in ('game/audio/title-amenoshita-v1','game/audio/weapons-v3'):
         for path in (ROOT/folder).iterdir():
             if path.suffix.lower() in ('.txt','.md','.json','.ogg'): add(path)

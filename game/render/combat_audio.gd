@@ -2,7 +2,9 @@ extends Node
 
 const CampaignMusic = preload("res://core/campaign_music.gd")
 const Stage04Audio = preload("res://render/stage04_audio.gd")
+const Stage05Audio = preload("res://render/stage05_audio.gd")
 var _mikawa_audio = Stage04Audio.new()
+var _ikki_audio = Stage05Audio.new()
 const TITLE_ROOT := "res://audio/title-amenoshita-v1/"
 const TITLE_KEYS := ["title_intro", "title_loop"]
 
@@ -92,6 +94,7 @@ var _category_volumes := {"music": 1.0, "sfx": 1.0, "voice": 1.0}
 func _ready() -> void:
 	_restore_volumes()
 	add_child(_mikawa_audio)
+	add_child(_ikki_audio)
 	_rng.randomize()
 	for kind in EVENT_SOUNDS:
 		_sound_variants[kind] = []
@@ -243,6 +246,9 @@ func _apply_volume(category: String) -> void:
 
 func _load_music(key: String) -> AudioStream:
 	if _music_streams.has(key): return _music_streams[key]
+	if key in Stage05Audio.Data.MUSIC:
+		_music_streams[key]=Stage05Audio.music(key)
+		return _music_streams[key]
 	if key.begins_with("s04_"):
 		var row := CampaignMusic.mikawa_track(key)
 		var path := "res://audio/local-stage4/s04_hot.ogg" if key == "s04_hot" else Stage04Audio.Data.ROOT+"audio/music/"+str(row.file)
@@ -299,6 +305,9 @@ func sync_encounter(world: Dictionary) -> void:
 
 func sync_stage_music(world: Dictionary) -> void:
 	var key := CampaignMusic.select(world,_music_key)
+	if key in Stage05Audio.Data.MUSIC:
+		_change_music(key,.75,.25)
+		return
 	if key.begins_with("s04_"):
 		var row := CampaignMusic.mikawa_track(key)
 		_change_music(key,float(row.runtime_static_gain_linear),.5 if key == "s04_victory" else .25)
@@ -422,11 +431,13 @@ func stop_music() -> void:
 func set_music_paused(paused: bool) -> void:
 	_music_paused = paused
 	_mikawa_audio.set_paused(paused)
+	_ikki_audio.set_paused(paused)
 	if _alarm_player != null: _alarm_player.stream_paused = paused
 	if _music_player != null: _music_player.stream_paused = paused
 	if _music_tail != null: _music_tail.stream_paused = paused
 
 func play_event(event: Dictionary) -> void:
+	if event.get("type","") == "stage05_audio": _ikki_audio.play(event); return
 	if event.get("type","") == "mikawa_audio": _mikawa_audio.play(event); return
 	_play_character_event(event)
 	if event.get("shared_sfx",false): return
@@ -453,6 +464,7 @@ func play_event(event: Dictionary) -> void:
 
 static func sound_for_event(event: Dictionary) -> String:
 	if event.get("sound_suppressed",false): return ""
+	if event.get("type","") in ["hit","heavy_hit"] and str(event.get("action","")).begins_with("s05_") and (str(event.action).contains("militia") or str(event.action).contains("monk")): return ""
 	if event.get("type","") == "weapon_swing" and event.get("action","") == "boss_sword_wave": return "sword_air"
 	var kind := str(event.get("type", event.get("kind", "")))
 	var weapon := str(event.get("weapon", ""))
@@ -524,6 +536,7 @@ func intro_playing() -> bool:
 	return _intro_player != null and _intro_player.playing
 
 func speech_playing() -> bool:
+	if _ikki_audio.speech_playing(): return true
 	if intro_playing(): return true
 	for player in _mikawa_audio.voices.values():
 		if player.playing: return true
@@ -532,6 +545,7 @@ func speech_playing() -> bool:
 	return false
 
 func stop_speech() -> void:
+	_ikki_audio.stop_speech()
 	_intro_token = ""
 	for player in _mikawa_audio.voices.values(): player.stop()
 	if _intro_player != null: _intro_player.stop()

@@ -1,0 +1,62 @@
+{
+  "action": "down",
+  "loop": false,
+  "duration_ms": 1070,
+  "unique_pose_keys": 5,
+  "frame_count": 5,
+  "frames": [
+    {
+      "key": 1,
+      "pose_id": "rapid_01_guard",
+      "start_ms": 0,
+      "duration_ms": 80,
+      "path": "animations/down/01_rapid_01_guard.png"
+    },
+    {
+      "key": 2,
+      "pose_id": "hurt_02_impact",
+      "start_ms": 80,
+      "duration_ms": 80,
+      "path": "animations/down/02_hurt_02_impact.png"
+    },
+    {
+      "key": 3,
+      "pose_id": "down_02_buckle",
+      "start_ms": 160,
+      "duration_ms": 140,
+      "path": "animations/down/03_down_02_buckle.png"
+    },
+    {
+      "key": 4,
+      "pose_id": "down_03_fall",
+      "start_ms": 300,
+      "duration_ms": 120,
+      "path": "animations/down/04_down_03_fall.png"
+    },
+    {
+      "key": 5,
+      "pose_id": "down_04_ground",
+      "start_ms": 420,
+      "duration_ms": 650,
+      "path": "animations/down/05_down_04_ground.png"
+    }
+  ],
+  "events": [
+    {
+      "time_ms": 300,
+      "name": "weapon_released"
+    },
+    {
+      "time_ms": 420,
+      "name": "body_ground_contact"
+    }
+  ],
+  "canvas": [
+    2048,
+    1536
+  ],
+  "root": [
+    820,
+    1400
+  ]
+}

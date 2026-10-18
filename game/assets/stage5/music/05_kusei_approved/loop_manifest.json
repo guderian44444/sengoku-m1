@@ -1,0 +1,81 @@
+{
+  "sample_rate": 44100,
+  "channels": 2,
+  "loop_end_exclusive": true,
+  "playback": "Play intro once, then loop repeatedly. Predecode/preload both files and schedule by exact sample counts. No boss-health trigger is defined.",
+  "intro": {
+    "wav": "kusei_intro.wav",
+    "ogg": "kusei_intro.ogg",
+    "samples": 1114105,
+    "seconds": 25.26315192743764,
+    "source": "Grim League",
+    "source_start_sample": 0,
+    "source_end_sample": 1114105,
+    "bpm": 76,
+    "nominal_beats": 32
+  },
+  "loop": {
+    "wav": "kusei_loop.wav",
+    "ogg": "kusei_loop.ogg",
+    "loopstart_sample": 0,
+    "loopend_sample": 1881600,
+    "loopstart_seconds": 0,
+    "loopend_seconds": 42.666666666666664,
+    "source": "Satiate - only percussion",
+    "source_start_sample": 470400,
+    "source_end_sample": 2352000,
+    "source_start_seconds": 10.666666666666666,
+    "source_end_seconds": 53.333333333333336,
+    "bpm": 90,
+    "nominal_beats": 64
+  },
+  "preview": {
+    "file": "Kusei_GrimLeague_to_Satiate_Transition_Loop_Preview.mp3",
+    "seconds": 75.9298185941043,
+    "transition_seconds": 25.26315192743764,
+    "loop_repeat_seconds": 67.9298185941043
+  },
+  "timing_note": "Editorial suggestion based on published BPM: nominal 8 bars at 76 BPM, then 16-bar loop at 90 BPM, assuming 4/4. Not a verified transcription; original percussion has expressive timing. No tempo adjustment or cross-tempo drum overlap.",
+  "qa": [
+    {
+      "file": "kusei_loop.wav",
+      "decoded_samples": 1881600,
+      "seconds": 42.666666666666664,
+      "peak": 0.67999267578125,
+      "clipped_samples": 0,
+      "loop_boundary_step": 0.0
+    },
+    {
+      "file": "kusei_intro.wav",
+      "decoded_samples": 1114105,
+      "seconds": 25.26315192743764,
+      "peak": 0.67999267578125,
+      "clipped_samples": 0,
+      "loop_boundary_step": null
+    },
+    {
+      "file": "kusei_loop.ogg",
+      "decoded_samples": 1881600,
+      "seconds": 42.666666666666664,
+      "peak": 0.691220223903656,
+      "clipped_samples": 0,
+      "loop_boundary_step": 0.004016604274511337
+    },
+    {
+      "file": "kusei_intro.ogg",
+      "decoded_samples": 1114105,
+      "seconds": 25.26315192743764,
+      "peak": 0.6922365427017212,
+      "clipped_samples": 0,
+      "loop_boundary_step": null
+    },
+    {
+      "file": "Kusei_GrimLeague_to_Satiate_Transition_Loop_Preview.mp3",
+      "decoded_samples": 3348505,
+      "seconds": 75.9298185941043,
+      "peak": 0.6602435111999512,
+      "clipped_samples": 0,
+      "loop_boundary_step": null
+    }
+  ]
+}

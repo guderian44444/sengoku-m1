@@ -1,0 +1,314 @@
+[
+  {
+    "event_id": "s05.kusei.palm_clap",
+    "variants": [
+      "kusei_palm_burst_01",
+      "kusei_palm_burst_02",
+      "kusei_palm_burst_03"
+    ],
+    "event_time_seconds": [
+      1,
+      1.65
+    ],
+    "animation_total_seconds": 3,
+    "timing_status": "parent confirmed",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.kusei.guard_enter",
+    "variants": [
+      "kusei_guard_enter_01",
+      "kusei_guard_enter_02",
+      "kusei_guard_enter_03"
+    ],
+    "event_time_seconds": [
+      0.3
+    ],
+    "animation_total_seconds": 2.4,
+    "timing_status": "parent confirmed",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.kusei.guard_release",
+    "variants": [
+      "kusei_guard_release_01",
+      "kusei_guard_release_02",
+      "kusei_guard_release_03"
+    ],
+    "event_time_seconds": [
+      2
+    ],
+    "animation_total_seconds": 2.4,
+    "timing_status": "parent confirmed",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.kusei.blade_swing",
+    "variants": [
+      "kusei_blade_swing_01",
+      "kusei_blade_swing_02",
+      "kusei_blade_swing_03"
+    ],
+    "event_time_seconds": [
+      0.45,
+      0.8,
+      1.05
+    ],
+    "animation_total_seconds": 1.5,
+    "timing_status": "parent confirmed",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.natsume.wave_horizontal",
+    "variants": [
+      "natsume_wave_horizontal_01",
+      "natsume_wave_horizontal_02",
+      "natsume_wave_horizontal_03"
+    ],
+    "event_time_seconds": [
+      0.74
+    ],
+    "animation_total_seconds": 1.4,
+    "timing_status": "art-worker provisional, pending blade path QA",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.natsume.wave_diagonal",
+    "variants": [
+      "natsume_wave_diagonal_01",
+      "natsume_wave_diagonal_02",
+      "natsume_wave_diagonal_03"
+    ],
+    "event_time_seconds": [
+      0.52
+    ],
+    "animation_total_seconds": 1,
+    "timing_status": "art manifest fixed;not runtime tested",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.hachiya.fast_thrust",
+    "variants": [
+      "hachiya_fast_thrust_01",
+      "hachiya_fast_thrust_02",
+      "hachiya_fast_thrust_03"
+    ],
+    "event_time_seconds": [
+      0.41,
+      0.59,
+      0.75
+    ],
+    "animation_total_seconds": 0.945,
+    "timing_status": "art manifest fixed;not runtime tested",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.hachiya.return_thrust",
+    "variants": [
+      "hachiya_return_thrust_01",
+      "hachiya_return_thrust_02",
+      "hachiya_return_thrust_03"
+    ],
+    "event_time_seconds": [
+      0.58
+    ],
+    "animation_total_seconds": 0.95,
+    "timing_status": "art manifest fixed;not runtime tested",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.farmer.hoe_swing",
+    "variants": [
+      "farmer_hoe_swing_01",
+      "farmer_hoe_swing_02",
+      "farmer_hoe_swing_03"
+    ],
+    "event_time_seconds": null,
+    "animation_total_seconds": null,
+    "timing_status": "not assigned",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.farmer.hoe_impact",
+    "variants": [
+      "farmer_hoe_hit_01",
+      "farmer_hoe_hit_02",
+      "farmer_hoe_hit_03"
+    ],
+    "event_time_seconds": null,
+    "animation_total_seconds": null,
+    "timing_status": "not assigned",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "confirmed-contact"
+  },
+  {
+    "event_id": "s05.monk.naginata_quick_swing",
+    "variants": [
+      "monk_polearm_swing_01",
+      "monk_polearm_swing_02",
+      "monk_polearm_swing_03"
+    ],
+    "event_time_seconds": null,
+    "animation_total_seconds": null,
+    "timing_status": "not assigned",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.monk.naginata_heavy_sweep",
+    "variants": [
+      "monk_polearm_heavy_sweep_01",
+      "monk_polearm_heavy_sweep_02",
+      "monk_polearm_heavy_sweep_03"
+    ],
+    "event_time_seconds": null,
+    "animation_total_seconds": null,
+    "timing_status": "not assigned",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.monk.naginata_impact",
+    "variants": [
+      "monk_polearm_hit_01",
+      "monk_polearm_hit_02",
+      "monk_polearm_hit_03"
+    ],
+    "event_time_seconds": null,
+    "animation_total_seconds": null,
+    "timing_status": "not assigned",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "confirmed-contact"
+  },
+  {
+    "event_id": "s05.prop.rice_sack.hit",
+    "variants": [
+      "rice_sack_hit_01",
+      "rice_sack_hit_02",
+      "rice_sack_hit_03"
+    ],
+    "event_time_seconds": [
+      0.1
+    ],
+    "animation_total_seconds": 0.6,
+    "timing_status": "confirmed by prop art worker for current animation version; runtime unverified",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "confirmed-contact"
+  },
+  {
+    "event_id": "s05.prop.firewood_basket.break",
+    "variants": [
+      "firewood_basket_break_01",
+      "firewood_basket_break_02",
+      "firewood_basket_break_03"
+    ],
+    "event_time_seconds": [
+      0.1
+    ],
+    "animation_total_seconds": 0.6,
+    "timing_status": "confirmed by prop art worker for current animation version; runtime unverified",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "destroy-once"
+  },
+  {
+    "event_id": "s05.prop.ceramic.break",
+    "variants": [
+      "ceramic_break_01",
+      "ceramic_break_02",
+      "ceramic_break_03"
+    ],
+    "event_time_seconds": [
+      0.1
+    ],
+    "animation_total_seconds": 0.6,
+    "timing_status": "confirmed by prop art worker for current animation version; runtime unverified",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "destroy-once"
+  },
+  {
+    "event_id": "s05.prop.banner.wood_crack",
+    "variants": [
+      "banner_wood_crack_01",
+      "banner_wood_crack_02",
+      "banner_wood_crack_03"
+    ],
+    "event_time_seconds": [
+      0.12
+    ],
+    "animation_total_seconds": 0.96,
+    "timing_status": "confirmed by prop art worker for current animation version; runtime unverified",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "destroy-once"
+  },
+  {
+    "event_id": "s05.prop.banner.ground_contact",
+    "variants": [
+      "banner_wood_fall_01",
+      "banner_wood_fall_02",
+      "banner_wood_fall_03"
+    ],
+    "event_time_seconds": [
+      0.6
+    ],
+    "animation_total_seconds": 0.96,
+    "timing_status": "confirmed by prop art worker for current animation version; runtime unverified",
+    "selection": "choose one variant per event; no immediate repeat",
+    "trigger": "destroy-ground-contact"
+  },
+  {
+    "event_id": "s05.natsume.downstroke_whoosh",
+    "variants": [
+      "kusei_blade_swing_01",
+      "kusei_blade_swing_02",
+      "kusei_blade_swing_03"
+    ],
+    "event_time_seconds": [
+      0.42
+    ],
+    "animation_total_seconds": 1.0,
+    "timing_status": "confirmed art version; runtime unverified",
+    "selection": "choose one variant per attack",
+    "trigger": "animation-event",
+    "source_status": "explicit bit-identical reuse of generic non-voiced blade swing clips; not a new voice or character performance"
+  },
+  {
+    "event_id": "s05.natsume.wave_downward",
+    "variants": [
+      "natsume_wave_downward_01",
+      "natsume_wave_downward_02",
+      "natsume_wave_downward_03"
+    ],
+    "event_time_seconds": [
+      0.52
+    ],
+    "animation_total_seconds": 1.0,
+    "audio_tail_after_animation_seconds": 0.2,
+    "timing_status": "confirmed art version; runtime unverified",
+    "selection": "choose one variant per attack",
+    "trigger": "animation-event"
+  },
+  {
+    "event_id": "s05.hachiya.spear_sweep",
+    "variants": [
+      "hachiya_spear_sweep_01",
+      "hachiya_spear_sweep_02",
+      "hachiya_spear_sweep_03"
+    ],
+    "event_time_seconds": [
+      0.42
+    ],
+    "animation_total_seconds": 0.88,
+    "timing_status": "art manifest fixed;not runtime tested",
+    "selection": "choose one variant per attack",
+    "trigger": "animation-event"
+  }
+]

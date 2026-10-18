@@ -1,0 +1,626 @@
+{
+  "action": "retreat_counter",
+  "status": "unchanged reviewed motion; full-radius weapon FX needs user review",
+  "canvas": [
+    2048,
+    1536
+  ],
+  "root": [
+    820,
+    1400
+  ],
+  "standing_height_native_px": 1015,
+  "world_height_units_asset_definition": 1.8,
+  "world_height_runtime": "not yet assigned",
+  "head_ruler_canvas_px": 180,
+  "weapon_length_native_px": 1160,
+  "duration_ms": 950,
+  "events": [
+    {
+      "time_ms": 150,
+      "name": "evade_begin"
+    },
+    {
+      "time_ms": 470,
+      "name": "evade_end"
+    },
+    {
+      "time_ms": 580,
+      "name": "return_thrust_whoosh"
+    },
+    {
+      "time_ms": 660,
+      "name": "counter_contact"
+    }
+  ],
+  "frames": [
+    {
+      "feet_canvas": {
+        "screen_left": [
+          530.8260869565217,
+          1400
+        ],
+        "screen_right": [
+          1118.3695652173913,
+          1355
+        ]
+      },
+      "key": 1,
+      "source": "body/rapid_01_guard.png",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "head_ruler_raw": 216,
+      "raw_to_canvas_affine": [
+        0.8333333333333334,
+        0,
+        361.66666666666663,
+        0,
+        0.8333333333333334,
+        210.0
+      ],
+      "root": [
+        820,
+        1400
+      ],
+      "grips": {
+        "rear": [
+          745.0,
+          868.3333333333334
+        ],
+        "front_guide": [
+          965.0,
+          622.5
+        ]
+      },
+      "weapon_tip": [
+        1348.382794005271,
+        194.09877185017058
+      ],
+      "weapon_butt": [
+        574.8151093831286,
+        1058.5020558029432
+      ],
+      "weapon_length": 1160,
+      "rear_grip_fraction": 0.22,
+      "weapon_angle_degrees": -48.17415333602142,
+      "duration_ms": 150,
+      "world_root_motion_native_px": 0,
+      "alpha_bbox": [
+        480,
+        194,
+        1349,
+        1402
+      ],
+      "clipped": false,
+      "upscaled": false,
+      "sha256": "db1e192211f9990e6e784c87df2d3a3f08f990cee43f9491f780f598a7bf46af"
+    },
+    {
+      "feet_canvas": {
+        "screen_left": [
+          526.3513513513514,
+          1400
+        ],
+        "screen_right": [
+          1134.2622950819673,
+          1351
+        ]
+      },
+      "key": 2,
+      "source": "body/retreat_02_start.png",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "head_ruler_raw": 237,
+      "raw_to_canvas_affine": [
+        0.759493670886076,
+        0,
+        390.126582278481,
+        0,
+        0.759493670886076,
+        379.2405063291138
+      ],
+      "root": [
+        820,
+        1400
+      ],
+      "grips": {
+        "rear": [
+          709.873417721519,
+          778.7341772151898
+        ],
+        "front_guide": [
+          1093.4177215189875,
+          778.7341772151898
+        ]
+      },
+      "weapon_tip": [
+        1614.673417721519,
+        778.7341772151898
+      ],
+      "weapon_butt": [
+        454.673417721519,
+        778.7341772151898
+      ],
+      "weapon_length": 1160,
+      "rear_grip_fraction": 0.22,
+      "weapon_angle_degrees": 0.0,
+      "duration_ms": 110,
+      "world_root_motion_native_px": -40,
+      "alpha_bbox": [
+        455,
+        466,
+        1615,
+        1402
+      ],
+      "clipped": false,
+      "upscaled": false,
+      "sha256": "f99aa2ea150d4e30d6e8728503a8652fc88c22dac0660b3938ac30cd584e388d"
+    },
+    {
+      "feet_canvas": {
+        "screen_left": [
+          638.5855263157895,
+          1400
+        ],
+        "screen_right": [
+          1043.1632653061224,
+          1377
+        ]
+      },
+      "key": 3,
+      "source": "body/retreat_03_step.png",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "head_ruler_raw": 237,
+      "raw_to_canvas_affine": [
+        0.759493670886076,
+        0,
+        400.0,
+        0,
+        0.759493670886076,
+        395.9493670886076
+      ],
+      "root": [
+        820,
+        1400
+      ],
+      "grips": {
+        "rear": [
+          729.620253164557,
+          785.5696202531645
+        ],
+        "front_guide": [
+          1131.3924050632913,
+          795.4430379746835
+        ]
+      },
+      "weapon_tip": [
+        1634.147165990261,
+        807.7980699067263
+      ],
+      "weapon_butt": [
+        474.4972777521789,
+        779.300057530365
+      ],
+      "weapon_length": 1160,
+      "rear_grip_fraction": 0.22,
+      "weapon_angle_degrees": 1.407741487874068,
+      "duration_ms": 110,
+      "world_root_motion_native_px": -120,
+      "alpha_bbox": [
+        474,
+        474,
+        1634,
+        1402
+      ],
+      "clipped": false,
+      "upscaled": false,
+      "sha256": "9101f48583919690fdce5e2e37fa195c9421164a8afa34ab9922a181161cbaef"
+    },
+    {
+      "feet_canvas": {
+        "screen_left": [
+          533.6022727272727,
+          1310
+        ],
+        "screen_right": [
+          1093.1570680628272,
+          1400
+        ]
+      },
+      "key": 4,
+      "source": "body/retreat_04_land.png",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "head_ruler_raw": 234,
+      "raw_to_canvas_affine": [
+        0.7692307692307693,
+        0,
+        333.8461538461538,
+        0,
+        0.7692307692307693,
+        325.38461538461524
+      ],
+      "root": [
+        820,
+        1400
+      ],
+      "grips": {
+        "rear": [
+          637.6923076923076,
+          795.3846153846152
+        ],
+        "front_guide": [
+          940.7692307692307,
+          750.7692307692307
+        ]
+      },
+      "weapon_tip": [
+        1532.8452062026545,
+        663.6108384465441
+      ],
+      "weapon_butt": [
+        385.2132850355431,
+        832.5515781107379
+      ],
+      "weapon_length": 1160,
+      "rear_grip_fraction": 0.22,
+      "weapon_angle_degrees": -8.374259027599026,
+      "duration_ms": 100,
+      "world_root_motion_native_px": -180,
+      "alpha_bbox": [
+        384,
+        440,
+        1533,
+        1401
+      ],
+      "clipped": false,
+      "upscaled": false,
+      "sha256": "6266b12d441bb7d99aa5bc39b4acfe89c80326f656277db1a7e212d3e8677019"
+    },
+    {
+      "feet_canvas": {
+        "screen_left": [
+          573.0890410958904,
+          1295
+        ],
+        "screen_right": [
+          1136.1608695652174,
+          1400
+        ]
+      },
+      "key": 5,
+      "source": "body/retreat_05_coil.png",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "head_ruler_raw": 229,
+      "raw_to_canvas_affine": [
+        0.7860262008733624,
+        0,
+        364.8908296943232,
+        0,
+        0.7860262008733624,
+        305.8515283842796
+      ],
+      "root": [
+        820,
+        1400
+      ],
+      "grips": {
+        "rear": [
+          670.6550218340612,
+          709.0829694323145
+        ],
+        "front_guide": [
+          820.0,
+          760.9606986899564
+        ]
+      },
+      "weapon_tip": [
+        1525.3570264587793,
+        1005.979455249322
+      ],
+      "weapon_butt": [
+        429.58522565785876,
+        625.3429349711072
+      ],
+      "weapon_length": 1160,
+      "rear_grip_fraction": 0.22,
+      "weapon_angle_degrees": 19.155612445439683,
+      "duration_ms": 110,
+      "world_root_motion_native_px": -180,
+      "alpha_bbox": [
+        428,
+        410,
+        1526,
+        1402
+      ],
+      "clipped": false,
+      "upscaled": false,
+      "sha256": "b77a025affc2b166b8a70e610874f90de14c9d5e0f2681332bae95024d9975f1"
+    },
+    {
+      "feet_canvas": {
+        "screen_left": [
+          410.66141732283467,
+          1346
+        ],
+        "screen_right": [
+          1205.430463576159,
+          1401
+        ]
+      },
+      "key": 6,
+      "source": "body/rapid_03b_half_thrust.png",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "head_ruler_raw": 218,
+      "raw_to_canvas_affine": [
+        0.8256880733944955,
+        0,
+        363.39449541284404,
+        0,
+        0.8256880733944955,
+        302.66055045871553
+      ],
+      "root": [
+        820,
+        1400
+      ],
+      "grips": {
+        "rear": [
+          706.8807339449542,
+          784.8623853211009
+        ],
+        "front_guide": [
+          1215.5045871559635,
+          791.4678899082569
+        ]
+      },
+      "weapon_tip": [
+        1611.6044406778176,
+        796.6120438500992
+      ],
+      "weapon_butt": [
+        451.702252558762,
+        781.5483790693321
+      ],
+      "weapon_length": 1160,
+      "rear_grip_fraction": 0.22,
+      "weapon_angle_degrees": 0.7440592028887156,
+      "duration_ms": 80,
+      "world_root_motion_native_px": -130,
+      "alpha_bbox": [
+        365,
+        525,
+        1612,
+        1403
+      ],
+      "clipped": false,
+      "upscaled": false,
+      "sha256": "34359ebec03d9d1cc778632041eed1189c70d7181489ecc4ebce6b41dc0c4aec"
+    },
+    {
+      "feet_canvas": {
+        "screen_left": [
+          330.8097826086956,
+          1400
+        ],
+        "screen_right": [
+          1288.3148148148148,
+          1389
+        ]
+      },
+      "key": 7,
+      "source": "body/rapid_08_final.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "head_ruler_raw": 230,
+      "raw_to_canvas_affine": [
+        0.782608695652174,
+        0,
+        272.17391304347825,
+        0,
+        0.782608695652174,
+        640.0869565217391
+      ],
+      "root": [
+        820,
+        1400
+      ],
+      "grips": {
+        "rear": [
+          787.1304347826087,
+          890.5217391304348
+        ],
+        "front_guide": [
+          1277.8260869565217,
+          890.5217391304348
+        ]
+      },
+      "weapon_tip": [
+        1691.9304347826087,
+        890.5217391304348
+      ],
+      "weapon_butt": [
+        531.9304347826087,
+        890.5217391304348
+      ],
+      "weapon_length": 1160,
+      "rear_grip_fraction": 0.22,
+      "weapon_angle_degrees": 0.0,
+      "duration_ms": 55,
+      "world_root_motion_native_px": -40,
+      "alpha_bbox": [
+        283,
+        650,
+        1692,
+        1401
+      ],
+      "clipped": false,
+      "upscaled": false,
+      "sha256": "6967415ac9e58428823d140f82fa28fce062775f790ec393f097caad73e5a65f"
+    },
+    {
+      "feet_canvas": {
+        "screen_left": [
+          267.48813559322036,
+          1399
+        ],
+        "screen_right": [
+          1387.2769953051643,
+          1380
+        ]
+      },
+      "key": 8,
+      "source": "body/rapid_04b_withdraw.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "head_ruler_raw": 196,
+      "raw_to_canvas_affine": [
+        0.9183673469387755,
+        0,
+        139.48979591836735,
+        0,
+        0.9183673469387755,
+        485.3061224489795
+      ],
+      "root": [
+        820,
+        1400
+      ],
+      "grips": {
+        "rear": [
+          697.8571428571429,
+          786.5306122448978
+        ],
+        "front_guide": [
+          1293.8775510204082,
+          796.6326530612243
+        ]
+      },
+      "weapon_tip": [
+        1602.5272081971782,
+        801.8640031828645
+      ],
+      "weapon_butt": [
+        442.6937910945689,
+        782.2058096726508
+      ],
+      "weapon_length": 1160,
+      "rear_grip_fraction": 0.22,
+      "weapon_angle_degrees": 0.9710219310791643,
+      "duration_ms": 85,
+      "world_root_motion_native_px": -20,
+      "alpha_bbox": [
+        206,
+        500,
+        1603,
+        1401
+      ],
+      "clipped": false,
+      "upscaled": false,
+      "sha256": "8b72de145d85f210c724a59f81717c8375ad8b1bd008dbd17f39533aba678907"
+    },
+    {
+      "feet_canvas": {
+        "screen_left": [
+          559.696682464455,
+          1400
+        ],
+        "screen_right": [
+          1087.0964467005076,
+          1361
+        ]
+      },
+      "key": 9,
+      "source": "body/rapid_09_recover.png",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "head_ruler_raw": 230,
+      "raw_to_canvas_affine": [
+        0.782608695652174,
+        0,
+        405.2173913043478,
+        0,
+        0.782608695652174,
+        280.86956521739125
+      ],
+      "root": [
+        820,
+        1400
+      ],
+      "grips": {
+        "rear": [
+          835.6521739130435,
+          819.3043478260869
+        ],
+        "front_guide": [
+          955.391304347826,
+          679.2173913043478
+        ]
+      },
+      "weapon_tip": [
+        1423.5383492525175,
+        131.51594661193064
+      ],
+      "weapon_butt": [
+        669.8381244583201,
+        1013.2959481685413
+      ],
+      "weapon_length": 1160,
+      "rear_grip_fraction": 0.22,
+      "weapon_angle_degrees": -49.47787957384967,
+      "duration_ms": 150,
+      "world_root_motion_native_px": 0,
+      "alpha_bbox": [
+        501,
+        131,
+        1425,
+        1402
+      ],
+      "clipped": false,
+      "upscaled": false,
+      "sha256": "244dbb1595db64d74b2c958fcaedbdfe8856c4401547c35d7344b03d2b71039b"
+    }
+  ],
+  "scaleQA": {
+    "upscaled_frames": 0,
+    "clipped_frames": 0,
+    "method": "crest-to-chin ruler; never full-body bounding-box normalization",
+    "weapon": "one fixed rigid source; sweep grip slides intentionally from 22% to 50% then returns"
+  },
+  "fx": {
+    "manifest": "secondary_fx_v2/return_manifest.json",
+    "cosmetic_only": true
+  },
+  "audio": {
+    "status": "whoosh preview mixed; no voice or collision sound",
+    "onset_ms": 580,
+    "event_id": "s05.hachiya.return_thrust",
+    "impact": "collision-driven; not scheduled"
+  },
+  "notes": [
+    "True distinct source poses; no synthetic hold inflation.",
+    "Root motion in retreat is separate from per-frame fixed root.",
+    "Sweeping source is planar 2D arc; 3D depth occlusion remains visual-review item."
+  ]
+}

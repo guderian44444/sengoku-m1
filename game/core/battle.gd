@@ -4,6 +4,7 @@ const CombatMoves = preload("res://core/combat_moves.gd")
 
 const Stage03Encounter = preload("res://core/stage03_encounter.gd")
 const Stage04 = preload("res://core/stage04_encounter.gd")
+const Stage05 = preload("res://core/stage05_encounter.gd")
 const StageData = preload("res://core/stage_data.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
 const Equipment = preload("res://core/equipment.gd")
@@ -164,6 +165,7 @@ func _enter_segment(index: int) -> void:
 	Stage03Encounter.cancel(self)
 	state.erase("encounter")
 	state.erase("mikawa")
+	state.erase("ikki")
 	var spec: Dictionary = _campaign.segments[index]
 	var party := []
 	for old in state.fighters:
@@ -221,7 +223,7 @@ func _start_checkpoint(index: int) -> void:
 	state.stage.checkpoint = index
 	state.stage.encounter_start = 0.0 if index == 0 else float(region.encounters[index - 1].end)
 	state.stage.encounter_end = float(encounter.end)
-	state.stage.wave_total = 1 if encounter.get("mode", "") in ["alarm", "barriers", "formation", "lieutenants"] else encounter.waves.size()
+	state.stage.wave_total = 1 if encounter.get("mode", "") in ["alarm", "barriers", "formation", "lieutenants", "ikki"] else encounter.waves.size()
 	state.stage.phase = "combat"
 	state.stage.go = false
 	state.stage.clear_tick = -1
@@ -231,6 +233,9 @@ func _start_checkpoint(index: int) -> void:
 	_revive_exhausted_party()
 	_arm_food_drop()
 	if encounter.get("mode", "") in ["alarm", "barriers", "formation", "lieutenants"]: Stage03Encounter.begin(self, encounter)
+	elif encounter.get("mode", "") == "ikki":
+		state.intro = {}
+		Stage05.begin(self,encounter)
 	elif encounter.get("mode", "") == "mikawa":
 		state.erase("mikawa")
 		state.intro = {}
@@ -367,6 +372,10 @@ func _tick_segment() -> void:
 	if living_party.is_empty():
 		state.phase = "lost"
 		Stage03Encounter.cancel(self)
+		return
+	if state.has("ikki"):
+		Stage05.tick(self)
+		if state.ikki.phase == "complete": _finish_stage_checkpoint(living_party)
 		return
 	if state.has("mikawa"):
 		Stage04.tick(self)
@@ -838,6 +847,7 @@ static func character_stats(row: Dictionary, difficulty: String = "normal") -> D
 	if hero != "oichi":
 		damage = maxi(1,roundi(damage * profile.damage))
 		reach *= profile.reach
+	if hero == "hideyoshi": reach *= 1.3 # Match the baseline's light-attack range on the equipment panel.
 	damage = maxi(1,roundi(damage*Equipment.damage_multiplier(row,"heavy" if hero == "oichi" else "light")))
 	var charm := Equipment.instance(row,int(row.treasure_uid))
 	var protection := "無"
@@ -849,6 +859,7 @@ const FAST_PROJECTILE_SPEED := 34.0
 const HERO_ARROW_SPEED := 22.0
 
 static func enemy_timing(fighter: Dictionary) -> Array:
+	if fighter.has("s05_role") and Stage05.Data.HITS.has(fighter.action): return Stage05.Data.timing(fighter)
 	if fighter.has("mikawa_role"): return Stage04.Data.attack_timing(fighter)
 	var timing: Array = ENEMY_TIMING.get(fighter.action, [30, 60])
 	if fighter.get("is_yoshimoto",false) and fighter.action in ["boss_arrow","boss_sword_wave"]: return timing
@@ -939,6 +950,7 @@ func _tick_fighter(fighter: Dictionary) -> void:
 	fighter.action_tick += 1
 	if Stage03Encounter.Tent.Yoshimoto.tick_action(self,fighter): return
 	if fighter.airborne_lock: return
+	if Stage05.attack(self,fighter) or Stage05.reaction_tick(self,fighter): return
 	if ENEMY_TIMING.has(fighter.action):
 		_tick_enemy_attack(fighter)
 		return
@@ -1361,13 +1373,15 @@ func _damage_prop(prop: Dictionary, damage: int, owner: int, weapon: String = ""
 	prop.hp = maxi(0, prop.hp - damage)
 	prop.hit_tick = state.tick
 	var material: String = {"jar":"ceramic","planter":"ceramic","stone_lantern":"stone","crate":"box","large_crate":"box","cabinet":"box","basket":"wicker","rice_bales":"wicker"}.get(prop.kind,"wood")
-	_event("prop_hit",prop.x,prop.y,owner,prop.id,{"material":material,"weapon":weapon})
+	_event("prop_hit",prop.x,prop.y,owner,prop.id,{"material":material,"weapon":weapon,"shared_sfx":prop.has("s05_asset")})
+	if prop.get("s05_asset","")=="rice" and prop.hp>0: Stage05.audio(self,"s05.prop.rice_sack.hit",owner)
 	_effect("hit", prop.x, prop.y - 25.0, 10, {"heavy": damage >= 25})
 	if prop.hp == 0:
 		prop.broken = true
+		if prop.has("s05_asset"): prop.broken_tick=state.tick
 		_award_score(owner,50)
 		_effect("debris", prop.x, prop.y, 36, {"kind": prop.kind, "target": prop.id})
-		_event("prop_break", prop.x, prop.y, owner, prop.id,{"material":material})
+		_event("prop_break", prop.x, prop.y, owner, prop.id,{"material":material,"shared_sfx":prop.has("s05_asset")})
 		if state.has("stage") and _fighter(owner).get("team",1) == 0:
 			_add_drop("food",clampf(prop.x,_left_edge()+30,_right_edge()-30),prop.y,owner)
 		if not str(prop.drop).is_empty() and (prop.drop != "food" or not state.has("stage")) and (prop.drop == "food" or _loot_roll(1000) < 100) and _add_drop(prop.drop, prop.x, prop.y):
@@ -1424,6 +1438,7 @@ func _enemy_input(fighter: Dictionary) -> void:
 		if fighter.action == "idle": _begin(fighter, "stunned")
 		return
 	if Stage04.ai(self,fighter,target): return
+	if Stage05.ai(self,fighter,target): return
 	if fighter.kind == "dummy" or not fighter.action in ["idle", "retreat", "bow_shot", "gun_shot"]:
 		return
 	fighter.face = 1 if target.x >= fighter.x else -1
@@ -1856,7 +1871,7 @@ func _resolve_throws() -> void:
 			if _prone_enemy(target): continue
 			if absf(target.x - body.x) < 44.0 and absf(target.y - body.y) < 40.0 and absf(target.z - body.z) < 80.0:
 				body.throw_hits.append(target.id)
-				if _damage(target, 22, body.thrown_by, target.weight != "heavy", true, false, false, body.x-signf(body.knockback), body.y, "body_collision", 24, "blunt") and target.weight != "heavy":
+				if _damage(target, 22, body.thrown_by, target.weight != "heavy", true, false, false, body.x-signf(body.knockback), body.y, "body_collision", 24, "blunt", -1, -1, "", false, int(body.id)) and target.weight != "heavy":
 					_launch(target, 1 if body.knockback >= 0 else -1)
 
 
@@ -1864,10 +1879,13 @@ static func charged_release_invulnerable(fighter: Dictionary) -> bool:
 	return fighter.get("team",1) == 0 and fighter.get("action","") in ["charged","charge_rain"]
 
 
-func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction: bool = true, bypass_invuln: bool = false, strong_hit: bool = false, source_x: float = NAN, source_y: float = NAN, source_action: String = "", shatter_damage: int = 24, source_weapon: String = "", equipment_uid: int = -1, attack_id: int = -1, source_element: String = "", launch_hit: bool = false) -> bool:
+func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction: bool = true, bypass_invuln: bool = false, strong_hit: bool = false, source_x: float = NAN, source_y: float = NAN, source_action: String = "", shatter_damage: int = 24, source_weapon: String = "", equipment_uid: int = -1, attack_id: int = -1, source_element: String = "", launch_hit: bool = false, source_body: int = 0) -> bool:
 	if target.get("entering",false): return false
-	# Ground recovery cannot be reset by attacks, status ticks or held-body damage.
-	if target.action in ["down", "recovering"]: return false
+	if not Stage05.accepts_damage(self,target,actor,source_body): return false
+	var stomp_owner := _fighter(actor) if source_action == "s05_kusei_stomp" else {}
+	var repeated_stomp: bool = target.team == 0 and stomp_owner.get("s05_role","") == "kusei" and stomp_owner.get("action","") == "s05_kusei_stomp"
+	# Only Kusei's five-step quake can reset ground recovery.
+	if target.action in ["down", "recovering"] and not repeated_stomp: return false
 	if target.hp <= 0 or target.action == "special" or charged_release_invulnerable(target) or (reaction and target.invuln > 0 and not bypass_invuln):
 		return false
 	var attacker := _fighter(actor)
@@ -1905,7 +1923,7 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 		_effect("guard_break",target.x,target.y,20,{"target":target.id,"face":target.face})
 		_event("guard_break",target.x,target.y,actor,target.id)
 	# A replay-stable 25% parry window; recovery, rear attacks and charged moves cannot trigger it.
-	var boss_guard: bool = reaction and target.kind == "boss" and not target.has("mikawa_role") and not target.get("is_yoshimoto",false) and target.action == "idle" and target.counter_ticks == 0 and target.freeze == 0 and target.stun == 0 and not target.airborne_lock and not attacker.is_empty() and attacker.team == 0 and attack_action in ["light", "heavy", "dash_heavy", "rising", "low_sweep", "dash_strike", "air_light"] and (state.tick * 17 + target.id * 13 + actor * 7) % 100 < 25
+	var boss_guard: bool = reaction and target.kind == "boss" and not target.has("mikawa_role") and not target.has("s05_role") and not target.get("is_yoshimoto",false) and target.action == "idle" and target.counter_ticks == 0 and target.freeze == 0 and target.stun == 0 and not target.airborne_lock and not attacker.is_empty() and attacker.team == 0 and attack_action in ["light", "heavy", "dash_heavy", "rising", "low_sweep", "dash_strike", "air_light"] and (state.tick * 17 + target.id * 13 + actor * 7) % 100 < 25
 	var player_guard := false
 	if reaction and (boss_guard or target.action in ["guard", "boss_counter"]) and is_finite(source_x) and (source_x - target.x) * target.face > 0.0 and absf(source_y - target.y) <= 100.0 and (boss_guard or target.action == "guard" or target.action_tick < enemy_timing(target)[0] - 8):
 		player_guard = target.team == 0
@@ -2141,6 +2159,7 @@ func _poison(target: Dictionary, duration: int, owner: int, equipment_uid: int =
 
 
 func _launch(target: Dictionary, direction: int, horizontal: float = 8.0, vertical: float = 6.0) -> void:
+	if Stage05.invulnerable(target): return
 	if charged_release_invulnerable(target) or not Stage04.permits_launch(target): return
 	if target.kind == "boss" and target.hp <= 0: return
 	if target.held_by != 0 or target.freeze > 0: return
@@ -2287,6 +2306,9 @@ func _tick_effects() -> void:
 	for effect in state.effects.duplicate():
 		effect.life -= 1
 		if state.phase != "playing": continue
+		if effect.type == "s05_wave":
+			Stage05.projectile(self,effect)
+			continue
 		if effect.has("mikawa_projectile"):
 			Stage04.projectile(self,effect)
 			continue

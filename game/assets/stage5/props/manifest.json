@@ -1,0 +1,829 @@
+{
+  "schema": "stage5-props-art-v2-generated-ink",
+  "camera": "orthographic 45-degree downward; far upper-left to near lower-right",
+  "units": "pixel-space; one fixed scale per prop across all states",
+  "flags": [
+    {
+      "id": "militia_ragged",
+      "canvas_px": [
+        2048,
+        2048
+      ],
+      "root_px": [
+        550,
+        1450
+      ],
+      "source_canvas_px": [
+        1024,
+        1536
+      ],
+      "draw_scale": 0.25,
+      "world_height_reference_px": 1536,
+      "same_scale_all_states": true,
+      "cloth_registration": {
+        "uniform_scale": 0.86,
+        "translate_px": [
+          60,
+          90
+        ]
+      },
+      "collision": {
+        "type": "ground_ellipse",
+        "center_px": [
+          550,
+          1450
+        ],
+        "radii_px": [
+          105,
+          50
+        ],
+        "after_destroy": "retain small base collider; no tall pole hitbox"
+      },
+      "idle": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": true
+      },
+      "destroy": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": false,
+        "hold_last": true,
+        "events": [
+          {
+            "frame": 1,
+            "at_ms": 120,
+            "id": "s05.prop.banner.wood_crack"
+          },
+          {
+            "frame": 5,
+            "at_ms": 600,
+            "id": "s05.prop.banner.ground_contact"
+          }
+        ]
+      },
+      "layers": [
+        "cloth_registered",
+        "pole",
+        "base",
+        "remnant"
+      ],
+      "text": "南無阿彌陀佛",
+      "text_layer": "baked_in_cloth",
+      "text_rendering": {
+        "method": "imagegen ink integrated into fabric",
+        "verified_text": "南無阿彌陀佛",
+        "native_canvas_px": [
+          1254,
+          1254
+        ],
+        "registration": {
+          "method": "whole source canvas",
+          "scale": 1.6331738437001595,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "animation": "cloth and ink deform as a single raster"
+      },
+      "archival_svg": "six_characters.svg; reference only, not composited"
+    },
+    {
+      "id": "militia_patched",
+      "canvas_px": [
+        2048,
+        2048
+      ],
+      "root_px": [
+        550,
+        1450
+      ],
+      "source_canvas_px": [
+        1024,
+        1536
+      ],
+      "draw_scale": 0.25,
+      "world_height_reference_px": 1536,
+      "same_scale_all_states": true,
+      "cloth_registration": {
+        "uniform_scale": 0.89,
+        "translate_px": [
+          44,
+          61
+        ]
+      },
+      "collision": {
+        "type": "ground_ellipse",
+        "center_px": [
+          550,
+          1450
+        ],
+        "radii_px": [
+          105,
+          50
+        ],
+        "after_destroy": "retain small base collider; no tall pole hitbox"
+      },
+      "idle": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": true
+      },
+      "destroy": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": false,
+        "hold_last": true,
+        "events": [
+          {
+            "frame": 1,
+            "at_ms": 120,
+            "id": "s05.prop.banner.wood_crack"
+          },
+          {
+            "frame": 5,
+            "at_ms": 600,
+            "id": "s05.prop.banner.ground_contact"
+          }
+        ]
+      },
+      "layers": [
+        "cloth_registered",
+        "pole",
+        "base",
+        "remnant"
+      ],
+      "text": "南無阿彌陀佛",
+      "text_layer": "baked_in_cloth",
+      "text_rendering": {
+        "method": "imagegen ink integrated into fabric",
+        "verified_text": "南無阿彌陀佛",
+        "native_canvas_px": [
+          1254,
+          1254
+        ],
+        "registration": {
+          "method": "uniform source registration to original cloth height and upper-left anchor, no per-frame fit",
+          "scale": 1.1448979591836734,
+          "offset": [
+            160,
+            150
+          ]
+        },
+        "animation": "cloth and ink deform as a single raster"
+      },
+      "archival_svg": "six_characters.svg; reference only, not composited"
+    },
+    {
+      "id": "militia_wicker",
+      "canvas_px": [
+        2048,
+        2048
+      ],
+      "root_px": [
+        550,
+        1450
+      ],
+      "source_canvas_px": [
+        1024,
+        1536
+      ],
+      "draw_scale": 0.25,
+      "world_height_reference_px": 1536,
+      "same_scale_all_states": true,
+      "cloth_registration": {
+        "uniform_scale": 0.83,
+        "translate_px": [
+          77,
+          102
+        ]
+      },
+      "collision": {
+        "type": "ground_ellipse",
+        "center_px": [
+          550,
+          1450
+        ],
+        "radii_px": [
+          105,
+          50
+        ],
+        "after_destroy": "retain small base collider; no tall pole hitbox"
+      },
+      "idle": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": true
+      },
+      "destroy": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": false,
+        "hold_last": true,
+        "events": [
+          {
+            "frame": 1,
+            "at_ms": 120,
+            "id": "s05.prop.banner.wood_crack"
+          },
+          {
+            "frame": 5,
+            "at_ms": 600,
+            "id": "s05.prop.banner.ground_contact"
+          }
+        ]
+      },
+      "layers": [
+        "cloth_registered",
+        "pole",
+        "base",
+        "remnant"
+      ],
+      "text": "南無阿彌陀佛",
+      "text_layer": "baked_in_cloth",
+      "text_rendering": {
+        "method": "imagegen ink integrated into fabric",
+        "verified_text": "南無阿彌陀佛",
+        "native_canvas_px": [
+          1254,
+          1254
+        ],
+        "registration": {
+          "method": "uniform source registration to original cloth height and upper-left anchor, no per-frame fit",
+          "scale": 0.9465716829919858,
+          "offset": [
+            159,
+            216
+          ]
+        },
+        "animation": "cloth and ink deform as a single raster"
+      },
+      "archival_svg": "six_characters.svg; reference only, not composited"
+    },
+    {
+      "id": "temple_brown",
+      "canvas_px": [
+        2048,
+        2048
+      ],
+      "root_px": [
+        550,
+        1450
+      ],
+      "source_canvas_px": [
+        1024,
+        1536
+      ],
+      "draw_scale": 0.25,
+      "world_height_reference_px": 1536,
+      "same_scale_all_states": true,
+      "cloth_registration": {
+        "uniform_scale": 0.9,
+        "translate_px": [
+          67,
+          72
+        ]
+      },
+      "collision": {
+        "type": "ground_ellipse",
+        "center_px": [
+          550,
+          1450
+        ],
+        "radii_px": [
+          105,
+          50
+        ],
+        "after_destroy": "retain small base collider; no tall pole hitbox"
+      },
+      "idle": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": true
+      },
+      "destroy": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": false,
+        "hold_last": true,
+        "events": [
+          {
+            "frame": 1,
+            "at_ms": 120,
+            "id": "s05.prop.banner.wood_crack"
+          },
+          {
+            "frame": 5,
+            "at_ms": 600,
+            "id": "s05.prop.banner.ground_contact"
+          }
+        ]
+      },
+      "layers": [
+        "cloth_registered",
+        "pole",
+        "base",
+        "remnant"
+      ],
+      "text": "南無阿彌陀佛",
+      "text_layer": "baked_in_cloth",
+      "text_rendering": {
+        "method": "imagegen ink integrated into fabric",
+        "verified_text": "南無阿彌陀佛",
+        "native_canvas_px": [
+          1254,
+          1254
+        ],
+        "registration": {
+          "method": "whole source canvas",
+          "scale": 1.6331738437001595,
+          "offset": [
+            0,
+            0
+          ]
+        },
+        "animation": "cloth and ink deform as a single raster"
+      },
+      "archival_svg": "six_characters.svg; reference only, not composited"
+    },
+    {
+      "id": "temple_ochre",
+      "canvas_px": [
+        2048,
+        2048
+      ],
+      "root_px": [
+        550,
+        1450
+      ],
+      "source_canvas_px": [
+        1024,
+        1536
+      ],
+      "draw_scale": 0.25,
+      "world_height_reference_px": 1536,
+      "same_scale_all_states": true,
+      "cloth_registration": {
+        "uniform_scale": 0.94,
+        "translate_px": [
+          38,
+          74
+        ]
+      },
+      "collision": {
+        "type": "ground_ellipse",
+        "center_px": [
+          550,
+          1450
+        ],
+        "radii_px": [
+          105,
+          50
+        ],
+        "after_destroy": "retain small base collider; no tall pole hitbox"
+      },
+      "idle": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": true
+      },
+      "destroy": {
+        "frames": 8,
+        "frame_ms": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "total_ms": 960,
+        "loop": false,
+        "hold_last": true,
+        "events": [
+          {
+            "frame": 1,
+            "at_ms": 120,
+            "id": "s05.prop.banner.wood_crack"
+          },
+          {
+            "frame": 5,
+            "at_ms": 600,
+            "id": "s05.prop.banner.ground_contact"
+          }
+        ]
+      },
+      "layers": [
+        "cloth_registered",
+        "pole",
+        "base",
+        "remnant"
+      ],
+      "text": "南無阿彌陀佛",
+      "text_layer": "baked_in_cloth",
+      "text_rendering": {
+        "method": "imagegen ink integrated into fabric",
+        "verified_text": "南無阿彌陀佛",
+        "native_canvas_px": [
+          1254,
+          1254
+        ],
+        "registration": {
+          "method": "uniform source registration to original cloth height and upper-left anchor, no per-frame fit",
+          "scale": 1.0025316455696203,
+          "offset": [
+            233,
+            265
+          ]
+        },
+        "animation": "cloth and ink deform as a single raster"
+      },
+      "archival_svg": "six_characters.svg; reference only, not composited"
+    }
+  ],
+  "destructibles": [
+    {
+      "id": "rice",
+      "canvas_px": [
+        1024,
+        768
+      ],
+      "root_px": [
+        512,
+        690
+      ],
+      "draw_scale": 0.25,
+      "same_scale_all_states": true,
+      "source_states_px": [
+        2172,
+        724
+      ],
+      "state_registration": [
+        {
+          "translate_px": [
+            163.0,
+            58
+          ],
+          "scale": 1
+        },
+        {
+          "translate_px": [
+            147.5,
+            31
+          ],
+          "scale": 1
+        },
+        {
+          "translate_px": [
+            150.5,
+            24
+          ],
+          "scale": 1
+        }
+      ],
+      "transition_source_scale": 0.68,
+      "collision": {
+        "type": "ground_ellipse",
+        "center_px": [
+          512,
+          650
+        ],
+        "radii_px": [
+          220,
+          90
+        ],
+        "after_destroy": "disable blocking; keep debris decoration"
+      },
+      "destroy": {
+        "frames": 6,
+        "frame_ms": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "total_ms": 600,
+        "loop": false,
+        "hold_last": true,
+        "events": [
+          {
+            "frame": 1,
+            "at_ms": 100,
+            "id": "s05.prop.rice_sack.hit"
+          }
+        ]
+      }
+    },
+    {
+      "id": "wood",
+      "canvas_px": [
+        1024,
+        768
+      ],
+      "root_px": [
+        512,
+        690
+      ],
+      "draw_scale": 0.25,
+      "same_scale_all_states": true,
+      "source_states_px": [
+        2172,
+        724
+      ],
+      "state_registration": [
+        {
+          "translate_px": [
+            127.5,
+            25
+          ],
+          "scale": 1
+        },
+        {
+          "translate_px": [
+            158.5,
+            15
+          ],
+          "scale": 1
+        },
+        {
+          "translate_px": [
+            162.0,
+            5
+          ],
+          "scale": 1
+        }
+      ],
+      "transition_source_scale": 0.72,
+      "collision": {
+        "type": "ground_ellipse",
+        "center_px": [
+          512,
+          650
+        ],
+        "radii_px": [
+          220,
+          90
+        ],
+        "after_destroy": "disable blocking; keep debris decoration"
+      },
+      "destroy": {
+        "frames": 6,
+        "frame_ms": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "total_ms": 600,
+        "loop": false,
+        "hold_last": true,
+        "events": [
+          {
+            "frame": 1,
+            "at_ms": 100,
+            "id": "s05.prop.firewood_basket.break"
+          }
+        ]
+      }
+    },
+    {
+      "id": "jar",
+      "canvas_px": [
+        1024,
+        768
+      ],
+      "root_px": [
+        512,
+        690
+      ],
+      "draw_scale": 0.25,
+      "same_scale_all_states": true,
+      "source_states_px": [
+        2172,
+        724
+      ],
+      "state_registration": [
+        {
+          "translate_px": [
+            136.0,
+            43
+          ],
+          "scale": 1
+        },
+        {
+          "translate_px": [
+            92.0,
+            43
+          ],
+          "scale": 1
+        },
+        {
+          "translate_px": [
+            182.0,
+            20
+          ],
+          "scale": 1
+        }
+      ],
+      "transition_source_scale": 0.9,
+      "collision": {
+        "type": "ground_ellipse",
+        "center_px": [
+          512,
+          650
+        ],
+        "radii_px": [
+          220,
+          90
+        ],
+        "after_destroy": "disable blocking; keep debris decoration"
+      },
+      "destroy": {
+        "frames": 6,
+        "frame_ms": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "total_ms": 600,
+        "loop": false,
+        "hold_last": true,
+        "events": [
+          {
+            "frame": 1,
+            "at_ms": 100,
+            "id": "s05.prop.ceramic.break"
+          }
+        ]
+      }
+    }
+  ],
+  "decor": [
+    {
+      "id": "lantern",
+      "canvas_px": [
+        1254,
+        1254
+      ],
+      "root_px": [
+        633,
+        1222
+      ],
+      "draw_scale": 0.18,
+      "collision": null,
+      "destructible": false,
+      "events": []
+    },
+    {
+      "id": "offering_tray",
+      "canvas_px": [
+        1254,
+        1254
+      ],
+      "root_px": [
+        626,
+        1127
+      ],
+      "draw_scale": 0.18,
+      "collision": null,
+      "destructible": false,
+      "events": []
+    },
+    {
+      "id": "incense_burner",
+      "canvas_px": [
+        1254,
+        1254
+      ],
+      "root_px": [
+        630,
+        1170
+      ],
+      "draw_scale": 0.18,
+      "collision": null,
+      "destructible": false,
+      "events": []
+    },
+    {
+      "id": "vessel_stand",
+      "canvas_px": [
+        1254,
+        1254
+      ],
+      "root_px": [
+        632,
+        1187
+      ],
+      "draw_scale": 0.18,
+      "collision": null,
+      "destructible": false,
+      "events": []
+    }
+  ],
+  "notes": [
+    "Cloth lettering is imagegen baked-in hand-painted ink. Original pole/base/remnant and all non-flag props retained. Animation is registered layer deformation and rigid fall, not separately generated frames.",
+    "Deliverable RGBA alpha<=8 cleared; RGB at alpha=0 zeroed. Native sources preserved.",
+    "Do not derive draw scale from per-frame content bounds. Use frame canvas and fixed root.",
+    "Do not stop one-shot audio when animation ends."
+  ]
+}

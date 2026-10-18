@@ -1,0 +1,4291 @@
+{
+  "version": "stage5_troops_v7_user_approved_wholebody_walk",
+  "production_ready": false,
+  "canvas": [
+    1536,
+    1536
+  ],
+  "root": [
+    768,
+    1350
+  ],
+  "normalization": "manual crown-to-chin reference span normalized to128px; fixed root; no bbox-height normalization; down/airborne not stretched",
+  "world_height_mapping": {
+    "militia": {
+      "global_character_scale": 1.0657894736842106,
+      "crown_y_reference": 590,
+      "standing_ruler_px": 810,
+      "pixels_per_world_unit": 8,
+      "standing_world_height": 101.25,
+      "canvas": [
+        1536,
+        1536
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "all_frames_same_affine": false,
+      "source_parts_downscaled_not_beyond_native": false,
+      "walk_normalization": "manual anatomical head span128px; natural pose height retained; per-frame transforms in walk-v7/manifest.json"
+    },
+    "monk": {
+      "global_character_scale": 1.1078561917443408,
+      "crown_y_reference": 599,
+      "standing_ruler_px": 832,
+      "pixels_per_world_unit": 8,
+      "standing_world_height": 104.0,
+      "canvas": [
+        1536,
+        1536
+      ],
+      "root": [
+        768,
+        1350
+      ],
+      "all_frames_same_affine": false,
+      "source_parts_downscaled_not_beyond_native": false,
+      "walk_normalization": "manual anatomical head span128px; natural pose height retained; per-frame transforms in walk-v7/manifest.json"
+    }
+  },
+  "frames": {
+    "militia": {
+      "idle": {
+        "source": "raw/militia/idle.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          109,
+          24,
+          1000,
+          1517
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          531.6923076923077,
+          1492.676923076923
+        ],
+        "offset": [
+          480,
+          541
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            608,
+            1275
+          ],
+          [
+            971,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            640,
+            891
+          ],
+          [
+            764,
+            985
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          480,
+          551,
+          1025,
+          1373
+        ],
+        "sha256": "1758bfc39f633a8ff8fec8021e891d274afa4b2e3629a230e4fc4d6773c787f7",
+        "registered_output_upscaled": false
+      },
+      "attack-windup": {
+        "source": "raw/militia/attack-windup.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          10,
+          13,
+          1015,
+          1509
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          590.7692307692307,
+          1488.7384615384615
+        ],
+        "offset": [
+          384,
+          382
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            499,
+            1227
+          ],
+          [
+            986,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            614,
+            505
+          ],
+          [
+            684,
+            561
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          384,
+          383,
+          1050,
+          1380
+        ],
+        "sha256": "8e32c58d18c59a59b70ea06e84cfea64dbefe2bf6a5dc91c63380853a65e9379",
+        "registered_output_upscaled": false
+      },
+      "attack-impact": {
+        "source": "raw/militia/attack-impact.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          24,
+          11,
+          1513,
+          1009
+        ],
+        "source_head_span_px": 216.62,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.590909,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          669.5384615384615,
+          917.6615384615385
+        ],
+        "offset": [
+          372,
+          808
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            419,
+            1329
+          ],
+          [
+            1038,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            898,
+            1115
+          ],
+          [
+            1024,
+            1192
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          382,
+          808,
+          1269,
+          1413
+        ],
+        "sha256": "bbfbd2ed2deb8e45e0d819c28b1a6737bcdf8658e20a4da2bcfe7b7690228ce3",
+        "registered_output_upscaled": false
+      },
+      "attack-recover": {
+        "source": "raw/militia/attack-recover.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          78,
+          19,
+          1007,
+          1516
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1484.8
+        ],
+        "offset": [
+          491,
+          546
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            608,
+            1256
+          ],
+          [
+            982,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            653,
+            845
+          ],
+          [
+            779,
+            985
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          530,
+          553,
+          1040,
+          1370
+        ],
+        "sha256": "a1aabe065da95cc77f0c839f0a95644daea182c028c70a3e63460f15c8a231b5",
+        "registered_output_upscaled": false
+      },
+      "hurt": {
+        "source": "raw/militia/hurt.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          100,
+          33,
+          1017,
+          1505
+        ],
+        "source_head_span_px": 216.62,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.590909,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          452.9230769230769,
+          1484.8
+        ],
+        "offset": [
+          500,
+          473
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            675,
+            1271
+          ],
+          [
+            1024,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            686,
+            869
+          ],
+          [
+            830,
+            957
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          500,
+          487,
+          1105,
+          1365
+        ],
+        "sha256": "e06c92b49ebd37881960251566d8a42560eae4155385d63c5614b2e2a4eacc29",
+        "registered_output_upscaled": false
+      },
+      "stunned": {
+        "source": "raw/militia/stunned.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          82,
+          15,
+          975,
+          1524
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          590.7692307692307,
+          1402.0923076923077
+        ],
+        "offset": [
+          448,
+          591
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            544,
+            1350
+          ],
+          [
+            917,
+            1333
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            798,
+            847
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          448,
+          591,
+          979,
+          1423
+        ],
+        "sha256": "b67947e1f6a712af2cd97592bbb885f3717e4f3e9adcd3b860fa1b97ca2b992f",
+        "registered_output_upscaled": false
+      },
+      "stunned-02": {
+        "source": "raw/militia/stunned-02.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          83,
+          18,
+          979,
+          1524
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          590.7692307692307,
+          1402.0923076923077
+        ],
+        "offset": [
+          448,
+          591
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            544,
+            1350
+          ],
+          [
+            917,
+            1333
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            798,
+            847
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          448,
+          597,
+          981,
+          1423
+        ],
+        "sha256": "d8f45967728ea483fcd06309df5d6aae5d6bfbb769f6a8e7e933709088aa8d01",
+        "registered_output_upscaled": false
+      },
+      "launched": {
+        "source": "raw/militia/launched.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          33,
+          55,
+          1501,
+          918
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          728.6153846153846,
+          1068.3076923076924
+        ],
+        "offset": [
+          373,
+          771
+        ],
+        "airborne_elevation_px": 120,
+        "feet_anchors": [
+          [
+            1141,
+            1070
+          ],
+          [
+            1130,
+            1230
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          373,
+          778,
+          1204,
+          1326
+        ],
+        "sha256": "6a38b53d6216935e8ec41f495c236881e9cff43fadd4ad3caf7636c0a43292f2",
+        "registered_output_upscaled": false
+      },
+      "down": {
+        "source": "raw/militia/down.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "source_visible_bbox_alpha128": [
+          64,
+          227,
+          1712,
+          692
+        ],
+        "source_head_span_px": 236.53,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.54115,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          864.2564102564103,
+          636.8205128205128
+        ],
+        "offset": [
+          300,
+          1005
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            1174,
+            1281
+          ],
+          [
+            1162,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          325,
+          1010,
+          1243,
+          1475
+        ],
+        "sha256": "127182233881c5b81c84809b2046e3753294a39615b8f9e953f9f21dea9aa55a",
+        "registered_output_upscaled": false
+      },
+      "recover": {
+        "source": "raw/militia/recover.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          23,
+          45,
+          1011,
+          1344
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1260.3076923076924
+        ],
+        "offset": [
+          491,
+          667
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            576,
+            1341
+          ],
+          [
+            982,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            576,
+            919
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          491,
+          689,
+          1046,
+          1499
+        ],
+        "sha256": "f5b07f955cc18a4005b5a393b7733fbc1c4c808d73b93edd848988569984312a",
+        "registered_output_upscaled": false
+      },
+      "recover-02": {
+        "source": "raw/militia/recover-02.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          88,
+          22,
+          1006,
+          1480
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1417.8461538461538
+        ],
+        "offset": [
+          491,
+          582
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            604,
+            1350
+          ],
+          [
+            971,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            651,
+            955
+          ],
+          [
+            768,
+            1032
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          535,
+          590,
+          1039,
+          1414
+        ],
+        "sha256": "03d2ee81e8e0ddfb83d384cb0b1cb4446439481037c2ab463bb7151840e150a6",
+        "registered_output_upscaled": false
+      },
+      "grabbed": {
+        "source": "raw/militia/grabbed.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          166,
+          17,
+          926,
+          1476
+        ],
+        "source_head_span_px": 216.62,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.590909,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          551.3846153846154,
+          1512.523076923077
+        ],
+        "offset": [
+          442,
+          456
+        ],
+        "airborne_elevation_px": 35,
+        "feet_anchors": [
+          [
+            698,
+            1201
+          ],
+          [
+            954,
+            1315
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          442,
+          460,
+          1025,
+          1344
+        ],
+        "sha256": "3fadbf81fc7f47410ecaa54c5a30122e9d5b50d9cf04a3aa5880cfede4747d4d",
+        "registered_output_upscaled": false
+      },
+      "walk-01": {
+        "source": "raw/militia/walk-01.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          61,
+          26,
+          993,
+          1480
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1488.7384615384615
+        ],
+        "offset": [
+          491,
+          544
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            583,
+            1248
+          ],
+          [
+            960,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            651,
+            864
+          ],
+          [
+            790,
+            981
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          505,
+          555,
+          1034,
+          1358
+        ],
+        "sha256": "0fa48f52dcb9c220391f58e46974915b8017e83287d1e6b832d24a532bcebd6d",
+        "registered_output_upscaled": false
+      },
+      "walk-02": {
+        "source": "raw/militia/walk-02.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          123,
+          20,
+          1017,
+          1465
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1488.7384615384615
+        ],
+        "offset": [
+          491,
+          544
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            726,
+            1227
+          ],
+          [
+            886,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            662,
+            864
+          ],
+          [
+            790,
+            981
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          555,
+          552,
+          1046,
+          1342
+        ],
+        "sha256": "86dfa06d3cdc6b19d3f0daa9482e769b8e69e3fcca0f1a32578e34bb04a2fce9",
+        "registered_output_upscaled": false
+      },
+      "walk-03": {
+        "source": "raw/militia/walk-03.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          29,
+          22,
+          1012,
+          1475
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1475.0
+        ],
+        "offset": [
+          491,
+          551
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": null,
+        "weapon_grip_anchors": null,
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          491,
+          560,
+          1042,
+          1383
+        ],
+        "sha256": "80002ddfdc7b185ecdf51322f39ff6ef81ea35760657edd902e77e9265e2f428",
+        "registered_output_upscaled": false
+      },
+      "walk-04": {
+        "source": "raw/militia/walk-04.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          121,
+          18,
+          997,
+          1484
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1476.923076923077
+        ],
+        "offset": [
+          491,
+          550
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            779,
+            1350
+          ],
+          [
+            918,
+            1254
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            651,
+            870
+          ],
+          [
+            790,
+            987
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          491,
+          556,
+          1034,
+          1357
+        ],
+        "sha256": "5dc61d39199efe09bdf1475a24e378e22c5c60291ad43abfe23046726e71c4ff",
+        "registered_output_upscaled": false
+      },
+      "walk-03-ref": {
+        "source": "raw/militia/walk-03-ref.png",
+        "native_size": [
+          1374,
+          1145
+        ],
+        "source_visible_bbox_alpha128": [
+          174,
+          17,
+          1356,
+          1116
+        ],
+        "source_head_span_px": 158.54,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.807375,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          634.1538461538462,
+          1116.0
+        ],
+        "offset": [
+          256,
+          449
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": null,
+        "weapon_grip_anchors": null,
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          256,
+          459,
+          1353,
+          1359
+        ],
+        "sha256": "78a70038eb750eb5680e9e3344367e1e7f4dbf2f2c30d6c08dad6d75b7c1df92",
+        "registered_output_upscaled": false
+      },
+      "walk-03c": {
+        "source": "raw/militia/walk-03c.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          43,
+          19,
+          997,
+          1433
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1437.5384615384614
+        ],
+        "offset": [
+          491,
+          571
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            576,
+            1296
+          ],
+          [
+            956,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            645,
+            891
+          ],
+          [
+            773,
+            1008
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          491,
+          578,
+          1035,
+          1403
+        ],
+        "sha256": "1b422d20675fe0f06dff652a3977bb58bbcc78cb32c654ece71f3b90bd4f3e23",
+        "registered_output_upscaled": false
+      },
+      "landing": {
+        "source": "raw/militia/landing.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          51,
+          92,
+          1456,
+          944
+        ],
+        "source_head_span_px": 291.45,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.439189,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          689.2307692307693,
+          905.8461538461538
+        ],
+        "offset": [
+          465,
+          952
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            1062,
+            1255
+          ],
+          [
+            984,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          476,
+          955,
+          1118,
+          1398
+        ],
+        "sha256": "245ba4226221d0f21c244dec888c95932944163ab41ecd86654c36c68762a28e",
+        "registered_output_upscaled": false
+      },
+      "walk-old-contact-weaponfix": {
+        "source": "raw/militia/walk-old-contact-weaponfix.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "source_visible_bbox_alpha128": [
+          409,
+          2,
+          1323,
+          869
+        ],
+        "source_head_span_px": 145.56,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.879369,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          805.123076923077,
+          841.5128205128206
+        ],
+        "offset": [
+          60,
+          610
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            500,
+            1350
+          ],
+          [
+            1060,
+            1338
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            700,
+            970
+          ],
+          [
+            868,
+            1030
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          117,
+          610,
+          1530,
+          1377
+        ],
+        "sha256": "81890ece95d2cd39f3243855694b54c01337813679d0acc0661318887b2e0640",
+        "registered_output_upscaled": false
+      },
+      "walk-old-passing-weaponfix": {
+        "source": "raw/militia/walk-old-passing-weaponfix.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          71,
+          20,
+          1006,
+          1478
+        ],
+        "source_head_span_px": 236.31,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.541667,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          433.2307692307692,
+          1457.2307692307693
+        ],
+        "offset": [
+          533,
+          561
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            665,
+            1244
+          ],
+          [
+            778,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            682,
+            892
+          ],
+          [
+            810,
+            977
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          533,
+          569,
+          1081,
+          1367
+        ],
+        "sha256": "0284ee94687df070c689373b187d636ada82ade8ec8088366c23ab4397576832",
+        "registered_output_upscaled": false
+      },
+      "walk-reskin-phase00": {
+        "source": "raw/militia/walk-reskin-phase00.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "source_visible_bbox_alpha128": [
+          450,
+          19,
+          1328,
+          832
+        ],
+        "source_head_span_px": 145.56,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.879369,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          805.123076923077,
+          818.7692307692308
+        ],
+        "offset": [
+          60,
+          630
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            520,
+            1350
+          ],
+          [
+            1000,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            700,
+            990
+          ],
+          [
+            868,
+            1050
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          60,
+          640,
+          1423,
+          1369
+        ],
+        "sha256": "6a6ebe1d462d69498f7dfcb9e82d7bc419111b51f994c1d5431a7227a6704d55",
+        "registered_output_upscaled": false
+      },
+      "walk-reskin-phase02": {
+        "source": "raw/militia/walk-reskin-phase02.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "source_visible_bbox_alpha128": [
+          616,
+          121,
+          1137,
+          817
+        ],
+        "source_head_span_px": 113.72,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 1.125592,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          796.025641025641,
+          805.123076923077
+        ],
+        "offset": [
+          -128,
+          444
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            666,
+            1263
+          ],
+          [
+            768,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            691,
+            930
+          ],
+          [
+            845,
+            1017
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          0,
+          463,
+          1527,
+          1413
+        ],
+        "sha256": "e7c4a5a4d9d37ef216496dd5a320ac8997c3fb97e2013a86bb8f6f6f0db0460f",
+        "registered_output_upscaled": true
+      },
+      "rig-walk/walk-00": {
+        "source": "rig/militia/source/",
+        "native_source_part_sizes": [
+          1024,
+          1536
+        ],
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "scale": 1.0657894736842106,
+        "scale_meaning": "single fixed character registration applied to all four rig phases; source parts rendered below native resolution",
+        "feet_anchors": {
+          "near": [
+            968.59,
+            1350.0
+          ],
+          "far": [
+            693.46,
+            1350.0
+          ]
+        },
+        "weapon_grip_anchors": [
+          [
+            635.84,
+            879.35
+          ],
+          [
+            748.6,
+            982.3
+          ]
+        ],
+        "sha256": "997396c748edf156644ff5c751bcaddca352db57b1cbad70ca07b4787e4ddddc",
+        "root_visual_review": "accepted",
+        "user_final_approval": false
+      },
+      "rig-walk/walk-01": {
+        "source": "rig/militia/source/",
+        "native_source_part_sizes": [
+          1024,
+          1536
+        ],
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "scale": 1.0657894736842106,
+        "scale_meaning": "single fixed character registration applied to all four rig phases; source parts rendered below native resolution",
+        "feet_anchors": {
+          "near": [
+            851.36,
+            1350.0
+          ],
+          "far": [
+            716.91,
+            1248.75
+          ]
+        },
+        "weapon_grip_anchors": [
+          [
+            635.84,
+            879.35
+          ],
+          [
+            748.6,
+            982.3
+          ]
+        ],
+        "sha256": "4b697ffaed935d83dbb3aa9a3f75dde0da1b0e671a45bb7beeb5124a1bd96261",
+        "root_visual_review": "accepted",
+        "user_final_approval": false
+      },
+      "rig-walk/walk-02": {
+        "source": "rig/militia/source/",
+        "native_source_part_sizes": [
+          1024,
+          1536
+        ],
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "scale": 1.0657894736842106,
+        "scale_meaning": "single fixed character registration applied to all four rig phases; source parts rendered below native resolution",
+        "feet_anchors": {
+          "near": [
+            712.8,
+            1350.0
+          ],
+          "far": [
+            949.25,
+            1350.0
+          ]
+        },
+        "weapon_grip_anchors": [
+          [
+            635.84,
+            879.35
+          ],
+          [
+            748.6,
+            982.3
+          ]
+        ],
+        "sha256": "8d4e83eec34d512a35499f4da1d269bea41ee45125768d59fb2051a687fd3404",
+        "root_visual_review": "accepted",
+        "user_final_approval": false
+      },
+      "rig-walk/walk-03": {
+        "source": "rig/militia/source/",
+        "native_source_part_sizes": [
+          1024,
+          1536
+        ],
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "scale": 1.0657894736842106,
+        "scale_meaning": "single fixed character registration applied to all four rig phases; source parts rendered below native resolution",
+        "feet_anchors": {
+          "near": [
+            736.25,
+            1248.75
+          ],
+          "far": [
+            832.01,
+            1350.0
+          ]
+        },
+        "weapon_grip_anchors": [
+          [
+            635.84,
+            879.35
+          ],
+          [
+            748.6,
+            982.3
+          ]
+        ],
+        "sha256": "a7fccba3c4eb22533e4fb4cbf8f5012ed8e342f52b8c94e00a8c6bcb8d8c3516",
+        "root_visual_review": "accepted",
+        "user_final_approval": false
+      },
+      "walk-v7/walk-00": {
+        "phase": 0,
+        "source": "reskin-fullbody/militia-contact00.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 0.9481481481481482,
+        "offset": [
+          -43,
+          551
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 135,
+        "normalization": "manual crown excluding topknot to chin 128px; no bbox height normalization",
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            696.6,
+            960.6
+          ],
+          [
+            914.6,
+            854.4
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            459.5,
+            1350.3
+          ],
+          [
+            981.0,
+            1350.3
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 160,
+        "events": [],
+        "sha256": "ad8684660dcc323318bccbd95bef3f6134d4979bab9a6b8ac7ab67017a236b26"
+      },
+      "walk-v7/walk-01": {
+        "phase": 1,
+        "source": "reskin-fullbody/militia-phase01.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 0.9770992366412213,
+        "offset": [
+          -111,
+          529
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 131,
+        "normalization": "manual crown excluding topknot to chin 128px; no bbox height normalization",
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            690.2,
+            973.6
+          ],
+          [
+            880.8,
+            890.5
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            524.1,
+            1261.8
+          ],
+          [
+            807.5,
+            1349.8
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 170,
+        "events": [],
+        "sha256": "0d781b2378c58a8a6dba090e784551a516d5fd797e29811fc73b8cdcadf70ff3"
+      },
+      "walk-v7/walk-02": {
+        "phase": 2,
+        "source": "reskin-fullbody/militia-phase02.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 1.0,
+        "offset": [
+          -122,
+          511
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 128,
+        "normalization": "manual crown excluding topknot to chin 128px; no bbox height normalization",
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            703.0,
+            951.0
+          ],
+          [
+            893.0,
+            849.0
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            653.0,
+            1231.0
+          ],
+          [
+            743.0,
+            1350.0
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 170,
+        "events": [],
+        "sha256": "94baae3bf37ff0c083d2682e66e8fa242cb9f6f563318142099364894917e89b"
+      },
+      "walk-v7/walk-03": {
+        "phase": 3,
+        "source": "reskin-fullbody/militia-contact03-v2.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 0.9142857142857143,
+        "offset": [
+          -14,
+          577
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 140,
+        "normalization": "manual crown excluding topknot to chin 128px; no bbox height normalization",
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            722.0,
+            974.7
+          ],
+          [
+            918.6,
+            874.1
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            488.9,
+            1350.5
+          ],
+          [
+            978.0,
+            1335.9
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 160,
+        "events": [],
+        "sha256": "5bd8e02007052cf3e7882ecc302e538f0b671507204070981708548af70cca5d"
+      },
+      "walk-v7/walk-04": {
+        "phase": 4,
+        "source": "reskin-fullbody/militia-phase04.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 0.9142857142857143,
+        "offset": [
+          -46,
+          567
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 140,
+        "normalization": "manual crown excluding topknot to chin 128px; no bbox height normalization",
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            726.6,
+            964.7
+          ],
+          [
+            895.7,
+            864.1
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            511.7,
+            1243.6
+          ],
+          [
+            868.3,
+            1349.6
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 170,
+        "events": [],
+        "sha256": "757af355aba7911f4e53e210255dcb477aa396b67790a308292be52ba75083b8"
+      },
+      "walk-v7/walk-05": {
+        "phase": 5,
+        "source": "reskin-fullbody/militia-phase05.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 0.9142857142857143,
+        "offset": [
+          -55,
+          563
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 140,
+        "normalization": "manual crown excluding topknot to chin 128px; no bbox height normalization",
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            722.1,
+            960.7
+          ],
+          [
+            905.0,
+            862.9
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            630.7,
+            1257.9
+          ],
+          [
+            767.9,
+            1350.2
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 170,
+        "events": [],
+        "sha256": "0eb75100ae3f1c0ae99f9901812c1ac1784727702a64e11a73fe577d5bdaf8d2"
+      }
+    },
+    "monk": {
+      "idle": {
+        "source": "raw/monk/idle.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          184,
+          10,
+          977,
+          1519
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          571.0769230769231,
+          1484.8
+        ],
+        "offset": [
+          397,
+          385
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            551,
+            1350
+          ],
+          [
+            986,
+            1299
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            883,
+            910
+          ],
+          [
+            929,
+            756
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          471,
+          389,
+          1050,
+          1375
+        ],
+        "sha256": "87938d96e92900102ab6e566026b1019532d325f066cdff252a03607666ba40d",
+        "registered_output_upscaled": false
+      },
+      "quick-windup": {
+        "source": "raw/monk/quick-windup.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          32,
+          17,
+          1516,
+          1003
+        ],
+        "source_head_span_px": 189.05,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.677083,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          925.5384615384615,
+          980.6769230769231
+        ],
+        "offset": [
+          141,
+          686
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            445,
+            1350
+          ],
+          [
+            1088,
+            1315
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            520,
+            894
+          ],
+          [
+            850,
+            1019
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          160,
+          695,
+          1172,
+          1379
+        ],
+        "sha256": "327fef933ead6de4e1dabb7de8bbc8e1430108b357c210f80a47cbbad3126614",
+        "registered_output_upscaled": false
+      },
+      "quick-active": {
+        "source": "raw/monk/quick-active.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          23,
+          40,
+          1531,
+          985
+        ],
+        "source_head_span_px": 177.23,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.722222,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          571.0769230769231,
+          980.6769230769231
+        ],
+        "offset": [
+          356,
+          642
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            427,
+            1350
+          ],
+          [
+            1110,
+            1296
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            512,
+            878
+          ],
+          [
+            1039,
+            1032
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          356,
+          645,
+          1465,
+          1382
+        ],
+        "sha256": "85d717cc744c800b9267ecc069323e389f74a02a3c23dadf47b5fbc2dd714bdf",
+        "registered_output_upscaled": false
+      },
+      "quick-recover": {
+        "source": "raw/monk/quick-recover.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          31,
+          20,
+          1015,
+          1474
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          492.3076923076923,
+          1476.923076923077
+        ],
+        "offset": [
+          448,
+          390
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            525,
+            1350
+          ],
+          [
+            1057,
+            1319
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            809,
+            864
+          ],
+          [
+            947,
+            736
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          448,
+          400,
+          1114,
+          1365
+        ],
+        "sha256": "f8a7dfe1bfd163b7186d810a12cd8fd4816de2fcdd509fafda28155f8905828f",
+        "registered_output_upscaled": false
+      },
+      "heavy-windup": {
+        "source": "raw/monk/heavy-windup.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          11,
+          13,
+          1526,
+          1004
+        ],
+        "source_head_span_px": 185.11,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.691489,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          1043.6923076923076,
+          945.2307692307693
+        ],
+        "offset": [
+          46,
+          696
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            441,
+            1350
+          ],
+          [
+            1040,
+            1309
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            531,
+            813
+          ],
+          [
+            931,
+            859
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          46,
+          696,
+          1108,
+          1394
+        ],
+        "sha256": "f7cf9a58f98e6081cf5164dd9ac5cf0e5cf679e08450b49b983cfb6886cfff65",
+        "registered_output_upscaled": false
+      },
+      "heavy-active": {
+        "source": "raw/monk/heavy-active.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          45,
+          64,
+          1499,
+          975
+        ],
+        "source_head_span_px": 185.11,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.691489,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          531.6923076923077,
+          925.5384615384615
+        ],
+        "offset": [
+          400,
+          710
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            482,
+            1350
+          ],
+          [
+            1176,
+            1328
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            536,
+            996
+          ],
+          [
+            1054,
+            996
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          428,
+          724,
+          1439,
+          1418
+        ],
+        "sha256": "752cf1a0dc0fe9c9f5c0a9fb51ecde0a77b20e24cb80bfdad6e3521e7b58235c",
+        "registered_output_upscaled": false
+      },
+      "heavy-recover": {
+        "source": "raw/monk/heavy-recover.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          17,
+          161,
+          1014,
+          1411
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          551.3846153846154,
+          1378.4615384615386
+        ],
+        "offset": [
+          410,
+          454
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            507,
+            1286
+          ],
+          [
+            935,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            512,
+            779
+          ],
+          [
+            653,
+            861
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          419,
+          499,
+          1075,
+          1452
+        ],
+        "sha256": "1475163e5f75584f55e1e6cdd2954088b0d4197323ff2eaeaeda08b99991cf92",
+        "registered_output_upscaled": false
+      },
+      "hurt": {
+        "source": "raw/monk/hurt.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          18,
+          16,
+          1013,
+          1489
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1457.2307692307693
+        ],
+        "offset": [
+          435,
+          403
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            537,
+            1350
+          ],
+          [
+            998,
+            1291
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            793,
+            869
+          ],
+          [
+            891,
+            769
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          443,
+          410,
+          1100,
+          1401
+        ],
+        "sha256": "3d7030b40ae000aca7c5de9b81da2513cde484bf2ecfd174dbcbaddede01848a",
+        "registered_output_upscaled": false
+      },
+      "stunned": {
+        "source": "raw/monk/stunned.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          136,
+          11,
+          895,
+          1490
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          551.3846153846154,
+          1476.923076923077
+        ],
+        "offset": [
+          410,
+          390
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            497,
+            1350
+          ],
+          [
+            983,
+            1299
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            853,
+            894
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          426,
+          394,
+          1053,
+          1361
+        ],
+        "sha256": "1386511c047a66f168594d9b7d6386a079dad5debb7b108f6842e05f8279cd06",
+        "registered_output_upscaled": false
+      },
+      "stunned-02": {
+        "source": "raw/monk/stunned-02.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          129,
+          11,
+          895,
+          1491
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          551.3846153846154,
+          1476.923076923077
+        ],
+        "offset": [
+          410,
+          390
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            497,
+            1350
+          ],
+          [
+            983,
+            1299
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            853,
+            894
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          412,
+          391,
+          1057,
+          1366
+        ],
+        "sha256": "61b1c599a3d6122fcd79d1aee1ffa8879e1d1a2a4b89c1eab6ede43c3290a675",
+        "registered_output_upscaled": false
+      },
+      "launched": {
+        "source": "raw/monk/launched.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          21,
+          15,
+          1522,
+          937
+        ],
+        "source_head_span_px": 204.8,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.625,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          787.6923076923077,
+          1105.7230769230769
+        ],
+        "offset": [
+          276,
+          659
+        ],
+        "airborne_elevation_px": 120,
+        "feet_anchors": [
+          [
+            1174,
+            1004
+          ],
+          [
+            1174,
+            1230
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          276,
+          666,
+          1230,
+          1299
+        ],
+        "sha256": "b150656f0c283f5e62dd9fa2533649f28ffc14926c7ae7c61baf3ce0572a35a2",
+        "registered_output_upscaled": false
+      },
+      "down": {
+        "source": "raw/monk/down.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "source_visible_bbox_alpha128": [
+          17,
+          215,
+          1753,
+          754
+        ],
+        "source_head_span_px": 227.44,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.562796,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          864.2564102564103,
+          673.2102564102564
+        ],
+        "offset": [
+          282,
+          971
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            1216,
+            1296
+          ],
+          [
+            1204,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          282,
+          971,
+          1271,
+          1470
+        ],
+        "sha256": "49312438257a3486f02440cac9df08fcb3db742a1bbe68301ec24e66028e975d",
+        "registered_output_upscaled": false
+      },
+      "recover": {
+        "source": "raw/monk/recover.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          28,
+          10,
+          986,
+          1436
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          531.6923076923077,
+          1335.1384615384616
+        ],
+        "offset": [
+          422,
+          482
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            494,
+            1324
+          ],
+          [
+            990,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            1024,
+            869
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          422,
+          482,
+          1082,
+          1467
+        ],
+        "sha256": "9a3ff2fb36c4dd7e242fd0600b26390d4c3616cbc8eca6f64e2900b20d1d8c2b",
+        "registered_output_upscaled": false
+      },
+      "recover-02": {
+        "source": "raw/monk/recover-02.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          31,
+          7,
+          983,
+          1497
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          531.6923076923077,
+          1476.923076923077
+        ],
+        "offset": [
+          422,
+          390
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            542,
+            1350
+          ],
+          [
+            1003,
+            1299
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            883,
+            902
+          ],
+          [
+            985,
+            761
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          422,
+          390,
+          1074,
+          1368
+        ],
+        "sha256": "fbb4ffdbebf0dbe78094a63c664cc83b04374549dd765903d77fcb321c3b903e",
+        "registered_output_upscaled": false
+      },
+      "walk-01": {
+        "source": "raw/monk/walk-01.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          20,
+          14,
+          1018,
+          1458
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          512.0,
+          1476.923076923077
+        ],
+        "offset": [
+          435,
+          390
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            537,
+            1350
+          ],
+          [
+            1011,
+            1286
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            870,
+            915
+          ],
+          [
+            973,
+            748
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          445,
+          396,
+          1101,
+          1365
+        ],
+        "sha256": "8465d749f685f1f60efffb74dfc15408932cb306a8c7e2d63a0fa4ec269e421f",
+        "registered_output_upscaled": false
+      },
+      "walk-02": {
+        "source": "raw/monk/walk-02.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          30,
+          8,
+          1013,
+          1499
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          551.3846153846154,
+          1476.923076923077
+        ],
+        "offset": [
+          410,
+          390
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            653,
+            1350
+          ],
+          [
+            973,
+            1107
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            845,
+            915
+          ],
+          [
+            948,
+            748
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          410,
+          393,
+          1076,
+          1388
+        ],
+        "sha256": "859d62c4ac21371dfca7338317814ef1340476ac4bd8f6a535b0b52f6a03245c",
+        "registered_output_upscaled": false
+      },
+      "walk-03-ref": {
+        "source": "raw/monk/walk-03-ref.png",
+        "native_size": [
+          1536,
+          1024
+        ],
+        "source_visible_bbox_alpha128": [
+          315,
+          25,
+          1437,
+          990
+        ],
+        "source_head_span_px": 139.82,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.915493,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          748.3076923076923,
+          984.6153846153846
+        ],
+        "offset": [
+          83,
+          449
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            426,
+            1350
+          ],
+          [
+            1093,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            768,
+            936
+          ],
+          [
+            1020,
+            774
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          119,
+          464,
+          1427,
+          1386
+        ],
+        "sha256": "f62a5960d03f2a696ddde9d78fc80bb15fdfcc5ce0c0408e06384ff524fec819",
+        "registered_output_upscaled": false
+      },
+      "walk-04": {
+        "source": "raw/monk/walk-04.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          44,
+          8,
+          1002,
+          1507
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          551.3846153846154,
+          1476.923076923077
+        ],
+        "offset": [
+          410,
+          390
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            653,
+            1350
+          ],
+          [
+            973,
+            1107
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            845,
+            915
+          ],
+          [
+            948,
+            748
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          434,
+          392,
+          1065,
+          1376
+        ],
+        "sha256": "ee5dd65df48c9a77a50fd6efbd5bafa86731289f82fab29159b7d01fb1412176",
+        "registered_output_upscaled": false
+      },
+      "landing": {
+        "source": "raw/monk/landing.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          6,
+          270,
+          1017,
+          1388
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          630.1538461538462,
+          1378.4615384615386
+        ],
+        "offset": [
+          358,
+          454
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            985,
+            1207
+          ],
+          [
+            919,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          358,
+          465,
+          1024,
+          1433
+        ],
+        "sha256": "0b0b80f2f5c2ed872c25badf988a00e4aa8c7597ecfdec26990c710fc52fcbdf",
+        "registered_output_upscaled": false
+      },
+      "walk-old-contact-weaponfix": {
+        "source": "raw/monk/walk-old-contact-weaponfix.png",
+        "native_size": [
+          1443,
+          1090
+        ],
+        "source_visible_bbox_alpha128": [
+          337,
+          9,
+          1114,
+          1059
+        ],
+        "source_head_span_px": 118.4,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 1.081081,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          740.0,
+          1036.0
+        ],
+        "offset": [
+          -32,
+          230
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            408,
+            1350
+          ],
+          [
+            1088,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            808,
+            970
+          ],
+          [
+            928,
+            710
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          4,
+          231,
+          1504,
+          1408
+        ],
+        "sha256": "88218988033775576f7ed76fb535a21e6194278e196a7101fab7d746f5f55115",
+        "registered_output_upscaled": true
+      },
+      "walk-old-passing-reskin": {
+        "source": "raw/monk/walk-old-passing-reskin.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          46,
+          21,
+          999,
+          1487
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          551.3846153846154,
+          1476.923076923077
+        ],
+        "offset": [
+          410,
+          390
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            628,
+            1222
+          ],
+          [
+            768,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            794,
+            876
+          ],
+          [
+            922,
+            736
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          434,
+          401,
+          1066,
+          1372
+        ],
+        "sha256": "384884c5942aabbed026653af28c68c81eb1607c65a44a1600e2949f60308b9b",
+        "registered_output_upscaled": false
+      },
+      "walk-reskin-phase00": {
+        "source": "raw/monk/walk-reskin-phase00.png",
+        "native_size": [
+          1444,
+          1089
+        ],
+        "source_visible_bbox_alpha128": [
+          376,
+          8,
+          1112,
+          1051
+        ],
+        "source_head_span_px": 118.48,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 1.080332,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          740.5128205128206,
+          1036.7179487179487
+        ],
+        "offset": [
+          -32,
+          230
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            440,
+            1338
+          ],
+          [
+            1088,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            808,
+            970
+          ],
+          [
+            928,
+            710
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          4,
+          231,
+          1504,
+          1389
+        ],
+        "sha256": "095447c97e38ededead9c3624c965d813deebe01f4020b04f01c52a6924425c6",
+        "registered_output_upscaled": true
+      },
+      "walk-reskin-phase02": {
+        "source": "raw/monk/walk-reskin-phase02.png",
+        "native_size": [
+          1024,
+          1536
+        ],
+        "source_visible_bbox_alpha128": [
+          42,
+          21,
+          999,
+          1488
+        ],
+        "source_head_span_px": 196.92,
+        "head_span_measurement": "manual approximate crown-to-chin; hair/rotation can bias",
+        "scale": 0.65,
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "root_in_source": [
+          551.3846153846154,
+          1476.923076923077
+        ],
+        "offset": [
+          410,
+          390
+        ],
+        "airborne_elevation_px": 0,
+        "feet_anchors": [
+          [
+            615,
+            1222
+          ],
+          [
+            768,
+            1350
+          ]
+        ],
+        "weapon_grip_anchors": [
+          [
+            794,
+            876
+          ],
+          [
+            922,
+            736
+          ]
+        ],
+        "anchor_status": "manually estimated visible-foot and grip points; not collision-tested; walk anchors pending",
+        "output_bbox": [
+          410,
+          401,
+          1067,
+          1360
+        ],
+        "sha256": "1c387420c8a1b262a40acf993ccfd5812ef0f3e562fdf9a24c9de02fdb8afe87",
+        "registered_output_upscaled": false
+      },
+      "rig-walk/walk-00": {
+        "source": "rig/monk/source/",
+        "native_source_part_sizes": [
+          1024,
+          1536
+        ],
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "scale": 1.1078561917443408,
+        "scale_meaning": "single fixed character registration applied to all four rig phases; source parts rendered below native resolution",
+        "feet_anchors": {
+          "near": [
+            935.2,
+            1350.0
+          ],
+          "far": [
+            681.01,
+            1350.0
+          ]
+        },
+        "weapon_grip_anchors": [
+          [
+            928.64,
+            717.41
+          ],
+          [
+            883.66,
+            878.05
+          ]
+        ],
+        "sha256": "b01b51a997b54c4ab1ab9a9ff63aab91f9ecd0c03dfd1e7a0a22917679ad501b",
+        "root_visual_review": "accepted",
+        "user_final_approval": false
+      },
+      "rig-walk/walk-01": {
+        "source": "rig/monk/source/",
+        "native_source_part_sizes": [
+          1024,
+          1536
+        ],
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "scale": 1.1078561917443408,
+        "scale_meaning": "single fixed character registration applied to all four rig phases; source parts rendered below native resolution",
+        "feet_anchors": {
+          "near": [
+            813.33,
+            1350.0
+          ],
+          "far": [
+            705.38,
+            1244.75
+          ]
+        },
+        "weapon_grip_anchors": [
+          [
+            928.64,
+            717.41
+          ],
+          [
+            883.66,
+            878.05
+          ]
+        ],
+        "sha256": "2d70955872bff7632712047d3fa44d2fa8c6396bfe03e8c156849ab1a4d9c544",
+        "root_visual_review": "accepted",
+        "user_final_approval": false
+      },
+      "rig-walk/walk-02": {
+        "source": "rig/monk/source/",
+        "native_source_part_sizes": [
+          1024,
+          1536
+        ],
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "scale": 1.1078561917443408,
+        "scale_meaning": "single fixed character registration applied to all four rig phases; source parts rendered below native resolution",
+        "feet_anchors": {
+          "near": [
+            669.31,
+            1350.0
+          ],
+          "far": [
+            946.9,
+            1350.0
+          ]
+        },
+        "weapon_grip_anchors": [
+          [
+            928.64,
+            717.41
+          ],
+          [
+            883.66,
+            878.05
+          ]
+        ],
+        "sha256": "fb6926d4b9ba1919e690c378f98bbb7ab19db4412cf8835ee564276b42f50d41",
+        "root_visual_review": "accepted",
+        "user_final_approval": false
+      },
+      "rig-walk/walk-03": {
+        "source": "rig/monk/source/",
+        "native_source_part_sizes": [
+          1024,
+          1536
+        ],
+        "output_size": [
+          1536,
+          1536
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "scale": 1.1078561917443408,
+        "scale_meaning": "single fixed character registration applied to all four rig phases; source parts rendered below native resolution",
+        "feet_anchors": {
+          "near": [
+            693.69,
+            1244.75
+          ],
+          "far": [
+            825.03,
+            1350.0
+          ]
+        },
+        "weapon_grip_anchors": [
+          [
+            928.64,
+            717.41
+          ],
+          [
+            883.66,
+            878.05
+          ]
+        ],
+        "sha256": "b25f40e067e54ed0c4a9867654ae99570fd99336f41bc6d26da8a0a46eb7e143",
+        "root_visual_review": "accepted",
+        "user_final_approval": false
+      },
+      "walk-v7/walk-00": {
+        "phase": 0,
+        "source": "reskin-fullbody/monk-phase00.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 1.103448275862069,
+        "offset": [
+          -137,
+          412
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 116,
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            729.2,
+            894.2
+          ],
+          [
+            955.4,
+            792.7
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            431.3,
+            1349.9
+          ],
+          [
+            1054.7,
+            1349.9
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 160,
+        "events": [],
+        "sha256": "585b14a5592076b41fb31b087748686243ef397f54fe52eb640ca9b0488b04b6"
+      },
+      "walk-v7/walk-01": {
+        "phase": 1,
+        "source": "reskin-fullbody/monk-phase01.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 1.0666666666666667,
+        "offset": [
+          -160,
+          452
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 120,
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            746.7,
+            919.2
+          ],
+          [
+            922.7,
+            825.3
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            512.0,
+            1230.7
+          ],
+          [
+            821.3,
+            1350.1
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 170,
+        "events": [],
+        "sha256": "4e91eb29e13636f9a9b34e156f00894bb1ca7cfa61c6d5e213a294e32dc4670c"
+      },
+      "walk-v7/walk-02": {
+        "phase": 2,
+        "source": "reskin-fullbody/monk-phase02.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 1.1130434782608696,
+        "offset": [
+          -150,
+          408
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 115,
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            718.2,
+            900.0
+          ],
+          [
+            929.7,
+            797.6
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            623.6,
+            1248.3
+          ],
+          [
+            729.3,
+            1349.6
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 170,
+        "events": [],
+        "sha256": "595d3bed9ec6f2aa3345c2143eccea1e6e6dc67a17bcf180da898f197c1c722b"
+      },
+      "walk-v7/walk-03": {
+        "phase": 3,
+        "source": "reskin-fullbody/monk-phase03.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 1.0940170940170941,
+        "offset": [
+          -178,
+          441
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 117,
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            751.9,
+            927.8
+          ],
+          [
+            954.3,
+            823.9
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            423.7,
+            1350.1
+          ],
+          [
+            992.6,
+            1350.1
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 160,
+        "events": [],
+        "sha256": "5084f90c258b331ee90a486a5bcb5570abb7527b2ee87cab8edfc918607869ab"
+      },
+      "walk-v7/walk-04": {
+        "phase": 4,
+        "source": "reskin-fullbody/monk-phase04.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 1.0491803278688525,
+        "offset": [
+          -145,
+          455
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 122,
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            746.8,
+            932.4
+          ],
+          [
+            946.1,
+            822.2
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            526.5,
+            1247.1
+          ],
+          [
+            925.2,
+            1350.0
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 170,
+        "events": [],
+        "sha256": "6a87db0f7711c49ade40b686a9df4240a8bdf0312e3c2a039b594971d4139006"
+      },
+      "walk-v7/walk-05": {
+        "phase": 5,
+        "source": "reskin-fullbody/monk-phase05.png",
+        "native_size": [
+          1774,
+          887
+        ],
+        "scale": 1.1130434782608696,
+        "offset": [
+          -239,
+          405
+        ],
+        "root": [
+          768,
+          1350
+        ],
+        "head_span_native": 115,
+        "status": "user_approved_walk_style",
+        "weapon_grip_anchors": [
+          [
+            684.8,
+            911.4
+          ],
+          [
+            913.0,
+            794.6
+          ]
+        ],
+        "visible_foot_sole_anchors_screenleft_screenright": [
+          [
+            640.3,
+            1350.0
+          ],
+          [
+            757.2,
+            1267.6
+          ]
+        ],
+        "anchor_status": "manual approximate visible grip and sole estimates; not skeletal or collision validated",
+        "duration_ms": 170,
+        "events": [],
+        "sha256": "abb78433962c09e3dc1825eec558a4111c07d3a9d5d27827b9a336e9b8b45f63"
+      }
+    }
+  },
+  "clips": {
+    "militia": {
+      "idle": {
+        "frames": [
+          "idle"
+        ],
+        "durations_ms": [
+          1000
+        ],
+        "loop": true,
+        "status": "static_hold",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "hurt": {
+        "frames": [
+          "idle",
+          "hurt",
+          "stunned"
+        ],
+        "durations_ms": [
+          40,
+          110,
+          170
+        ],
+        "loop": false,
+        "status": "key_pose_transition_preview",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "stunned": {
+        "frames": [
+          "stunned",
+          "stunned-02",
+          "stunned"
+        ],
+        "durations_ms": [
+          220,
+          280,
+          220
+        ],
+        "loop": true,
+        "status": "two_pose_cycle",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "launched": {
+        "frames": [
+          "launched"
+        ],
+        "durations_ms": [
+          300
+        ],
+        "loop": false,
+        "status": "airborne_hold_runtime_physics_required",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "down": {
+        "frames": [
+          "launched",
+          "landing",
+          "down"
+        ],
+        "durations_ms": [
+          120,
+          130,
+          700
+        ],
+        "loop": false,
+        "status": "three_pose_landing_preview",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "recover": {
+        "frames": [
+          "down",
+          "recover",
+          "recover-02",
+          "idle"
+        ],
+        "durations_ms": [
+          150,
+          220,
+          180,
+          150
+        ],
+        "loop": false,
+        "status": "three_pose_rise_plus_down",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "walk": {
+        "frames": [
+          "walk-v7/walk-00",
+          "walk-v7/walk-01",
+          "walk-v7/walk-02",
+          "walk-v7/walk-03",
+          "walk-v7/walk-04",
+          "walk-v7/walk-05"
+        ],
+        "durations_ms": [
+          160,
+          170,
+          170,
+          160,
+          170,
+          170
+        ],
+        "loop": true,
+        "enabled": true,
+        "status": "user_approved_wholebody_six_phase_walk",
+        "review_status": "user_approved_style; runtime_not_tested",
+        "events": [],
+        "frame_manifest": "militia/walk-v7/manifest.json"
+      },
+      "attack": {
+        "frames": [
+          "idle",
+          "attack-windup",
+          "attack-impact",
+          "attack-recover",
+          "idle"
+        ],
+        "durations_ms": [
+          70,
+          190,
+          100,
+          180,
+          100
+        ],
+        "loop": false,
+        "status": "three_pose_attack_preview",
+        "events": [
+          {
+            "at_ms": 260,
+            "event": "s05.farmer.hoe_swing"
+          },
+          {
+            "window_ms": [
+              260,
+              360
+            ],
+            "event": "hitbox_active",
+            "impact_sfx": "s05.farmer.hoe_impact",
+            "condition": "confirmed_collision_only"
+          }
+        ],
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "grabbed": {
+        "frames": [
+          "grabbed"
+        ],
+        "durations_ms": [
+          500
+        ],
+        "loop": false,
+        "status": "victim_hold",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "thrown": {
+        "frames": [
+          "grabbed",
+          "launched"
+        ],
+        "durations_ms": [
+          100,
+          300
+        ],
+        "loop": false,
+        "status": "shares_launched_pose; runtime_trajectory_required",
+        "review_status": "present_for_final_comprehensive_review"
+      }
+    },
+    "monk": {
+      "idle": {
+        "frames": [
+          "idle"
+        ],
+        "durations_ms": [
+          1000
+        ],
+        "loop": true,
+        "status": "static_hold",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "hurt": {
+        "frames": [
+          "idle",
+          "hurt",
+          "stunned"
+        ],
+        "durations_ms": [
+          40,
+          110,
+          170
+        ],
+        "loop": false,
+        "status": "key_pose_transition_preview",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "stunned": {
+        "frames": [
+          "stunned",
+          "stunned-02",
+          "stunned"
+        ],
+        "durations_ms": [
+          220,
+          280,
+          220
+        ],
+        "loop": true,
+        "status": "two_pose_cycle",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "launched": {
+        "frames": [
+          "launched"
+        ],
+        "durations_ms": [
+          300
+        ],
+        "loop": false,
+        "status": "airborne_hold_runtime_physics_required",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "down": {
+        "frames": [
+          "launched",
+          "landing",
+          "down"
+        ],
+        "durations_ms": [
+          120,
+          130,
+          700
+        ],
+        "loop": false,
+        "status": "three_pose_landing_preview",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "recover": {
+        "frames": [
+          "down",
+          "recover",
+          "recover-02",
+          "idle"
+        ],
+        "durations_ms": [
+          150,
+          220,
+          180,
+          150
+        ],
+        "loop": false,
+        "status": "three_pose_rise_plus_down",
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "walk": {
+        "frames": [
+          "walk-v7/walk-00",
+          "walk-v7/walk-01",
+          "walk-v7/walk-02",
+          "walk-v7/walk-03",
+          "walk-v7/walk-04",
+          "walk-v7/walk-05"
+        ],
+        "durations_ms": [
+          160,
+          170,
+          170,
+          160,
+          170,
+          170
+        ],
+        "loop": true,
+        "enabled": true,
+        "status": "user_approved_wholebody_six_phase_walk",
+        "review_status": "user_approved_style; runtime_not_tested",
+        "events": [],
+        "frame_manifest": "monk/walk-v7/manifest.json"
+      },
+      "quick_attack": {
+        "frames": [
+          "idle",
+          "quick-windup",
+          "quick-active",
+          "quick-recover",
+          "idle"
+        ],
+        "durations_ms": [
+          40,
+          100,
+          70,
+          120,
+          70
+        ],
+        "loop": false,
+        "status": "three_pose_attack_preview",
+        "events": [
+          {
+            "at_ms": 140,
+            "event": "s05.monk.naginata_quick_swing"
+          },
+          {
+            "window_ms": [
+              140,
+              210
+            ],
+            "event": "hitbox_active",
+            "impact_sfx": "s05.monk.naginata_impact",
+            "condition": "confirmed_collision_only",
+            "effect": "normal_hit"
+          }
+        ],
+        "review_status": "present_for_final_comprehensive_review"
+      },
+      "heavy_attack": {
+        "frames": [
+          "idle",
+          "heavy-windup",
+          "heavy-active",
+          "heavy-recover",
+          "idle"
+        ],
+        "durations_ms": [
+          60,
+          240,
+          130,
+          220,
+          100
+        ],
+        "loop": false,
+        "status": "three_pose_attack_preview",
+        "events": [
+          {
+            "at_ms": 300,
+            "event": "s05.monk.naginata_heavy_sweep"
+          },
+          {
+            "window_ms": [
+              300,
+              430
+            ],
+            "event": "hitbox_active",
+            "impact_sfx": "s05.monk.naginata_impact",
+            "condition": "confirmed_collision_only",
+            "effect": "launch"
+          }
+        ],
+        "review_status": "present_for_final_comprehensive_review"
+      }
+    }
+  },
+  "empowered_monk": {
+    "body": "same exact normal monk frames",
+    "hp_multiplier": 1.5,
+    "speed_multiplier": 1.5,
+    "all_other_stats": "unchanged",
+    "body_scale": 1,
+    "optional_red_band": {
+      "adopted": false,
+      "reason": "not required; unresolved candidate excluded"
+    }
+  },
+  "fx": "no baked attack trails/stars/impact effects; independent FX layer not generated",
+  "known_blockers": [
+    "Runtime hitboxes, collisions and transitions not tested.",
+    "Per-frame grip/sole anchors are manually estimated; not skeletal verification."
+  ],
+  "rejected_walk_history": {
+    "militia": {
+      "frames": [
+        "rig-walk/walk-00",
+        "rig-walk/walk-01",
+        "rig-walk/walk-02",
+        "rig-walk/walk-03"
+      ],
+      "durations_ms": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "loop": true,
+      "enabled": false,
+      "status": "user_rejected",
+      "rig_manifest": "militia/rig-walk/manifest.json",
+      "events": [
+        {
+          "at_ms": 0,
+          "event": "footstep_contact",
+          "feet": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "at_ms": 220,
+          "event": "stance",
+          "foot": "near"
+        },
+        {
+          "at_ms": 440,
+          "event": "footstep_contact",
+          "feet": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "at_ms": 660,
+          "event": "stance",
+          "foot": "far"
+        }
+      ],
+      "review_status": "user_rejected_fixed_torso_gait"
+    },
+    "monk": {
+      "frames": [
+        "rig-walk/walk-00",
+        "rig-walk/walk-01",
+        "rig-walk/walk-02",
+        "rig-walk/walk-03"
+      ],
+      "durations_ms": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "loop": true,
+      "enabled": false,
+      "status": "user_rejected",
+      "rig_manifest": "monk/rig-walk/manifest.json",
+      "events": [
+        {
+          "at_ms": 0,
+          "event": "footstep_contact",
+          "feet": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "at_ms": 220,
+          "event": "stance",
+          "foot": "near"
+        },
+        {
+          "at_ms": 440,
+          "event": "footstep_contact",
+          "feet": [
+            "near",
+            "far"
+          ]
+        },
+        {
+          "at_ms": 660,
+          "event": "stance",
+          "foot": "far"
+        }
+      ],
+      "review_status": "user_rejected_fixed_torso_gait"
+    }
+  },
+  "gameplay_spec": {
+    "militia": {
+      "grabbable": true,
+      "throwable": true,
+      "fragile": true,
+      "attack_weapon": "hoe",
+      "waist_sword": "decorative_only"
+    },
+    "monk": {
+      "quick_attack": "fast_naginata_cut",
+      "heavy_attack": "long_naginata_sweep_launch",
+      "durable": true
+    },
+    "empowered_monk": {
+      "hp_multiplier": 1.5,
+      "speed_multiplier": 1.5,
+      "body_scale_multiplier": 1,
+      "all_other_stats": "same_as_normal",
+      "variant_layer": "none; optional red decoration not adopted"
+    }
+  },
+  "requested_states_present": true,
+  "weapon_calibration": {
+    "militia_actions": {
+      "attack-windup": {
+        "canonical_shaft_length_px": 434.7,
+        "blade_same_pixels_and_scale_as_idle": true,
+        "target_handle_end": [
+          695.1485247827593,
+          570.6750942674336
+        ],
+        "target_neck": [
+          358.15387657839364,
+          296.0868623972097
+        ],
+        "weapon_affine_scale": 1.0657894736842106,
+        "source_body_unchanged_except_old_weapon_mask": true,
+        "grips_retained_original_pixels": true,
+        "status": "pending visual QA"
+      },
+      "recover": {
+        "canonical_shaft_length_px": 434.7,
+        "blade_same_pixels_and_scale_as_idle": true,
+        "target_handle_end": [
+          512.1058153640865,
+          1102.8525236280802
+        ],
+        "target_neck": [
+          655.2838917156489,
+          692.4087047536012
+        ],
+        "weapon_affine_scale": 1.0657894736842106,
+        "source_body_unchanged_except_old_weapon_mask": true,
+        "grips_retained_original_pixels": true,
+        "status": "pending visual QA"
+      },
+      "attack-impact": {
+        "canonical_shaft_length_px": 434.7,
+        "blade_same_pixels_and_scale_as_idle": true,
+        "target_handle_end": [
+          885.1643279413744,
+          1107.3782025966518
+        ],
+        "target_neck": [
+          1256.0859410298808,
+          1334.0525217062948
+        ],
+        "weapon_affine_scale": 1.0657894736842106,
+        "source_body_unchanged_except_old_weapon_mask": true,
+        "grips_retained_original_pixels": true,
+        "status": "pending visual QA"
+      }
+    },
+    "projection_policy": "Preserve plausible perspective foreshortening and natural hand/ground contact. Stunned original grounded hoe and attack-recover original foot/hoe are retained after root direction; projected spans need not be identical.",
+    "closed_issues": [
+      "Walk torso resize no longer shrinks hoe; hoe independent layer.",
+      "Attack windup short hoe replaced.",
+      "Recover short hoe replaced.",
+      "Attack impact shares calibrated hoe."
+    ],
+    "runtime_collision_test": "not_performed",
+    "historical_v6_walk": {
+      "idle_shaft_reference_px": 434.7,
+      "idle_master_shaft_endpoints": [
+        [
+          300,
+          660
+        ],
+        [
+          870,
+          1225
+        ]
+      ],
+      "idle_master_registered_scale": 0.541667,
+      "blade_source": "original approved master exact pixels and identical physical scale",
+      "world_scale": 1.0657894736842106,
+      "shaft_source_top": [
+        50.0,
+        130.0
+      ],
+      "shaft_source_neck": [
+        800.0,
+        1030.0
+      ],
+      "shaft_scale_before_world": 0.3481465028575367,
+      "blade_scale_before_world": 0.25333333333333335,
+      "target_top_before_world": [
+        635.1381740728625,
+        900.3087676317441
+      ],
+      "target_neck_before_world": [
+        936.3417908630141,
+        1175.3207655705783
+      ],
+      "torso_scale": 0.46,
+      "torso_offset": [
+        529,
+        591
+      ],
+      "hand_positions_source": [
+        [
+          250,
+          690
+        ],
+        [
+          480,
+          900
+        ]
+      ],
+      "method": "original torso/hands retained; imagegen-restored cloth only in removed weapon corridor; independent rigid hoe shaft and blade calibrated to idle",
+      "status": "pending visual QA"
+    },
+    "v7_walk": "Whole-body image-rendered guard hold; stable visual dimensions reviewed in six-phase preview; not fixed isolated weapon layer or pixel-identical projection."
+  },
+  "remaining_polish": [
+    "Non-walk attack/hurt/down/recover retain sparse keypose timing from v6."
+  ],
+  "qa_report": "qa-v7.json",
+  "walk_rework": "completed; whole-body six-phase pose reskin approved by user thumbs-up on comparison, verified by parent",
+  "walk_review": {
+    "user_approval": "thumbs-up on v7 six-phase normal-speed comparison; parent verified current reaction",
+    "scope": "walking style shown in libfile_2e09423103ac81918050bdb65c08771e",
+    "runtime_acceptance": false
+  },
+  "historical_rig_walk": {
+    "militia": {
+      "manifest": "militia/rig-walk/manifest.json",
+      "near_far_anatomical_identity_preserved": true,
+      "opposite_contact_sign_swap": true,
+      "sole_contact_y_support": 1350,
+      "fixed_weapon_layer": true,
+      "native_source_parts": [
+        1024,
+        1536
+      ],
+      "review_status": {
+        "root_visual_review": "gait_order_and_body_weapon_proportions_accepted",
+        "user_final_approval": "not_received",
+        "cross_action_scale_review": "pending",
+        "runtime_test": "not_performed"
+      }
+    },
+    "monk": {
+      "manifest": "monk/rig-walk/manifest.json",
+      "near_far_anatomical_identity_preserved": true,
+      "opposite_contact_sign_swap": true,
+      "sole_contact_y_support": 1350,
+      "fixed_weapon_layer": true,
+      "native_source_parts": [
+        1024,
+        1536
+      ],
+      "review_status": {
+        "root_visual_review": "gait_order_and_body_weapon_proportions_accepted",
+        "user_final_approval": "not_received",
+        "cross_action_scale_review": "pending",
+        "runtime_test": "not_performed"
+      }
+    }
+  },
+  "historical_candidate_walk_v4": {
+    "militia": [
+      "walk-reskin-phase00",
+      "walk-reskin-phase02",
+      "walk-old-contact-weaponfix",
+      "walk-old-passing-weaponfix"
+    ],
+    "monk": [
+      "walk-reskin-phase00",
+      "walk-reskin-phase02",
+      "walk-old-contact-weaponfix",
+      "walk-old-passing-reskin"
+    ],
+    "status": "unverified alternating legs; not enabled",
+    "durations_ms": [
+      220,
+      220,
+      220,
+      220
+    ]
+  }
+}

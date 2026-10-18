@@ -1,0 +1,186 @@
+{
+  "pose_id": "stunned_02_sway_left",
+  "source": "sources/body_corrected/stunned_02_sway_left.png",
+  "original_source": "sources/body_original/stunned_02_sway_left.png",
+  "raw_dimensions": [
+    1086,
+    1448
+  ],
+  "raw_sha256": "09fec4445643f4ca5c62d6a7a2b64ec1479e39720334611f67cc0931cbef940b",
+  "edited_arms": true,
+  "head_ruler": {
+    "method": "manually inspected projected helmet crest to chin",
+    "raw_px": 240,
+    "raw_endpoints": [
+      [
+        663,
+        127
+      ],
+      [
+        663,
+        367
+      ]
+    ],
+    "canvas_px": 180
+  },
+  "raw_to_canvas_affine": [
+    0.75,
+    0,
+    370.0,
+    0,
+    0.75,
+    337.25
+  ],
+  "canvas_to_raw_affine": [
+    1.3333333333333333,
+    0,
+    -493.3333333333333,
+    0,
+    1.3333333333333333,
+    -449.6666666666667
+  ],
+  "uniform_scale": 0.75,
+  "source_upscaled": false,
+  "root_raw": [
+    600,
+    1417
+  ],
+  "root_canvas": [
+    820,
+    1400
+  ],
+  "root_world": [
+    0,
+    0
+  ],
+  "support": "two planted feet at different perspective depth",
+  "feet_raw": [
+    [
+      366,
+      1351
+    ],
+    [
+      923,
+      1417
+    ]
+  ],
+  "feet_canvas": [
+    [
+      644.5,
+      1350.5
+    ],
+    [
+      1062.25,
+      1400.0
+    ]
+  ],
+  "feet_world": [
+    [
+      -0.311231527093596,
+      0.0877832512315271
+    ],
+    [
+      0.4296059113300492,
+      0.0
+    ]
+  ],
+  "rear_grip_raw": [
+    501,
+    724
+  ],
+  "front_guide_raw": [
+    888,
+    477
+  ],
+  "rear_grip_canvas": [
+    745.75,
+    880.25
+  ],
+  "front_guide_canvas": [
+    1036.0,
+    695.0
+  ],
+  "head_ruler_canvas_endpoints": [
+    [
+      867.25,
+      432.5
+    ],
+    [
+      867.25,
+      612.5
+    ]
+  ],
+  "weapon": {
+    "source": "sources/weapon/spear_canonical_1160.png",
+    "state": "held_two_hands",
+    "length_px": 1160,
+    "length_world_units": 2.057142857142857,
+    "scale": [
+      1,
+      1
+    ],
+    "angle_degrees": -32.54776528837748,
+    "butt_canvas": [
+      530.6308885294923,
+      1017.5482442718744
+    ],
+    "tip_canvas": [
+      1508.4450315772544,
+      393.4653157633544
+    ],
+    "canonical_to_canvas_affine": [
+      0.8429432267653122,
+      0.5380025245763104,
+      502.9237585138123,
+      -0.5380025245763104,
+      0.8429432267653122,
+      974.1366680934608
+    ],
+    "canvas_to_canonical_affine": [
+      0.8429432267653122,
+      -0.5380025245763104,
+      100.15181089806572,
+      0.5380025245763104,
+      0.8429432267653122,
+      -1091.7161580629495
+    ],
+    "rear_grip_canonical_u": 255.2,
+    "front_guide_canonical_u": 599.5292392463933,
+    "front_guide_sliding_allowed": true,
+    "hand_axis_error_px": 0,
+    "placement_note": "Both grips lie exactly on the shaft axis; front hand may slide along shaft."
+  },
+  "layer_order": [
+    "body",
+    "weapon",
+    "hands_foreground"
+  ],
+  "rgba_path": "poses/stunned_02_sway_left/rgba.png",
+  "trimmed_rgba_path": "poses/stunned_02_sway_left/trimmed_rgba.png",
+  "trimmed_origin_canvas": [
+    513,
+    391
+  ],
+  "alpha_bbox_canvas": [
+    513,
+    391,
+    1510,
+    1402
+  ],
+  "visible_body_bbox_canvas": [
+    516,
+    433,
+    1111,
+    1400
+  ],
+  "qa": {
+    "source_opaque_edge_pixels": 0,
+    "final_any_alpha_edge_pixels": 0,
+    "removed_distant_alpha_noise_pixels": 8016,
+    "head_ruler_error_px": 0.0,
+    "weapon_length_error_px": 0.0,
+    "no_canvas_clipping": true,
+    "no_source_upscale": true,
+    "source_high_alpha_unclipped": true
+  }
+}

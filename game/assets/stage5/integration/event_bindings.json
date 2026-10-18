@@ -1,0 +1,70 @@
+{
+  "runtime_validated": false,
+  "kusei": {
+    "stomp": [
+      0.65,
+      1.55,
+      2.45,
+      3.35,
+      4.25
+    ],
+    "guard_enter_release": [
+      0.3,
+      2
+    ],
+    "triple_slash": [
+      0.45,
+      0.8,
+      1.05
+    ],
+    "summon_claps": [
+      1,
+      1.65
+    ]
+  },
+  "natsume": {
+    "sweep_wave": 0.74,
+    "ground_whoosh": 0.42,
+    "ground_wave": 0.52,
+    "diagonal_wave": 0.52
+  },
+  "hachiya": {
+    "rapid": [
+      0.41,
+      0.59,
+      0.75
+    ],
+    "return_whoosh": 0.58,
+    "return_tip_release_contact": 0.66,
+    "sweep_whoosh": 0.42,
+    "sweep_contact_window": [
+      0.51,
+      0.62
+    ],
+    "sweep_tip_follow": [
+      0.42,
+      0.62
+    ],
+    "sweep_fade_end": 0.68,
+    "run_footsteps": {
+      "cycle_ms": 640,
+      "anatomical_right_ms": 0,
+      "anatomical_left_ms": 320,
+      "mirror_does_not_swap_anatomical_labels": true
+    },
+    "walk_footsteps": {
+      "cycle_ms": 960,
+      "anatomical_left_ms": 0,
+      "anatomical_right_ms": 480,
+      "candidate_under_art_revision": true
+    }
+  },
+  "audio": "Base54+patch6=60uniqueSFX/21bindings;7voices. Downwhoosh reuses existing generic no-voice blade. Voice onsets/performance not all confirmed.",
+  "rules": [
+    "impact only actual collision",
+    "WAV/OGG alternatives",
+    "mixed-track or separate components,never both",
+    "retain natural sound tails",
+    "stationary FX tail adds no hit reach"
+  ]
+}

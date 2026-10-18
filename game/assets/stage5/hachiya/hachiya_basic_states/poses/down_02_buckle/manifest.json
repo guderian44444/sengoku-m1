@@ -1,0 +1,186 @@
+{
+  "pose_id": "down_02_buckle",
+  "source": "sources/body_original/down_02_buckle.png",
+  "original_source": "sources/body_original/down_02_buckle.png",
+  "raw_dimensions": [
+    1086,
+    1448
+  ],
+  "raw_sha256": "8b4b11cca94feaa3d16e5c1090588b045f402367e975c6de5b41a830a5526829",
+  "edited_arms": false,
+  "head_ruler": {
+    "method": "manually inspected projected helmet crest to chin",
+    "raw_px": 246,
+    "raw_endpoints": [
+      [
+        400,
+        234
+      ],
+      [
+        400,
+        480
+      ]
+    ],
+    "canvas_px": 180
+  },
+  "raw_to_canvas_affine": [
+    0.7317073170731707,
+    0,
+    406.5853658536586,
+    0,
+    0.7317073170731707,
+    422.43902439024396
+  ],
+  "canvas_to_raw_affine": [
+    1.3666666666666667,
+    0,
+    -555.6666666666667,
+    0,
+    1.3666666666666667,
+    -577.3333333333334
+  ],
+  "uniform_scale": 0.7317073170731707,
+  "source_upscaled": false,
+  "root_raw": [
+    565,
+    1336
+  ],
+  "root_canvas": [
+    820,
+    1400
+  ],
+  "root_world": [
+    0,
+    0
+  ],
+  "support": "one knee and lead sole",
+  "feet_raw": [
+    [
+      119,
+      1307
+    ],
+    [
+      831,
+      1336
+    ]
+  ],
+  "feet_canvas": [
+    [
+      493.6585365853659,
+      1378.7804878048782
+    ],
+    [
+      1014.6341463414634,
+      1400.0
+    ]
+  ],
+  "feet_world": [
+    [
+      -0.578733629700829,
+      0.037630662020905564
+    ],
+    [
+      0.3451640033641715,
+      0.0
+    ]
+  ],
+  "rear_grip_raw": [
+    613,
+    774
+  ],
+  "front_guide_raw": [
+    990,
+    673
+  ],
+  "rear_grip_canvas": [
+    855.1219512195122,
+    988.7804878048781
+  ],
+  "front_guide_canvas": [
+    1130.9756097560976,
+    914.8780487804879
+  ],
+  "head_ruler_canvas_endpoints": [
+    [
+      699.2682926829268,
+      593.6585365853659
+    ],
+    [
+      699.2682926829268,
+      773.6585365853659
+    ]
+  ],
+  "weapon": {
+    "source": "sources/weapon/spear_canonical_1160.png",
+    "state": "held_two_hands",
+    "length_px": 1160,
+    "length_world_units": 2.057142857142857,
+    "scale": [
+      1,
+      1
+    ],
+    "angle_degrees": -14.997611315478883,
+    "butt_canvas": [
+      608.6149268873455,
+      1054.8208311936019
+    ],
+    "tip_canvas": [
+      1729.1014011244672,
+      754.6374521539487
+    ],
+    "canonical_to_canvas_affine": [
+      0.9659366157216566,
+      0.2587787750341838,
+      595.2878199730851,
+      -0.2587787750341838,
+      0.9659366157216566,
+      1005.0750954839366
+    ],
+    "canvas_to_canonical_affine": [
+      0.9659366157216566,
+      -0.2587787750341838,
+      -314.9182001784261,
+      0.2587787750341838,
+      0.9659366157216566,
+      -1124.8866891232792
+    ],
+    "rear_grip_canonical_u": 255.2,
+    "front_guide_canonical_u": 540.781532004037,
+    "front_guide_sliding_allowed": true,
+    "hand_axis_error_px": 0,
+    "placement_note": "Both grips lie exactly on the shaft axis; front hand may slide along shaft."
+  },
+  "layer_order": [
+    "body",
+    "weapon",
+    "hands_foreground"
+  ],
+  "rgba_path": "poses/down_02_buckle/rgba.png",
+  "trimmed_rgba_path": "poses/down_02_buckle/trimmed_rgba.png",
+  "trimmed_origin_canvas": [
+    442,
+    589
+  ],
+  "alpha_bbox_canvas": [
+    442,
+    589,
+    1730,
+    1402
+  ],
+  "visible_body_bbox_canvas": [
+    445,
+    594,
+    1172,
+    1400
+  ],
+  "qa": {
+    "source_opaque_edge_pixels": 0,
+    "final_any_alpha_edge_pixels": 0,
+    "removed_distant_alpha_noise_pixels": 8047,
+    "head_ruler_error_px": 0.0,
+    "weapon_length_error_px": 0.0,
+    "no_canvas_clipping": true,
+    "no_source_upscale": true,
+    "source_high_alpha_unclipped": true
+  }
+}

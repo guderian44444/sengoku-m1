@@ -1,0 +1,128 @@
+{
+  "status": "DESIGN_PROPOSAL_NOT_RUNTIME",
+  "user_confirmed": {
+    "section_counts": [
+      2,
+      3,
+      2,
+      3,
+      2
+    ],
+    "boss_nodes": [
+      5,
+      10,
+      12
+    ],
+    "temple_batch_range": [
+      4,
+      6
+    ]
+  },
+  "proposed_defaults": {
+    "nodes": [
+      {
+        "node": 1,
+        "section": "寺町",
+        "boss": null,
+        "finite_batches": 2,
+        "units_per_batch": 6,
+        "kind": "farmer"
+      },
+      {
+        "node": 2,
+        "section": "寺町",
+        "boss": null,
+        "finite_batches": 2,
+        "units_per_batch": 7,
+        "kind": "farmer"
+      },
+      {
+        "node": 3,
+        "section": "糧倉",
+        "boss": null,
+        "finite_batches": 2,
+        "units_per_batch": 6,
+        "kind": "farmer"
+      },
+      {
+        "node": 4,
+        "section": "糧倉",
+        "boss": null,
+        "finite_batches": 2,
+        "units_per_batch": 7,
+        "kind": "farmer"
+      },
+      {
+        "node": 5,
+        "section": "糧倉",
+        "boss": "蜂屋",
+        "finite_batches": 2,
+        "units_per_batch": 8,
+        "kind": "farmer"
+      },
+      {
+        "node": 6,
+        "section": "山門回廊",
+        "boss": null,
+        "finite_batches": 2,
+        "units_per_batch": 4,
+        "kind": "monk"
+      },
+      {
+        "node": 7,
+        "section": "山門回廊",
+        "boss": null,
+        "finite_batches": 2,
+        "units_per_batch": 5,
+        "kind": "monk"
+      },
+      {
+        "node": 8,
+        "section": "鐘樓銀杏",
+        "boss": null,
+        "finite_batches": 2,
+        "units_per_batch": 4,
+        "kind": "monk"
+      },
+      {
+        "node": 9,
+        "section": "鐘樓銀杏",
+        "boss": null,
+        "finite_batches": 2,
+        "units_per_batch": 5,
+        "kind": "monk"
+      },
+      {
+        "node": 10,
+        "section": "鐘樓銀杏",
+        "boss": "夏目",
+        "finite_batches": 2,
+        "units_per_batch": 6,
+        "kind": "monk"
+      },
+      {
+        "node": 11,
+        "section": "本堂",
+        "boss": null,
+        "finite_batches": 2,
+        "units_per_batch": 4,
+        "kind": "monk"
+      },
+      {
+        "node": 12,
+        "section": "本堂",
+        "boss": "空誓",
+        "finite_batches": 2,
+        "units_per_batch": 4,
+        "kind": "monk"
+      }
+    ],
+    "kusei_farmer_pool": {
+      "target_active": 2,
+      "refill_delay_seconds": 2,
+      "separate_from_empowered_monks": true
+    },
+    "threshold_queue": "Each crossed70/40/10 enqueue once,serialize summon; two claps total4not8.",
+    "notice": "Stage5 initial tuning proposal; never claim stage4 waves were authorized for stage5."
+  }
+}
