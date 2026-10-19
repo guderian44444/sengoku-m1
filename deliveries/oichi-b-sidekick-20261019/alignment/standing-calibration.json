@@ -1,0 +1,47 @@
+{
+  "status": "applied to candidate metadata only; original pixels and approved 380-ruler candidate retained",
+  "reference": "combat-v33/light_1/00",
+  "reference_hair_to_sole_world": 152.22857142857143,
+  "B_head_landmarks": [
+    {
+      "pose": 0,
+      "head_roi_xyxy": [
+        80,
+        20,
+        240,
+        120
+      ],
+      "alpha_threshold": 128,
+      "head_top_px": 43,
+      "source_hair_to_sole_height_px": 405,
+      "estimated_head_landmark_uncertainty_source_px": 3
+    },
+    {
+      "pose": 7,
+      "head_roi_xyxy": [
+        100,
+        155,
+        300,
+        270
+      ],
+      "alpha_threshold": 128,
+      "head_top_px": 180,
+      "source_hair_to_sole_height_px": 398,
+      "estimated_head_landmark_uncertainty_source_px": 3
+    }
+  ],
+  "calibrated_common_ruler": 390.34722222222223,
+  "uniform_scale_relative_to_approved": 0.9734922611634941,
+  "paired_fx_ruler": 304.0599415204678,
+  "calibrated_standing_heights_world": [
+    153.55559508984166,
+    150.9015477673012
+  ],
+  "max_standing_height_relative_error": 0.008717310087173136,
+  "reference_sole_bottom_world": 4.0817460317460315,
+  "reference_anchor_ahead_of_sole_center_world": 2.363888888888889,
+  "origin_method": "frontmost support-sole center in the root-height band, plus existing light1 anchor offset; sole bottom offset also matches current light1",
+  "pixel_changes": false,
+  "runtime_transitions_tested": false,
+  "uncertainty": "Head ROI selection +/-3 source px; source-resolution sole measurement +/-1 px. Bodies retain pose variation; size match uses one common scale, never per-frame alpha bbox normalization."
+}

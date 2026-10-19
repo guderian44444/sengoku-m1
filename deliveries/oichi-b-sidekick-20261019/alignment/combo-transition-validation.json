@@ -1,0 +1,116 @@
+{
+  "scope": "static source-pixel comparison and deterministic registration geometry; no runtime integration",
+  "source_joins": {
+    "light1_end_equals_light2_start": true,
+    "light2_end_equals_old_light3_start": true,
+    "light2_end_equals_idle": true
+  },
+  "standing_max_relative_height_error": 0.008717310087173136,
+  "all_eight_forward_sole_offsets_match_reference": true,
+  "sole_alignment_both_facings": [
+    {
+      "pose": 0,
+      "sole_center_relative_world_right": -2.3638888888888943,
+      "sole_center_relative_world_left": 2.3638888888888943,
+      "sole_bottom_relative_world": 4.0817460317460315,
+      "anchor_delta_px": [
+        117.23471257716051,
+        -6.765528549382736
+      ]
+    },
+    {
+      "pose": 1,
+      "sole_center_relative_world_right": -2.3638888888888943,
+      "sole_center_relative_world_left": 2.3638888888888943,
+      "sole_bottom_relative_world": 4.0817460317460315,
+      "anchor_delta_px": [
+        4.734712577160508,
+        -7.765528549382736
+      ]
+    },
+    {
+      "pose": 2,
+      "sole_center_relative_world_right": -2.3638888888888943,
+      "sole_center_relative_world_left": 2.3638888888888943,
+      "sole_bottom_relative_world": 4.0817460317460315,
+      "anchor_delta_px": [
+        5.234712577160508,
+        -6.765528549382736
+      ]
+    },
+    {
+      "pose": 3,
+      "sole_center_relative_world_right": -2.3638888888888943,
+      "sole_center_relative_world_left": 2.3638888888888943,
+      "sole_bottom_relative_world": 4.0817460317460315,
+      "anchor_delta_px": [
+        3.234712577160508,
+        -6.765528549382736
+      ]
+    },
+    {
+      "pose": 4,
+      "sole_center_relative_world_right": -2.3638888888888943,
+      "sole_center_relative_world_left": 2.3638888888888943,
+      "sole_bottom_relative_world": 4.0817460317460315,
+      "anchor_delta_px": [
+        3.234712577160508,
+        -5.765528549382736
+      ]
+    },
+    {
+      "pose": 5,
+      "sole_center_relative_world_right": -2.3638888888888943,
+      "sole_center_relative_world_left": 2.3638888888888943,
+      "sole_bottom_relative_world": 4.0817460317460315,
+      "anchor_delta_px": [
+        6.734712577160508,
+        -6.765528549382736
+      ]
+    },
+    {
+      "pose": 6,
+      "sole_center_relative_world_right": -2.3638888888888943,
+      "sole_center_relative_world_left": 2.3638888888888943,
+      "sole_bottom_relative_world": 4.0817460317460315,
+      "anchor_delta_px": [
+        2.234712577160508,
+        -6.765528549382736
+      ]
+    },
+    {
+      "pose": 7,
+      "sole_center_relative_world_right": -2.3638888888888943,
+      "sole_center_relative_world_left": 2.3638888888888943,
+      "sole_bottom_relative_world": 4.0817460317460315,
+      "anchor_delta_px": [
+        104.23471257716051,
+        -5.76552854938268
+      ]
+    }
+  ],
+  "preserved_runtime_forward_steps": [
+    {
+      "tick": 0,
+      "cumulative_world_step": 0
+    },
+    {
+      "tick": 7,
+      "cumulative_world_step": 9
+    },
+    {
+      "tick": 8,
+      "cumulative_world_step": 30
+    },
+    {
+      "tick": 11,
+      "cumulative_world_step": 48
+    },
+    {
+      "tick": 14,
+      "cumulative_world_step": 54
+    }
+  ],
+  "natural_pose_motion": "Original source body pixels and their relative anatomical points are unchanged. Only the whole-frame ruler and support-foot anchor change; the original runtime root-step curve is separate and unchanged.",
+  "integration_pending": "Real input transitions, hit-stop, drawing order and collision regression remain for the recipient after wiring."
+}

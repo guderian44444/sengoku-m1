@@ -1,0 +1,680 @@
+{
+  "settings": {
+    "enabled": false,
+    "scope": "isolated preview only; not read by live game",
+    "fx_scale_xy": 1.0,
+    "fx_envelope_reference_scale": 1.5,
+    "new_fx_thickness_rule": "1.09 x actual hip-to-heel radius x 0.34",
+    "texture_source": "D:\\AI\\吞食戰國\\artifacts\\oichi-B-original-proportions-fx-20261019\\references\\approved-officer-arc.png",
+    "fx_thickness_scale": "dynamic from actual leg radius",
+    "fx_pivot": "registered heel endpoint; ribbon follows actual chamber-to-thrust trajectory",
+    "light3_only_reach_multiplier": 1.2,
+    "light3_only_depth_multiplier": 1.2,
+    "effective_base_reach": 215.28,
+    "effective_preview_reach": 258.336,
+    "effective_base_depth_half": 69.12,
+    "effective_preview_depth_half": 82.944,
+    "behind": 18,
+    "bow_world_length": 150,
+    "arrow_world_length": 0,
+    "bow_hands_sheet_px": [],
+    "arrow_hands_sheet_px": [],
+    "bow_angles_deg": []
+  },
+  "source_body_sha256": [
+    "e942432487c25a53267195b2c6bc30b498a1631e47d21f70e7bcdbfe0bfe1457",
+    "1de3cad37c2086c461eefe455d7394909c46cdd4bb18b72feb691322dc52dedd",
+    "23e91492febf46745dca59ac6f4188f9b4a9e1b9defcdb4b242a62d9996afa2a",
+    "484ee3455b3a7e6964bbf79986261531c3aa13a7925c05a4b7c53d21d11014bb",
+    "ce4fbc9dd70b8eed13b31348dd5e625e992b3d7a035cc2cdf403af50cc7033a1",
+    "cd04a7fc4fe9eb7e633cfefea07b9e4e0d5f71e9a431568de42b3889743619a5",
+    "38d875c846af9a165497a69f30f0c7a8b99d894100cc9ae45a60c07ac63fed4c",
+    "6ac8af32a4fe3d539da1de1e3194de8e0f78ff847f2feeeb35a04dedef3c3797"
+  ],
+  "generated_full_poses_unwarped": true,
+  "body_correction_status": "blocked by image service; old B pixels retained",
+  "white_underlayer_status": "not yet corrected",
+  "delivery_scope": "FX-only preview, not a complete revised B",
+  "generation_source": "D:\\AI\\吞食戰國\\artifacts\\oichi-kick-comparison-20261019\\B\\generated-turning-side-kick.png",
+  "fx_metrics": {
+    "hip_to_heel_radius_px": 238.1184900230528,
+    "ribbon_width_px": 88.24671240254338,
+    "previous_ribbon_width_px": 27,
+    "thickness_ratio_to_previous": 3.268396755649755,
+    "forward_impact_length_px": 100.00976580968218
+  },
+  "pose_registration": {
+    "source_sheet": "D:\\AI\\吞食戰國\\artifacts\\oichi-kick-comparison-20261019\\B\\generated-turning-side-kick.png",
+    "source_sha256": "8565401488b18e57cb6b4da17eb7243d045baebcba9d0c9a51b8776463008d0e",
+    "body_ruler_px": 380,
+    "transforms": "crop and original-alpha separation only; one common uniform scale in preview, no limb deformation or image rotation",
+    "bow": "held in every newly generated complete pose; no arrow",
+    "poses": [
+      {
+        "pose": 0,
+        "label": "起步轉身",
+        "sheet_rect_xyxy": [
+          33,
+          0,
+          476,
+          508
+        ],
+        "root_in_sheet": [
+          200,
+          444
+        ],
+        "toe_in_sheet": [
+          350,
+          435
+        ],
+        "contact_point_kind": "heel",
+        "root_in_crop": [
+          167,
+          444
+        ],
+        "toe_in_crop": [
+          317,
+          435
+        ],
+        "body_ruler_px": 380,
+        "ticks": 2,
+        "duration_ms": 33.333333333333336,
+        "file": "poses/00.png",
+        "sha256": "e942432487c25a53267195b2c6bc30b498a1631e47d21f70e7bcdbfe0bfe1457",
+        "hip_in_sheet": [
+          200,
+          444
+        ]
+      },
+      {
+        "pose": 1,
+        "label": "背向轉髖",
+        "sheet_rect_xyxy": [
+          471,
+          0,
+          917,
+          466
+        ],
+        "root_in_sheet": [
+          718,
+          444
+        ],
+        "toe_in_sheet": [
+          697,
+          424
+        ],
+        "contact_point_kind": "heel",
+        "root_in_crop": [
+          247,
+          444
+        ],
+        "toe_in_crop": [
+          226,
+          424
+        ],
+        "body_ruler_px": 380,
+        "ticks": 2,
+        "duration_ms": 33.333333333333336,
+        "file": "poses/01.png",
+        "sha256": "1de3cad37c2086c461eefe455d7394909c46cdd4bb18b72feb691322dc52dedd",
+        "hip_in_sheet": [
+          718,
+          444
+        ]
+      },
+      {
+        "pose": 2,
+        "label": "側向提膝",
+        "sheet_rect_xyxy": [
+          878,
+          0,
+          1296,
+          466
+        ],
+        "root_in_sheet": [
+          1127,
+          444
+        ],
+        "toe_in_sheet": [
+          1204,
+          315
+        ],
+        "contact_point_kind": "heel",
+        "root_in_crop": [
+          249,
+          444
+        ],
+        "toe_in_crop": [
+          326,
+          315
+        ],
+        "body_ruler_px": 380,
+        "ticks": 2,
+        "duration_ms": 33.333333333333336,
+        "file": "poses/02.png",
+        "sha256": "23e91492febf46745dca59ac6f4188f9b4a9e1b9defcdb4b242a62d9996afa2a",
+        "hip_in_sheet": [
+          1127,
+          444
+        ]
+      },
+      {
+        "pose": 3,
+        "label": "腳跟蹬出",
+        "sheet_rect_xyxy": [
+          1267,
+          0,
+          1742,
+          452
+        ],
+        "root_in_sheet": [
+          1512,
+          444
+        ],
+        "toe_in_sheet": [
+          1726,
+          170
+        ],
+        "contact_point_kind": "heel",
+        "root_in_crop": [
+          245,
+          444
+        ],
+        "toe_in_crop": [
+          459,
+          170
+        ],
+        "body_ruler_px": 380,
+        "ticks": 2,
+        "duration_ms": 33.333333333333336,
+        "file": "poses/03.png",
+        "sha256": "484ee3455b3a7e6964bbf79986261531c3aa13a7925c05a4b7c53d21d11014bb",
+        "hip_in_sheet": [
+          1515,
+          280
+        ]
+      },
+      {
+        "pose": 4,
+        "label": "高位側踢命中",
+        "sheet_rect_xyxy": [
+          0,
+          406,
+          548,
+          887
+        ],
+        "root_in_sheet": [
+          232,
+          871
+        ],
+        "toe_in_sheet": [
+          533,
+          566
+        ],
+        "contact_point_kind": "heel",
+        "root_in_crop": [
+          232,
+          465
+        ],
+        "toe_in_crop": [
+          533,
+          160
+        ],
+        "body_ruler_px": 380,
+        "ticks": 4,
+        "duration_ms": 66.66666666666667,
+        "file": "poses/04.png",
+        "sha256": "ce4fbc9dd70b8eed13b31348dd5e625e992b3d7a035cc2cdf403af50cc7033a1",
+        "hip_in_sheet": [
+          251,
+          684
+        ]
+      },
+      {
+        "pose": 5,
+        "label": "屈膝收回",
+        "sheet_rect_xyxy": [
+          475,
+          389,
+          925,
+          887
+        ],
+        "root_in_sheet": [
+          738,
+          871
+        ],
+        "toe_in_sheet": [
+          828,
+          741
+        ],
+        "contact_point_kind": "heel",
+        "root_in_crop": [
+          263,
+          482
+        ],
+        "toe_in_crop": [
+          353,
+          352
+        ],
+        "body_ruler_px": 380,
+        "ticks": 4,
+        "duration_ms": 66.66666666666667,
+        "file": "poses/05.png",
+        "sha256": "cd04a7fc4fe9eb7e633cfefea07b9e4e0d5f71e9a431568de42b3889743619a5",
+        "hip_in_sheet": [
+          738,
+          871
+        ]
+      },
+      {
+        "pose": 6,
+        "label": "落腿轉回",
+        "sheet_rect_xyxy": [
+          882,
+          372,
+          1357,
+          887
+        ],
+        "root_in_sheet": [
+          1099,
+          871
+        ],
+        "toe_in_sheet": [
+          1174,
+          804
+        ],
+        "contact_point_kind": "heel",
+        "root_in_crop": [
+          217,
+          499
+        ],
+        "toe_in_crop": [
+          292,
+          432
+        ],
+        "body_ruler_px": 380,
+        "ticks": 4,
+        "duration_ms": 66.66666666666667,
+        "file": "poses/06.png",
+        "sha256": "38d875c846af9a165497a69f30f0c7a8b99d894100cc9ae45a60c07ac63fed4c",
+        "hip_in_sheet": [
+          1099,
+          871
+        ]
+      },
+      {
+        "pose": 7,
+        "label": "持弓架勢",
+        "sheet_rect_xyxy": [
+          1283,
+          299,
+          1760,
+          887
+        ],
+        "root_in_sheet": [
+          1538,
+          872
+        ],
+        "toe_in_sheet": [
+          1696,
+          867
+        ],
+        "contact_point_kind": "heel",
+        "root_in_crop": [
+          255,
+          573
+        ],
+        "toe_in_crop": [
+          413,
+          568
+        ],
+        "body_ruler_px": 380,
+        "ticks": 5,
+        "duration_ms": 83.33333333333333,
+        "file": "poses/07.png",
+        "sha256": "6ac8af32a4fe3d539da1de1e3194de8e0f78ff847f2feeeb35a04dedef3c3797",
+        "hip_in_sheet": [
+          1538,
+          872
+        ]
+      }
+    ],
+    "body_correction_status": "BLOCKED: image generator rejected two attempts; these are unchanged approved B poses, NOT corrected anatomy or costume"
+  },
+  "bow_source": "generated complete-pose equipment based on game/assets/v22/weapons/bow_azusa.png",
+  "arrow_rendering": "none; no arrow generated or drawn",
+  "equipment_layer": "complete generated body and held bow, unchanged pixels; no carried arrow",
+  "tick_hz": 60,
+  "capture_fps": 30,
+  "cycle_ms": 2000,
+  "hit_tick": 8,
+  "motion_end_tick": 25,
+  "head": "702b2f602a553a11469fd34a8337d055093844b8",
+  "branch": "main",
+  "runtime_before": {
+    "game/core/battle.gd": "fbc623df81bddc6c5c911899620c2ad49f36de1256bb8b7abd3451cfb2ef04b8",
+    "game/core/combat_moves.gd": "52e38d1b096abb4c9d5a7434ab0bc371a85e0c74ab7736a9e7dd3640d4559bb7",
+    "game/render/battle_view.gd": "8b10a04c3c24dd043ea136b14c2c4410baed5a37c17a414c11720d5219c5dd8b",
+    "game/render/weapon_renderer.gd": "1003990aec193be1738d1602e70e223718263571fbf9fc35c8fdac0beed2c808",
+    "game/assets/v33/oichi/registration.json": "501a98f5a25dc84d35b0b17cafbf573fd349c627de594aa061d85a395853c15f",
+    "game/assets/v22/weapons/bow_azusa.png": "fc91a03c6b763f2e675cc20046423ff3926a4556b777b40b0e5fbf1908bf3b79"
+  },
+  "runtime_after": {
+    "game/core/battle.gd": "fbc623df81bddc6c5c911899620c2ad49f36de1256bb8b7abd3451cfb2ef04b8",
+    "game/core/combat_moves.gd": "52e38d1b096abb4c9d5a7434ab0bc371a85e0c74ab7736a9e7dd3640d4559bb7",
+    "game/render/battle_view.gd": "8b10a04c3c24dd043ea136b14c2c4410baed5a37c17a414c11720d5219c5dd8b",
+    "game/render/weapon_renderer.gd": "1003990aec193be1738d1602e70e223718263571fbf9fc35c8fdac0beed2c808",
+    "game/assets/v33/oichi/registration.json": "501a98f5a25dc84d35b0b17cafbf573fd349c627de594aa061d85a395853c15f",
+    "game/assets/v22/weapons/bow_azusa.png": "fc91a03c6b763f2e675cc20046423ff3926a4556b777b40b0e5fbf1908bf3b79"
+  },
+  "tracked_status": "",
+  "tests": "D:\\AI\\吞食戰國\\artifacts\\oichi-high-kick-20261019\\preview-v2\\range-test-results.json",
+  "peak_launch_z": 36.75,
+  "capture_log": [
+    {
+      "capture_tick": 0,
+      "action_tick": -30,
+      "pose": 7
+    },
+    {
+      "capture_tick": 2,
+      "action_tick": -28,
+      "pose": 7
+    },
+    {
+      "capture_tick": 4,
+      "action_tick": -26,
+      "pose": 7
+    },
+    {
+      "capture_tick": 6,
+      "action_tick": -24,
+      "pose": 7
+    },
+    {
+      "capture_tick": 8,
+      "action_tick": -22,
+      "pose": 7
+    },
+    {
+      "capture_tick": 10,
+      "action_tick": -20,
+      "pose": 7
+    },
+    {
+      "capture_tick": 12,
+      "action_tick": -18,
+      "pose": 7
+    },
+    {
+      "capture_tick": 14,
+      "action_tick": -16,
+      "pose": 7
+    },
+    {
+      "capture_tick": 16,
+      "action_tick": -14,
+      "pose": 7
+    },
+    {
+      "capture_tick": 18,
+      "action_tick": -12,
+      "pose": 7
+    },
+    {
+      "capture_tick": 20,
+      "action_tick": -10,
+      "pose": 7
+    },
+    {
+      "capture_tick": 22,
+      "action_tick": -8,
+      "pose": 7
+    },
+    {
+      "capture_tick": 24,
+      "action_tick": -6,
+      "pose": 7
+    },
+    {
+      "capture_tick": 26,
+      "action_tick": -4,
+      "pose": 7
+    },
+    {
+      "capture_tick": 28,
+      "action_tick": -2,
+      "pose": 7
+    },
+    {
+      "capture_tick": 30,
+      "action_tick": 0,
+      "pose": 0
+    },
+    {
+      "capture_tick": 32,
+      "action_tick": 2,
+      "pose": 1
+    },
+    {
+      "capture_tick": 34,
+      "action_tick": 4,
+      "pose": 2
+    },
+    {
+      "capture_tick": 36,
+      "action_tick": 6,
+      "pose": 3
+    },
+    {
+      "capture_tick": 38,
+      "action_tick": 8,
+      "pose": 4
+    },
+    {
+      "capture_tick": 40,
+      "action_tick": 10,
+      "pose": 4
+    },
+    {
+      "capture_tick": 42,
+      "action_tick": 12,
+      "pose": 5
+    },
+    {
+      "capture_tick": 44,
+      "action_tick": 14,
+      "pose": 5
+    },
+    {
+      "capture_tick": 46,
+      "action_tick": 16,
+      "pose": 6
+    },
+    {
+      "capture_tick": 48,
+      "action_tick": 18,
+      "pose": 6
+    },
+    {
+      "capture_tick": 50,
+      "action_tick": 20,
+      "pose": 7
+    },
+    {
+      "capture_tick": 52,
+      "action_tick": 22,
+      "pose": 7
+    },
+    {
+      "capture_tick": 54,
+      "action_tick": 24,
+      "pose": 7
+    },
+    {
+      "capture_tick": 56,
+      "action_tick": 26,
+      "pose": 7
+    },
+    {
+      "capture_tick": 58,
+      "action_tick": 28,
+      "pose": 7
+    },
+    {
+      "capture_tick": 60,
+      "action_tick": 30,
+      "pose": 7
+    },
+    {
+      "capture_tick": 62,
+      "action_tick": 32,
+      "pose": 7
+    },
+    {
+      "capture_tick": 64,
+      "action_tick": 34,
+      "pose": 7
+    },
+    {
+      "capture_tick": 66,
+      "action_tick": 36,
+      "pose": 7
+    },
+    {
+      "capture_tick": 68,
+      "action_tick": 38,
+      "pose": 7
+    },
+    {
+      "capture_tick": 70,
+      "action_tick": 40,
+      "pose": 7
+    },
+    {
+      "capture_tick": 72,
+      "action_tick": 42,
+      "pose": 7
+    },
+    {
+      "capture_tick": 74,
+      "action_tick": 44,
+      "pose": 7
+    },
+    {
+      "capture_tick": 76,
+      "action_tick": 46,
+      "pose": 7
+    },
+    {
+      "capture_tick": 78,
+      "action_tick": 48,
+      "pose": 7
+    },
+    {
+      "capture_tick": 80,
+      "action_tick": 50,
+      "pose": 7
+    },
+    {
+      "capture_tick": 82,
+      "action_tick": 52,
+      "pose": 7
+    },
+    {
+      "capture_tick": 84,
+      "action_tick": 54,
+      "pose": 7
+    },
+    {
+      "capture_tick": 86,
+      "action_tick": 56,
+      "pose": 7
+    },
+    {
+      "capture_tick": 88,
+      "action_tick": 58,
+      "pose": 7
+    },
+    {
+      "capture_tick": 90,
+      "action_tick": 60,
+      "pose": 7
+    },
+    {
+      "capture_tick": 92,
+      "action_tick": 62,
+      "pose": 7
+    },
+    {
+      "capture_tick": 94,
+      "action_tick": 64,
+      "pose": 7
+    },
+    {
+      "capture_tick": 96,
+      "action_tick": 66,
+      "pose": 7
+    },
+    {
+      "capture_tick": 98,
+      "action_tick": 68,
+      "pose": 7
+    },
+    {
+      "capture_tick": 100,
+      "action_tick": 70,
+      "pose": 7
+    },
+    {
+      "capture_tick": 102,
+      "action_tick": 72,
+      "pose": 7
+    },
+    {
+      "capture_tick": 104,
+      "action_tick": 74,
+      "pose": 7
+    },
+    {
+      "capture_tick": 106,
+      "action_tick": 76,
+      "pose": 7
+    },
+    {
+      "capture_tick": 108,
+      "action_tick": 78,
+      "pose": 7
+    },
+    {
+      "capture_tick": 110,
+      "action_tick": 80,
+      "pose": 7
+    },
+    {
+      "capture_tick": 112,
+      "action_tick": 82,
+      "pose": 7
+    },
+    {
+      "capture_tick": 114,
+      "action_tick": 84,
+      "pose": 7
+    },
+    {
+      "capture_tick": 116,
+      "action_tick": 86,
+      "pose": 7
+    },
+    {
+      "capture_tick": 118,
+      "action_tick": 88,
+      "pose": 7
+    }
+  ],
+  "gif": {
+    "path": "D:\\AI\\吞食戰國\\artifacts\\oichi-B-original-proportions-fx-20261019\\oichi-B-fx-only-body-and-white-costume-pending-normal-speed.gif",
+    "size": 2960492,
+    "sha256": "e820d44ed168e1e7ce32661a7dc328e283a87c70f174f81b0fd9918571d594e0"
+  }
+}
