@@ -1,0 +1,260 @@
+{
+  "version": 1,
+  "character": "Asakura Kagetsune / 朝倉景恒",
+  "generated_at": "2026-10-22",
+  "tool": "built-in image_gen.imagegen",
+  "mode": "identity-preserving edit",
+  "reference": "game/assets/stages07-10/actors/kagetsune.png",
+  "requested_canvas": "Highest available landscape resolution; prompt target 3840x2160",
+  "actual_canvas": [
+    1672,
+    941
+  ],
+  "alpha": "RGBA, alpha range 0–255; original generated alpha preserved without pixel editing",
+  "layout": "Eight independent cels in four columns and two rows, read left to right then top to bottom",
+  "integration_note": "Use individual silhouette bounds, not equal-grid crop. Full thrusts extend past nominal quarter-grid lines but remain separated from adjacent characters. Pixel-tight bounds are inspection data, not runtime anchors; allow a few transparent pixels of crop padding. No meta or renderer changed by this asset task.",
+  "validation": "All four images visually reviewed and read-only alpha/component checked: exactly eight connected foreground components larger than 300 pixels at alpha >32; each contains one complete character. All PNG copies byte-identical to selected generation.",
+  "clips": {
+    "walk": {
+      "path": "game/assets/stages07-10/actors/kagetsune-walk.png",
+      "selected_generation": "C:\\Users\\guder\\.codex\\generated_images\\01a16313-95d9-78e0-9ac1-47b3a5240c60\\exec-9f94171d-5363-4971-9d3b-585ace3f503c.png",
+      "sha256": "74a41ac42014f83e34563379cc956228959e9efc4b0070f369822a199837d3a5",
+      "transparent_fraction": 0.8143,
+      "large_foreground_components": 8,
+      "cels_xywh": [
+        [
+          89,
+          129,
+          257,
+          302
+        ],
+        [
+          532,
+          129,
+          257,
+          302
+        ],
+        [
+          934,
+          129,
+          245,
+          302
+        ],
+        [
+          1327,
+          129,
+          263,
+          302
+        ],
+        [
+          101,
+          559,
+          260,
+          297
+        ],
+        [
+          530,
+          559,
+          258,
+          296
+        ],
+        [
+          939,
+          558,
+          238,
+          297
+        ],
+        [
+          1336,
+          558,
+          259,
+          298
+        ]
+      ],
+      "review": "Eight separate bodies; contact, lowered weight, passing and lifted-stride poses; same armor, shield and complete spear in all eight.",
+      "initial_prompt": "Use case: identity-preserve.\nAsset type: production sprite animation sheet for the existing Sengoku side-scrolling beat-em-up game. Reference image is the exact character identity and armor/weapon design reference, not an output layout to preserve. Create ONE new independent animation sheet of ASAKURA KAGETSUNE, the same Japanese adult male warrior seen in the reference: black iron lamellar and plate armor with narrow old-gold trim, charcoal padded trousers, deep forest-green waist wraps and hanging green skirt panels/scarf, black kabuto with small gold crest, armored shin guards and straw/leather sandals; right hand carries the same long straight dark wooden yari with narrow silver leaf-shaped spearhead and small green tassel, left forearm carries the same narrow tall rectangular dark wooden shield with antique brass edging and central round boss. Realistic finely painted 2.5D sprite art identical to the reference, anatomically correct, detailed metal, cloth and wood; no chibi, no pixel art, no generic 3D toy.\nOUTPUT: largest supported high-resolution wide LANDSCAPE canvas, target 3840x2160. Exactly EIGHT complete full-body character cels in a strict uniform 4-column x 2-row grid, reading left to right then top to bottom. Invisible grid, NO lines, no letters, numbers, labels, text or borders. TRUE transparent background, alpha zero outside the eight character silhouettes. No brown/gray background, no checkerboard, no ground, no cast shadows, no glow, no smoke, no VFX.\nEvery cel is separately centered in its own equal cell. Whole warrior INCLUDING BOTH FEET, BOTH HANDS, ENTIRE SHIELD, EVERY PART OF THE SPEAR must fit completely inside its cell. Large clear transparent gutters: no body, tassel, weapon or shield may touch or enter another cell. Keep body scale consistent across all 8 cels and fixed camera at right-facing three-quarter game angle. Keep virtual ground baseline identical within each row and planted foot contact believable. When extending the spear, leave enough width by keeping each full silhouette safely within 80% of its cell. Exactly one head, one torso, two arms, two legs, one shield and one complete spear per cel. Distinct anatomically continuous motion, not scaled/rotated copies of a standing pose.\nAnimation: an 8-frame LOOPING WALK CYCLE, warrior steadily walking toward screen-right in a guarded patrol stance; shield always on left forearm in front of torso, spear safely carried diagonally upward-right (not changing weapon length). Cel 1 left-foot contact forward/right foot back; cel 2 lower weight onto left foot, trailing right heel lifting; cel 3 right leg passes under hips, shield bobs subtly; cel 4 right knee swings forward and left heel lifts; cel 5 right-foot contact forward/left foot back, mirror gait phase of cel1 but SAME rightward facing identity; cel 6 settle onto right foot with trailing left heel lift; cel 7 left leg passes under hips; cel 8 left knee swings forward approaching cel1. Clear alternating leg positions and knee flexion, tiny natural shoulder/cloth follow-through, no attack, no running and no rigid sliding. Frames 1 through8 must form a smooth continuous gait loop, never turn to face the camera.",
+      "repair_prompt": "Use case: identity-preserve. EDIT the supplied animation sheet while preserving this same Asakura Kagetsune face, black and old-gold armor, green sashes, rectangular dark wood brass-edged shield and full dark-wood yari with silver leaf blade and green tassel, the same realistic painted style.\nRepair the production sprite layout. Exactly 8 isolated COMPLETE character cels in 4 columns x 2 rows, rightward-facing game camera, on TRUE TRANSPARENT alpha. Highest supported landscape resolution, target 3840x2160. Every cel must fit inside its own cell with large transparent space around it. Make the figures INTENTIONALLY SMALL on the canvas: head-to-feet BODY HEIGHT only 40% of the cell height, full silhouette INCLUDING weapons no more than 75% of cell width and 75% of cell height. This smaller scale is essential: the previous large poses ran spears through adjacent cels. Do NOT enlarge characters to fill the grid. Eight compact sprites with extensive empty transparent gutters is the intended final appearance. Keep identical body scale between poses and per-row foot baselines at 85% of cell height. No pixel or part of a sprite may cross a cell boundary or overlap another sprite. No labels, grid lines, background, smoke, glow, shadows or VFX.\nIn EVERY pose visibly retain BOTH hands, BOTH legs and feet, the ONE shield strapped to the LEFT forearm, and the COMPLETE long spear in the RIGHT hand. Never omit the spear during defense. A braced spear should angle upward/backward so its full shaft and blade remain visible above/beside the shield. Never omit the shield during a thrust; show it on the other forearm against the chest. Keep weapons anatomically attached and natural, no detached spare weapons.\nAlso REPAIR the gait: the current sheet mostly repeats one stride phase. Create an actual 8-step LOOP: 1 nearer LEFT leg fully forward in contact/far RIGHT back; 2 lower on left with right heel lifted; 3 RIGHT passing with both legs nearly aligned beneath hips and right knee visibly bent; 4 RIGHT swinging clearly forward while left toes push off; 5 far RIGHT leg fully forward in contact/near LEFT back, visibly opposite to frame1; 6 lower on right with left heel lifted; 7 LEFT passing with legs nearly aligned under hips and left knee bent; 8 LEFT swings forward toward pose1. Never flip the whole character or change facing. Spear carried diagonally upward-right, left-forearm shield forward; arms/cloth bob gently. The difference between LEFT-LEADING and RIGHT-LEADING strides must be unambiguous, not 8 copies of one same-leg stride."
+    },
+    "attack_a": {
+      "path": "game/assets/stages07-10/actors/kagetsune-attack_a.png",
+      "selected_generation": "C:\\Users\\guder\\.codex\\generated_images\\01a16313-95d9-78e0-9ac1-47b3a5240c60\\exec-b67857bf-9347-4df8-8a2d-86a6e83e5f58.png",
+      "sha256": "f500d813cf077f7276cbdad050d8b377064473971b5a22f8b9a68695aa6f9181",
+      "transparent_fraction": 0.8227,
+      "large_foreground_components": 8,
+      "cels_xywh": [
+        [
+          76,
+          230,
+          282,
+          263
+        ],
+        [
+          484,
+          276,
+          301,
+          218
+        ],
+        [
+          876,
+          187,
+          323,
+          307
+        ],
+        [
+          1323,
+          216,
+          296,
+          277
+        ],
+        [
+          44,
+          629,
+          356,
+          223
+        ],
+        [
+          439,
+          648,
+          461,
+          202
+        ],
+        [
+          923,
+          632,
+          324,
+          220
+        ],
+        [
+          1330,
+          605,
+          288,
+          247
+        ]
+      ],
+      "review": "Eight separate bodies; crouch, spear windup, shield-first stride, complete thrust and recovery. All shields and spear tips visible.",
+      "initial_prompt": "Use case: identity-preserve.\nAsset type: production sprite animation sheet for the existing Sengoku side-scrolling beat-em-up game. Reference image is the exact character identity and armor/weapon design reference, not an output layout to preserve. Create ONE new independent animation sheet of ASAKURA KAGETSUNE, the same Japanese adult male warrior seen in the reference: black iron lamellar and plate armor with narrow old-gold trim, charcoal padded trousers, deep forest-green waist wraps and hanging green skirt panels/scarf, black kabuto with small gold crest, armored shin guards and straw/leather sandals; right hand carries the same long straight dark wooden yari with narrow silver leaf-shaped spearhead and small green tassel, left forearm carries the same narrow tall rectangular dark wooden shield with antique brass edging and central round boss. Realistic finely painted 2.5D sprite art identical to the reference, anatomically correct, detailed metal, cloth and wood; no chibi, no pixel art, no generic 3D toy.\nOUTPUT: largest supported high-resolution wide LANDSCAPE canvas, target 3840x2160. Exactly EIGHT complete full-body character cels in a strict uniform 4-column x 2-row grid, reading left to right then top to bottom. Invisible grid, NO lines, no letters, numbers, labels, text or borders. TRUE transparent background, alpha zero outside the eight character silhouettes. No brown/gray background, no checkerboard, no ground, no cast shadows, no glow, no smoke, no VFX.\nEvery cel is separately centered in its own equal cell. Whole warrior INCLUDING BOTH FEET, BOTH HANDS, ENTIRE SHIELD, EVERY PART OF THE SPEAR must fit completely inside its cell. Large clear transparent gutters: no body, tassel, weapon or shield may touch or enter another cell. Keep body scale consistent across all 8 cels and fixed camera at right-facing three-quarter game angle. Keep virtual ground baseline identical within each row and planted foot contact believable. When extending the spear, leave enough width by keeping each full silhouette safely within 80% of its cell. Exactly one head, one torso, two arms, two legs, one shield and one complete spear per cel. Distinct anatomically continuous motion, not scaled/rotated copies of a standing pose.\nAnimation: SHIELD CHARGE INTO A STRAIGHT SPEAR THRUST, 8 sequential frames. Cel1 alert right-facing guard, feet shoulder-width, shield at chest, spear held low-ready; cel2 deep knee bend and torso drawn slightly back, shield raised; cel3 shield drives forward while spear retracts behind shoulder, rear leg coils; cel4 first explosive forward step, leading shield taking the impact, full legs visible; cel5 second committed long stride, low forward lean, shield firm and right arm beginning thrust; cel6 full spear extension straight toward screen-right from behind the shield, strongest forward lunge with rear leg straight and lead knee bent; cel7 spear retracting with elbows bending and torso absorbing momentum; cel8 recover balanced upright right-facing guard, both feet stable, spear back in ready position. All silhouettes remain isolated inside their cells; show real leg/torso/arm motion, no motion blur or VFX. The thrust contact is cel6.",
+      "repair_prompt": "Use case: identity-preserve. EDIT the supplied animation sheet while preserving this same Asakura Kagetsune face, black and old-gold armor, green sashes, rectangular dark wood brass-edged shield and full dark-wood yari with silver leaf blade and green tassel, the same realistic painted style.\nRepair the production sprite layout. Exactly 8 isolated COMPLETE character cels in 4 columns x 2 rows, rightward-facing game camera, on TRUE TRANSPARENT alpha. Highest supported landscape resolution, target 3840x2160. Every cel must fit inside its own cell with large transparent space around it. Make the figures INTENTIONALLY SMALL on the canvas: head-to-feet BODY HEIGHT only 40% of the cell height, full silhouette INCLUDING weapons no more than 75% of cell width and 75% of cell height. This smaller scale is essential: the previous large poses ran spears through adjacent cels. Do NOT enlarge characters to fill the grid. Eight compact sprites with extensive empty transparent gutters is the intended final appearance. Keep identical body scale between poses and per-row foot baselines at 85% of cell height. No pixel or part of a sprite may cross a cell boundary or overlap another sprite. No labels, grid lines, background, smoke, glow, shadows or VFX.\nIn EVERY pose visibly retain BOTH hands, BOTH legs and feet, the ONE shield strapped to the LEFT forearm, and the COMPLETE long spear in the RIGHT hand. Never omit the spear during defense. A braced spear should angle upward/backward so its full shaft and blade remain visible above/beside the shield. Never omit the shield during a thrust; show it on the other forearm against the chest. Keep weapons anatomically attached and natural, no detached spare weapons.\nMaintain the shield-charge attack sequence but make all weapons whole and isolated. 1 ready;2 crouch and raise shield;3 draw full spear backward at shoulder while keeping blade visibly angled upward;4 charge step with left shield driving forward and spear cocked;5 long forward stride beginning thrust;6 full straight RIGHTWARD spear thrust past shield, rear leg stretched, lead knee bent;7 pull spear back and settle;8 right-facing ready guard. Pose6 is the only maximum extension; its entire spear must stay within its own cell. No cropped/hidden spear in poses3-4."
+    },
+    "attack_b": {
+      "path": "game/assets/stages07-10/actors/kagetsune-attack_b.png",
+      "selected_generation": "C:\\Users\\guder\\.codex\\generated_images\\01a16313-95d9-78e0-9ac1-47b3a5240c60\\exec-b8521c84-9844-4ffc-b7ec-f2aea3949f1e.png",
+      "sha256": "19ffb2499f028eb4beb682f651dcd47b9b7194333ba430c12e4b8642bc801f23",
+      "transparent_fraction": 0.7618,
+      "large_foreground_components": 8,
+      "cels_xywh": [
+        [
+          45,
+          153,
+          341,
+          295
+        ],
+        [
+          482,
+          153,
+          317,
+          296
+        ],
+        [
+          885,
+          153,
+          361,
+          295
+        ],
+        [
+          1288,
+          151,
+          357,
+          298
+        ],
+        [
+          35,
+          569,
+          354,
+          279
+        ],
+        [
+          438,
+          580,
+          400,
+          267
+        ],
+        [
+          913,
+          578,
+          353,
+          271
+        ],
+        [
+          1314,
+          574,
+          331,
+          285
+        ]
+      ],
+      "review": "Eight separate bodies; look back, back-facing waist twist, unwind into spear thrust. Final targeted repair restored the shield in cel 6.",
+      "initial_prompt": "Use case: identity-preserve.\nAsset type: production sprite animation sheet for the existing Sengoku side-scrolling beat-em-up game. Reference image is the exact character identity and armor/weapon design reference, not an output layout to preserve. Create ONE new independent animation sheet of ASAKURA KAGETSUNE, the same Japanese adult male warrior seen in the reference: black iron lamellar and plate armor with narrow old-gold trim, charcoal padded trousers, deep forest-green waist wraps and hanging green skirt panels/scarf, black kabuto with small gold crest, armored shin guards and straw/leather sandals; right hand carries the same long straight dark wooden yari with narrow silver leaf-shaped spearhead and small green tassel, left forearm carries the same narrow tall rectangular dark wooden shield with antique brass edging and central round boss. Realistic finely painted 2.5D sprite art identical to the reference, anatomically correct, detailed metal, cloth and wood; no chibi, no pixel art, no generic 3D toy.\nOUTPUT: largest supported high-resolution wide LANDSCAPE canvas, target 3840x2160. Exactly EIGHT complete full-body character cels in a strict uniform 4-column x 2-row grid, reading left to right then top to bottom. Invisible grid, NO lines, no letters, numbers, labels, text or borders. TRUE transparent background, alpha zero outside the eight character silhouettes. No brown/gray background, no checkerboard, no ground, no cast shadows, no glow, no smoke, no VFX.\nEvery cel is separately centered in its own equal cell. Whole warrior INCLUDING BOTH FEET, BOTH HANDS, ENTIRE SHIELD, EVERY PART OF THE SPEAR must fit completely inside its cell. Large clear transparent gutters: no body, tassel, weapon or shield may touch or enter another cell. Keep body scale consistent across all 8 cels and fixed camera at right-facing three-quarter game angle. Keep virtual ground baseline identical within each row and planted foot contact believable. When extending the spear, leave enough width by keeping each full silhouette safely within 80% of its cell. Exactly one head, one torso, two arms, two legs, one shield and one complete spear per cel. Distinct anatomically continuous motion, not scaled/rotated copies of a standing pose.\nAnimation: DELAYED TURNING SPEAR COUNTERTHRUST / look back then whip the spear back toward the current front, 8 sequential frames. Character locomotion and final attack direction remain screen-right. Cel1 right-facing cautious low guard; cel2 knees bend, head sharply looks back over his LEFT shoulder while chest starts rotating away from viewer, shield close to flank; cel3 waist and shoulders wind farther backward, more armored back visible, spear pulled rearward diagonally but both feet stay grounded; cel4 deepest torsion, rearward glance held, left shield braced defensively; cel5 hips unwind forcefully toward screen-right, right elbow drives spear forward and shield swings back to cover chest; cel6 committed full straight spear thrust to SCREEN-RIGHT, rear foot pivoting and torso long, strongest contact pose; cel7 spear retracts while torso settles, shield maintained; cel8 returns to the initial right-facing guard. This must clearly show actual waist/shoulder rotation and rearward head turn before the thrust, not a normal standing spear attack and not image rotation. One shield remains on the left forearm and the right hand grips the same complete spear throughout. The contact is cel6.",
+      "repair_prompt": "Use case: identity-preserve. EDIT the supplied animation sheet while preserving this same Asakura Kagetsune face, black and old-gold armor, green sashes, rectangular dark wood brass-edged shield and full dark-wood yari with silver leaf blade and green tassel, the same realistic painted style.\nRepair the production sprite layout. Exactly 8 isolated COMPLETE character cels in 4 columns x 2 rows, rightward-facing game camera, on TRUE TRANSPARENT alpha. Highest supported landscape resolution, target 3840x2160. Every cel must fit inside its own cell with large transparent space around it. Make the figures INTENTIONALLY SMALL on the canvas: head-to-feet BODY HEIGHT only 40% of the cell height, full silhouette INCLUDING weapons no more than 75% of cell width and 75% of cell height. This smaller scale is essential: the previous large poses ran spears through adjacent cels. Do NOT enlarge characters to fill the grid. Eight compact sprites with extensive empty transparent gutters is the intended final appearance. Keep identical body scale between poses and per-row foot baselines at 85% of cell height. No pixel or part of a sprite may cross a cell boundary or overlap another sprite. No labels, grid lines, background, smoke, glow, shadows or VFX.\nIn EVERY pose visibly retain BOTH hands, BOTH legs and feet, the ONE shield strapped to the LEFT forearm, and the COMPLETE long spear in the RIGHT hand. Never omit the spear during defense. A braced spear should angle upward/backward so its full shaft and blade remain visible above/beside the shield. Never omit the shield during a thrust; show it on the other forearm against the chest. Keep weapons anatomically attached and natural, no detached spare weapons.\nMaintain the rearward-look/waist-turn attack and FIX THE MISSING SHIELD in the full-thrust cel6. 1 right-facing guard;2 head glances over left shoulder, torso starting to turn away;3 waist/shoulders wind backward, armor back visible and full spear retracted;4 maximum twist while BOTH shield and spear are visible;5 uncoil hips toward screen-right;6 right arm fully thrusts spear SCREEN-RIGHT while LEFT forearm visibly holds rectangular shield in front of chest, grounded pivoting stance;7 retract spear, shield remains;8 recover right-facing guard. Do not use a two-handed spear grip because the left hand is holding the shield. Full spear and full shield must both remain visible in all eight frames.",
+      "final_targeted_repair_prompt": "PRECISION EDIT OF SUPPLIED SPRITE SHEET. Preserve exactly the layout, realistic painted style, scale, body identity, black iron old-gold armor, green sash, poses, alpha background, and 8 separate full-body sprites in 4 columns by 2 rows. Change ONLY pose number 6 (bottom row second figure): restore his MISSING large narrow rectangular dark wood shield with brass edges and central round gold boss. Strap that shield VERTICALLY to his bent LEFT forearm, visibly covering the left side of his chest. His RIGHT hand alone holds and thrusts the full yari forward, right arm extended ABOVE the shield. Left hand must remain holding shield, never grab spear. Keep his torso twisted back-to-front and his legs in lunging stance. The restored shield must have the same size/design as the neighboring sprites' shields. The spear must remain whole with visible butt shaft and silver tip. Make this pose slightly more compact, with short perspective foreshortening of the full spear, so it fits its own cell and cannot extend towards the third figure. All other seven cels untouched. Exactly eight independent complete people. Do not add labels, glow, effects, shadows or background. True transparent alpha. Highest available landscape resolution, same aspect ratio."
+    },
+    "attack_c": {
+      "path": "game/assets/stages07-10/actors/kagetsune-attack_c.png",
+      "selected_generation": "C:\\Users\\guder\\.codex\\generated_images\\01a16313-95d9-78e0-9ac1-47b3a5240c60\\exec-bc02ce94-a36e-49f2-8335-e2f7a0625826.png",
+      "sha256": "7af68690ecf12027f7d24de72ece7a66f14f6b52ab108821a72cf70ad4e3fa5a",
+      "transparent_fraction": 0.7902,
+      "large_foreground_components": 8,
+      "cels_xywh": [
+        [
+          100,
+          199,
+          283,
+          283
+        ],
+        [
+          515,
+          161,
+          239,
+          320
+        ],
+        [
+          936,
+          167,
+          230,
+          313
+        ],
+        [
+          1329,
+          151,
+          243,
+          329
+        ],
+        [
+          100,
+          549,
+          248,
+          322
+        ],
+        [
+          481,
+          621,
+          439,
+          249
+        ],
+        [
+          925,
+          605,
+          309,
+          266
+        ],
+        [
+          1322,
+          592,
+          282,
+          279
+        ]
+      ],
+      "review": "Eight separate bodies; shield rises, stable braced guard, planted recoil, one-hand counterthrust and recovery. Complete spear stays visible in guard poses.",
+      "initial_prompt": "Use case: identity-preserve.\nAsset type: production sprite animation sheet for the existing Sengoku side-scrolling beat-em-up game. Reference image is the exact character identity and armor/weapon design reference, not an output layout to preserve. Create ONE new independent animation sheet of ASAKURA KAGETSUNE, the same Japanese adult male warrior seen in the reference: black iron lamellar and plate armor with narrow old-gold trim, charcoal padded trousers, deep forest-green waist wraps and hanging green skirt panels/scarf, black kabuto with small gold crest, armored shin guards and straw/leather sandals; right hand carries the same long straight dark wooden yari with narrow silver leaf-shaped spearhead and small green tassel, left forearm carries the same narrow tall rectangular dark wooden shield with antique brass edging and central round boss. Realistic finely painted 2.5D sprite art identical to the reference, anatomically correct, detailed metal, cloth and wood; no chibi, no pixel art, no generic 3D toy.\nOUTPUT: largest supported high-resolution wide LANDSCAPE canvas, target 3840x2160. Exactly EIGHT complete full-body character cels in a strict uniform 4-column x 2-row grid, reading left to right then top to bottom. Invisible grid, NO lines, no letters, numbers, labels, text or borders. TRUE transparent background, alpha zero outside the eight character silhouettes. No brown/gray background, no checkerboard, no ground, no cast shadows, no glow, no smoke, no VFX.\nEvery cel is separately centered in its own equal cell. Whole warrior INCLUDING BOTH FEET, BOTH HANDS, ENTIRE SHIELD, EVERY PART OF THE SPEAR must fit completely inside its cell. Large clear transparent gutters: no body, tassel, weapon or shield may touch or enter another cell. Keep body scale consistent across all 8 cels and fixed camera at right-facing three-quarter game angle. Keep virtual ground baseline identical within each row and planted foot contact believable. When extending the spear, leave enough width by keeping each full silhouette safely within 80% of its cell. Exactly one head, one torso, two arms, two legs, one shield and one complete spear per cel. Distinct anatomically continuous motion, not scaled/rotated copies of a standing pose.\nAnimation: STANDING SHIELD BRACE AND COUNTERTHRUST, 8 sequential frames. Cel1 right-facing guard, spear ready beside hip; cel2 left foot plants wider, knees compress, shield lifts directly in front of head and chest; cel3 shield tilts outward at a firm defensive angle and right spear elbow retracts; cel4 maximum braced defense, body low behind the shield with visible planted legs, top of helmet just visible; cel5 absorb imagined impact with slight recoil in shield/shoulder, feet stay planted and spear coils; cel6 right arm shoots the long spear straight to SCREEN-RIGHT past the shield edge while the left forearm still braces the shield, full counterthrust; cel7 retract spear to shoulder and relax knees; cel8 recover to balanced right-facing guard. Distinguish this stationary counterattack from the charging animation: no running stride, stable planted feet, clear compression-recoil-release. The defensive hold is cels3-5 and the contact is cel6.",
+      "repair_prompt": "Use case: identity-preserve. EDIT the supplied animation sheet while preserving this same Asakura Kagetsune face, black and old-gold armor, green sashes, rectangular dark wood brass-edged shield and full dark-wood yari with silver leaf blade and green tassel, the same realistic painted style.\nRepair the production sprite layout. Exactly 8 isolated COMPLETE character cels in 4 columns x 2 rows, rightward-facing game camera, on TRUE TRANSPARENT alpha. Highest supported landscape resolution, target 3840x2160. Every cel must fit inside its own cell with large transparent space around it. Make the figures INTENTIONALLY SMALL on the canvas: head-to-feet BODY HEIGHT only 40% of the cell height, full silhouette INCLUDING weapons no more than 75% of cell width and 75% of cell height. This smaller scale is essential: the previous large poses ran spears through adjacent cels. Do NOT enlarge characters to fill the grid. Eight compact sprites with extensive empty transparent gutters is the intended final appearance. Keep identical body scale between poses and per-row foot baselines at 85% of cell height. No pixel or part of a sprite may cross a cell boundary or overlap another sprite. No labels, grid lines, background, smoke, glow, shadows or VFX.\nIn EVERY pose visibly retain BOTH hands, BOTH legs and feet, the ONE shield strapped to the LEFT forearm, and the COMPLETE long spear in the RIGHT hand. Never omit the spear during defense. A braced spear should angle upward/backward so its full shaft and blade remain visible above/beside the shield. Never omit the shield during a thrust; show it on the other forearm against the chest. Keep weapons anatomically attached and natural, no detached spare weapons.\nMaintain the planted shield-brace/counterthrust attack but FIX THE MISSING SPEARS in cels4 and5. 1 ready guard;2 plant left foot and raise shield;3 lower into brace, full spear held backward/upward beside right shoulder;4 deep braced shield stance, same full spear visibly angled upward/backward in right hand with blade showing well above shoulder;5 absorb shield impact with subtle shoulder recoil, full spear still visible and coiled;6 full one-handed RIGHTWARD spear counterthrust past the edge of the left-forearm shield;7 retract spear;8 ready guard. Keep both feet planted through3-6. Shield must remain on left forearm and spear in right hand; no missing weapon, no detached weapon, no charging stride."
+    }
+  }
+}

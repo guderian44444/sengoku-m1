@@ -1,0 +1,587 @@
+{
+  "id": 8,
+  "title": "岐阜城門",
+  "faction": "saito",
+  "year": 1567,
+  "target_minutes": [
+    12,
+    20
+  ],
+  "historical_note": "戰鬥發生於稻葉山城攻略期間；關名沿用攻略後的岐阜。長井道利屬齋藤方，守門交戰與龍興親自出陣為遊戲演繹。",
+  "design_source": "docs/第一關與24關設計-v0.19.html",
+  "segments": [
+    {
+      "name": "稻葉山城外門",
+      "theme": "gate",
+      "weather": "clear",
+      "music": "s08_castle_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 1,
+          "end": 1400,
+          "objective": "gate",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 830,
+              "y": 390,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 1100,
+              "y": 475,
+              "hp": 200,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 470,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 300,
+          "hint": "箭雨每輪留一條安全道路；先打斷號令旗，再擊破城門。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 2,
+          "end": 2800,
+          "objective": "gate",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner"
+            ],
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 2230,
+              "y": 570,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 2500,
+              "y": 475,
+              "hp": 200,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1870,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 300,
+          "hint": "箭雨每輪留一條安全道路；先打斷號令旗，再擊破城門。"
+        }
+      ]
+    },
+    {
+      "name": "折角箭樓",
+      "theme": "switchback",
+      "weather": "clear",
+      "music": "s08_castle_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 3,
+          "end": 1400,
+          "objective": "gate",
+          "boss": "",
+          "waves": [
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 830,
+              "y": 390,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 1100,
+              "y": 475,
+              "hp": 230,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 470,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 285,
+          "hint": "箭樓號令交替封鎖上下路線，留意空出的道路。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 4,
+          "end": 2800,
+          "objective": "gate",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 2230,
+              "y": 570,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 2500,
+              "y": 475,
+              "hp": 230,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1870,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 285,
+          "hint": "箭樓號令交替封鎖上下路線，留意空出的道路。"
+        }
+      ]
+    },
+    {
+      "name": "長井守門陣",
+      "theme": "courtyard",
+      "weather": "clear",
+      "music": "s08_castle_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 5,
+          "end": 1400,
+          "objective": "gate",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "spear"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 830,
+              "y": 390,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 1100,
+              "y": 475,
+              "hp": 260,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 470,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 270,
+          "hint": "道利三連鐵砲鎖定起手位置；橫向換線避彈，火藥包落地後再爆。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 6,
+          "end": 2800,
+          "objective": "gate",
+          "boss": "nagai",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner"
+            ],
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 2230,
+              "y": 570,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 2500,
+              "y": 475,
+              "hp": 260,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1870,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 270,
+          "hint": "道利三連鐵砲鎖定起手位置；橫向換線避彈，火藥包落地後再爆。"
+        }
+      ]
+    },
+    {
+      "name": "二之丸內城",
+      "theme": "command",
+      "weather": "clear",
+      "music": "s08_castle_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 7,
+          "end": 1400,
+          "objective": "gate",
+          "boss": "",
+          "waves": [
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "spear"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 830,
+              "y": 390,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 1100,
+              "y": 475,
+              "hp": 290,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 470,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 255,
+          "hint": "先擊破號令旗停止箭樓射擊，再從城門缺口推進。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 8,
+          "end": 2800,
+          "objective": "gate",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "shield"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "shield"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 2230,
+              "y": 570,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 2500,
+              "y": 475,
+              "hp": 290,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1870,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 255,
+          "hint": "先擊破號令旗停止箭樓射擊，再從城門缺口推進。"
+        }
+      ]
+    },
+    {
+      "name": "本丸龍興陣",
+      "theme": "chamber",
+      "weather": "indoor",
+      "music": "s08_castle_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 9,
+          "end": 1400,
+          "objective": "gate",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "spear"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 830,
+              "y": 390,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 1100,
+              "y": 475,
+              "hp": 320,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 470,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 240,
+          "hint": "龍興拔刀衝刺後有停頓；號令箭雨改變安全道，架刀時可重擊或繞背。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 10,
+          "end": 2800,
+          "objective": "gate",
+          "boss": "tatsuoki",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner"
+            ],
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "signal",
+              "x": 2230,
+              "y": 570,
+              "hp": 110,
+              "mandatory": false
+            },
+            {
+              "asset": "gate",
+              "x": 2500,
+              "y": 475,
+              "hp": 320,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1870,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 240,
+          "hint": "龍興拔刀衝刺後有停頓；號令箭雨改變安全道，架刀時可重擊或繞背。"
+        }
+      ]
+    }
+  ]
+}

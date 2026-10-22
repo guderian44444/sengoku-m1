@@ -3,8 +3,9 @@ const Mikawa = preload("res://core/stage04_data.gd")
 const Ikki = preload("res://core/stage05_data.gd")
 
 const ROOT := "res://audio/peritune-campaign-v1/"
-const KEYS := ["s01_bamboo_approach","s01_outpost_battle","s01_matsui_boss","s02_supply_road_battle","s02_fort_battle","s02_sakuma_boss","s03_rain_approach","s03_camp_battle","s03_dual_miniboss","s03_yoshimoto_boss","victory_jingle","victory_loop"]
+const KEYS := ["s01_bamboo_approach","s01_outpost_battle","s01_matsui_boss","s02_supply_road_battle","s02_fort_battle","s02_sakuma_boss","s03_rain_approach","s03_camp_battle","s03_dual_miniboss","s03_yoshimoto_boss","victory_jingle","victory_loop","s07_mountain_approach","s08_castle_battle"]
 const BOSSES := {1:"s01_matsui_boss",2:"s02_sakuma_boss",3:"s03_yoshimoto_boss"}
+const EXPEDITION := {7:"s01_matsui_boss",8:"s08_castle_battle",9:"s03_camp_battle",10:"s02_sakuma_boss"}
 
 static func combat_near(world: Dictionary) -> bool:
 	for prop in world.get("props",[]):
@@ -17,6 +18,12 @@ static func combat_near(world: Dictionary) -> bool:
 
 static func select(world: Dictionary, previous: String) -> String:
 	var stage: Variant = world.get("stage",{})
+	if stage is Dictionary and int(stage.get("id",0)) in EXPEDITION:
+		if world.get("phase","") == "lost": return "silence"
+		if world.get("phase","") == "won": return "s07_mountain_approach"
+		var score: String = EXPEDITION[int(stage.id)]
+		if int(stage.id)==7 and int(stage.get("index",0))==0 and previous!=score and not combat_near(world): return "s07_mountain_approach"
+		return score
 	if stage is Dictionary and int(stage.get("id",0)) == 5:
 		if world.get("phase","") == "won" and previous=="victory_loop": return "victory_loop"
 		return Ikki.music(world)
@@ -37,6 +44,10 @@ static func select(world: Dictionary, previous: String) -> String:
 	return key
 
 static func gain(world: Dictionary, key: String) -> float:
+	if int(world.get("stage",{}).get("id",0)) in EXPEDITION:
+		if key=="s07_mountain_approach": return .45
+		var major: bool = world.get("fighters",[]).any(func(f):return f.get("team",0)==1 and f.get("hp",0)>0 and f.get("stage_boss",false))
+		return .65 if major else .52
 	var amount := .8 if key in ["s01_bamboo_approach","s03_rain_approach"] else 1.0
 	if key == "s03_camp_battle" and world.get("stage",{}).get("index",-1) == 0: amount = .85
 	if key == "s02_supply_road_battle": amount = .9 if combat_near(world) else .7
@@ -44,6 +55,7 @@ static func gain(world: Dictionary, key: String) -> float:
 	return .65 * amount
 
 static func fade_seconds(key: String) -> float:
+	if key=="s07_mountain_approach": return .35
 	if key == "victory_jingle": return .18
 	if key == "victory_loop" or key in BOSSES.values(): return .25
 	if key == "s03_dual_miniboss": return .3

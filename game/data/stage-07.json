@@ -1,0 +1,587 @@
+{
+  "id": 7,
+  "title": "美濃山道",
+  "faction": "saito",
+  "year": 1567,
+  "target_minutes": [
+    12,
+    20
+  ],
+  "historical_note": "依24關既定劇本保留稻葉一鐵為關底。氏家卜全與稻葉一鐵在1567年實際轉向織田；本關山道對決為歸附前的演繹試煉，並非史實敵對戰役。",
+  "design_source": "docs/第一關與24關設計-v0.19.html",
+  "segments": [
+    {
+      "name": "山麓竹徑",
+      "theme": "bamboo",
+      "weather": "mist",
+      "music": "s07_mountain_approach",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 1,
+          "end": 1400,
+          "objective": "rockfall",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "archer",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 820,
+              "y": 390,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 640,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 1050,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 330,
+          "hint": "落石紅圈會先示警；離開落點，打破山側支架停止落石。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 2,
+          "end": 2800,
+          "objective": "rockfall",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "archer",
+              "raider"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "archer"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 2220,
+              "y": 570,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 2040,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 2450,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 330,
+          "hint": "落石紅圈會先示警；離開落點，打破山側支架停止落石。"
+        }
+      ]
+    },
+    {
+      "name": "落石棧道",
+      "theme": "switchback",
+      "weather": "clear",
+      "music": "s01_matsui_boss",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 3,
+          "end": 1400,
+          "objective": "rockfall",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "archer"
+            ],
+            [
+              "archer",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 820,
+              "y": 390,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 640,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 1050,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 315,
+          "hint": "木柵分隔道路，擊破或從上下繞行，避免迎著長槍硬闖。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 4,
+          "end": 2800,
+          "objective": "rockfall",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 2220,
+              "y": 570,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 2040,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 2450,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 315,
+          "hint": "木柵分隔道路，擊破或從上下繞行，避免迎著長槍硬闖。"
+        }
+      ]
+    },
+    {
+      "name": "山寺岔口",
+      "theme": "courtyard",
+      "weather": "clear",
+      "music": "s01_matsui_boss",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 5,
+          "end": 1400,
+          "objective": "rockfall",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "spear"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "archer",
+              "raider",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 820,
+              "y": 390,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 640,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 1050,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 300,
+          "hint": "卜全的十文字槍有二連刺，第一刺後仍要避開槍線。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 6,
+          "end": 2800,
+          "objective": "rockfall",
+          "boss": "ujie",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "archer",
+              "raider"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "archer"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 2220,
+              "y": 570,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 2040,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 2450,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 300,
+          "hint": "卜全的十文字槍有二連刺，第一刺後仍要避開槍線。"
+        }
+      ]
+    },
+    {
+      "name": "峭壁木柵",
+      "theme": "ridge",
+      "weather": "mist",
+      "music": "s01_matsui_boss",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 7,
+          "end": 1400,
+          "objective": "rockfall",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "archer",
+              "spear"
+            ],
+            [
+              "archer",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 820,
+              "y": 390,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 640,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 1050,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 285,
+          "hint": "狹道兩側交替落石；先清支架，再對付持盾槍陣。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 8,
+          "end": 2800,
+          "objective": "rockfall",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "shield"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "shield"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 2220,
+              "y": 570,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 2040,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 2450,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 285,
+          "hint": "狹道兩側交替落石；先清支架，再對付持盾槍陣。"
+        }
+      ]
+    },
+    {
+      "name": "一鐵守隘",
+      "theme": "outpost",
+      "weather": "clear",
+      "music": "s01_matsui_boss",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 9,
+          "end": 1400,
+          "objective": "rockfall",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "spear"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "archer",
+              "raider",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 820,
+              "y": 390,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 640,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 1050,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 270,
+          "hint": "一鐵的低掃可跳過；重劈後有破綻，架刀時繞到背後。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 10,
+          "end": 2800,
+          "objective": "rockfall",
+          "boss": "inaba",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "archer",
+              "raider"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "archer"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "rock_support",
+              "x": 2220,
+              "y": 570,
+              "hp": 120,
+              "mandatory": false
+            },
+            {
+              "asset": "barricade",
+              "x": 2040,
+              "y": 480,
+              "hp": 140,
+              "mandatory": false
+            },
+            {
+              "asset": "supplies",
+              "x": 2450,
+              "y": 580,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 270,
+          "hint": "一鐵的低掃可跳過；重劈後有破綻，架刀時繞到背後。"
+        }
+      ]
+    }
+  ]
+}

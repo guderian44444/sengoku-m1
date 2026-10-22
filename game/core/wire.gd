@@ -3,6 +3,7 @@ extends RefCounted
 const CampaignMusic = preload("res://core/campaign_music.gd")
 const Mikawa = preload("res://core/stage04_data.gd")
 const Ikki = preload("res://core/stage05_data.gd")
+const Expedition = preload("res://core/stage07_10_data.gd")
 
 const Stage03 = preload("res://core/stage03_encounter.gd")
 const Battle = preload("res://core/battle.gd")
@@ -33,6 +34,10 @@ static func valid_input(frame: Dictionary) -> bool:
 
 
 static func valid_snapshot(world: Dictionary) -> bool:
+	var expedition: bool = world.get("stage",{}).get("id",0) in Expedition.STAGES
+	if expedition:
+		if not Expedition.valid_world(world.get("expedition")) or world.expedition.stage != world.stage.id: return false
+	elif world.has("expedition"): return false
 	if world.get("stage",{}).get("id",0) == 5 and not _valid_ikki(world.get("ikki")): return false
 	if world.has("ikki") and world.get("stage",{}).get("id",0) != 5: return false
 	if world.get("stage",{}).get("id",0) == 4 and not _valid_mikawa(world.get("mikawa")): return false
@@ -59,6 +64,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 	for fighter in world.fighters:
 		if not _valid_fighter(fighter):
 			return false
+		if fighter.has("expedition_role") and (not expedition or fighter.expedition_stage != world.stage.id): return false
 		if by_id.has(fighter.id): return false
 		by_id[fighter.id] = fighter
 	for fighter in world.fighters:
@@ -84,6 +90,7 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if drop.kind == "talisman" and not _choice(drop.get("talisman_id"),Battle.TALISMANS.keys()): return false
 		if drop.kind == "weapon" and not _choice(drop.get("weapon_id"),Weapons.ITEMS.keys()): return false
 	for prop in world.props:
+		if prop.has("expedition_asset") and (not expedition or not _choice(prop.expedition_asset,Expedition.OBJECTS) or not _integer(prop.get("broken_tick"),-1)): return false
 		if prop.has("s05_banner") and (not prop.s05_banner is bool or not prop.has("s05_asset") or prop.s05_banner!=str(prop.s05_asset).contains("_")): return false
 		if prop.has("s05_asset") and (not _choice(prop.s05_asset,["militia_ragged","militia_patched","militia_wicker","temple_brown","temple_ochre","rice","wood","jar"]) or not _integer(prop.get("broken_tick"),-1)): return false
 		if prop.has("mikawa_asset") and (not _choice(prop.mikawa_asset,["kflag","uflag","fence","cheval"]) or not _integer(prop.get("broken_tick"),-1)): return false
@@ -170,11 +177,12 @@ static func _valid_stage(stage: Variant) -> bool:
 	var camp: bool = stage.get("id",0) == 3
 	var mikawa: bool = stage.get("id",0) == 4
 	var ikki: bool = stage.get("id",0) == 5
-	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),5 if mikawa or ikki else (4 if camp else 6),5 if mikawa or ikki else (4 if camp else 8)) or not _integer(stage.get("index"),0,stage.total - 1): return false
+	var expedition: bool = stage.get("id",0) in Expedition.STAGES
+	if not _integer(stage.get("id"),1,24) or not _integer(stage.get("total"),5 if mikawa or ikki or expedition else (4 if camp else 6),5 if mikawa or ikki or expedition else (4 if camp else 8)) or not _integer(stage.get("index"),0,stage.total - 1): return false
 	if not _choice(stage.get("theme"),["bamboo","ridge","village","road","outpost","gate","camp","courtyard","command","chamber","supply_road","riverbank","granary","switchback","marune_gate","supply_court"]): return false
 	if not _choice(stage.get("weather"),["clear","rain","storm","mist","indoor"]) or not _choice(stage.get("music"),["bamboo","siege","town","castle","boss"] + CampaignMusic.KEYS + Mikawa.MUSIC + Ikki.MUSIC): return false
 	if not _choice(stage.get("civilians"),["none","villagers","vendors","porters"]): return false
-	if not _number(stage.get("width"),2000,6516 if mikawa else 4800) or not _integer(stage.get("wave_total"),1 if camp or mikawa or ikki else 2,1 if camp or mikawa or ikki else 3): return false
+	if not _number(stage.get("width"),2000,6516 if mikawa else 4800) or not _integer(stage.get("wave_total"),1 if camp or mikawa or ikki else 2,2 if expedition else (1 if camp or mikawa or ikki else 3)): return false
 	if not _integer(stage.get("checkpoint_total"),1 if camp else 2,1 if camp else 4) or not _integer(stage.get("checkpoint"),0,stage.checkpoint_total-1): return false
 	if not _number(stage.get("encounter_start"),0,stage.width) or not _number(stage.get("encounter_end"),stage.encounter_start+1000,stage.width): return false
 	if not _choice(stage.get("phase"),["combat","exit"]) or not stage.get("go") is bool or stage.go != (stage.phase == "exit"): return false
@@ -188,6 +196,7 @@ static func _valid_stage(stage: Variant) -> bool:
 
 
 static func _valid_fighter(fighter: Dictionary) -> bool:
+	if not Expedition.valid_fighter(fighter): return false
 	if fighter.has("s05_role"):
 		if fighter.get("team") != 1 or not _choice(fighter.s05_role,Ikki.ROLES): return false
 		if not fighter.get("s05_elite") is bool or not fighter.get("s05_weak") is bool: return false
@@ -313,6 +322,7 @@ static func _valid_fighter(fighter: Dictionary) -> bool:
 
 
 static func _valid_effect(effect: Dictionary) -> bool:
+	if effect.has("expedition_warning") and (effect.expedition_warning!=true or effect.get("type")!="warning" or not _number(effect.get("depth"),1,250)): return false
 	if effect.get("type")=="s05_roar":
 		if effect.get("team")!=1 or effect.get("action")!="s05_kusei_roar" or not _integer(effect.get("owner"),1): return false
 		if not _number(effect.get("z"),0,300) or not _number(effect.get("radius"),0,360): return false
@@ -473,7 +483,7 @@ static func _choice(value: Variant, choices: Array) -> bool:
 
 
 static func _action(value: Variant) -> bool:
-	return value is String and (value in ACTIONS or value in ["counter_cut","grab_start","grab_hit_1","grab_hit_2","charge_rain"] or Battle.ENEMY_TIMING.has(value) or Ikki.HITS.has(value))
+	return value is String and (value in ACTIONS or value in ["counter_cut","grab_start","grab_hit_1","grab_hit_2","charge_rain"] or Battle.ENEMY_TIMING.has(value) or Ikki.HITS.has(value) or Expedition.ACTIONS.has(value))
 
 static func _valid_ikki(box: Variant) -> bool:
 	if not box is Dictionary: return false

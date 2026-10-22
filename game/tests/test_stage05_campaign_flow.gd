@@ -46,7 +46,7 @@ func run() -> void:
 	app.set_physics_process(false)
 	app.profiles=Profiles.new(profile_dir,"user://missing-campaign-flow-legacy.json")
 	check(not app.testing and not app.training_active and not app.demo_active,"Normal runtime, without a test-mode chapter override")
-	check(Stages.available().map(func(s):return int(s.id)) == [1,2,3,4,5],"All five production chapters are registered")
+	check(Stages.available().map(func(s):return int(s.id)).slice(0,5) == [1,2,3,4,5],"The first five production chapters remain registered")
 	await capture(app,"01-title")
 	title_to_selection(app)
 	check(chapter_ids(app) == [1],"A new player keeps normal progress gating")

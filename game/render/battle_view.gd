@@ -6,6 +6,7 @@ const StageArt = preload("res://render/stage_art.gd")
 const Stage03Art = preload("res://render/stage03_art.gd")
 const Stage04Art = preload("res://render/stage04_art.gd")
 const Stage05Art = preload("res://render/stage05_art.gd")
+const Stage0710Art = preload("res://render/stage07_10_art.gd")
 const OfficerWeaponFX = preload("res://render/officer_weapon_fx.gd")
 const Stage2Scenery = preload("res://render/stage2_scenery.gd")
 const Typography = preload("res://render/game_typography.gd")
@@ -26,6 +27,7 @@ var _stage_art = StageArt.new()
 var _stage03_art = Stage03Art.new()
 var _stage04_art = Stage04Art.new()
 var _stage05_art = Stage05Art.new()
+var _stage0710_art = Stage0710Art.new()
 var _officer_weapon_fx = OfficerWeaponFX.new()
 var _stage_key: String = ""
 var _positions: Dictionary = {}
@@ -78,6 +80,7 @@ func _draw() -> void:
 	_draw_scenery()
 	_draw_alarm()
 	_draw_wet_zones()
+	if state.has("expedition"): _stage0710_art.draw_hazards(self)
 	for effect in state.get("effects", []):
 		if effect.get("type", "") in ["warning", "slam", "shockwave", "arrow_target", "fire_patch"]:
 			_draw_ground_effect(effect)
@@ -85,6 +88,7 @@ func _draw() -> void:
 		_draw_drop(drop)
 	var fighters: Array = state.get("fighters", []).duplicate()
 	fighters.append_array(_npc_samples(_art_clock()))
+	if state.has("expedition"): fighters.append_array(Stage0710Art.civilian_samples(state))
 	if state.get("encounter",{}).get("kind","") == "formation":
 		fighters.append({"scenery_tent":true,"x":float(state.stage.encounter_end)-160,"y":610.0})
 	for prop in state.get("props",[]):
@@ -189,7 +193,7 @@ func _update_motion() -> void:
 			_facing_back[id] = movement.y < -0.1 and absf(movement.y) > absf(movement.x)
 			if movement.length() < 60.0 and str(fighter.get("action", "idle")) in ["idle", "walk", "run", "move", "retreat"] and float(fighter.get("z", 0)) <= 0:
 				_walk_distance[id] = float(_walk_distance.get(id, 0.0)) + movement.length()
-		if FrameAnimation.CombatMoves.active(fighter) or (int(fighter.get("team",0)) != 0 and enemy_art_faction(fighter) in ["mori","imagawa","oda"]):
+		if FrameAnimation.CombatMoves.active(fighter) or Stage0710Art.Data.BOSSES.has(str(fighter.get("expedition_role",""))) or (int(fighter.get("team",0)) != 0 and enemy_art_faction(fighter) in ["mori","imagawa","oda"]):
 			var walking: bool = fighter.get("moving",_moving[id]) and str(fighter.get("action","idle")) in ["idle","walk","run","move","retreat"] and float(fighter.get("z",0)) <= 0 and int(fighter.get("freeze",0)) == 0
 			if walking:
 				_walk_ticks[id] = int(_walk_ticks[id]) + elapsed if _walk_ticks.has(id) else 0
@@ -243,6 +247,14 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 	var tick := float(fighter.get("action_tick", 0))
 	var clock_tick := _art_clock() * 60.0
 	var walking: bool = fighter.get("moving", _moving.get(int(fighter.get("id", -1)), false))
+	if Stage0710Art.Data.BOSSES.has(str(fighter.get("expedition_role",""))):
+		var id := int(fighter.id)
+		if int(fighter.get("freeze",0)) > 0 and _frozen_samples.has(id): return _frozen_samples[id]
+		var current := fighter.duplicate()
+		current.moving = walking
+		var sample := _stage0710_art.sample(state,current,float(_walk_ticks.get(id,0)),clock_tick)
+		_frozen_samples[id] = sample
+		return sample
 	if fighter.has("s05_role"):
 		var id := int(fighter.id)
 		if int(fighter.get("freeze",0)) > 0 and _frozen_samples.has(id): return _frozen_samples[id]
@@ -371,6 +383,9 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 	return {}
 
 func _draw_landscape() -> void:
+	if state.has("expedition"):
+		_stage0710_art.draw_landscape(self)
+		return
 	if state.get("stage",{}).get("id",0) == 5:
 		_stage05_art.draw_landscape(self)
 		return
@@ -468,7 +483,7 @@ func _camp_flag_sample(index: int, clock: float) -> Dictionary:
 	return {"frame":_art.scenery_frames[index % 2],"rotation":sin(clock * 2.2 + index) * 0.018}
 
 func _draw_scenery() -> void:
-	if state.has("mikawa") or state.has("ikki"): return
+	if state.has("mikawa") or state.has("ikki") or state.has("expedition"): return
 	if not state.get("stage",{}).is_empty():
 		_draw_stage_scenery()
 		return
@@ -722,6 +737,14 @@ func _draw_camp_barrier(prop: Dictionary, origin: Vector2, hit_gain: float) -> v
 		draw_rect(Rect2(origin + Vector2(-38,-190),Vector2(76 * float(prop.hp)/float(prop.max_hp),6)),GOLD)
 
 func _draw_prop(prop: Dictionary) -> void:
+	if prop.has("expedition_asset"):
+		var drawing := _stage0710_art.prop(prop,int(state.tick))
+		var ground := Vector2(float(prop.x)-camera_x,float(prop.y))
+		if _shadow_pass:
+			_draw_attached_prop_shadow(drawing,ground,float(drawing.display_height))
+			return
+		_draw_art_frame(drawing,ground,float(drawing.display_height),1,0,Color.WHITE,float(drawing.body_height))
+		return
 	if prop.has("s05_asset"):
 		var drawing := _stage05_art.prop(prop,int(state.tick))
 		var ground := Vector2(float(prop.x)-camera_x,float(prop.y))
@@ -1547,7 +1570,7 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 	if shattered_defeat(fighter): return true
 	var sample := _fighter_animation(fighter)
 	var genuine_reaction: bool = sample.get("genuine_reaction",false) or sample.sheet == "enemy_reaction" or sample.source in ["v14","v19"]
-	var frame: Dictionary = sample.frame_data if sample.source in ["stage3","stage4","stage5"] else _art.enemy_frame(kind,int(sample.cell),enemy_art_faction(fighter),str(sample.sheet))
+	var frame: Dictionary = sample.frame_data if sample.source in ["stage3","stage4","stage5","stage0710"] else _art.enemy_frame(kind,int(sample.cell),enemy_art_faction(fighter),str(sample.sheet))
 	if sample.source != "v14" and kind == "boss" and fighter.get("faction","mori") == "mori" and fighter.get("action", "") == "boss_chain" and int(sample.cell) == 6 and frame.has("hand_offset") and frame.has("clip_polygon"):
 		# The live chain replaces the atlas's short demonstration weight beyond the casting hand.
 		var cutoff: float = frame.anchor.x + frame.hand_offset.x + 6.0
@@ -1576,7 +1599,7 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 	if down and not genuine_reaction: body_origin += Vector2(face * height * 0.33, -height * 0.09)
 	if _shadow_pass:
 		_draw_pose_shadow(frame,body_origin + Vector2(0,z),height,face,rotation,z,[-height * .18,height * .18])
-		if not down and sample.source not in ["stage3","stage4","stage5"]: _draw_role_shadow(fighter,body_origin + Vector2(0,z),height,face,z,frame)
+		if not down and sample.source not in ["stage3","stage4","stage5","stage0710"]: _draw_role_shadow(fighter,body_origin + Vector2(0,z),height,face,z,frame)
 		return true
 	_fx.draw_status(self,fighter,origin-Vector2(0,z),height,false)
 	_officer_weapon_fx.draw(self,fighter,sample,body_origin,height,face,rotation,true)
@@ -1584,12 +1607,13 @@ func _draw_enemy_art(fighter: Dictionary, origin: Vector2) -> bool:
 	_draw_art_frame(frame, body_origin, height, face, rotation, tint, float(frame.body_height))
 	_officer_weapon_fx.draw(self,fighter,sample,body_origin,height,face,rotation,false)
 	if fighter.has("s05_role"): _stage05_art.actor_fx(self,fighter,body_origin)
+	if fighter.has("expedition_role"): _stage0710_art.actor_fx(self,fighter,body_origin)
 	if frame.has("crest"):
 		var scale: float = height/float(frame.body_height)
 		var at: Vector2 = body_origin+(frame.crest.anchor-frame.anchor)*Vector2(face,1)*scale
 		var width: float = frame.crest.width*scale
 		draw_texture_rect(frame.crest.texture,Rect2(at-Vector2.ONE*width*.5,Vector2.ONE*width),false,tint)
-	if sample.source not in ["stage3","stage4","stage5"]: _draw_enemy_role(fighter,body_origin,height,face,down,frame,sample)
+	if sample.source not in ["stage3","stage4","stage5","stage0710"]: _draw_enemy_role(fighter,body_origin,height,face,down,frame,sample)
 	if fighter.get("is_yoshimoto",false) and fighter.action == "guard":
 		var guard_at := body_origin + Vector2(face*25,-height*.55)
 		draw_set_transform(guard_at,0,Vector2(face,1))
@@ -1640,6 +1664,7 @@ static func enemy_art_faction(fighter: Dictionary) -> String:
 	return faction
 
 static func enemy_display_height(fighter: Dictionary) -> float:
+	if Stage0710Art.Data.BOSSES.has(str(fighter.get("expedition_role",""))): return Stage0710Art.height(fighter)
 	if fighter.has("s05_role"): return Stage05Art.Data.height(fighter.s05_role)
 	var kind: String = str(fighter.get("kind","soldier"))
 	var height := (155.0 if fighter.get("stage_boss",false) else 163.0) if kind == "boss" else (158.0 if kind == "commander" else 146.0)
@@ -1731,7 +1756,7 @@ func _projectile_offset(effect: Dictionary) -> Vector2:
 			var sample := _fighter_animation(release_fighter)
 			if had_frozen_sample: _frozen_samples[owner_id] = frozen_sample
 			else: _frozen_samples.erase(owner_id)
-			if sample.source == "stage3":
+			if sample.source in ["stage3","stage0710"]:
 				var height := enemy_display_height(fighter)
 				return Vector2(24.0 * float(effect.get("face",1)),float(effect.get("start_z",40))-height*.62)
 			var frame := _art.enemy_frame(str(fighter.kind),int(sample.cell),enemy_art_faction(fighter),str(sample.sheet))
@@ -2071,6 +2096,9 @@ static func shockwave_points(effect: Dictionary, extent: float) -> PackedVector2
 	return points
 
 func _draw_ground_effect(effect: Dictionary) -> void:
+	if effect.get("expedition_warning",false):
+		_stage0710_art.draw_attack_warning(self,effect)
+		return
 	var p := Vector2(float(effect.get("x",0)) - camera_x,float(effect.get("y",460)))
 	if _fx.draw_ground(self,effect,p): return
 	var radius := float(effect.get("radius",85))

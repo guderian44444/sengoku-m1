@@ -5,6 +5,7 @@ const CombatMoves = preload("res://core/combat_moves.gd")
 const Stage03Encounter = preload("res://core/stage03_encounter.gd")
 const Stage04 = preload("res://core/stage04_encounter.gd")
 const Stage05 = preload("res://core/stage05_encounter.gd")
+const Stage0710 = preload("res://core/stage07_10_encounter.gd")
 const StageData = preload("res://core/stage_data.gd")
 const Weapons = preload("res://core/weapon_catalog.gd")
 const Equipment = preload("res://core/equipment.gd")
@@ -170,6 +171,7 @@ func _enter_segment(index: int) -> void:
 	state.erase("encounter")
 	state.erase("mikawa")
 	state.erase("ikki")
+	state.erase("expedition")
 	var spec: Dictionary = _campaign.segments[index]
 	var party := []
 	for old in state.fighters:
@@ -225,7 +227,7 @@ func _start_checkpoint(index: int) -> void:
 	state.stage.checkpoint = index
 	state.stage.encounter_start = 0.0 if index == 0 else float(region.encounters[index - 1].end)
 	state.stage.encounter_end = float(encounter.end)
-	state.stage.wave_total = 1 if encounter.get("mode", "") in ["alarm", "barriers", "formation", "lieutenants", "ikki"] else encounter.waves.size()
+	state.stage.wave_total = 1 if encounter.get("mode", "") in ["alarm", "barriers", "formation", "lieutenants", "ikki", "campaign_challenge"] else encounter.waves.size()
 	state.stage.phase = "combat"
 	state.stage.go = false
 	state.stage.clear_tick = -1
@@ -234,6 +236,9 @@ func _start_checkpoint(index: int) -> void:
 	state.wave = 1
 	_revive_exhausted_party()
 	if encounter.get("mode", "") in ["alarm", "barriers", "formation", "lieutenants"]: Stage03Encounter.begin(self, encounter)
+	elif encounter.get("mode", "") == "campaign_challenge":
+		state.intro = {}
+		Stage0710.begin(self,encounter)
 	elif encounter.get("mode", "") == "ikki":
 		state.intro = {}
 		Stage05.begin(self,encounter)
@@ -374,6 +379,10 @@ func _tick_segment() -> void:
 	if living_party.is_empty():
 		state.phase = "lost"
 		Stage03Encounter.cancel(self)
+		return
+	if state.has("expedition"):
+		Stage0710.tick(self)
+		if state.expedition.phase == "complete": _finish_stage_checkpoint(living_party)
 		return
 	if state.has("ikki"):
 		Stage05.tick(self)
@@ -859,6 +868,7 @@ const FAST_PROJECTILE_SPEED := 34.0
 const HERO_ARROW_SPEED := 22.0
 
 static func enemy_timing(fighter: Dictionary) -> Array:
+	if Stage0710.Data.ACTIONS.has(fighter.action): return Stage0710.Data.timing(fighter)
 	if fighter.has("s05_role") and Stage05.Data.HITS.has(fighter.action): return Stage05.Data.timing(fighter)
 	if fighter.has("mikawa_role"): return Stage04.Data.attack_timing(fighter)
 	var timing: Array = ENEMY_TIMING.get(fighter.action, [30, 60])
@@ -950,6 +960,7 @@ func _tick_fighter(fighter: Dictionary) -> void:
 	fighter.action_tick += 1
 	if Stage03Encounter.Tent.Yoshimoto.tick_action(self,fighter): return
 	if fighter.airborne_lock: return
+	if Stage0710.attack(self,fighter): return
 	if Stage05.attack(self,fighter) or Stage05.reaction_tick(self,fighter): return
 	if ENEMY_TIMING.has(fighter.action):
 		_tick_enemy_attack(fighter)
@@ -1448,6 +1459,7 @@ func _enemy_input(fighter: Dictionary) -> void:
 		return
 	if Stage04.ai(self,fighter,target): return
 	if Stage05.ai(self,fighter,target): return
+	if Stage0710.ai(self,fighter,target): return
 	if fighter.kind == "dummy" or not fighter.action in ["idle", "retreat", "bow_shot", "gun_shot"]:
 		return
 	fighter.face = 1 if target.x >= fighter.x else -1
@@ -1600,7 +1612,7 @@ func _tick_enemy_attack(fighter: Dictionary) -> void:
 func _enemy_melee(attacker: Dictionary, reach: float, depth: float, amount: int, reaction: String = "") -> void:
 	_weapon_release(attacker, _melee_weapon(attacker))
 	if attacker.get("role","") == "raider": amount = maxi(1,roundi(amount * 0.8))
-	if attacker.kind == "boss" and not attacker.has("mikawa_role"):
+	if attacker.kind == "boss" and not attacker.has("mikawa_role") and not attacker.has("expedition_role"):
 		var profile: Dictionary = BOSS_PROFILES.get(attacker.boss_variant, BOSS_PROFILES.kusarigama)
 		reach *= profile.reach
 		amount = maxi(1, roundi(amount * profile.damage * (1.2 if attacker.get("stage_boss",false) else 1.0)))
@@ -1915,6 +1927,7 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 		source_x = attacker.x
 		source_y = attacker.y
 	var attack_action: String = source_action if source_action != "" else str(attacker.get("action", ""))
+	if not Stage0710.accepts_damage(self,target,actor,source_x,source_y,heavy,attack_action): return false
 	var mikawa_role := str(target.get("mikawa_role",""))
 	var knockback_hit := heavy or launch_hit or attack_action == "body_collision"
 	var guard_result := Stage04.shield_result(target,attack_action,heavy,str(attacker.get("kind","")))
@@ -1952,7 +1965,7 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 		_effect("guard_break",target.x,target.y,20,{"target":target.id,"face":target.face})
 		_event("guard_break",target.x,target.y,actor,target.id)
 	# A replay-stable 25% parry window; recovery, rear attacks and charged moves cannot trigger it.
-	var boss_guard: bool = reaction and target.kind == "boss" and not target.has("mikawa_role") and not target.has("s05_role") and not target.get("is_yoshimoto",false) and target.action == "idle" and target.counter_ticks == 0 and target.freeze == 0 and target.stun == 0 and not target.airborne_lock and not attacker.is_empty() and attacker.team == 0 and attack_action in ["light", "heavy", "dash_heavy", "rising", "low_sweep", "dash_strike", "air_light"] and (state.tick * 17 + target.id * 13 + actor * 7) % 100 < 25
+	var boss_guard: bool = reaction and target.kind == "boss" and not target.has("mikawa_role") and not target.has("s05_role") and not target.has("expedition_role") and not target.get("is_yoshimoto",false) and target.action == "idle" and target.counter_ticks == 0 and target.freeze == 0 and target.stun == 0 and not target.airborne_lock and not attacker.is_empty() and attacker.team == 0 and attack_action in ["light", "heavy", "dash_heavy", "rising", "low_sweep", "dash_strike", "air_light"] and (state.tick * 17 + target.id * 13 + actor * 7) % 100 < 25
 	var player_guard := false
 	if reaction and (boss_guard or target.action in ["guard", "boss_counter"]) and is_finite(source_x) and (source_x - target.x) * target.face > 0.0 and absf(source_y - target.y) <= 100.0 and (boss_guard or target.action == "guard" or target.action_tick < enemy_timing(target)[0] - 8):
 		player_guard = target.team == 0
@@ -2208,6 +2221,9 @@ func _launch(target: Dictionary, direction: int, horizontal: float = 8.0, vertic
 
 
 func _melee_weapon(fighter: Dictionary) -> String:
+	if fighter.has("expedition_role"):
+		if fighter.action=="spear_butt": return "blunt"
+		return "spear" if fighter.expedition_role in ["spear","shield","ujie","iwanari","kagetsune"] else "sword"
 	if fighter.has("mikawa_role"):
 		if fighter.mikawa_role == "udono" or fighter.mikawa_role.begins_with("spear_"): return "spear"
 		if fighter.mikawa_role.begins_with("shield_"): return "blunt" if fighter.action == "spear_butt" else "sword"

@@ -10,7 +10,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 HEROES = ('nobunaga', 'oichi', 'hideyoshi', 'ieyasu', 'mitsuhide', 'tadakatsu')
 FILES = set()
-PLAYTEST_ENTRIES = {'game/tests/play_stage05.gd','game/tests/stage05_art_arena.gd'}
+PLAYTEST_ENTRIES = {'game/tests/play_stage05.gd','game/tests/stage05_art_arena.gd','game/tests/play_stage07_10.gd'}
 APPROVED_SOURCE_ASSETS = {'game/assets/stage5/natsume/skills/sources/8f3c72ed36c58bb2.png'}
 
 
@@ -50,7 +50,7 @@ def registration(relative, field=None):
 
 def runtime_files():
     for relative in PLAYTEST_ENTRIES: add(ROOT/relative)
-    for relative in ('啟動第五關試玩.cmd','啟動第五關雙人試玩.cmd','啟動第五關動作測試場.cmd'):
+    for relative in ('啟動第五關試玩.cmd','啟動第五關雙人試玩.cmd','啟動第五關動作測試場.cmd','啟動第7至10關試玩.cmd'):
         add(ROOT/relative)
     for relative in ('game/project.godot', 'game/main.tscn', 'game/main.gd'):
         add(ROOT/relative)
@@ -86,7 +86,7 @@ def runtime_files():
     hot = ROOT/'game/audio/local-stage4/s04_hot.ogg'
     assert hashlib.sha256(hot.read_bytes()).hexdigest() == 'c52705340bfa48fad98ad775f59b0b62f84a1df4dcd139d8008b2830d60dab3e'
     add(hot)
-    for name in ('stage5','stage5-farmers','stage5-runtime','officer-fx-power-v4'):
+    for name in ('stage5','stage5-farmers','stage5-runtime','officer-fx-power-v4','stages07-10'):
         folder=ROOT/'game/assets'/name
         add(folder/'runtime-files.json')
         manifest=json.loads((folder/'runtime-files.json').read_text('utf-8'))
@@ -121,12 +121,18 @@ def runtime_files():
     add(ROOT/'docs/STAGE04-REBUILD-20261018.md')
     add(ROOT/'docs/STAGE05-PLAYTEST-REVISION-20261018.md')
     add(ROOT/'docs/STAGE05-INTEGRATION-20261018.md')
+    add(ROOT/'docs/stages07-10-history-music.md')
+    add(ROOT/'docs/STAGES07-10-PLAYTEST.md')
+    add(ROOT/'docs/PROJECT-STATUS-20261022.md')
+    add(ROOT/'docs/第一關與24關設計-v0.19.html')
     for folder in ('game/audio/title-amenoshita-v1','game/audio/weapons-v3'):
         for path in (ROOT/folder).iterdir():
             if path.suffix.lower() in ('.txt','.md','.json','.ogg'): add(path)
     add(ROOT/'game/audio/v38/weapons/CREDITS.txt')
     for relative in re.findall(r'"res://(audio/[^"\n]+\.wav)"',(ROOT/'game/render/combat_audio.gd').read_text('utf-8')):
         add(ROOT/'game'/relative)
+    for index in range(1, 11):
+        add(ROOT/f'game/audio/local-enemy-death/enemy_death_{index:02d}.wav')
     for relative in ('vfx/vfx_player.gd','vfx/v2/curve_player.gd','vfx/v2/phase_curves.gd',
                      'vfx/v2/effect_emitter.gd','vfx/v2/weapon_motion.gd',
                      'vfx/v2/audio/effect_audio_controller.gd','vfx/v2/effect_recipes.json'):

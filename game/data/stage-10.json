@@ -1,0 +1,537 @@
+{
+  "id": 10,
+  "title": "金崎退卻",
+  "faction": "asakura",
+  "year": 1570,
+  "target_minutes": [
+    12,
+    20
+  ],
+  "historical_note": "金崎退卻與朝倉追擊為既定歷史背景。景恒曾任金崎、天筒山守將；撤離途中再對決以及義景親自封住出口均屬IF演繹，不宣稱史實重演。",
+  "design_source": "docs/第一關與24關設計-v0.19.html",
+  "segments": [
+    {
+      "name": "金崎撤軍口",
+      "theme": "gate",
+      "weather": "mist",
+      "music": "s02_sakuma_boss",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 1,
+          "end": 1400,
+          "objective": "rearguard",
+          "boss": "",
+          "waves": [
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "raider"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 1010,
+              "y": 425,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 750,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 720,
+          "hazard_interval": 390,
+          "hint": "追兵主要從左側來；守住殿後時間，再全隊抵達右側撤離旗。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 2,
+          "end": 2800,
+          "objective": "rearguard",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "raider"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2410,
+              "y": 535,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 2150,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 720,
+          "hazard_interval": 390,
+          "hint": "追兵主要從左側來；守住殿後時間，再全隊抵達右側撤離旗。"
+        }
+      ]
+    },
+    {
+      "name": "天筒山山徑",
+      "theme": "ridge",
+      "weather": "rain",
+      "music": "s02_sakuma_boss",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 3,
+          "end": 1400,
+          "objective": "rearguard",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "raider"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 1010,
+              "y": 425,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 750,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 840,
+          "hazard_interval": 375,
+          "hint": "撤退途中有延遲箭雨；保持移動，別讓隊友被隔在後方。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 4,
+          "end": 2800,
+          "objective": "rearguard",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "raider"
+            ],
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2410,
+              "y": 535,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 2150,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 840,
+          "hazard_interval": 375,
+          "hint": "撤退途中有延遲箭雨；保持移動，別讓隊友被隔在後方。"
+        }
+      ]
+    },
+    {
+      "name": "景恒追擊陣",
+      "theme": "outpost",
+      "weather": "mist",
+      "music": "s02_sakuma_boss",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 5,
+          "end": 1400,
+          "objective": "rearguard",
+          "boss": "",
+          "waves": [
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "raider",
+              "spear"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "raider",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 1010,
+              "y": 425,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 750,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 960,
+          "hazard_interval": 360,
+          "hint": "景恒盾衝前會立盾，長槍轉身後鎖定方向；繞背或重擊破防。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 6,
+          "end": 2800,
+          "objective": "rearguard",
+          "boss": "kagetsune",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "raider"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2410,
+              "y": 535,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 2150,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 960,
+          "hazard_interval": 360,
+          "hint": "景恒盾衝前會立盾，長槍轉身後鎖定方向；繞背或重擊破防。"
+        }
+      ]
+    },
+    {
+      "name": "殿後渡橋",
+      "theme": "riverbank",
+      "weather": "rain",
+      "music": "s02_sakuma_boss",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 7,
+          "end": 1400,
+          "objective": "rearguard",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "raider",
+              "spear"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "raider",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 1010,
+              "y": 425,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 750,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 1080,
+          "hazard_interval": 345,
+          "hint": "橋頭必須守住時間，清除封路兵後全員撤離。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 8,
+          "end": 2800,
+          "objective": "rearguard",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "raider",
+              "shield"
+            ],
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "raider",
+              "shield"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2410,
+              "y": 535,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 2150,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 1080,
+          "hazard_interval": 345,
+          "hint": "橋頭必須守住時間，清除封路兵後全員撤離。"
+        }
+      ]
+    },
+    {
+      "name": "退路封鎖線",
+      "theme": "road",
+      "weather": "clear",
+      "music": "s02_sakuma_boss",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 9,
+          "end": 1400,
+          "objective": "rearguard",
+          "boss": "",
+          "waves": [
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "raider",
+              "spear"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "raider",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 1010,
+              "y": 425,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 750,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 1200,
+          "hazard_interval": 330,
+          "hint": "義景三連大斬後露出破綻；近衛分兩側封路，擊退後全隊撤離。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 10,
+          "end": 2800,
+          "objective": "rearguard",
+          "boss": "yoshikage",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "raider"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "raider"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2410,
+              "y": 535,
+              "hp": 160,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 2150,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 1200,
+          "hazard_interval": 330,
+          "hint": "義景三連大斬後露出破綻；近衛分兩側封路，擊退後全隊撤離。"
+        }
+      ]
+    }
+  ]
+}

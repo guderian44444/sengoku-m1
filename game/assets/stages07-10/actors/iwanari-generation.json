@@ -1,0 +1,404 @@
+{
+  "schema": "sengoku-imagegen-provenance-v1",
+  "date": "2026-10-22",
+  "character_id": "iwanari",
+  "character_name": "岩成友通",
+  "tool": "built-in image_gen.imagegen",
+  "reference": "game/assets/stages07-10/actors/iwanari.png",
+  "transparent_background": true,
+  "requested_resolution": "highest available landscape 2:1; prompt preferred 4096x2048",
+  "actual_resolution": [
+    1774,
+    887
+  ],
+  "image_postprocessing": "none; generated PNG bytes copied unchanged",
+  "purpose": "Replace crowded 32-frame sheet attack/walk clips with four independent 4x2 eight-frame source sheets",
+  "validation": {
+    "visual": "Inspected all four outputs: 8 full figures per sheet, complete limbs and naginata, no joined neighboring figures; walk has different left/right passing poses; attack_b has three distinct strike releases.",
+    "alpha": "RGBA alpha range 0..255; no pixels with alpha >8 on equal-cell separators. Very faint alpha fringe may remain outside visible silhouettes.",
+    "integration": "Source images only. Metadata, renderer, animation timing and native motion acceptance remain with integration agent."
+  },
+  "assets": [
+    {
+      "clip": "walk",
+      "file": "iwanari-walk.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "8846c38c9991d621a260aa8a36ff2426652d0730de8845f701ea26971d6f26de",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "visible_alpha_threshold": 8,
+      "visible_pixels_on_cell_separators": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "visible_cell_bounds": [
+        [
+          101,
+          128,
+          381,
+          394
+        ],
+        [
+          108,
+          129,
+          393,
+          394
+        ],
+        [
+          91,
+          129,
+          378,
+          393
+        ],
+        [
+          96,
+          128,
+          373,
+          395
+        ],
+        [
+          106,
+          113,
+          398,
+          378
+        ],
+        [
+          108,
+          113,
+          394,
+          379
+        ],
+        [
+          95,
+          113,
+          377,
+          379
+        ],
+        [
+          96,
+          115,
+          375,
+          377
+        ]
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8,
+      "history": [
+        {
+          "phase": "initial",
+          "prompt": "Use case: identity-preserve. Asset type: production game animation sprite sheet. Input image: exact identity/costume/weapon reference for Iwanari Tomomichi; replace the old many-frame sheet with ONE clean animation sheet. Preserve the identical mature Japanese warrior face, moustache/beard, black lacquer lamellar samurai armour with fine gold borders, red belt and red ties, black loose trousers, plated lower legs, black-and-gold kabuto with golden forked horn crest, and long red-brown shaft naginata with one curved silver blade. Match the realistic painterly 2D Sengoku game sprite style, lighting and anatomy of the reference; not anime, not cartoon, not chibi, not new costume. Output the maximum supported landscape resolution, preferably 4096x2048, exactly FOUR equal columns by TWO equal rows (4x2, 8 cels), row-major order. Canvas backdrop truly transparent alpha. No background color, no haze, no scenery, no shadows outside the character, no text, no grid outlines. EACH cell contains exactly ONE complete full-body copy of the SAME officer, always generally facing right in three-quarter side view. All 8 figures equal scale, same body proportions, stable feet at 87 percent cell height; head/helmet near 18 percent for upright poses. Keep ENTIRE weapon blade, shaft, helmet horns, hands, legs and both feet entirely INSIDE each cell, with at least 10 percent horizontal and 8 percent vertical empty alpha padding. Choose scale to fit the longest horizontal naginata inside ONE cell. Empty alpha corridors between every figure; no merged figures, no shared weapons, no connecting limbs, no crops, no ghost duplicates, no missing cels. Each pose has exactly two arms, two hands gripping or gesturing naturally, and two legs. No energy trails or secondary figures.\nCreate ONLY an eight-frame WALK CYCLE, not idle or combat. Naginata carried diagonally low across the torso with blade toward the right, arms shift naturally and weapon remains contained. Eight visually distinct consecutive contact/down/passing/up phases: 1 left foot forward contact/right foot back; 2 weight drops onto left; 3 right leg swings past bent supporting left; 4 right knee lifts and passes; 5 right foot forward contact/left foot back; 6 weight drops onto right; 7 left leg swings past bent supporting right; 8 left knee passes returning toward frame1. Clearly alternate which leg leads, natural counterrotating torso and sway of armour/ties, grounded continuous forward walk; NO repeated identical standing silhouettes, no running leaps. Loop last to first smoothly.",
+          "reference": "iwanari.png",
+          "generated_file": "exec-8f9ddb0c-1ae5-4039-999d-0fbb64e45e11.png",
+          "accepted": false,
+          "reason": "Spacing and walking-leg follow-up needed"
+        },
+        {
+          "phase": "spacing-repair",
+          "prompt": "Use case: identity-preserve. Edit target Image1: the supplied eight-pose transparent Iwanari animation sheet. FIX SPACING AND CELL CONTAINMENT. Keep exactly the same black/gold samurai, red belt, horned helmet, realistic painterly style, curved naginata and all 8 chronological poses. This must be a clean 4-column x 2-row animation atlas with 8 equal cells, ONE full-body figure plus his COMPLETE weapon per cell. Redraw EVERY figure MUCH SMALLER, approximately SIXTY PERCENT of its current size, centered inside its OWN cell. Maximum full silhouette width INCLUDING naginata is 65 percent of ONE cell, maximum total height 70 percent. At least 17 percent EMPTY TRANSPARENT margin on BOTH LEFT and RIGHT of EACH cell. The figure must NOT be centered on a grid boundary. No object or limb may touch a cell edge or neighboring character. Very wide transparent corridors: the composition should look spacious, with each sprite isolated like a separate cutout. Keep full complete weapon in all poses. All feet in each row on same baseline 85 percent down the cell; all characters use uniform anatomical scale. Preserve 8 true poses, two arms and legs, complete hands, no scene or effects, no grid lines or labels. Preserve real alpha transparency everywhere outside the cutouts. Maximum supported resolution, landscape 2:1 canvas. Additionally correct the gait: frames5–8 must use the OPPOSITE supporting/leading leg to frames1–4, a full alternating left-right WALK, not repetitions. Frame1 LEFT knee ahead, frame3 RIGHT knee visibly swinging through, frame5 RIGHT knee ahead, frame7 LEFT knee swinging through. No duplicated standing poses.",
+          "reference": "exec-8f9ddb0c-1ae5-4039-999d-0fbb64e45e11.png",
+          "generated_file": "exec-cb28c9fe-3051-41b7-ab8f-8d39af157d4f.png",
+          "accepted": false
+        },
+        {
+          "phase": "gait-repair",
+          "prompt": "Use case: identity-preserve. Correct ONLY the walking leg animation on this transparent 4x2 eight-frame sprite atlas. Preserve the same eight warriors' identical face, black-gold armour, red belt, helmet, torso, hands, weapon, spacing, size and cell locations. The top row frames1–4 are one step. Redraw ONLY the BOTTOM ROW legs as the OTHER step, with opposite leading and supporting legs, not another identical copy of the top row. On bottom frame5 the NEAR-SIDE leg nearest viewer must be clearly BEHIND the body and the FAR-SIDE leg extended FORWARD toward right; top frame1 has the near leg forward. Bottom frame6 near leg bends behind while far leg bears weight. Bottom frame7 near knee bends and swings forward across the supporting far leg. Bottom frame8 near foot moves out in front before heel contact while far heel lifts behind. In each bottom pose show the different overlap of the near plated shin and the far plated shin, no identical leg silhouettes to top row. This is grounded walking, never kneeling or jumping. Exactly two legs and feet per figure, complete full body and naginata safely inside each cell. All 8 have feet on the same local floor baseline. Keep 4 equal columns and 2 equal rows, 8 sequential poses, true alpha transparency, large clear gutters, no text or background. Highest available landscape resolution.",
+          "reference": "exec-cb28c9fe-3051-41b7-ab8f-8d39af157d4f.png",
+          "generated_file": "exec-51f544e5-63ec-4e65-b1eb-fbdc7bc6b069.png",
+          "accepted": false
+        },
+        {
+          "phase": "final-spacing",
+          "prompt": "Use case: precise-object-edit. Preserve ALL eight walking poses EXACTLY as shown, including the correct different bottom-row legs, identical samurai identity, armour, face, weapon and colours. Make ONLY this layout change: uniformly SHRINK every entire sprite (body plus complete naginata) to 75 percent of its current size and center each sprite within its same grid cell, adjusting vertically so planted feet remain on equal floor baselines within each row. Exactly four equal columns and two equal rows on the same landscape 2:1 transparent canvas. This is required to leave VERY WIDE EMPTY TRANSPARENT CORRIDORS at x=25%, x=50%, x=75% and y=50% of canvas. No single pixel of weapon or body may touch or cross those imaginary grid boundaries. In particular the bottom-left naginata blade must end well BEFORE x=25% of the canvas. There must be generous empty transparency on ALL sides of every sprite. Do NOT change any pose, silhouette anatomy, legs, hands, armour design, weapon length relative to body or number of sprites. Eight identical-costume full-body warriors in the supplied eight sequential WALK poses. Keep true alpha background, no grid, no labels, no scenery. Maximum supported landscape output resolution.",
+          "reference": "exec-51f544e5-63ec-4e65-b1eb-fbdc7bc6b069.png",
+          "generated_file": "exec-a2cdf58f-f7b4-4044-ad8f-3896913a754d.png",
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "clip": "attack_a",
+      "file": "iwanari-attack_a.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "171c34d30849aab8612b766116036cb53a9c1bd8af1a719bcca48454d1791f41",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "visible_alpha_threshold": 8,
+      "visible_pixels_on_cell_separators": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "visible_cell_bounds": [
+        [
+          94,
+          193,
+          380,
+          387
+        ],
+        [
+          126,
+          196,
+          391,
+          388
+        ],
+        [
+          107,
+          145,
+          341,
+          388
+        ],
+        [
+          99,
+          191,
+          354,
+          388
+        ],
+        [
+          75,
+          141,
+          420,
+          317
+        ],
+        [
+          118,
+          123,
+          366,
+          316
+        ],
+        [
+          97,
+          126,
+          383,
+          317
+        ],
+        [
+          91,
+          123,
+          369,
+          317
+        ]
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8,
+      "history": [
+        {
+          "phase": "initial",
+          "prompt": "Use case: identity-preserve. Asset type: production game animation sprite sheet. Input image: exact identity/costume/weapon reference for Iwanari Tomomichi; replace the old many-frame sheet with ONE clean animation sheet. Preserve the identical mature Japanese warrior face, moustache/beard, black lacquer lamellar samurai armour with fine gold borders, red belt and red ties, black loose trousers, plated lower legs, black-and-gold kabuto with golden forked horn crest, and long red-brown shaft naginata with one curved silver blade. Match the realistic painterly 2D Sengoku game sprite style, lighting and anatomy of the reference; not anime, not cartoon, not chibi, not new costume. Output the maximum supported landscape resolution, preferably 4096x2048, exactly FOUR equal columns by TWO equal rows (4x2, 8 cels), row-major order. Canvas backdrop truly transparent alpha. No background color, no haze, no scenery, no shadows outside the character, no text, no grid outlines. EACH cell contains exactly ONE complete full-body copy of the SAME officer, always generally facing right in three-quarter side view. All 8 figures equal scale, same body proportions, stable feet at 87 percent cell height; head/helmet near 18 percent for upright poses. Keep ENTIRE weapon blade, shaft, helmet horns, hands, legs and both feet entirely INSIDE each cell, with at least 10 percent horizontal and 8 percent vertical empty alpha padding. Choose scale to fit the longest horizontal naginata inside ONE cell. Empty alpha corridors between every figure; no merged figures, no shared weapons, no connecting limbs, no crops, no ghost duplicates, no missing cels. Each pose has exactly two arms, two hands gripping or gesturing naturally, and two legs. No energy trails or secondary figures.\nCreate ONLY eight frames of a HOOKING NAGINATA SLASH. Frame1 calm low guard; frame2 left shoulder draws back and hips coil; frame3 weapon raised diagonally backward, elbows bent, weight rear; frame4 deep loaded hook windup; frame5 sharp forward hooking slash toward right at chest height with a long advancing front leg; frame6 hook pulls inward/down toward waist, torso twists back to drag the target; frame7 blade retracts into low guard and weight settles; frame8 balanced return guard matching frame1. Show real changes in arms/torso/legs; broad readable hook path and recoil, never copies of one pose. Blade and shaft must remain inside each separate cell.",
+          "reference": "iwanari.png",
+          "generated_file": "exec-d155dfbc-0bf6-4d57-a20e-698e62bc914a.png",
+          "accepted": false,
+          "reason": "Spacing and walking-leg follow-up needed"
+        },
+        {
+          "phase": "spacing-repair",
+          "prompt": "Use case: identity-preserve. Edit target Image1: the supplied eight-pose transparent Iwanari animation sheet. FIX SPACING AND CELL CONTAINMENT. Keep exactly the same black/gold samurai, red belt, horned helmet, realistic painterly style, curved naginata and all 8 chronological poses. This must be a clean 4-column x 2-row animation atlas with 8 equal cells, ONE full-body figure plus his COMPLETE weapon per cell. Redraw EVERY figure MUCH SMALLER, approximately SIXTY PERCENT of its current size, centered inside its OWN cell. Maximum full silhouette width INCLUDING naginata is 65 percent of ONE cell, maximum total height 70 percent. At least 17 percent EMPTY TRANSPARENT margin on BOTH LEFT and RIGHT of EACH cell. The figure must NOT be centered on a grid boundary. No object or limb may touch a cell edge or neighboring character. Very wide transparent corridors: the composition should look spacious, with each sprite isolated like a separate cutout. Keep full complete weapon in all poses. All feet in each row on same baseline 85 percent down the cell; all characters use uniform anatomical scale. Preserve 8 true poses, two arms and legs, complete hands, no scene or effects, no grid lines or labels. Preserve real alpha transparency everywhere outside the cutouts. Maximum supported resolution, landscape 2:1 canvas. Retain the loaded overhead hook and forward hook release in frames3–6, with the complete pole and blade contained within each cell.",
+          "reference": "exec-d155dfbc-0bf6-4d57-a20e-698e62bc914a.png",
+          "generated_file": "exec-36993416-71ca-4ff5-aa64-399694fdedfb.png",
+          "accepted": false
+        },
+        {
+          "phase": "cell-containment-repair",
+          "prompt": "Use case: identity-preserve. Edit this transparent 4x2 eight-cel sprite sheet. Preserve the identical warrior, armour, weapon and all eight distinct hook-slash poses. ONLY change layout spacing and scale: the fifth figure (BOTTOM LEFT) currently extends the naginata too far into column 2. Reduce ALL EIGHT complete figures uniformly by another 25 percent and center each inside its own equally sized quarter-width, half-height cell. This means a wide clear gap on both sides of every complete weapon/body. NO body or weapon may extend beyond 22 percent of full canvas width within any individual cell. In particular the bottom-left figure AND his whole blade must stop well LEFT of the first vertical quarter-width boundary. Reposition inside cells as necessary, but do not alter anatomical proportions, costumes, animation poses, or weapon length relative to the body. Keep every foot baseline at 85 percent of each row height. Exactly 8 figures, 4 columns x 2 rows. Real transparent alpha backdrop, no grid/letters/shadows/effects. Highest available landscape resolution. Preserve separate intact body, hands, arms, legs, full naginata and helmets in all eight poses.",
+          "reference": "exec-36993416-71ca-4ff5-aa64-399694fdedfb.png",
+          "generated_file": "exec-dca7d3ab-5752-4e11-a167-5d38503739dc.png",
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "clip": "attack_b",
+      "file": "iwanari-attack_b.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "3feacb19cf1a0b0048fbc2be25c05bacc62dbfc2118343de67e9a66b928569ca",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "visible_alpha_threshold": 8,
+      "visible_pixels_on_cell_separators": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "visible_cell_bounds": [
+        [
+          73,
+          159,
+          392,
+          400
+        ],
+        [
+          102,
+          118,
+          386,
+          397
+        ],
+        [
+          65,
+          178,
+          423,
+          398
+        ],
+        [
+          116,
+          165,
+          408,
+          398
+        ],
+        [
+          50,
+          143,
+          443,
+          353
+        ],
+        [
+          108,
+          76,
+          427,
+          353
+        ],
+        [
+          52,
+          184,
+          412,
+          352
+        ],
+        [
+          86,
+          123,
+          397,
+          355
+        ]
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8,
+      "history": [
+        {
+          "phase": "initial",
+          "prompt": "Use case: identity-preserve. Asset type: production game animation sprite sheet. Input image: exact identity/costume/weapon reference for Iwanari Tomomichi; replace the old many-frame sheet with ONE clean animation sheet. Preserve the identical mature Japanese warrior face, moustache/beard, black lacquer lamellar samurai armour with fine gold borders, red belt and red ties, black loose trousers, plated lower legs, black-and-gold kabuto with golden forked horn crest, and long red-brown shaft naginata with one curved silver blade. Match the realistic painterly 2D Sengoku game sprite style, lighting and anatomy of the reference; not anime, not cartoon, not chibi, not new costume. Output the maximum supported landscape resolution, preferably 4096x2048, exactly FOUR equal columns by TWO equal rows (4x2, 8 cels), row-major order. Canvas backdrop truly transparent alpha. No background color, no haze, no scenery, no shadows outside the character, no text, no grid outlines. EACH cell contains exactly ONE complete full-body copy of the SAME officer, always generally facing right in three-quarter side view. All 8 figures equal scale, same body proportions, stable feet at 87 percent cell height; head/helmet near 18 percent for upright poses. Keep ENTIRE weapon blade, shaft, helmet horns, hands, legs and both feet entirely INSIDE each cell, with at least 10 percent horizontal and 8 percent vertical empty alpha padding. Choose scale to fit the longest horizontal naginata inside ONE cell. Empty alpha corridors between every figure; no merged figures, no shared weapons, no connecting limbs, no crops, no ghost duplicates, no missing cels. Each pose has exactly two arms, two hands gripping or gesturing naturally, and two legs. No energy trails or secondary figures.\nCreate ONLY eight frames of an ADVANCING THREE-SLASH NAGINATA COMBO, three distinct releases and recoveries. Frame1 low balanced guard; frame2 raised diagonal loaded windup; frame3 FIRST release: high diagonal downward cut with forward step; frame4 rebound with shaft drawn across chest and back leg gathering; frame5 SECOND release: waist-high horizontal sweep with a further forward lunge and broad torso turn; frame6 recoil and lift weapon to opposite shoulder; frame7 THIRD release: deep low sweeping finishing cut, bent front knee and extended back leg; frame8 recover balanced low guard. Three releases at frames3,5,7 MUST visibly differ in blade elevation, body twist, planted feet and weight. Keep the officer's local floor anchor stable rather than moving him between cells; game engine supplies forward translation. No graphic effect trails. Every full weapon and body inside its own cell.",
+          "reference": "iwanari.png",
+          "generated_file": "exec-1bd9d15e-c462-423d-ba63-b39228e86895.png",
+          "accepted": false,
+          "reason": "Spacing and walking-leg follow-up needed"
+        },
+        {
+          "phase": "spacing-repair",
+          "prompt": "Use case: identity-preserve. Edit target Image1: the supplied eight-pose transparent Iwanari animation sheet. FIX SPACING AND CELL CONTAINMENT. Keep exactly the same black/gold samurai, red belt, horned helmet, realistic painterly style, curved naginata and all 8 chronological poses. This must be a clean 4-column x 2-row animation atlas with 8 equal cells, ONE full-body figure plus his COMPLETE weapon per cell. Redraw EVERY figure MUCH SMALLER, approximately SIXTY PERCENT of its current size, centered inside its OWN cell. Maximum full silhouette width INCLUDING naginata is 65 percent of ONE cell, maximum total height 70 percent. At least 17 percent EMPTY TRANSPARENT margin on BOTH LEFT and RIGHT of EACH cell. The figure must NOT be centered on a grid boundary. No object or limb may touch a cell edge or neighboring character. Very wide transparent corridors: the composition should look spacious, with each sprite isolated like a separate cutout. Keep full complete weapon in all poses. All feet in each row on same baseline 85 percent down the cell; all characters use uniform anatomical scale. Preserve 8 true poses, two arms and legs, complete hands, no scene or effects, no grid lines or labels. Preserve real alpha transparency everywhere outside the cutouts. Maximum supported resolution, landscape 2:1 canvas. Retain three DISTINCT strike release poses in frames3,5,7: high diagonal cut, waist-level horizontal cut, low finishing sweep.",
+          "reference": "exec-1bd9d15e-c462-423d-ba63-b39228e86895.png",
+          "generated_file": "exec-eab04004-816f-4fe3-9649-d9dccf5f1de9.png",
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "clip": "attack_c",
+      "file": "iwanari-attack_c.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "179ec1c009d3265db1471f6371ce58186145c299b8163b8e257cb773b7fde06e",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "visible_alpha_threshold": 8,
+      "visible_pixels_on_cell_separators": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "visible_cell_bounds": [
+        [
+          121,
+          233,
+          403,
+          417
+        ],
+        [
+          128,
+          141,
+          357,
+          417
+        ],
+        [
+          160,
+          132,
+          308,
+          418
+        ],
+        [
+          161,
+          123,
+          313,
+          417
+        ],
+        [
+          130,
+          100,
+          333,
+          375
+        ],
+        [
+          130,
+          95,
+          348,
+          375
+        ],
+        [
+          106,
+          170,
+          368,
+          374
+        ],
+        [
+          106,
+          181,
+          386,
+          376
+        ]
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "frame_count": 8,
+      "history": [
+        {
+          "phase": "initial",
+          "prompt": "Use case: identity-preserve. Asset type: production game animation sprite sheet. Input image: exact identity/costume/weapon reference for Iwanari Tomomichi; replace the old many-frame sheet with ONE clean animation sheet. Preserve the identical mature Japanese warrior face, moustache/beard, black lacquer lamellar samurai armour with fine gold borders, red belt and red ties, black loose trousers, plated lower legs, black-and-gold kabuto with golden forked horn crest, and long red-brown shaft naginata with one curved silver blade. Match the realistic painterly 2D Sengoku game sprite style, lighting and anatomy of the reference; not anime, not cartoon, not chibi, not new costume. Output the maximum supported landscape resolution, preferably 4096x2048, exactly FOUR equal columns by TWO equal rows (4x2, 8 cels), row-major order. Canvas backdrop truly transparent alpha. No background color, no haze, no scenery, no shadows outside the character, no text, no grid outlines. EACH cell contains exactly ONE complete full-body copy of the SAME officer, always generally facing right in three-quarter side view. All 8 figures equal scale, same body proportions, stable feet at 87 percent cell height; head/helmet near 18 percent for upright poses. Keep ENTIRE weapon blade, shaft, helmet horns, hands, legs and both feet entirely INSIDE each cell, with at least 10 percent horizontal and 8 percent vertical empty alpha padding. Choose scale to fit the longest horizontal naginata inside ONE cell. Empty alpha corridors between every figure; no merged figures, no shared weapons, no connecting limbs, no crops, no ghost duplicates, no missing cels. Each pose has exactly two arms, two hands gripping or gesturing naturally, and two legs. No energy trails or secondary figures.\nCreate ONLY eight frames of a VERTICAL NAGINATA COMMAND gesture summoning a volley. Frame1 low two-hand ready guard; frame2 turn naginata diagonally upward with both hands; frame3 raise shaft upright beside body, silver blade above helmet; frame4 lift upright naginata to high signal with straightened right shoulder and raised hand; frame5 keep naginata vertical in one hand while other arm points firmly to the right at enemies; frame6 repeat clear authoritative forward command with open hand extended, body leaning forward; frame7 retract signaling arm and lower shaft diagonally; frame8 balanced return to the original low guard. Distinct windup, raised signal, pointed release and recovery. Scale ALL figures sufficiently small to fit the entire vertical blade and shaft in every cell with generous alpha margins. No banners, no extra weapons, no energy effects, no scenery.",
+          "reference": "iwanari.png",
+          "generated_file": "exec-8fbc6425-c9fe-4fb5-82c4-019ed8843a4a.png",
+          "accepted": false,
+          "reason": "Spacing and walking-leg follow-up needed"
+        },
+        {
+          "phase": "spacing-repair",
+          "prompt": "Use case: identity-preserve. Edit target Image1: the supplied eight-pose transparent Iwanari animation sheet. FIX SPACING AND CELL CONTAINMENT. Keep exactly the same black/gold samurai, red belt, horned helmet, realistic painterly style, curved naginata and all 8 chronological poses. This must be a clean 4-column x 2-row animation atlas with 8 equal cells, ONE full-body figure plus his COMPLETE weapon per cell. Redraw EVERY figure MUCH SMALLER, approximately SIXTY PERCENT of its current size, centered inside its OWN cell. Maximum full silhouette width INCLUDING naginata is 65 percent of ONE cell, maximum total height 70 percent. At least 17 percent EMPTY TRANSPARENT margin on BOTH LEFT and RIGHT of EACH cell. The figure must NOT be centered on a grid boundary. No object or limb may touch a cell edge or neighboring character. Very wide transparent corridors: the composition should look spacious, with each sprite isolated like a separate cutout. Keep full complete weapon in all poses. All feet in each row on same baseline 85 percent down the cell; all characters use uniform anatomical scale. Preserve 8 true poses, two arms and legs, complete hands, no scene or effects, no grid lines or labels. Preserve real alpha transparency everywhere outside the cutouts. Maximum supported resolution, landscape 2:1 canvas. Retain fully visible vertical naginata and free-hand forward command gestures, with blade tip safely below the top cell border.",
+          "reference": "exec-8fbc6425-c9fe-4fb5-82c4-019ed8843a4a.png",
+          "generated_file": "exec-1cac8ab7-7f97-4cfd-b851-01796acf3d6b.png",
+          "accepted": true
+        }
+      ]
+    }
+  ]
+}

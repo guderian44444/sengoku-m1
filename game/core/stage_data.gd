@@ -2,6 +2,7 @@ extends RefCounted
 
 const Stage04Data = preload("res://core/stage04_data.gd")
 const Stage03 = preload("res://core/stage03_encounter.gd")
+const Expedition = preload("res://core/stage07_10_data.gd")
 
 const PATH := "res://data/stage-01.json"
 
@@ -21,7 +22,7 @@ static func chapter(id: int) -> Dictionary:
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/stage-%02d.json" % id))
 	assert(int(data.id) == id)
 	var camp: bool = id == 3
-	assert(data.segments.size() == 5 if id in [4,5] else (data.segments.size() == 4 if camp else (data.segments.size() >= 6 and data.segments.size() <= 8)))
+	assert(data.segments.size() == 5 if id in [4,5,7,8,9,10] else (data.segments.size() == 4 if camp else (data.segments.size() >= 6 and data.segments.size() <= 8)))
 	var mikawa_node := 0
 	for region in data.segments:
 		assert(region.width >= 2000 and (region.encounters.size() == 1 if camp else region.encounters.size() >= 2))
@@ -34,6 +35,13 @@ static func chapter(id: int) -> Dictionary:
 		var start := 0.0
 		for encounter in region.encounters:
 			assert(encounter.end >= start + 1000 and encounter.end <= region.width)
+			if id in Expedition.STAGES:
+				mikawa_node+=1
+				assert(Expedition.valid_spec(encounter,start,float(region.width),id),"Invalid stage 7-10 encounter")
+				assert(int(encounter.node)==mikawa_node)
+				assert((str(encounter.boss)!="")== (mikawa_node in [6,10]),"One lieutenant and one final boss per stage")
+				start=float(encounter.end)
+				continue
 			if id == 5:
 				mikawa_node += 1
 				assert(encounter.mode == "ikki" and int(encounter.node) == mikawa_node)
@@ -93,6 +101,7 @@ static func chapter(id: int) -> Dictionary:
 					for kind in boss.reinforcements: assert(kind in ["soldier", "archer", "gunner", "flag", "commander", "shield_spear", "fire_archer", "raider"])
 			start = float(encounter.end)
 		assert(start == float(region.width), "Final checkpoint must reach scene exit")
+	if id in Expedition.STAGES: assert(mikawa_node==10,"Stages seven to ten each contain ten complete battle nodes")
 	if id==5:
 		assert(mikawa_node==12,"Stage five has twelve nodes")
 		for section in data.segments.slice(0,2):

@@ -1,6 +1,6 @@
 {
-  "version": "1.1",
-  "scope": "Stages 01-03. Narrative mapping only; actual scene IDs must be verified in game project.",
+  "version": "1.2",
+  "scope": "Stages 01-03 and 07-10; runtime cue selection in core/campaign_music.gd.",
   "created_utc": "2026-10-16T07:36:42.268242+00:00",
   "auditory_review": "Not auditioned: no audio listening tool available. Selected from composer descriptions; decoded-waveform/peak/seam QA only.",
   "sources_terms": "https://peritune.com/about/",
@@ -292,6 +292,58 @@
       "peak_dbfs_after_decode": -5.187688827514648,
       "boundary_jump_after_decode": 0.0008380860090255737,
       "verified_decode": true
+    },
+    {
+      "id": "s07_mountain_approach",
+      "file": "s07_mountain_approach.ogg",
+      "original_title": "Oboro2",
+      "source_page": "https://peritune.com/blog/2019/04/10/oboro2/",
+      "source_file": "PerituneMaterial_Oboro2_loop.ogg",
+      "source_sha256": "a040cecf2c420631ecbfee5704d78b44c46019bf71f0066e891030875f7f8092",
+      "download_url": "https://peritune.com/loop/PerituneMaterial_Oboro2_loop.zip",
+      "download_sha256": "0fd31e9043650a65cb2927bfac77d207c8ac1d0a9dc4b1de069ea7b555f2c084",
+      "sha256": "91dd08f5148f9c4656e530e04e72d22bdfe78702feab0d8cd28f2c37c6602128",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": "PeriTune / Sei Mutsuki",
+      "loop": true,
+      "loop_start_seconds": 0,
+      "loop_end_seconds": 79.058820861678,
+      "duration_seconds": 79.058820861678,
+      "sample_rate": 44100,
+      "frames": 3486494,
+      "bpm_author": 85,
+      "edits": "Full official loop retained; static gain -6.379 dB; 2ms edge tapers; OGG re-encode. No tempo or pitch change.",
+      "peak_dbfs_after_decode": -5.797516263130364,
+      "boundary_jump_after_decode": 0.00024403436691500247,
+      "verified_decode": true,
+      "auditory_review": "Human listening pending; composer instrumentation and decoded PCM checked."
+    },
+    {
+      "id": "s08_castle_battle",
+      "file": "s08_castle_battle.ogg",
+      "original_title": "Amenoshita",
+      "source_page": "https://peritune.com/blog/2015/07/03/amenoshita/",
+      "source_file": "PerituneMaterial_Amenoshita_loop.mp3",
+      "source_sha256": "a701798da3a42ad3d4cd39e8d0ec99f52f081b2f0388f5f759171c93a7b45ce4",
+      "download_url": "https://peritune.com/music/PerituneMaterial_Amenoshita_loop.mp3",
+      "download_sha256": "a701798da3a42ad3d4cd39e8d0ec99f52f081b2f0388f5f759171c93a7b45ce4",
+      "sha256": "eb9124852b3722ca8a0fac875e3c10064623ae6f1cd18a99d710dfbed1bf5bf1",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": "PeriTune / Sei Mutsuki",
+      "loop": true,
+      "loop_start_seconds": 0,
+      "loop_end_seconds": 128.13560090702947,
+      "duration_seconds": 128.13560090702947,
+      "sample_rate": 44100,
+      "frames": 5650780,
+      "bpm_author": null,
+      "edits": "Full official loop retained; static gain -5.208 dB; 2ms edge tapers; OGG re-encode. No tempo or pitch change.",
+      "peak_dbfs_after_decode": -4.636098220795369,
+      "boundary_jump_after_decode": 0.009163538925349712,
+      "verified_decode": true,
+      "auditory_review": "Human listening pending; composer instrumentation and decoded PCM checked."
     }
   ],
   "stage03_scene_map": [
@@ -361,7 +413,29 @@
     "stinger": "victory_jingle",
     "stinger_once": true,
     "then_loop": "victory_loop",
-    "same_for_all_stages": true,
+    "same_for_all_stages": false,
+    "stage07_10_override": "s07_mountain_approach",
     "style_note": "Bright Celtic victory cue, chosen for celebratory contrast; not traditional Japanese."
+  },
+  "stage07_10_scene_map": {
+    "7": {
+      "opening": "s07_mountain_approach",
+      "combat": "s01_matsui_boss",
+      "boss": "s01_matsui_boss"
+    },
+    "8": {
+      "combat": "s08_castle_battle",
+      "boss": "s08_castle_battle"
+    },
+    "9": {
+      "combat": "s03_camp_battle",
+      "boss": "s03_camp_battle"
+    },
+    "10": {
+      "combat": "s02_sakuma_boss",
+      "boss": "s02_sakuma_boss"
+    },
+    "victory": "s07_mountain_approach",
+    "note": "Each chapter has a different Japanese orchestral battle melody; gain rises for the final commander without restarting the loop. Stage 7 begins with Oboro2 and switches permanently on first contact. All four victories crossfade to Oboro2; no Celtic stinger."
   }
 }

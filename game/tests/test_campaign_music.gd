@@ -19,7 +19,7 @@ func run():
 	root.add_child(audio)
 	audio.set_process(false)
 	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Audio.CampaignMusic.ROOT + "manifest.json"))
-	check(manifest.assets.size() == 12,"Twelve supplied OGG cues are installed")
+	check(manifest.assets.size() == Audio.CampaignMusic.KEYS.size(),"Every registered campaign OGG cue is installed")
 	for row in manifest.assets:
 		var path: String = Audio.CampaignMusic.ROOT + str(row.file).get_file()
 		check(FileAccess.get_sha256(path) == row.sha256,"Unmodified supplied bytes: " + str(row.id))

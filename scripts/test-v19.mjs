@@ -20,6 +20,7 @@ const filter = log => log.replace(/ERROR: Failed to read the root certificate st
 assert(!/ERROR:/.test(filter('ERROR: Failed to read the root certificate store.\n   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)\n')));
 assert(/ERROR:/.test(filter('ERROR: Missing stage data')));
 const tests = [
+  'stage07_10', 'stage07_10_art', 'stage07_10_playthrough', 'stage07_10_flow', 'expedition_music',
   'drop_rates', 'oichi_sidekick',
   'stage05_art', 'stage05_combat', 'stage05_reinforcements', 'stage05_natsume', 'stage05_farmers', 'stage05_streaming', 'stage05_audio', 'stage05_playthrough', 'stage05_campaign_flow', 'officer_weapon_fx',
 	'charged_invulnerability', 'stage04_rebuild', 'combat_feedback_v42', 'stage04_density', 'stage04_shields', 'campaign_food', 'food_inventory', 'knockback_distance', 'oichi_air_multihit', 'guard_restore', 'light_finisher', 'light_finisher_cadence', 'hideyoshi_blink',
@@ -88,7 +89,7 @@ for (const name of selected) {
     : name === 'render_v14' ? ['--', '--require-v14']
     : name === 'audio_v15' ? ['--', '--require-v15']
     : name === 'local_coop_startup' ? ['--', '--local-coop'] : [];
-  await run(name, ['--headless', '--script', `res://tests/test_${name}.gd`, ...flags]);
+  await run(name, ['--headless', '--script', `res://tests/test_${name}.gd`, ...flags], name==='stage07_10_playthrough'?420000:240000);
 }
 if (process.argv.includes('--render-drop-rates')) {
   await run('drop_rates_native', ['--windowed', '--audio-driver', 'Dummy', '--script', 'res://tests/test_drop_rates.gd', '--', '--capture']);

@@ -1,0 +1,607 @@
+{
+  "id": 9,
+  "title": "上洛街道",
+  "faction": "miyoshi",
+  "year": 1568,
+  "target_minutes": [
+    12,
+    20
+  ],
+  "historical_note": "岩成友通據守勝龍寺城、三好長逸所屬三好三人眾抵抗上洛是歷史背景。本關將芥川與勝龍寺方向壓縮至一條街道；百姓疏散與武將對決為演繹。",
+  "design_source": "docs/第一關與24關設計-v0.19.html",
+  "segments": [
+    {
+      "name": "桂川渡口",
+      "theme": "riverbank",
+      "weather": "clear",
+      "music": "s03_camp_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 1,
+          "end": 1400,
+          "objective": "evacuate",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "gunner"
+            ],
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "gunner"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 740,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 970,
+              "y": 390,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 560,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 360,
+          "hint": "護送三組百姓到右側出口；附近有敵兵時百姓會停下。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 2,
+          "end": 2800,
+          "objective": "evacuate",
+          "boss": "",
+          "waves": [
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "gunner"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "gunner"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2140,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 2370,
+              "y": 570,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1960,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 360,
+          "hint": "護送三組百姓到右側出口；附近有敵兵時百姓會停下。"
+        }
+      ]
+    },
+    {
+      "name": "町屋交叉口",
+      "theme": "village",
+      "weather": "clear",
+      "music": "s03_camp_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 3,
+          "end": 1400,
+          "objective": "evacuate",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "gunner"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "gunner"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 740,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 970,
+              "y": 390,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 560,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 345,
+          "hint": "鐵砲交叉封路，木障可擋火線；解除敵軍壓力後再拆障開路。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 4,
+          "end": 2800,
+          "objective": "evacuate",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "gunner"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "gunner"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2140,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 2370,
+              "y": 570,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1960,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 345,
+          "hint": "鐵砲交叉封路，木障可擋火線；解除敵軍壓力後再拆障開路。"
+        }
+      ]
+    },
+    {
+      "name": "長逸封鎖線",
+      "theme": "road",
+      "weather": "clear",
+      "music": "s03_camp_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 5,
+          "end": 1400,
+          "objective": "evacuate",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "gunner",
+              "spear"
+            ],
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "gunner",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 740,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 970,
+              "y": 390,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 560,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 330,
+          "hint": "長逸交叉斬後會退步號令；換到空出的道路，避免追入火線。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 6,
+          "end": 2800,
+          "objective": "evacuate",
+          "boss": "nagayasu",
+          "waves": [
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "gunner"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "gunner"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2140,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 2370,
+              "y": 570,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1960,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 330,
+          "hint": "長逸交叉斬後會退步號令；換到空出的道路，避免追入火線。"
+        }
+      ]
+    },
+    {
+      "name": "勝龍寺外街",
+      "theme": "gate",
+      "weather": "mist",
+      "music": "s03_camp_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 7,
+          "end": 1400,
+          "objective": "evacuate",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "gunner",
+              "spear"
+            ],
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "gunner",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 740,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 970,
+              "y": 390,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 560,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 315,
+          "hint": "百姓不會穿過木障；清除阻路木障與近身追兵。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 8,
+          "end": 2800,
+          "objective": "evacuate",
+          "boss": "",
+          "waves": [
+            [
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "gunner",
+              "raider",
+              "gunner",
+              "shield"
+            ],
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "gunner",
+              "shield"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2140,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 2370,
+              "y": 570,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1960,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 315,
+          "hint": "百姓不會穿過木障；清除阻路木障與近身追兵。"
+        }
+      ]
+    },
+    {
+      "name": "友通街道本陣",
+      "theme": "command",
+      "weather": "clear",
+      "music": "s03_camp_battle",
+      "width": 2800,
+      "civilians": "none",
+      "props": [],
+      "encounters": [
+        {
+          "mode": "campaign_challenge",
+          "node": 9,
+          "end": 1400,
+          "objective": "evacuate",
+          "boss": "",
+          "waves": [
+            [
+              "spear",
+              "shield",
+              "archer",
+              "spear",
+              "raider",
+              "gunner",
+              "gunner",
+              "spear"
+            ],
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "gunner",
+              "spear"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 740,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 970,
+              "y": 390,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 560,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 300,
+          "hint": "友通鉤斬會拉近距離，三連掃最後一擊才是反攻時機。"
+        },
+        {
+          "mode": "campaign_challenge",
+          "node": 10,
+          "end": 2800,
+          "objective": "evacuate",
+          "boss": "iwanari",
+          "waves": [
+            [
+              "gunner",
+              "spear",
+              "archer",
+              "shield",
+              "spear",
+              "raider",
+              "gunner"
+            ],
+            [
+              "spear",
+              "archer",
+              "spear",
+              "shield",
+              "spear",
+              "raider",
+              "gunner"
+            ]
+          ],
+          "objects": [
+            {
+              "asset": "barricade",
+              "x": 2140,
+              "y": 480,
+              "hp": 140,
+              "mandatory": true
+            },
+            {
+              "asset": "barricade",
+              "x": 2370,
+              "y": 570,
+              "hp": 125,
+              "mandatory": true
+            },
+            {
+              "asset": "supplies",
+              "x": 1960,
+              "y": 575,
+              "hp": 55,
+              "mandatory": false
+            }
+          ],
+          "hold_ticks": 0,
+          "hazard_interval": 300,
+          "hint": "友通鉤斬會拉近距離，三連掃最後一擊才是反攻時機。"
+        }
+      ]
+    }
+  ]
+}
