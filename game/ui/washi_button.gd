@@ -3,11 +3,13 @@ extends StyleBox
 var bg_color := Color.TRANSPARENT
 var border_color := Color.TRANSPARENT
 var border_width := 1.0
+var paper_tint := Color.WHITE
 static var _texture: Texture2D
 # Crop only the empty outer canvas at draw time; the supplied PNG stays unchanged.
 const SOURCE := Rect2(8,88,2148,462)
 const LEFT_CAP := 250.0
 const RIGHT_CAP := 245.0
+const INNER_PAPER := Rect2(270,190,1633,260)
 
 static func texture() -> Texture2D:
 	if _texture == null:
@@ -51,3 +53,10 @@ func _draw(canvas: RID, rect: Rect2) -> void:
 			var dy := 1.0 if corner.y < b.get_center().y else -1.0
 			var points := PackedVector2Array([corner+Vector2(dx*arm,0),corner,corner+Vector2(0,dy*arm)])
 			RenderingServer.canvas_item_add_polyline(canvas,points,PackedColorArray([border_color]),border_width,true)
+	if paper_tint != Color.WHITE:
+		# Tint only the inner paper, preserving the red brocade and rollers.
+		var center: Rect2 = slices(rect)[1]
+		var scale := Vector2(center.size.x/(SOURCE.size.x-LEFT_CAP-RIGHT_CAP),rect.size.y/SOURCE.size.y)
+		var offset := INNER_PAPER.position-SOURCE.position-Vector2(LEFT_CAP,0)
+		var paper_rect := Rect2(center.position+offset*scale,INNER_PAPER.size*scale)
+		RenderingServer.canvas_item_add_texture_rect_region(canvas,paper_rect,texture().get_rid(),INNER_PAPER,paper_tint)

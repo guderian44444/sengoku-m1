@@ -33,6 +33,10 @@ func _run() -> void:
 		assert(style.get_constant("outline_size", type) == 0)
 	var button_focus := style.get_stylebox("focus", "Button") as SengokuTheme.WashiButton
 	assert(button_focus.border_width >= 3 and button_focus.border_color == SengokuTheme.FOCUS_BORDER)
+	assert(button_focus.paper_tint == SengokuTheme.BUTTON_SELECTED_TINT)
+	assert(style.get_stylebox("hover", "Button").paper_tint == button_focus.paper_tint)
+	assert(style.get_stylebox("normal", "Button").paper_tint == Color.WHITE)
+	assert(_contrast(SengokuTheme.INK, SengokuTheme.PAPER_LIGHT * button_focus.paper_tint) >= 4.5, "Selected brown paper keeps dark labels readable.")
 	for type in ["LineEdit", "ItemList", "HSlider"]:
 		var focus := style.get_stylebox("focus", type) as StyleBoxFlat
 		assert(focus.border_width_left >= 3 and focus.border_color == SengokuTheme.VERMILION)

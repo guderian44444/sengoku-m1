@@ -8,14 +8,14 @@ func _initialize() -> void:
 	for hero in Battle.PLAYABLE_HEROES:
 		for weapon in Weapons.ids_for(hero):
 			var equipment: Dictionary={} if hero=="oichi" else Weapons.item(weapon)
-			var base: float=115.0 if hero=="oichi" else Battle.LIGHT_REACH[hero]
-			var reach: float=(base+float(equipment.get("reach_bonus",0))+12.0)*Battle.HERO_PROFILES[hero].reach*(1.3 if hero=="oichi" else 1.0)
-			var depth: float=48.0*Battle.HERO_PROFILES[hero].depth
-			if hero=="hideyoshi":
-				reach*=1.3
-				depth*=1.3
 			for face in [-1,1]:
 				for combo in [1,2,3]:
+					var base: float=Battle.LIGHT_REACH[hero] if hero!="oichi" else (138.0 if combo==3 else 115.0)
+					var reach: float=(base+float(equipment.get("reach_bonus",0))+12.0)*Battle.HERO_PROFILES[hero].reach*(1.3 if hero=="oichi" else 1.0)
+					var depth: float=(57.6 if hero=="oichi" and combo==3 else 48.0)*Battle.HERO_PROFILES[hero].depth
+					if hero=="hideyoshi":
+						reach*=1.3
+						depth*=1.3
 					var scale:=1.44 if combo==3 else 1.0
 					for probe in [Vector3(reach*scale-.01,0,1),Vector3(reach*scale+.1,0,0),Vector3(70,depth*scale-.01,1),Vector3(70,-depth*scale+.01,1),Vector3(70,depth*scale+.1,0),Vector3(reach*1.1,0,int(combo==3)),Vector3(70,depth*1.1,int(combo==3))]:
 						var sim:=Battle.new();sim.reset_training(hero,"dummy")

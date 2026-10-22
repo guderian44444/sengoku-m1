@@ -7,6 +7,11 @@ var _mikawa_audio = Stage04Audio.new()
 var _ikki_audio = Stage05Audio.new()
 const TITLE_ROOT := "res://audio/title-amenoshita-v1/"
 const TITLE_KEYS := ["title_intro", "title_loop"]
+# YouFulca enemy death cries, original PCM at 0 dB. Local files are not redistributed.
+# ボイス：ユーフルカ https://youfulca.com/
+const ENEMY_DEATH_ROOT := "res://audio/local-enemy-death/"
+const ENEMY_DEATH_COUNT := 10
+const HERO_KINDS := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
 
 const SAMPLE_RATE := 22050
 const VOICE_COUNT := 6
@@ -64,6 +69,11 @@ var _sample_gains: Dictionary = {}
 var _choice_bags: Dictionary = {}
 var _last_choices: Dictionary = {}
 var _rng := RandomNumberGenerator.new()
+var _enemy_death_streams: Array[AudioStreamWAV] = []
+var _enemy_death_previous := -1
+var _enemy_death_seen := {}
+var _enemy_death_floor := 0
+var enemy_death_plays := 0
 var last_impact_variant := -1
 var last_sound := ""
 var last_sound_variant := -1
@@ -165,6 +175,7 @@ func _ready() -> void:
 		speaker.volume_db = -5.0 if channel.begins_with("hero") else -9.0
 		add_child(speaker)
 		_speech_players[channel] = speaker
+	_load_enemy_death_voices()
 	_intro_player = AudioStreamPlayer.new()
 	_intro_player.bus = CATEGORY_BUSES.voice
 	_intro_player.volume_db = -3.0
@@ -251,8 +262,10 @@ func _apply_volume(category: String) -> void:
 func _load_music(key: String) -> AudioStream:
 	if _music_streams.has(key): return _music_streams[key]
 	if key in Stage05Audio.Data.MUSIC:
-		_music_streams[key]=Stage05Audio.music(key)
-		return _music_streams[key]
+		var stage_music := Stage05Audio.music(key)
+		if stage_music == null: return null
+		_music_streams[key] = stage_music
+		return stage_music
 	if key.begins_with("s04_"):
 		var row := CampaignMusic.mikawa_track(key)
 		var path := "res://audio/local-stage4/s04_hot.ogg" if key == "s04_hot" else Stage04Audio.Data.ROOT+"audio/music/"+str(row.file)
@@ -310,7 +323,9 @@ func sync_encounter(world: Dictionary) -> void:
 func sync_stage_music(world: Dictionary) -> void:
 	var key := CampaignMusic.select(world,_music_key)
 	if key in Stage05Audio.Data.MUSIC:
-		_change_music(key,.75,.25)
+		var kusei := key in ["s05_kusei_intro","s05_kusei_loop"]
+		_change_music(key,1.56 if kusei else .75,.25)
+		if kusei and not _music_paused and (not _music_active or not _music_player.playing): play_music()
 		return
 	if key.begins_with("s04_"):
 		var row := CampaignMusic.mikawa_track(key)
@@ -338,7 +353,7 @@ func sync_stage_music(world: Dictionary) -> void:
 
 func _change_music(key: String, gain: float, fade: float) -> void:
 	_music_target_gain = gain
-	if key == _music_key: return
+	if key == _music_key and _music_player.stream != null: return
 	var stream := _load_music(key)
 	if stream == null:
 		if key in ["victory_jingle", "victory_loop"]:
@@ -382,8 +397,10 @@ func _process(delta: float) -> void:
 	if not _music_active or _music_paused: return
 	if _music_key == "title_intro" and _music_player.playing and _music_player.get_playback_position() >= _title_switch_at:
 		_change_music("title_loop",1.0,_title_crossfade_seconds)
+	# Kusei's joined PCM stream owns the intro-to-loop boundary; keep its player and cursor intact.
 	# Recover an interrupted stream without restarting healthy loops or same-score areas.
-	if not _music_player.playing and _music_player.stream != null and _music_key not in ["victory_jingle", "title_intro","s04_intro","s04_victory"]: _music_player.play()
+	if not _music_player.playing and _music_player.stream != null and _music_key not in ["victory_jingle", "title_intro","s04_intro","s04_victory"]:
+		_music_player.play()
 	if _music_fade >= 1.0:
 		_music_player.volume_linear = move_toward(_music_player.volume_linear,_music_target_gain,delta * 2.0)
 		return
@@ -572,8 +589,88 @@ func play_character(actor: String, event: String, slot: int = 0, force: bool = f
 	player.pitch_scale = 0.88 if actor == "tadakatsu" and not speech_manifest.has("hero_voice_profiles") else 1.0
 	player.play()
 
+func _load_enemy_death_voices() -> void:
+	_enemy_death_streams.clear()
+	for index in range(1, ENEMY_DEATH_COUNT + 1):
+		var path := ENEMY_DEATH_ROOT + "enemy_death_%02d.wav" % index
+		var stream := AudioStreamWAV.load_from_file(path)
+		if stream == null:
+			push_warning("Missing enemy death voice: " + path)
+			continue
+		_enemy_death_streams.append(stream)
+
+
+static func enemy_death_pick(previous: int, roll: int) -> int:
+	# First draw is uniform on 0..9. Later draws are uniform on the other nine.
+	if previous < 0:
+		return posmod(roll, ENEMY_DEATH_COUNT)
+	var index := posmod(roll, ENEMY_DEATH_COUNT - 1)
+	if index >= previous:
+		index += 1
+	return index
+
+
+func _roll_enemy_death() -> int:
+	var span := ENEMY_DEATH_COUNT - 1 if _enemy_death_previous >= 0 else ENEMY_DEATH_COUNT
+	var index := enemy_death_pick(_enemy_death_previous, _rng.randi_range(0, span - 1))
+	_enemy_death_previous = index
+	return index
+
+
+func _grunt_death(event: Dictionary) -> bool:
+	if str(event.get("type", "")) != "defeat":
+		return false
+	var kind := str(event.get("target_kind", ""))
+	if kind.is_empty() or kind == "boss" or kind == "dummy" or kind in HERO_KINDS:
+		return false
+	return _enemy_death_streams.size() == ENEMY_DEATH_COUNT
+
+
+func prepare_enemy_death(event: Dictionary) -> void:
+	# The host stamps the clip. A client plays that index and does not draw again.
+	if not _grunt_death(event) or event.has("voice_index"):
+		return
+	event.voice_index = _roll_enemy_death()
+
+
+func clear_enemy_death_seen() -> void:
+	_enemy_death_seen.clear()
+	_enemy_death_floor = 0
+
+
+func _play_enemy_death(event: Dictionary) -> bool:
+	if not _grunt_death(event):
+		return false
+	var id := int(event.get("id", 0))
+	var key := "%d:%d" % [int(event.get("target", 0)), id]
+	if id > 0:
+		if _enemy_death_floor > 0 and id < _enemy_death_floor and not _enemy_death_seen.has(key):
+			_enemy_death_seen.clear()
+			_enemy_death_floor = 0
+		if _enemy_death_seen.has(key):
+			return true
+		_enemy_death_seen[key] = true
+		_enemy_death_floor = id if id < _enemy_death_floor else maxi(_enemy_death_floor, id)
+	if not event.has("voice_index"):
+		event.voice_index = _roll_enemy_death()
+	else:
+		_enemy_death_previous = int(event.voice_index)
+	var index := int(event.voice_index)
+	if index < 0 or index >= _enemy_death_streams.size():
+		return true
+	var player: AudioStreamPlayer = _speech_players.enemy
+	player.stream = _enemy_death_streams[index]
+	player.pitch_scale = 1.0
+	player.play()
+	last_spoken = "enemy_death_%02d" % (index + 1)
+	enemy_death_plays += 1
+	return true
+
+
 func _play_character_event(event: Dictionary) -> void:
 	var type := str(event.get("type", ""))
+	if event.get("voice_suppressed", false) and type in ["hit", "heavy_hit", "shield_hit", "guard_break"]:
+		return
 	if event.get("actor_mikawa",false) and type == "swing": return
 	if event.get("target_mikawa",false) and event.get("target_kind","") == "boss" and type in ["hit","heavy_hit","defeat"]:
 		var key := str(event.get("line_key","")) if type == "defeat" else "enemy_rugged_v15_hurt_%d" % _choose_variant("mikawa_hurt",3)
@@ -603,6 +700,8 @@ func _play_character_event(event: Dictionary) -> void:
 			_intro_player.stream = _speech_streams[key]
 			_intro_player.play()
 			last_spoken = key
+		return
+	if _play_enemy_death(event):
 		return
 	var speech_event: String = {"swing":"attack", "special":"special", "hit":"hurt", "heavy_hit":"hurt", "shield_hit":"hurt", "guard":"guard", "guard_break":"hurt", "defeat":"defeat"}.get(type, "")
 	if speech_event == "": return

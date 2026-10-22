@@ -59,6 +59,18 @@ func sync(world: Dictionary) -> void:
 static func player_rect(slot: int) -> Rect2:
 	return Rect2(16 if slot == 0 else 872, 10, 392, 104)
 
+static func next_food_text(fighter: Dictionary) -> String:
+	var food := Equipment.next_food(fighter)
+	if food.is_empty(): return ""
+	var slot := int(fighter.get("player_index", 0))
+	return "%s　%s" % ["Q／R1" if slot == 0 else "R1", str(food.name)]
+
+static func food_chip_rect(slot: int) -> Rect2:
+	var panel := player_rect(slot)
+	# Stay left of the victory exit button at x=1140.
+	var width := panel.size.x if slot == 0 else minf(panel.size.x, 1134.0 - panel.position.x)
+	return Rect2(panel.position.x, panel.end.y + 6.0, width, 26.0)
+
 static func player_status(fighter: Dictionary, tick: int) -> Dictionary:
 	var lives := maxi(0,int(fighter.get("lives",Battle.STARTING_LIVES)))
 	var extra_age := tick - int(fighter.get("extra_life_tick",-1000))
@@ -109,6 +121,13 @@ func _draw() -> void:
 		_label(Vector2(text_x + 237, origin.y + 77), "甲%d" % fighter.get("armor", 0), 16, MUTED)
 		var item := Equipment.instance(fighter,int(fighter.get("weapon_uid",0)))
 		_label(Vector2(text_x, origin.y + 97), Weapons.name_for(fighter) + ("　耐 %d" % int(item.durability) if not item.is_empty() and not Equipment.is_practice(str(item.item_id)) else "　∞"), 15, GOLD)
+		var food_text := next_food_text(fighter)
+		if food_text != "":
+			var chip := food_chip_rect(slot)
+			draw_rect(chip, PANEL)
+			draw_rect(chip, Color("a98b54"), false, 1.0)
+			var align := HORIZONTAL_ALIGNMENT_LEFT if slot == 0 else HORIZONTAL_ALIGNMENT_RIGHT
+			_label(chip.position + Vector2(12, 19), food_text, 16, GOLD, chip.size.x - 24.0, align)
 	for index in range(leaders.size()):
 		var leader: Dictionary = leaders[index]
 		var panel := Rect2(16 + index * 640,660,608,48)

@@ -39,6 +39,7 @@ var _frozen_samples: Dictionary = {}
 var _treasures: Dictionary = {}
 var _weapons = WeaponRenderer.new()
 var _shadow_pass := false
+var _opaque_bounds: Dictionary = {}
 var _npc_alarm: Dictionary = {}
 var _fx = SharedCombatVFX.new()
 
@@ -722,15 +723,20 @@ func _draw_camp_barrier(prop: Dictionary, origin: Vector2, hit_gain: float) -> v
 
 func _draw_prop(prop: Dictionary) -> void:
 	if prop.has("s05_asset"):
-		if _shadow_pass: return
 		var drawing := _stage05_art.prop(prop,int(state.tick))
-		_draw_art_frame(drawing,Vector2(float(prop.x)-camera_x,float(prop.y)),float(drawing.display_height),1,0,Color.WHITE,float(drawing.body_height))
+		var ground := Vector2(float(prop.x)-camera_x,float(prop.y))
+		if _shadow_pass:
+			_draw_attached_prop_shadow(drawing,ground,float(drawing.display_height))
+			return
+		_draw_art_frame(drawing,ground,float(drawing.display_height),1,0,Color.WHITE,float(drawing.body_height))
 		return
 	if prop.has("mikawa_asset"):
 		var drawing := _stage04_art.prop(prop,int(state.tick))
 		var ground := Vector2(float(prop.x)-camera_x,float(prop.y))
 		var height := 245.0 if prop.mikawa_asset in ["kflag","uflag"] else 148.0
-		if _shadow_pass: return
+		if _shadow_pass:
+			_draw_attached_prop_shadow(drawing,ground,height)
+			return
 		_draw_art_frame(drawing,ground,height,1,0,Color.WHITE,float(drawing.body_height))
 		return
 	var origin := Vector2(float(prop.x) - camera_x,fighter_depth(prop))
@@ -773,6 +779,98 @@ static func prop_opacity(prop: Dictionary, fighters: Array, height: float, width
 	for fighter in fighters:
 		if fighter.team == 0 and fighter.hp > 0 and fighter.y < front and fighter.y > front - height and absf(fighter.x - prop.x) < width * 0.5 + 22.0: return 0.42
 	return 1.0
+
+func _source_scale(frame: Dictionary) -> Vector2:
+	# Stage-five pages store a half-size atlas region stretched onto the crop.
+	# Anchors live in that crop, so opaque pixels have to be measured there too.
+	var region: Rect2 = frame.region
+	var source: Vector2 = frame.get("source_size", region.size)
+	return Vector2(source.x / maxf(1.0, region.size.x), source.y / maxf(1.0, region.size.y))
+
+func _frame_opaque_bounds(frame: Dictionary) -> Rect2:
+	var region: Rect2 = frame.region
+	var key := "%s:%d,%d,%d,%d" % [frame.texture.get_rid(), region.position.x, region.position.y, region.size.x, region.size.y]
+	if _opaque_bounds.has(key): return _opaque_bounds[key]
+	var image: Image = frame.texture.get_image()
+	var min_x := region.end.x
+	var min_y := region.end.y
+	var max_x := region.position.x
+	var max_y := region.position.y
+	var found := false
+	if image != null:
+		var y := int(region.position.y)
+		var y_end := mini(int(region.end.y), image.get_height())
+		var x_end := mini(int(region.end.x), image.get_width())
+		while y < y_end:
+			var x := int(region.position.x)
+			while x < x_end:
+				if image.get_pixel(x, y).a > 0.08:
+					found = true
+					min_x = minf(min_x, x)
+					min_y = minf(min_y, y)
+					max_x = maxf(max_x, x + 1)
+					max_y = maxf(max_y, y + 1)
+				x += 2
+			y += 2
+	var bounds := Rect2(region.position, Vector2(1, 1))
+	if found: bounds = Rect2(min_x, min_y, maxf(1, max_x - min_x), maxf(1, max_y - min_y))
+	var to_source := _source_scale(frame)
+	bounds = Rect2((bounds.position - region.position) * to_source, bounds.size * to_source)
+	_opaque_bounds[key] = bounds
+	return bounds
+
+func _opaque_band(frame: Dictionary, local_top: float, local_bottom: float) -> Rect2:
+	var region: Rect2 = frame.region
+	var key := "%s:%d,%d,%d,%d:%.0f" % [frame.texture.get_rid(), region.position.x, region.position.y, region.size.x, region.size.y, local_top]
+	if _opaque_bounds.has(key): return _opaque_bounds[key]
+	var to_source := _source_scale(frame)
+	var image: Image = frame.texture.get_image()
+	var min_x := region.end.x
+	var max_x := region.position.x
+	var found := false
+	if image != null:
+		var y := clampi(int(region.position.y + local_top / to_source.y), 0, image.get_height())
+		var y_end := clampi(int(ceil(region.position.y + local_bottom / to_source.y)), 0, image.get_height())
+		var x_end := mini(int(region.end.x), image.get_width())
+		while y < y_end:
+			var x := int(region.position.x)
+			while x < x_end:
+				if image.get_pixel(x, y).a > 0.08:
+					found = true
+					min_x = minf(min_x, x)
+					max_x = maxf(max_x, x + 1)
+				x += 2
+			y += 2
+	var band := Rect2(0, local_top, frame.get("source_size", region.size).x, maxf(1.0, local_bottom - local_top))
+	if found:
+		var left := (min_x - region.position.x) * to_source.x
+		var right := (max_x - region.position.x) * to_source.x
+		band = Rect2(left, local_top, maxf(1.0, right - left), maxf(1.0, local_bottom - local_top))
+	_opaque_bounds[key] = band
+	return band
+
+func _draw_attached_prop_shadow(frame: Dictionary, ground: Vector2, height: float) -> void:
+	# Chapter 1 jars read as sitting down because their shadow overlaps the base.
+	# A tall prop projected with the usual 0.24 depth drops that shadow clear of the feet.
+	if frame.is_empty() or height <= 1.0: return
+	var body := float(frame.get("body_height", height))
+	var scale := height / body
+	var region: Rect2 = frame.region
+	var source: Vector2 = frame.get("source_size", region.size)
+	var anchor: Vector2 = frame.get("anchor", Vector2(source.x * 0.5, source.y))
+	var bounds := _frame_opaque_bounds(frame)
+	var bottom := bounds.position.y + bounds.size.y
+	var top := maxf(bounds.position.y, bottom - 42.0 / scale)
+	var foot := ground + Vector2(0, (bottom - anchor.y) * scale)
+	var band := _opaque_band(frame, top, bottom)
+	var base_width := maxf(22.0, band.size.x * scale)
+	var rx := base_width * 0.48
+	var ry := clampf(rx * 0.2, 8.0, 13.0)
+	# Sit across the opaque bottom: part of the oval tucks into the feet, the rest lies on the ground.
+	var center := foot + Vector2((band.get_center().x - anchor.x) * scale, ry * 0.35)
+	for layer in range(6):
+		var alpha := 0.06 + layer * 0.025
+		_ellipse(center, Vector2(rx, ry) * (1.0 - layer * 0.1), Color(0.015, 0.019, 0.025, alpha))
 
 func _draw_prop_shadow(frame: Dictionary, front: Vector2, height: float, depth: float, opacity: float = .25) -> void:
 	_draw_frame_shadow(frame,shadow_projection(front,0,str(state.get("stage",{}).get("theme",""))),height,1,0,opacity)
@@ -1147,6 +1245,7 @@ func _draw_hero_power(fighter: Dictionary, ground: Vector2, height: float, sampl
 			_draw_art_frame(fx,ground-Vector2(0,float(fighter.get("z",0)))+hand*(1-factor),height*factor,float(fighter.get("face",1)),0,Color.WHITE,float(fx.body_height))
 		if str(fighter.get("kind","")) == "tadakatsu" and str(sample.get("clip","")) == "charge_release":
 			_draw_tadakatsu_charge_ring(fighter, ground, front)
+		_fx.draw_light_follow(self, fighter, ground, sample, frame, front)
 		return
 	if _fx.draw_actor(self,fighter,ground,height,sample,frame,front): return
 	var clip := str(sample.clip)

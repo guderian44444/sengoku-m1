@@ -88,6 +88,15 @@ static func instance(row: Dictionary, uid: int) -> Dictionary:
 		if int(item.uid) == uid: return item
 	return {}
 
+static func next_food(row: Dictionary) -> Dictionary:
+	for item in row.get("inventory", []):
+		if not item is Dictionary: continue
+		var id := str(item.get("item_id", ""))
+		if not FOODS.has(id): continue
+		var spec: Dictionary = FOODS[id]
+		return {"uid": int(item.uid), "item_id": id, "name": str(spec.name), "heal": int(spec.heal)}
+	return {}
+
 static func sync(row: Dictionary) -> void:
 	var weapon := instance(row,int(row.get("weapon_uid",0)))
 	var hero := str(row.get("hero",row.get("kind","nobunaga")))

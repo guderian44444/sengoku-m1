@@ -241,6 +241,105 @@ func draw_nobunaga_cut(canvas, fighter: Dictionary, ground: Vector2, height: flo
 	if pose.is_empty(): return
 	shared_player.draw_phase(canvas,"blade_arc",pose.age,pose.duration,ground-Vector2(0,float(fighter.z))+pose.center,true,{"opacity":[[0,.85],[.55,.95],[1,0]]},{"face":fighter.face,"rotation":pose.rotation,"size":pose.size})
 
+const LIGHT_FOLLOW_WINDOWS := {
+	"oichi": {"light_1": [3, 5], "light_2": [3, 5]},
+	"hideyoshi": {"light_1": [3, 6], "light_2": [3, 5]},
+	"ieyasu": {"light_1": [3, 5], "light_2": [2, 5]},
+	"mitsuhide": {"light_1": [3, 6], "light_2": [1, 3]},
+	"tadakatsu": {"light_1": [1, 3], "light_2": [2, 4]},
+}
+# Painted spear on the long cells reaches this far past the hand. Catalog geometry.top is shorter.
+const SPEAR_TIP_REACH := 254.0
+const ARC_TAIL := Vector2(200.0 / 1024.0, 680.0 / 1024.0)
+const ARC_HEAD := Vector2(653.0 / 1024.0, 253.0 / 1024.0)
+
+func light_follow_pose(canvas, fighter: Dictionary, sample: Dictionary, frame: Dictionary) -> Dictionary:
+	var sweep := _tadakatsu_sweep_pose(canvas, fighter, sample)
+	if not sweep.is_empty(): return sweep
+	return _light_cut_pose(canvas, fighter, sample, frame)
+
+func draw_light_follow(canvas, fighter: Dictionary, ground: Vector2, sample: Dictionary, frame: Dictionary, front: bool) -> void:
+	if not configured or not front or shared_player == null: return
+	var pose := light_follow_pose(canvas, fighter, sample, frame)
+	if pose.is_empty(): return
+	var curves := {"opacity": [[0.0, float(pose.opacity)], [0.55, float(pose.peak)], [1.0, 0.0]]}
+	shared_player.draw_phase(canvas, str(pose.id), float(pose.age), float(pose.duration), ground - Vector2(0.0, float(fighter.get("z", 0.0))) + pose.center, true, curves, {"face": fighter.face, "rotation": pose.rotation, "size": pose.size, "stretch": pose.stretch})
+
+func _light_cut_style(kind: String) -> Dictionary:
+	match kind:
+		"hideyoshi", "ieyasu", "mitsuhide", "oichi":
+			return {"id": "blade_arc", "floor": 210.0, "mul": 2.1, "offset": Vector2(0.29, -0.09), "stretch": Vector2.ONE, "opacity": 0.85, "peak": 0.95}
+		"tadakatsu":
+			return {"id": "neutral_thrust_cone", "floor": 210.0, "mul": 1.0, "offset": Vector2.ZERO, "stretch": Vector2(1.05, 0.72), "opacity": 1.0, "peak": 1.0, "place": "tip"}
+	return {}
+
+func _light_cut_pose(canvas, fighter: Dictionary, sample: Dictionary, frame: Dictionary) -> Dictionary:
+	var kind := str(fighter.get("kind", ""))
+	var style := _light_cut_style(kind)
+	if style.is_empty() or str(fighter.get("action", "")) != "light" or int(fighter.get("combo", 0)) not in [1, 2]: return {}
+	var window: Array = LIGHT_FOLLOW_WINDOWS.get(kind, {}).get(str(sample.get("clip", "")), [])
+	if window.is_empty() or int(sample.get("frame", -1)) < int(window[0]) or int(sample.get("frame", -1)) > int(window[1]): return {}
+	var height := float(Battle.CombatMoves.HEIGHTS[kind])
+	var geometry: Dictionary = canvas._weapons.geometry(fighter, frame, height)
+	if geometry.is_empty(): return {}
+	var direction: Vector2 = geometry.top - geometry.hand
+	if direction.length() < 8.0: return {}
+	var size := maxf(float(style.floor), direction.length() * float(style.mul))
+	var angle := direction.angle()
+	var center: Vector2
+	if str(style.get("place", "")) == "tip":
+		center = geometry.top + direction.normalized() * 6.0
+	else:
+		var tip: Vector2 = geometry.top + direction.normalized() * 12.0
+		center = tip - (style.offset as Vector2).rotated(angle) * size
+	style["center"] = center * Vector2(float(fighter.get("face", 1)), 1.0)
+	style["rotation"] = angle
+	style["size"] = size
+	style["age"] = float(sample.frame) - float(window[0])
+	style["duration"] = float(int(window[1]) - int(window[0]) + 1)
+	return style
+
+func _spear_sweep_tip(canvas, fighter: Dictionary, frame_index: int) -> Vector2:
+	var frames: Array = canvas._art.animations["tadakatsu"]["v33_light_3"]
+	var posed: Dictionary = frames[clampi(frame_index, 0, frames.size() - 1)]
+	var height := float(Battle.CombatMoves.HEIGHTS.tadakatsu)
+	var geometry: Dictionary = canvas._weapons.geometry(fighter, posed, height)
+	if geometry.is_empty(): return Vector2.ZERO
+	var direction: Vector2 = geometry.top - geometry.hand
+	if direction.length() < 8.0: return Vector2.ZERO
+	return geometry.hand + direction.normalized() * SPEAR_TIP_REACH
+
+func _tadakatsu_sweep_pose(canvas, fighter: Dictionary, sample: Dictionary) -> Dictionary:
+	if str(fighter.get("kind", "")) != "tadakatsu" or str(fighter.get("action", "")) != "light" or int(fighter.get("combo", 0)) != 3: return {}
+	# Frames 1–6 swing from behind the body to the front. Frame 0 is ready, frame 7 recovers.
+	if str(sample.get("clip", "")) != "light_3" or int(sample.get("frame", -1)) < 1 or int(sample.get("frame", -1)) > 6: return {}
+	var frame_index := int(sample.frame)
+	var start := _spear_sweep_tip(canvas, fighter, 1)
+	# Frame 6 draws the spear back. The trail keeps the furthest tip and does not shrink.
+	var end := _spear_sweep_tip(canvas, fighter, mini(frame_index, 5))
+	if start == Vector2.ZERO or end == Vector2.ZERO: return {}
+	var chord := end - start
+	if chord.length() < 36.0:
+		var ahead := _spear_sweep_tip(canvas, fighter, 2) - start
+		chord = (ahead if ahead.length() > 8.0 else Vector2.RIGHT).normalized() * 40.0
+	var tail := ARC_TAIL - Vector2(0.5, 0.5)
+	var head := ARC_HEAD - Vector2(0.5, 0.5)
+	var tex := head - tail
+	var size := chord.length() / tex.length()
+	var rotation := chord.angle() - tex.angle()
+	var center := start - (tail * size).rotated(rotation)
+	return {
+		"id": "blade_arc",
+		"center": center * Vector2(float(fighter.get("face", 1)), 1.0),
+		"rotation": rotation,
+		"size": size,
+		"stretch": Vector2.ONE,
+		"opacity": 0.95,
+		"peak": 0.9,
+		"age": float(frame_index) - 1.0,
+		"duration": 10.0,
+	}
+
 func draw_wave(canvas, effect: Dictionary, ground: Vector2) -> bool:
 	if not configured: return false
 	var type := str(effect.get("type",""))
@@ -262,7 +361,13 @@ func draw_wave(canvas, effect: Dictionary, ground: Vector2) -> bool:
 		shared_player.draw_phase(canvas,"blade_arc",age,float(effect.max_life),center,true,{"opacity":[[0,.95],[.45,.85],[1,0]]},{"face":face,"rotation":lerpf(-.8,.65,sweep),"size":reach*1.35,"stretch":Vector2(1,height/reach)})
 		shared_player.draw_phase(canvas,"blade_wave",age,float(effect.max_life),ground+Vector2(face*reach*.48,-20),true,{"opacity":[[0,.45],[.3,.75],[1,0]]},{"face":face,"size":reach*1.25,"stretch":Vector2(1,depth*2.0/(reach*1.25))})
 		return true
+	# A weapon-follow arc already draws this swing. The effect still exists for combat sync.
+	if type == "slash" and effect.get("follow", false):
+		return true
 	if type == "slash" and effect.get("finisher",false):
+		# Oichi's third light already paints the foot trail. Skip the generic kick arc.
+		if str(effect.get("kind","")) == "kick":
+			return true
 		var age := float(effect.max_life-effect.life)
 		var reach := float(effect.radius)
 		var weapon := str(effect.kind)

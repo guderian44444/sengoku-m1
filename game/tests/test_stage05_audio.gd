@@ -25,6 +25,25 @@ func run() -> void:
 	for key in Data.MUSIC:
 		var stream := S5Audio.music(key)
 		check(stream!=null and stream.loop_mode==AudioStreamWAV.LOOP_FORWARD and stream.loop_end>stream.loop_begin,"music loop samples: "+key)
+	var world := {"phase":"playing","stage":{"id":5},"ikki":{"node":12}}
+	audio.stop_music();audio.sync_stage_music(world)
+	check(audio._music_active and audio._music_player.playing,"Entering Kusei battle starts the boss score even after music was stopped")
+	audio._music_player.stop();audio._music_active=false
+	audio.sync_stage_music(world)
+	check(audio._music_active and audio._music_player.playing,"Repeated boss snapshots restore interrupted music without another activation call")
+	audio._music_player.stream=null;audio.sync_stage_music(world)
+	check(audio._music_player.stream!=null and audio._music_player.playing,"Boss entry reloads a missing stream even when the score key is unchanged")
+	var music_player: AudioStreamPlayer=audio._music_player
+	var joined: AudioStreamWAV=music_player.stream
+	check(joined.loop_begin==1114105 and joined.loop_end==2995705,"Kusei intro and drums share the exact PCM loop boundaries")
+	for position in [26.0,float(joined.loop_end)/joined.mix_rate-.05]:
+		music_player.seek(position)
+		var playback: AudioStreamPlayback=music_player.get_stream_playback()
+		await create_timer(.15).timeout
+		audio.sync_stage_music(world)
+		check(audio._music_key=="s05_kusei_intro" and audio._music_player==music_player and music_player.playing and music_player.get_stream_playback()==playback,"Intro handoff and loop wrap preserve the playing channel and cursor")
+		check(music_player.get_playback_position()>=float(joined.loop_begin)/joined.mix_rate and music_player.get_playback_position()<float(joined.loop_end)/joined.mix_rate,"Kusei percussion keeps looping inside the joined stream")
+	audio.stop_music()
 	var stomp := engine.stream("audio/tracks/kusei_stomp_v2_voiceA_full_5p65s.wav")
 	check(absf(stomp.get_length()-5.65)<.01,"natural stomp tail remains 5.65s")
 	audio.play_event({"type":"stage05_audio","cue":"kusei_stomp_full","actor":99,"id":1})

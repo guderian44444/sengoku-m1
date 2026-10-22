@@ -1,20 +1,22 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>吞食戰國｜第一關與 24 關設計（v0.20 規則）</title>
+<title>吞食戰國｜第一關與 24 關設計・現況 2026-10-22</title>
 <style>
 :root{color-scheme:dark;font-family:"Microsoft JhengHei",system-ui,sans-serif;background:#101b20;color:#e8eadf}*{box-sizing:border-box}body{max-width:1320px;margin:auto;padding:28px 24px 64px;line-height:1.7}header{border-top:4px solid #b85149;padding-top:18px}h1{font-size:34px;line-height:1.35}h2{margin-top:36px;color:#e4c494}h3{color:#e4c494;margin-top:0}a{color:#a6d8d0}nav{display:flex;flex-wrap:wrap;gap:18px;padding:14px;background:#1d2d34;position:sticky;top:0;z-index:3}section{scroll-margin-top:76px}.note{border-left:3px solid #d9ae69;background:#302c23;padding:15px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px}.card{background:#1b2a30;border:1px solid #3a4d56;border-radius:8px;padding:18px}.card p:last-child{margin-bottom:0}.muted,small{color:#b3c0c5}.tag{display:inline-block;color:#ead098;border:1px solid #7b6847;border-radius:15px;padding:2px 9px;font-size:13px}.route{display:flex;gap:8px;flex-wrap:wrap;list-style:none;padding:0}.route a{display:block;background:#243b40;padding:7px 11px;border-radius:4px;text-decoration:none}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:1050px;font-size:14px}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid #3a4d56}th{background:#203239;color:#e4c494}td:first-child{min-width:170px}td:nth-child(2){min-width:145px}td:last-child{min-width:225px}.segment{margin:16px 0;padding:21px;border-left:4px solid #476f68;background:#1a2930}.segment h3{margin-bottom:6px}.segment dl{display:grid;grid-template-columns:95px 1fr;gap:7px 14px}.segment dt{color:#dfc699}.segment dd{margin:0}.review{border-top:1px solid #40555f;padding-top:12px;margin-top:15px}label{display:block;color:#cbd8da;font-size:14px}textarea{display:block;width:100%;min-height:74px;margin-top:6px;padding:10px;background:#0f1d23;border:1px solid #526c77;border-radius:4px;color:#eef0e7;font:inherit;resize:vertical}button{font:inherit;padding:9px 14px;background:#365d59;color:#fff;border:1px solid #72a296;border-radius:4px;cursor:pointer}a:focus,button:focus,textarea:focus{outline:2px solid #e9c982;outline-offset:3px}.actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:18px 0}#save-status{color:#b4e2c7;min-height:26px}.error{color:#ffc1aa!important}code{font-family:Consolas,monospace;font-size:13px;overflow-wrap:anywhere}details{margin:12px 0;padding:12px 16px;border:1px solid #40555f}summary{cursor:pointer;color:#e4c494}.source-list li{margin:12px 0}footer{margin-top:30px;border-top:1px solid #40555f;padding-top:15px;color:#b3c0c5}@media(max-width:650px){body{padding:16px 12px}h1{font-size:27px}nav{position:static}.segment dl{grid-template-columns:1fr;gap:3px}.segment dd{margin-bottom:8px}}@media print{:root{color-scheme:light;background:white;color:#111}nav,.actions{display:none}body{max-width:none;padding:0;font-size:10px}.card,.segment,.note,th{background:white;color:#111;border-color:#999}h2,h3,a,small,.muted,dt,th{color:#111!important}.scroll{overflow:visible}table{min-width:0;font-size:9px}td{min-width:0!important}.segment{break-inside:avoid}textarea{color:#111;background:white}}
 </style></head>
 <body>
-<header><span class="tag">LEVEL DESIGN · v0.20 規則 · 2026-10-11</span><h1>七個長場景，十四個戰鬥據點</h1><p>由桶狹間竹林一路打進高根山前哨陣。每個場景有自己的底圖與氣氛，內含兩個清場據點；看到 GO 後繼續走，完成第二據點才切換場景。</p><p class="muted">本頁的波次、場景及補給直接對齊主程式資料。18–25 分鐘是調整目標；完整遊玩時長、正式畫面與聲音仍需實機驗收。</p></header>
-<nav aria-label="設計段落"><a href="#basis">參考與長度</a><a href="#first">七場景／十四據點</a><a href="#rules">推進與互動</a><a href="#boss">中將與關底</a><a href="#roster">24 關鎮守表</a><a href="#acceptance">驗收</a><a href="#sources">史料來源</a></nav>
+<header><span class="tag">LEVEL DESIGN · runtime 0.33.0 · 2026-10-22</span><h1>前五關已接入，後十九關仍待製作</h1><p>本頁依本機正式關卡資料與主程式更新。第一關保留七場景、十四據點；第四關為三河歸途，第五關已改為三河一向一揆。第六至二十四關仍是設計候選。</p><p class="muted">「已接入」表示有正式資料與執行流程；自動檢查、真人通關、手把、雙機 LAN、聽感與正式匯出分開驗收。版本號仍為 0.33.0，不以素材修訂號推定發行版本。</p></header>
+<nav aria-label="設計段落"><a href="#current">目前五關</a><a href="#pending">未完成作業</a><a href="#basis">參考與長度</a><a href="#first">七場景／十四據點</a><a href="#rules">推進與互動</a><a href="#boss">中將與關底</a><a href="#roster">24 關鎮守表</a><a href="#acceptance">驗收</a><a href="#sources">史料來源</a></nav>
 <div class="actions"><button id="export">匯出本頁評論 JSON</button><button id="print">列印／存成 PDF</button><span id="save-status" role="status" aria-live="polite"></span></div>
-<section id="basis"><h2>同一場景內持續推進，清場據點控制節奏</h2><div class="grid"><article class="card"><h3>原作節奏參考</h3><p>既定參考為 1996 年 Saturn《天地を喰らう II 赤壁の戦い》。<a href="#src-capcom">Capcom</a>的街機介紹列出九個大關；<a href="#src-gamewatch">GAME Watch</a>可參考沿路遭遇、補給與關底節奏。這些來源沒有證明 Saturn 固定據點數；本作的十四據點是此次遊戲設計。</p></article><article class="card"><h3>本關長度</h3><p>7 個場景，每圖 3,200–3,800 世界座標寬；各有 2 個據點、每據點 2–3 波。合計 14 據點、31 波、24,600 世界座標路程。設計目標 <strong>18–25 分鐘</strong>，不是原作的實測數值。</p></article><article class="card"><h3>演義配置</h3><p>史實只作人物與場景背景；鎮守武將可依戰鬥趣味調度。第一關松井宗信守前哨陣，今川義元留在第三關。未來 24 關清單維持。</p></article></div><div class="review" data-review="basis"></div></section>
-<section id="first"><h2>第一關：桶狹間竹林・高根山前哨</h2><p>正式資料為 <code>game/data/stage-01.json</code>。固定波次合計單人 <strong>108 人</strong>、雙人 <strong>165 人</strong>，均包含三名中將與一名關底；另加關底的定時增援。雙人每波普通兵取單人人數的 1.5 倍並向上取整，將領維持一名。各據點下方列出實際兵種與波次。</p><ol id="segment-route" class="route"></ol><div id="segments"></div><div class="review" data-review="first-overall"></div></section>
-<section id="rules"><h2>推進、阻擋與拾取</h2><div class="grid"><article class="card"><h3>同圖 GO 繼續走</h3><p>當前據點的波次與強制路障清完才亮 GO。第一據點通過後，人物不重置位置、HP、裝備或怒氣，原有掉落仍留在同一圖；第二據點通過才換圖。畫面右緣停在目前可通行的區域，GO 等待時也不提前顯示未開放區；左側已清空區可回頭拾取補給。最後決戰清場進入結算。</p></article><article class="card"><h3>雙人一起前進</h3><p>所有存活隊友須落地、結束出招並到出口區，才能推進。死亡隊友保持倒地，不阻擋出口，也不因換圖自動復活；全滅時相機留在倒地隊伍位置，不跳回場景入口。</p></article><article class="card"><h3>敵人從畫面外進場</h3><p>敵人與援軍從當時可見畫面左側或右側至少 240 px 外出現，再跑進戰區；避免在玩家腳下或眼前突然生成。</p></article><article class="card"><h3>實體阻擋</h3><p>敵人及大物件以腳底矩形範圍阻擋，沿 X、Y 軸掃掠位移。衝撞先推開敵兵；大箱、攤車、屏風與木櫃不能直接穿過。拒馬與強制屏風必須破壞；未到的下一據點路障不會提前卡住 GO。</p></article><article class="card"><h3>倒地與起身</h3><p>倒地敵人不可再受擊；玩家倒地與起身期間同樣受保護，不能被反覆打斷。玩家起身用半徑 120 px、縱深按 0.4 換算的小橢圓推開附近敵人，包含大小王，只造成 2 HP 傷害，並保護玩家 45 tick。這次推開不把王再次打倒，避免反覆觸發王的起身衝擊。小王與大王起身時會震退站立的貼身玩家，不重置已倒地或正在起身的玩家；留出距離再接戰。</p></article><article class="card"><h3>看得見的補給</h3><p>指定甕、籃子、箱櫃被打破後固定掉落食物。飯糰回 35、烤魚回 50、糰子回 25、桃子回 60 HP；每件只掉一次，雙人共用拾取。食物內容高度為 46–50 px，搭配地面金色弧光與陰影。</p></article><article class="card"><h3>七種底圖與透明邊界</h3><p>竹林、山道、市集、寨門、兵糧營、庭園及內室各有不同底圖。新庭園獨立製作，並提供草叢、灌木、高低土堆與透空護欄；透明孔隙能看見後方景物，打散地面交界。屏風與實木櫃以腳底定位，耐久與碰撞由主程式管理。</p></article><article class="card"><h3>素材與正式畫面</h3><p>新景物與今川軍七種身分均採正式 v0.19 透明圖源，松井大王有獨立造型。54 組動作涵蓋站立、步行、攻擊、受擊、掙扎與死亡；步行採六個真正姿勢，每格 10 tick、一秒一輪，停止就回站姿。裁圖保留完整武器，身高按解剖尺度固定，不隨彎腰或倒地外框縮放。七場景構圖、透明遮擋與人物比例已有原生截圖；真人通關、難度與聽感尚不宣稱全數完成。</p></article><article class="card"><h3>路人與音樂</h3><p>市集採商販，兵糧營採搬運者，其他區域不額外塞入路人；遇戰向邊緣逃離。攻陣曲用於場景 1–2，市集曲用於 3，營寨曲用於 4–6，決戰曲用於 7。每段曲目持續循環，同曲不中斷，換曲交叉淡入淡出；暫停與結果畫面也不中斷音樂。設定頁分開調整音樂、音效與語音並自動保存。循環接縫、混音與操作流程仍需原生驗證及實聽。</p></article></div><div class="review" data-review="rules"></div></section>
-<section id="boss"><h2>三名中將與關底持續增援</h2><p>瀨名氏俊、鵜殿長照與井伊直盛安排在第 2、4、6 場景的第二據點；松井宗信守第 7 場景第二據點。登場姓名與台詞顯示 4 秒，戰鬥持續。大小王步速為追蹤玩家步速的 80%；小王 HP 為玩家最大生命的 2 倍、大王 3 倍。多人以隊伍最高 <code>max_hp</code>（含倒地隊友）為基準，不額外疊乘雙人或敵方難度倍率；普通難度玩家 120 HP，對應 240／360 HP。</p><div class="grid"><article class="card"><h3>瀨名氏俊 · 2–2</h3><p>「山道兩側，合圍！一個都別放過！」</p><p>普通難度 HP：240（玩家最大生命 × 2）。共用橫掃、前刺、反擊與突進四招。</p></article><article class="card"><h3>鵜殿長照 · 4–2</h3><p>「守住寨門！今川軍，隨我迎敵！」</p><p>普通難度 HP：240（玩家最大生命 × 2）。共用橫掃、前刺、反擊與突進四招。</p></article><article class="card"><h3>井伊直盛 · 6–2</h3><p>「井伊直盛在此！踏過這座庭園，先勝過我！」</p><p>普通難度 HP：240（玩家最大生命 × 2）。共用橫掃、前刺、反擊與突進四招。</p></article><article class="card"><h3>松井宗信 · 7–2</h3><p>「松井宗信在此！援軍接應，隨我殺退敵軍！」</p><p>普通難度 HP：360（玩家最大生命 × 3）。橫掃、前刺、反擊與全周震地波；人體以玩家 155 px × 1.3 設為 201.5 px。</p></article></div><p class="note"><strong>關底每 30 秒再次召兵：</strong>松井宗信存活時，單人每次 4 人、雙人每次 6 人。場上角色超過 48 時先把召兵請求排隊，待清出空間再進場；不無限堆疊實體。主將死亡就停止計時並取消尚未出現的援軍，已登場敵兵仍需清完。</p><div class="review" data-review="boss"></div></section>
-<section id="roster"><h2>未來 24 關的鎮守武將候選</h2><p>保留原 24 關清單，以<strong>遊戲演義與戰鬥趣味</strong>配置鎮守武將。史實只作人物和場景的背景參考，角色可以跨戰場登場；不要求人物與關卡一一符合歷史。必要的改命運分支以 IF 簡記，重複登場者用不同招式與勝敗條件區分。</p><div class="scroll"><table><thead><tr><th>關卡／年代</th><th>最終鎮守武將</th><th>演義配置／背景靈感</th><th>玩法辨識</th><th>此關評論（自動保存）</th></tr></thead><tbody id="roster-rows"></tbody></table></div></section>
-<section id="acceptance"><h2>驗收與待確認項目</h2><ol><li>七場景、十四據點依序通過；每據點 2–3 波，未清敵或當前強制路障前不出 GO。</li><li>同圖推進保留人物位置、HP、裝備、怒氣與原掉落；每圖第二據點才換景。未開放的右區不顯示，已清區可回頭；雙人出口、死亡倒地與全滅相機位置正常。</li><li>普通波與主將增援皆從畫面外至少 240 px 進場；遠程兵接近與障礙繞行不造成拖延或卡住。</li><li>檢查草木、土坡與護欄的透明邊界，屏風／木櫃腳底定位，近景遮擋及七圖的遠近捲動。這項需正式原生畫面確認。</li><li>倒地與起身不再受擊；玩家起身只造成 2 傷並推開附近敵人，大小王起身震退站立近身玩家。大小王 80% 步速、2／3 倍玩家最大生命以及每 30 秒召兵、滿場排隊、死亡停止均按規則驗證。</li><li>開始畫面、主選單、武將選擇、遊戲設定與底部暫留工程入口需原生操作驗證。HUD 肖像、HP／氣力條與主將血條清晰，不顯示波數；三類音量自動保存、暫停／結果不中斷音樂、全螢幕切換與拾取聲需實際操作及聆聽。</li><li>信長、阿市、本多及雙人模式實際通關，記錄每據點秒數、吃補量、死亡、等敵時間與卡住次數，再調整 18–25 分鐘目標。</li></ol><p class="muted">程式狀態機測試可手動清敵驗證流程，不能當成輸入驅動的通關。另有三主角實際攻擊輸入 fixture，每 tick 補回生命但保留正常 max_hp 與王血比例，只驗證可達與戰鬥接線，不代表真人難度、遊玩時間、選單操作、聽感或實體搖桿驗收。</p><div class="review" data-review="acceptance"></div></section>
+<section id="current"><h2>目前真正可玩的範圍</h2><p>六名可玩角色為信長、阿市、秀吉、家康、顯如、忠勝；顯如沿用 <code>mitsuhide</code> 存檔 ID。支援單人、同機雙人與 ENet IP 直連，玩家分檔、裝備耐久、倉庫、護符、成就與退出保存已接入。各模式的實體操作與雙機品質仍待驗收。</p><div class="scroll"><table><thead><tr><th>關卡／年代</th><th>場景／據點</th><th>已接入內容</th><th>狀態</th></tr></thead><tbody><tr><td>1 · 桶狹間竹林・高根山前哨<br>1560</td><td>7／14</td><td>七場景、十四據點；松井宗信守關底，定時增援另計。</td><td>已接入；待真人驗收</td></tr><tr><td>2 · 大高兵糧道・丸根砦突破<br>1560</td><td>6／12</td><td>六場景、十二據點；護糧、槍兵武將與丸根砦突破。</td><td>已接入；待真人驗收</td></tr><tr><td>3 · 今川本陣<br>1560</td><td>4／4</td><td>四場景、四據點；落鐘停援、破木障、破陣及帳內雙將／義元。</td><td>已接入；待真人驗收</td></tr><tr><td>4 · 三河歸途<br>1560</td><td>5／13</td><td>五場景、十三節點；富永、吉良、長照，盾兵、泥地與左右增援。</td><td>已接入；待真人驗收</td></tr><tr><td>5 · 三河一向一揆<br>1563</td><td>5／12</td><td>五場景、十二節點；蜂屋、夏目、空誓，破旗停援與召僧鎖血。</td><td>已接入；待真人驗收</td></tr></tbody></table></div><p>正式來源：<code>game/data/stage-01.json</code> 至 <code>stage-05.json</code>、<code>game/core/stage_data.gd</code>。詳細操作見 <a href="../README-試玩.md">試玩說明</a>；本輪盤點、證據與 Git 同步範圍見 <a href="PROJECT-STATUS-20261022.md">未完成作業清單</a>。</p></section>
+<section id="pending"><h2>未完成作業與優先順序</h2><ol><li><b>發行前：</b>新死亡語音的十段本機音檔尚未列入打包閉包；須補齊打包／取得流程並在乾淨目錄驗證，遵守既有不公開散布原 WAV 的範圍。第四關另需本機 Battle10 音樂。</li><li><b>發行前：</b>完成本輪阿市 B 踢擊、輕手跟隨特效、快捷進食、連續下一關及死亡語音的針對性操作驗收；原生自動檢查的結果與未覆蓋項分列於盤點文件。</li><li><b>實機驗收：</b>六人單／雙人正常通關、難度與耗時、實體手把及雙手把、兩台 Windows LAN、錯誤版本／斷線、真人音效與日語聽感。</li><li><b>正式交付：</b>EXE／PCK 匯出、匯出圖像資源警告、乾淨機器啟動與依賴檢查；現有引擎加原始資源試玩不等於正式匯出。</li><li><b>後續內容：</b>第 6–24 關、六角色獨立故事與 IF 結局、原第五關「墨俣渡河」的重新排程；每線 16 關與 4–6 小時仍為草案目標。</li><li><b>遠期系統：</b>馬戰、獎勵關、合技與 Saturn 專有要素盤點仍未完成；舊怒氣必殺與方向派生招不作為現行已開放功能。</li></ol><p class="note">早期大綱的墨俣渡河保留為待排程內容，沒有因第五關換成一向一揆就視為完成。未整合的交付分支和本機原稿不自動列作遊戲功能。</p></section>
+<section id="basis"><h2>第一關規模以目前資料為準</h2><p>指定參考仍為 1996 年 Saturn《天地を喰らう II 赤壁の戦い》；來源清單保留於頁尾。本輪只核對本機工程，沒有重新考證原作或歷史。</p><div class="grid"><article class="card"><h3>現行路程與波次</h3><p>7 場景、14 據點、31 波，共 16,400 世界座標。固定排程單人 216 人、雙人 324 人，包含三名中將與一名關底，關底定時增援另計。</p></article><article class="card"><h3>長度目標仍待量測</h3><p>第一關資料仍設定 18–25 分鐘目標。現行路程與兵力已不同於初稿，須用無測試保護的真人通關記錄耗時、死亡、補血與等待時間；不以 fixture 通關當成難度驗收。</p></article><article class="card"><h3>演義與後續戰場</h3><p>第一關由松井宗信守前哨，第三關義元決戰；第四、第五關依實際接入調整。第 6–24 關候選與史源保持草案標記。</p></article></div><div class="review" data-review="basis"></div></section>
+<section id="first"><h2>第一關：桶狹間竹林・高根山前哨</h2><p>以下資料重新取自 <code>game/data/stage-01.json</code>。七場景、十四據點、31 波，固定排程單人 216 人／雙人 324 人。雙人每波普通兵乘 1.5 並向上取整，將領維持一人；定時援軍不計入固定總數。</p><ol id="segment-route" class="route"></ol><div id="segments"></div><div class="review" data-review="first-overall"></div></section>
+<section id="rules"><h2>推進、阻擋與拾取</h2><div class="grid"><article class="card"><h3>同圖 GO 繼續走</h3><p>當前據點的波次與強制路障清完才亮 GO。第一據點通過後，人物不重置位置、HP、裝備或怒氣，原有掉落仍留在同一圖；第二據點通過才換圖。畫面右緣停在目前可通行的區域，GO 等待時也不提前顯示未開放區；左側已清空區可回頭拾取補給。最後決戰清場進入結算。</p></article><article class="card"><h3>雙人一起前進</h3><p>所有存活隊友須落地、結束出招並到出口區，才能推進。死亡隊友保持倒地，不阻擋出口，也不因換圖自動復活；全滅時相機留在倒地隊伍位置，不跳回場景入口。</p></article><article class="card"><h3>敵人從畫面外進場</h3><p>敵人與援軍從當時可見畫面左側或右側至少 240 px 外出現，再跑進戰區；避免在玩家腳下或眼前突然生成。</p></article><article class="card"><h3>實體阻擋</h3><p>敵人及大物件以腳底矩形範圍阻擋，沿 X、Y 軸掃掠位移。衝撞先推開敵兵；大箱、攤車、屏風與木櫃不能直接穿過。拒馬與強制屏風必須破壞；未到的下一據點路障不會提前卡住 GO。</p></article><article class="card"><h3>倒地與起身</h3><p>倒地敵人不可再受擊；玩家倒地與起身期間同樣受保護，不能被反覆打斷。玩家起身用半徑 120 px、縱深按 0.4 換算的小橢圓推開附近敵人，包含大小王，只造成 2 HP 傷害，並保護玩家 45 tick。這次推開不把王再次打倒，避免反覆觸發王的起身衝擊。小王與大王起身時會震退站立的貼身玩家，不重置已倒地或正在起身的玩家；留出距離再接戰。</p></article><article class="card"><h3>看得見的補給</h3><p>戰役中的食物由半血以下的行為者擊殺或破壞物件時，按食物機率抽選，預設 20%；一般兵只掉食物。四種食物基礎各回 80 HP，另加護符加成。滿血拾取收入行囊，Q／R1 使用下一份，滿血不消耗；倉庫總上限 120 件。物件裝備掉落另按預設 5% 判定。食物內容高度為 46–50 px，搭配地面金色弧光與陰影。</p></article><article class="card"><h3>七種底圖與透明邊界</h3><p>竹林、山道、市集、寨門、兵糧營、庭園及內室各有不同底圖。新庭園獨立製作，並提供草叢、灌木、高低土堆與透空護欄；透明孔隙能看見後方景物，打散地面交界。屏風與實木櫃以腳底定位，耐久與碰撞由主程式管理。</p></article><article class="card"><h3>素材與正式畫面</h3><p>新景物與今川軍七種身分均採正式 v0.19 透明圖源，松井大王有獨立造型。54 組動作涵蓋站立、步行、攻擊、受擊、掙扎與死亡；步行採六個真正姿勢，每格 10 tick、一秒一輪，停止就回站姿。裁圖保留完整武器，身高按解剖尺度固定，不隨彎腰或倒地外框縮放。七場景構圖、透明遮擋與人物比例已有原生截圖；真人通關、難度與聽感尚不宣稱全數完成。</p></article><article class="card"><h3>路人與音樂</h3><p>市集採商販，兵糧營採搬運者，其他區域不額外塞入路人；遇戰向邊緣逃離。前三關已採 PeriTune 戰役配樂，第一關竹林 Shizima3、一般交戰 Strategy4、松井宗信 Ametsuchi；勝利短曲後接結算循環。同曲跨段不中斷；暫停會凍結播放，結果依勝利流程換曲。設定頁分開調整音樂、音效與語音並自動保存。循環接縫、混音與操作流程仍需原生驗證及實聽。</p></article></div><div class="review" data-review="rules"></div></section>
+<section id="boss"><h2>三名中將與關底持續增援</h2><p>瀨名氏俊、鵜殿長照與井伊直盛安排在第 2、4、6 場景的第二據點；松井宗信守第 7 場景第二據點。登場姓名與台詞顯示 4 秒，戰鬥持續。大小王步速為追蹤玩家步速的 80%；第一、二關敵將以難度的原玩家基礎 HP 加永久加成計算，小王 ×2、大王 ×3；玩家新增的 50% 血量不會同步強化敵將。普通難度、無永久加成時玩家 180 HP，小王 240、大王 360 HP。第四、五關有各自的敵將與雙人規則，不能套用這個比例。</p><div class="grid"><article class="card"><h3>瀨名氏俊 · 2–2</h3><p>「山道兩側，合圍！一個都別放過！」</p><p>普通難度 HP：240（原基礎生命 × 2）。共用橫掃、前刺、反擊與突進四招。</p></article><article class="card"><h3>鵜殿長照 · 4–2</h3><p>「守住寨門！今川軍，隨我迎敵！」</p><p>普通難度 HP：240（原基礎生命 × 2）。共用橫掃、前刺、反擊與突進四招。</p></article><article class="card"><h3>井伊直盛 · 6–2</h3><p>「井伊直盛在此！踏過這座庭園，先勝過我！」</p><p>普通難度 HP：240（原基礎生命 × 2）。共用橫掃、前刺、反擊與突進四招。</p></article><article class="card"><h3>松井宗信 · 7–2</h3><p>「松井宗信在此！援軍接應，隨我殺退敵軍！」</p><p>普通難度 HP：360（原基礎生命 × 3）。橫掃、前刺、反擊與全周震地波；人體以玩家 155 px × 1.3 設為 201.5 px。</p></article></div><p class="note"><strong>關底每 30 秒再次召兵：</strong>松井宗信存活時，單人每次 4 人、雙人每次 6 人。場上角色超過 48 時先把召兵請求排隊，待清出空間再進場；不無限堆疊實體。主將死亡就停止計時並取消尚未出現的援軍，已登場敵兵仍需清完。</p><div class="review" data-review="boss"></div></section>
+<section id="roster"><h2>24 關規模：前五關已接入，其餘為候選</h2><p>前五關以現行資料為準，第 6–24 關保留初期候選；原第五關墨俣渡河另待重新排程。以下鎮守武將與玩法不表示後續關卡已完成。以<strong>遊戲演義與戰鬥趣味</strong>配置鎮守武將。史實只作人物和場景的背景參考，角色可以跨戰場登場；不要求人物與關卡一一符合歷史。必要的改命運分支以 IF 簡記，重複登場者用不同招式與勝敗條件區分。</p><div class="scroll"><table><thead><tr><th>關卡／年代</th><th>最終鎮守武將</th><th>演義配置／背景靈感</th><th>玩法辨識</th><th>此關評論（自動保存）</th></tr></thead><tbody id="roster-rows"></tbody></table></div></section>
+<section id="acceptance"><h2>驗收與待確認項目</h2><ol><li>自動檢查以 <code>scripts/test-v19.mjs</code> 的本輪結果為準，詳見 <a href="PROJECT-STATUS-20261022.md">盤點與驗證</a>。涵蓋前五關、倉庫、保存、掉落、Wire、UI 等；不直接代表以下人工項目完成。</li><li>六人無保護通關第一至第五關；記錄每據點秒數、死亡、補給、等敵與卡住次數，再調整長度及難度。</li><li>實體手把與同機雙手把測試：蓄力放開、抓摔、格擋、快捷進食、暫停、姓名字盤、倉庫、掉落百分比與下一關。</li><li>兩台 Windows LAN 通關，檢查主機設定、掉落、死亡語音索引、斷線與版本拒絕；同機雙程序不能代替此項。</li><li>真人檢視阿市 B 踢擊接招、武器跟隨特效、腳底及遮擋；聆聽空誓配樂前奏／循環與十段敵兵死亡語音、武器命中及日語咬字。</li><li>更新打包依賴、保留來源署名，重新做乾淨目錄試玩與正式 EXE／PCK 匯出；確認動態聲音與圖像載入沒有遺漏。</li></ol><p class="muted">輸入 fixture 可能給予生命或無敵保護；效能測試也限於指定硬體與情境。這些結果不能當作真人難度、耗時、聽感或硬體通用相容性的證明。</p><div class="review" data-review="acceptance"></div></section>
 <section id="sources"><h2>歷史背景參考</h2><p>查核日：2026-10-11。以下作為人物與場景的創作參考；關卡調度、招式、台詞及勝負依遊戲需求設計。傳說題材保留其傳說性質，作為劇情靈感。</p><ol id="source-list" class="source-list"></ol><div class="review" data-review="sources"></div></section>
 <footer>評論只保存在目前瀏覽器的此頁來源。移動檔案、更換瀏覽器或清除網站資料可能影響存取；請匯出 JSON 留存。此頁不自動向外部服務傳送評論。</footer>
 <script id="design-data" type="application/json">
@@ -31,19 +33,25 @@
       "name": "竹林伏擊",
       "theme": "bamboo",
       "weather": "mist",
-      "music": "bamboo",
-      "width": 3400,
+      "music": "s01_bamboo_approach",
+      "width": 2267,
       "civilians": "none",
       "encounters": [
         {
-          "end": 1700,
+          "end": 1133,
           "waves": [
             [
+              "soldier",
+              "soldier",
+              "flag",
               "soldier",
               "soldier",
               "flag"
             ],
             [
+              "soldier",
+              "archer",
+              "soldier",
               "soldier",
               "archer",
               "soldier"
@@ -51,15 +59,23 @@
           ]
         },
         {
-          "end": 3400,
+          "end": 2267,
           "waves": [
             [
+              "soldier",
+              "archer",
+              "soldier",
+              "flag",
               "soldier",
               "archer",
               "soldier",
               "flag"
             ],
             [
+              "commander",
+              "soldier",
+              "archer",
+              "soldier",
               "commander",
               "soldier",
               "archer",
@@ -71,25 +87,25 @@
       "props": [
         [
           "jar",
-          520,
+          347,
           555,
-          "rice"
+          ""
         ],
         [
           "crate",
-          1120,
+          747,
           395,
           "fish"
         ],
         [
           "basket",
-          2030,
+          1353,
           575,
-          "dango"
+          ""
         ],
         [
           "cart",
-          2670,
+          1780,
           405,
           "",
           false,
@@ -97,7 +113,7 @@
         ],
         [
           "jar",
-          3060,
+          2040,
           555,
           "peach"
         ]
@@ -110,20 +126,27 @@
       "name": "高根山暴雨山道",
       "theme": "ridge",
       "weather": "storm",
-      "music": "siege",
-      "width": 3600,
+      "music": "s01_outpost_battle",
+      "width": 2400,
       "civilians": "none",
       "encounters": [
         {
-          "end": 1800,
+          "end": 1200,
           "waves": [
             [
+              "soldier",
+              "archer",
+              "flag",
+              "soldier",
               "soldier",
               "archer",
               "flag",
               "soldier"
             ],
             [
+              "soldier",
+              "archer",
+              "soldier",
               "soldier",
               "archer",
               "soldier"
@@ -131,9 +154,13 @@
           ]
         },
         {
-          "end": 3600,
+          "end": 2400,
           "waves": [
             [
+              "archer",
+              "soldier",
+              "flag",
+              "soldier",
               "archer",
               "soldier",
               "flag",
@@ -142,7 +169,10 @@
             [
               "soldier",
               "archer",
-              "boss"
+              "boss",
+              "soldier",
+              "archer",
+              "soldier"
             ]
           ],
           "boss": {
@@ -155,41 +185,43 @@
       "props": [
         [
           "crate",
-          650,
+          433,
           560,
           "rice"
         ],
         [
           "cart",
-          1220,
+          813,
           405,
-          ""
+          "",
+          false,
+          "wind"
         ],
         [
           "basket",
-          2010,
+          1340,
           565,
-          "dango"
+          ""
         ],
         [
           "barricade",
-          2850,
+          1900,
           420,
           "",
           true
         ],
         [
           "barricade",
-          2850,
+          1900,
           550,
           "",
           true
         ],
         [
           "jar",
-          3270,
+          2180,
           560,
-          "peach"
+          ""
         ]
       ],
       "id": 2,
@@ -200,14 +232,17 @@
       "name": "山腳市集",
       "theme": "village",
       "weather": "rain",
-      "music": "town",
-      "width": 3800,
+      "music": "s01_outpost_battle",
+      "width": 2533,
       "civilians": "vendors",
       "encounters": [
         {
-          "end": 1900,
+          "end": 1267,
           "waves": [
             [
+              "soldier",
+              "flag",
+              "archer",
               "soldier",
               "flag",
               "archer"
@@ -216,9 +251,16 @@
               "commander",
               "soldier",
               "soldier",
+              "gunner",
+              "commander",
+              "soldier",
+              "soldier",
               "gunner"
             ],
             [
+              "soldier",
+              "archer",
+              "soldier",
               "soldier",
               "archer",
               "soldier"
@@ -226,15 +268,23 @@
           ]
         },
         {
-          "end": 3800,
+          "end": 2533,
           "waves": [
             [
+              "soldier",
+              "gunner",
+              "flag",
+              "soldier",
               "soldier",
               "gunner",
               "flag",
               "soldier"
             ],
             [
+              "commander",
+              "soldier",
+              "archer",
+              "soldier",
               "commander",
               "soldier",
               "archer",
@@ -246,37 +296,37 @@
       "props": [
         [
           "stall",
-          640,
+          427,
           580,
-          "rice"
+          ""
         ],
         [
           "cart",
-          1190,
+          793,
           395,
           "fish"
         ],
         [
           "basket",
-          1610,
+          1073,
           555,
-          "dango"
+          ""
         ],
         [
           "stall",
-          2260,
+          1507,
           400,
-          "rice"
+          ""
         ],
         [
           "large_crate",
-          2680,
+          1787,
           555,
           "fish"
         ],
         [
           "cart",
-          3220,
+          2147,
           410,
           "",
           false,
@@ -284,9 +334,9 @@
         ],
         [
           "jar",
-          3470,
+          2313,
           575,
-          "peach"
+          ""
         ]
       ],
       "id": 3,
@@ -297,20 +347,28 @@
       "name": "前哨寨門攻防",
       "theme": "gate",
       "weather": "rain",
-      "music": "castle",
-      "width": 3600,
+      "music": "s01_outpost_battle",
+      "width": 2400,
       "civilians": "none",
       "encounters": [
         {
-          "end": 1800,
+          "end": 1200,
           "waves": [
             [
+              "soldier",
+              "flag",
+              "archer",
+              "soldier",
               "soldier",
               "flag",
               "archer",
               "soldier"
             ],
             [
+              "commander",
+              "soldier",
+              "gunner",
+              "soldier",
               "commander",
               "soldier",
               "gunner",
@@ -319,9 +377,13 @@
           ]
         },
         {
-          "end": 3600,
+          "end": 2400,
           "waves": [
             [
+              "soldier",
+              "archer",
+              "flag",
+              "soldier",
               "soldier",
               "archer",
               "flag",
@@ -330,12 +392,18 @@
             [
               "commander",
               "gunner",
+              "soldier",
+              "commander",
+              "gunner",
               "soldier"
             ],
             [
               "soldier",
               "archer",
-              "boss"
+              "boss",
+              "soldier",
+              "archer",
+              "soldier"
             ]
           ],
           "boss": {
@@ -348,46 +416,48 @@
       "props": [
         [
           "jar",
-          570,
+          380,
           565,
           "peach"
         ],
         [
           "barricade",
-          1370,
+          913,
           420,
           "",
           true
         ],
         [
           "barricade",
-          1370,
+          913,
           550,
           "",
           true
         ],
         [
           "large_crate",
-          2030,
+          1353,
           395,
-          "fish"
+          "",
+          false,
+          "war"
         ],
         [
           "jar",
-          2390,
+          1593,
           565,
-          "rice"
+          ""
         ],
         [
           "fence",
-          2910,
+          1940,
           420,
           "",
           true
         ],
         [
           "fence",
-          2910,
+          1940,
           550,
           "",
           true
@@ -401,14 +471,18 @@
       "name": "夕照兵糧營",
       "theme": "camp",
       "weather": "clear",
-      "music": "castle",
-      "width": 3600,
+      "music": "s01_outpost_battle",
+      "width": 2400,
       "civilians": "porters",
       "encounters": [
         {
-          "end": 1800,
+          "end": 1200,
           "waves": [
             [
+              "soldier",
+              "flag",
+              "archer",
+              "soldier",
               "soldier",
               "flag",
               "archer",
@@ -418,14 +492,22 @@
               "commander",
               "soldier",
               "gunner",
+              "soldier",
+              "commander",
+              "soldier",
+              "gunner",
               "soldier"
             ]
           ]
         },
         {
-          "end": 3600,
+          "end": 2400,
           "waves": [
             [
+              "soldier",
+              "gunner",
+              "soldier",
+              "flag",
               "soldier",
               "gunner",
               "soldier",
@@ -435,9 +517,16 @@
               "commander",
               "archer",
               "soldier",
+              "soldier",
+              "commander",
+              "archer",
+              "soldier",
               "soldier"
             ],
             [
+              "soldier",
+              "gunner",
+              "flag",
               "soldier",
               "gunner",
               "flag"
@@ -448,45 +537,45 @@
       "props": [
         [
           "cart",
-          610,
+          407,
           565,
-          "rice"
+          ""
         ],
         [
           "large_crate",
-          1000,
+          667,
           405,
           "fish"
         ],
         [
           "crate",
-          1440,
+          960,
           565,
-          "dango"
+          ""
         ],
         [
           "large_crate",
-          2270,
+          1513,
           420,
-          "fish"
+          ""
         ],
         [
           "cart",
-          2690,
+          1793,
           565,
           ""
         ],
         [
           "basket",
-          3100,
+          2067,
           390,
           "dango"
         ],
         [
           "jar",
-          3340,
+          2227,
           575,
-          "peach"
+          ""
         ]
       ],
       "id": 5,
@@ -497,14 +586,17 @@
       "name": "池石指揮庭園",
       "theme": "courtyard",
       "weather": "clear",
-      "music": "bamboo",
-      "width": 3400,
+      "music": "s01_outpost_battle",
+      "width": 2267,
       "civilians": "none",
       "encounters": [
         {
-          "end": 1700,
+          "end": 1133,
           "waves": [
             [
+              "soldier",
+              "archer",
+              "commander",
               "soldier",
               "archer",
               "commander"
@@ -513,14 +605,22 @@
               "soldier",
               "gunner",
               "flag",
+              "soldier",
+              "soldier",
+              "gunner",
+              "flag",
               "soldier"
             ]
           ]
         },
         {
-          "end": 3400,
+          "end": 2267,
           "waves": [
             [
+              "commander",
+              "archer",
+              "soldier",
+              "soldier",
               "commander",
               "archer",
               "soldier",
@@ -529,7 +629,10 @@
             [
               "soldier",
               "flag",
-              "boss"
+              "boss",
+              "soldier",
+              "flag",
+              "soldier"
             ]
           ],
           "boss": {
@@ -542,7 +645,7 @@
       "props": [
         [
           "planter",
-          580,
+          387,
           395,
           "",
           false,
@@ -550,33 +653,33 @@
         ],
         [
           "stone_lantern",
-          1160,
+          773,
           565,
           ""
         ],
         [
           "jar",
-          1430,
+          953,
           405,
           "peach"
         ],
         [
           "planter",
-          2150,
+          1433,
           565,
           ""
         ],
         [
           "stone_lantern",
-          2680,
+          1787,
           390,
           ""
         ],
         [
           "basket",
-          3040,
+          2027,
           555,
-          "dango"
+          ""
         ]
       ],
       "id": 6,
@@ -587,14 +690,18 @@
       "name": "前哨陣內室決戰",
       "theme": "chamber",
       "weather": "indoor",
-      "music": "castle",
-      "width": 3200,
+      "music": "s01_outpost_battle",
+      "width": 2133,
       "civilians": "none",
       "encounters": [
         {
-          "end": 1600,
+          "end": 1067,
           "waves": [
             [
+              "commander",
+              "soldier",
+              "flag",
+              "gunner",
               "commander",
               "soldier",
               "flag",
@@ -603,20 +710,27 @@
             [
               "soldier",
               "archer",
+              "commander",
+              "soldier",
+              "archer",
               "commander"
             ]
           ]
         },
         {
-          "end": 3200,
+          "end": 2133,
           "waves": [
             [
+              "commander",
+              "soldier",
+              "gunner",
               "commander",
               "soldier",
               "gunner"
             ],
             [
-              "boss"
+              "boss",
+              "soldier"
             ]
           ],
           "boss": {
@@ -629,53 +743,55 @@
       "props": [
         [
           "screen",
-          590,
+          393,
           410,
           ""
         ],
         [
           "cabinet",
-          940,
+          627,
           565,
           "fish"
         ],
         [
           "screen",
-          1260,
+          840,
           420,
           "",
           true
         ],
         [
           "screen",
-          1260,
+          840,
           550,
           "",
           true
         ],
         [
           "jar",
-          1450,
+          967,
           565,
-          "peach"
+          ""
         ],
         [
           "cabinet",
-          2200,
+          1467,
           395,
-          "fish"
+          "",
+          false,
+          "moon"
         ],
         [
           "screen",
-          2490,
+          1660,
           565,
           ""
         ],
         [
           "jar",
-          2870,
+          1913,
           575,
-          "peach"
+          ""
         ]
       ],
       "id": 7,
@@ -687,9 +803,9 @@
     "scenes": 7,
     "checkpoints": 14,
     "waves": 31,
-    "solo": 108,
-    "coop": 165,
-    "world_width": 24600
+    "solo": 216,
+    "coop": 324,
+    "world_width": 16400
   },
   "stages": [
     [
@@ -733,21 +849,19 @@
       "三河歸途",
       "鵜殿長照",
       "三河城主提前在歸途登場；靈感取自 1562 年上之鄉城戰。",
-      "橋頭救援／追擊分支；長槍壓路、破包圍。",
+      "五場景十三節點；盾兵、泥地、吉良箭雨與長照震地／敗退。",
       [
         "udono"
       ]
     ],
     [
       5,
-      "1566",
-      "墨俣渡河",
-      "氏家直元（卜全）",
-      "美濃三人眾搭配墨俣一夜城題材，設計渡河爭奪。",
-      "木筏與搭橋；擊落木障、岸邊突刺。",
-      [
-        "mino"
-      ]
+      "1563",
+      "三河一向一揆",
+      "空誓",
+      "依現行 stage-05.json 更新的遊戲演義配置；本輪未新增歷史考證。",
+      "五場景、十二節點；蜂屋、夏目、空誓，破旗停援與召僧鎖血。",
+      []
     ],
     [
       6,
@@ -1128,6 +1242,53 @@
       "https://www.kyoto-kankou.or.jp/info_search/357",
       "光秀、秀吉在 1582 年山崎對峙的背景。"
     ]
+  ],
+  "current_stages": [
+    {
+      "id": 1,
+      "year": 1560,
+      "title": "桶狹間竹林・高根山前哨",
+      "scenes": 7,
+      "checkpoints": 14,
+      "status": "已接入；待真人驗收",
+      "note": "七場景、十四據點；松井宗信守關底，定時增援另計。"
+    },
+    {
+      "id": 2,
+      "year": 1560,
+      "title": "大高兵糧道・丸根砦突破",
+      "scenes": 6,
+      "checkpoints": 12,
+      "status": "已接入；待真人驗收",
+      "note": "六場景、十二據點；護糧、槍兵武將與丸根砦突破。"
+    },
+    {
+      "id": 3,
+      "year": 1560,
+      "title": "今川本陣",
+      "scenes": 4,
+      "checkpoints": 4,
+      "status": "已接入；待真人驗收",
+      "note": "四場景、四據點；落鐘停援、破木障、破陣及帳內雙將／義元。"
+    },
+    {
+      "id": 4,
+      "year": 1560,
+      "title": "三河歸途",
+      "scenes": 5,
+      "checkpoints": 13,
+      "status": "已接入；待真人驗收",
+      "note": "五場景、十三節點；富永、吉良、長照，盾兵、泥地與左右增援。"
+    },
+    {
+      "id": 5,
+      "year": 1563,
+      "title": "三河一向一揆",
+      "scenes": 5,
+      "checkpoints": 12,
+      "status": "已接入；待真人驗收",
+      "note": "五場景、十二節點；蜂屋、夏目、空誓，破旗停援與召僧鎖血。"
+    }
   ]
 }
 </script>
@@ -1139,14 +1300,14 @@ const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>
 function review(id,label){return '<label>'+esc(label)+'<textarea data-field="'+esc(id)+'" maxlength="5000" placeholder="想調整的節奏、區域、人物或素材；也可記錄實測結果"></textarea></label>';}
 document.getElementById('segment-route').innerHTML=design.segments.map(s=>'<li><a href="#segment-'+s.id+'">'+s.id+' '+esc(s.name)+'</a></li>').join('');
 const weatherNames={mist:'薄霧',rain:'雨天',storm:'暴雨',clear:'晴朗',indoor:'室內'};
-const musicNames={bamboo:'幽竹簫聲',siege:'攻陣',town:'市集',castle:'營寨',boss:'決戰'};
+const musicNames={s01_bamboo_approach:'Shizima3・竹林',s01_outpost_battle:'Strategy4・交戰',s01_matsui_boss:'Ametsuchi・松井戰'};
 const kindNames={soldier:'足輕',flag:'旗手',archer:'弓兵',gunner:'鐵砲',commander:'隊長',boss:'將領'};
 const propNames={jar:'陶甕',basket:'竹籃',crate:'木箱',large_crate:'大木箱',cart:'糧車',stall:'攤車',barricade:'拒馬',fence:'柵欄',planter:'盆栽',stone_lantern:'石燈籠',screen:'屏風',cabinet:'實木櫃'};
-const talismanNames={vajra:'金剛護符40',iron:'玄鐵護符75',mirror:'明鏡護符110'};
-const foodNames={rice:'飯糰35HP',fish:'烤魚50HP',dango:'糰子25HP',peach:'桃子60HP'};
+const talismanNames={vajra:'金剛護符',iron:'玄鐵護符',mirror:'明鏡護符'};
+const foodNames={rice:'飯糰80HP',fish:'烤魚80HP',dango:'糰子80HP',peach:'桃子80HP'};
 function waveText(w){const counts={};for(const kind of w)counts[kind]=(counts[kind]||0)+1;return Object.entries(counts).map(([kind,count])=>esc(kindNames[kind]||kind)+' × '+count).join('、');}
-document.getElementById('segments').innerHTML=design.segments.map(s=>'<article class="segment" id="segment-'+s.id+'"><h3>'+String(s.id).padStart(2,'0')+' · '+esc(s.name)+'</h3><p>'+s.width+' 世界座標寬 ｜ '+esc(weatherNames[s.weather])+' ｜ 音樂：'+esc(musicNames[s.music])+'</p><p>'+esc(s.ground)+'</p>'+s.encounters.map((e,i)=>'<div class="card"><h3>據點 '+(i+1)+' · '+(i?s.encounters[i-1].end:0)+'–'+e.end+(e.boss?' · '+esc(e.boss.name):'')+'</h3><ol>'+e.waves.map(w=>'<li>'+waveText(w)+' <small>（單人 '+w.length+'／雙人 '+(Math.ceil(w.filter(k=>k!=="boss").length*1.5)+w.filter(k=>k==="boss").length)+' 人）</small></li>').join('')+'</ol>'+review('checkpoint.'+s.id+'.'+(i+1),'此據點評論')+'</div>').join('')+'<dl><dt>物件</dt><dd>'+s.props.map(p=>esc(propNames[p[0]])+(p[4]?'〔必須破壞〕':'')).join('、')+'</dd><dt>固定補給</dt><dd>'+s.props.filter(p=>p[3]||p[5]).map(p=>esc(propNames[p[0]])+' → '+esc(p[5]?talismanNames[p[5]]:foodNames[p[3]])).join('；')+'</dd><dt>玩法</dt><dd>'+esc(s.play)+'</dd></dl><div class="review">'+review('segment.'+s.id,'第 '+s.id+' 場景評論')+'</div></article>').join('');
-document.getElementById('roster-rows').innerHTML=design.stages.map(s=>'<tr><td><b>'+String(s[0]).padStart(2,'0')+' '+esc(s[2])+'</b><br>'+esc(s[1])+'</td><td>'+esc(s[3])+'</td><td>'+esc(s[4])+'<br>'+s[6].map(id=>'<a href="#src-'+esc(id)+'">'+esc(design.sources.find(x=>x[0]===id)[1])+'</a>').join('／')+'</td><td>'+esc(s[5])+'</td><td>'+review('stage.'+s[0],'第 '+s[0]+' 關評論')+'</td></tr>').join('');
+document.getElementById('segments').innerHTML=design.segments.map(s=>'<article class="segment" id="segment-'+s.id+'"><h3>'+String(s.id).padStart(2,'0')+' · '+esc(s.name)+'</h3><p>'+s.width+' 世界座標寬 ｜ '+esc(weatherNames[s.weather])+' ｜ 音樂：'+esc(musicNames[s.music]||s.music)+'</p><p>'+esc(s.ground)+'</p>'+s.encounters.map((e,i)=>'<div class="card"><h3>據點 '+(i+1)+' · '+(i?s.encounters[i-1].end:0)+'–'+e.end+(e.boss?' · '+esc(e.boss.name):'')+'</h3><ol>'+e.waves.map(w=>'<li>'+waveText(w)+' <small>（單人 '+w.length+'／雙人 '+(Math.ceil(w.filter(k=>k!=="boss").length*1.5)+w.filter(k=>k==="boss").length)+' 人）</small></li>').join('')+'</ol>'+review('checkpoint.'+s.id+'.'+(i+1),'此據點評論')+'</div>').join('')+'<dl><dt>物件</dt><dd>'+s.props.map(p=>esc(propNames[p[0]])+(p[4]?'〔必須破壞〕':'')).join('、')+'</dd><dt>補給候選（依現行掉落率）</dt><dd>'+s.props.filter(p=>p[3]||p[5]).map(p=>esc(propNames[p[0]])+' → '+esc(p[5]?talismanNames[p[5]]:foodNames[p[3]])).join('；')+'</dd><dt>玩法</dt><dd>'+esc(s.play)+'</dd></dl><div class="review">'+review('segment.'+s.id,'第 '+s.id+' 場景評論')+'</div></article>').join('');
+document.getElementById('roster-rows').innerHTML=design.stages.map(s=>'<tr><td><b>'+String(s[0]).padStart(2,'0')+' '+esc(s[2])+'<br><span class="tag">'+(s[0]<=5?'已接入／待真人驗收':'尚未實作')+'</span>'+'</b><br>'+esc(s[1])+'</td><td>'+esc(s[3])+'</td><td>'+esc(s[4])+'<br>'+s[6].map(id=>'<a href="#src-'+esc(id)+'">'+esc(design.sources.find(x=>x[0]===id)[1])+'</a>').join('／')+'</td><td>'+esc(s[5])+'</td><td>'+review('stage.'+s[0],'第 '+s[0]+' 關評論')+'</td></tr>').join('');
 document.getElementById('source-list').innerHTML=design.sources.map(s=>'<li id="src-'+esc(s[0])+'"><a href="'+esc(s[2])+'" target="_blank" rel="noopener noreferrer">'+esc(s[1])+'</a><br><small>'+esc(s[3])+'</small></li>').join('');
 for(const box of document.querySelectorAll('[data-review]'))box.innerHTML=review('section.'+box.dataset.review,'此節評論');
 const fields=[...document.querySelectorAll('[data-field]')];

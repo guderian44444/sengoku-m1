@@ -133,7 +133,7 @@ func _initialize() -> void:
 	player.achievements = []
 	for rule in Achievements.RULES: player.performance[rule[3]] = rule[4]
 	check(Achievements.earned(player).size() == 30 and Achievements.valid(player.achievements),"All 30 achievement paths can unlock")
-	for pair in [["soldier",false,5.5],["boss",false,6.5],["boss",true,8.0]]:
+	for pair in [["soldier",false,0.0],["boss",false,5.0],["boss",true,5.0]]:
 		var count := 0
 		battle.state.loot_rng = 777
 		for attempt in range(10000):
@@ -151,7 +151,7 @@ func _initialize() -> void:
 		battle.state.events.clear()
 		battle._check_achievements()
 		if not battle.state.drops.is_empty(): rewards += 1
-	check(absf(float(rewards)/100.0-6.0) < 0.4,"Achievement bonus increases by five percentage points")
+	check(rewards==0,"Achievements do not bypass the three equipment drop sources")
 	battle.reset_campaign()
 	check(Wire.valid_snapshot(battle.get_state()),"New inventory and performance fields pass network validation")
 	for hero in Battle.HEROES:

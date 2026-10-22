@@ -17,6 +17,8 @@ func food(sim) -> Array:
 	return sim.state.drops.filter(func(d): return d.kind == "food")
 
 func kill(sim, player: Dictionary) -> void:
+	# Each blow is its own attack. Reusing one id would pile hit_ids past the snapshot limit.
+	player.attack_id = int(player.get("attack_id",0)) + 1
 	var target: Dictionary = sim._make_fighter(1,"soldier",player.x+100,520,50)
 	sim.state.fighters.append(target)
 	check(sim._damage(target,10000,player.id,false,false,true),"actual kill accepted")
@@ -49,9 +51,10 @@ func routes() -> void:
 					for index in party.size():
 						var player: Dictionary = party[index]
 						before = food(sim).size()
-						player.hp = player.max_hp / 2
+						player.hp = int(player.max_hp / 2)
 						kill(sim,player)
-						check(food(sim).size() == before,"exactly half HP is ineligible")
+						check(food(sim).size() == before + 1,"exactly half HP still raises the food chance")
+						before = food(sim).size()
 						player.hp -= 1
 						if count == 2:
 							kill(sim,party[1-index])
@@ -66,9 +69,14 @@ func routes() -> void:
 						sim.food_roll = 0
 						kill(sim,player);break_prop(sim,player)
 						check(food(sim).size() == before,"healing cancels eligibility immediately")
-						player.hp = player.max_hp / 2 - 1
+						player.hp = int(player.max_hp / 2) - 1
 						break_prop(sim,player);break_prop(sim,player)
-						check(food(sim).size() == before+2,"low-HP breaks have no one-shot quota and cannot duplicate a broken prop")
+						check(food(sim).size() == before+2,"low-HP breaks use the same chance and cannot duplicate a broken prop")
+						sim.food_roll = 20
+						before = food(sim).size()
+						break_prop(sim,player)
+						check(food(sim).size() == before,"a missed food roll drops nothing from a break")
+						sim.food_roll = 0
 						player.hp = player.max_hp
 					for drop in food(sim): check(drop.heal == 80,"campaign food recovery doubles")
 					if sim.state.has("encounter"): Battle.Stage03Encounter.tick(sim)
@@ -101,5 +109,5 @@ func boundaries() -> void:
 func _initialize() -> void:
 	routes()
 	boundaries()
-	print("CAMPAIGN FOOD PASS: %d checks; five chapters solo/coop, strict threshold, independent 20 percent rolls, no per-node quota, doubled recovery and player HP" % checks)
+	print("CAMPAIGN FOOD PASS: %d checks; five chapters solo/coop, half HP included, independent 20 percent rolls, no per-node quota, doubled recovery and player HP" % checks)
 	quit()

@@ -48,7 +48,7 @@ func run() -> void:
 	check(app.menu_screen == "roster","Login leads to separate hero choice")
 	await shot(app,"02-roster")
 	app.menu_pages.roster.get_node("Continue").pressed.emit()
-	check(app.menu_screen == "select" and app.character_panel.stats.text.contains("基準攻擊"),"Hero choice leads to real character stats")
+	check(app.menu_screen == "select" and app.character_panel.stats.text.contains("攻擊　"),"Hero choice leads to real character stats")
 	var profile = app.profiles.records[app.profiles.selected[0]]
 	var row: Dictionary = app.profiles.character(0,"nobunaga")
 	check(row.inventory.is_empty() and row.weapon_uid == 0 and row.weapon_id == "practice_nobunaga","New player has permanent baseline without consuming bag slots")
@@ -206,8 +206,8 @@ func run() -> void:
 		loot.state.drops.clear()
 		loot._drop_talisman(enemy,owner.id)
 		charms_found += loot.state.drops.size()
-	check(weapons >= 50 and weapons <= 160,"Actual seeded grunt weapon drops match 0.5%, not former 5%")
-	check(charms_found >= 15 and charms_found <= 85,"Actual seeded grunt charm drops match 0.2%, not former 2%")
+	check(weapons==0,"Grunts never drop weapons")
+	check(charms_found==0,"Grunts never drop charms")
 	app.free()
 	await process_frame
 	print("DEPARTURE V31 %s: %d checks, %d failures; login, warehouse/bag, pickup, discard, persistence, stationary defense, HD source and measured spear reach." % ["PASS" if failures == 0 else "FAILED",checks,failures])

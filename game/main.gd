@@ -27,9 +27,10 @@ const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadak
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "顯如", "tadakatsu": "忠勝"}
 const FACTION_NAMES := {"mori": "毛利", "imagawa": "今川", "oda": "織田", "saito": "齋藤", "miyoshi": "三好", "azai": "淺井", "asakura": "朝倉", "takeda": "武田", "ikko": "一向一揆", "akechi": "明智", "hashiba": "羽柴", "iga": "伊賀"}
 const DIFFICULTIES := ["easy", "normal", "hard"]
-const CONTROL_ACTIONS := ["move_left", "move_right", "move_up", "move_down", "light", "heavy", "jump", "grab", "pickup", "guard"]
-const BATTLE_HINT := "WASD 移動／雙點衝刺   J 輕擊   K 重擊／蓄力後放開   空白 跳   L 擒拿   I 格擋   E 拾取\n左搖桿推滿 0.2 秒衝刺 · □／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 擒拿 · L2／LT 格擋 · L1／LB 拾取 · Options 軍議"
-const TRAINING_HINT := "WASD／雙點衝刺 · 左搖桿推滿 0.2 秒衝刺   J 輕擊   K 重擊／蓄力   空白 跳   L 擒拿   I 格擋   E 拾取\n1 木樁   2 披甲武士   3 連陣   4 弓手   5 敵將   R 重演   Tab 換將   F1 秘卷"
+const DROP_SETTINGS_PATH := "user://drop-settings.cfg"
+const CONTROL_ACTIONS := ["move_left", "move_right", "move_up", "move_down", "light", "heavy", "jump", "grab", "pickup", "eat", "guard"]
+const BATTLE_HINT := "WASD 移動／雙點衝刺   J 輕擊   K 重擊／蓄力後放開   空白 跳   L 擒拿   I 格擋   E 拾取   Q 進食\n左搖桿推滿 0.2 秒衝刺 · □／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 擒拿 · L2／LT 格擋 · L1／LB 拾取 · R1／RB 進食 · Options 軍議"
+const TRAINING_HINT := "WASD／雙點衝刺 · 左搖桿推滿 0.2 秒衝刺   J 輕擊   K 重擊／蓄力   空白 跳   L 擒拿   I 格擋   E 拾取   Q 進食\n1 木樁   2 披甲武士   3 連陣   4 弓手   5 敵將   R 重演   Tab 換將   F1 秘卷"
 var sim = Battle.new()
 var view: Node2D
 var audio: Node
@@ -76,6 +77,7 @@ var menu_caption: Label
 var menu_footer: Label
 var engineer_entry: Button
 var volume_sliders: Dictionary = {}
+var drop_rate_controls: Dictionary = {}
 var _camera_scene := -1
 var status: Label
 var hud: Label
@@ -127,6 +129,7 @@ var demo_facing_left := false
 var profiles = PlayerStore.new()
 var _saved_profile_signature := ""
 var exit_button: Button
+var next_button: Button
 var confirmation_text: Label
 var confirmation_action: Callable
 var confirmation_return := ""
@@ -151,6 +154,7 @@ var menu_input: Node
 var objective_scroll: Control
 
 func _ready() -> void:
+	_load_drop_rates()
 	_actions()
 	view = BattleView.new()
 	add_child(view)
@@ -226,14 +230,14 @@ func _actions() -> void:
 		if InputMap.has_action(retired): InputMap.erase_action(retired)
 	var keys := {
 		"move_left": KEY_A, "move_right": KEY_D, "move_up": KEY_W, "move_down": KEY_S,
-		"light": KEY_J, "heavy": KEY_K, "jump": KEY_SPACE, "grab": KEY_L, "pickup": KEY_E, "guard": KEY_I
+		"light": KEY_J, "heavy": KEY_K, "jump": KEY_SPACE, "grab": KEY_L, "pickup": KEY_E, "eat": KEY_Q, "guard": KEY_I
 	}
 	for action in keys:
 		if not InputMap.has_action(action): InputMap.add_action(action, 0.24)
 		var key := InputEventKey.new()
 		key.physical_keycode = keys[action]
 		InputMap.action_add_event(action, key)
-	var buttons := {"light": JOY_BUTTON_X, "heavy": JOY_BUTTON_B, "jump": JOY_BUTTON_A, "pickup": JOY_BUTTON_LEFT_SHOULDER, "move_left": JOY_BUTTON_DPAD_LEFT, "move_right": JOY_BUTTON_DPAD_RIGHT, "move_up": JOY_BUTTON_DPAD_UP, "move_down": JOY_BUTTON_DPAD_DOWN}
+	var buttons := {"light": JOY_BUTTON_X, "heavy": JOY_BUTTON_B, "jump": JOY_BUTTON_A, "pickup": JOY_BUTTON_LEFT_SHOULDER, "eat": JOY_BUTTON_RIGHT_SHOULDER, "move_left": JOY_BUTTON_DPAD_LEFT, "move_right": JOY_BUTTON_DPAD_RIGHT, "move_up": JOY_BUTTON_DPAD_UP, "move_down": JOY_BUTTON_DPAD_DOWN}
 	for action in buttons:
 		var button := InputEventJoypadButton.new()
 		button.button_index = buttons[action]
@@ -339,6 +343,10 @@ func _build_ui() -> void:
 	exit_button.position = Vector2(1140,120)
 	exit_button.size = Vector2(116,42)
 	exit_button.hide()
+	next_button = _button("下一關",_continue_campaign,"VictoryNext",ui)
+	next_button.position = Vector2(1140,168)
+	next_button.size = Vector2(116,42)
+	next_button.hide()
 	_build_menu(ui)
 	_build_controls(ui)
 	demo_controls = HBoxContainer.new()
@@ -505,6 +513,30 @@ func _build_menu(ui: Control) -> void:
 	factions = OptionButton.new()
 	for faction in FACTION_NAMES: factions.add_item(FACTION_NAMES[faction] + "軍")
 	menu_panel.add_child(factions)
+	_menu_label(menu_panel,"掉落機率（%）・自動儲存",18)
+	var rates_grid := GridContainer.new()
+	rates_grid.columns=2
+	rates_grid.add_theme_constant_override("h_separation",24)
+	menu_panel.add_child(rates_grid)
+	for key in Battle.DEFAULT_DROP_RATES:
+		var rate_row := HBoxContainer.new()
+		rate_row.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		rates_grid.add_child(rate_row)
+		var rate_label := _menu_label(rate_row,{"major":"大王掉寶","minor":"小王掉寶","prop":"物品掉寶","food":"食物掉落"}[key],19)
+		rate_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		var rate := SpinBox.new()
+		rate.name="DropRate_"+key
+		rate.min_value=0;rate.max_value=100;rate.step=1;rate.suffix="%"
+		rate.value=sim.drop_rates[key]
+		rate.custom_minimum_size=Vector2(126,38)
+		rate_row.add_child(rate)
+		drop_rate_controls[key]=rate
+		rate.value_changed.connect(func(value: float):
+			if _set_drop_rate(key,value)!=OK:
+				status.text="掉落設定未儲存；連線時由主機設定。"
+				_refresh_drop_rates()
+		)
+	_menu_label(menu_panel,"武器／護符各自判定；一般兵只掉食物。食物限半血以下，連線由主機設定。",16)
 	var tools_row := HBoxContainer.new()
 	menu_panel.add_child(tools_row)
 	_button("出陣支度", func(): _open_selection(false), "Selection", tools_row).size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -587,11 +619,44 @@ func _build_menu(ui: Control) -> void:
 	menu_footer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_show_menu_page("title")
 
+func _load_drop_rates() -> void:
+	sim.drop_rates=Battle.DEFAULT_DROP_RATES.duplicate()
+	var config := ConfigFile.new()
+	var error := config.load(DROP_SETTINGS_PATH)
+	if error==OK:
+		for key in Battle.DEFAULT_DROP_RATES:
+			var value: Variant=config.get_value("rates",key,Battle.DEFAULT_DROP_RATES[key])
+			if value is int and value>=0 and value<=100: sim.drop_rates[key]=value
+	elif error!=ERR_FILE_NOT_FOUND: push_warning("Drop settings could not be read; using default rates.")
+	sim.state.drop_rates=sim.drop_rates.duplicate()
+
+func _set_drop_rate(key: String, value: float) -> Error:
+	if not sim.drop_rates.has(key) or not is_finite(value) or value<0 or value>100: return ERR_INVALID_PARAMETER
+	if active and session=="client": return ERR_UNAUTHORIZED
+	var previous: int=sim.drop_rates[key]
+	sim.drop_rates[key]=roundi(value)
+	var config := ConfigFile.new()
+	for rate in sim.drop_rates: config.set_value("rates",rate,sim.drop_rates[rate])
+	var error := config.save(DROP_SETTINGS_PATH)
+	if error!=OK:
+		sim.drop_rates[key]=previous
+		return error
+	sim.state.drop_rates=sim.drop_rates.duplicate()
+	return OK
+
+func _refresh_drop_rates() -> void:
+	var rates: Dictionary=sim.state.get("drop_rates",sim.drop_rates) if active else sim.drop_rates
+	for key in drop_rate_controls:
+		drop_rate_controls[key].set_value_no_signal(rates[key])
+		drop_rate_controls[key].editable=not (active and session=="client")
+
 func _show_menu_page(page: String) -> void:
 	if is_instance_valid(objective_scroll): objective_scroll.hide()
 	if is_instance_valid(menu_input) and menu_input.keyboard.visible: menu_input.keyboard.finish(false)
 	menu_screen = page
+	if page=="engineering": _refresh_drop_rates()
 	exit_button.hide()
+	next_button.hide()
 	menu.show()
 	for key in menu_pages:
 		menu_pages[key].visible = key == page
@@ -954,7 +1019,7 @@ func _refresh_collection() -> void:
 			var food_id: String = str(item.item_id).trim_prefix("food_")
 			var party: Array = sim.state.fighters.filter(func(f): return f.team == 0 and int(f.player_index) == encyclopedia_slot)
 			var can_use: bool = equipment_in_battle and not party.is_empty() and party[0].hp > 0 and party[0].hp < party[0].max_hp
-			items.append({"id":str(item.uid),"name":spec.name+"　×1","category":"食物","description":"恢復 %d 點體力（護符加成另計）。\n滿血拾取會收進藏兵閣；有缺血時拾取就會吃掉。\n軍議中開啟藏兵閣，選擇「使用」即可補血。"%int(spec.heal),"image":"res://assets/v18/food-source.png","image_region":view._stage_art.food[food_id].source_region,"consumable":true,"can_use":can_use,"can_pack":false,"packed":false,"can_sell":false})
+			items.append({"id":str(item.uid),"name":spec.name+"　×1","category":"食物","description":"恢復 %d 點體力（護符加成另計）。\n滿血拾取會收進藏兵閣；有缺血時拾取就會吃掉。\n戰鬥中按 Q／R1 食用下一份，按下時才看體力，全滿不消耗。軍議中也可選擇「使用」。"%int(spec.heal),"image":"res://assets/v18/food-source.png","image_region":view._stage_art.food[food_id].source_region,"consumable":true,"can_use":can_use,"can_pack":false,"packed":false,"can_sell":false})
 			continue
 		var treasure: bool = Equipment.TREASURES.has(item.item_id)
 		var practice := Equipment.is_practice(item.item_id)
@@ -1060,7 +1125,7 @@ func _build_controls(ui: Control) -> void:
 	text.add_theme_font_size_override("normal_font_size", 19)
 	text.add_theme_constant_override("line_separation", 5)
 	controls_dialog.add_child(text)
-	text.text = "[b]信長・阿市　合戰之法[/b]\n" + BATTLE_HINT + "\n\n[b]連擊與奧義[/b]\nJ 連按三次：三連擊，末式帶武器氣勁，範圍再＋20% 並擊飛。第三下出手後至少間隔 0.5 秒才可再輕攻擊。\nK 點放：信長斬出劍氣，阿市射出單箭；可擊退，出招亦可被打斷。\n重手與蓄力皆可左右轉向，勁力不散。\n長按 K 蓄滿後放開：信長雙旋斬，阿市貫穿箭；阿市上＋放開為箭雨。\n跳＋J：近身揮打，威力與範圍＋20%。\n跳＋K：信長重落斬（＋30%），阿市近中遠三箭。\n按住 I／L2／LT：正面格擋減傷 80%，仍會被擊退、擊倒；放開解除，背襲不減傷。\n秀吉輕手三段範圍＋30%；K 點放：橫斬擊飛劍氣，射程同信長。\n秀吉蓄滿放開：三連瞬移斬，1.5 秒前進約 1/3 畫面，沿途擊倒。\n擒敵後 J：兩擊後摔出；反推方向立即過肩摔。\n衝刺＋K：踏步撞進，破陣擊飛；盾兵可受擊，敵將可格擋。\n\n[b]兵甲與軍令[/b]\nE／L1 拾取。滿血拾取食物會收入行囊；缺血時直接食用。軍議中可用備用食物補血。\n兵器命中耗損耐久，折損後改持常備兵器；軍議中可開行囊換裝。\n奉令清敵破障，全軍會合後向右進軍。三命在身，每 10000 戰績添一命。\nF11 全螢幕／視窗　｜　Esc／Options 軍議　｜　F1 合戰秘卷\n\n[b]演武之法[/b]\n" + TRAINING_HINT
+	text.text = "[b]信長・阿市　合戰之法[/b]\n" + BATTLE_HINT + "\n\n[b]連擊與奧義[/b]\nJ 連按三次：三連擊，末式帶武器氣勁，範圍再＋20% 並擊飛。第三下出手後至少間隔 0.5 秒才可再輕攻擊。\nK 點放：信長斬出劍氣，阿市射出單箭；可擊退，出招亦可被打斷。\n重手與蓄力皆可左右轉向，勁力不散。\n長按 K 蓄滿後放開：信長雙旋斬，阿市貫穿箭；阿市上＋放開為箭雨。\n跳＋J：近身揮打，威力與範圍＋20%。\n跳＋K：信長重落斬（＋30%），阿市近中遠三箭。\n按住 I／L2／LT：正面格擋減傷 80%，仍會被擊退、擊倒；放開解除，背襲不減傷。\n秀吉輕手三段範圍＋30%；K 點放：橫斬擊飛劍氣，射程同信長。\n秀吉蓄滿放開：三連瞬移斬，1.5 秒前進約 1/3 畫面，沿途擊倒。\n擒敵後 J：兩擊後摔出；反推方向立即過肩摔。\n衝刺＋K：踏步撞進，破陣擊飛；盾兵可受擊，敵將可格擋。\n\n[b]兵甲與軍令[/b]\nE／L1 拾取。滿血拾取食物會收入行囊；缺血時直接食用。行囊有食物時，人物欄下方顯示下一份；Q／R1 按下才看體力，全滿不消耗。軍議中仍可選用。\n兵器命中耗損耐久，折損後改持常備兵器；軍議中可開行囊換裝。\n奉令清敵破障，全軍會合後向右進軍。三命在身，每 10000 戰績添一命。\nF11 全螢幕／視窗　｜　Esc／Options 軍議　｜　F1 合戰秘卷\n\n[b]演武之法[/b]\n" + TRAINING_HINT
 	controls_dialog.confirmed.connect(_close_controls)
 	controls_dialog.canceled.connect(_close_controls)
 	controls_dialog.window_input.connect(func(event: InputEvent):
@@ -1129,6 +1194,7 @@ func _close_network(keep_music: bool = false) -> bool:
 	objective_scroll.sync({}, false)
 	hud.text = ""
 	exit_button.hide()
+	next_button.hide()
 	hint.text = BATTLE_HINT
 	active = false
 	session = "solo"
@@ -1166,7 +1232,7 @@ func _start_local_coop() -> void:
 	sim.reset_campaign(difficulty, 2, [selected_hero, HEROES[partner_heroes.selected]],selected_chapter)
 	_load_characters()
 	_activate()
-	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 抓技 · L2／LT 格擋 · L1／LB 拾取 · Options 暫停"
+	hint.text = "同機合作：1P／2P 各用一支搖桿，鍵盤也可控制 1P；同畫面共同前進\n□／X 輕擊 · ○／B 重擊 · ×／A 跳 · R2／RT 抓技 · L2／LT 格擋 · L1／LB 拾取 · R1／RB 進食 · Options 暫停"
 
 func _start_training(drill: String = "") -> void:
 	if _confirm_end(_start_training.bind(drill),"收兵離陣，轉赴演武場？"): return
@@ -1264,6 +1330,7 @@ func _activate() -> void:
 	audio.sync_stage_music(sim.state)
 	audio.play_music()
 	last_event = -1
+	audio.clear_enemy_death_seen()
 	local_frame = 0
 	remote_frame = -1
 	remote_input = _neutral()
@@ -1418,6 +1485,42 @@ func _fail(message: String) -> void:
 		_report({"ok": false, "error": message})
 		get_tree().quit(1)
 
+func _next_chapter_id() -> int:
+	if not sim.state.has("stage"): return 0
+	var nxt := int(sim.state.stage.id) + 1
+	for chapter in Stages.available():
+		if int(chapter.id) == nxt: return nxt
+	return 0
+
+func _campaign_party() -> Array:
+	var party: Array = sim.state.get("fighters", []).filter(func(fighter): return int(fighter.get("team", 1)) == 0)
+	party.sort_custom(func(a, b): return int(a.get("player_index", 0)) < int(b.get("player_index", 0)))
+	var heroes: Array = []
+	for fighter in party: heroes.append(str(fighter.kind))
+	if heroes.is_empty(): heroes.append(selected_hero)
+	return heroes
+
+func _continue_campaign() -> void:
+	if _confirm_end(_continue_campaign, "進軍下一關？"): return
+	var nxt := _next_chapter_id()
+	if nxt <= 0 or session == "client": return
+	var heroes := _campaign_party()
+	var players := clampi(heroes.size(), 1, 2)
+	if session in ["solo", "local"] and _save_characters(true) != OK: return
+	_refresh_chapters()
+	selected_chapter = nxt
+	for index in chapter_choice.item_count:
+		if int(chapter_choice.get_item_metadata(index)) == nxt:
+			chapter_choice.selected = index
+			break
+	var mode := str(sim.state.get("difficulty", difficulty))
+	if mode not in DIFFICULTIES: mode = difficulty
+	difficulty = mode
+	sim.reset_campaign(mode, players, heroes, nxt)
+	if session in ["solo", "local"]: _load_characters()
+	_activate()
+	if session == "host" and remote_id != 0: begin_client.rpc_id(remote_id, sim.get_state(), mode)
+
 func _leave_to_menu() -> void:
 	if _confirm_end(_leave_to_menu,"收兵返回本陣？"): return
 	if not _close_network(true): return
@@ -1504,7 +1607,7 @@ func _player_frame(slot: int) -> Dictionary:
 	# Poll each device directly: Godot's shared InputMap merges controllers together.
 	var device := player_devices[slot]
 	if device >= 0:
-		var pad_buttons := {JOY_BUTTON_X:Battle.LIGHT,JOY_BUTTON_B:Battle.HEAVY,JOY_BUTTON_A:Battle.JUMP,JOY_BUTTON_LEFT_SHOULDER:Battle.INTERACT}
+		var pad_buttons := {JOY_BUTTON_X:Battle.LIGHT,JOY_BUTTON_B:Battle.HEAVY,JOY_BUTTON_A:Battle.JUMP,JOY_BUTTON_LEFT_SHOULDER:Battle.INTERACT,JOY_BUTTON_RIGHT_SHOULDER:Battle.EAT}
 		for button in pad_buttons:
 			if Input.is_joy_button_pressed(device,button): frame.buttons |= pad_buttons[button]
 		if Input.get_joy_axis(device, JOY_AXIS_TRIGGER_RIGHT) > 0.24: frame.buttons |= Battle.GRAB
@@ -1517,7 +1620,7 @@ func _player_frame(slot: int) -> Dictionary:
 		if absf(y) > 0.24: frame.dy = int(signf(y))
 		if absf(x) > 0.24 or absf(y) > 0.24: frame.stick_full = Vector2(x,y).length() >= 0.9
 	if slot == local_slot:
-		var keys := {KEY_J:Battle.LIGHT,KEY_K:Battle.HEAVY,KEY_SPACE:Battle.JUMP,KEY_L:Battle.GRAB,KEY_E:Battle.INTERACT,KEY_I:Battle.GUARD}
+		var keys := {KEY_J:Battle.LIGHT,KEY_K:Battle.HEAVY,KEY_SPACE:Battle.JUMP,KEY_L:Battle.GRAB,KEY_E:Battle.INTERACT,KEY_Q:Battle.EAT,KEY_I:Battle.GUARD}
 		for key in keys:
 			if Input.is_physical_key_pressed(key): frame.buttons |= keys[key]
 		frame.dx = clampi(frame.dx + int(Input.is_physical_key_pressed(KEY_D)) - int(Input.is_physical_key_pressed(KEY_A)), -1, 1)
@@ -1678,7 +1781,7 @@ func _events(events: Array) -> void:
 		_collect_rumble(event, pulses)
 		if event.type == "achievement": _achievement_messages.append("%dP  %s\n%s%s" % [int(sim._fighter(int(event.actor)).get("player_index",0))+1,str(event.name),str(event.description),"　・　獲得戰利品！" if event.get("loot",false) else ""])
 		elif event.type == "weapon_break": _achievement_messages.append(str(event.name) + " 已折・改持常備兵器")
-		elif event.type == "food_stored": _achievement_messages.append("%dP 食物已收入行囊，可於軍議中使用。" % (int(sim._fighter(int(event.actor)).player_index)+1))
+		elif event.type == "food_stored": _achievement_messages.append("%dP 食物已收入行囊。Q／R1 食用下一份，全滿不消耗。" % (int(sim._fighter(int(event.actor)).player_index)+1))
 		elif event.type == "inventory_full": _achievement_messages.append("藏兵閣已滿，騰出空位後再拾取。地上物品保留。")
 		elif event.type == "challenge_complete": _achievement_messages.append("糧車奪回・每將獲賞 %d 金" % int(event.amount))
 		elif event.type == "challenge_failed": _achievement_messages.append("糧車損毀・仍可繼續進軍")
@@ -1686,6 +1789,7 @@ func _events(events: Array) -> void:
 			pending_intro_actor = int(event.actor)
 			receive_boss_voice.rpc_id(remote_id, int(event.actor), str(event.line_key))
 		if smoke.is_empty() and not testing:
+			audio.prepare_enemy_death(event)
 			var voiced: Dictionary = event.duplicate()
 			voiced.shared_sfx = view._fx.accept_event(event,sim.state,view)
 			for fighter in sim.state.fighters:
@@ -1753,7 +1857,9 @@ func _update_view() -> void:
 	hud.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	audio.sync_encounter(sim.state if active else {})
 	if active: audio.sync_stage_music(sim.state)
-	exit_button.visible = active and sim.state.get("phase","") == "won" and sim.state.get("victory_looting",false) and not menu.visible
+	var victory_ready: bool = active and str(sim.state.get("phase","")) == "won" and bool(sim.state.get("victory_looting",false)) and not menu.visible
+	exit_button.visible = victory_ready
+	next_button.visible = victory_ready and session != "client" and _next_chapter_id() > 0
 	var x := 480.0
 	var living_x: Array[float] = []
 	for fighter in sim.state.get("fighters", []):

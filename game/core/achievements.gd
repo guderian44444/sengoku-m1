@@ -1,6 +1,6 @@
 extends RefCounted
 
-# Each feat can award loot once per sortie; shared 20-second reward spacing prevents overlapping tiers multiplying loot.
+# Legacy fighter timer retained for snapshot compatibility; achievements no longer drop equipment.
 const REWARD_COOLDOWN := 1200
 const RULES := [
 	["cleave3","一刀三斬","單次攻擊命中 3 人","strike_hits",3],

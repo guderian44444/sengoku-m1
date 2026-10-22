@@ -10,6 +10,7 @@ const GOLD := Color("896237")
 const MUTED := Color("69563d")
 const BUTTON := Color("624331")
 const BUTTON_HOVER := Color("754834")
+const BUTTON_SELECTED_TINT := Color("d6b98b")
 const FOCUS_GOLD := Color("ffd380")
 const FOCUS_BORDER := Color("f2cb73")
 const BACKGROUND := Color("1b201d")
@@ -27,6 +28,7 @@ static func button(fill: Color = BUTTON, border: Color = GOLD, focused: bool = f
 	style.bg_color = fill
 	style.border_color = border
 	style.border_width = 3.0 if focused else 1.0
+	if focused or fill == BUTTON_HOVER: style.paper_tint = BUTTON_SELECTED_TINT
 	style.content_margin_left = 28
 	style.content_margin_right = 28
 	style.content_margin_top = 6

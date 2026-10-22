@@ -14,6 +14,8 @@ const HEAVY := 2
 const JUMP := 4
 const GRAB := 8
 const SPECIAL := 16
+# Retired special attack. The same bit eats the next ration already in the bag.
+const EAT := 16
 const INTERACT := 32
 const CANCEL := 64
 const GUARD := 128
@@ -79,6 +81,7 @@ const STARTING_LIVES := 3
 const RESPAWN_TICKS := 120
 const EXTRA_LIFE_SCORE := 10000
 const TALISMANS := Equipment.TREASURES
+const DEFAULT_DROP_RATES := {"major":5,"minor":5,"prop":5,"food":20}
 const KILL_SCORES := {"soldier":100, "flag":150, "commander":300, "archer":150, "gunner":200, "boss":1500}
 const ENEMY_ATTACKS := {
 	"soldier": ["spear_thrust", "spear_sweep", "spear_butt"],
@@ -116,6 +119,7 @@ var _next_id := 1
 var boss_intros: Dictionary = {}
 var boss_deaths: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://audio/v27/deaths.json"))
 var _campaign: Dictionary = {}
+var drop_rates: Dictionary = DEFAULT_DROP_RATES.duplicate()
 
 
 func _init() -> void:
@@ -133,7 +137,7 @@ func reset(difficulty: String = "normal", player_count: int = 1, hero_ids: Array
 	_queued_buttons = []
 	_queued_heavy = []
 	_queued_slam = []
-	state = {"tick": 0, "phase": "playing", "wave": 1, "fighters": [], "drops": [], "effects": [], "event_seq": 0, "events": [], "difficulty": difficulty, "loot_rng":1,
+	state = {"tick": 0, "phase": "playing", "wave": 1, "fighters": [], "drops": [], "effects": [], "event_seq": 0, "events": [], "difficulty": difficulty, "loot_rng":1,"drop_rates":drop_rates.duplicate(),
 		"props": [], "wet_zones": [{"x": 700.0, "y": 515.0, "width": 360.0, "depth": 150.0}, {"x": 1650.0, "y": 465.0, "width": 380.0, "depth": 150.0}],
 		"civilian_spawn_enabled": true, "civilian_flee_tick": -1, "civilian_flee_x": 0.0, "faction": faction, "intro": {}}
 	for i in range(clampi(player_count, 1, 2)):
@@ -535,7 +539,7 @@ func step(inputs: Array) -> void:
 				var index: int = fighter.player_index
 				var input: Dictionary = inputs[index] if index < inputs.size() and inputs[index] is Dictionary else {}
 				var loot_input := input.duplicate()
-				loot_input.buttons = int(input.get("buttons",0)) & (INTERACT | JUMP | CANCEL)
+				loot_input.buttons = int(input.get("buttons",0)) & (INTERACT | JUMP | CANCEL | EAT)
 				_player_input(fighter,loot_input,index)
 			return
 		# Land existing launches and finish the celebration without accepting combat input.
@@ -1001,7 +1005,7 @@ func _player_input(fighter: Dictionary, input: Dictionary, index: int) -> void:
 		cancel_input(index)
 		return
 	_steer_heavy(fighter,input)
-	var buttons := int(input.get("buttons", 0)) & (LIGHT | HEAVY | JUMP | GRAB | INTERACT | GUARD)
+	var buttons := int(input.get("buttons", 0)) & (LIGHT | HEAVY | JUMP | GRAB | INTERACT | GUARD | EAT)
 	var pressed: int = buttons & ~int(_previous_buttons[index])
 	var released: int = int(_previous_buttons[index]) & ~buttons
 	_previous_buttons[index] = buttons
@@ -1058,6 +1062,7 @@ func _combat_input_v33(fighter: Dictionary, buttons: int, pressed: int, released
 		pressed &= ~LIGHT
 		_queued_buttons[index] &= ~LIGHT
 	if fighter.freeze > 0 or fighter.airborne_lock or fighter.action == "pulled": return
+	if pressed & EAT: _eat_from_bag(fighter)
 	if fighter.action == "guard" and not buttons & GUARD: _begin(fighter,"idle")
 	if fighter.action in ["idle","guard"] and buttons & GUARD and fighter.z == 0:
 		if dx != 0: fighter.face = dx
@@ -1186,8 +1191,14 @@ func _combat_contact_v33(fighter: Dictionary, event: String) -> void:
 	if not (event.begins_with("contact") or event == "projectile_release"): return
 	match action:
 		"light":
-			_melee(fighter,145 if fighter.kind == "nobunaga" else 115,48,14+fighter.combo*2+fighter.weapon*5,fighter.combo == 3,0,fighter.combo == 3)
-			_combat_push_v33(fighter,145 if fighter.kind == "nobunaga" else fighter.attack_reach,48,4 if fighter.kind == "nobunaga" else 3)
+			var light_reach := 145.0 if fighter.kind == "nobunaga" else 115.0
+			var light_depth := 48.0
+			# The side kick is longer than the first two cuts. Those stay at 115 / 48.
+			if fighter.kind == "oichi" and int(fighter.combo) == 3:
+				light_reach = 138.0
+				light_depth = 57.6
+			_melee(fighter,light_reach,light_depth,14+fighter.combo*2+fighter.weapon*5,fighter.combo == 3,0,fighter.combo == 3)
+			_combat_push_v33(fighter,145 if fighter.kind == "nobunaga" else fighter.attack_reach,light_depth,4 if fighter.kind == "nobunaga" else 3)
 		"heavy":
 			if fighter.kind == "oichi": _combat_arrow_v33(fighter,false)
 			else:
@@ -1379,9 +1390,9 @@ func _damage_prop(prop: Dictionary, damage: int, owner: int, weapon: String = ""
 		_effect("debris", prop.x, prop.y, 36, {"kind": prop.kind, "target": prop.id})
 		_event("prop_break", prop.x, prop.y, owner, prop.id,{"material":material,"shared_sfx":prop.has("s05_asset")})
 		var player := _fighter(owner)
-		if state.has("stage") and player.get("team",1) == 0 and player.hp > 0 and player.hp * 2 < player.max_hp:
+		if _low_health_food(player):
 			_add_drop("food",clampf(prop.x,_left_edge()+30,_right_edge()-30),prop.y,owner)
-		if not str(prop.drop).is_empty() and (prop.drop != "food" or not state.has("stage")) and (prop.drop == "food" or _loot_roll(1000) < 150) and _add_drop(prop.drop, prop.x, prop.y):
+		if not str(prop.drop).is_empty() and (prop.drop != "food" or not state.has("stage")) and (prop.drop == "food" or _loot_roll(1000) < _drop_rate("prop")*10) and _add_drop(prop.drop, prop.x, prop.y):
 			if prop.drop == "talisman": state.drops[-1].talisman_id = prop.talisman_id
 			if prop.drop == "food" and not str(prop.get("food_id","")).is_empty():
 				state.drops[-1].food_id = prop.food_id
@@ -1643,24 +1654,33 @@ func _attack_equipment(attacker: Dictionary) -> Dictionary:
 	if attacker.team != 0 or (attacker.kind == "oichi" and attacker.action != "dash_heavy"): return {}
 	return Weapons.item(str(attacker.get("weapon_id","")))
 
+func _drop_rate(kind: String) -> int:
+	return int(state.get("drop_rates",DEFAULT_DROP_RATES)[kind])
+
 func _loot_roll(limit: int) -> int:
 	# Authoritative snapshot holds the PRNG, so replays and network clients agree.
 	state.loot_rng = (int(state.loot_rng) * 1103515245 + 12345) & 0x7fffffff
 	return (int(state.loot_rng) >> 8) % limit
 
+func _low_health_food(player: Dictionary) -> bool:
+	if not state.has("stage") or int(player.get("team",1)) != 0: return false
+	var hp := int(player.get("hp",0))
+	var max_hp := int(player.get("max_hp",0))
+	if hp <= 0 or max_hp <= 0 or hp * 2 > max_hp: return false
+	return _loot_roll(100) < _drop_rate("food")
+
 func _drop_boss_weapon(boss: Dictionary, owner: int) -> void:
-	if state.has("training"): return
+	if state.has("training") or boss.get("kind","")!="boss": return
 	var player := _fighter(owner)
 	if player.is_empty() or player.team != 0: return
 	var major: bool = boss.get("stage_boss",false)
-	if _loot_roll(1000) >= (80 if major else (65 if boss.kind == "boss" else 55)): return
+	if _loot_roll(1000) >= _drop_rate("major" if major else "minor")*10: return
 	_spawn_weapon_loot(player,boss.x,boss.y,3 if major else 2)
 
 func _drop_talisman(enemy: Dictionary, owner: int) -> void:
 	var player := _fighter(owner)
-	if state.has("training") or player.is_empty() or player.team != 0: return
-	var chance := 68 if enemy.get("stage_boss",false) else (58 if enemy.kind == "boss" else 52)
-	if _loot_roll(1000) >= chance: return
+	if state.has("training") or enemy.get("kind","")!="boss" or player.is_empty() or player.team != 0: return
+	if _loot_roll(1000) >= _drop_rate("major" if enemy.get("stage_boss",false) else "minor")*10: return
 	var tier := mini(4,int(state.get("stage",{}).get("id",1))+2)
 	var candidates := TALISMANS.keys().filter(func(id): return int(TALISMANS[id].tier) <= tier)
 	if _add_drop("talisman",clampf(enemy.x-18,_left_edge()+30,_right_edge()-30),enemy.y): state.drops[-1].talisman_id = candidates[_loot_roll(candidates.size())]
@@ -1677,12 +1697,8 @@ func _check_achievements() -> void:
 		if player.team != 0: continue
 		var earned := Achievements.earned(player)
 		if earned.is_empty(): continue
-		var eligible: bool = int(state.tick) - int(player.achievement_reward_tick) >= Achievements.REWARD_COOLDOWN
-		var loot: bool = eligible and _loot_roll(1000) < 60
-		if eligible: player.achievement_reward_tick = state.tick
-		if loot: _spawn_weapon_loot(player,player.x + 45,player.y)
 		for index in range(earned.size()):
-			_event("achievement",player.x,player.y,player.id,0,{"achievement_id":earned[index][0],"name":earned[index][1],"description":earned[index][2],"loot":loot and index == 0})
+			_event("achievement",player.x,player.y,player.id,0,{"achievement_id":earned[index][0],"name":earned[index][1],"description":earned[index][2],"loot":false})
 
 func _wear_weapon(player: Dictionary, uid: int) -> void:
 	var item := Equipment.instance(player,uid)
@@ -1728,12 +1744,19 @@ func _melee(attacker: Dictionary, reach: float, depth: float, damage: int, heavy
 	attacker.attack_reach = reach
 	var downward_wave: bool = CombatMoves.active(attacker) and attacker.kind != "oichi" and attacker.action == "air_heavy"
 	if finisher:
-		_effect("slash",attacker.x,attacker.y,18,{"face":attacker.face,"radius":reach,"hit_depth":depth,"finisher":true,"kind":_melee_weapon(attacker)})
+		var finisher_fx := {"face":attacker.face,"radius":reach,"hit_depth":depth,"finisher":true,"kind":_melee_weapon(attacker)}
+		# Tadakatsu's third light draws the spear-tip path instead of this gust.
+		if attacker.kind == "tadakatsu": finisher_fx["follow"] = true
+		_effect("slash",attacker.x,attacker.y,18,finisher_fx)
 	elif downward_wave:
 		_effect("blade_wave",attacker.x,attacker.y,18,{"face":attacker.face,"radius":reach,"hit_depth":depth,"z":attacker.z,"action":"air_heavy"})
 	else:
 		if not (CombatMoves.active(attacker) and ((attacker.kind in ["tadakatsu","hideyoshi"] and attacker.action == "charged") or (attacker.kind == "nobunaga" and attacker.action in ["light","heavy","dash_heavy"]))):
-			_effect("slash", attacker.x + attacker.face * reach * 0.5, attacker.y - attacker.z, 10, {"face": attacker.face, "radius": reach * 0.5})
+			var slash_fx := {"face": attacker.face, "radius": reach * 0.5}
+			# The first two lights draw an arc on the weapon. Keep the hit, hide this detached slash.
+			if attacker.action == "light" and int(attacker.combo) in [1, 2] and attacker.kind in ["oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]:
+				slash_fx["follow"] = true
+			_effect("slash", attacker.x + attacker.face * reach * 0.5, attacker.y - attacker.z, 10, slash_fx)
 	_melee_props(attacker, reach, depth, damage, behind, arc_degrees)
 	for target in state.fighters:
 		if target.team == attacker.team or target.hp <= 0:
@@ -1886,6 +1909,7 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 	if target.action in ["down", "recovering"] and not repeated_stomp: return false
 	if target.hp <= 0 or target.action == "special" or charged_release_invulnerable(target) or (reaction and target.invuln > 0 and not bypass_invuln):
 		return false
+	var event_seq_at_entry := int(state.event_seq)
 	var attacker := _fighter(actor)
 	if not is_finite(source_x) and not attacker.is_empty():
 		source_x = attacker.x
@@ -2050,7 +2074,7 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 			_drop_boss_weapon(target,actor)
 			_drop_talisman(target,actor)
 			if not attacker.is_empty() and attacker.team == 0: attacker.rage = mini(100,attacker.rage+int(Equipment.bonus(attacker,"kill_rage")))
-			var campaign_food: bool = state.has("stage") and attacker.get("team",1) == 0 and attacker.hp > 0 and attacker.hp * 2 < attacker.max_hp and _loot_roll(100) < 20
+			var campaign_food: bool = _low_health_food(attacker)
 			if campaign_food or (not state.has("stage") and target.kind == "boss"):
 				if not state.has("training"): _add_drop("food",clampf(target.x+38,_left_edge()+30,_right_edge()-30),target.y,actor)
 		target.stun = 0
@@ -2068,6 +2092,12 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 			target.death_ticks = int(death.ticks)
 			target.death_voice = str(death.line_key)
 		_event("defeat", target.x, target.y, actor, target.id)
+		# The killing blow keeps its impact. The hurt voice is replaced by the death cry.
+		for prior in state.events:
+			if int(prior.get("id", 0)) <= event_seq_at_entry: continue
+			if int(prior.get("target", -1)) != int(target.id): continue
+			if str(prior.get("type", "")) in ["hit", "heavy_hit", "shield_hit", "guard_break"]:
+				prior.voice_suppressed = true
 		Stage03Encounter.enemy_defeated(self, target)
 		if target.team == 1 and target.kind != "boss" and target.id % 2 == 0 and not state.has("stage") and not state.has("training"):
 			_add_drop("food", target.x, target.y)
@@ -2504,6 +2534,17 @@ func _pickup(fighter: Dictionary) -> void:
 		state.drops.erase(drop)
 		return
 	if full: _event("inventory_full",fighter.x,fighter.y,fighter.id,0)
+
+
+func _eat_from_bag(fighter: Dictionary) -> void:
+	# Health is read at the press. Full health leaves the ration in the bag.
+	if int(fighter.hp) <= 0 or int(fighter.hp) >= int(fighter.max_hp): return
+	var food := Equipment.next_food(fighter)
+	if food.is_empty(): return
+	var heal := int(food.heal)
+	var food_id := str(food.item_id)
+	Equipment.remove(fighter, int(food.uid))
+	_eat_food(fighter, food_id.trim_prefix("food_"), heal)
 
 
 func _eat_food(fighter: Dictionary, food_id: String, heal: int, target: int = 0) -> void:

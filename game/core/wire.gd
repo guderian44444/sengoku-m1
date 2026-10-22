@@ -37,6 +37,9 @@ static func valid_snapshot(world: Dictionary) -> bool:
 	if world.has("ikki") and world.get("stage",{}).get("id",0) != 5: return false
 	if world.get("stage",{}).get("id",0) == 4 and not _valid_mikawa(world.get("mikawa")): return false
 	if not _integer(world.get("loot_rng"),0,2147483647): return false
+	if not world.get("drop_rates") is Dictionary or world.drop_rates.size()!=Battle.DEFAULT_DROP_RATES.size(): return false
+	for key in Battle.DEFAULT_DROP_RATES:
+		if not _integer(world.drop_rates.get(key),0,100): return false
 	if world.has("victory_looting") and not world.victory_looting is bool: return false
 	if not _choice(world.get("phase"), ["playing", "won", "lost"]) or not _choice(world.get("difficulty"), ["easy", "normal", "hard"]):
 		return false
@@ -138,8 +141,9 @@ static func valid_snapshot(world: Dictionary) -> bool:
 		if event.has("weapon_id") and event.weapon_id != "" and not _choice(event.weapon_id,Weapons.ITEMS.keys()): return false
 		for field in ["attack_id","action_tick"]:
 			if event.has(field) and not _integer(event[field],-1): return false
-		for field in ["body","spin_finish","sound_suppressed"]:
+		for field in ["body","spin_finish","sound_suppressed","voice_suppressed"]:
 			if event.has(field) and not event[field] is bool: return false
+		if event.has("voice_index") and not _integer(event.voice_index, 0, 9): return false
 		if event.has("contact") and not _choice(event.contact,["armor_absorb","held_body","monk_parry"]): return false
 		if event.type == "element_hit" and not _choice(event.get("element"),["fire","ice","wind","lightning"]): return false
 		if event.has("combo") and not _integer(event.combo, 0, 3): return false
