@@ -1,0 +1,20 @@
+{
+  "no_image_resampling": true,
+  "original_sources_preserved": true,
+  "scope": "art+configuration handoff only",
+  "active_component_precedence": "../manifest.json",
+  "runtime_tested": false,
+  "audio_paths": "Top-level audio maps are relative to audio/; per-bank docs retain their original relative conventions.",
+  "preview_only": "layout/reference_assets and static layouts are composition references, not gameplay collision data.",
+  "anchor_semantics": {
+    "root": "Actor canvas origin / planted support reference, not both individual feet",
+    "foot_anchor_source": "Atlas source pixel coordinate; subtract crop origin before positioning",
+    "grip": "Only explicit authored grip values are present; missing values must not be inferred as verified hand contacts"
+  },
+  "not_claimed": [
+    "perfect anatomical continuity",
+    "phonetic Japanese verification",
+    "fully tested Godot gameplay",
+    "fully licensed redistribution of external-source-required music"
+  ]
+}

@@ -1,0 +1,644 @@
+[
+  {
+    "event_id": "wood_heavy_hit",
+    "id": "wood_heavy_hit_01",
+    "wav": "processed/wav/wood_heavy_hit_01.wav",
+    "ogg": "processed/ogg/wood_heavy_hit_01.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "wood_break",
+    "id": "wood_break_01",
+    "wav": "processed/wav/wood_break_01.wav",
+    "ogg": "processed/ogg/wood_break_01.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "wood_splinter_debris",
+    "id": "wood_splinter_debris_01",
+    "wav": "processed/wav/wood_splinter_debris_01.wav",
+    "ogg": "processed/ogg/wood_splinter_debris_01.ogg",
+    "gain_linear": 0.5,
+    "priority": "low",
+    "trigger": "debris-spawn-once",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 2,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "barricade_collapse",
+    "id": "barricade_collapse_01",
+    "wav": "processed/wav/barricade_collapse_01.wav",
+    "ogg": "processed/ogg/barricade_collapse_01.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "cart_heavy_hit",
+    "id": "cart_heavy_hit_01",
+    "wav": "processed/wav/cart_heavy_hit_01.wav",
+    "ogg": "processed/ogg/cart_heavy_hit_01.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "supply_cart"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "cart_wood_metal_crunch",
+    "id": "cart_wood_metal_crunch_01",
+    "wav": "processed/wav/cart_wood_metal_crunch_01.wav",
+    "ogg": "processed/ogg/cart_wood_metal_crunch_01.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "supply_cart"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "crate_hit",
+    "id": "crate_hit_01",
+    "wav": "processed/wav/crate_hit_01.wav",
+    "ogg": "processed/ogg/crate_hit_01.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "crate"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "crate_break",
+    "id": "crate_break_01",
+    "wav": "processed/wav/crate_break_01.wav",
+    "ogg": "processed/ogg/crate_break_01.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "crate"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "barrel_hit",
+    "id": "barrel_hit_01",
+    "wav": "processed/wav/barrel_hit_01.wav",
+    "ogg": "processed/ogg/barrel_hit_01.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "barrel_break",
+    "id": "barrel_break_01",
+    "wav": "processed/wav/barrel_break_01.wav",
+    "ogg": "processed/ogg/barrel_break_01.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "mud_footstep",
+    "id": "mud_footstep_01",
+    "wav": "processed/wav/mud_footstep_01.wav",
+    "ogg": "processed/ogg/mud_footstep_01.ogg",
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "trigger": "foot-contact",
+    "loop": false,
+    "objects": [
+      "muddy_ground"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 2,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "mud_splash",
+    "id": "mud_splash_01",
+    "wav": "processed/wav/mud_splash_01.wav",
+    "ogg": "processed/ogg/mud_splash_01.ogg",
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "trigger": "puddle-contact",
+    "loop": false,
+    "objects": [
+      "muddy_ground"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 2,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "wood_heavy_hit",
+    "id": "wood_heavy_hit_02",
+    "wav": "processed/wav/wood_heavy_hit_02.wav",
+    "ogg": "processed/ogg/wood_heavy_hit_02.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "wood_break",
+    "id": "wood_break_02",
+    "wav": "processed/wav/wood_break_02.wav",
+    "ogg": "processed/ogg/wood_break_02.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "wood_splinter_debris",
+    "id": "wood_splinter_debris_02",
+    "wav": "processed/wav/wood_splinter_debris_02.wav",
+    "ogg": "processed/ogg/wood_splinter_debris_02.ogg",
+    "gain_linear": 0.5,
+    "priority": "low",
+    "trigger": "debris-spawn-once",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 2,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "barricade_collapse",
+    "id": "barricade_collapse_02",
+    "wav": "processed/wav/barricade_collapse_02.wav",
+    "ogg": "processed/ogg/barricade_collapse_02.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "cart_heavy_hit",
+    "id": "cart_heavy_hit_02",
+    "wav": "processed/wav/cart_heavy_hit_02.wav",
+    "ogg": "processed/ogg/cart_heavy_hit_02.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "supply_cart"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "cart_wood_metal_crunch",
+    "id": "cart_wood_metal_crunch_02",
+    "wav": "processed/wav/cart_wood_metal_crunch_02.wav",
+    "ogg": "processed/ogg/cart_wood_metal_crunch_02.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "supply_cart"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "crate_hit",
+    "id": "crate_hit_02",
+    "wav": "processed/wav/crate_hit_02.wav",
+    "ogg": "processed/ogg/crate_hit_02.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "crate"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "crate_break",
+    "id": "crate_break_02",
+    "wav": "processed/wav/crate_break_02.wav",
+    "ogg": "processed/ogg/crate_break_02.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "crate"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "barrel_hit",
+    "id": "barrel_hit_02",
+    "wav": "processed/wav/barrel_hit_02.wav",
+    "ogg": "processed/ogg/barrel_hit_02.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "barrel_break",
+    "id": "barrel_break_02",
+    "wav": "processed/wav/barrel_break_02.wav",
+    "ogg": "processed/ogg/barrel_break_02.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "mud_footstep",
+    "id": "mud_footstep_02",
+    "wav": "processed/wav/mud_footstep_02.wav",
+    "ogg": "processed/ogg/mud_footstep_02.ogg",
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "trigger": "foot-contact",
+    "loop": false,
+    "objects": [
+      "muddy_ground"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 2,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "mud_splash",
+    "id": "mud_splash_02",
+    "wav": "processed/wav/mud_splash_02.wav",
+    "ogg": "processed/ogg/mud_splash_02.ogg",
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "trigger": "puddle-contact",
+    "loop": false,
+    "objects": [
+      "muddy_ground"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 2,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "wood_heavy_hit",
+    "id": "wood_heavy_hit_03",
+    "wav": "processed/wav/wood_heavy_hit_03.wav",
+    "ogg": "processed/ogg/wood_heavy_hit_03.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "wood_break",
+    "id": "wood_break_03",
+    "wav": "processed/wav/wood_break_03.wav",
+    "ogg": "processed/ogg/wood_break_03.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "wood_splinter_debris",
+    "id": "wood_splinter_debris_03",
+    "wav": "processed/wav/wood_splinter_debris_03.wav",
+    "ogg": "processed/ogg/wood_splinter_debris_03.ogg",
+    "gain_linear": 0.5,
+    "priority": "low",
+    "trigger": "debris-spawn-once",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise",
+      "supply_cart",
+      "crate",
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 2,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "barricade_collapse",
+    "id": "barricade_collapse_03",
+    "wav": "processed/wav/barricade_collapse_03.wav",
+    "ogg": "processed/ogg/barricade_collapse_03.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "wooden_barricade",
+      "chevaux_de_frise"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "cart_heavy_hit",
+    "id": "cart_heavy_hit_03",
+    "wav": "processed/wav/cart_heavy_hit_03.wav",
+    "ogg": "processed/ogg/cart_heavy_hit_03.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "supply_cart"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "cart_wood_metal_crunch",
+    "id": "cart_wood_metal_crunch_03",
+    "wav": "processed/wav/cart_wood_metal_crunch_03.wav",
+    "ogg": "processed/ogg/cart_wood_metal_crunch_03.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "supply_cart"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "crate_hit",
+    "id": "crate_hit_03",
+    "wav": "processed/wav/crate_hit_03.wav",
+    "ogg": "processed/ogg/crate_hit_03.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "crate"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "crate_break",
+    "id": "crate_break_03",
+    "wav": "processed/wav/crate_break_03.wav",
+    "ogg": "processed/ogg/crate_break_03.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "crate"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "barrel_hit",
+    "id": "barrel_hit_03",
+    "wav": "processed/wav/barrel_hit_03.wav",
+    "ogg": "processed/ogg/barrel_hit_03.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "confirmed-contact",
+    "loop": false,
+    "objects": [
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 3,
+    "cooldown_ms": 100
+  },
+  {
+    "event_id": "barrel_break",
+    "id": "barrel_break_03",
+    "wav": "processed/wav/barrel_break_03.wav",
+    "ogg": "processed/ogg/barrel_break_03.ogg",
+    "gain_linear": 0.65,
+    "priority": "high",
+    "trigger": "destroy-once",
+    "loop": false,
+    "objects": [
+      "barrel"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "objectId+destructionSequence",
+    "max_voices": 3,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "mud_footstep",
+    "id": "mud_footstep_03",
+    "wav": "processed/wav/mud_footstep_03.wav",
+    "ogg": "processed/ogg/mud_footstep_03.ogg",
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "trigger": "foot-contact",
+    "loop": false,
+    "objects": [
+      "muddy_ground"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 2,
+    "cooldown_ms": 70
+  },
+  {
+    "event_id": "mud_splash",
+    "id": "mud_splash_03",
+    "wav": "processed/wav/mud_splash_03.wav",
+    "ogg": "processed/ogg/mud_splash_03.ogg",
+    "gain_linear": 0.5,
+    "priority": "medium",
+    "trigger": "puddle-contact",
+    "loop": false,
+    "objects": [
+      "muddy_ground"
+    ],
+    "selection": "shuffle-bag; no immediate repeat",
+    "dedupe": "actorId+contactId+eventId",
+    "max_voices": 2,
+    "cooldown_ms": 70
+  }
+]

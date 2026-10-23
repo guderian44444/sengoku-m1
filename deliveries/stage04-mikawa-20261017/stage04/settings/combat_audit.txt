@@ -1,0 +1,9 @@
+第四關戰鬥規格交付審核
+狀態：文檔與JSON靜態核對完成；未跑引擎、未驗收遊玩平衡。
+已核對通過：投石v2三發.8/2/3.2、總長3.6、本人腰側石、2040world/s；迴旋v3十五幀1.44；快砸v7單hit .56、三連 .62/1.30/1.98、末段20ms；吉良v3四波、每波release鎖定、無地面提示、XY各1.5倍。
+參數JSON均可解析；提供明確未實測初值，不留HP/傷害/冷卻/重力TODO。初值是接線adapter輸入，現有遊戲不會因放入JSON自動實作。
+現行滿蓄力技能已查六武將registration與battle.gd:955–957：各人charged→charge_release，阿市另charge_rain；其他特殊字串不自動納入。
+盾兵以 stage04_shield_rules_canonical_20261017.json 為唯一權威；移除base troop舊shield_rules，尤其不能把大盾蓄力絕招也誤寫push-only，更不能套到長照Boss。
+兩項接線規則已獲使用者批准（Sentinel_1445f5350c108191aa4d0712f21ecf91）：大盾不能抓起／摔倒，抓技只造成短暫站立硬直或地面擊退；玩家被完整柵欄阻擋，砍破後可通過，近戰敵可直接穿過。這兩項不再是待決策；仍待runtime實作與驗收。
+必跑驗收：長照耐打一招完整技能爆發；多段／雙人事件去重；暈眩優先及取消未release投石；高速掃掠與左右鏡像／遮擋；四波動態在場弓兵（0/1/4/6及中途死亡）、不生成新弓兵／不集結；普通盾與大盾各方向及每種技能等級；20ms動畫事件跨60Hz tick不漏發重發；音效FX傷害同事件；復活／讀檔／雙人同步。
+交付文件：stage04_udono_resilience_counter_handoff_20261017.txt、stage04_udono_counter_parameters_20261017.json、stage04_kira_rain_initial_parameters_20261017.json、stage04_shield_rules_canonical_20261017.json、本審核。

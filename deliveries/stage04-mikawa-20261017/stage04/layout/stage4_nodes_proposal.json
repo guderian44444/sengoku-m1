@@ -1,0 +1,1898 @@
+{
+  "schema": "mikawa.stage4.encounters.proposal.v1",
+  "status": "DESIGN_HANDOFF_ONLY_NOT_RUNTIME",
+  "source_layout": "/workspace/shared/mikawa-layout-review-v2-camp/layout.json",
+  "coordinate_units": "art pixels at 2172x724; scene anchors are visible-alpha bottom, NOT verified engine root/foot pivots",
+  "length_mapping": "13 positive scene intervals of 2172 art px; engine camera/world scale and seam stitching are unimplemented",
+  "section_counts": [
+    3,
+    2,
+    3,
+    2,
+    3
+  ],
+  "total_travel_art_px": 28236,
+  "fixed_user_rules": [
+    "flat belt-scroll ground; no raised platforms",
+    "no enemies hidden in reeds",
+    "mud slows both; player cannot initiate jump in mud",
+    "approved v5 props upper-left to lower-right",
+    "melee enemies walk through fence; player blocked until fence destroyed",
+    "Kira enters with 6 escorts, replace one when one dies; skill itself never spawns",
+    "Kira volley in place from survivors; +50% spread; track before release and lock after; no landing hints",
+    "fifth section camp exterior; cheering crowd background only",
+    "Udono immune to ordinary knockdown/launch; scripted terminal fall allowed"
+  ],
+  "spawn_and_progress_invariants": [
+    "Activate each node once per encounter-generation ID",
+    "Do not respawn initial enemies after scene revisit",
+    "Enemy death events idempotent",
+    "Clear evaluated after defeat/spawn-cancel events in a deterministic tick",
+    "Environmental props/flags/background NPCs never gate clear",
+    "Exit requires clear and entering right exit; final uses terminal completion signal",
+    "Do not let destroyed props or background crowd create enemy-count obligations"
+  ],
+  "nodes": [
+    {
+      "id": 1,
+      "section_id": 1,
+      "section_name": "殘煙歸路",
+      "name": "殘兵初遇",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        0,
+        2172
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "stage_start",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 2,
+      "initial_composition": {
+        "kira_spear": 2
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n01_spear_01",
+          "asset_key": "spear",
+          "local_art_anchor": [
+            1120,
+            570
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_spear",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n01_spear_02",
+          "asset_key": "spear",
+          "local_art_anchor": [
+            1480,
+            625
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_spear",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg1",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/01_smoke_return_road.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "進軍 → 槍兵分前後兩線，中央保留走位空間。",
+        "本圖敵數、間距與節點小標皆為配置提案；非已實作戰鬥。"
+      ]
+    },
+    {
+      "id": 2,
+      "section_id": 1,
+      "section_name": "殘煙歸路",
+      "name": "路口阻擋",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        2172,
+        4344
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 2,
+      "initial_composition": {
+        "kira_shield": 1,
+        "kira_spear": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n02_shield_01",
+          "asset_key": "shield",
+          "local_art_anchor": [
+            1030,
+            585
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_shield",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n02_spear_02",
+          "asset_key": "spear",
+          "local_art_anchor": [
+            1390,
+            640
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_spear",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n02_cheval_03",
+          "asset_key": "cheval",
+          "local_art_anchor": [
+            1600,
+            555
+          ],
+          "visible_art_height_px": 150,
+          "flip": false,
+          "kind": "cheval_de_frise",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upper-left to lower-right; preserve approved v5 art",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        }
+      ],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg1",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/01_smoke_return_road.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "盾兵正面接戰，槍兵從較近地面推進；拒馬置於路口側翼。",
+        "拒馬保持核准的左上 → 右下方向；無高低平台。"
+      ]
+    },
+    {
+      "id": 3,
+      "section_id": 1,
+      "section_name": "殘煙歸路",
+      "name": "煙後小據點",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        4344,
+        6516
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 2,
+      "initial_composition": {
+        "udono_matchlock_reinforcement": 1,
+        "kira_shield": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n03_gunner_02",
+          "asset_key": "gunner",
+          "local_art_anchor": [
+            1500,
+            545
+          ],
+          "visible_art_height_px": 160,
+          "flip": true,
+          "archetype": "udono_matchlock_reinforcement",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "APPROVED_UDONO_LEGACY_RESKIN",
+          "runtime_art_file": "/workspace/shared/mikawa-matchlock-gunner/legacy-reskin-v1/actions-udono/gun_shot_0.png",
+          "allegiance": "Udono reinforcement; no Kira-specific matchlock art required"
+        },
+        {
+          "instance_id": "n03_shield_04",
+          "asset_key": "shield",
+          "local_art_anchor": [
+            1110,
+            635
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_shield",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n03_kflag_01",
+          "asset_key": "kflag",
+          "local_art_anchor": [
+            1800,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        },
+        {
+          "instance_id": "n03_fence_03",
+          "asset_key": "fence",
+          "local_art_anchor": [
+            1430,
+            590
+          ],
+          "visible_art_height_px": 175,
+          "flip": false,
+          "kind": "wood_fence",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": 3,
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upper-left to lower-right; preserve approved v5 art",
+          "player_passage": "BLOCKED_UNTIL_DESTROYED",
+          "melee_enemy_passage": "PASS_THROUGH_NORMAL_WALK",
+          "collision_masks": {
+            "blocks": [
+              "player_body"
+            ],
+            "excludes": [
+              "enemy_melee_body"
+            ],
+            "receives_damage_from": [
+              "player_melee",
+              "player_ranged_if_existing_prop_damage_supports_it"
+            ]
+          },
+          "destroy_transition": "Disable player collision immediately on confirmed fence destruction; never wait for optional debris FX",
+          "health_units": "proposed basic-melee-hit equivalents, tunable and untested; convert to project damage units",
+          "minimum_player_damage_acceptance": "All selectable heroes must have at least one repeatable, resource-free attack that damages fence. Validate in engine before release."
+        }
+      ],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg1",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/01_smoke_return_road.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "柵欄後安排鐵炮兵；盾兵可直接穿過柵欄進場，不翻越。",
+        "旗座靠據點外緣；玩家須砍破柵欄才可通行。鐵炮為鵜殿援軍。"
+      ]
+    },
+    {
+      "id": 4,
+      "section_id": 2,
+      "section_name": "蘆葦河岸",
+      "name": "乾路與泥地",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        6516,
+        8688
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 2,
+      "initial_composition": {
+        "kira_spear": 2
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n04_spear_01",
+          "asset_key": "spear",
+          "local_art_anchor": [
+            1110,
+            620
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_spear",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n04_spear_02",
+          "asset_key": "spear",
+          "local_art_anchor": [
+            1530,
+            550
+          ],
+          "visible_art_height_px": 158,
+          "flip": true,
+          "archetype": "kira_spear",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": true,
+        "boundary_type": "editable_polygon_proposal",
+        "polygon_art_px": [
+          [
+            650,
+            505
+          ],
+          [
+            1050,
+            490
+          ],
+          [
+            1320,
+            514
+          ],
+          [
+            1780,
+            575
+          ],
+          [
+            1380,
+            605
+          ],
+          [
+            980,
+            580
+          ]
+        ],
+        "player_speed_multiplier": 0.65,
+        "enemy_speed_multiplier": 0.65,
+        "player_can_start_jump": false,
+        "dry_corridor_art_rect": [
+          0,
+          620,
+          2172,
+          60
+        ],
+        "dry_corridor_min_depth_art_px": 60,
+        "airborne_entry_policy": "UNDECIDED_DO_NOT_AUTO_LAND_OR_CANCEL_AN_EXISTING_JUMP",
+        "notes": "Speed 0.65 and polygon are untested tuning proposals; no hiding in reeds; routes stay flat."
+      },
+      "background_asset_key": "bg2",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/02_reed_riverbank.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "青綠線＝乾燥通路提案；琥珀虛線＝泥地配置範圍，不是技能落點。",
+        "泥地中玩家減速且不能起跳，敵人也減速；蘆葦只在後景，不能藏敵。"
+      ]
+    },
+    {
+      "id": 5,
+      "section_id": 2,
+      "section_name": "蘆葦河岸",
+      "name": "河岸射擊點",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        8688,
+        10860
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 2,
+      "initial_composition": {
+        "udono_matchlock_reinforcement": 1,
+        "kira_spear": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n05_gunner_02",
+          "asset_key": "gunner",
+          "local_art_anchor": [
+            1550,
+            545
+          ],
+          "visible_art_height_px": 160,
+          "flip": true,
+          "archetype": "udono_matchlock_reinforcement",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "APPROVED_UDONO_LEGACY_RESKIN",
+          "runtime_art_file": "/workspace/shared/mikawa-matchlock-gunner/legacy-reskin-v1/actions-udono/gun_shot_0.png",
+          "allegiance": "Udono reinforcement; no Kira-specific matchlock art required"
+        },
+        {
+          "instance_id": "n05_spear_04",
+          "asset_key": "spear",
+          "local_art_anchor": [
+            1120,
+            625
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_spear",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n05_kflag_01",
+          "asset_key": "kflag",
+          "local_art_anchor": [
+            1830,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        },
+        {
+          "instance_id": "n05_fence_03",
+          "asset_key": "fence",
+          "local_art_anchor": [
+            1490,
+            590
+          ],
+          "visible_art_height_px": 175,
+          "flip": false,
+          "kind": "wood_fence",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": 3,
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upper-left to lower-right; preserve approved v5 art",
+          "player_passage": "BLOCKED_UNTIL_DESTROYED",
+          "melee_enemy_passage": "PASS_THROUGH_NORMAL_WALK",
+          "collision_masks": {
+            "blocks": [
+              "player_body"
+            ],
+            "excludes": [
+              "enemy_melee_body"
+            ],
+            "receives_damage_from": [
+              "player_melee",
+              "player_ranged_if_existing_prop_damage_supports_it"
+            ]
+          },
+          "destroy_transition": "Disable player collision immediately on confirmed fence destruction; never wait for optional debris FX",
+          "health_units": "proposed basic-melee-hit equivalents, tunable and untested; convert to project damage units",
+          "minimum_player_damage_acceptance": "All selectable heroes must have at least one repeatable, resource-free attack that damages fence. Validate in engine before release."
+        }
+      ],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": true,
+        "boundary_type": "editable_polygon_proposal",
+        "polygon_art_px": [
+          [
+            650,
+            505
+          ],
+          [
+            1050,
+            490
+          ],
+          [
+            1320,
+            514
+          ],
+          [
+            1780,
+            575
+          ],
+          [
+            1380,
+            605
+          ],
+          [
+            980,
+            580
+          ]
+        ],
+        "player_speed_multiplier": 0.65,
+        "enemy_speed_multiplier": 0.65,
+        "player_can_start_jump": false,
+        "dry_corridor_art_rect": [
+          0,
+          620,
+          2172,
+          60
+        ],
+        "dry_corridor_min_depth_art_px": 60,
+        "airborne_entry_policy": "UNDECIDED_DO_NOT_AUTO_LAND_OR_CANCEL_AN_EXISTING_JUMP",
+        "notes": "Speed 0.65 and polygon are untested tuning proposals; no hiding in reeds; routes stay flat."
+      },
+      "background_asset_key": "bg2",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/02_reed_riverbank.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "乾路維持連續；鐵炮站在柵欄後，近戰由正面接近。",
+        "河側泥地造成雙方減速；無蘆葦伏兵。鐵炮統一鵜殿援軍。"
+      ]
+    },
+    {
+      "id": 6,
+      "section_id": 3,
+      "section_name": "橋頭救援",
+      "name": "橋頭外圍",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        10860,
+        13032
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 2,
+      "initial_composition": {
+        "udono_matchlock_reinforcement": 1,
+        "kira_shield": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n06_gunner_03",
+          "asset_key": "gunner",
+          "local_art_anchor": [
+            1480,
+            540
+          ],
+          "visible_art_height_px": 160,
+          "flip": true,
+          "archetype": "udono_matchlock_reinforcement",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "APPROVED_UDONO_LEGACY_RESKIN",
+          "runtime_art_file": "/workspace/shared/mikawa-matchlock-gunner/legacy-reskin-v1/actions-udono/gun_shot_0.png",
+          "allegiance": "Udono reinforcement; no Kira-specific matchlock art required"
+        },
+        {
+          "instance_id": "n06_shield_05",
+          "asset_key": "shield",
+          "local_art_anchor": [
+            1080,
+            620
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_shield",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n06_kflag_01",
+          "asset_key": "kflag",
+          "local_art_anchor": [
+            1720,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        },
+        {
+          "instance_id": "n06_kflag_02",
+          "asset_key": "kflag",
+          "local_art_anchor": [
+            1870,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        },
+        {
+          "instance_id": "n06_fence_04",
+          "asset_key": "fence",
+          "local_art_anchor": [
+            1410,
+            590
+          ],
+          "visible_art_height_px": 175,
+          "flip": false,
+          "kind": "wood_fence",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": 3,
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upper-left to lower-right; preserve approved v5 art",
+          "player_passage": "BLOCKED_UNTIL_DESTROYED",
+          "melee_enemy_passage": "PASS_THROUGH_NORMAL_WALK",
+          "collision_masks": {
+            "blocks": [
+              "player_body"
+            ],
+            "excludes": [
+              "enemy_melee_body"
+            ],
+            "receives_damage_from": [
+              "player_melee",
+              "player_ranged_if_existing_prop_damage_supports_it"
+            ]
+          },
+          "destroy_transition": "Disable player collision immediately on confirmed fence destruction; never wait for optional debris FX",
+          "health_units": "proposed basic-melee-hit equivalents, tunable and untested; convert to project damage units",
+          "minimum_player_damage_acceptance": "All selectable heroes must have at least one repeatable, resource-free attack that damages fence. Validate in engine before release."
+        }
+      ],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg3",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/03_bridgehead_rescue.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "橋頭旗座與柵欄形成據點辨識；鐵炮在後，盾兵直接穿越柵欄。",
+        "橋梁只作後景，戰鬥在橋前同一平地；不新增橋面平台。"
+      ]
+    },
+    {
+      "id": 7,
+      "section_id": 3,
+      "section_name": "橋頭救援",
+      "name": "救援通道",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        13032,
+        15204
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 2,
+      "initial_composition": {
+        "kira_spear": 1,
+        "kira_shield": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n07_spear_01",
+          "asset_key": "spear",
+          "local_art_anchor": [
+            1050,
+            560
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_spear",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n07_shield_02",
+          "asset_key": "shield",
+          "local_art_anchor": [
+            1350,
+            630
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_shield",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n07_cheval_03",
+          "asset_key": "cheval",
+          "local_art_anchor": [
+            1770,
+            550
+          ],
+          "visible_art_height_px": 150,
+          "flip": false,
+          "kind": "cheval_de_frise",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upper-left to lower-right; preserve approved v5 art",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        },
+        {
+          "instance_id": "n07_kflag_04",
+          "asset_key": "kflag",
+          "local_art_anchor": [
+            1930,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        }
+      ],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg3",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/03_bridgehead_rescue.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "擊破橋頭守軍解除封鎖，清場後開放向右通行；不新增NPC護送依賴。",
+        "上方提示：橋頭封鎖解除，友軍可以通行。救援以背景敘事呈現。"
+      ],
+      "rescue_objective": {
+        "mode": "clear_bridgehead_blockade",
+        "required_npc": false,
+        "completion_trigger": "all_initial_combatants_combat_defeated",
+        "upper_message": "橋頭封鎖解除，友軍可以通行。",
+        "friendly_passage": "narrative only; do not require new friendly actor or escort system",
+        "status": "ASSISTANT_INITIAL_CONFIGURATION_PROPOSAL",
+        "source_limit": "No supplied user evidence specifies a named rescuable NPC"
+      }
+    },
+    {
+      "id": 8,
+      "section_id": 3,
+      "section_name": "橋頭救援",
+      "name": "富永攔路",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        15204,
+        17376
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 1,
+      "initial_composition": {
+        "miniboss_tominaga": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n08_tominaga_02",
+          "asset_key": "tominaga",
+          "local_art_anchor": [
+            1450,
+            610
+          ],
+          "visible_art_height_px": 210,
+          "flip": true,
+          "archetype": "miniboss_tominaga",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n08_kflag_01",
+          "asset_key": "kflag",
+          "local_art_anchor": [
+            1850,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        }
+      ],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region",
+        "meaning_of_combat_defeated": "Tominaga HP depleted/combat outcome, not historical death; enter recovery/escape presentation, never block exit on unavailable animation."
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg3",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/03_bridgehead_rescue.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "出場位置提案：富永置於橋頭救援末端；不再塞入所有敵種。",
+        "插刀入地 → 向前噴出長條劍氣。保留縱深閃避空間，效果不可遮住角色。"
+      ]
+    },
+    {
+      "id": 9,
+      "section_id": 4,
+      "section_name": "河岸追擊",
+      "name": "河岸追兵",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        17376,
+        19548
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 3,
+      "initial_composition": {
+        "kira_spear": 1,
+        "kira_shield": 1,
+        "kira_archer": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n09_spear_01",
+          "asset_key": "spear",
+          "local_art_anchor": [
+            970,
+            555
+          ],
+          "visible_art_height_px": 160,
+          "flip": true,
+          "archetype": "kira_spear",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n09_shield_02",
+          "asset_key": "shield",
+          "local_art_anchor": [
+            1280,
+            620
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "kira_shield",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n09_archer_03",
+          "asset_key": "archer",
+          "local_art_anchor": [
+            1730,
+            570
+          ],
+          "visible_art_height_px": 168,
+          "flip": true,
+          "archetype": "kira_archer",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg4",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/04_riverbank_pursuit.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "前線近戰、後排單弓手；用前後距離拉出追擊節奏。",
+        "蘆葦維持背景；所有敵人清楚可見。此節兵種與數量仍為配置提案。"
+      ]
+    },
+    {
+      "id": 10,
+      "section_id": 4,
+      "section_name": "河岸追擊",
+      "name": "吉良與六名弓兵",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        19548,
+        21720
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 7,
+      "initial_composition": {
+        "miniboss_kira": 1,
+        "kira_archer": 6
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n10_kira_02",
+          "asset_key": "kira",
+          "local_art_anchor": [
+            1150,
+            620
+          ],
+          "visible_art_height_px": 200,
+          "flip": true,
+          "archetype": "miniboss_kira",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n10_archer_03",
+          "asset_key": "archer",
+          "local_art_anchor": [
+            1450,
+            540
+          ],
+          "visible_art_height_px": 158,
+          "flip": true,
+          "archetype": "kira_archer",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n10_archer_04",
+          "asset_key": "archer",
+          "local_art_anchor": [
+            1670,
+            540
+          ],
+          "visible_art_height_px": 158,
+          "flip": true,
+          "archetype": "kira_archer",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n10_archer_05",
+          "asset_key": "archer",
+          "local_art_anchor": [
+            1890,
+            540
+          ],
+          "visible_art_height_px": 158,
+          "flip": true,
+          "archetype": "kira_archer",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n10_archer_06",
+          "asset_key": "archer",
+          "local_art_anchor": [
+            1450,
+            650
+          ],
+          "visible_art_height_px": 158,
+          "flip": true,
+          "archetype": "kira_archer",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n10_archer_07",
+          "asset_key": "archer",
+          "local_art_anchor": [
+            1670,
+            650
+          ],
+          "visible_art_height_px": 158,
+          "flip": true,
+          "archetype": "kira_archer",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n10_archer_08",
+          "asset_key": "archer",
+          "local_art_anchor": [
+            1890,
+            650
+          ],
+          "visible_art_height_px": 158,
+          "flip": true,
+          "archetype": "kira_archer",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n10_kflag_01",
+          "asset_key": "kflag",
+          "local_art_anchor": [
+            2010,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        }
+      ],
+      "reinforcement": {
+        "mode": "escort_maintenance",
+        "initial_escort_count": 6,
+        "trigger": "exactly one event per confirmed death of a living Kira escort; independent of skills",
+        "replacement_count_per_death": 1,
+        "replacement_delay_seconds": 3.0,
+        "delay_status": "ASSISTANT_PROPOSAL_UNTESTED",
+        "entry_candidates_art_px": [
+          [
+            2070,
+            540
+          ],
+          [
+            2070,
+            650
+          ]
+        ],
+        "entry_status": "ASSISTANT_PROPOSAL_UNTESTED; choose nearest valid ground location and avoid prop overlap",
+        "cap_alive_plus_reserved": 6,
+        "reservation_policy": "Reserve one replacement token on escort death before queueing; idempotent death-event ID prevents duplicate tokens; release token on cancel or successful spawn",
+        "replacement_spawn_condition": "Kira combat_active AND not encounter_resolved AND alive_plus_reserved <= 6",
+        "on_kira_combat_defeated": "atomically set combat_active=false; cancel all pending escort tokens and timers before any same-tick spawn processing",
+        "on_node_exit_or_restart": "cancel pending callbacks; invalidate encounter generation ID",
+        "remaining_archers_after_kira_defeat": "No new replacements. Existing surviving escorts remain normal enemies and must be defeated to clear; at most six remain."
+      },
+      "clear_condition": {
+        "kira_combat_defeated": true,
+        "pending_replacement_count_must_be_zero": true,
+        "remaining_escort_alive_count_must_be_zero": true,
+        "props_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region",
+        "finite_after_kira_defeat": true
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg4",
+      "bg_art_path": "/workspace/scratch/98b7ec868bfb/stage04_backgrounds_v1/04_riverbank_pursuit.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "吉良帶六弓兵入場，死一補一；排列僅為入場示意，命令時原地射、剩多少用多少。",
+        "箭雨範圍 +50%；出射前追蹤、出射後固定，無落點提示。不瞬移集合、不因技能召滿六人。"
+      ],
+      "kira_volley": {
+        "spawn_count": 0,
+        "teleport": false,
+        "gather": false,
+        "refill_to_six": false,
+        "participants": "snapshot of currently living escorts at command; each shoots in place if still alive at its release event",
+        "zero_survivors": "No escort arrows; do not summon or respawn to execute skill",
+        "spread_multiplier": 1.5,
+        "spread_reference": "existing approved Kira rain spread before +50%; base radius not authored here",
+        "target_tracking": "track before each projectile release, lock after release",
+        "landing_indicators": false,
+        "replenishment": "separate ordinary death-replacement flow only"
+      }
+    },
+    {
+      "id": 11,
+      "section_id": 5,
+      "section_name": "歸路決戰",
+      "name": "營地外圍",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        21720,
+        23892
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 2,
+      "initial_composition": {
+        "udono_matchlock_reinforcement": 1,
+        "udono_shield": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n11_ugunner_02",
+          "asset_key": "ugunner",
+          "local_art_anchor": [
+            1530,
+            540
+          ],
+          "visible_art_height_px": 160,
+          "flip": true,
+          "archetype": "udono_matchlock_reinforcement",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "APPROVED_UDONO_LEGACY_RESKIN",
+          "runtime_art_file": "/workspace/shared/mikawa-matchlock-gunner/legacy-reskin-v1/actions-udono/gun_shot_0.png",
+          "allegiance": "Udono reinforcement; no Kira-specific matchlock art required"
+        },
+        {
+          "instance_id": "n11_ushield_04",
+          "asset_key": "ushield",
+          "local_art_anchor": [
+            1130,
+            620
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "udono_shield",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n11_uflag_01",
+          "asset_key": "uflag",
+          "local_art_anchor": [
+            1810,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        },
+        {
+          "instance_id": "n11_fence_03",
+          "asset_key": "fence",
+          "local_art_anchor": [
+            1450,
+            590
+          ],
+          "visible_art_height_px": 175,
+          "flip": false,
+          "kind": "wood_fence",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": 3,
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upper-left to lower-right; preserve approved v5 art",
+          "player_passage": "BLOCKED_UNTIL_DESTROYED",
+          "melee_enemy_passage": "PASS_THROUGH_NORMAL_WALK",
+          "collision_masks": {
+            "blocks": [
+              "player_body"
+            ],
+            "excludes": [
+              "enemy_melee_body"
+            ],
+            "receives_damage_from": [
+              "player_melee",
+              "player_ranged_if_existing_prop_damage_supports_it"
+            ]
+          },
+          "destroy_transition": "Disable player collision immediately on confirmed fence destruction; never wait for optional debris FX",
+          "health_units": "proposed basic-melee-hit equivalents, tunable and untested; convert to project damage units",
+          "minimum_player_damage_acceptance": "All selectable heroes must have at least one repeatable, resource-free attack that damages fence. Validate in engine before release."
+        }
+      ],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg5",
+      "bg_art_path": "/workspace/shared/mikawa-layout-review-v2-camp/05_camp_clean_background.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "營地外圍提案：主帳與軍幕建立新場景辨識，盾兵前壓、鐵炮在柵欄後。",
+        "近戰直接穿柵欄，玩家須砍破柵欄才可通行。鐵炮統一鵜殿援軍。"
+      ],
+      "background_cheering": {
+        "enabled": true,
+        "count": 8,
+        "combatants": false,
+        "collision": false,
+        "required_for_clear": false,
+        "visual_status": "THREE_TYPES_FOUR_AUTHORED_POSES_APNG_AND_PNG_READY; engine integration not implemented",
+        "groups": [
+          {
+            "asset": "cheerL",
+            "center_x": 620,
+            "foot_y": 450,
+            "height": 174,
+            "flip": false
+          },
+          {
+            "asset": "cheerR",
+            "center_x": 1755,
+            "foot_y": 450,
+            "height": 174,
+            "flip": true
+          }
+        ],
+        "animation_manifest": "/workspace/shared/mikawa-cheering-animation-v1/animation_events.json",
+        "phase_placement": "use animation manifest eight individual placements instead of old static two-group layer",
+        "audio": "not newly authored; optional event only"
+      }
+    },
+    {
+      "id": 12,
+      "section_id": 5,
+      "section_name": "歸路決戰",
+      "name": "帳前集結地",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        23892,
+        26064
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 2,
+      "initial_composition": {
+        "udono_spear": 1,
+        "udono_shield": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n12_uspear_01",
+          "asset_key": "uspear",
+          "local_art_anchor": [
+            1060,
+            565
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "udono_spear",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        },
+        {
+          "instance_id": "n12_ushield_02",
+          "asset_key": "ushield",
+          "local_art_anchor": [
+            1420,
+            635
+          ],
+          "visible_art_height_px": 170,
+          "flip": true,
+          "archetype": "udono_shield",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n12_uflag_03",
+          "asset_key": "uflag",
+          "local_art_anchor": [
+            1840,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        },
+        {
+          "instance_id": "n12_uflag_04",
+          "asset_key": "uflag",
+          "local_art_anchor": [
+            1990,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        }
+      ],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "all_initial_combatants_combat_defeated": true,
+        "props_required": false,
+        "background_soldiers_required": false,
+        "after_clear": "open_right_exit_then_advance_on_exit_region"
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg5",
+      "bg_art_path": "/workspace/shared/mikawa-layout-review-v2-camp/05_camp_clean_background.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "集結地提案：背景助陣兵舉槍吆喝；他們是佈景，不新增可攻擊敵人。",
+        "護衛仍在前景，主帳前留出寬闊平地。另附助陣兵4格動畫素材，尚未接入引擎。"
+      ],
+      "background_cheering": {
+        "enabled": true,
+        "count": 8,
+        "combatants": false,
+        "collision": false,
+        "required_for_clear": false,
+        "visual_status": "THREE_TYPES_FOUR_AUTHORED_POSES_APNG_AND_PNG_READY; engine integration not implemented",
+        "groups": [
+          {
+            "asset": "cheerL",
+            "center_x": 620,
+            "foot_y": 450,
+            "height": 174,
+            "flip": false
+          },
+          {
+            "asset": "cheerR",
+            "center_x": 1755,
+            "foot_y": 450,
+            "height": 174,
+            "flip": true
+          }
+        ],
+        "animation_manifest": "/workspace/shared/mikawa-cheering-animation-v1/animation_events.json",
+        "phase_placement": "use animation manifest eight individual placements instead of old static two-group layer",
+        "audio": "not newly authored; optional event only"
+      }
+    },
+    {
+      "id": 13,
+      "section_id": 5,
+      "section_name": "歸路決戰",
+      "name": "主帳外・長照決戰",
+      "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED",
+      "local_scene_extent": [
+        0,
+        2172,
+        0,
+        724
+      ],
+      "travel_length_art_px": 2172,
+      "world_art_x_range": [
+        26064,
+        28236
+      ],
+      "walkable_ground_art_y": [
+        478,
+        680
+      ],
+      "entry_art_anchor": [
+        260,
+        615
+      ],
+      "exit_art_region": [
+        2050,
+        600,
+        122,
+        80
+      ],
+      "entry_condition": "previous_node_complete",
+      "activation": "once; reset only on explicit stage restart",
+      "initial_enemy_count": 1,
+      "initial_composition": {
+        "boss_udono_nagateru": 1
+      },
+      "combat_instances": [
+        {
+          "instance_id": "n13_udono_03",
+          "asset_key": "udono",
+          "local_art_anchor": [
+            1440,
+            620
+          ],
+          "visible_art_height_px": 385,
+          "flip": true,
+          "archetype": "boss_udono_nagateru",
+          "required_for_clear": true,
+          "spawn_policy": "once_on_node_activation",
+          "art_status": "existing_art_reference"
+        }
+      ],
+      "props": [
+        {
+          "instance_id": "n13_uflag_01",
+          "asset_key": "uflag",
+          "local_art_anchor": [
+            1820,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        },
+        {
+          "instance_id": "n13_uflag_02",
+          "asset_key": "uflag",
+          "local_art_anchor": [
+            1980,
+            505
+          ],
+          "visible_art_height_px": 245,
+          "flip": false,
+          "kind": "standing_flag",
+          "required_for_clear": false,
+          "destructible": true,
+          "health": "TUNABLE_UNSET",
+          "collision_footprint": "UNAUTHORED_ENGINE_PASS_REQUIRED",
+          "orientation": "upright; ground base fixed",
+          "player_passage": "UNAUTHORED",
+          "melee_enemy_passage": "UNAUTHORED"
+        }
+      ],
+      "reinforcement": {
+        "mode": "none",
+        "count": 0
+      },
+      "clear_condition": {
+        "udono_combat_defeated": true,
+        "stop_combat_and_pending_spawn_events": true,
+        "terminal_presentation": "scripted fall -> stand -> escape; upper-screen message only, no added labels",
+        "stage_complete_event": "after scripted fall and rise, move escaping boss to local_art_x>=2250; reaching target emits stage_complete exactly once",
+        "props_required": false,
+        "background_soldiers_required": false,
+        "reinforcement_required": false,
+        "terminal_sequence_proposal": [
+          {
+            "state": "scripted_defeat_fall",
+            "duration_seconds": 0.6,
+            "normal_knockdown_immunity_bypassed_for_terminal_only": true
+          },
+          {
+            "state": "scripted_rise",
+            "duration_seconds": 0.7
+          },
+          {
+            "state": "scripted_escape",
+            "start_x": 1440,
+            "target_x": 2250,
+            "speed_art_px_per_second": 220,
+            "damage_and_collision_enabled": false,
+            "on_reach_target": "emit stage_complete once"
+          }
+        ],
+        "terminal_total_duration_seconds_approx": 4.982,
+        "parameter_status": "ASSISTANT_PROPOSAL_TUNABLE_NOT_PLAYTESTED"
+      },
+      "mud": {
+        "enabled": false
+      },
+      "background_asset_key": "bg5",
+      "bg_art_path": "/workspace/shared/mikawa-layout-review-v2-camp/05_camp_clean_background.png",
+      "scene_seams": "NOT_CONTINUOUS; each window is an independent composition, seam stitching and camera integration pending",
+      "source_notes": [
+        "營帳與助陣兵只在後景；王戰前景維持寬闊。重甲不受擊倒／擊飛，近戰反制大迴旋。",
+        "槍尾直立震地，FX不遮人。遠攻反制採隨身高速投石v2；終戰倒下起身逃離只用上方提示。"
+      ],
+      "boss_rules": {
+        "immune_to_normal_knockdown_and_launch": true,
+        "sustained_melee_counter": "large_sweep",
+        "ground_slam": "upright spear butt strike; low FX preserves body visibility",
+        "terminal_defeat_is_exception_to_normal_knockdown_immunity": true,
+        "ranged_counter": "self-carried high-speed stone throw v2; use final canonical asset/events from assembly"
+      },
+      "background_cheering": {
+        "enabled": true,
+        "count": 8,
+        "combatants": false,
+        "collision": false,
+        "required_for_clear": false,
+        "visual_status": "THREE_TYPES_FOUR_AUTHORED_POSES_APNG_AND_PNG_READY; engine integration not implemented",
+        "groups": [
+          {
+            "asset": "cheerL",
+            "center_x": 620,
+            "foot_y": 450,
+            "height": 174,
+            "flip": false
+          },
+          {
+            "asset": "cheerR",
+            "center_x": 1755,
+            "foot_y": 450,
+            "height": 174,
+            "flip": true
+          }
+        ],
+        "animation_manifest": "/workspace/shared/mikawa-cheering-animation-v1/animation_events.json",
+        "phase_placement": "use animation manifest eight individual placements instead of old static two-group layer",
+        "audio": "not newly authored; optional event only"
+      }
+    }
+  ]
+}

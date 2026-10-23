@@ -1,0 +1,99 @@
+event_id,variant_id,wav,ogg,gain_linear,loop,trigger,dedupe,crossfade_ms
+sword_swing,sword_swing_01,processed/wav/sword_swing_01.wav,processed/ogg/sword_swing_01.ogg,0.6,False,animation-event,one per attack/event,0
+sword_hit_flesh,sword_hit_flesh_01,processed/wav/sword_hit_flesh_01.wav,processed/ogg/sword_hit_flesh_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+sword_hit_armor,sword_hit_armor_01,processed/wav/sword_hit_armor_01.wav,processed/ogg/sword_hit_armor_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+bow_release,bow_release_01,processed/wav/bow_release_01.wav,processed/ogg/bow_release_01.ogg,0.6,False,animation-event,one per attack/event,0
+arrow_hit_body,arrow_hit_body_01,processed/wav/arrow_hit_body_01.wav,processed/ogg/arrow_hit_body_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+arrow_hit_wood,arrow_hit_wood_01,processed/wav/arrow_hit_wood_01.wav,processed/ogg/arrow_hit_wood_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+staff_swing,staff_swing_01,processed/wav/staff_swing_01.wav,processed/ogg/staff_swing_01.ogg,0.6,False,animation-event,one per attack/event,0
+staff_hit,staff_hit_01,processed/wav/staff_hit_01.wav,processed/ogg/staff_hit_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+body_collision,body_collision_01,processed/wav/body_collision_01.wav,processed/ogg/body_collision_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+sword_swing,sword_swing_02,processed/wav/sword_swing_02.wav,processed/ogg/sword_swing_02.ogg,0.6,False,animation-event,one per attack/event,0
+sword_hit_flesh,sword_hit_flesh_02,processed/wav/sword_hit_flesh_02.wav,processed/ogg/sword_hit_flesh_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+sword_hit_armor,sword_hit_armor_02,processed/wav/sword_hit_armor_02.wav,processed/ogg/sword_hit_armor_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+bow_release,bow_release_02,processed/wav/bow_release_02.wav,processed/ogg/bow_release_02.ogg,0.6,False,animation-event,one per attack/event,0
+arrow_hit_body,arrow_hit_body_02,processed/wav/arrow_hit_body_02.wav,processed/ogg/arrow_hit_body_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+arrow_hit_wood,arrow_hit_wood_02,processed/wav/arrow_hit_wood_02.wav,processed/ogg/arrow_hit_wood_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+staff_swing,staff_swing_02,processed/wav/staff_swing_02.wav,processed/ogg/staff_swing_02.ogg,0.6,False,animation-event,one per attack/event,0
+staff_hit,staff_hit_02,processed/wav/staff_hit_02.wav,processed/ogg/staff_hit_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+body_collision,body_collision_02,processed/wav/body_collision_02.wav,processed/ogg/body_collision_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+sword_swing,sword_swing_03,processed/wav/sword_swing_03.wav,processed/ogg/sword_swing_03.ogg,0.6,False,animation-event,one per attack/event,0
+sword_hit_flesh,sword_hit_flesh_03,processed/wav/sword_hit_flesh_03.wav,processed/ogg/sword_hit_flesh_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+sword_hit_armor,sword_hit_armor_03,processed/wav/sword_hit_armor_03.wav,processed/ogg/sword_hit_armor_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+bow_release,bow_release_03,processed/wav/bow_release_03.wav,processed/ogg/bow_release_03.ogg,0.6,False,animation-event,one per attack/event,0
+arrow_hit_body,arrow_hit_body_03,processed/wav/arrow_hit_body_03.wav,processed/ogg/arrow_hit_body_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+arrow_hit_wood,arrow_hit_wood_03,processed/wav/arrow_hit_wood_03.wav,processed/ogg/arrow_hit_wood_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+staff_swing,staff_swing_03,processed/wav/staff_swing_03.wav,processed/ogg/staff_swing_03.ogg,0.6,False,animation-event,one per attack/event,0
+staff_hit,staff_hit_03,processed/wav/staff_hit_03.wav,processed/ogg/staff_hit_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+body_collision,body_collision_03,processed/wav/body_collision_03.wav,processed/ogg/body_collision_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+charge_start,charge_start,processed/wav/charge_start.wav,processed/ogg/charge_start.ogg,0.6,False,animation-event,one per attack/event,0
+charge_hold_loop,charge_hold_loop,processed/wav/charge_hold_loop.wav,processed/ogg/charge_hold_loop.ogg,0.45,True,loop-state-enter,one loop per actor,20
+charge_release,charge_release,processed/wav/charge_release.wav,processed/ogg/charge_release.ogg,0.6,False,animation-event,one per attack/event,0
+spin_swing_loop,spin_swing_loop,processed/wav/spin_swing_loop.wav,processed/ogg/spin_swing_loop.ogg,0.45,True,loop-state-enter,one loop per actor,20
+spin_finish,spin_finish,processed/wav/spin_finish.wav,processed/ogg/spin_finish.ogg,0.6,False,animation-event,one per attack/event,0
+spear_thrust,spear_thrust_01,processed/wav/spear_thrust_01.wav,processed/ogg/spear_thrust_01.ogg,0.6,False,animation-event,one per attack/event,0
+polearm_sweep,polearm_sweep_01,processed/wav/polearm_sweep_01.wav,processed/ogg/polearm_sweep_01.ogg,0.6,False,animation-event,one per attack/event,0
+spear_hit_flesh,spear_hit_flesh_01,processed/wav/spear_hit_flesh_01.wav,processed/ogg/spear_hit_flesh_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+polearm_hit_flesh,polearm_hit_flesh_01,processed/wav/polearm_hit_flesh_01.wav,processed/ogg/polearm_hit_flesh_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+staff_hit_armor,staff_hit_armor_01,processed/wav/staff_hit_armor_01.wav,processed/ogg/staff_hit_armor_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+knife_throw,knife_throw_01,processed/wav/knife_throw_01.wav,processed/ogg/knife_throw_01.ogg,0.6,False,animation-event,one per attack/event,0
+knife_hit_flesh,knife_hit_flesh_01,processed/wav/knife_hit_flesh_01.wav,processed/ogg/knife_hit_flesh_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+knife_hit_armor,knife_hit_armor_01,processed/wav/knife_hit_armor_01.wav,processed/ogg/knife_hit_armor_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+punch_hit,punch_hit_01,processed/wav/punch_hit_01.wav,processed/ogg/punch_hit_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+headbutt_hit,headbutt_hit_01,processed/wav/headbutt_hit_01.wav,processed/ogg/headbutt_hit_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+knee_hit,knee_hit_01,processed/wav/knee_hit_01.wav,processed/ogg/knee_hit_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+throw_swing,throw_swing_01,processed/wav/throw_swing_01.wav,processed/ogg/throw_swing_01.ogg,0.6,False,animation-event,one per attack/event,0
+body_land,body_land_01,processed/wav/body_land_01.wav,processed/ogg/body_land_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+shield_block,shield_block_01,processed/wav/shield_block_01.wav,processed/ogg/shield_block_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+musket_hit_body,musket_hit_body_01,processed/wav/musket_hit_body_01.wav,processed/ogg/musket_hit_body_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+musket_hit_armor,musket_hit_armor_01,processed/wav/musket_hit_armor_01.wav,processed/ogg/musket_hit_armor_01.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+musket_player_shot,musket_player_shot_01,processed/wav/musket_player_shot_01.wav,processed/ogg/musket_player_shot_01.ogg,0.6,False,animation-event,one per attack/event,0
+musket_enemy_shot,musket_enemy_shot_01,processed/wav/musket_enemy_shot_01.wav,processed/ogg/musket_enemy_shot_01.ogg,0.55,False,animation-event,one per attack/event,0
+spear_thrust,spear_thrust_02,processed/wav/spear_thrust_02.wav,processed/ogg/spear_thrust_02.ogg,0.6,False,animation-event,one per attack/event,0
+polearm_sweep,polearm_sweep_02,processed/wav/polearm_sweep_02.wav,processed/ogg/polearm_sweep_02.ogg,0.6,False,animation-event,one per attack/event,0
+spear_hit_flesh,spear_hit_flesh_02,processed/wav/spear_hit_flesh_02.wav,processed/ogg/spear_hit_flesh_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+polearm_hit_flesh,polearm_hit_flesh_02,processed/wav/polearm_hit_flesh_02.wav,processed/ogg/polearm_hit_flesh_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+staff_hit_armor,staff_hit_armor_02,processed/wav/staff_hit_armor_02.wav,processed/ogg/staff_hit_armor_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+knife_throw,knife_throw_02,processed/wav/knife_throw_02.wav,processed/ogg/knife_throw_02.ogg,0.6,False,animation-event,one per attack/event,0
+knife_hit_flesh,knife_hit_flesh_02,processed/wav/knife_hit_flesh_02.wav,processed/ogg/knife_hit_flesh_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+knife_hit_armor,knife_hit_armor_02,processed/wav/knife_hit_armor_02.wav,processed/ogg/knife_hit_armor_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+punch_hit,punch_hit_02,processed/wav/punch_hit_02.wav,processed/ogg/punch_hit_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+headbutt_hit,headbutt_hit_02,processed/wav/headbutt_hit_02.wav,processed/ogg/headbutt_hit_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+knee_hit,knee_hit_02,processed/wav/knee_hit_02.wav,processed/ogg/knee_hit_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+throw_swing,throw_swing_02,processed/wav/throw_swing_02.wav,processed/ogg/throw_swing_02.ogg,0.6,False,animation-event,one per attack/event,0
+body_land,body_land_02,processed/wav/body_land_02.wav,processed/ogg/body_land_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+shield_block,shield_block_02,processed/wav/shield_block_02.wav,processed/ogg/shield_block_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+musket_hit_body,musket_hit_body_02,processed/wav/musket_hit_body_02.wav,processed/ogg/musket_hit_body_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+musket_hit_armor,musket_hit_armor_02,processed/wav/musket_hit_armor_02.wav,processed/ogg/musket_hit_armor_02.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+musket_player_shot,musket_player_shot_02,processed/wav/musket_player_shot_02.wav,processed/ogg/musket_player_shot_02.ogg,0.6,False,animation-event,one per attack/event,0
+musket_enemy_shot,musket_enemy_shot_02,processed/wav/musket_enemy_shot_02.wav,processed/ogg/musket_enemy_shot_02.ogg,0.55,False,animation-event,one per attack/event,0
+spear_thrust,spear_thrust_03,processed/wav/spear_thrust_03.wav,processed/ogg/spear_thrust_03.ogg,0.6,False,animation-event,one per attack/event,0
+polearm_sweep,polearm_sweep_03,processed/wav/polearm_sweep_03.wav,processed/ogg/polearm_sweep_03.ogg,0.6,False,animation-event,one per attack/event,0
+spear_hit_flesh,spear_hit_flesh_03,processed/wav/spear_hit_flesh_03.wav,processed/ogg/spear_hit_flesh_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+polearm_hit_flesh,polearm_hit_flesh_03,processed/wav/polearm_hit_flesh_03.wav,processed/ogg/polearm_hit_flesh_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+staff_hit_armor,staff_hit_armor_03,processed/wav/staff_hit_armor_03.wav,processed/ogg/staff_hit_armor_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+knife_throw,knife_throw_03,processed/wav/knife_throw_03.wav,processed/ogg/knife_throw_03.ogg,0.6,False,animation-event,one per attack/event,0
+knife_hit_flesh,knife_hit_flesh_03,processed/wav/knife_hit_flesh_03.wav,processed/ogg/knife_hit_flesh_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+knife_hit_armor,knife_hit_armor_03,processed/wav/knife_hit_armor_03.wav,processed/ogg/knife_hit_armor_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+punch_hit,punch_hit_03,processed/wav/punch_hit_03.wav,processed/ogg/punch_hit_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+headbutt_hit,headbutt_hit_03,processed/wav/headbutt_hit_03.wav,processed/ogg/headbutt_hit_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+knee_hit,knee_hit_03,processed/wav/knee_hit_03.wav,processed/ogg/knee_hit_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+throw_swing,throw_swing_03,processed/wav/throw_swing_03.wav,processed/ogg/throw_swing_03.ogg,0.6,False,animation-event,one per attack/event,0
+body_land,body_land_03,processed/wav/body_land_03.wav,processed/ogg/body_land_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+shield_block,shield_block_03,processed/wav/shield_block_03.wav,processed/ogg/shield_block_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+musket_hit_body,musket_hit_body_03,processed/wav/musket_hit_body_03.wav,processed/ogg/musket_hit_body_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+musket_hit_armor,musket_hit_armor_03,processed/wav/musket_hit_armor_03.wav,processed/ogg/musket_hit_armor_03.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+musket_player_shot,musket_player_shot_03,processed/wav/musket_player_shot_03.wav,processed/ogg/musket_player_shot_03.ogg,0.6,False,animation-event,one per attack/event,0
+musket_enemy_shot,musket_enemy_shot_03,processed/wav/musket_enemy_shot_03.wav,processed/ogg/musket_enemy_shot_03.ogg,0.55,False,animation-event,one per attack/event,0
+sword_draw,sword_draw,processed/wav/sword_draw.wav,processed/ogg/sword_draw.ogg,0.6,False,animation-event,one per attack/event,0
+sword_sheathe,sword_sheathe,processed/wav/sword_sheathe.wav,processed/ogg/sword_sheathe.ogg,0.6,False,animation-event,one per attack/event,0
+grab_contact,grab_contact,processed/wav/grab_contact.wav,processed/ogg/grab_contact.ogg,0.6,False,animation-event,one per attack/event,0
+musket_reload,musket_reload,processed/wav/musket_reload.wav,processed/ogg/musket_reload.ogg,0.6,False,animation-event,one per attack/event,0
+element_fire_hit,element_fire_hit,processed/wav/element_fire_hit.wav,processed/ogg/element_fire_hit.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+element_fire_loop,element_fire_loop,processed/wav/element_fire_loop.wav,processed/ogg/element_fire_loop.ogg,0.45,True,loop-state-enter,one loop per actor,20
+element_ice_hit,element_ice_hit,processed/wav/element_ice_hit.wav,processed/ogg/element_ice_hit.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+element_ice_loop,element_ice_loop,processed/wav/element_ice_loop.wav,processed/ogg/element_ice_loop.ogg,0.45,True,loop-state-enter,one loop per actor,20
+element_wind_hit,element_wind_hit,processed/wav/element_wind_hit.wav,processed/ogg/element_wind_hit.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+element_wind_loop,element_wind_loop,processed/wav/element_wind_loop.wav,processed/ogg/element_wind_loop.ogg,0.45,True,loop-state-enter,one loop per actor,20
+element_lightning_hit,element_lightning_hit,processed/wav/element_lightning_hit.wav,processed/ogg/element_lightning_hit.ogg,0.65,False,confirmed-contact,attackId+targetId+eventId; max 3 simultaneous hits,0
+element_lightning_loop,element_lightning_loop,processed/wav/element_lightning_loop.wav,processed/ogg/element_lightning_loop.ogg,0.45,True,loop-state-enter,one loop per actor,20

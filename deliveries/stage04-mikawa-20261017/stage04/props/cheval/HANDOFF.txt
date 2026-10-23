@@ -1,0 +1,11 @@
+三河歸途 — APPROVED v5 DIRECTION / DAMAGE STATES
+
+Use the three sprites in each family together. Intact is byte-identical to the approved candidate. Damage/break states are built-in image_gen edits of that exact approved source.
+
+All PNGs: 1536x1024, RGBA, genuine generated alpha 0..254. No crops, resizing, reflection, rotation or per-state translation were applied. Shared authored ground anchor: (800,740) source pixels. Keep this pixel at exactly the same world position across all state changes; use one shared scale per family. Anchor is a placement convention, not an automatically measured contact point.
+
+Ground direction: far upper-left -> near lower-right. Approximate intact footprint polygons in each manifest are visually estimated placement guides only, not engine-ready collision claims. Damage maintains standing obstacle. Broken artwork shows remaining stumps/feet and low debris; configure collision removal/height intentionally.
+
+Alpha bounding boxes are diagnostic only. Do NOT normalize each state by its bounding box or bottom pixel. That would shift the obstacle and reverse the benefit of fixed registration.
+
+Checked actual file dimensions, alpha ranges, approved-intact SHA256 equality, and visual direction on a neutral composite. Local details in generated damage states are not pixel-identical to intact. Runtime world scale, state-switch stability, foot contacts, actor occlusion, cover and vaulting still require in-engine review. No runtime files or Git changed.

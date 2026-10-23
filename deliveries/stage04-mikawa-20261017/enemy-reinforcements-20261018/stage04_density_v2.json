@@ -1,0 +1,832 @@
+{
+  "schema": "stage04.encounter_density.design.v2",
+  "status": "PROPOSAL_NOT_RUNTIME_NOT_PLAYTESTED",
+  "created_utc": "2026-10-18",
+  "authorization_message": "Sentinel_877626f34bb881918a2aa27e5fb1b30c",
+  "source_baseline": "GitHub main fetched 2026-10-18; file blob SHA recorded in source report, not a pinned branch commit",
+  "sources": [
+    {
+      "path": "game/data/stage-03.json",
+      "lines": "L36-L52,L117-L181,L198-L210",
+      "evidence": "Population targets 6/9 or minions4/6; 240 tick delay,45 tick admissions",
+      "url": "https://github.com/guderian44444/sengoku-m1/blob/main/game/data/stage-03.json"
+    },
+    {
+      "path": "game/core/stage03_encounter.gd",
+      "lines": "L39-L58,L71-L121,L133-L140",
+      "evidence": "Alarm initial target; death replacement; stop on bell supports broken then drain; cyclic roster and HP scaling",
+      "url": "https://github.com/guderian44444/sengoku-m1/blob/main/game/core/stage03_encounter.gd"
+    },
+    {
+      "path": "game/core/stage03_objectives.gd",
+      "lines": "L70-L137",
+      "evidence": "Formation replacement,90 tick front gap; breach not kill-all clears",
+      "url": "https://github.com/guderian44444/sengoku-m1/blob/main/game/core/stage03_objectives.gd"
+    },
+    {
+      "path": "game/core/stage03_tent.gd",
+      "lines": "L33-L72,L76-L119,L130-L142",
+      "evidence": "2 leaders plus minions; replenishment persists through Yoshimoto; boss defeat wins without drain",
+      "url": "https://github.com/guderian44444/sengoku-m1/blob/main/game/core/stage03_tent.gd"
+    },
+    {
+      "path": "game/core/battle.gd",
+      "lines": "L88-L92,L254-L258,L349-L352,L632-L645",
+      "evidence": "Difficulty; ordinary +50% coop waves NOT applied to Stage03 objective branches; weight classification",
+      "url": "https://github.com/guderian44444/sengoku-m1/blob/main/game/core/battle.gd"
+    },
+    {
+      "path": "game/project.godot",
+      "lines": "L31-L32",
+      "evidence": "60 physics ticks/s",
+      "url": "https://github.com/guderian44444/sengoku-m1/blob/main/game/project.godot"
+    }
+  ],
+  "global_rules": {
+    "user_requirement": "Every node has 2-3 reinforcement batches after its separate initial force; every batch6-8 total from two directions,3-4 each side.",
+    "phase_model": "initial -> finite reinforcement batches -> drain -> clear; bosses/escorts are separately accounted pools",
+    "wave_trigger": "Previous batch fully admitted; living+entering regular enemies <=2; all pending batch reservations included in capacity. Boss and Kira escort pools excluded from regular threshold. First Kira wave eligible when boss introduction ends.",
+    "initial_placement": "Regular initial soldiers visibly staged in forward half of encounter, not hidden in reeds; begin combat after entry/introduction. Boss introductions freeze admissions and attacks.",
+    "wave_admission": "Reserve entire next batch once; left/right screen-edge warning immediately, then first pair after45 ticks. Admit one left+one right every45 ticks,3-4 pairs. Waiting offscreen counts as entering/cap once actor exists. Wave sequence records are unique per encounter epoch.",
+    "why_not_240_ticks": "Stage03 death-refill waits240 ticks/4s. New finite wave takes45 ticks/.75s from trigger to first pair to avoid several seconds of empty scene; is new proposal, not observed Stage03 behavior.",
+    "entry": "Left and right offscreen approach, safe free ground lanes, no visible teleport, no spawn inside fence/player; queues retry when blocked and never silently drop required soldiers.",
+    "capacity": "Normal cap10; Tominaga/Udono cap11 including boss; Kira cap15 including boss+6 escorts+regular8. Counts include entering living actors and reserved batch slots; decorative8 excluded.",
+    "coop": "Use identical explicitly-authored wave counts and caps for1/2players; do NOT apply generic _scaled_wave +50% on top (would break per-wave6-8). Existing Stage04 HP/difficulty rules remain, no new HP/damage/cooldown reduction.",
+    "clear": "All finite batches admitted, queue/reservations empty, all required living enemies defeated; then right exit. No mandatory flag/cheval/background kills. Kira and final boss exceptions below.",
+    "boss_early_defeat": "Never delete remaining finite wave budget when boss defeated. Already fighting and later finite batches must still be resolved. No boss invulnerability or artificial HP lock introduced.",
+    "preserve": "5sections3/2/3/2/3; mud nodes4/5 slows both and forbids player jump initiation; no reed ambush; node7opens bridge without NPC; all miniboss/boss moves and existing shield contracts preserved.",
+    "future_test": "Validate density, duration, entry latency, both-side readability, camera space, projectile collisions, all6heroes and1/2players; all numbers unmeasured."
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "section": "殘煙歸路",
+      "name": "殘兵初遇",
+      "initial_regular": {
+        "kira_spear": 4,
+        "kira_shield": 2
+      },
+      "initial_regular_count": 6,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_archer": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 6,
+      "finite_scheduled_total_count": 18,
+      "ordinary_reinforcement_batch_count": 2
+    },
+    {
+      "id": 2,
+      "section": "殘煙歸路",
+      "name": "路口阻擋",
+      "initial_regular": {
+        "kira_spear": 3,
+        "kira_shield": 2,
+        "kira_archer": 1
+      },
+      "initial_regular_count": 6,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 1,
+            "kira_shield": 1,
+            "kira_archer": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 2
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1,
+            "kira_archer": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 6,
+      "finite_scheduled_total_count": 20,
+      "ordinary_reinforcement_batch_count": 2
+    },
+    {
+      "id": 3,
+      "section": "殘煙歸路",
+      "name": "煙後小據點",
+      "initial_regular": {
+        "kira_spear": 2,
+        "kira_shield": 2,
+        "udono_matchlock_reinforcement": 1,
+        "kira_archer": 1
+      },
+      "initial_regular_count": 6,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 1,
+            "kira_shield": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1,
+            "kira_archer": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        },
+        {
+          "batch": 3,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 2
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_archer": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 6,
+      "finite_scheduled_total_count": 28,
+      "ordinary_reinforcement_batch_count": 3
+    },
+    {
+      "id": 4,
+      "section": "蘆葦河岸",
+      "name": "乾路與泥地",
+      "initial_regular": {
+        "kira_spear": 4,
+        "kira_shield": 2
+      },
+      "initial_regular_count": 6,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_archer": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 6,
+      "finite_scheduled_total_count": 18,
+      "ordinary_reinforcement_batch_count": 2
+    },
+    {
+      "id": 5,
+      "section": "蘆葦河岸",
+      "name": "河岸射擊點",
+      "initial_regular": {
+        "kira_spear": 3,
+        "kira_shield": 1,
+        "udono_matchlock_reinforcement": 1,
+        "kira_archer": 1
+      },
+      "initial_regular_count": 6,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 1,
+            "kira_archer": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 3,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 1,
+            "kira_shield": 1,
+            "kira_archer": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 6,
+      "finite_scheduled_total_count": 20,
+      "ordinary_reinforcement_batch_count": 2
+    },
+    {
+      "id": 6,
+      "section": "橋頭救援",
+      "name": "橋頭外圍",
+      "initial_regular": {
+        "kira_spear": 2,
+        "kira_shield": 2,
+        "udono_matchlock_reinforcement": 1,
+        "kira_archer": 1
+      },
+      "initial_regular_count": 6,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 1,
+            "kira_shield": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 2
+          },
+          "right": {
+            "kira_spear": 1,
+            "kira_shield": 1,
+            "kira_archer": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        },
+        {
+          "batch": 3,
+          "left": {
+            "kira_spear": 3,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 1,
+            "kira_shield": 1,
+            "kira_archer": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 6,
+      "finite_scheduled_total_count": 28,
+      "ordinary_reinforcement_batch_count": 3
+    },
+    {
+      "id": 7,
+      "section": "橋頭救援",
+      "name": "救援通道",
+      "initial_regular": {
+        "kira_spear": 3,
+        "kira_shield": 2,
+        "kira_archer": 1
+      },
+      "initial_regular_count": 6,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 3,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1,
+            "kira_archer": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        },
+        {
+          "batch": 3,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 2
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1,
+            "kira_archer": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 6,
+      "finite_scheduled_total_count": 28,
+      "ordinary_reinforcement_batch_count": 3,
+      "completion_hint": "橋頭封鎖解除，友軍可以通行。",
+      "npc_dependency": false
+    },
+    {
+      "id": 8,
+      "section": "橋頭救援",
+      "name": "富永攔路",
+      "initial_regular": {
+        "kira_spear": 2,
+        "kira_shield": 2
+      },
+      "initial_regular_count": 4,
+      "boss": "miniboss_tominaga",
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        }
+      ],
+      "simultaneous_cap": 11,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 5,
+      "finite_scheduled_total_count": 17,
+      "ordinary_reinforcement_batch_count": 2,
+      "boss_preservation": "Existing Tominaga moves plus floor-planted forward groundwave; no damage/HP/cooldown reduction; all reinforcements melee to preserve dodge readability."
+    },
+    {
+      "id": 9,
+      "section": "河岸追擊",
+      "name": "河岸追兵",
+      "initial_regular": {
+        "kira_spear": 3,
+        "kira_shield": 1,
+        "kira_archer": 2
+      },
+      "initial_regular_count": 6,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_archer": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1,
+            "kira_archer": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1,
+            "kira_archer": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 6,
+      "finite_scheduled_total_count": 20,
+      "ordinary_reinforcement_batch_count": 2
+    },
+    {
+      "id": 10,
+      "section": "河岸追擊",
+      "name": "吉良與六名弓兵",
+      "initial_regular": {},
+      "initial_regular_count": 0,
+      "boss": "miniboss_kira",
+      "initial_escort_count": 6,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 3,
+          "left": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "right": {
+            "kira_spear": 2,
+            "kira_shield": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        }
+      ],
+      "simultaneous_cap": 15,
+      "regular_pool_cap": 8,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 7,
+      "finite_scheduled_total_count": 25,
+      "ordinary_reinforcement_batch_count": 3,
+      "escort_pool": {
+        "kind": "kira_archer",
+        "target": 6,
+        "replace_per_death": 1,
+        "total_replacements_unbounded_while_boss_alive": true,
+        "replacement_delay_ticks": 180,
+        "delay_status": "preserve existing Stage04 tunable3s proposal; not Stage03-derived",
+        "admit_ticks_proposal": 45,
+        "regular_waves_never_join_escort_roster": true,
+        "on_boss_defeat": "Cancel escort replacement tickets before same-tick spawn; existing escorts still required. Finite regular batches continue.",
+        "clear": "Kira defeated AND escort tickets empty AND all surviving escorts defeated AND finite regular wave sequence exhausted and cleared.",
+        "skill": "Four-wave command uses present living eligible archers in place, no spawning/teleport; per-wave release lock,+50% spread,no landing indicator."
+      }
+    },
+    {
+      "id": 11,
+      "section": "歸路決戰",
+      "name": "營地外圍",
+      "initial_regular": {
+        "udono_spear": 3,
+        "udono_shield": 3,
+        "udono_matchlock_reinforcement": 2
+      },
+      "initial_regular_count": 8,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "udono_spear": 2,
+            "udono_shield": 2
+          },
+          "right": {
+            "udono_spear": 2,
+            "udono_shield": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        },
+        {
+          "batch": 2,
+          "left": {
+            "udono_spear": 3,
+            "udono_shield": 1
+          },
+          "right": {
+            "udono_spear": 1,
+            "udono_shield": 1,
+            "udono_matchlock_reinforcement": 2
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        },
+        {
+          "batch": 3,
+          "left": {
+            "udono_spear": 2,
+            "udono_shield": 2
+          },
+          "right": {
+            "udono_spear": 2,
+            "udono_shield": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 8,
+      "finite_scheduled_total_count": 32,
+      "ordinary_reinforcement_batch_count": 3
+    },
+    {
+      "id": 12,
+      "section": "歸路決戰",
+      "name": "帳前集結地",
+      "initial_regular": {
+        "udono_spear": 4,
+        "udono_shield": 4
+      },
+      "initial_regular_count": 8,
+      "boss": null,
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "udono_spear": 2,
+            "udono_shield": 2
+          },
+          "right": {
+            "udono_spear": 2,
+            "udono_shield": 2
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        },
+        {
+          "batch": 2,
+          "left": {
+            "udono_spear": 3,
+            "udono_shield": 1
+          },
+          "right": {
+            "udono_spear": 2,
+            "udono_shield": 1,
+            "udono_matchlock_reinforcement": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        },
+        {
+          "batch": 3,
+          "left": {
+            "udono_spear": 2,
+            "udono_shield": 2
+          },
+          "right": {
+            "udono_spear": 2,
+            "udono_shield": 2
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        }
+      ],
+      "simultaneous_cap": 10,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 8,
+      "finite_scheduled_total_count": 32,
+      "ordinary_reinforcement_batch_count": 3
+    },
+    {
+      "id": 13,
+      "section": "歸路決戰",
+      "name": "主帳外・長照決戰",
+      "initial_regular": {
+        "udono_spear": 2,
+        "udono_shield": 2
+      },
+      "initial_regular_count": 4,
+      "boss": "boss_udono_nagateru",
+      "initial_escort_count": 0,
+      "reinforcement_batches": [
+        {
+          "batch": 1,
+          "left": {
+            "udono_spear": 2,
+            "udono_shield": 1
+          },
+          "right": {
+            "udono_spear": 2,
+            "udono_shield": 1
+          },
+          "left_count": 3,
+          "right_count": 3,
+          "total_count": 6
+        },
+        {
+          "batch": 2,
+          "left": {
+            "udono_spear": 2,
+            "udono_shield": 2
+          },
+          "right": {
+            "udono_spear": 3,
+            "udono_shield": 1
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        },
+        {
+          "batch": 3,
+          "left": {
+            "udono_spear": 2,
+            "udono_shield": 2
+          },
+          "right": {
+            "udono_spear": 2,
+            "udono_shield": 2
+          },
+          "left_count": 4,
+          "right_count": 4,
+          "total_count": 8
+        }
+      ],
+      "simultaneous_cap": 11,
+      "regular_pool_cap": 10,
+      "reinforcement_total_is_finite": true,
+      "initial_total_count": 5,
+      "finite_scheduled_total_count": 27,
+      "ordinary_reinforcement_batch_count": 3,
+      "terminal_contract_change_proposal": "Boss defeat immediately performs existing fall->rise->escape; record escape_complete instead of issuing unconditional stage_complete. Complete stage exactly once only after escape_complete AND all finite soldier batches exhausted/cleared. This new AND gate is required by user every-node waves, no actor invulnerability/HP lock. Background8 remain noncombatants."
+    }
+  ],
+  "finite_scheduled_total_all_nodes": 313,
+  "total_note": "This is minimum scheduled count; add variable Kira escort replacements. Not all simultaneous."
+}

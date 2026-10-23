@@ -1,0 +1,364 @@
+{
+  "clips": {
+    "gun_shot": {
+      "source_file": "gunner-gun_shot.png",
+      "frames": [
+        {
+          "source_region": [
+            41,
+            157,
+            428,
+            440
+          ],
+          "source_foot": [
+            226.5,
+            593
+          ],
+          "source_body_height": 448,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            443,
+            162,
+            414,
+            430
+          ],
+          "source_foot": [
+            623.5,
+            588
+          ],
+          "source_body_height": 448,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            834,
+            180,
+            413,
+            412
+          ],
+          "source_foot": [
+            1016.5,
+            588
+          ],
+          "source_body_height": 448,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            58,
+            712,
+            379,
+            438
+          ],
+          "source_foot": [
+            250.5,
+            1146
+          ],
+          "source_body_height": 448,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            474,
+            713,
+            351,
+            436
+          ],
+          "source_foot": [
+            640.5,
+            1145
+          ],
+          "source_body_height": 448,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            830,
+            714,
+            412,
+            439
+          ],
+          "source_foot": [
+            1016,
+            1149
+          ],
+          "source_body_height": 448,
+          "root": [
+            256,
+            285
+          ]
+        }
+      ]
+    },
+    "hurt": {
+      "source_file": "gunner-reactions.png",
+      "frames": [
+        {
+          "source_region": [
+            85,
+            163,
+            369,
+            420
+          ],
+          "source_foot": [
+            263,
+            579
+          ],
+          "source_body_height": 450,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            515,
+            242,
+            344,
+            352
+          ],
+          "source_foot": [
+            637.5,
+            590
+          ],
+          "source_body_height": 450,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            910,
+            226,
+            325,
+            365
+          ],
+          "source_foot": [
+            1044,
+            587
+          ],
+          "source_body_height": 450,
+          "root": [
+            256,
+            285
+          ]
+        }
+      ]
+    },
+    "struggle": {
+      "source_file": "gunner-reactions.png",
+      "frames": [
+        {
+          "source_region": [
+            55,
+            721,
+            378,
+            406
+          ],
+          "source_foot": [
+            245,
+            1123
+          ],
+          "source_body_height": 450,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            499,
+            721,
+            337,
+            415
+          ],
+          "source_foot": [
+            659,
+            1132
+          ],
+          "source_body_height": 450,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            913,
+            735,
+            322,
+            390
+          ],
+          "source_foot": [
+            1078.5,
+            1121
+          ],
+          "source_body_height": 450,
+          "root": [
+            256,
+            285
+          ]
+        }
+      ]
+    },
+    "death": {
+      "source_file": "gunner-death.png",
+      "frames": [
+        {
+          "source_region": [
+            67,
+            186,
+            369,
+            436
+          ],
+          "source_foot": [
+            128.5,
+            618
+          ],
+          "source_body_height": 465,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            471,
+            265,
+            357,
+            349
+          ],
+          "source_foot": [
+            661,
+            610
+          ],
+          "source_body_height": 465,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            816,
+            321,
+            429,
+            300
+          ],
+          "source_foot": [
+            845.5,
+            617
+          ],
+          "source_body_height": 465,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            13,
+            840,
+            438,
+            222
+          ],
+          "source_foot": [
+            274,
+            1058
+          ],
+          "source_body_height": 465,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            396,
+            911,
+            418,
+            147
+          ],
+          "source_foot": [
+            585.5,
+            1054
+          ],
+          "source_body_height": 465,
+          "root": [
+            256,
+            285
+          ]
+        },
+        {
+          "source_region": [
+            803,
+            955,
+            439,
+            102
+          ],
+          "source_foot": [
+            1022.5,
+            1053
+          ],
+          "source_body_height": 465,
+          "root": [
+            256,
+            285
+          ]
+        }
+      ]
+    }
+  },
+  "source": "v19 gunner original registration",
+  "timing": {
+    "gun_shot": {
+      "release_tick": 44,
+      "duration_ticks": 90,
+      "frame_ticks": [
+        0,
+        15,
+        30,
+        44,
+        60,
+        75
+      ]
+    },
+    "hurt": {
+      "duration_ticks": 18
+    },
+    "struggle": {
+      "fps": 6,
+      "held_pose": 1
+    },
+    "death": {
+      "normal_duration_ticks": 24,
+      "down_dead": "hold final frame",
+      "recovering": "reverse death frames using Battle.RECOVER_TICKS",
+      "defeated": "actor death_ticks and normalized pose thresholds[0,.12,.30,.64,.83,1]"
+    }
+  },
+  "missing_original_art": [
+    "separate reload clip",
+    "separate stun clip (runtime uses hurt)",
+    "separate recovery clip (runtime reverses death)"
+  ],
+  "scope": "costume reskin only; no runtime changes; review showcases default 24-tick fall, not actor-specific defeated duration"
+}

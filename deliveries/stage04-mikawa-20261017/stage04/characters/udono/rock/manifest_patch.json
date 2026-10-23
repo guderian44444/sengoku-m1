@@ -1,0 +1,261 @@
+{
+  "id": "udono_ranged_rock_volley",
+  "status": "Art/event proposal; verified teppo speed, generic final-boss scale reference",
+  "duration_s": 3.6,
+  "throw_cycle_s": 1.2,
+  "cycle_starts_s": [
+    0,
+    1.2,
+    2.4
+  ],
+  "cycle_keys": [
+    {
+      "time_s": 0,
+      "frame": "rock_7"
+    },
+    {
+      "time_s": 0.16,
+      "frame": "rock_3"
+    },
+    {
+      "time_s": 0.38,
+      "frame": "rock_4"
+    },
+    {
+      "time_s": 0.64,
+      "frame": "rock_5"
+    },
+    {
+      "time_s": 0.8,
+      "frame": "rock_6"
+    },
+    {
+      "time_s": 0.94,
+      "frame": "rock_7"
+    }
+  ],
+  "release_events": [
+    {
+      "id": "udono_rock_release",
+      "time_s": 0.8,
+      "shot_index": 0,
+      "anchor": [
+        639.4,
+        388.19999999999993
+      ],
+      "target_rule": "sample aim for this shot before release; lock velocity on release"
+    },
+    {
+      "id": "udono_rock_release",
+      "time_s": 2,
+      "shot_index": 1,
+      "anchor": [
+        639.4,
+        388.19999999999993
+      ],
+      "target_rule": "sample aim for this shot before release; lock velocity on release"
+    },
+    {
+      "id": "udono_rock_release",
+      "time_s": 3.2,
+      "shot_index": 2,
+      "anchor": [
+        639.4,
+        388.19999999999993
+      ],
+      "target_rule": "sample aim for this shot before release; lock velocity on release"
+    }
+  ],
+  "frame_anchors": [
+    {
+      "frame": "rock_3",
+      "root": [
+        430,
+        650
+      ],
+      "spear_butt": [
+        500,
+        645
+      ],
+      "spear_tip": [
+        500,
+        115
+      ],
+      "held_or_release_anchor": [
+        409.04999999999995,
+        475.75
+      ],
+      "file": "frames/rock_3.png"
+    },
+    {
+      "frame": "rock_4",
+      "root": [
+        430,
+        650
+      ],
+      "spear_butt": [
+        500,
+        645
+      ],
+      "spear_tip": [
+        500,
+        115
+      ],
+      "held_or_release_anchor": [
+        367.4,
+        358.44999999999993
+      ],
+      "file": "frames/rock_4.png"
+    },
+    {
+      "frame": "rock_5",
+      "root": [
+        430,
+        650
+      ],
+      "spear_butt": [
+        500,
+        645
+      ],
+      "spear_tip": [
+        500,
+        115
+      ],
+      "held_or_release_anchor": [
+        393.75000000000006,
+        292.15
+      ],
+      "file": "frames/rock_5.png"
+    },
+    {
+      "frame": "rock_6",
+      "root": [
+        430,
+        650
+      ],
+      "spear_butt": [
+        500,
+        645
+      ],
+      "spear_tip": [
+        500,
+        115
+      ],
+      "held_or_release_anchor": [
+        639.4,
+        388.19999999999993
+      ],
+      "file": "frames/rock_6.png"
+    },
+    {
+      "frame": "rock_7",
+      "root": [
+        430,
+        650
+      ],
+      "spear_butt": [
+        500,
+        645
+      ],
+      "spear_tip": [
+        500,
+        115
+      ],
+      "held_or_release_anchor": null,
+      "file": "frames/rock_7.png"
+    }
+  ],
+  "canvas": [
+    1600,
+    800
+  ],
+  "root": [
+    430,
+    650
+  ],
+  "projectile": {
+    "file": "stone.png",
+    "homing": false,
+    "trajectory": "Fixed initial velocity, no homing; horizontal bullet-matched demonstration. Launch angle/gravity tunable for runtime.",
+    "tunable": [
+      "initial_speed",
+      "launch_angle",
+      "gravity",
+      "target_sample_time",
+      "shot_interval",
+      "stone_damage",
+      "impact_radius"
+    ],
+    "preview_only": {
+      "body_head_to_feet_px": 341.7,
+      "body_height_source_pixels": [
+        84,
+        486
+      ],
+      "body_display_scale": 0.85,
+      "generic_final_boss_height_world": 201.5,
+      "px_per_world_unit": 1.6957816377171215,
+      "speed_px_s": 3459.394540942928,
+      "launch_angle_deg": 0,
+      "gravity": 0,
+      "range_world_units": 1100,
+      "note": "Generic final-boss reference only; Udono runtime render_scale not yet confirmed. Stones fly offscreen; ground FX require real collision, not artificial timed impact."
+    },
+    "speed_world_units_per_tick": 34,
+    "physics_ticks_per_s": 60,
+    "horizontal_speed_world_units_s": 2040,
+    "speed_source": {
+      "commit": "30fdac0349fb39bd769061318a497446a9ff0114",
+      "files": [
+        "game/core/battle.gd:1445,2032-2035,2161-2164",
+        "game/project.godot:27"
+      ],
+      "note": "1100 is reach, not speed"
+    }
+  },
+  "impact": {
+    "event_id": "udono_rock_ground_impact",
+    "trigger": "actual projectile-ground collision; not fixed character-animation hit time",
+    "layers": [
+      "vfx/impact_0.png",
+      "vfx/impact_1.png",
+      "vfx/impact_2.png",
+      "vfx/impact_3.png"
+    ],
+    "preview_duration_s": 0.55
+  },
+  "pickup": {
+    "source": "carried stones at waist",
+    "ground_pickup": false,
+    "animation": "empty hand returns to waist, draw carried stone, cock arm, release"
+  },
+  "audio_events": {
+    "draw_s": [
+      0.16,
+      1.36,
+      2.56
+    ],
+    "throw_s": [
+      0.8,
+      2,
+      3.2
+    ],
+    "impact": "actual collision",
+    "status": "event timings only"
+  },
+  "limits": [
+    "Key-pose animation; waist draw uses carried-stone reveal at hand",
+    "Udono-specific runtime body scale not confirmed; preview uses verified generic final-boss scale",
+    "No runtime edits; projectile hit/ground collision not implemented"
+  ],
+  "preserved": [
+    "approved fast butt-slam1s/triple2.5s",
+    "spin1.44s",
+    "all existing moves"
+  ],
+  "preview": {
+    "fps": 50,
+    "frames": 180,
+    "duration_s": 3.6
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "status": "integration_initial_values_not_runtime_verified",
+  "source_manifest": "mikawa-special-attacks-v3/special_attack_events.json",
+  "action_id": "kira_command_arrow_rain",
+  "confirmed_behavior": {
+    "use_present_archers": true,
+    "spawn_extra_archers": false,
+    "archers_stay_at_current_position": true,
+    "waves": 4,
+    "lock_each_wave_on_release": true,
+    "post_release_tracking": false,
+    "ground_indicators": false,
+    "spread_multiplier_x": 1.5,
+    "spread_multiplier_y": 1.5,
+    "demo_archer_count_not_requirement": true
+  },
+  "events_ms": {
+    "capture_roster": 400,
+    "release_and_lock": [
+      900,
+      1100,
+      1300,
+      1500
+    ],
+    "impact": [
+      1900,
+      2100,
+      2300,
+      2500
+    ]
+  },
+  "initial_values_unmeasured": {
+    "damage_per_arrow": 10,
+    "hit_limit_per_target_per_command": 1,
+    "flight_ms": 1000,
+    "cooldown_ticks": 480,
+    "spread_base_radius_world_x": 210,
+    "spread_base_radius_world_y": 46.2,
+    "spread_effective_radius_world_x": 315,
+    "spread_effective_radius_world_y": 69.3
+  },
+  "coordinate_note": "Initial world radii chosen from preview envelope for integration; preview pixels are not a proven world scale. Calibrate against deployed archer/player scale without changing approved 1.5 multipliers.",
+  "roster_policy": "Capture eligible present archers at command; filter alive/available each wave; no teleport/regroup/no fixed6 or24. New reinforcements join next command, not current roster.",
+  "arrow_count_rule": "sum(each wave eligible original roster count)",
+  "dedup_key": [
+    "activation_id",
+    "wave_index",
+    "archer_entity_id",
+    "target_id"
+  ],
+  "tests": [
+    "0 archers generates0 arrows",
+    "1/4/6 present produces4/16/24 if all survive",
+    "dead/disabled archer excluded from remaining waves",
+    "no new spawns or regroup",
+    "each wave independently locks current target",
+    "no post-release tracking",
+    "no ground markers",
+    "both spread axes multiply1.5 once",
+    "player iframes honored",
+    "source roster deterministic in coop"
+  ]
+}

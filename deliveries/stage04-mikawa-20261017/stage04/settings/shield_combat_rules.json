@@ -1,0 +1,145 @@
+{
+  "status": "canonical_design_contract_not_runtime_verified",
+  "replaces": "all conflicting base troop shield_rules",
+  "direction_scope": {
+    "guard_rejection_and_mitigation": "front_active_guard_only",
+    "heavy_shield_knockdown_immunity": "all_angles"
+  },
+  "normal_shield": {
+    "front_light_combo_1": {
+      "damage_multiplier": 0
+    },
+    "front_light_combo_2": {
+      "damage_multiplier": 0
+    },
+    "front_light_combo_3": {
+      "damage_multiplier": 0.5,
+      "value_status": "tunable_initial_unmeasured"
+    },
+    "ordinary_arrow_front_active_guard": {
+      "damage_multiplier": 0,
+      "side_effects": false
+    },
+    "knockdown_condition": {
+      "all_required": [
+        "attack_tier_heavy_or_higher",
+        "move_explicitly_has_knockdown"
+      ]
+    },
+    "rear_and_recovery": "do not inherit frontal immunity"
+  },
+  "heavy_shield": {
+    "front_light_combo_1": {
+      "damage_multiplier": 0
+    },
+    "front_light_combo_2": {
+      "damage_multiplier": 0
+    },
+    "front_light_combo_3": {
+      "damage_multiplier": 0.5,
+      "value_status": "tunable_initial_unmeasured"
+    },
+    "non_charged_ultimate_successful_hit_response": "ground_push_only_never_down_or_launch_or_thrown_flight",
+    "charged_ultimate_exception": "eligible skill may knock down if explicitly authored knockdown; do not force push-only",
+    "blocked_hits": "remain_blocked_not_forced_push",
+    "grab_throw": {
+      "can_pick_up": false,
+      "can_throw": false,
+      "can_slam_down": false,
+      "response": "brief_standing_stagger_or_ground_push_only",
+      "damage": "no_new_damage_bonus_or_throw_slam_damage_authorized; preserve_applicable_existing_contact_damage",
+      "status": "user_approved",
+      "initial_stagger_ticks_unmeasured": 12,
+      "initial_ground_push_world_per_tick_unmeasured": 6,
+      "default_response_unmeasured": "ground_push"
+    }
+  },
+  "charged_skill_mapping": {
+    "source_commit": "30fdac0349fb39bd769061318a497446a9ff0114",
+    "code": "game/core/battle.gd:955-957;game/core/combat_moves.gd:clip",
+    "eligible": [
+      {
+        "hero": "nobunaga",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "oichi",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "hideyoshi",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "ieyasu",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "mitsuhide",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "tadakatsu",
+        "action": "charged",
+        "clip": "charge_release"
+      },
+      {
+        "hero": "oichi",
+        "action": "charge_rain",
+        "clip": "charge_rain"
+      }
+    ],
+    "full_charge_gate": "charge*1000/60 >= registration.clips.charge_ready.duration_ms",
+    "exclude": [
+      "charge",
+      "heavy",
+      "dash_heavy",
+      "air_heavy",
+      "special",
+      "legacy charged_upper",
+      "legacy charged_slam"
+    ],
+    "source_identity_required": "Preserve originating action/hero/attack_id through projectile and delayed AoE; never infer from attacker current action",
+    "udono_result": "standing_stun_only_never_down_or_launch",
+    "heavy_shield_result": "Only eligible skill with explicit knockdown may knock down; never grant knockdown solely because charged"
+  },
+  "udono_separate_policy": {
+    "always_no_down": true,
+    "always_no_launch": true,
+    "charged_ultimate": "standing_stun_only",
+    "never_apply_heavy_shield_knockdown_exception": true
+  },
+  "integration_requirements": [
+    "apply policy in damage and every post-damage launch/withdraw_knockdown/projectile/shockwave/throw path",
+    "do not use heavy weight alone: it also suppresses desired push",
+    "ordinary arrows classified by attack metadata, not every projectile named arrow",
+    "preserve actual source skill through delayed effects"
+  ],
+  "tests": [
+    "front light1/2 zero damage and no status",
+    "front light3 mitigated positive damage",
+    "back hit does not inherit front mitigation",
+    "normal shield heavy without authoredKD stays standing",
+    "normal shield authoredKD light does not knock down",
+    "heavy shield nonultimate all sources no down/launch",
+    "heavy shield eligible charged authoredKD may knock down",
+    "Udono same eligible charged only stuns",
+    "ordinary arrow front blocked; rear guard-open not globally immune",
+    "source multihit dedup and existing invuln preserved",
+    "heavy shield grab never enters held/airborne/thrown/down state; only brief standing stagger and ground push",
+    "player blocked by intact fence and passes after destroyed",
+    "melee enemy passes intact fence; other roles unchanged"
+  ],
+  "fence_collision": {
+    "player": "blocked_until_fence_destroyed",
+    "melee_enemy": "can_pass_through",
+    "other_roles": "preserve_existing_behavior_no_new_permission_inferred",
+    "status": "user_approved"
+  },
+  "approval_source": "Sentinel_1445f5350c108191aa4d0712f21ecf91"
+}
