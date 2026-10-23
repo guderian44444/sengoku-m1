@@ -1,0 +1,7 @@
+# Preserve the received package and its published hashes byte for byte.
+package/** -text
+# Source webpage snapshots and the received CSV retain original whitespace/CRLF.
+package/docs/battle.zip.source.html -whitespace
+package/docs/impact.zip.source.html -whitespace
+package/docs/weapons.zip.source.html -whitespace
+package/docs/event-map.csv -whitespace
