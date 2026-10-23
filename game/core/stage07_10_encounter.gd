@@ -19,10 +19,12 @@ static func begin(sim, spec: Dictionary) -> void:
 		var boss := spawn(sim,str(spec.boss),minf(float(spec.end)-220,sim.camera_left(sim.state)+990),480)
 		sim._place_enemy(boss);sim.state.fighters.append(boss)
 		sim.state.expedition.boss=int(boss.id)
-		sim.state.intro={"actor":boss.id,"name":boss.display_name,"line_key":"s%02d_%s_intro"%[stage,str(spec.boss)],"line":str(Data.BOSSES[spec.boss].line),"duration":90,"remaining_ticks":90,"announced":false,"blocking":true}
+		var voice: Dictionary=sim.boss_intros.get(boss.display_name,{})
+		var duration := maxi(180,int(voice.get("ticks",180)))
+		sim.state.intro={"actor":boss.id,"name":boss.display_name,"line_key":voice.get("line_key","s%02d_%s_intro"%[stage,str(spec.boss)]),"line":str(voice.get("subtitle",Data.BOSSES[spec.boss].line)),"duration":duration,"remaining_ticks":duration,"announced":false,"blocking":true}
 	if stage==9:
 		for i in 3:
-			sim.state.expedition.civilians.append({"x":float(sim.state.stage.encounter_start)+200+i*36,"y":float([390,480,570][i]),"safe":false,"walking":false})
+			sim.state.expedition.civilians.append({"kind":["woman","elder","child"][i],"x":float(sim.state.stage.encounter_start)+200+i*36,"y":float([390,480,570][i]),"safe":false,"walking":false,"fleeing":false,"distance":0.0})
 		sim.state.expedition.civilian_total=3
 
 static func spawn(sim, role: String, x: float, y: float) -> Dictionary:
@@ -33,7 +35,8 @@ static func spawn(sim, role: String, x: float, y: float) -> Dictionary:
 	hp=roundi(hp*float(sim._difficulty.enemy_hp)*(1.65 if boss and players>1 else 1.0))
 	var f: Dictionary=sim._make_fighter(1,kind,x,y,hp)
 	f.expedition_role=role;f.expedition_stage=int(sim.state.stage.id);f.expedition_sequence=0;f.expedition_events=[];f.expedition_cooldown=0;f.expedition_target=0
-	f.death_ticks=66;f.cooldown=55+int(f.id)%4*13
+	f.expedition_combo=0;f.expedition_hit_tick=0;f.expedition_break_until=0;f.expedition_break_ready=0
+	f.death_ticks=66;f.cooldown=24+int(f.id)%4*6
 	if boss:
 		f.display_name=str(Data.BOSSES[role].name);f.boss_variant=str(Data.BOSSES[role].variant)
 		f.stage_boss=role in ["inaba","tatsuoki","iwanari","yoshikage"]
@@ -70,7 +73,7 @@ static func tick(sim) -> void:
 		for i in spec.waves[1].size(): queue(sim,str(spec.waves[1][i]),box.stage==10 or i%2==0)
 	admit(sim)
 	if int(box.elapsed)>=int(box.next_hazard) and box.phase=="combat":
-		box.next_hazard=int(box.elapsed)+int(spec.hazard_interval)
+		box.next_hazard=int(box.elapsed)+(120 if box.stage==7 else int(spec.hazard_interval))
 		environment_hazard(sim)
 	tick_hazards(sim)
 	if box.stage==9: evacuate_civilians(sim)
@@ -107,8 +110,9 @@ static func environment_hazard(sim) -> void:
 	match int(box.stage):
 		7:
 			if not sim.state.props.any(func(p):return p.expedition_asset=="rock_support" and not p.broken): return
-			hazard(sim,"rock",target,86,43,85,22)
-			if int(box.node)>=5: hazard(sim,"rock",target+Vector2(170,-100 if target.y>480 else 100),74,38,112,20)
+			for i in (4 if int(box.node)>=5 else 3):
+				var offset := Vector2((i%2)*190-70,float([0,-85,85,0][i]))
+				hazard(sim,"rock",target+offset,72,38,48+i*9,24)
 		8:
 			if not sim.state.props.any(func(p):return p.expedition_asset=="signal" and not p.broken): return
 			var safe_lane := (int(box.elapsed)/int(sim._campaign.segments[sim.state.stage.index].encounters[sim.state.stage.checkpoint].hazard_interval))%3
@@ -131,14 +135,14 @@ static func tick_hazards(sim) -> void:
 			if owner.is_empty() or owner.hp<=0: h.life=0;continue
 		if h.age!=h.warning or h.hit: continue
 		h.hit=true
-		var effect := "slam" if h.kind in ["rock","powder","quake"] else "arrow_impact"
-		sim._effect(effect,h.x,h.y,24,{"radius":h.radius,"wet":false})
+		var effect := "landing" if h.kind=="rock" else ("slam" if h.kind in ["powder","quake"] else "arrow_impact")
+		sim._effect(effect,h.x,h.y,24,{"radius":h.radius,"wet":false,"bounce":0,"target":0})
 		for hero in sim.state.fighters:
-			if hero.team!=0 or hero.hp<=0: continue
+			if (hero.team!=0 and h.kind!="rock") or hero.hp<=0: continue
 			if absf(hero.x-h.x)>float(h.radius)+20 or absf(hero.y-h.y)>float(h.depth)+12: continue
 			if hero.z>(35 if h.kind=="quake" else 90): continue
 			if h.kind=="fireline" and cover_between(sim,hero,float(h.from_x)): continue
-			sim._damage(hero,roundi(int(h.damage)*float(sim._difficulty.enemy_damage)),int(h.owner),false,true,false,false,float(h.from_x),float(h.y),"",24,"blunt" if h.kind in ["rock","quake"] else ("bullet" if h.kind=="fireline" else "arrow"))
+			sim._damage(hero,roundi(int(h.damage)*float(sim._difficulty.enemy_damage)),int(h.owner),h.kind=="rock",true,false,false,float(h.from_x),float(h.y),"body_collision",24,"blunt" if h.kind in ["rock","quake"] else ("bullet" if h.kind=="fireline" else "arrow"))
 	box.hazards=box.hazards.filter(func(h):return h.age<h.life)
 
 static func cover_between(sim, hero: Dictionary, from_x: float) -> bool:
@@ -150,12 +154,19 @@ static func evacuate_civilians(sim) -> void:
 	var party: Array=sim.state.fighters.filter(func(f):return f.team==0 and f.hp>0)
 	for c in box.civilians:
 		if c.safe: continue
-		var enemy_near: bool=enemies.any(func(f):return absf(f.x-c.x)<165 and absf(f.y-c.y)<65)
-		var covered: bool=party.any(func(f):return absf(f.x-c.x)<420)
+		if not enemies.is_empty() or box.pending.size()>0: c.fleeing=true
 		var blocked: bool=sim.state.props.any(func(p):return not p.broken and p.expedition_asset!="supplies" and absf(p.x-c.x)<p.width*.5+18 and absf(p.y-c.y)<p.depth*.5+10)
 		var warned: bool=box.hazards.any(func(h):return h.age<h.warning and absf(h.x-c.x)<h.radius and absf(h.y-c.y)<h.depth+12)
-		c.walking=not enemy_near and not blocked and not warned and (covered or enemies.is_empty())
-		if c.walking: c.x+=1.8
+		c.walking=c.fleeing or enemies.is_empty()
+		if c.walking:
+			var speed := 2.8 if c.kind=="elder" else (3.8 if c.kind=="child" else 3.5)
+			if blocked or warned:
+				var lanes: Array=[370.0,435.0,515.0,590.0]
+				lanes=lanes.filter(func(y):return not sim.state.props.any(func(p):return not p.broken and p.expedition_asset!="supplies" and absf(p.x-c.x)<p.width*.5+24 and absf(y-p.y)<p.depth*.5+16))
+				lanes.sort_custom(func(a,b):return absf(a-c.y)<absf(b-c.y))
+				if not lanes.is_empty(): c.y=move_toward(float(c.y),float(lanes[0]),3.5)
+			else: c.x+=speed
+			c.distance+=speed
 		if c.x>=float(sim.state.stage.encounter_end)-170:
 			c.safe=true;c.walking=false;box.rescued+=1
 			sim._event("challenge_complete",c.x,c.y,0,0,{"amount":100})
@@ -169,7 +180,7 @@ static func start(sim, f: Dictionary, action: String, target: Dictionary) -> voi
 	var move: Dictionary=Data.ACTIONS[action]
 	if move.kind=="reinforce": f.expedition_cooldown=int(sim.state.tick)+1200
 	sim._event("swing",f.x,f.y,f.id,0,{"action":action,"combo":0,"heavy_combo":0,"finisher":false})
-	if move.kind not in ["burst","rain","powder","crossfire","reinforce"]: warning(sim,f,move)
+	if not Data.ranged(move): warning(sim,f,move)
 
 static func warning(sim, f: Dictionary, move: Dictionary) -> void:
 	sim.state.effects=sim.state.effects.filter(func(e):return not (e.get("expedition_warning",false) and e.get("owner",0)==f.id))
@@ -185,9 +196,12 @@ static func ai(sim, f: Dictionary, target: Dictionary) -> bool:
 	f.face=1 if dx>=0 else -1
 	var actions: Array=Data.BOSSES[f.expedition_role].actions
 	var action := str(actions[int(f.ai_cycle)%actions.size()])
+	if absf(dx)>340:
+		var ranged_actions: Array=actions.filter(func(a):return Data.ranged(Data.ACTIONS[a]))
+		if not ranged_actions.is_empty(): action=str(ranged_actions[int(f.ai_cycle)%ranged_actions.size()])
 	if Data.ACTIONS[action].kind=="reinforce" and (int(sim.state.tick)<int(f.expedition_cooldown) or int(sim.state.expedition.reinforcement_calls)>=4): action=str(actions[0])
 	var move: Dictionary=Data.ACTIONS[action]
-	var ranged: bool=move.kind in ["burst","rain","powder","crossfire","reinforce"]
+	var ranged: bool=Data.ranged(move)
 	var reach: float=float(move.reach) if ranged else (float(move.reach)+160 if move.kind in ["charge","draw","flank"] else float(move.reach)*.9)
 	if absf(dx)<=reach and (ranged or absf(dy)<60) and f.cooldown==0:
 		f.ai_cycle+=1;start(sim,f,action,target)
@@ -202,19 +216,39 @@ static func ai(sim, f: Dictionary, target: Dictionary) -> bool:
 	return true
 
 static func accepts_damage(sim, f: Dictionary, actor: int, source_x: float=NAN, source_y: float=NAN, heavy: bool=false, source_action: String="") -> bool:
-	if not f.has("expedition_role") or not Data.ACTIONS.has(str(f.action)): return true
-	var move: Dictionary=Data.ACTIONS[f.action]
-	if move.kind!="counter" or f.action_tick<12 or f.action_tick>=int(move.hits[0])-12 or f.stun>0 or f.freeze>0: return true
-	if heavy or source_action in ["charged","dash_heavy","air_heavy","throw","body_collision","charged_upper","charged_slam"]: return true
+	if not Data.BOSSES.has(str(f.get("expedition_role",""))): return true
 	var attacker: Dictionary=sim._fighter(actor)
 	if not is_finite(source_x): source_x=float(attacker.get("x",f.x))
 	if not is_finite(source_y): source_y=float(attacker.get("y",f.y))
+	if int(sim.state.tick)<int(f.expedition_break_until) and not heavy and source_action in ["light","air_light"] and (source_x-f.x)*f.face>=0:
+		f.guard_hit_tick=10
+		sim._effect("guard",f.x,f.y,10,{"target":f.id,"face":f.face})
+		sim._event("guard",f.x,f.y,actor,f.id)
+		return false
+	if not Data.ACTIONS.has(str(f.action)): return true
+	var move: Dictionary=Data.ACTIONS[f.action]
+	if move.kind!="counter" or f.action_tick<12 or f.action_tick>=int(move.hits[0])-12 or f.stun>0 or f.freeze>0: return true
+	if heavy or source_action in ["charged","dash_heavy","air_heavy","throw","body_collision","charged_upper","charged_slam"]: return true
 	if (source_x-f.x)*f.face<=0 or absf(source_y-f.y)>90: return true
 	if f.guard_hit_tick==0:
 		sim._effect("guard",f.x,f.y,12,{"target":f.id,"face":f.face})
 		sim._event("guard",f.x,f.y,actor,f.id)
 	f.guard_hit_tick=10
 	return false
+
+static func note_hit(sim, f: Dictionary, attacker: Dictionary) -> void:
+	if not Data.BOSSES.has(str(f.get("expedition_role",""))) or f.hp<=0 or attacker.get("team",1)!=0: return
+	f.expedition_combo=int(f.expedition_combo)+1 if int(sim.state.tick)-int(f.expedition_hit_tick)<=100 else 1
+	f.expedition_hit_tick=int(sim.state.tick)
+	if f.expedition_combo<3 or int(sim.state.tick)<int(f.expedition_break_ready) or f.held_by!=0 or f.airborne_lock: return
+	f.expedition_combo=0;f.expedition_break_ready=int(sim.state.tick)+150;f.expedition_break_until=int(sim.state.tick)+42
+	f.stun=0;f.freeze=0;f.invuln=0;f.knockback=0.0;f.cooldown=0
+	var actions: Array=Data.BOSSES[f.expedition_role].actions
+	var action: String=str(actions[2] if f.expedition_role in ["ujie","inaba","tatsuoki","kagetsune"] else actions[0])
+	start(sim,f,action,attacker)
+	f.action_tick=maxi(0,int(Data.ACTIONS[action].hits[0])-18)
+	warning(sim,f,Data.ACTIONS[action])
+	sim._effect("guard_break",f.x,f.y,18,{"target":f.id,"face":f.face})
 
 static func attack(sim, f: Dictionary) -> bool:
 	if not f.has("expedition_role") or not Data.ACTIONS.has(str(f.action)): return false
@@ -236,13 +270,21 @@ static func attack(sim, f: Dictionary) -> bool:
 		f.expedition_events.append(index)
 		release(sim,f,move,index)
 	if tick>=int(move.duration):
-		f.cooldown=38 if not f.stage_boss else 32
+		f.cooldown=22 if not f.stage_boss else 18
 		sim._begin(f,"idle")
 	return true
 
 static func release(sim, f: Dictionary, move: Dictionary, index: int) -> void:
 	var point := Vector2(f.target_x,f.target_y)
 	match str(move.kind):
+		"cover_fire":
+			var source_x: float=sim.camera_left(sim.state)+(1380 if f.face<0 else -100)
+			for lane in 3:
+				var at := Vector2((source_x+point.x)*.5,point.y+(lane-1)*34)
+				hazard(sim,"fireline",at,absf(point.x-source_x)*.5+100,18,18+lane*8,int(move.damage),int(f.id),source_x)
+			sim._event("gunshot",source_x,f.y,f.id,0)
+		"fissure":
+			for n in 6: hazard(sim,"quake",Vector2(f.x+f.face*(140+n*125),f.y),80,45,14+n*8,int(move.damage),int(f.id))
 		"burst":
 			# Three fixed, visibly staggered shots; later shots do not track a dodging player.
 			var lane := float(f.target_y)+(index-1)*34

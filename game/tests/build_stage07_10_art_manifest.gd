@@ -3,17 +3,17 @@ extends SceneTree
 const ROOT := "res://assets/stages07-10/"
 const ROLES := ["ujie","inaba","nagai","tatsuoki","nagayasu","iwanari","kagetsune","yoshikage"]
 
-func bounds_of(polygon: PackedVector2Array) -> Rect2:
+static func bounds_of(polygon: PackedVector2Array) -> Rect2:
 	var bounds := Rect2(polygon[0],Vector2.ZERO)
 	for point in polygon: bounds=bounds.expand(point)
 	return bounds
 
-func area_of(polygon: PackedVector2Array) -> float:
+static func area_of(polygon: PackedVector2Array) -> float:
 	var area := 0.0
 	for i in polygon.size(): area+=polygon[i].cross(polygon[(i+1)%polygon.size()])
 	return absf(area)*.5
 
-func groups(source: Image, row_count: int, path: String) -> Array:
+static func groups(source: Image, row_count: int, path: String) -> Array:
 	var mask := BitMap.new()
 	mask.create_from_image_alpha(source,.12)
 	var rows := []
@@ -36,7 +36,7 @@ func groups(source: Image, row_count: int, path: String) -> Array:
 	for row in rows: row.sort_custom(func(a,b):return a.bounds.position.x<b.bounds.position.x)
 	return rows
 
-func frame(source: Image, item: Dictionary, path: String, body: float) -> Dictionary:
+static func frame(source: Image, item: Dictionary, path: String, body: float) -> Dictionary:
 	var bounds: Rect2=item.bounds.grow(2).intersection(Rect2(Vector2.ZERO,source.get_size()))
 	var points := []
 	for point in item.polygon: points.append([point.x-bounds.position.x,point.y-bounds.position.y])
@@ -51,14 +51,14 @@ func frame(source: Image, item: Dictionary, path: String, body: float) -> Dictio
 	var root_x: float = weighted/mass if mass>0 else item.bounds.get_center().x
 	return {"path":path,"region":[bounds.position.x,bounds.position.y,bounds.size.x,bounds.size.y],"anchor":[root_x-bounds.position.x,item.bounds.end.y-bounds.position.y],"body_height":body,"polygon":points}
 
-func append_group(actor: Dictionary, source: Image, group: Array, path: String, body: float) -> Array:
+static func append_group(actor: Dictionary, source: Image, group: Array, path: String, body: float) -> Array:
 	var ids := []
 	for item in group:
 		actor.frames.append(frame(source,item,path,body))
 		ids.append(actor.frames.size()-1)
 	return ids
 
-func sheet_height(group: Array, row_height: float) -> float:
+static func sheet_height(group: Array, row_height: float) -> float:
 	# The opening pose is a standing guard; cap raised weapons above the helmet.
 	return minf(float(group[0].bounds.size.y),row_height*.9)
 

@@ -54,7 +54,10 @@ static func pilot(sim, hero: Dictionary, tick: int) -> Dictionary:
 	if target.is_empty(): return input
 	var dx: float=target.x-hero.x;var dy: float=target.y-hero.y
 	if hero.action=="charge": return input
-	if absf(dx)<140 and absf(dy)<35:
+	# Props are hittable at their outer edge; walking into their center stalls at collision.
+	var prop_depth := float(target.get("depth",0))*.5
+	var prop_width := float(target.get("width",0))*.5
+	if absf(dx)<140+prop_width and absf(dy)<35+prop_depth:
 		if absf(dx)>2 and hero.face!=int(signf(dx)): input.dx=int(signf(dx))
 		elif tick%3==0: input.buttons=Battle.HEAVY if target.get("kind","")=="boss" or target.get("role","")=="shield_spear" else Battle.LIGHT
 	else:

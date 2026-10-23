@@ -41,7 +41,7 @@ def registration(relative, field=None):
     data = json.loads(path.read_text('utf-8-sig'))
     if relative == 'game/vfx/v2/catalog.json':
         for item in data[field].values(): add(ROOT/'game'/item['texture'][6:])
-    elif field == 'items' or relative in ('game/audio/v31/manifest.json','game/audio/v38/voices/manifest.json'):
+    elif field == 'items' or relative in ('game/audio/v31/manifest.json','game/audio/v38/voices/manifest.json','game/audio/stages07-10/manifest.json'):
         for item in data[field].values():
             add(ROOT/'game'/item['file'][6:] if item['file'].startswith('res://') else path.parent/item['file'])
     else:
@@ -114,6 +114,8 @@ def runtime_files():
     registration('game/audio/v31/manifest.json','clips')
     registration('game/audio/v38/weapons/manifest.json','cues')
     registration('game/audio/v38/voices/manifest.json','clips')
+    registration('game/audio/stages07-10/manifest.json','clips')
+    add(ROOT/'game/audio/stages07-10/CREDITS.txt')
     registration('game/audio/weapons-v3/manifest.json','cues')
     registration('game/audio/props-v41/manifest.json','cues')
     add(ROOT/'game/audio/props-v41/CREDITS.txt')
@@ -123,6 +125,7 @@ def runtime_files():
     add(ROOT/'docs/STAGE05-INTEGRATION-20261018.md')
     add(ROOT/'docs/stages07-10-history-music.md')
     add(ROOT/'docs/STAGES07-10-PLAYTEST.md')
+    add(ROOT/'docs/STAGES07-10-REVISION-20261023.md')
     add(ROOT/'docs/PROJECT-STATUS-20261022.md')
     add(ROOT/'docs/第一關與24關設計-v0.19.html')
     for folder in ('game/audio/title-amenoshita-v1','game/audio/weapons-v3'):

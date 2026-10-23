@@ -1,0 +1,12 @@
+吞食戰國 第 7–10 關原創日語出場台詞
+2026-10-23
+
+八名武將各有一段原創遊戲台詞，日語文字及中文字幕見 manifest.json。
+以專案既有的本機 Qwen3-TTS-12Hz-1.7B-VoiceDesign 流程製作一般合成武將聲線。
+不是歷史錄音，不使用聲音複製，不模仿指定真人。
+
+重建：scripts/generate-stage07-10-voices.py
+共用處理：scripts/generate-voices-v15.py、scripts/generate-voices-v11.py
+模型固定版本、聲線指示、種子、處理鏈、原始及成品 SHA 都保存於 manifest.json。
+原始生成 WAV 與檢查資料保留於本機 artifacts/stages07-10-revision-20261023/voices。
+成品已作解碼、長度與削波檢查；表演與戰鬥混音仍待真人試聽。

@@ -89,6 +89,9 @@ func _draw() -> void:
 	var fighters: Array = state.get("fighters", []).duplicate()
 	fighters.append_array(_npc_samples(_art_clock()))
 	if state.has("expedition"): fighters.append_array(Stage0710Art.civilian_samples(state))
+	for hazard in state.get("expedition",{}).get("hazards",[]):
+		if hazard.kind=="rock" and hazard.age<hazard.warning:
+			fighters.append({"scenery_rockfall":true,"x":hazard.x,"y":hazard.y,"ground_depth":1.0,"hazard":hazard})
 	if state.get("encounter",{}).get("kind","") == "formation":
 		fighters.append({"scenery_tent":true,"x":float(state.stage.encounter_end)-160,"y":610.0})
 	for prop in state.get("props",[]):
@@ -142,6 +145,8 @@ func _draw_scene_actor(fighter: Dictionary) -> void:
 	elif fighter.get("scenery_cart",false): _draw_escort_cart(fighter)
 	elif fighter.get("scenery_prop",false): _draw_prop(fighter)
 	elif fighter.get("scenery_npc",false): _draw_npc(fighter)
+	elif fighter.get("scenery_rockfall",false):
+		if not _shadow_pass: _stage0710_art.draw_rockfall(self,fighter.hazard,true)
 	else:
 		_draw_fighter(fighter)
 		if not _shadow_pass: _fx.draw_bound(self,int(fighter.get("id",0)),camera_x)
@@ -193,7 +198,7 @@ func _update_motion() -> void:
 			_facing_back[id] = movement.y < -0.1 and absf(movement.y) > absf(movement.x)
 			if movement.length() < 60.0 and str(fighter.get("action", "idle")) in ["idle", "walk", "run", "move", "retreat"] and float(fighter.get("z", 0)) <= 0:
 				_walk_distance[id] = float(_walk_distance.get(id, 0.0)) + movement.length()
-		if FrameAnimation.CombatMoves.active(fighter) or Stage0710Art.Data.BOSSES.has(str(fighter.get("expedition_role",""))) or (int(fighter.get("team",0)) != 0 and enemy_art_faction(fighter) in ["mori","imagawa","oda"]):
+		if FrameAnimation.CombatMoves.active(fighter) or fighter.has("expedition_role") or (int(fighter.get("team",0)) != 0 and enemy_art_faction(fighter) in ["mori","imagawa","oda"]):
 			var walking: bool = fighter.get("moving",_moving[id]) and str(fighter.get("action","idle")) in ["idle","walk","run","move","retreat"] and float(fighter.get("z",0)) <= 0 and int(fighter.get("freeze",0)) == 0
 			if walking:
 				_walk_ticks[id] = int(_walk_ticks[id]) + elapsed if _walk_ticks.has(id) else 0
@@ -247,11 +252,13 @@ func _fighter_animation(fighter: Dictionary) -> Dictionary:
 	var tick := float(fighter.get("action_tick", 0))
 	var clock_tick := _art_clock() * 60.0
 	var walking: bool = fighter.get("moving", _moving.get(int(fighter.get("id", -1)), false))
-	if Stage0710Art.Data.BOSSES.has(str(fighter.get("expedition_role",""))):
+	if fighter.has("expedition_role"):
 		var id := int(fighter.id)
 		if int(fighter.get("freeze",0)) > 0 and _frozen_samples.has(id): return _frozen_samples[id]
 		var current := fighter.duplicate()
 		current.moving = walking
+		current.expedition_attacking=FrameAnimation.Battle.ENEMY_TIMING.has(str(fighter.action))
+		current.expedition_timing=FrameAnimation.Battle.enemy_timing(fighter)
 		var sample := _stage0710_art.sample(state,current,float(_walk_ticks.get(id,0)),clock_tick)
 		_frozen_samples[id] = sample
 		return sample
@@ -613,6 +620,7 @@ func _draw_stage_go() -> void:
 	Typography.draw_label(self,panel.position+Vector2(21,77),"繼續向右",18,Typography.PAPER)
 
 func _npc_samples(clock: float) -> Array:
+	if state.has("expedition"): return []
 	var people: Array = []
 	var stage: Dictionary = state.get("stage",{})
 	var theme := str(stage.get("theme",""))
@@ -662,7 +670,7 @@ func _draw_npc(person: Dictionary) -> void:
 	var origin := Vector2(float(person.x) - camera_x,float(person.y))
 	if origin.x < -130 or origin.x > 1410: return
 	var height := float(person.height)
-	var frame: Dictionary = _art.npc_frame(str(person.kind),int(person.frame) + (6 if person.mode == "run" else 0))
+	var frame: Dictionary = _stage0710_art.civilian_frame(person) if person.get("expedition_npc",false) else _art.npc_frame(str(person.kind),int(person.frame) + (6 if person.mode == "run" else 0))
 	if frame.is_empty():
 		if _art.villager_frames.size() != 8: return
 		frame = _art.villager_frames[int(person.frame) % 4 + (4 if person.mode == "run" else 0)]
@@ -1664,7 +1672,7 @@ static func enemy_art_faction(fighter: Dictionary) -> String:
 	return faction
 
 static func enemy_display_height(fighter: Dictionary) -> float:
-	if Stage0710Art.Data.BOSSES.has(str(fighter.get("expedition_role",""))): return Stage0710Art.height(fighter)
+	if fighter.has("expedition_role"): return Stage0710Art.height(fighter)
 	if fighter.has("s05_role"): return Stage05Art.Data.height(fighter.s05_role)
 	var kind: String = str(fighter.get("kind","soldier"))
 	var height := (155.0 if fighter.get("stage_boss",false) else 163.0) if kind == "boss" else (158.0 if kind == "commander" else 146.0)

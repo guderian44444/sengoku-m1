@@ -162,6 +162,9 @@ func _ready() -> void:
 	var repairs: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://audio/v38/voices/manifest.json"))
 	for field in ["clips","actors","named_calls","stage_boss_intros","hero_voice_profiles"]:
 		speech_manifest[field].merge(repairs.get(field, {}), true)
+	var expedition_voices: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://audio/stages07-10/manifest.json"))
+	for field in ["clips","stage_boss_intros"]:
+		speech_manifest[field].merge(expedition_voices.get(field,{}),true)
 	for key in speech_manifest.get("clips", {}):
 		var clip: Dictionary = speech_manifest.clips[key]
 		var path := str(clip.file)

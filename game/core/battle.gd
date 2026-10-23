@@ -2077,6 +2077,7 @@ func _damage(target: Dictionary, amount: int, actor: int, heavy: bool, reaction:
 		_effect("poison", target.x, target.y - 32.0, 10)
 	if reaction and actual_damage > 0:
 		Stage04.note_hit(self,target,attacker,int(contact.attack_id),attack_action)
+		Stage0710.note_hit(self,target,attacker)
 	if target.hp == 0:
 		if state.intro.get("actor",0) == target.id: state.intro = {}
 		if target.team == 0:

@@ -21,7 +21,7 @@ const MenuInput = preload("res://ui/menu_input.gd")
 const ObjectiveScroll = preload("res://ui/objective_scroll.gd")
 const MenuTheme = preload("res://ui/sengoku_theme.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
-const BUILD := "sengoku-m1-0.33.0"
+const BUILD := "sengoku-m1-0.33.0-expedition-r2"
 const DEFAULT_PORT := 27860
 const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "顯如", "tadakatsu": "忠勝"}
@@ -85,6 +85,7 @@ var combat_hud: Control
 var fullscreen_button: Button
 var hint: Label
 var end_label: Label
+var expedition_dialogue_style := MenuTheme.panel(MenuTheme.PAPER_LIGHT)
 var address: LineEdit
 var port: SpinBox
 var heroes: OptionButton
@@ -1896,9 +1897,15 @@ func _update_view() -> void:
 	var introduction: Dictionary = sim.state.get("intro", {})
 	var dialogue: bool = int(introduction.get("remaining_ticks", 0)) > 0 or audio.intro_playing()
 	objective_scroll.sync(sim.state, active and not paused and not menu.visible and not controls_dialog.visible and not training_active and not demo_active, dialogue)
+	if dialogue and sim.state.has("expedition"):
+		end_label.add_theme_stylebox_override("normal",expedition_dialogue_style)
+		end_label.add_theme_color_override("font_color",MenuTheme.INK)
+	else:
+		end_label.remove_theme_stylebox_override("normal")
+		end_label.add_theme_color_override("font_color",Typography.GOLD)
 	if dialogue:
 		var key := str(introduction.get("line_key", ""))
-		end_label.position = Vector2(200,100)
+		end_label.position = Vector2(200,128 if sim.state.has("expedition") else 100)
 		end_label.add_theme_font_size_override("font_size", 23)
 		end_label.text = str(introduction.get("name", "")) + "\n" + str(introduction.get("line",audio.speech_manifest.get("clips", {}).get(key, {}).get("text", "")))
 	elif sim.state.get("phase", "") == "playing":

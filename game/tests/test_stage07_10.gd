@@ -36,7 +36,7 @@ func test_hazards() -> void:
 	sim.reset_campaign("normal",1,["nobunaga"],7)
 	sim.state.intro={}
 	Stage.environment_hazard(sim)
-	assert(sim.state.expedition.hazards.size()==1,"Intact supports trigger rocks")
+	assert(sim.state.expedition.hazards.size()==3,"Intact supports release dense staggered rockfall")
 	for p in sim.state.props:
 		if p.expedition_asset=="rock_support": p.broken=true
 	sim.state.expedition.hazards=[]
@@ -117,7 +117,7 @@ func test_bosses() -> void:
 				boss.action_tick=tick+1
 				if Stage.Data.ACTIONS[action].kind=="turn" and tick==22: hero.x=boss.x-boss.face*100
 				Stage.attack(sim,boss)
-				if tick+1 in Stage.Data.ACTIONS[action].hits and Stage.Data.ACTIONS[action].kind not in ["burst","rain","powder","crossfire","reinforce"]:
+				if tick+1 in Stage.Data.ACTIONS[action].hits and not Stage.Data.ranged(Stage.Data.ACTIONS[action]):
 					var notices: Array=sim.state.effects.filter(func(e):return e.get("expedition_warning",false) and e.get("owner",0)==boss.id)
 					assert(not notices.is_empty(),"Every melee strike retains its telegraph")
 					var notice: Dictionary=notices[-1]
@@ -132,7 +132,7 @@ func test_bosses() -> void:
 				assert(not Stage.accepts_damage(sim,boss,hero.id,boss.x+boss.face*80,boss.y,false,"light"),"Front light attack is guarded")
 				assert(Stage.accepts_damage(sim,boss,hero.id,boss.x-boss.face*80,boss.y,false,"light"),"Rear attack breaks the defensive line")
 				assert(Stage.accepts_damage(sim,boss,hero.id,boss.x+boss.face*80,boss.y,true,"charged"),"Charged attack breaks the guard")
-	assert(actions.size()==24,"Eight distinct officers with three authored moves each")
+	assert(actions.size()==27,"Eight officers retain their moves and gain three missing ranged options")
 	print("STAGE0710_BOSSES_PASS")
 
 func test_replay() -> void:

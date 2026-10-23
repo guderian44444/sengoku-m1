@@ -7,6 +7,7 @@ const HEIGHTS := {"ujie":180.0,"inaba":194.0,"nagai":178.0,"tatsuoki":188.0,"nag
 var textures := {}
 var frames := {}
 var manifest: Dictionary = {}
+var troop_manifest: Dictionary = {}
 var props: Dictionary = {}
 
 func actors() -> Dictionary:
@@ -14,7 +15,12 @@ func actors() -> Dictionary:
 	return manifest.actors
 
 static func height(fighter: Dictionary) -> float:
-	return float(HEIGHTS.get(str(fighter.get("expedition_role","")),146.0))
+	var role := str(fighter.get("expedition_role",""))
+	return float(HEIGHTS.get(role,{"spear":164.0,"archer":160.0,"gunner":162.0,"shield":170.0,"raider":166.0}.get(role,164.0)))
+
+func troops() -> Dictionary:
+	if troop_manifest.is_empty(): troop_manifest=JSON.parse_string(FileAccess.get_file_as_string(ROOT+"troops.json"))
+	return troop_manifest.actors
 
 func texture(path: String) -> Texture2D:
 	if not textures.has(path):
@@ -27,7 +33,11 @@ func texture(path: String) -> Texture2D:
 func actor_frame(role: String, index: int) -> Dictionary:
 	var key := role+":"+str(index)
 	if frames.has(key): return frames[key]
-	var actor: Dictionary=actors()[role]
+	var actor: Dictionary
+	if role.begins_with("civilian-"):
+		troops()
+		actor=troop_manifest.civilians[role.trim_prefix("civilian-")]
+	else: actor=actors()[role] if actors().has(role) else troops()[role]
 	var row: Dictionary=actor.frames[index]
 	var polygon := PackedVector2Array()
 	for p in row.polygon: polygon.append(Vector2(p[0],p[1]))
@@ -54,7 +64,9 @@ static func attack_frame(spec: Dictionary, tick: float, count: int, impact_indic
 
 func sample(world: Dictionary, fighter: Dictionary, walk_tick: float, clock_tick: float) -> Dictionary:
 	var role := str(fighter.expedition_role)
-	var clips: Dictionary=actors()[role].clips
+	if not Data.BOSSES.has(role): role=str(fighter.faction)+"-"+role
+	var actor: Dictionary=actors()[role] if actors().has(role) else troops()[role]
+	var clips: Dictionary=actor.clips
 	var action := str(fighter.action)
 	var tick := float(fighter.action_tick)
 	var clip := "idle"
@@ -72,9 +84,13 @@ func sample(world: Dictionary, fighter: Dictionary, walk_tick: float, clock_tick
 	elif Data.ACTIONS.has(action):
 		var spec: Dictionary=Data.ACTIONS[action]
 		clip=spec.art_clip;duration=float(spec.duration)
-		cell=attack_frame(spec,tick,clips[clip].size(),actors()[role].impact_indices[clip])
+		cell=attack_frame(spec,tick,clips[clip].size(),actor.impact_indices[clip])
 		released=tick>=float(spec.hits[0])
 	elif action=="guard": clip="guard";cell=mini(1,clips.guard.size()-1)
+	elif fighter.get("expedition_attacking",false):
+		var timing: Array=fighter.expedition_timing
+		clip="attack";duration=float(timing[1]);released=tick>=float(timing[0])
+		cell=attack_frame({"hits":[timing[0]],"duration":timing[1]},tick,8,[3])
 	elif fighter.get("moving",false) or fighter.get("entering",false):
 		clip="walk";cell=posmod(floori(walk_tick/7.0),clips.walk.size())
 	else: cell=posmod(floori(clock_tick/12.0),clips.idle.size())
@@ -96,6 +112,11 @@ func simple_frame(path: String, region: Rect2, anchor: Vector2, body: float, dis
 
 func prop(item: Dictionary, _tick: int) -> Dictionary:
 	var asset := str(item.expedition_asset)
+	if asset=="rock_support":
+		var image := texture(ROOT+"props/rock-support.png")
+		var cell := image.get_width()/3.0
+		var index := 2 if item.broken else (1 if float(item.hp)/float(item.max_hp)<.5 else 0)
+		return simple_frame(ROOT+"props/rock-support.png",Rect2(index*cell,0,cell,image.get_height()),Vector2(cell*.5,image.get_height()*.93),image.get_height()*.86,62 if item.broken else 148)
 	if props.is_empty(): props=JSON.parse_string(FileAccess.get_file_as_string("res://assets/v18/registration.json"))
 	if asset=="signal" and not item.broken:
 		var image := texture(ROOT+"props/signal.png")
@@ -107,13 +128,56 @@ func prop(item: Dictionary, _tick: int) -> Dictionary:
 
 static func civilian_samples(world: Dictionary) -> Array:
 	var people := []
-	var civilians: Array=world.get("expedition",{}).get("civilians",[])
+	var civilians: Array=world.get("expedition",{}).get("civilians",[]).duplicate()
+	if civilians.is_empty() and int(world.get("stage",{}).get("id",0)) in [7,8,10]:
+		var elapsed := maxi(0,int(world.tick)-int(world.stage.get("entered_tick",0))-18)
+		for i in 3:
+			var speed: float=[3.5,2.8,3.8][i]
+			var x: float=[430.0,520.0,620.0][i]+elapsed*speed
+			if x>float(world.stage.width)+180: continue
+			var y: float=[400.0,555.0,590.0][i]
+			for item in world.get("props",[]):
+				if item.get("expedition_asset","")=="supplies": continue
+				var clearance := float(item.depth)*.5+32
+				if absf(y-float(item.y))>=clearance: continue
+				var side := 1.0 if y>=float(item.y) else -1.0
+				var lane: float=item.y+side*clearance
+				if lane<365 or lane>595: lane=item.y-side*clearance
+				var blend := clampf((float(item.width)*.5+120-absf(x-float(item.x)))/100,0,1)
+				y=lerpf(y,lane,smoothstep(0,1,blend))
+			civilians.append({"kind":["woman","elder","child"][i],"x":x,"y":y,"safe":false,"walking":elapsed>0,"distance":elapsed*speed})
 	for index in civilians.size():
 		var c: Dictionary=civilians[index]
 		if c.safe: continue
 		var moving := bool(c.walking)
-		people.append({"scenery_npc":true,"kind":["woman","elder","child"][index%3],"x":c.x,"y":c.y,"height":[126.0,122.0,90.0][index%3],"face":1,"frame":posmod(int(world.tick)/8+index,6) if moving else 0,"distance":0.0,"stride":80.0,"speed":90.0 if moving else 0.0,"activity":"walk","mode":"run" if moving else "walk"})
+		var kind: String=str(c.get("kind",["woman","elder","child"][index%3]))
+		var distance := float(c.get("distance",0))
+		people.append({"scenery_npc":true,"expedition_npc":true,"kind":kind,"x":c.x,"y":c.y,"height":{"woman":154.0,"elder":150.0,"child":130.0}[kind],"face":1,"frame":posmod(floori(distance/38.0),4) if moving else 0,"distance":distance,"stride":152.0,"speed":210.0 if moving else 0.0,"activity":"walk","mode":"run" if moving else "walk"})
 	return people
+
+func civilian_frame(person: Dictionary) -> Dictionary:
+	return actor_frame("civilian-"+str(person.kind),int(person.frame))
+
+func draw_rockfall(view, h: Dictionary, falling_stone: bool=false) -> void:
+	var at := Vector2(float(h.x)-view.camera_x,float(h.y))
+	var progress := clampf(float(h.age)/float(h.warning),0,1)
+	var image := texture(ROOT+"props/rockfall.png")
+	var cell := Vector2(image.get_width()/4.0,image.get_height()/2.0)
+	var variant := posmod(int(h.x)*13+int(h.y),4)
+	var rock := simple_frame(ROOT+"props/rockfall.png",Rect2(Vector2(variant*cell.x,0),cell),cell*.5,cell.y*.9,108)
+	if h.age<h.warning:
+		if falling_stone:
+			view._draw_art_frame(rock,at-Vector2(0,42+360*pow(1-progress,1.6)),108,1,progress*1.4,Color.WHITE,float(rock.body_height))
+			return
+		view._ellipse(at,Vector2(float(h.radius),float(h.depth))*(.55+.45*progress),Color(.20,.11,.04,.12+.22*progress))
+		view.draw_set_transform(at,0,Vector2(1,float(h.depth)/float(h.radius)))
+		view.draw_arc(Vector2.ZERO,float(h.radius),0,TAU,40,Color(.84,.56,.2,.3+.5*progress),2,true)
+		view.draw_set_transform(Vector2.ZERO)
+		return
+	var age := float(h.age-h.warning)/30.0
+	view._draw_dust(at,float(h.radius)*1.2,age,1-age)
+	var debris := simple_frame(ROOT+"props/rockfall.png",Rect2(Vector2(variant*cell.x,cell.y),cell),Vector2(cell.x*.5,cell.y*.85),cell.y*.8,80)
+	view._draw_art_frame(debris,at+Vector2(0,12),80+age*32,1,0,Color(1,1,1,1-age),float(debris.body_height))
 
 func draw_attack_warning(view, effect: Dictionary) -> void:
 	var center := Vector2(float(effect.x)-view.camera_x,float(effect.y))
@@ -128,6 +192,9 @@ func draw_attack_warning(view, effect: Dictionary) -> void:
 
 func draw_hazards(view) -> void:
 	for h in view.state.get("expedition",{}).get("hazards",[]):
+		if h.kind=="rock":
+			draw_rockfall(view,h)
+			continue
 		var at := Vector2(float(h.x)-view.camera_x,float(h.y))
 		var progress := clampf(float(h.age)/float(h.warning),0,1)
 		var size := Vector2(float(h.radius),float(h.depth))
@@ -142,12 +209,7 @@ func draw_hazards(view) -> void:
 					view.draw_polyline(PackedVector2Array([tip+Vector2(-direction*12,-7),tip,tip+Vector2(-direction*12,7)]),Color(1,.82,.53,.9),2,true)
 			continue
 		var age := float(h.age-h.warning)/30.0
-		if h.kind=="rock":
-			view._draw_dust(at,float(h.radius),age,1-age)
-			for i in 4:
-				var offset := Vector2(sin(i*2.4)*size.x*.55,cos(i*2.4)*size.y*.5)
-				view._paint_ice(at+offset,Vector2(22,28*(1-age)),i,(1-age)*.85,Color("88745c"))
-		elif h.kind=="arrows":
+		if h.kind=="arrows":
 			for i in 9:
 				var point := at+Vector2(sin(i*2.4)*size.x*.8,cos(i*2.4)*size.y*.8)-Vector2(0,maxf(0,1-age*4)*260)
 				view._draw_arrow(point,Vector2.DOWN,false,1-age)
