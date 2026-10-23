@@ -126,6 +126,7 @@ def runtime_files():
     add(ROOT/'docs/stages07-10-history-music.md')
     add(ROOT/'docs/STAGES07-10-PLAYTEST.md')
     add(ROOT/'docs/STAGES07-10-REVISION-20261023.md')
+    add(ROOT/'docs/STAGES07-10-PRESENTATION-R3-20261023.md')
     add(ROOT/'docs/PROJECT-STATUS-20261022.md')
     add(ROOT/'docs/第一關與24關設計-v0.19.html')
     for folder in ('game/audio/title-amenoshita-v1','game/audio/weapons-v3'):

@@ -128,7 +128,7 @@ func test_bosses() -> void:
 			assert(boss.expedition_events.size()==Stage.Data.ACTIONS[action].hits.size(),"Every strike executes once")
 			assert(Wire.valid_snapshot(sim.state),"Boss move preserves snapshot schema: "+action)
 			if Stage.Data.ACTIONS[action].kind=="counter":
-				Stage.start(sim,boss,action,hero);boss.action_tick=20
+				Stage.start(sim,boss,action,hero);boss.action_tick=mini(20,int(Stage.Data.ACTIONS[action].hits[0])-18)
 				assert(not Stage.accepts_damage(sim,boss,hero.id,boss.x+boss.face*80,boss.y,false,"light"),"Front light attack is guarded")
 				assert(Stage.accepts_damage(sim,boss,hero.id,boss.x-boss.face*80,boss.y,false,"light"),"Rear attack breaks the defensive line")
 				assert(Stage.accepts_damage(sim,boss,hero.id,boss.x+boss.face*80,boss.y,true,"charged"),"Charged attack breaks the guard")

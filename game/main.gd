@@ -21,7 +21,7 @@ const MenuInput = preload("res://ui/menu_input.gd")
 const ObjectiveScroll = preload("res://ui/objective_scroll.gd")
 const MenuTheme = preload("res://ui/sengoku_theme.gd")
 const ArtDemo = preload("res://render/art_demo.gd")
-const BUILD := "sengoku-m1-0.33.0-expedition-r2"
+const BUILD := "sengoku-m1-0.33.0-expedition-r3"
 const DEFAULT_PORT := 27860
 const HEROES := ["nobunaga", "oichi", "hideyoshi", "ieyasu", "mitsuhide", "tadakatsu"]
 const HERO_NAMES := {"nobunaga": "信長", "oichi": "阿市", "hideyoshi": "秀吉", "ieyasu": "家康", "mitsuhide": "顯如", "tadakatsu": "忠勝"}
@@ -1895,6 +1895,7 @@ func _update_view() -> void:
 			if enemy.team == 1 and enemy.hp > 0: living += 1
 		hud.text = "%s・%s\n餘敵 %d　中敵 %d 次" % [drill_name,move_name,living,stats.hit_count]
 	var introduction: Dictionary = sim.state.get("intro", {})
+	if active and sim.state.has("expedition") and not testing and smoke.is_empty(): audio.sync_intro(sim.state)
 	var dialogue: bool = int(introduction.get("remaining_ticks", 0)) > 0 or audio.intro_playing()
 	objective_scroll.sync(sim.state, active and not paused and not menu.visible and not controls_dialog.visible and not training_active and not demo_active, dialogue)
 	if dialogue and sim.state.has("expedition"):

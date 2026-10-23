@@ -100,9 +100,24 @@ static func focus(sim) -> Vector2:
 
 static func hazard(sim, kind: String, point: Vector2, radius: float, depth: float, warning: int, damage: int, owner: int=0, from_x: float=NAN) -> void:
 	if sim.state.expedition.hazards.size()>=24: return
-	point.x=clampf(point.x,float(sim.state.stage.encounter_start)+40,float(sim.state.stage.encounter_end)-40)
+	point.x=clampf(point.x,40,float(sim.state.stage.encounter_end)-40)
 	point.y=clampf(point.y,365,595)
-	sim.state.expedition.hazards.append({"kind":kind,"x":point.x,"y":point.y,"radius":radius,"depth":depth,"age":0,"warning":warning,"life":warning+30,"owner":owner,"damage":damage,"hit":false,"from_x":point.x-20 if not is_finite(from_x) else from_x})
+	sim.state.expedition.hazards.append({"kind":kind,"x":point.x,"y":point.y,"radius":radius,"depth":depth,"age":0,"warning":warning,"life":warning+30,"owner":owner,"damage":damage,"hit":false,"from_x":point.x-20 if not is_finite(from_x) else from_x,"from_y":float(sim._fighter(owner).get("y",point.y))})
+
+static func fire_line(sim, from_x: float, y: float, face: int, warning: int, damage: int, owner: int=0) -> void:
+	var edge: float=sim.state.stage.encounter_end-24 if face>0 else 24
+	hazard(sim,"fireline",Vector2((from_x+edge)*.5,y),absf(edge-from_x)*.5+24,14,warning,damage,owner,from_x)
+
+static func arrow_rain(sim, center: Vector2, damage: int, owner: int=0) -> void:
+	# Stateless seeded scatter keeps authoritative hit points identical to the displayed arrows.
+	var seed_value: int=(int(sim.state.tick)*7919+int(sim.state.event_seq)*104729+owner*31+int(sim.state.expedition.elapsed))&0x7fffffff
+	for i in 8:
+		seed_value=(seed_value*1103515245+12345)&0x7fffffff
+		var angle := TAU*float(seed_value)/2147483648.0
+		seed_value=(seed_value*1103515245+12345)&0x7fffffff
+		var radius := sqrt(float(seed_value)/2147483648.0)
+		var point := center+Vector2(cos(angle)*420*radius,sin(angle)*112*radius)
+		hazard(sim,"arrows",point,23,14,26+seed_value%25,damage,owner)
 
 static func environment_hazard(sim) -> void:
 	var box: Dictionary=sim.state.expedition
@@ -115,16 +130,15 @@ static func environment_hazard(sim) -> void:
 				hazard(sim,"rock",target+offset,72,38,48+i*9,24)
 		8:
 			if not sim.state.props.any(func(p):return p.expedition_asset=="signal" and not p.broken): return
-			var safe_lane := (int(box.elapsed)/int(sim._campaign.segments[sim.state.stage.index].encounters[sim.state.stage.checkpoint].hazard_interval))%3
-			for lane in 3:
-				if lane!=safe_lane: hazard(sim,"arrows",Vector2(target.x,[395,480,565][lane]),300,30,90,16)
+			arrow_rain(sim,Vector2(target.x,480),16)
 		9:
 			if not sim.state.fighters.any(func(f):return f.team==1 and f.hp>0 and f.kind=="gunner"): return
 			var lane := float([400,480,560][int(box.entry_seq)%3])
-			hazard(sim,"fireline",Vector2(sim.camera_left(sim.state)+640,lane),620,24,82,18,0,sim.camera_left(sim.state)+(-100 if int(box.entry_seq)%2==0 else 1380))
+			var face := 1 if int(box.entry_seq)%2==0 else -1
+			fire_line(sim,sim.camera_left(sim.state)+(-100 if face>0 else 1380),lane,face,38,18)
 		10:
 			if box.elapsed>=box.hold_ticks or not sim.state.fighters.any(func(f):return f.team==1 and f.hp>0): return
-			hazard(sim,"arrows",target,160,44,92,18)
+			arrow_rain(sim,Vector2(target.x,480),18)
 
 static func tick_hazards(sim) -> void:
 	var box: Dictionary=sim.state.expedition
@@ -136,7 +150,7 @@ static func tick_hazards(sim) -> void:
 		if h.age!=h.warning or h.hit: continue
 		h.hit=true
 		var effect := "landing" if h.kind=="rock" else ("slam" if h.kind in ["powder","quake"] else "arrow_impact")
-		sim._effect(effect,h.x,h.y,24,{"radius":h.radius,"wet":false,"bounce":0,"target":0})
+		if h.kind!="fireline": sim._effect(effect,h.x,h.y,24,{"radius":h.radius,"wet":false,"bounce":0,"target":0})
 		for hero in sim.state.fighters:
 			if (hero.team!=0 and h.kind!="rock") or hero.hp<=0: continue
 			if absf(hero.x-h.x)>float(h.radius)+20 or absf(hero.y-h.y)>float(h.depth)+12: continue
@@ -280,32 +294,29 @@ static func release(sim, f: Dictionary, move: Dictionary, index: int) -> void:
 		"cover_fire":
 			var source_x: float=sim.camera_left(sim.state)+(1380 if f.face<0 else -100)
 			for lane in 3:
-				var at := Vector2((source_x+point.x)*.5,point.y+(lane-1)*34)
-				hazard(sim,"fireline",at,absf(point.x-source_x)*.5+100,18,18+lane*8,int(move.damage),int(f.id),source_x)
+				fire_line(sim,source_x,point.y+(lane-1)*34,int(f.face),16+lane*7,int(move.damage),int(f.id))
 			sim._event("gunshot",source_x,f.y,f.id,0)
 		"fissure":
 			for n in 6: hazard(sim,"quake",Vector2(f.x+f.face*(140+n*125),f.y),80,45,14+n*8,int(move.damage),int(f.id))
 		"burst":
 			# Three fixed, visibly staggered shots; later shots do not track a dodging player.
 			var lane := float(f.target_y)+(index-1)*34
-			hazard(sim,"fireline",Vector2((float(f.x)+float(f.target_x))*.5,lane),absf(float(f.target_x)-float(f.x))*.5+180,14,24,int(move.damage),int(f.id),float(f.x))
+			fire_line(sim,float(f.x),lane,int(f.face),10,int(move.damage),int(f.id))
 			sim._event("gunshot",f.x,f.y,f.id,0)
 		"powder":
-			hazard(sim,"powder",point,110,62,68,int(move.damage),int(f.id))
+			hazard(sim,"powder",point,110,62,26,int(move.damage),int(f.id),float(f.x))
 		"rain":
-			var safe_lane := (int(f.expedition_sequence)+index)%3
-			for lane in 3:
-				if lane!=safe_lane: hazard(sim,"arrows",Vector2(point.x+index*55,[395,480,565][lane]),260,28,65,int(move.damage),int(f.id))
+			arrow_rain(sim,Vector2(point.x,480),int(move.damage),int(f.id))
 			sim._event("bow_release",f.x,f.y,f.id,0)
 		"crossfire":
 			var lane := float([405,555,480][index%3])
-			hazard(sim,"fireline",Vector2(sim.camera_left(sim.state)+640,lane),620,22,60,int(move.damage),int(f.id),sim.camera_left(sim.state)+(-100 if index%2==0 else 1380))
+			fire_line(sim,sim.camera_left(sim.state)+(-100 if index%2==0 else 1380),lane,1 if index%2==0 else -1,24,int(move.damage),int(f.id))
 			sim._event("gunshot",f.x,f.y,f.id,0)
 		"reinforce":
 			if sim.state.expedition.reinforcement_calls<4:
 				queue(sim,"shield",false);queue(sim,"raider",true)
 				sim.state.expedition.reinforcement_calls+=1
-			hazard(sim,"arrows",point,160,45,75,int(move.damage),int(f.id))
+			arrow_rain(sim,Vector2(point.x,480),int(move.damage),int(f.id))
 		"quake":
 			sim._enemy_melee(f,float(move.reach),float(move.depth),int(move.damage),"down")
 			for n in 3: hazard(sim,"quake",Vector2(f.x+f.face*(120+n*120),f.y),90,54,18+n*14,18,int(f.id))

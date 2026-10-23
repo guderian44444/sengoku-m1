@@ -23,12 +23,12 @@ const ACTIONS := {
 	"s07_inaba_low":{"art_clip":"attack_a","pose":"boss_sweep","hits":[32],"duration":78,"reach":300.0,"depth":96.0,"damage":29,"kind":"low"},
 	"s07_inaba_split":{"art_clip":"attack_b","pose":"boss_smash","hits":[42],"duration":92,"reach":230.0,"depth":55.0,"damage":34,"kind":"quake"},
 	"s07_inaba_counter":{"art_clip":"attack_c","pose":"boss_counter","hits":[47],"duration":88,"reach":235.0,"depth":80.0,"damage":27,"kind":"counter"},
-	"s08_nagai_burst":{"art_clip":"attack_a","pose":"boss_volley","hits":[30,46,62],"duration":101,"reach":900.0,"depth":36.0,"damage":15,"kind":"burst"},
-	"s08_nagai_draw":{"art_clip":"attack_b","pose":"boss_double","hits":[21,37],"duration":76,"reach":170.0,"depth":65.0,"damage":20,"kind":"withdraw"},
-	"s08_nagai_powder":{"art_clip":"attack_c","pose":"boss_smash","hits":[28],"duration":81,"reach":600.0,"depth":80.0,"damage":25,"kind":"powder"},
-	"s08_tatsuoki_draw":{"art_clip":"attack_a","pose":"boss_dash","hits":[29,42],"duration":81,"reach":205.0,"depth":65.0,"damage":24,"kind":"draw"},
-	"s08_tatsuoki_rain":{"art_clip":"attack_b","pose":"boss_volley","hits":[30,54,77],"duration":115,"reach":1000.0,"depth":100.0,"damage":17,"kind":"rain"},
-	"s08_tatsuoki_counter":{"art_clip":"attack_c","pose":"boss_counter","hits":[46],"duration":81,"reach":205.0,"depth":75.0,"damage":30,"kind":"counter"},
+	"s08_nagai_burst":{"art_clip":"attack_a","pose":"boss_volley","hits":[22,35,48],"duration":79,"reach":100000.0,"depth":36.0,"damage":15,"kind":"burst"},
+	"s08_nagai_draw":{"art_clip":"attack_b","pose":"boss_double","hits":[17,30],"duration":60,"reach":170.0,"depth":65.0,"damage":20,"kind":"withdraw"},
+	"s08_nagai_powder":{"art_clip":"attack_c","pose":"boss_smash","hits":[18],"duration":60,"reach":600.0,"depth":80.0,"damage":25,"kind":"powder"},
+	"s08_tatsuoki_draw":{"art_clip":"attack_a","pose":"boss_dash","hits":[20,32],"duration":62,"reach":205.0,"depth":65.0,"damage":24,"kind":"draw"},
+	"s08_tatsuoki_rain":{"art_clip":"attack_b","pose":"boss_volley","hits":[22,40,58],"duration":88,"reach":1000.0,"depth":100.0,"damage":17,"kind":"rain"},
+	"s08_tatsuoki_counter":{"art_clip":"attack_c","pose":"boss_counter","hits":[32],"duration":64,"reach":205.0,"depth":75.0,"damage":30,"kind":"counter"},
 	"s09_nagayasu_cross":{"art_clip":"attack_a","pose":"boss_double","hits":[20,32],"duration":67,"reach":185.0,"depth":65.0,"damage":19,"kind":"cross"},
 	"s09_nagayasu_fire":{"art_clip":"attack_b","pose":"boss_volley","hits":[28,52],"duration":90,"reach":1000.0,"depth":60.0,"damage":17,"kind":"crossfire"},
 	"s09_nagayasu_flank":{"art_clip":"attack_c","pose":"boss_dash","hits":[33],"duration":74,"reach":210.0,"depth":50.0,"damage":27,"kind":"flank"},
@@ -85,12 +85,12 @@ static func valid_world(box: Variant) -> bool:
 	if not box.get("hazards") is Array or box.hazards.size()>24: return false
 	for h in box.hazards:
 		if not h is Dictionary or h.get("kind") not in HAZARDS: return false
-		for field in ["x","y","radius","depth","from_x"]:
+		for field in ["x","y","radius","depth","from_x","from_y"]:
 			if not h.get(field) is float and not h.get(field) is int: return false
 			if not is_finite(float(h[field])) or absf(float(h[field]))>100000: return false
 		for field in ["age","warning","life","owner","damage"]:
 			if not h.get(field) is int or int(h[field])<0 or int(h[field])>(1000000000 if field=="owner" else 10000): return false
-		if not h.get("hit") is bool or h.radius<1 or h.radius>1300 or h.depth<1 or h.depth>250 or h.y<360 or h.y>600: return false
+		if not h.get("hit") is bool or h.radius<1 or h.radius>1800 or h.depth<1 or h.depth>250 or h.y<360 or h.y>600: return false
 		if h.warning<1 or h.warning>180 or h.life!=h.warning+30 or h.age>=h.life or h.damage<1 or h.damage>100: return false
 	if not box.get("civilians") is Array or box.civilians.size()!=box.civilian_total: return false
 	for c in box.civilians:

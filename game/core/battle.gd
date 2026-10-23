@@ -1488,6 +1488,7 @@ func _enemy_input(fighter: Dictionary) -> void:
 		if fighter.action not in ["idle", "retreat"]: return
 		if fighter.action == "retreat": _begin(fighter, "idle")
 	var reach := (900.0 if fighter.kind == "gunner" else 760.0) if ranged else (165.0 if fighter.kind == "soldier" else 120.0)
+	if fighter.has("expedition_role") and fighter.kind=="gunner": reach=100000.0
 	var attacks: Array = ENEMY_ATTACKS.get(fighter.kind, ENEMY_ATTACKS.soldier)
 	if state.get("stage",{}).get("id",0) == 3 and fighter.kind == "soldier": attacks = ["spear_thrust"]
 	if fighter.has("mikawa_role") and fighter.kind == "soldier": attacks = ["spear_butt","commander_cut"] if fighter.mikawa_role.begins_with("shield_") else ["spear_thrust","spear_sweep"]
@@ -1551,7 +1552,10 @@ func _tick_enemy_attack(fighter: Dictionary) -> void:
 		match action:
 			"boss_arrow", "boss_sword_wave": Stage03Encounter.Tent.Yoshimoto.release(self,fighter)
 			"bow_shot", "gun_shot":
-				_projectile(fighter, maxi(1, int((16 if action == "gun_shot" else 10) * _difficulty.enemy_damage)), 0, false, "bullet" if action == "gun_shot" else "arrow", 1100.0 if action == "gun_shot" else 900.0)
+				if action=="gun_shot" and fighter.has("expedition_role"):
+					Stage0710.fire_line(self,float(fighter.x),float(fighter.y),int(fighter.face),8,16,int(fighter.id))
+					_event("gunshot",fighter.x,fighter.y,fighter.id,0)
+				else: _projectile(fighter, maxi(1, int((16 if action == "gun_shot" else 10) * _difficulty.enemy_damage)), 0, false, "bullet" if action == "gun_shot" else "arrow", 1100.0 if action == "gun_shot" else 900.0)
 			"spear_thrust": _enemy_melee(fighter, 205.0, 26.0, 12)
 			"spear_sweep": _enemy_melee(fighter, 155.0, 82.0, 10, "push")
 			"spear_butt": _enemy_melee(fighter, 105.0, 42.0, 14, "stun")

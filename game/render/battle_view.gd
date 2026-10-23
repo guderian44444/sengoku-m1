@@ -90,8 +90,7 @@ func _draw() -> void:
 	fighters.append_array(_npc_samples(_art_clock()))
 	if state.has("expedition"): fighters.append_array(Stage0710Art.civilian_samples(state))
 	for hazard in state.get("expedition",{}).get("hazards",[]):
-		if hazard.kind=="rock" and hazard.age<hazard.warning:
-			fighters.append({"scenery_rockfall":true,"x":hazard.x,"y":hazard.y,"ground_depth":1.0,"hazard":hazard})
+		fighters.append({"scenery_expedition_hazard":true,"x":hazard.x,"y":hazard.y,"ground_depth":1.0,"hazard":hazard})
 	if state.get("encounter",{}).get("kind","") == "formation":
 		fighters.append({"scenery_tent":true,"x":float(state.stage.encounter_end)-160,"y":610.0})
 	for prop in state.get("props",[]):
@@ -145,8 +144,8 @@ func _draw_scene_actor(fighter: Dictionary) -> void:
 	elif fighter.get("scenery_cart",false): _draw_escort_cart(fighter)
 	elif fighter.get("scenery_prop",false): _draw_prop(fighter)
 	elif fighter.get("scenery_npc",false): _draw_npc(fighter)
-	elif fighter.get("scenery_rockfall",false):
-		if not _shadow_pass: _stage0710_art.draw_rockfall(self,fighter.hazard,true)
+	elif fighter.get("scenery_expedition_hazard",false):
+		if not _shadow_pass: _stage0710_art.draw_hazard_air(self,fighter.hazard)
 	else:
 		_draw_fighter(fighter)
 		if not _shadow_pass: _fx.draw_bound(self,int(fighter.get("id",0)),camera_x)

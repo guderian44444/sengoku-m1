@@ -99,6 +99,7 @@ var _music_fade := 1.0
 var _music_tail_gain := 0.0
 var last_spoken := ""
 var _intro_token := ""
+var _intro_ducked := false
 var settings_path := "user://audio-settings.cfg"
 var _category_volumes := {"music": 1.0, "sfx": 1.0, "voice": 1.0}
 
@@ -259,6 +260,7 @@ func _apply_volume(category: String) -> void:
 	var bus := AudioServer.get_bus_index(CATEGORY_BUSES[category])
 	if bus < 0: return
 	var level := get_category_volume(category)
+	if category=="music" and _intro_ducked: level*=.2
 	AudioServer.set_bus_volume_db(bus, linear_to_db(maxf(level, 0.0001)))
 	AudioServer.set_bus_mute(bus, is_zero_approx(level))
 
@@ -397,6 +399,9 @@ func _music_finished(player: AudioStreamPlayer) -> void:
 	elif _music_key == "title_intro": _change_music("title_loop",1.0,_title_crossfade_seconds)
 
 func _process(delta: float) -> void:
+	if _intro_ducked!=intro_playing():
+		_intro_ducked=intro_playing()
+		_apply_volume("music")
 	if not _music_active or _music_paused: return
 	if _music_key == "title_intro" and _music_player.playing and _music_player.get_playback_position() >= _title_switch_at:
 		_change_music("title_loop",1.0,_title_crossfade_seconds)
@@ -559,6 +564,11 @@ func _choose_variant(selector: String, count: int) -> int:
 
 func intro_playing() -> bool:
 	return _intro_player != null and _intro_player.playing
+
+func sync_intro(world: Dictionary) -> void:
+	var intro: Dictionary=world.get("intro",{})
+	if int(intro.get("remaining_ticks",0))>0 and intro.get("announced",false):
+		play_event({"type":"boss_intro","actor":intro.actor,"line_key":intro.line_key})
 
 func speech_playing() -> bool:
 	if _ikki_audio.speech_playing(): return true

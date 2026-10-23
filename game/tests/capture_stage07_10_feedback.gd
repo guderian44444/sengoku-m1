@@ -27,6 +27,10 @@ func run() -> void:
 	assert(not output.is_empty() and DisplayServer.get_name()!="headless")
 	assert(DirAccess.make_dir_recursive_absolute(output)==OK);root.size=Vector2i(1280,720)
 	app=App.new();root.add_child(app);app.testing=true;app.set_physics_process(false)
+	for chapter in [7,8,9,10]:
+		for region in 5:
+			setup(chapter);app.sim._enter_segment(region)
+			await capture("region-%02d-%d"%[chapter,region])
 	for chapter in [7,9,10]:
 		setup(chapter);app.sim.state.props=[]
 		for i in 5:
@@ -61,5 +65,37 @@ func run() -> void:
 		setup(int(spec.stage))
 		app.sim._enter_segment(4 if role in ["inaba","tatsuoki","iwanari","yoshikage"] else 2);app.sim._start_checkpoint(1)
 		app._physics_process(1.0/60);await capture("intro-"+role)
+		for action in spec.actions:
+			setup(int(spec.stage));app.sim.state.props=[]
+			var move_hero: Dictionary=app.sim.state.fighters[0];move_hero.x=420;move_hero.y=480;move_hero.invuln=0
+			var boss := Stage.spawn(app.sim,role,800,480);boss.entering=false;boss.face=-1
+			app.sim.state.fighters.append(boss)
+			var move: Dictionary=Stage.Data.ACTIONS[action]
+			if not Stage.Data.ranged(move): move_hero.x=640
+			Stage.start(app.sim,boss,action,move_hero)
+			var landing := -1
+			for tick in int(move.duration)+65:
+				app.sim.state.tick+=1;boss.action_tick=tick+1
+				Stage.attack(app.sim,boss);Stage.tick_hazards(app.sim)
+				if tick+1==int(move.hits[0])+8: await capture("move-"+action+"-release")
+				if landing<0 and not app.sim.state.expedition.hazards.is_empty():
+					landing=tick+int(app.sim.state.expedition.hazards[0].warning)+3
+				if tick==landing: await capture("move-"+action+"-impact")
+	for chapter in [7,8,9,10]:
+		setup(chapter);app.sim.state.props=[]
+		var shooter := Stage.spawn(app.sim,"gunner",950,480);shooter.entering=false;shooter.cooldown=0
+		app.sim.state.fighters.append(shooter);app.sim._enemy_input(shooter)
+		shooter.action_tick=int(Main.Battle.enemy_timing(shooter)[0]);app.sim._tick_enemy_attack(shooter)
+		await capture("gunner-%02d-aim"%chapter)
+		for tick in 9: Stage.tick_hazards(app.sim)
+		await capture("gunner-%02d-shot"%chapter)
+	var groups := {"regions":records.filter(func(n):return n.begins_with("region-")),"stage07":records.filter(func(n):return n.begins_with("move-s07")),"stage08":records.filter(func(n):return n.begins_with("move-s08")),"stage09":records.filter(func(n):return n.begins_with("move-s09")),"stage10":records.filter(func(n):return n.begins_with("move-s10")),"gunners":records.filter(func(n):return n.begins_with("gunner-"))}
+	for group in groups:
+		var names: Array=groups[group]
+		var sheet := Image.create(1600,180*ceili(names.size()/5.0),false,Image.FORMAT_RGBA8)
+		for i in names.size():
+			var frame := Image.load_from_file(output.path_join(names[i]+".png"));frame.resize(320,180,Image.INTERPOLATE_LANCZOS)
+			sheet.blit_rect(frame,Rect2i(0,0,320,180),Vector2i((i%5)*320,(i/5)*180))
+		assert(sheet.save_png(output.path_join("overview-"+group+".png"))==OK)
 	app.audio.stop_speech();FileAccess.open(output.path_join("captures.json"),FileAccess.WRITE).store_string(JSON.stringify(records,"\t"))
 	app.queue_free();await process_frame;print("FEEDBACK_NATIVE_PASS ",records.size()," frames");quit()

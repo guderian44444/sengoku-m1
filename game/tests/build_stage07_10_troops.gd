@@ -45,6 +45,9 @@ func run() -> void:
 		runtime.runtime_files[path]=FileAccess.get_sha256(ROOT+path)
 	for actor in result.actors.values():
 		for row in actor.frames: runtime.runtime_files[row.path]=FileAccess.get_sha256(ROOT+row.path)
+	for folder in ["backgrounds","props"]:
+		for name in DirAccess.get_files_at(ROOT+folder):
+			if name.ends_with(".png"): runtime.runtime_files[folder+"/"+name]=FileAccess.get_sha256(ROOT+folder+"/"+name)
 	file=FileAccess.open(ROOT+"runtime-files.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(runtime,"\t"));file.close()
 	print("EXPEDITION_TROOPS_BUILD_PASS 15 troop sets, 360 troop poses, 12 civilian poses")

@@ -10,6 +10,9 @@ var manifest: Dictionary = {}
 var troop_manifest: Dictionary = {}
 var props: Dictionary = {}
 
+static func landscape_path(stage: int, region: int) -> String:
+	return ROOT+("backgrounds/s%02d.png"%stage if region=={7:1,8:0,9:1,10:0}[stage] else "backgrounds/s%02d-%d.png"%[stage,region])
+
 func actors() -> Dictionary:
 	if manifest.is_empty(): manifest=JSON.parse_string(FileAccess.get_file_as_string(ROOT+"actors.json"))
 	return manifest.actors
@@ -99,11 +102,11 @@ func sample(world: Dictionary, fighter: Dictionary, walk_tick: float, clock_tick
 
 func draw_landscape(view) -> void:
 	var stage := int(view.state.stage.id)
-	var image := texture(ROOT+"backgrounds/s%02d.png"%stage)
+	var image := texture(landscape_path(stage,int(view.state.stage.index)))
 	var horizon := image.get_height()*float(HORIZONS[stage])
 	var scale := 364.0/horizon
 	var width := image.get_width()*scale
-	var pan := clampf(float(view.state.stage.index)*maxf(0,width-1280)/4.0+view.camera_x*.035,0,maxf(0,width-1280))
+	var pan := clampf(view.camera_x*.18,0,maxf(0,width-1280))
 	view.draw_texture_rect_region(image,Rect2(-pan,0,width,364),Rect2(0,0,image.get_width(),horizon))
 	view._draw_near_ground({"texture":image,"region":Rect2(Vector2.ZERO,image.get_size())},Rect2(0,horizon,image.get_width(),image.get_height()-horizon))
 
@@ -183,12 +186,11 @@ func draw_attack_warning(view, effect: Dictionary) -> void:
 	var center := Vector2(float(effect.x)-view.camera_x,float(effect.y))
 	var radius := float(effect.radius)
 	var depth := float(effect.get("depth",55))
-	var box := Rect2(center-Vector2(radius,depth),Vector2(radius*2,depth*2))
 	var pulse := .7+.3*sin(float(view.state.tick)*.22)
-	view.draw_rect(box,Color(.78,.22,.075,.12+.04*pulse))
-	view.draw_rect(box,Color(1,.61,.23,.72+.2*pulse),false,2.0)
-	for x in range(ceili(box.position.x/48)*48,floori(box.end.x),48):
-		view.draw_line(Vector2(x,box.position.y),Vector2(x+14,box.position.y+7),Color(1,.75,.4,.65),2,true)
+	view._ellipse(center,Vector2(radius,depth),Color(.72,.25,.08,.08+.04*pulse))
+	view.draw_set_transform(center,0,Vector2(1,depth/maxf(1,radius)))
+	view.draw_arc(Vector2.ZERO,radius,0,TAU,48,Color(.96,.64,.29,.35+.2*pulse),1.5,true)
+	view.draw_set_transform(Vector2.ZERO)
 
 func draw_hazards(view) -> void:
 	for h in view.state.get("expedition",{}).get("hazards",[]):
@@ -197,34 +199,60 @@ func draw_hazards(view) -> void:
 			continue
 		var at := Vector2(float(h.x)-view.camera_x,float(h.y))
 		var progress := clampf(float(h.age)/float(h.warning),0,1)
-		var size := Vector2(float(h.radius),float(h.depth))
 		if h.age<h.warning:
-			view.draw_rect(Rect2(at-size,size*2),Color(.7,.12,.03,.12+progress*.10))
-			view.draw_rect(Rect2(at-size,size*2),Color(1,.62,.25,.75),false,2,true)
-			view.draw_line(at-Vector2(size.x,size.y),at-Vector2(size.x,size.y)+Vector2(size.x*2*progress,0),Color(1,.9,.55),4,true)
 			if h.kind=="fireline":
-				var direction := 1 if float(h.from_x)<float(h.x) else -1
-				for x in range(-int(size.x)+24,int(size.x)-12,80):
-					var tip := at+Vector2(x,0)
-					view.draw_polyline(PackedVector2Array([tip+Vector2(-direction*12,-7),tip,tip+Vector2(-direction*12,7)]),Color(1,.82,.53,.9),2,true)
+				view.draw_line(at-Vector2(float(h.radius),0),at+Vector2(float(h.radius),0),Color(.92,.64,.27,.12+.2*progress),1.2,true)
+			else:
+				view._ellipse(at,Vector2(float(h.radius),float(h.depth))*(.65+.35*progress),Color(.28,.14,.04,.14+.2*progress))
 			continue
 		var age := float(h.age-h.warning)/30.0
 		if h.kind=="arrows":
-			for i in 9:
-				var point := at+Vector2(sin(i*2.4)*size.x*.8,cos(i*2.4)*size.y*.8)-Vector2(0,maxf(0,1-age*4)*260)
-				view._draw_arrow(point,Vector2.DOWN,false,1-age)
-		elif h.kind=="fireline":
-			var from := Vector2(float(h.from_x)-view.camera_x,float(h.y))
-			if age<.3: view.draw_line(from,at,Color(1,.83,.45,(1-age/.3)*.9),2.5,true)
-			view._draw_dust(at,36,age,.6*(1-age))
+			view._draw_dust(at,18,age,.65*(1-age))
 		elif h.kind=="powder":
-			for i in 5:
-				var point := at+Vector2(sin(i*2.4)*size.x*.7,cos(i*2.4)*size.y*.5)
-				if view._fx.configured:
-					view._fx.shared_player.draw_phase(view,"fire_burn",float(h.age-h.warning),30,point-Vector2(0,35),true,{"opacity":[[0,.9],[.45,.8],[1,0]]},{"size":95,"stretch":Vector2(.8,1.1)})
-				else: view._paint_flame(point,70*(1-age),i,1-age)
-			view._draw_dust(at,size.x,age,.6*(1-age))
-		else: view._draw_dust(at,size.x,age,.85*(1-age))
+			view._ellipse(at,Vector2(float(h.radius),float(h.depth))*(1+.3*age),Color(.15,.09,.05,.4*(1-age)))
+		elif h.kind=="quake":
+			var cracks := PackedVector2Array()
+			for i in 9: cracks.append(at+Vector2((i-4)*float(h.radius)/4,sin(i*7.3)*12))
+			view.draw_polyline(cracks,Color(.15,.08,.025,1-age),3,true)
+			view._draw_dust(at,float(h.radius),age,.85*(1-age))
+
+func draw_hazard_air(view, h: Dictionary) -> void:
+	if h.kind=="rock":
+		if h.age<h.warning: draw_rockfall(view,h,true)
+		return
+	var at := Vector2(float(h.x)-view.camera_x,float(h.y))
+	var progress := clampf(float(h.age)/float(h.warning),0,1)
+	var age := float(h.age-h.warning)
+	if h.kind=="arrows":
+		if age<0: view._draw_arrow(at-Vector2(0,(1-progress)*440),Vector2.DOWN,false)
+		else: view.draw_line(at-Vector2(3,26),at,Color(.9,.84,.65,1-age/30),2,true)
+	elif h.kind=="powder":
+		if age<0:
+			var start := Vector2(float(h.from_x)-view.camera_x,float(h.from_y)-95)
+			var position := start.lerp(at,progress)-Vector2(0,sin(progress*PI)*130)
+			var image := texture(ROOT+"props/powder-bomb.png")
+			var frame := simple_frame(ROOT+"props/powder-bomb.png",Rect2(Vector2.ZERO,image.get_size()),image.get_size()*.5,image.get_height()*.7,38)
+			view._draw_art_frame(frame,position,38,1,progress*4,Color.WHITE,float(frame.body_height))
+		else:
+			for i in 3:
+				var point := at+Vector2((i-1)*55,-25-18*(i%2))
+				view._fx.shared_player.draw_phase(view,"fire_burn",age,30,point,true,{"opacity":[[0,1],[.6,.8],[1,0]]},{"size":135,"stretch":Vector2(.9,1.1)})
+			view._fx.shared_player.draw_phase(view,"fire_ring",age,30,at-Vector2(0,6),true,{"opacity":[[0,1],[.4,.85],[1,0]]},{"size":float(h.radius)*2.5,"stretch":Vector2(1,.4)})
+			view._draw_dust(at,float(h.radius)*1.2,age/30,1-age/30)
+	elif h.kind=="fireline":
+		var face := 1 if float(h.x)>float(h.from_x) else -1
+		var muzzle := Vector2(float(h.from_x)-view.camera_x+face*95,float(h.from_y)-100)
+		var end := Vector2(at.x+face*float(h.radius),at.y-80)
+		if age<0:
+			view.draw_circle(muzzle,2+progress*3,Color(1,.6,.18,.5+.3*progress))
+		else:
+			view._fx.shared_player.draw_phase(view,"matchlock_muzzle_flash",age,10,muzzle,true,{"opacity":[[0,1],[.4,.9],[1,0]]},{"size":155,"face":face})
+			view._fx.shared_player.draw_phase(view,"matchlock_smoke",age,30,muzzle,true,{"opacity":[[0,.5],[.4,.85],[1,0]]},{"size":180,"face":face})
+			if age<7:
+				view.draw_line(muzzle,end,Color(1,.76,.35,(1-age/7)*.95),2,true)
+				for i in 5:
+					var tip := muzzle.lerp(end,fposmod(i*.211+age*.12,1))
+					view.draw_line(tip-Vector2(face*22,0),tip,Color(1,.95,.72,1-age/7),3,true)
 
 func actor_fx(view, fighter: Dictionary, origin: Vector2) -> void:
 	if not Data.ACTIONS.has(str(fighter.action)): return
@@ -233,7 +261,7 @@ func actor_fx(view, fighter: Dictionary, origin: Vector2) -> void:
 	for hit in spec.hits:
 		var age := tick-int(hit)
 		if age<0 or age>9: continue
-		if spec.kind in ["rain","crossfire","reinforce","powder","burst"]: continue
+		if Data.ranged(spec): continue
 		var face := float(fighter.face)
 		var radius := minf(float(spec.reach),225)
 		var center := origin+Vector2(face*30,-height(fighter)*.48)
