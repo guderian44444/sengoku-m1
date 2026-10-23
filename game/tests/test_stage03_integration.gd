@@ -42,7 +42,7 @@ func run() -> void:
 	app._open_selection(true)
 	app.profiles.capture_chapter(2,true)
 	app._refresh_chapters()
-	check(app.chapter_choice.item_count == 3,"Completing chapter 2 unlocks chapter 3 in the real menu")
+	check(app.chapter_choice.item_count == 7 and app.chapter_choice.get_item_metadata(2)==3,"Completing chapter 2 unlocks chapter 3 alongside the new chapters")
 	var art := Art.new()
 	var hashes: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Art.ROOT+"SHA256.json"))
 	for path in hashes: check(FileAccess.get_sha256(Art.ROOT+path) == hashes[path],"Unmodified delivered PNG: "+path)

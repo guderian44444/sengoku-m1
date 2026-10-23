@@ -10,7 +10,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 HEROES = ('nobunaga', 'oichi', 'hideyoshi', 'ieyasu', 'mitsuhide', 'tadakatsu')
 FILES = set()
-PLAYTEST_ENTRIES = {'game/tests/play_stage05.gd','game/tests/stage05_art_arena.gd','game/tests/play_stage07_10.gd'}
+PLAYTEST_ENTRIES = {'game/tests/play_stage05.gd','game/tests/stage05_art_arena.gd'}
 APPROVED_SOURCE_ASSETS = {'game/assets/stage5/natsume/skills/sources/8f3c72ed36c58bb2.png'}
 
 

@@ -171,7 +171,7 @@ func _test_progression() -> void:
 	var path := "user://stage2-route-%d" % Time.get_ticks_usec()
 	app.profiles = Players.new(path,"user://missing-stage2-legacy.json")
 	app._open_selection(false)
-	check(app.chapter_choice.item_count == 1 and app.chapter_choice.get_item_metadata(0) == 1,"Fresh player cannot skip normal chapter progression")
+	check(app.chapter_choice.item_count == 5 and app.chapter_choice.get_item_metadata(0) == 1,"Fresh player keeps first-five progression alongside four direct-entry chapters")
 	app._start_solo()
 	app.sim.state.fighters[0].score = 2211
 	Equipment.add(app.sim.state.fighters[0],"sword_heshikiri")
@@ -184,7 +184,7 @@ func _test_progression() -> void:
 	app._accept_confirmation()
 	app.profiles = Players.new(path,"user://missing-stage2-legacy.json")
 	app._open_selection(false)
-	check(app.chapter_choice.item_count == 2 and app.chapter_choice.get_item_metadata(app.chapter_choice.selected) == 2,"Persisted chapter 1 completion unlocks and selects chapter 2")
+	check(app.chapter_choice.item_count == 6 and app.chapter_choice.get_item_metadata(app.chapter_choice.selected) == 2,"Persisted chapter 1 completion unlocks and selects chapter 2")
 	app._start_solo()
 	check(app.sim.state.stage.id == 2 and app.sim.state.stage.index == 0 and app.sim.state.stage.checkpoint == 0,"Existing chapter 2 save enters the second chapter start")
 	check(app.sim.state.fighters[0].score == 2211 and app.sim.state.fighters[0].inventory.size() == 1,"Starting chapter 2 restores carried gear and score; baseline occupies no slot")
